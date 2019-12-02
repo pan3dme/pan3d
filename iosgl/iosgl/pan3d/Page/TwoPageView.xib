@@ -24,7 +24,7 @@
         </view>
         <view contentMode="scaleToFill" id="3rz-Y8-pEk">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="nPW-HT-qFk"/>
             <point key="canvasLocation" x="1013" y="113"/>
