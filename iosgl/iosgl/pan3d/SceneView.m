@@ -18,20 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- self.view.backgroundColor=[UIColor whiteColor];
+   self.view.backgroundColor=[UIColor whiteColor];
 //   self.view.frame=CGRectMake(0, 0, 375, 667);
  //    self.edgesForExtendedLayout = UIRectEdgeNone;
 
     
  //   self.navigationController.navigationBar.translucent = NO;
- //   self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
-   // self.edgesForExtendedLayout = UIRectEdgeNone;
+   self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
+  self.edgesForExtendedLayout = UIRectEdgeNone;
        self.edgesForExtendedLayout = UIRectEdgeTop;
  
     self.title=@"场次名称";
     
     CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_viewbg.bounds];
-  //  ctxUI.backgroundColor=[UIColor clearColor];
+    ctxUI.backgroundColor=[UIColor clearColor];
     [_viewbg addSubview:ctxUI];
     
    ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

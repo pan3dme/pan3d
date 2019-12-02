@@ -23,7 +23,7 @@
        self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title=@"页面";
     [self addView];
-    self.view.frame=CGRectMake(0, 0, 375, 667);
+    self.view.frame=CGRectMake(0, 100, 375, 567);
 }
 
 - (void) setTabItemInfo:(NSString *) iconname  VC:(UIViewController *) vc {
