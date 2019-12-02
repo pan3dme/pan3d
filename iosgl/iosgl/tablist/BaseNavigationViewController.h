@@ -1,5 +1,5 @@
 //
-//  RedBagTabBar.h
+//  BaseNavigationViewController.h
 //  iosgl
 //
 //  Created by zhao on 2/12/2019.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RedBagTabBar : UITabBarController
+@interface BaseNavigationViewController : UINavigationController
 
 @end
 

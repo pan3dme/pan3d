@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "RedBagTabBar.h"
+#import "BaseNavigationViewController.h"
 #import "SceneView.h"
 #import "OtherPage.h"
 #import "FivePage.h"
@@ -52,10 +52,10 @@
      [self setTabItemInfo:@"my" VC:vc04];
      */
     
-    UINavigationController *nav001 = [[UINavigationController alloc] initWithRootViewController:vc01];
-    UINavigationController *nav002 = [[UINavigationController alloc] initWithRootViewController:vc02];
-    UINavigationController *nav003 = [[UINavigationController alloc] initWithRootViewController:vc03];
-    UINavigationController *nav004 = [[UINavigationController alloc] initWithRootViewController:vc04];
+    BaseNavigationViewController *nav001 = [[BaseNavigationViewController alloc] initWithRootViewController:vc01];
+    BaseNavigationViewController *nav002 = [[BaseNavigationViewController alloc] initWithRootViewController:vc02];
+    BaseNavigationViewController *nav003 = [[BaseNavigationViewController alloc] initWithRootViewController:vc03];
+    BaseNavigationViewController *nav004 = [[BaseNavigationViewController alloc] initWithRootViewController:vc04];
     
     
     self.viewControllers=[NSArray arrayWithObjects:nav001,nav002,nav003,nav004 , nil];

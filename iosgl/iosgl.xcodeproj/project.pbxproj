@@ -17,12 +17,13 @@
 		FE0FC24E2395104800D2483A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC24D2395104800D2483A /* main.m */; };
 		FE0FC258239511DE00D2483A /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC256239511DE00D2483A /* SceneView.m */; };
 		FE0FC259239511DE00D2483A /* SceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC257239511DE00D2483A /* SceneView.xib */; };
-		FE0FC260239513DC00D2483A /* RedBagTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC25F239513DC00D2483A /* RedBagTabBar.m */; };
 		FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26223951ABE00D2483A /* CtxUIView.m */; };
 		FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26623951FCE00D2483A /* OtherPage.m */; };
 		FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26723951FCE00D2483A /* OtherPage.xib */; };
 		FE0FC26D2395276700D2483A /* FivePage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26B2395276700D2483A /* FivePage.m */; };
 		FE0FC26E2395276700D2483A /* FivePage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26C2395276700D2483A /* FivePage.xib */; };
+		FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2702395294900D2483A /* BaseNavigationViewController.m */; };
+		FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27323952A3A00D2483A /* MyNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +43,6 @@
 		FE0FC255239511DE00D2483A /* SceneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneView.h; sourceTree = "<group>"; };
 		FE0FC256239511DE00D2483A /* SceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneView.m; sourceTree = "<group>"; };
 		FE0FC257239511DE00D2483A /* SceneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceneView.xib; sourceTree = "<group>"; };
-		FE0FC25E239513DC00D2483A /* RedBagTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedBagTabBar.h; sourceTree = "<group>"; };
-		FE0FC25F239513DC00D2483A /* RedBagTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedBagTabBar.m; sourceTree = "<group>"; };
 		FE0FC26123951ABE00D2483A /* CtxUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CtxUIView.h; sourceTree = "<group>"; };
 		FE0FC26223951ABE00D2483A /* CtxUIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CtxUIView.m; sourceTree = "<group>"; };
 		FE0FC26523951FCE00D2483A /* OtherPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherPage.h; sourceTree = "<group>"; };
@@ -52,6 +51,10 @@
 		FE0FC26A2395276700D2483A /* FivePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FivePage.h; sourceTree = "<group>"; };
 		FE0FC26B2395276700D2483A /* FivePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePage.m; sourceTree = "<group>"; };
 		FE0FC26C2395276700D2483A /* FivePage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePage.xib; sourceTree = "<group>"; };
+		FE0FC26F2395294900D2483A /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
+		FE0FC2702395294900D2483A /* BaseNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
+		FE0FC27223952A3A00D2483A /* MyNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationBar.h; sourceTree = "<group>"; };
+		FE0FC27323952A3A00D2483A /* MyNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +121,10 @@
 		FE0FC25A239512E500D2483A /* tablist */ = {
 			isa = PBXGroup;
 			children = (
-				FE0FC25E239513DC00D2483A /* RedBagTabBar.h */,
-				FE0FC25F239513DC00D2483A /* RedBagTabBar.m */,
+				FE0FC27223952A3A00D2483A /* MyNavigationBar.h */,
+				FE0FC27323952A3A00D2483A /* MyNavigationBar.m */,
+				FE0FC26F2395294900D2483A /* BaseNavigationViewController.h */,
+				FE0FC2702395294900D2483A /* BaseNavigationViewController.m */,
 			);
 			path = tablist;
 			sourceTree = "<group>";
@@ -212,13 +217,14 @@
 			files = (
 				FE0FC26D2395276700D2483A /* FivePage.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
-				FE0FC260239513DC00D2483A /* RedBagTabBar.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
+				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
 				FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
+				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
 				FE0FC258239511DE00D2483A /* SceneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
