@@ -19,13 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /*
     UIView *viewBg=[[UIView alloc]init];
     viewBg.backgroundColor=[UIColor redColor];
     viewBg.frame =CGRectMake(0, 0, 200, 100);
-    
     [self.view addSubview:viewBg];
-    
+    */
  
+    self.title=@"页面";
      [self addView];
    }
 
@@ -50,11 +51,12 @@
        vc03.tabBarItem.title =@"推广";
        vc04.tabBarItem.title = @"消息";
        
+       /*
        [self setTabItemInfo:@"shouye" VC:vc01];
        [self setTabItemInfo:@"chongzhi" VC:vc02];
        [self setTabItemInfo:@"tuiguang" VC:vc03];
        [self setTabItemInfo:@"my" VC:vc04];
-       
+       */
     
        UINavigationController *nav001 = [[UINavigationController alloc] initWithRootViewController:vc01];
        UINavigationController *nav002 = [[UINavigationController alloc] initWithRootViewController:vc02];
@@ -62,15 +64,11 @@
        UINavigationController *nav004 = [[UINavigationController alloc] initWithRootViewController:vc04];
        
        
-     
-     
-       
        self.viewControllers=[NSArray arrayWithObjects:nav001,nav002,nav003,nav004 , nil];
-       
+ 
         vc01.tabBarItem.badgeValue = @"1";
        
-       
-      
+   
        
    }
 
