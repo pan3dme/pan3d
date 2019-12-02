@@ -17,26 +17,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
-       self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.edgesForExtendedLayout = UIRectEdgeTop;
     
+    self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.edgesForExtendedLayout = UIRectEdgeTop;
+    self.view.frame=CGRectMake(0, 0,kScreenW , kScreenH-150);
     if(!self.statusBarView){
         self.statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 42)];
         [self.statusBarView setBackgroundColor:RGB(0, 255, 0)];
         [self.view addSubview:self.statusBarView];
     }
-    
+    [self initFWUI];
+    if( self.winBg){
+        [self.view addSubview: self.winBg];
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ UI创建
+ */
+- (void)initFWUI NS_REQUIRES_SUPER;
+{
 }
-*/
 
 @end

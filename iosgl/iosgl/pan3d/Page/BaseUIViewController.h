@@ -12,6 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseUIViewController : UIViewController
 @property (nonatomic, strong) UIView                       *statusBarView;//IPX系列特殊遮罩
+@property (nonatomic, strong) UIView                       *winBg;
+
+ 
+/**
+ UI创建
+ */
+- (void)initFWUI NS_REQUIRES_SUPER;
+
 @end
 
 NS_ASSUME_NONNULL_END
