@@ -33,6 +33,7 @@
 		FE0FC299239571A100D2483A /* tabone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC297239571A100D2483A /* tabone@2x.png */; };
 		FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC29C2395768D00D2483A /* FivePageView.m */; };
 		FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC29D2395768D00D2483A /* FivePageView.xib */; };
+		FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2A023957C7500D2483A /* xinshoupic.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		FE0FC29B2395768D00D2483A /* FivePageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FivePageView.h; sourceTree = "<group>"; };
 		FE0FC29C2395768D00D2483A /* FivePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePageView.m; sourceTree = "<group>"; };
 		FE0FC29D2395768D00D2483A /* FivePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePageView.xib; sourceTree = "<group>"; };
+		FE0FC2A023957C7500D2483A /* xinshoupic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinshoupic.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 		FE0FC29A2395735800D2483A /* assetfile */ = {
 			isa = PBXGroup;
 			children = (
+				FE0FC2A023957C7500D2483A /* xinshoupic.png */,
 				FE0FC297239571A100D2483A /* tabone@2x.png */,
 				FE0FC296239571A100D2483A /* tabone@3x.png */,
 			);
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */,
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
 				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
