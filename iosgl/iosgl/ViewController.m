@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  basewap
+//  iosgl
 //
 //  Created by zhao on 2/12/2019.
 //  Copyright © 2019 zhao. All rights reserved.
@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     UIView *viewBg=[[UIView alloc]init];
     viewBg.backgroundColor=[UIColor redColor];
