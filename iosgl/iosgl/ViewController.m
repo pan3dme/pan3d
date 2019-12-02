@@ -12,7 +12,8 @@
 #import "TwoPageView.h"
 #import "ThirdPageView.h"
 #import "FourPageView.h"
- 
+#import "FivePageView.h"
+
 
 @interface ViewController ()
 
@@ -38,29 +39,32 @@
     OnePageView *vc01=[[OnePageView alloc] init];
     TwoPageView *vc02=[[TwoPageView alloc] init];
     ThirdPageView *vc03= [[ThirdPageView alloc]init];
-    
     FourPageView *vc04=[[FourPageView alloc] init];
+    FivePageView *vc05=[[FivePageView alloc] init];
     
     
     vc01.tabBarItem.title = @"首3页";
     vc02.tabBarItem.title = @"充值";
     vc03.tabBarItem.title =@"推广";
     vc04.tabBarItem.title = @"消息";
+    vc05.tabBarItem.title = @"其他";
     
- 
-     [self setTabItemInfo:@"shouye" VC:vc01];
-     [self setTabItemInfo:@"chongzhi" VC:vc02];
-     [self setTabItemInfo:@"tuiguang" VC:vc03];
-     [self setTabItemInfo:@"my" VC:vc04];
- 
+    
+    [self setTabItemInfo:@"shouye" VC:vc01];
+    [self setTabItemInfo:@"chongzhi" VC:vc02];
+    [self setTabItemInfo:@"tuiguang" VC:vc03];
+    [self setTabItemInfo:@"my" VC:vc04];
+    [self setTabItemInfo:@"my" VC:vc05];
+    
     
     BaseNavigationViewController *nav001 = [[BaseNavigationViewController alloc] initWithRootViewController:vc01];
     BaseNavigationViewController *nav002 = [[BaseNavigationViewController alloc] initWithRootViewController:vc02];
     BaseNavigationViewController *nav003 = [[BaseNavigationViewController alloc] initWithRootViewController:vc03];
     BaseNavigationViewController *nav004 = [[BaseNavigationViewController alloc] initWithRootViewController:vc04];
+    BaseNavigationViewController *nav005 = [[BaseNavigationViewController alloc] initWithRootViewController:vc05];
     
     
-    self.viewControllers=[NSArray arrayWithObjects:nav001,nav002,nav003,nav004 , nil];
+    self.viewControllers=[NSArray arrayWithObjects:nav001,nav002,nav003,nav004 ,nav005, nil];
     vc01.tabBarItem.badgeValue = @"1";
 }
 

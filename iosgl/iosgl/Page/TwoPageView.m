@@ -25,7 +25,9 @@
     [super initFWUI];
     self.winBg=_baseViewBg;
  
-    _baseViewBg.frame=CGRectMake(0, 43,kScreenW, kScreenH-200);
+    self.winBg.frame=       CGRectMake(0, 42,  self.view.bounds.size.width,self.view.bounds.size.height);
+    
+ 
       [  self.view addSubview:_baseViewBg];
  
       CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_baseViewBg.bounds];
