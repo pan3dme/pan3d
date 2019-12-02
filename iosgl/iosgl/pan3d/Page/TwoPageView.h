@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TwoPageView : BaseUIViewController
 @property (strong, nonatomic) IBOutlet UIView *baseViewBg;
-@property (nonatomic, strong) UIView                       *statusBarView;//IPX系列特殊遮罩
+ 
 @end
 
 NS_ASSUME_NONNULL_END

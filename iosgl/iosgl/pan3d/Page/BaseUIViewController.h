@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseUIViewController : UIViewController
-
+@property (nonatomic, strong) UIView                       *statusBarView;//IPX系列特殊遮罩
 @end
 
 NS_ASSUME_NONNULL_END

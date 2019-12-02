@@ -11,7 +11,7 @@
 #import "OnePageView.h"
 #import "TwoPageView.h"
 #import "ThirdPageView.h"
-#import "OtherPage.h"
+#import "FourPageView.h"
 #import "FivePage.h"
 
 @interface ViewController ()
@@ -39,7 +39,7 @@
     TwoPageView *vc02=[[TwoPageView alloc] init];
     ThirdPageView *vc03= [[ThirdPageView alloc]init];
     
-    FivePage *vc04=[[FivePage alloc] init];
+    FourPageView *vc04=[[FourPageView alloc] init];
     
     
     vc01.tabBarItem.title = @"首3页";

@@ -30,12 +30,7 @@
     ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight ;
     
     
-    if(!self.statusBarView){
-        self.statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 42)];
-        [self.statusBarView setBackgroundColor:RGB(0, 255, 0)];
-        [self.view addSubview:self.statusBarView];
-    }
-    
+
     
 }
 

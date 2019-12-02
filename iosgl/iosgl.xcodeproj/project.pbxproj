@@ -31,6 +31,8 @@
 		FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2882395654C00D2483A /* ThirdPageView.m */; };
 		FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2892395654D00D2483A /* ThirdPageView.xib */; };
 		FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC28D2395669100D2483A /* BaseUIViewController.m */; };
+		FE0FC292239568BE00D2483A /* FourPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC290239568BE00D2483A /* FourPageView.m */; };
+		FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC291239568BE00D2483A /* FourPageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,9 @@
 		FE0FC2892395654D00D2483A /* ThirdPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdPageView.xib; sourceTree = "<group>"; };
 		FE0FC28C2395669100D2483A /* BaseUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseUIViewController.h; sourceTree = "<group>"; };
 		FE0FC28D2395669100D2483A /* BaseUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseUIViewController.m; sourceTree = "<group>"; };
+		FE0FC28F239568BE00D2483A /* FourPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourPageView.h; sourceTree = "<group>"; };
+		FE0FC290239568BE00D2483A /* FourPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourPageView.m; sourceTree = "<group>"; };
+		FE0FC291239568BE00D2483A /* FourPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourPageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +190,9 @@
 				FE0FC2872395654C00D2483A /* ThirdPageView.h */,
 				FE0FC2882395654C00D2483A /* ThirdPageView.m */,
 				FE0FC2892395654D00D2483A /* ThirdPageView.xib */,
+				FE0FC28F239568BE00D2483A /* FourPageView.h */,
+				FE0FC290239568BE00D2483A /* FourPageView.m */,
+				FE0FC291239568BE00D2483A /* FourPageView.xib */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
 				FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
+				FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */,
 				FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +282,7 @@
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
+				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
