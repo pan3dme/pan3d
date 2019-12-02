@@ -1,0 +1,14 @@
+
+room_player/join"
+
+redbag_pick/get_redbag
+
+"redbag/my_redbag"
+@"redbag_pick/list
+
+"room_player/list"
+"redbag/send"
+"redbag/list"
+"open_tools/ntp"
+"room/list"
+"room_player/join"
