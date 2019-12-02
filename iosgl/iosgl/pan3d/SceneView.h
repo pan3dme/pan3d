@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SceneView.h
 //  iosgl
 //
 //  Created by zhao on 2/12/2019.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITabBarController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface SceneView : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

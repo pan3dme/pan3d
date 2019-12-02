@@ -5,8 +5,9 @@
 //  Created by zhao on 2/12/2019.
 //  Copyright © 2019 zhao. All rights reserved.
 //
-
+#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "RedBagTabBar.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    return YES;
+   
+ 
+        return YES;
+  
+ 
 }
 
 

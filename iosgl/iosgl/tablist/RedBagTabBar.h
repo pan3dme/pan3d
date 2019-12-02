@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RedBagTabBar.h
 //  iosgl
 //
 //  Created by zhao on 2/12/2019.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITabBarController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface RedBagTabBar : UITabBarController
 
 @end
 
+NS_ASSUME_NONNULL_END

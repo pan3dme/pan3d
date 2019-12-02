@@ -15,6 +15,9 @@
 		FE0FC2482395104800D2483A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2472395104800D2483A /* Assets.xcassets */; };
 		FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2492395104800D2483A /* LaunchScreen.storyboard */; };
 		FE0FC24E2395104800D2483A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC24D2395104800D2483A /* main.m */; };
+		FE0FC258239511DE00D2483A /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC256239511DE00D2483A /* SceneView.m */; };
+		FE0FC259239511DE00D2483A /* SceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC257239511DE00D2483A /* SceneView.xib */; };
+		FE0FC260239513DC00D2483A /* RedBagTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC25F239513DC00D2483A /* RedBagTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,11 @@
 		FE0FC24A2395104800D2483A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE0FC24C2395104800D2483A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE0FC24D2395104800D2483A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FE0FC255239511DE00D2483A /* SceneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneView.h; sourceTree = "<group>"; };
+		FE0FC256239511DE00D2483A /* SceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneView.m; sourceTree = "<group>"; };
+		FE0FC257239511DE00D2483A /* SceneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceneView.xib; sourceTree = "<group>"; };
+		FE0FC25E239513DC00D2483A /* RedBagTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedBagTabBar.h; sourceTree = "<group>"; };
+		FE0FC25F239513DC00D2483A /* RedBagTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedBagTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,8 @@
 		FE0FC2372395104700D2483A /* iosgl */ = {
 			isa = PBXGroup;
 			children = (
+				FE0FC25A239512E500D2483A /* tablist */,
+				FE0FC254239511AC00D2483A /* pan3d */,
 				FE0FC2382395104700D2483A /* AppDelegate.h */,
 				FE0FC2392395104700D2483A /* AppDelegate.m */,
 				FE0FC23B2395104700D2483A /* SceneDelegate.h */,
@@ -77,6 +87,25 @@
 				FE0FC2442395104700D2483A /* iosgl.xcdatamodeld */,
 			);
 			path = iosgl;
+			sourceTree = "<group>";
+		};
+		FE0FC254239511AC00D2483A /* pan3d */ = {
+			isa = PBXGroup;
+			children = (
+				FE0FC255239511DE00D2483A /* SceneView.h */,
+				FE0FC256239511DE00D2483A /* SceneView.m */,
+				FE0FC257239511DE00D2483A /* SceneView.xib */,
+			);
+			path = pan3d;
+			sourceTree = "<group>";
+		};
+		FE0FC25A239512E500D2483A /* tablist */ = {
+			isa = PBXGroup;
+			children = (
+				FE0FC25E239513DC00D2483A /* RedBagTabBar.h */,
+				FE0FC25F239513DC00D2483A /* RedBagTabBar.m */,
+			);
+			path = tablist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +168,7 @@
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
+				FE0FC259239511DE00D2483A /* SceneView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,10 +180,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
+				FE0FC260239513DC00D2483A /* RedBagTabBar.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
+				FE0FC258239511DE00D2483A /* SceneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
