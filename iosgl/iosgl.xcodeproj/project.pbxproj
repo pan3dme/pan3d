@@ -21,6 +21,8 @@
 		FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26223951ABE00D2483A /* CtxUIView.m */; };
 		FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26623951FCE00D2483A /* OtherPage.m */; };
 		FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26723951FCE00D2483A /* OtherPage.xib */; };
+		FE0FC26D2395276700D2483A /* FivePage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26B2395276700D2483A /* FivePage.m */; };
+		FE0FC26E2395276700D2483A /* FivePage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26C2395276700D2483A /* FivePage.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,9 @@
 		FE0FC26523951FCE00D2483A /* OtherPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherPage.h; sourceTree = "<group>"; };
 		FE0FC26623951FCE00D2483A /* OtherPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherPage.m; sourceTree = "<group>"; };
 		FE0FC26723951FCE00D2483A /* OtherPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherPage.xib; sourceTree = "<group>"; };
+		FE0FC26A2395276700D2483A /* FivePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FivePage.h; sourceTree = "<group>"; };
+		FE0FC26B2395276700D2483A /* FivePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePage.m; sourceTree = "<group>"; };
+		FE0FC26C2395276700D2483A /* FivePage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePage.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +130,9 @@
 				FE0FC26523951FCE00D2483A /* OtherPage.h */,
 				FE0FC26623951FCE00D2483A /* OtherPage.m */,
 				FE0FC26723951FCE00D2483A /* OtherPage.xib */,
+				FE0FC26A2395276700D2483A /* FivePage.h */,
+				FE0FC26B2395276700D2483A /* FivePage.m */,
+				FE0FC26C2395276700D2483A /* FivePage.xib */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0FC26E2395276700D2483A /* FivePage.xib in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
@@ -201,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0FC26D2395276700D2483A /* FivePage.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
 				FE0FC260239513DC00D2483A /* RedBagTabBar.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,

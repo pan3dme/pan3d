@@ -1,30 +1,22 @@
 //
-//  OtherPage.m
+//  FivePage.m
 //  iosgl
 //
 //  Created by zhao on 2/12/2019.
 //  Copyright © 2019 zhao. All rights reserved.
 //
 
-#import "OtherPage.h"
+#import "FivePage.h"
 
-@interface OtherPage ()
+@interface FivePage ()
 
 @end
 
-@implementation OtherPage
+@implementation FivePage
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-      self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    self.navigationController.navigationBar.translucent = NO;
-     self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
-     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    self.title=@"OtherPage";
+       self.title=@"FivePage";
 }
 
 /*

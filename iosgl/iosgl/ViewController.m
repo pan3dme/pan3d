@@ -10,6 +10,7 @@
 #import "RedBagTabBar.h"
 #import "SceneView.h"
 #import "OtherPage.h"
+#import "FivePage.h"
 
 @interface ViewController ()
 
@@ -36,7 +37,7 @@
     SceneView *vc01= [[SceneView alloc]init];
     
     OtherPage *vc02=[[OtherPage alloc] init];
-    SceneView *vc03=[[SceneView alloc] init];
+    FivePage *vc03=[[FivePage alloc] init];
     SceneView *vc04=[[SceneView alloc] init];
     
     vc01.tabBarItem.title = @"首3页";

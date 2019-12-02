@@ -19,10 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  self.view.backgroundColor=[UIColor whiteColor];
-   // self.view.frame=CGRectMake(0, 0, 375, 667);
-  //  self.edgesForExtendedLayout = UIRectEdgeNone;
-     //   self.edgesForExtendedLayout = UIRectEdgeNone|UIRectEdgeBottom;
-       
+   self.view.frame=CGRectMake(0, 0, 375, 667);
+     self.edgesForExtendedLayout = UIRectEdgeNone;
+
+    
+    self.navigationController.navigationBar.translucent = NO;
+    self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
  
     self.title=@"场次名称";
     
