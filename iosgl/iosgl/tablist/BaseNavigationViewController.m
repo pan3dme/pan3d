@@ -17,8 +17,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [self setValue:[MyNavigationBar new] forKeyPath:@"navigationBar"];
+    [super viewDidLoad];
+    [self setValue:[MyNavigationBar new] forKeyPath:@"navigationBar"];
 }
 //写这一个是为了适配iphoneX,就算空实现也要写，不写的话，导航栏的坐标设置不生效，挺奇怪的
 -(void)viewDidAppear:(BOOL)animated{

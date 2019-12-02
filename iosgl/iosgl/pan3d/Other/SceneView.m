@@ -8,8 +8,9 @@
 
 #import "SceneView.h"
 #import "CtxUIView.h"
+#import "MathCore.h"
 #import <UIKit/UIKit.h>
-
+#define kIsiPhoneX_series (iPhoneX==YES || iPhoneX_R ==YES || iPhoneX_Max==YES)
 @interface SceneView ()
 
 @end
@@ -20,9 +21,8 @@
     [super viewDidLoad];
    self.view.backgroundColor=[UIColor whiteColor];
 //   self.view.frame=CGRectMake(0, 0, 375, 667);
- //    self.edgesForExtendedLayout = UIRectEdgeNone;
-
-    
+   self.edgesForExtendedLayout = UIRectEdgeNone;
+ 
  //   self.navigationController.navigationBar.translucent = NO;
    self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
   self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -30,12 +30,29 @@
  
     self.title=@"场次名称";
     
-    CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_viewbg.bounds];
+    
+ // _baseViewBg.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+
+    
+    _baseViewBg.frame=CGRectMake(0, 43,kScreenW, kScreenH-320);
+  [  self.view addSubview:_baseViewBg];
+    
+    CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_baseViewBg.bounds];
     ctxUI.backgroundColor=[UIColor clearColor];
-    [_viewbg addSubview:ctxUI];
+    [_baseViewBg addSubview:ctxUI];
     
-   ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+  ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight ;
     
+    
+ 
+    
+  //  if(kIsiPhoneX_series){  }
+    
+    if(!self.statusBarView){
+                self.statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 42)];
+                [self.statusBarView setBackgroundColor:RGB(0, 255, 0)];
+                [self.view addSubview:self.statusBarView];
+            }
     
 } 
 

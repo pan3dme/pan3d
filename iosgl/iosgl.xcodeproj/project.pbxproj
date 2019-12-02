@@ -24,6 +24,8 @@
 		FE0FC26E2395276700D2483A /* FivePage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26C2395276700D2483A /* FivePage.xib */; };
 		FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2702395294900D2483A /* BaseNavigationViewController.m */; };
 		FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27323952A3A00D2483A /* MyNavigationBar.m */; };
+		FE0FC2772395531700D2483A /* MathCore.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2762395531700D2483A /* MathCore.m */; };
+		FE0FC27B2395533500D2483A /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27A2395533500D2483A /* MathClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,10 @@
 		FE0FC2702395294900D2483A /* BaseNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
 		FE0FC27223952A3A00D2483A /* MyNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationBar.h; sourceTree = "<group>"; };
 		FE0FC27323952A3A00D2483A /* MyNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationBar.m; sourceTree = "<group>"; };
+		FE0FC2752395531700D2483A /* MathCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathCore.h; sourceTree = "<group>"; };
+		FE0FC2762395531700D2483A /* MathCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathCore.m; sourceTree = "<group>"; };
+		FE0FC2792395533500D2483A /* MathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathClass.h; sourceTree = "<group>"; };
+		FE0FC27A2395533500D2483A /* MathClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,12 +114,8 @@
 		FE0FC254239511AC00D2483A /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
+				FE0FC2782395531F00D2483A /* core */,
 				FE0FC26423951FAC00D2483A /* Other */,
-				FE0FC26123951ABE00D2483A /* CtxUIView.h */,
-				FE0FC26223951ABE00D2483A /* CtxUIView.m */,
-				FE0FC255239511DE00D2483A /* SceneView.h */,
-				FE0FC256239511DE00D2483A /* SceneView.m */,
-				FE0FC257239511DE00D2483A /* SceneView.xib */,
 			);
 			path = pan3d;
 			sourceTree = "<group>";
@@ -132,6 +134,11 @@
 		FE0FC26423951FAC00D2483A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				FE0FC26123951ABE00D2483A /* CtxUIView.h */,
+				FE0FC26223951ABE00D2483A /* CtxUIView.m */,
+				FE0FC255239511DE00D2483A /* SceneView.h */,
+				FE0FC256239511DE00D2483A /* SceneView.m */,
+				FE0FC257239511DE00D2483A /* SceneView.xib */,
 				FE0FC26523951FCE00D2483A /* OtherPage.h */,
 				FE0FC26623951FCE00D2483A /* OtherPage.m */,
 				FE0FC26723951FCE00D2483A /* OtherPage.xib */,
@@ -140,6 +147,17 @@
 				FE0FC26C2395276700D2483A /* FivePage.xib */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		FE0FC2782395531F00D2483A /* core */ = {
+			isa = PBXGroup;
+			children = (
+				FE0FC2752395531700D2483A /* MathCore.h */,
+				FE0FC2762395531700D2483A /* MathCore.m */,
+				FE0FC2792395533500D2483A /* MathClass.h */,
+				FE0FC27A2395533500D2483A /* MathClass.m */,
+			);
+			path = core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +237,7 @@
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
+				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
@@ -226,6 +245,7 @@
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
 				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
 				FE0FC258239511DE00D2483A /* SceneView.m in Sources */,
+				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
