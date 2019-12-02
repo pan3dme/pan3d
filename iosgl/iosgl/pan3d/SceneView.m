@@ -7,6 +7,8 @@
 //
 
 #import "SceneView.h"
+#import "CtxUIView.h"
+#import <UIKit/UIKit.h>
 
 @interface SceneView ()
 
@@ -16,10 +18,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+ 
+    self.view.frame=CGRectMake(0, 0, 375, 667);
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+     //   self.edgesForExtendedLayout = UIRectEdgeNone|UIRectEdgeBottom;
+       
+ 
+    self.title=@"场次名称";
     
-    self.title=@"here";
-}
+    CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_viewbg.bounds];
+    ctxUI.backgroundColor=[UIColor clearColor];
+    [_viewbg addSubview:ctxUI];
+    
+   ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
+    
+} 
 
 /*
 #pragma mark - Navigation

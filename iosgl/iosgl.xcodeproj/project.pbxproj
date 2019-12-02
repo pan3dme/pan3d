@@ -18,6 +18,9 @@
 		FE0FC258239511DE00D2483A /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC256239511DE00D2483A /* SceneView.m */; };
 		FE0FC259239511DE00D2483A /* SceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC257239511DE00D2483A /* SceneView.xib */; };
 		FE0FC260239513DC00D2483A /* RedBagTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC25F239513DC00D2483A /* RedBagTabBar.m */; };
+		FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26223951ABE00D2483A /* CtxUIView.m */; };
+		FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26623951FCE00D2483A /* OtherPage.m */; };
+		FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26723951FCE00D2483A /* OtherPage.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,11 @@
 		FE0FC257239511DE00D2483A /* SceneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceneView.xib; sourceTree = "<group>"; };
 		FE0FC25E239513DC00D2483A /* RedBagTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedBagTabBar.h; sourceTree = "<group>"; };
 		FE0FC25F239513DC00D2483A /* RedBagTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedBagTabBar.m; sourceTree = "<group>"; };
+		FE0FC26123951ABE00D2483A /* CtxUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CtxUIView.h; sourceTree = "<group>"; };
+		FE0FC26223951ABE00D2483A /* CtxUIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CtxUIView.m; sourceTree = "<group>"; };
+		FE0FC26523951FCE00D2483A /* OtherPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherPage.h; sourceTree = "<group>"; };
+		FE0FC26623951FCE00D2483A /* OtherPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherPage.m; sourceTree = "<group>"; };
+		FE0FC26723951FCE00D2483A /* OtherPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherPage.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,9 @@
 		FE0FC254239511AC00D2483A /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
+				FE0FC26423951FAC00D2483A /* Other */,
+				FE0FC26123951ABE00D2483A /* CtxUIView.h */,
+				FE0FC26223951ABE00D2483A /* CtxUIView.m */,
 				FE0FC255239511DE00D2483A /* SceneView.h */,
 				FE0FC256239511DE00D2483A /* SceneView.m */,
 				FE0FC257239511DE00D2483A /* SceneView.xib */,
@@ -106,6 +117,16 @@
 				FE0FC25F239513DC00D2483A /* RedBagTabBar.m */,
 			);
 			path = tablist;
+			sourceTree = "<group>";
+		};
+		FE0FC26423951FAC00D2483A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FE0FC26523951FCE00D2483A /* OtherPage.h */,
+				FE0FC26623951FCE00D2483A /* OtherPage.m */,
+				FE0FC26723951FCE00D2483A /* OtherPage.xib */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +190,7 @@
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
 				FE0FC259239511DE00D2483A /* SceneView.xib in Resources */,
+				FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +207,8 @@
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
+				FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */,
+				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
 				FE0FC258239511DE00D2483A /* SceneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -313,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

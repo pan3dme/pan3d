@@ -1,5 +1,5 @@
 //
-//  SceneView.h
+//  CtxUIView.h
 //  iosgl
 //
 //  Created by zhao on 2/12/2019.
@@ -10,8 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SceneView : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *viewbg;
+@interface CtxUIView : UIView
 
 @end
 
