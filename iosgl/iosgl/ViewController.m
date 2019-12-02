@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "BaseNavigationViewController.h"
-#import "SceneView.h"
+#import "OnePageView.h"
+#import "TwoPageView.h"
+#import "ThirdPageView.h"
 #import "OtherPage.h"
 #import "FivePage.h"
 
@@ -20,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-       self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title=@"页面";
     [self addView];
     self.view.frame=CGRectMake(0, 100, 375, 567);
@@ -33,12 +35,12 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 6, 6,6);
 }
 -(void)addView{
+    OnePageView *vc01=[[OnePageView alloc] init];
+    TwoPageView *vc02=[[TwoPageView alloc] init];
+    ThirdPageView *vc03= [[ThirdPageView alloc]init];
     
-    SceneView *vc01= [[SceneView alloc]init];
+    FivePage *vc04=[[FivePage alloc] init];
     
-    OtherPage *vc02=[[OtherPage alloc] init];
-    FivePage *vc03=[[FivePage alloc] init];
-    SceneView *vc04=[[SceneView alloc] init];
     
     vc01.tabBarItem.title = @"首3页";
     vc02.tabBarItem.title = @"充值";
