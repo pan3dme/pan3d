@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+       self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title=@"页面";
     [self addView];
     self.view.frame=CGRectMake(0, 0, 375, 667);
