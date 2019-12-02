@@ -29,10 +29,10 @@
 }
 
 - (void) setTabItemInfo:(NSString *) iconname  VC:(UIViewController *) vc {
-    vc.tabBarItem.image = [[UIImage imageNamed:iconname] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc.tabBarItem.selectedImage = [[UIImage imageNamed:   [NSString stringWithFormat:@"%@_active",iconname]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.image = [[UIImage imageNamed:@"tabone"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabone"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 6, 6,6);
+    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
     OnePageView *vc01=[[OnePageView alloc] init];
@@ -47,12 +47,12 @@
     vc03.tabBarItem.title =@"推广";
     vc04.tabBarItem.title = @"消息";
     
-    /*
+ 
      [self setTabItemInfo:@"shouye" VC:vc01];
      [self setTabItemInfo:@"chongzhi" VC:vc02];
      [self setTabItemInfo:@"tuiguang" VC:vc03];
      [self setTabItemInfo:@"my" VC:vc04];
-     */
+ 
     
     BaseNavigationViewController *nav001 = [[BaseNavigationViewController alloc] initWithRootViewController:vc01];
     BaseNavigationViewController *nav002 = [[BaseNavigationViewController alloc] initWithRootViewController:vc02];

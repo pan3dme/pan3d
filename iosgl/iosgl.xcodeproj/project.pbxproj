@@ -16,8 +16,6 @@
 		FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2492395104800D2483A /* LaunchScreen.storyboard */; };
 		FE0FC24E2395104800D2483A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC24D2395104800D2483A /* main.m */; };
 		FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26223951ABE00D2483A /* CtxUIView.m */; };
-		FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26623951FCE00D2483A /* OtherPage.m */; };
-		FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26723951FCE00D2483A /* OtherPage.xib */; };
 		FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2702395294900D2483A /* BaseNavigationViewController.m */; };
 		FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27323952A3A00D2483A /* MyNavigationBar.m */; };
 		FE0FC2772395531700D2483A /* MathCore.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2762395531700D2483A /* MathCore.m */; };
@@ -31,6 +29,8 @@
 		FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC28D2395669100D2483A /* BaseUIViewController.m */; };
 		FE0FC292239568BE00D2483A /* FourPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC290239568BE00D2483A /* FourPageView.m */; };
 		FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC291239568BE00D2483A /* FourPageView.xib */; };
+		FE0FC298239571A100D2483A /* tabone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC296239571A100D2483A /* tabone@3x.png */; };
+		FE0FC299239571A100D2483A /* tabone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC297239571A100D2483A /* tabone@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +49,6 @@
 		FE0FC24D2395104800D2483A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FE0FC26123951ABE00D2483A /* CtxUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CtxUIView.h; sourceTree = "<group>"; };
 		FE0FC26223951ABE00D2483A /* CtxUIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CtxUIView.m; sourceTree = "<group>"; };
-		FE0FC26523951FCE00D2483A /* OtherPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherPage.h; sourceTree = "<group>"; };
-		FE0FC26623951FCE00D2483A /* OtherPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherPage.m; sourceTree = "<group>"; };
-		FE0FC26723951FCE00D2483A /* OtherPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherPage.xib; sourceTree = "<group>"; };
 		FE0FC26F2395294900D2483A /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
 		FE0FC2702395294900D2483A /* BaseNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
 		FE0FC27223952A3A00D2483A /* MyNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationBar.h; sourceTree = "<group>"; };
@@ -74,6 +71,8 @@
 		FE0FC28F239568BE00D2483A /* FourPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourPageView.h; sourceTree = "<group>"; };
 		FE0FC290239568BE00D2483A /* FourPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourPageView.m; sourceTree = "<group>"; };
 		FE0FC291239568BE00D2483A /* FourPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourPageView.xib; sourceTree = "<group>"; };
+		FE0FC296239571A100D2483A /* tabone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabone@3x.png"; path = "Assets.xcassets/glassets/tabone@3x.png"; sourceTree = "<group>"; };
+		FE0FC297239571A100D2483A /* tabone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabone@2x.png"; path = "Assets.xcassets/glassets/tabone@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +115,8 @@
 				FE0FC23F2395104700D2483A /* ViewController.m */,
 				FE0FC2412395104700D2483A /* Main.storyboard */,
 				FE0FC2472395104800D2483A /* Assets.xcassets */,
+				FE0FC297239571A100D2483A /* tabone@2x.png */,
+				FE0FC296239571A100D2483A /* tabone@3x.png */,
 				FE0FC2492395104800D2483A /* LaunchScreen.storyboard */,
 				FE0FC24C2395104800D2483A /* Info.plist */,
 				FE0FC24D2395104800D2483A /* main.m */,
@@ -127,9 +128,9 @@
 		FE0FC254239511AC00D2483A /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
-				FE0FC27C23955A7F00D2483A /* Page */,
 				FE0FC2782395531F00D2483A /* core */,
 				FE0FC26423951FAC00D2483A /* Other */,
+				FE0FC27C23955A7F00D2483A /* Page */,
 			);
 			path = pan3d;
 			sourceTree = "<group>";
@@ -150,9 +151,6 @@
 			children = (
 				FE0FC26123951ABE00D2483A /* CtxUIView.h */,
 				FE0FC26223951ABE00D2483A /* CtxUIView.m */,
-				FE0FC26523951FCE00D2483A /* OtherPage.h */,
-				FE0FC26623951FCE00D2483A /* OtherPage.m */,
-				FE0FC26723951FCE00D2483A /* OtherPage.xib */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -248,12 +246,13 @@
 			files = (
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
+				FE0FC299239571A100D2483A /* tabone@2x.png in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
+				FE0FC298239571A100D2483A /* tabone@3x.png in Resources */,
 				FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
 				FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */,
-				FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +275,6 @@
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
-				FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
 				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
 				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
