@@ -18,8 +18,6 @@
 		FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26223951ABE00D2483A /* CtxUIView.m */; };
 		FE0FC26823951FCE00D2483A /* OtherPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26623951FCE00D2483A /* OtherPage.m */; };
 		FE0FC26923951FCE00D2483A /* OtherPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26723951FCE00D2483A /* OtherPage.xib */; };
-		FE0FC26D2395276700D2483A /* FivePage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC26B2395276700D2483A /* FivePage.m */; };
-		FE0FC26E2395276700D2483A /* FivePage.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC26C2395276700D2483A /* FivePage.xib */; };
 		FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2702395294900D2483A /* BaseNavigationViewController.m */; };
 		FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27323952A3A00D2483A /* MyNavigationBar.m */; };
 		FE0FC2772395531700D2483A /* MathCore.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2762395531700D2483A /* MathCore.m */; };
@@ -54,9 +52,6 @@
 		FE0FC26523951FCE00D2483A /* OtherPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherPage.h; sourceTree = "<group>"; };
 		FE0FC26623951FCE00D2483A /* OtherPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherPage.m; sourceTree = "<group>"; };
 		FE0FC26723951FCE00D2483A /* OtherPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherPage.xib; sourceTree = "<group>"; };
-		FE0FC26A2395276700D2483A /* FivePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FivePage.h; sourceTree = "<group>"; };
-		FE0FC26B2395276700D2483A /* FivePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePage.m; sourceTree = "<group>"; };
-		FE0FC26C2395276700D2483A /* FivePage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePage.xib; sourceTree = "<group>"; };
 		FE0FC26F2395294900D2483A /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
 		FE0FC2702395294900D2483A /* BaseNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
 		FE0FC27223952A3A00D2483A /* MyNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationBar.h; sourceTree = "<group>"; };
@@ -158,9 +153,6 @@
 				FE0FC26523951FCE00D2483A /* OtherPage.h */,
 				FE0FC26623951FCE00D2483A /* OtherPage.m */,
 				FE0FC26723951FCE00D2483A /* OtherPage.xib */,
-				FE0FC26A2395276700D2483A /* FivePage.h */,
-				FE0FC26B2395276700D2483A /* FivePage.m */,
-				FE0FC26C2395276700D2483A /* FivePage.xib */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -255,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
-				FE0FC26E2395276700D2483A /* FivePage.xib in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
@@ -273,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE0FC26D2395276700D2483A /* FivePage.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
