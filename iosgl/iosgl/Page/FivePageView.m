@@ -22,7 +22,7 @@
     
     [self addScrollView];
     
-      self.edgesForExtendedLayout = UIRectEdgeNone;
+   self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
 }
@@ -35,9 +35,10 @@
     _scrolView.showsVerticalScrollIndicator = NO;
     
     _scrolView.frame= self.view.frame;
+    _scrolView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self addPublicTabelView];
     [self addPrivteTabelView];
-    _scrolView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
     
 }
 -(void)addPublicTabelView
@@ -46,7 +47,7 @@
     tempui.image=[UIImage imageNamed:@"xinshoupic"];
     tempui.frame=_scrolView.bounds;
     [_scrolView addSubview:tempui];
-  //  tempui.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+   tempui.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     
 }
@@ -56,13 +57,13 @@
     UIScrollView *rightBmp=[[UIScrollView alloc]init];
     rightBmp.frame=CGRectMake(_scrolView.bounds.size.width, 0, _scrolView.bounds.size.width, _scrolView.bounds.size.height );
     [_scrolView addSubview:rightBmp];
- //   rightBmp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    rightBmp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
      
     UIImageView *tempui=[[UIImageView alloc]init];
     tempui.image=[UIImage imageNamed:@"xinshoupic"];
     tempui.frame=CGRectMake(0, 0, _scrolView.bounds.size.width, _scrolView.bounds.size.height*1.5);
     [rightBmp addSubview:tempui];
-//    tempui.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    tempui.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     rightBmp.contentSize =CGSizeMake(0,tempui.frame.size.height);
 }
 

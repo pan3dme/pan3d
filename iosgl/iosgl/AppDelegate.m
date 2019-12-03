@@ -7,6 +7,8 @@
 //
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import <Foundation/Foundation.h>
+#import "ViewController.h"
  
 
 @interface AppDelegate ()
@@ -18,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
+ 
  
         return YES;
   
