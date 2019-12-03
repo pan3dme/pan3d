@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FourPageView">
             <connections>
                 <outlet property="baseViewBg" destination="LrO-IV-2Ij" id="QS7-dI-WyX"/>
+                <outlet property="purpleBg" destination="qWO-cJ-Upv" id="FJd-FH-gNC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
