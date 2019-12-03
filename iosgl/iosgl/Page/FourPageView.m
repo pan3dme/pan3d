@@ -23,6 +23,8 @@
 - (void)initFWUI NS_REQUIRES_SUPER;
 {
     [super initFWUI];
+    //  self.edgesForExtendedLayout = UIRectEdgeAll;
+    /*
     self.winBg=_baseViewBg;
  
     _baseViewBg.frame=CGRectMake(0, 43,kScreenW, kScreenH-125);
@@ -33,6 +35,11 @@
       [_baseViewBg addSubview:ctxUI];
       
       ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight ;
+    
+    */
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    // self.edgesForExtendedLayout = UIRectEdgeTop;
 }
 
  

@@ -24,7 +24,7 @@
         </view>
         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="a4P-LY-bC0">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <viewLayoutGuide key="safeArea" id="U4t-Mg-2At"/>
             <viewLayoutGuide key="contentLayoutGuide" id="CTH-u4-aBI"/>
             <viewLayoutGuide key="frameLayoutGuide" id="OrP-dv-pet"/>

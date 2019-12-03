@@ -25,8 +25,8 @@
     [super initFWUI];
     self.winBg=_baseViewBg;
  
+    /*
     self.winBg.frame=       CGRectMake(0, 42,  self.view.bounds.size.width,self.view.bounds.size.height);
-    
  
       [  self.view addSubview:_baseViewBg];
  
@@ -35,6 +35,7 @@
       [_baseViewBg addSubview:ctxUI];
       
       ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight ;
+    */
 }
 
  

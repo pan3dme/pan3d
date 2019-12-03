@@ -18,19 +18,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.edgesForExtendedLayout = UIRectEdgeTop;
-    self.view.frame=CGRectMake(0, 0,kScreenW , kScreenH-150);
-    if(!self.statusBarView){
-        self.statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 42)];
-        [self.statusBarView setBackgroundColor:RGB(0, 255, 0)];
-        [self.view addSubview:self.statusBarView];
-    }
+    //  self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
+    //  self.edgesForExtendedLayout = UIRectEdgeNone;
+    //  self.edgesForExtendedLayout = UIRectEdgeTop;
+    //  self.view.frame=CGRectMake(0, 0,kScreenW , kScreenH-150);
+    /*
+     if(!self.statusBarView){
+     self.statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 42)];
+     [self.statusBarView setBackgroundColor:RGB(0, 255, 0)];
+     [self.view addSubview:self.statusBarView];
+     }
+     */
     [self initFWUI];
     if( self.winBg){
         [self.view addSubview: self.winBg];
     }
+    
 }
 /**
  UI创建
