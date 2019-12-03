@@ -26,7 +26,12 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title=@"页面";
     [self addView];
+     NSLog(@" mainScreen%f",     [UIScreen mainScreen].bounds.size.height);
+    NSLog(@"   self.view.window.bounds%f",   self.view.window.bounds.size.height);
+       NSLog(@"   self.view.bounds%f",   self.view.bounds.size.height);
     
+  
+    NSLog(@"-----------");
 }
 
 - (void) setTabItemInfo:(NSString *) iconname  VC:(UIViewController *) vc {

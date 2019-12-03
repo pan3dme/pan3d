@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FivePageView">
             <connections>
-                <outlet property="scrolView" destination="a4P-LY-bC0" id="XZU-N0-1qh"/>
+                <outlet property="scrolView" destination="vvH-TT-bmO" id="hMi-Vo-9lJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,17 +18,18 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="vvH-TT-bmO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <viewLayoutGuide key="safeArea" id="8uj-Nv-Pn8"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="NCV-v3-8Ej"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="Yls-jt-JEV"/>
+                </scrollView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="132" y="130"/>
         </view>
-        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="a4P-LY-bC0">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <viewLayoutGuide key="safeArea" id="U4t-Mg-2At"/>
-            <viewLayoutGuide key="contentLayoutGuide" id="CTH-u4-aBI"/>
-            <viewLayoutGuide key="frameLayoutGuide" id="OrP-dv-pet"/>
-            <point key="canvasLocation" x="863" y="130"/>
-        </scrollView>
     </objects>
 </document>
