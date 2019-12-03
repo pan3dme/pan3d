@@ -72,7 +72,7 @@
     _view02.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     _view03.autoresizingMask=UIViewAutoresizingFlexibleTopMargin;
        _view04.autoresizingMask=UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin;
-   _viewmid.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+   _viewmid.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
     
     _view01.backgroundColor=[UIColor redColor];
      _view02.backgroundColor=[UIColor redColor];

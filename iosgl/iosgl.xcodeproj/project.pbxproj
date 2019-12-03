@@ -34,6 +34,7 @@
 		FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC29C2395768D00D2483A /* FivePageView.m */; };
 		FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC29D2395768D00D2483A /* FivePageView.xib */; };
 		FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2A023957C7500D2483A /* xinshoupic.png */; };
+		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,8 @@
 		FE0FC29C2395768D00D2483A /* FivePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePageView.m; sourceTree = "<group>"; };
 		FE0FC29D2395768D00D2483A /* FivePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePageView.xib; sourceTree = "<group>"; };
 		FE0FC2A023957C7500D2483A /* xinshoupic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinshoupic.png; sourceTree = "<group>"; };
+		FE74C8862396C85D0069A551 /* Base3dView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
+		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 			children = (
 				FE0FC26123951ABE00D2483A /* CtxUIView.h */,
 				FE0FC26223951ABE00D2483A /* CtxUIView.m */,
+				FE74C8862396C85D0069A551 /* Base3dView.h */,
+				FE74C8872396C85D0069A551 /* Base3dView.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
+				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,

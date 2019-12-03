@@ -8,7 +8,8 @@
 
 #import "TwoPageView.h"
 #import "MathCore.h"
-#import "CtxUIView.h"
+ 
+#import "Base3dView.h"
 
 @interface TwoPageView ()
 
@@ -24,18 +25,17 @@
 {
     [super initFWUI];
     self.winBg=_baseViewBg;
- 
-    /*
+  
     self.winBg.frame=       CGRectMake(0, 42,  self.view.bounds.size.width,self.view.bounds.size.height);
  
       [  self.view addSubview:_baseViewBg];
  
-      CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_baseViewBg.bounds];
+      Base3dView *ctxUI=[[Base3dView alloc] initWithFrame:_baseViewBg.bounds];
       ctxUI.backgroundColor=[UIColor clearColor];
       [_baseViewBg addSubview:ctxUI];
       
       ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight ;
-    */
+     
 }
 
  
