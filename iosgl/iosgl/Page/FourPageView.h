@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
  @property (nonatomic, strong)  UIScrollView *scrolView;
 
 @property (nonatomic, strong)  UIView *sView;
+@property (nonatomic, strong)  UIView *view01;
+@property (nonatomic, strong)  UIView *view02;
+@property (nonatomic, strong)  UIView *view03;
+@property (nonatomic, strong)  UIView *view04;
+@property (nonatomic, strong)  UIView *viewmid;
+
 
 @end
 

@@ -41,8 +41,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // self.edgesForExtendedLayout = UIRectEdgeTop;
     
-     [self addTestSprite];
-     [self addTestBSprite];
+    // [self addTestSprite];
+     //[self addTestBSprite];
     
     NSLog(@"------->%f", self.view.frame.origin.y);
         [self addsView];
@@ -56,15 +56,49 @@
     _sView.frame =CGRectMake(0, 0, 200, 200);
     _sView.backgroundColor=[UIColor yellowColor];
     
+  _view01=[[UIView alloc]init];
+     _view02=[[UIView alloc]init];
+      _view03=[[UIView alloc]init];
+     _view04=[[UIView alloc]init];
+         _viewmid=[[UIView alloc]init];
+    
+ _view01.frame=CGRectMake(0, 0, 20, 20);
+       _view02.frame=CGRectMake(_sView.frame.size.width-20, 0, 20, 20);
+       _view03.frame=CGRectMake(0, 180, 20, 20);
+       _view04.frame=CGRectMake(180, 180, 20, 20);
+    
+           _viewmid.frame=CGRectMake(0, 90, 200, 20);
+    
+    _view02.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
+    _view03.autoresizingMask=UIViewAutoresizingFlexibleTopMargin;
+       _view04.autoresizingMask=UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin;
+   _viewmid.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+    
+    _view01.backgroundColor=[UIColor redColor];
+     _view02.backgroundColor=[UIColor redColor];
+     _view03.backgroundColor=[UIColor redColor];
+     _view04.backgroundColor=[UIColor redColor];
+ _viewmid.backgroundColor=[UIColor blueColor];
+    
+       [_sView addSubview:_view01];
+     [_sView addSubview:_view02];
+     [_sView addSubview:_view03];
+     [_sView addSubview:_view04];
+      [_sView addSubview:_viewmid];
+    
     
     [self.view addSubview:_sView];
+}
+- (void)viewDidLayoutSubviews
+{
+ 
 }
 -(void)addFanda{
     UIButton *fangda=[[UIButton alloc]init];
     [fangda setTitle:@"放大" forState:UIControlStateNormal];
     fangda.titleLabel.textColor=[UIColor redColor];
     fangda.backgroundColor=[UIColor blueColor];
-    fangda.frame=CGRectMake(0, 0, 80, 20);
+    fangda.frame=CGRectMake(0, 0, 100, 30);
     [self.view addSubview:fangda];
     [fangda addTarget:self action:@selector(pressLarge) forControlEvents:UIControlEventTouchUpInside];
     
@@ -84,7 +118,7 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1];
     
-    _sView.frame =CGRectMake(0, 0, 200, 200);
+    _sView.frame =CGRectMake(20, 20, 200, 200);
     [UIView commitAnimations];
 }
 -(void)addShuoxiao{
@@ -92,7 +126,7 @@
     [suoxiao setTitle:@"缩小" forState:UIControlStateNormal];
     suoxiao.titleLabel.textColor=[UIColor redColor];
     suoxiao.backgroundColor=[UIColor blueColor];
-    suoxiao.frame=CGRectMake(0, 30, 80, 20);
+    suoxiao.frame=CGRectMake(0, 50, 100, 30);
     [self.view addSubview:suoxiao];
         [suoxiao addTarget:self action:@selector(pressSma) forControlEvents:UIControlEventTouchUpInside];
     

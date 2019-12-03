@@ -142,9 +142,25 @@
             filePath = "iosgl/Page/FourPageView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-addShuoxiao"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-pressLarge"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFA6E54C-0E2B-4492-9132-494879B1C66E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/Page/FourPageView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-viewDidLayoutSubviews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
