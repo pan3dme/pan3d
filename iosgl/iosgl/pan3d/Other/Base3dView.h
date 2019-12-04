@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Base3dView : UIView
-
+@property (nonatomic, strong)  NSTimer *refreshTime;
 @end
 
 NS_ASSUME_NONNULL_END

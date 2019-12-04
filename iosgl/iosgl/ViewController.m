@@ -12,6 +12,7 @@
 #import "TwoPageView.h"
 #import "ThirdPageView.h"
 #import "FourPageView.h"
+#import "GlkView.h"
 #import "FivePageView.h"
 
 
@@ -47,6 +48,8 @@
     FourPageView *vc04=[[FourPageView alloc] init];
     FivePageView *vc05=[[FivePageView alloc] init];
     
+      GlkView *glkview=[[GlkView alloc] init];
+    
     
     vc01.tabBarItem.title = @"首3页";
     vc02.tabBarItem.title = @"充值";
@@ -56,14 +59,14 @@
     
     
     [self setTabItemInfo:@"shouye" VC:vc01];
-    [self setTabItemInfo:@"chongzhi" VC:vc02];
+    [self setTabItemInfo:@"chongzhi" VC:glkview];
     [self setTabItemInfo:@"tuiguang" VC:vc03];
     [self setTabItemInfo:@"my" VC:vc04];
     [self setTabItemInfo:@"my" VC:vc05];
     
     
     BaseNavigationViewController *nav001 = [[BaseNavigationViewController alloc] initWithRootViewController:vc01];
-    BaseNavigationViewController *nav002 = [[BaseNavigationViewController alloc] initWithRootViewController:vc02];
+    BaseNavigationViewController *nav002 = [[BaseNavigationViewController alloc] initWithRootViewController:glkview];
     BaseNavigationViewController *nav003 = [[BaseNavigationViewController alloc] initWithRootViewController:vc03];
     BaseNavigationViewController *nav004 = [[BaseNavigationViewController alloc] initWithRootViewController:vc04];
     BaseNavigationViewController *nav005 = [[BaseNavigationViewController alloc] initWithRootViewController:vc05];

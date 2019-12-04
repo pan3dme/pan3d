@@ -88,10 +88,12 @@
     
     
     [self.view addSubview:_sView];
+    
+
 }
 - (void)viewDidLayoutSubviews
 {
- 
+    // _sView.frame=_purpleBg.frame;
 }
 -(void)addFanda{
     UIButton *fangda=[[UIButton alloc]init];
@@ -110,6 +112,7 @@
     [UIView setAnimationDuration:1];
     
     _sView.frame=CGRectMake(20, 20, 300, 400    );
+        _sView.frame=_purpleBg.frame;
     [UIView commitAnimations];
 }
 -(void)pressSma{

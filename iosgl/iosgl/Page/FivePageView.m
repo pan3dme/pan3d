@@ -41,13 +41,19 @@
     
     
 }
+- (void)viewDidLayoutSubviews
+{
+         _scrolView.frame= self.view.bounds;
+    
+    
+}
 -(void)addPublicTabelView
 {
-    UIImageView *tempui=[[UIImageView alloc]init];
-    tempui.image=[UIImage imageNamed:@"xinshoupic"];
-    tempui.frame=_scrolView.bounds;
-    [_scrolView addSubview:tempui];
-   tempui.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    UIImageView *oneView=[[UIImageView alloc]init];
+    oneView.image=[UIImage imageNamed:@"xinshoupic"];
+    oneView.frame=_scrolView.bounds;
+    [_scrolView addSubview:oneView];
+   oneView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     
 }
@@ -59,12 +65,12 @@
     [_scrolView addSubview:rightBmp];
     rightBmp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
      
-    UIImageView *tempui=[[UIImageView alloc]init];
-    tempui.image=[UIImage imageNamed:@"xinshoupic"];
-    tempui.frame=CGRectMake(0, 0, _scrolView.bounds.size.width, _scrolView.bounds.size.height*1.5);
-    [rightBmp addSubview:tempui];
-    tempui.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    rightBmp.contentSize =CGSizeMake(0,tempui.frame.size.height);
+    UIImageView *twoView=[[UIImageView alloc]init];
+    twoView.image=[UIImage imageNamed:@"xinshoupic"];
+    twoView.frame=CGRectMake(0, 0, _scrolView.bounds.size.width, _scrolView.bounds.size.height*1.5);
+    [rightBmp addSubview:twoView];
+    twoView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    rightBmp.contentSize =CGSizeMake(0,twoView.frame.size.height);
 }
 
 
