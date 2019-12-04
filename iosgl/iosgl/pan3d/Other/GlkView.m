@@ -21,21 +21,22 @@ GLKBaseEffect *mEffect;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.frame=CGRectMake(0, 0, 300, 300);
     [self setUpConfig];
     [self uploadVertexArray];
     [self uploadTexture];
     
-   // [self glkView:self drawInRect:CGRectMake(0, 0, 200, 200)];
+ 
 }
 -(void)glkView:(GLKView *)view drawInRect:(CGRect)rect{
-    glClearColor(0.3f, 0.6f, 1.0f, 1.0f);
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     //清除surface内容，恢复至初始状态
     glClear(GL_DEPTH_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     
     //启动着色器
     [mEffect prepareToDraw];
     glDrawArrays(GL_TRIANGLES, 0, 6);
+    
+    NSLog(@"-------------");
     
 }
 -(void)uploadTexture
@@ -154,17 +155,8 @@ GLKBaseEffect *mEffect;
     
     [EAGLContext setCurrentContext:context];
     glEnable(GL_DEPTH_TEST); //开启深度测试，就是让离你近的物体可以遮挡离你远的物体。
-    glClearColor(1.0, 0.2, 0.3, 1); //设置surface的清除颜色，也就是渲染到屏幕上的背景色。
+    glClearColor(1.0, 0.0, 0.0, 1.0); //设置surface的清除颜色，也就是渲染到屏幕上的背景色。
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+ 
 @end
