@@ -9,7 +9,7 @@
 #import "OnePageView.h"
 #import "MathCore.h"
 #import "CtxUIView.h"
-
+#import "GLSpriteView.h"
 @interface OnePageView ()
 
 @end
@@ -23,16 +23,23 @@
 - (void)initFWUI NS_REQUIRES_SUPER;
 {
     [super initFWUI];
-    self.winBg=_baseViewBg;
+   // self.winBg=_baseViewBg;
  
-    _baseViewBg.frame=CGRectMake(0, 43,kScreenW, kScreenH-150);
-      [  self.view addSubview:_baseViewBg];
+ //   _baseViewBg.frame=CGRectMake(0, 43,kScreenW, kScreenH-150);
+  //    [  self.view addSubview:_baseViewBg];
  
-      CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_baseViewBg.bounds];
-      ctxUI.backgroundColor=[UIColor clearColor];
-      [_baseViewBg addSubview:ctxUI];
+  //    CtxUIView *ctxUI=[[CtxUIView alloc] initWithFrame:_baseViewBg.bounds];
+ //     ctxUI.backgroundColor=[UIColor clearColor];
+     // [_baseViewBg addSubview:ctxUI];
       
-      ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight ;
+   //   ctxUI.autoresizingMask = UIViewAutoresizingFlexibleHeight ;
+    
+  //  self.view.backgroundColor=[UIColor clearColor];
+    GLSpriteView *abc=[[GLSpriteView alloc]init];
+    abc.frame=CGRectMake(0, 0, 300, 300);
+    [self.view addSubview:abc];
+    
+
 }
 
  

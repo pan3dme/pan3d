@@ -201,7 +201,7 @@
     //Fragment Shader
     
     //已经写好了顶点shaderv.vsh、片元着色器shaderf.fsh
-    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
     
     //清除颜色缓冲区
     glClear(GL_COLOR_BUFFER_BIT);

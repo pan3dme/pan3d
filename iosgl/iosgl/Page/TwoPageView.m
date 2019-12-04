@@ -13,6 +13,7 @@
 #import "Base3dView.h"
 #import "GlkView.h"
 
+
 @interface TwoPageView ()
 @property (nonatomic, strong) EAGLContext *context; // OpenGL context,管理使用opengl es进行绘制的状态,命令及资源
 @property (nonatomic, strong) GLKBaseEffect *mEffect;
@@ -29,6 +30,8 @@
     [self setUpConfig];
     [self uploadVertexArray];
     [self uploadTexture];
+    
+    
     
  
 }
