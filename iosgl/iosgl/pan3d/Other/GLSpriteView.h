@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Matrix3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GLSpriteView : UIView
-
+@property (nonatomic, assign)  Matrix3D *posMatrix3d;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 //
 #import <GLKit/GLKit.h>
 #import "GLSpriteView.h"
+#import "Matrix3D.h"
 @interface GLSpriteView ()
 @property (nonatomic, strong) EAGLContext *myContext; // OpenGL context,管理使用opengl es进行绘制的状态,命令及资源
 @property (nonatomic, strong) GLKBaseEffect *mEffect;
@@ -48,6 +49,9 @@
     
     //6、开始绘制
     [self renderLayer];
+    
+    self.posMatrix3d =    [[Matrix3D alloc]init];
+   
  
 }
 
@@ -333,7 +337,7 @@
     //旋转 矩阵->Uniform 传递到vsh,fsh中
     
     //需求：旋转10度 -> 弧度
-    float rotate = 10 * 3.141592f /180.0f;
+    float rotate = 45 * 3.141592f /180.0f;
     
     //旋转的矩阵公式
     float s = sin(rotate);
@@ -346,6 +350,8 @@
         0,0,1.0,0,
         0,0,0,1.0,
     };
+    
+   // NSLog(@"--------%@",  [self.posMatrix3d getddm] );
     
     /*
      glGetUniformLocation函数得到名字为“RotationMatrix”在shader中的位置，然后再判断该变量是否存在（如果不存在，则会返回-1）。
