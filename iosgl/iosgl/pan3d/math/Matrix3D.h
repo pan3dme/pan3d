@@ -14,10 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Matrix3D : NSObject
  
 @property (nonatomic, assign)  BOOL isIdentity;
-@property (nonatomic, strong)  NSMutableArray *m;
+-(void)outString;
  
-extern NSString *lhString;
-
 @end
 
 NS_ASSUME_NONNULL_END

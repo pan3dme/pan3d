@@ -50,7 +50,12 @@
     //6、开始绘制
     [self renderLayer];
     
-    self.posMatrix3d =    [[Matrix3D alloc]init];
+    self.posMatrix3d =  [[Matrix3D alloc]init];
+    
+    NSLog(@"----------");
+    
+    [self.posMatrix3d outString];
+ 
    
  
 }
