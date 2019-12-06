@@ -42,6 +42,8 @@
 		FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
 		FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */; };
+		FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */; };
+		FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		FE74C8862396C85D0069A551 /* Base3dView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
 		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
 		FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = brdf_ltu.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/brdf_ltu.jpg; sourceTree = "<group>"; };
+		FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.vsh; sourceTree = "<group>"; };
+		FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */,
+				FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */,
+				FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */,
 				FE2BB2DD23981CD600597658 /* shaderf.fsh */,
 				FE2BB2DF23981D3300597658 /* shaderv.vsh */,
 				FE0FC2A023957C7500D2483A /* xinshoupic.png */,
@@ -309,10 +315,12 @@
 				FE2BB2DE23981CD600597658 /* shaderf.fsh in Resources */,
 				FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */,
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
+				FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */,
 				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
 				FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
 				FE0FC299239571A100D2483A /* tabone@2x.png in Resources */,
+				FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
 				FE0FC298239571A100D2483A /* tabone@3x.png in Resources */,

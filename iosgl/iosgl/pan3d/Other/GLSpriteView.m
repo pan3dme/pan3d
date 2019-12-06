@@ -14,11 +14,12 @@
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
-@property (nonatomic, assign) GLuint myProgram;
- 
-  
- 
- 
+@property (nonatomic, assign) GLuint myProgramOne;
+@property (nonatomic, assign) GLuint myProgramTwo;
+
+
+
+
 @end
 
 @implementation GLSpriteView
@@ -36,18 +37,18 @@ GLfloat* attrArrpos ;
 {
     self = [super init];
     if (self) {
-            self.posMatrix3d =  [[Matrix3D alloc]init];
+        self.posMatrix3d =  [[Matrix3D alloc]init];
     }
     return self;
 }
 
 -(void)layoutSubviews
 {
- 
-   //1、设置图层
+    
+    //1、设置图层
     [self setUpLayer];
     
-   //2、创建上下文
+    //2、创建上下文
     [self setupContext];
     
     //3、清空缓冲区
@@ -60,13 +61,13 @@ GLfloat* attrArrpos ;
     [self setupFrameBuffer];
     
     //6、开始绘制
-
+    
     [self makeTwoBuff];
     [self renderLayer];
-  
+    
     skipnum=0;
-         [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
- 
+    [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
+    
 }
 
 
@@ -102,8 +103,8 @@ GLfloat* attrArrpos ;
      kEAGLColorFormatSRGBA8 SRGB
      */
     self.myEAGLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:false],
-      kEAGLDrawablePropertyRetainedBacking,kEAGLColorFormatRGBA8,kEAGLDrawablePropertyColorFormat,nil];
- 
+                                          kEAGLDrawablePropertyRetainedBacking,kEAGLColorFormatRGBA8,kEAGLDrawablePropertyColorFormat,nil];
+    
 }
 -(void)setupContext
 {
@@ -133,7 +134,7 @@ GLfloat* attrArrpos ;
     //5、将局部的context 变成全局的
     self.myContext = context;
 }
- 
+
 //3、清空缓冲区
 -(void)deleteRenderAndFrameBuffer
 {
@@ -150,7 +151,7 @@ GLfloat* attrArrpos ;
     
     glDeleteBuffers(1, &_myColorFrameBuffer);
     self.myColorFrameBuffer=0;
-   
+    
 }
 
 
@@ -169,11 +170,11 @@ GLfloat* attrArrpos ;
     glBindRenderbuffer(GL_RENDERBUFFER, self.myColorRenderBuffer);
     
     /*5、
-    通过调用上下文的renderbufferStorage:fromDrawable:方法并传递层对象作为参数来分配其存储空间。宽度，高度和像素格式取自层，
-    用于为renderbuffer分配存储空间*/
+     通过调用上下文的renderbufferStorage:fromDrawable:方法并传递层对象作为参数来分配其存储空间。宽度，高度和像素格式取自层，
+     用于为renderbuffer分配存储空间*/
     [self.myContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.myEAGLayer];
     
- 
+    
 }
 -(void)setupFrameBuffer
 {
@@ -193,7 +194,7 @@ GLfloat* attrArrpos ;
     
     //5、把GL_RENDERBUFFER里的colorRenderbuffer附在GL_FRAMEBUFFER的GL_COLOR_ATTACHMENT0（颜色附着点0）上
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
-
+    
 }
 -(void)setupTextureOne:(NSString *)value
 {
@@ -201,83 +202,90 @@ GLfloat* attrArrpos ;
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
     textureInfoOne = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
     
-  //  _mEffect = [[GLKBaseEffect alloc]init];
-  //  _mEffect.texture2d0.enabled = GL_TRUE;
+    //  _mEffect = [[GLKBaseEffect alloc]init];
+    //  _mEffect.texture2d0.enabled = GL_TRUE;
     //纹理的名字
-  //  _mEffect.texture2d0.name = textureInfo.name;
+    //  _mEffect.texture2d0.name = textureInfo.name;
 }
 -(void)setupTextureTwo
 {
     NSString *filePath = [[NSBundle mainBundle]pathForResource:@"brdf_ltu" ofType:@"jpg"];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
-     textureInfoTwo= [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
+    textureInfoTwo= [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
     
- // _mEffect = [[GLKBaseEffect alloc]init];
+    // _mEffect = [[GLKBaseEffect alloc]init];
     
-  
-   
- 
- 
-  //  _mEffect.texture2d0.enabled = GL_TRUE;
+    
+    
+    
+    
+    //  _mEffect.texture2d0.enabled = GL_TRUE;
     //纹理的名字
-  //  _mEffect.texture2d0.name = textureInfo.name;
+    //  _mEffect.texture2d0.name = textureInfo.name;
 }
 -(void)makeTwoBuff{
- 
-       GLfloat attrArr[] = {
-           
-           0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
-           -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
-           -0.7f, -0.7f, 0.0f,    0.0f, 0.0f,
-           0.7f, 0.7f, 0.0f,      1.0f, 1.0f,
-           -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
-           0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
-       };
-       glGenBuffers(1, &attrBufferOne);
-       glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
- 
-       glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+    
+    GLfloat attrArr[] = {
+        
+        0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
+        -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
+        -0.7f, -0.7f, 0.0f,    0.0f, 0.0f,
+        0.7f, 0.7f, 0.0f,      1.0f, 1.0f,
+        -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
+        0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
+    };
+    glGenBuffers(1, &attrBufferOne);
+    glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
+    
+    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
 }
 -(void)upFrame{
- 
+    
     NSLog(@"-----skipnum=>%d",skipnum++);
-     glClearColor(    1,0, 0.0f, 1.0f);
-     glClear(GL_COLOR_BUFFER_BIT);
-  //6、加载并使用链接好的程序
-        glUseProgram(self.myProgram);
-     GLuint rotateID = glGetUniformLocation(self.myProgram, "rotateMatrix");
-   
-     [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
-     glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
+    glClearColor(    1,0, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    //6、加载并使用链接好的程序
+    
+    GLuint selectProgram=self.myProgramOne;
+ 
   
+    
     if(skipnum  %10==0){
-             glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
-            glBindTexture(textureInfoOne.target,textureInfoOne.name);
+        selectProgram=self.myProgramOne;
+               glUseProgram(selectProgram);
+        glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
+        glBindTexture(textureInfoOne.target,textureInfoOne.name);
     }else{
-            glBindTexture(textureInfoTwo.target,textureInfoTwo.name);
-             glBindBuffer(GL_ARRAY_BUFFER, attrBufferTwo);
+        selectProgram=self.myProgramTwo;
+               glUseProgram(selectProgram);
+        glBindTexture(textureInfoTwo.target,textureInfoTwo.name);
+        glBindBuffer(GL_ARRAY_BUFFER, attrBufferTwo);
     }
-     
 
-       GLuint position = glGetAttribLocation(self.myProgram, "position");
- 
-       glEnableVertexAttribArray(position);
-  
-       glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, NULL);
     
-       GLuint textCoor = glGetAttribLocation(self.myProgram, "textCoordinate");
- 
-       glEnableVertexAttribArray(textCoor);
-        
-       glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
-        // [self setupTexture:@"03"];
-   
-   
-     glDrawArrays(GL_TRIANGLES, 0, 6);
-  
-     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
+    GLuint rotateID = glGetUniformLocation( selectProgram, "rotateMatrix");
+      [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
+      glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
     
- 
+    GLuint position = glGetAttribLocation( selectProgram, "position");
+    
+    glEnableVertexAttribArray(position);
+    
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, NULL);
+    
+    GLuint textCoor = glGetAttribLocation( selectProgram, "textCoordinate");
+    
+    glEnableVertexAttribArray(textCoor);
+    
+    glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
+    // [self setupTexture:@"03"];
+    
+    
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    
+    [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
+    
+    
 }
 //6、开始绘制
 -(void)renderLayer
@@ -298,20 +306,13 @@ GLfloat* attrArrpos ;
     glViewport(self.frame.origin.x*scale, self.frame.origin.y*scale, self.frame.size.width*scale, self.frame.size.height*scale);
     //3、读取顶点、片元着色器程序
     //读取存储路径
+ 
     
-    NSString * FragFile = [[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"];
-   NSString * vertFile = [[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"];
-    
-    
-    
-    NSLog(@"%@",vertFile);
-    NSLog(@"%@",FragFile);
-    
-    //4、加载shader，就是把我们写的代码给读取出来
-    self.myProgram = [self LoadShader:vertFile WithFrag:FragFile];
+     
+    self.myProgramOne = [self LoadShader:[[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"] WithFrag: [[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"]];
     
     //5、链接
-    glLinkProgram(self.myProgram);
+    glLinkProgram(self.myProgramOne);
     
     //获取link的状态
     GLint linkStatus;
@@ -319,7 +320,14 @@ GLfloat* attrArrpos ;
     
     /*首先通过glCreateProgram程序创建 OpenGL 程序，然后通过glAttachShader将着色器程序 ID 添加上 OpenGL 程序，
      接下来通过glLinkProgram链接 OpenGL 程序，最后通过glGetProgramiv来验证链接是否失败。*/
-    glGetProgramiv(self.myProgram, GL_LINK_STATUS, &linkStatus);
+    glGetProgramiv(self.myProgramOne, GL_LINK_STATUS, &linkStatus);
+    
+    
+     self.myProgramTwo = [self LoadShader:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] WithFrag: [[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
+ 
+    //5、链接
+    glLinkProgram(self.myProgramTwo);
+    glGetProgramiv(self.myProgramTwo, GL_LINK_STATUS, &linkStatus);
     
     //判断linkStatus的状态
     if(linkStatus==GL_FALSE)
@@ -334,7 +342,7 @@ GLfloat* attrArrpos ;
          参数3: length 返回日志信息的长度
          参数4：infoLog 保存在缓冲区中
          */
-        glGetProgramInfoLog(self.myProgram, sizeof(message), 0, &message[0]);
+        glGetProgramInfoLog(self.myProgramOne, sizeof(message), 0, &message[0]);
         
         //将C语言字符串转换成OC字符串
         NSString * messageStr = [NSString stringWithUTF8String:message];
@@ -346,7 +354,7 @@ GLfloat* attrArrpos ;
     NSLog(@"Program Link Success!");
     
     //6、加载并使用链接好的程序
-    glUseProgram(self.myProgram);
+    glUseProgram(self.myProgramOne);
     
     //7.设置顶点,前三个是顶点的坐标，后两个是纹理的坐标
     GLfloat attrArr[] = {
@@ -360,7 +368,7 @@ GLfloat* attrArrpos ;
     };
     attrArrpos=attrArr;
     //8、----处理顶点数据-----
-  
+    
     //申请一个缓存标记
     glGenBuffers(1, &attrBufferTwo);
     //确认缓存区是干什么的，就是绑定缓存区,在这里是存储顶点数组的
@@ -381,10 +389,10 @@ GLfloat* attrArrpos ;
     glBufferData(GL_ARRAY_BUFFER, 120, attrArrpos, GL_DYNAMIC_DRAW);
     
     /*glGetAttribLocation是用来获得vertex attribute的入口的,在我们要传递数据之前，首先要告诉OpenGL，所以要调用glEnableVertexAttribArray。
-    最后的数据通过glVertexAttribPointer传进来。它的第一个参数就是glGetAttribLocation返回的值。*/
+     最后的数据通过glVertexAttribPointer传进来。它的第一个参数就是glGetAttribLocation返回的值。*/
     
     //9、获取着色器程序中，指定为attribute类型变量的id
-    GLuint position = glGetAttribLocation(self.myProgram, "position");
+    GLuint position = glGetAttribLocation(self.myProgramOne, "position");
     
     //告诉OpenGL，允许使用顶点坐标数组
     glEnableVertexAttribArray(position);
@@ -395,7 +403,7 @@ GLfloat* attrArrpos ;
      第二个参数指定顶点属性的大小。就比如三维的位置，x,y,z它由3个数值组成
      第三个参数指定数据的类型，这里是GL_FLOAT
      第四个参数定义我们是否希望数据被标准化归一化。如果我们设置为GL_TRUE，所有数据都会被映射到0(对于有符号型signed数据是-1)到1之间。
-      我们把它设置为GL_FALSE
+     我们把它设置为GL_FALSE
      第五个参数叫做步长(Stride)，它告诉我们在连续的顶点属性之间间隔有多少。由于下个位置数据在5个GLfloat后面的位置，我们把步长设置为5 * sizeof(GLfloat)
      第六个参数：GLvoid*的强制类型转换。它表示我们的位置数据在缓冲中起始位置的偏移量。由于位置数据是数组的开始，所以这里是0,NULL就是0，告诉OpenGL ES
      可以从当前绑定的顶点缓存的位置访问顶点数据
@@ -406,7 +414,7 @@ GLfloat* attrArrpos ;
     //通过三个设置就可以往着色器语言中传入数据
     
     //处理纹理数据，也就是纹理坐标
-    GLuint textCoor = glGetAttribLocation(self.myProgram, "textCoordinate");
+    GLuint textCoor = glGetAttribLocation(self.myProgramOne, "textCoordinate");
     //参数：index：指定了需要启用的顶点属性数组的索引，注意：它只在OpenGL2.0及其以上版本才有。
     glEnableVertexAttribArray(textCoor);
     
@@ -437,7 +445,7 @@ GLfloat* attrArrpos ;
     };
     
     
-   // NSLog(@"--------%@",  [self.posMatrix3d getddm] );
+    // NSLog(@"--------%@",  [self.posMatrix3d getddm] );
     
     /*
      glGetUniformLocation函数得到名字为“RotationMatrix”在shader中的位置，然后再判断该变量是否存在（如果不存在，则会返回-1）。
@@ -446,14 +454,14 @@ GLfloat* attrArrpos ;
      并且这个矩阵是按行定义的，那么你就需要设置这个参数为GL_TRUE。最后一个参数就是传递给uniform变量的数据的指针了。
      */
     //获取着色器程序中，指定为uniform类型变量的id
-    GLuint rotateID = glGetUniformLocation(self.myProgram, "rotateMatrix");
- 
+    GLuint rotateID = glGetUniformLocation(self.myProgramOne, "rotateMatrix");
+    
     
     
     //将这个旋转矩阵传进顶点着色器里面的uniform中,uniform不仅可以传矩阵还可以是变量
     
- 
-      glUniformMatrix4fv(rotateID, 1, GL_FALSE, zRotation);
+    
+    glUniformMatrix4fv(rotateID, 1, GL_FALSE, zRotation);
     
     
     //数据是放入缓冲区了，但是还没有绘制,
@@ -468,24 +476,24 @@ GLfloat* attrArrpos ;
      - (BOOL)presentRenderbuffer:(NSUInteger)target 是将指定 renderbuffer 呈现在屏幕上，在这里我们指定的是前面已经绑定为当前
      renderbuffer 的那个，在 renderbuffer 可以被呈现之前，必须调用renderbufferStorage:fromDrawable: 为之分配存储空间。在前面设置 drawable 属性时，
      我们设置 kEAGLDrawablePropertyRetainedBacking 为FALSE，表示不想保持呈现的内容，因此在下一次呈现时，应用程序必须完全重绘一次。
-    将该设置为 TRUE 对性能和资源影像较大，因此只有当renderbuffer需要保持其内容不变时，我们才设置 kEAGLDrawablePropertyRetainedBacking  为 TRUE。
+     将该设置为 TRUE 对性能和资源影像较大，因此只有当renderbuffer需要保持其内容不变时，我们才设置 kEAGLDrawablePropertyRetainedBacking  为 TRUE。
      */
     //请求本机窗口系统显示OpenGL ES renderbuffer绑定到target
     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
 }
- 
+
 -(GLuint)LoadShader:(NSString *)vert WithFrag:(NSString *)frag
 {
     //1、定义两个临时的着色器对象
     GLuint verShader,fragShader;
     //2、glCreateProgram，顾名思义，这个接口就是创建一个着色器程序对象
     GLuint program = glCreateProgram();
- 
+    
     //3、编译shader
     [self compileShader:&verShader type:GL_VERTEX_SHADER file:vert];
     [self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:frag];
     
- 
+    
     //4、创建最终的程序,关联着色器对象到着色器程序对象
     glAttachShader(program, verShader);
     glAttachShader(program, fragShader);
@@ -495,7 +503,7 @@ GLfloat* attrArrpos ;
     glDeleteShader(fragShader);
     
     return program;
-
+    
 }
 
 -(void)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file
@@ -507,7 +515,7 @@ GLfloat* attrArrpos ;
     const GLchar * source = (GLchar *)[content UTF8String];
     
     /*3、对每一个着色器类型，通过glCreateShader创建一个管理着色器源代码的着色器对象，type    ——待创建的着色器对象类型
-        返回值   ——着色器对象的ID
+     返回值   ——着色器对象的ID
      */
     *shader = glCreateShader(type);
     
@@ -520,7 +528,7 @@ GLfloat* attrArrpos ;
      count     ——着色器源代码的数量
      string    ——着色器源代码（可能由多个，根据count而定）
      length    ——每个着色器源代码的长度, ，每个字符串的长度或NULL，这意味着这些字符串是NULL终止的,可以为NULL 代表字符串为NULL 结尾的，否则，length就代表具有就有count个元素，每个元素指定了string中对应字符串的长度，如果length数组中的某个元素对应一个正整数，就代表string数组中对应字符串的长度，如果是负整数，对应的字符串就是以NULL 结尾的.
-    
+     
      */
     glShaderSource(*shader, 1, &source,NULL);
     
@@ -535,5 +543,5 @@ GLfloat* attrArrpos ;
     
     
 }
- 
+
 @end
