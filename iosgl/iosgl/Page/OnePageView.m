@@ -10,6 +10,7 @@
 #import "MathCore.h"
 #import "CtxUIView.h"
 #import "GLSpriteView.h"
+#import "Matrix3D.h"
 @interface OnePageView ()
 
 @end
@@ -36,8 +37,10 @@
     
   //  self.view.backgroundColor=[UIColor clearColor];
     GLSpriteView *abc=[[GLSpriteView alloc]init];
-    abc.frame=CGRectMake(0, 0, 350, 350);
-   // [self.view addSubview:abc];
+    abc.frame=CGRectMake(0, 50, 100, 100);
+   [self.view addSubview:abc];
+    
+ 
     
 
 }

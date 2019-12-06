@@ -7,108 +7,131 @@
 //
 
 #import "Matrix3D.h"
+#import <GLKit/GLKit.h>
+ 
 
-
+@interface Matrix3D ()
+ 
+//@property (nonatomic, assign) float  m00;//是否为拖动结束
+ 
+@end
 @implementation Matrix3D
 
+char* matches[1];
+float  minfo[16];
+ float t00;
+ float t01;
+ float t02;
+ float t03;
+ float t04;
+ float t05;
+ float t06;
+ float t07;
+ float t08;
+ float t09;
+ float t10;
+ float t11;
+ float t12;
+ float t13;
+ float t14;
+ float t15;
+  
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         _isIdentity=true;
+        [self identity];
         
-        self.m = [NSMutableArray array];
-        
-        [self.m addObject:@1];
-        [self.m addObject:@0];
-        [self.m addObject:@0];
-        [self.m addObject:@0];
-        
-        [self.m addObject:@0];
-        [self.m addObject:@1];
-        [self.m addObject:@0];
-        [self.m addObject:@0];
-        
-        [self.m addObject:@0];
-        [self.m addObject:@0];
-        [self.m addObject:@1];
-        [self.m addObject:@0];
-        
-        [self.m addObject:@0];
-        [self.m addObject:@0];
-        [self.m addObject:@0];
-        [self.m addObject:@1.3344];
-        
-      //  [self identity];
-        
-        NSLog(@"--->%f", [self.m[15] doubleValue]+[self.m[0] doubleValue]);
-        
+        [self setMtoGl];
     }
     return self;
 }
 -(void)identity
 {
-    _m[0]=@1;
-    _m[1]=@0;
-    _m[2]=@0;
-    _m[3]=@0;
-    
-    _m[4]=@0;
-    _m[5]=@1;
-    _m[6]=@0;
-    _m[7]=@0;
-    
-    _m[8]=@0;
-    _m[9]=@0;
-    _m[10]=@1;
-    _m[11]=@0;
-    
-    _m[12]=@0;
-    _m[13]=@0;
-    _m[14]=@0;
-    _m[15]=@1;
-    
-    
+    t00=1;
+    t01=0;
+    t02=0;
+    t03=0;
+
+    t04=0;
+    t05=1;
+    t06=0;
+    t07=0;
+
+    t08=0;
+    t09=0;
+    t10=1;
+    t11=0;
+
+    t12=0;
+    t13=0;
+    t14=0;
+    t15=1;
+ 
 }
 -(void) copyTo  :(Matrix3D  *)$target {
-    $target.m[0] = self.m[0];
-    $target.m[1] = self.m[1];
-    $target.m[2] = self.m[2];
-    $target.m[3] = self.m[3];
-    $target.m[4] = self.m[4];
-    $target.m[5] = self.m[5];
-    $target.m[6] = self.m[6];
-    $target.m[7] = self.m[7];
-    $target.m[8] = self.m[8];
-    $target.m[9] = self.m[9];
-    $target.m[10] = self.m[10];
-    $target.m[11] = self.m[11];
-    $target.m[12] = self.m[12];
-    $target.m[13] = self.m[13];
-    $target.m[14] = self.m[14];
-    $target.m[15] = self.m[15];
+   
 }
-//public prependTranslation(x: number, y: number, z: number): void {
--(void) prependTranslation:(NSNumber * )x  y:(float)y z:(float)z  {
-    NSMutableArray *out = self.m;
-        out[12] =   x ;
-//        out[13] = [out[1]floatValue ] * x + [out[5]floatValue ] * y + [out[9]floatValue ] * z + [out[13]floatValue ];
-//        out[14] = [out[2]floatValue ] * x + [out[6] floatValue ]* y + [out[10]floatValue ] * z + [out[14]floatValue ];
-//        out[15] = [out[3] floatValue ]* x + [out[7] floatValue ]* y + [out[11] floatValue ]* z + [out[15]floatValue ];
+/*
+ public prependTranslation(x: number, y: number, z: number): void {
+            var out: Float32Array = this.m
+            out[12] = out[0] * x + out[4] * y + out[8] * z + out[12];
+            out[13] = out[1] * x + out[5] * y + out[9] * z + out[13];
+            out[14] = out[2] * x + out[6] * y + out[10] * z + out[14];
+            out[15] = out[3] * x + out[7] * y + out[11] * z + out[15];
 
-    }
-
--(int )getddmbte{
+        }
+*/
+-(void) prependTranslation:(float  )x  y:(float)y z:(float)z  {
+ 
+    t12 = t00 * x + t04 * y + t08 * z + t12;
+    t13 = t01 * x + t05 * y + t09 * z + t13;
+    t14 = t02 * x + t06 * y + t10 * z + t14;
+    t15 = t03 * x + t07 * y + t11 * z + t15;
     
-    int vt[16]=  {
-        1,-1,0,0,
-        2,2,0,0,
-        0,0,1.0,0,
-        0,0,0,1.0,
-    };
-    vt[0]=999.9;
-    
-    
-    return vt[0];
 }
+-(void)setMtoGl{
+    float vt[16]=  {
+        t00,t01,t02,t03,
+        t04,t05,t06,t07,
+        t08,t09,t10,t11,
+        t12,t13,t14,t15
+       };
+    
+    
+    [self glUniformMatrix4:vt];
+    
+}
+
+//-(void)glUniformMatrix4 (GLint location, GLsizei count, GLboolean transpose, const GLfloat* value)
+-(void)glUniformMatrix4  :(  float*)value
+{
+   // lhString=@"ccav";
+     value =    [self getbet];
+     
+     NSLog(@"value---0---%f",value[0]);
+     NSLog(@"value---1---%f",value[4]);
+     NSLog(@"value---2---%f",value[3]);
+     NSLog(@"value---3---%f",value[2]);
+     NSLog(@"value---3---%f",value[1]);
+     
+}
+
+ 
+
+-(float* )getbet{
+    
+    
+ //   minfo[0]=2.0f;
+     minfo[0]=0.0332;
+     minfo[1]=1.111;
+     minfo[2]=22.22;
+       minfo[3]=3.333;
+       minfo[4]=444.4;
+
+    return minfo;
+ 
+}
+ 
 @end

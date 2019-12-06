@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL isIdentity;
 @property (nonatomic, strong)  NSMutableArray *m;
  
+extern NSString *lhString;
 
 @end
 
