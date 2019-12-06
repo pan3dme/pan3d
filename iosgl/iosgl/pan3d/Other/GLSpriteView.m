@@ -22,8 +22,10 @@
 @end
 
 @implementation GLSpriteView
-
-
+GLuint attrBuffer;
+GLuint attrBufferOne;
+int skipnum;
+GLfloat* attrArrpos ;
 +(Class)layerClass
 {
     return [CAEAGLLayer class];
@@ -57,30 +59,14 @@
     
     //6、开始绘制
 
-    
+    [self makeTwoBuff];
     [self renderLayer];
   
- 
+    skipnum=0;
          [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
  
 }
--(void)upFrame{
- 
-     glClearColor(    1,0, 0.0f, 1.0f);
-     glClear(GL_COLOR_BUFFER_BIT);
 
-     GLuint rotateID = glGetUniformLocation(self.myProgram, "rotateMatrix");
-   
-     [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
-     glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
-     
-   
-     glDrawArrays(GL_TRIANGLES, 0, 6);
-  
-     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
-    
-  
-}
 
 //1、设置图层
 -(void)setUpLayer
@@ -224,6 +210,61 @@
     //纹理的名字
     _mEffect.texture2d0.name = textureInfo.name;
 }
+-(void)makeTwoBuff{
+ 
+       GLfloat attrArr[] = {
+           
+           0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
+           -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
+           -0.7f, -0.7f, 0.0f,    0.0f, 0.0f,
+           0.7f, 0.7f, 0.0f,      1.0f, 1.0f,
+           -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
+           0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
+       };
+       glGenBuffers(1, &attrBufferOne);
+       glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
+ 
+       glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+}
+-(void)upFrame{
+ 
+    NSLog(@"-----skipnum=>%d",skipnum++);
+     glClearColor(    1,0, 0.0f, 1.0f);
+     glClear(GL_COLOR_BUFFER_BIT);
+  //6、加载并使用链接好的程序
+        glUseProgram(self.myProgram);
+     GLuint rotateID = glGetUniformLocation(self.myProgram, "rotateMatrix");
+   
+     [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
+     glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
+    
+    if(skipnum%2==0){
+               glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
+    }else{
+               glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
+    }
+      
+
+       GLuint position = glGetAttribLocation(self.myProgram, "position");
+ 
+       glEnableVertexAttribArray(position);
+  
+       glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, NULL);
+    
+       GLuint textCoor = glGetAttribLocation(self.myProgram, "textCoordinate");
+ 
+       glEnableVertexAttribArray(textCoor);
+        
+       glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
+        // [self setupTexture:@"03"];
+   
+   
+     glDrawArrays(GL_TRIANGLES, 0, 6);
+  
+     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
+    
+ 
+}
 //6、开始绘制
 -(void)renderLayer
 {
@@ -303,9 +344,9 @@
         -0.5f, 0.5f, 0.0f,     0.0f, 1.0f,
         0.5f, -0.5f, 0.0f,     1.0f, 0.0f,
     };
-    
+    attrArrpos=attrArr;
     //8、----处理顶点数据-----
-    GLuint attrBuffer;
+  
     //申请一个缓存标记
     glGenBuffers(1, &attrBuffer);
     //确认缓存区是干什么的，就是绑定缓存区,在这里是存储顶点数组的
@@ -321,7 +362,9 @@
      GL_DyNAMIC_DRAW：表示该缓存区会被周期性更改；
      GL_STREAM_DRAW：表示该缓存区会被频繁更改；
      */
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+    
+    NSLog(@"长度%lu",sizeof(attrArr));
+    glBufferData(GL_ARRAY_BUFFER, 120, attrArrpos, GL_DYNAMIC_DRAW);
     
     /*glGetAttribLocation是用来获得vertex attribute的入口的,在我们要传递数据之前，首先要告诉OpenGL，所以要调用glEnableVertexAttribArray。
     最后的数据通过glVertexAttribPointer传进来。它的第一个参数就是glGetAttribLocation返回的值。*/
