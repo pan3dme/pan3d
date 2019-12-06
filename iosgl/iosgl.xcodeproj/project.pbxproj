@@ -34,6 +34,7 @@
 		FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC29C2395768D00D2483A /* FivePageView.m */; };
 		FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC29D2395768D00D2483A /* FivePageView.xib */; };
 		FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2A023957C7500D2483A /* xinshoupic.png */; };
+		FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE259A2E239A0BB6007360E6 /* Vector3D.m */; };
 		FE2BB2D62397F38A00597658 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2D52397F38A00597658 /* GlkView.m */; };
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
 		FE2BB2DE23981CD600597658 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FE2BB2DD23981CD600597658 /* shaderf.fsh */; };
@@ -86,6 +87,8 @@
 		FE0FC29C2395768D00D2483A /* FivePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePageView.m; sourceTree = "<group>"; };
 		FE0FC29D2395768D00D2483A /* FivePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePageView.xib; sourceTree = "<group>"; };
 		FE0FC2A023957C7500D2483A /* xinshoupic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinshoupic.png; sourceTree = "<group>"; };
+		FE259A2D239A0BB6007360E6 /* Vector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		FE259A2E239A0BB6007360E6 /* Vector3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector3D.m; sourceTree = "<group>"; };
 		FE2BB2D42397F38A00597658 /* GlkView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlkView.h; sourceTree = "<group>"; };
 		FE2BB2D52397F38A00597658 /* GlkView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlkView.m; sourceTree = "<group>"; };
 		FE2BB2DA23980EE600597658 /* GLSpriteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSpriteView.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 		FE4CA7D32398DA7C00BE6FB5 /* math */ = {
 			isa = PBXGroup;
 			children = (
+				FE259A2D239A0BB6007360E6 /* Vector3D.h */,
+				FE259A2E239A0BB6007360E6 /* Vector3D.m */,
 				FE4CA7D42398DAAA00BE6FB5 /* Matrix3D.h */,
 				FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */,
 			);
@@ -328,6 +333,7 @@
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
+				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
