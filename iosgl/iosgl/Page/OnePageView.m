@@ -37,7 +37,7 @@
     
   //  self.view.backgroundColor=[UIColor clearColor];
     GLSpriteView *abc=[[GLSpriteView alloc]init];
-    abc.frame=CGRectMake(0, 50, 100, 100);
+    abc.frame=CGRectMake(0, 50, 200, 200);
    [self.view addSubview:abc];
     
  

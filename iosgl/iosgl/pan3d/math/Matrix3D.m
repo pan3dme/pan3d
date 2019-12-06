@@ -13,7 +13,7 @@
  
 @implementation Matrix3D
  
-float  minfo[16];
+GLfloat  minfo[16];
  
 - (instancetype)init
 {
@@ -22,10 +22,14 @@ float  minfo[16];
     
         _isIdentity=true;
         [self identity];
-        
-        [self outString];
+ 
+ 
+        [self prependTranslation:0.5 y:0.5 z:0];
     }
     return self;
+}
+-(GLfloat *)m;{
+    return minfo;
 }
 -(void)identity
 {
@@ -58,7 +62,7 @@ float  minfo[16];
 }
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  {
     
-    float  *out =  minfo;
+    GLfloat  *out =  minfo;
     out[12] = out[0] * x + out[4] * y + out[8] * z + out[12];
     out[13] = out[1] * x + out[5] * y + out[9] * z + out[13];
     out[14] = out[2] * x + out[6] * y + out[10] * z + out[14];

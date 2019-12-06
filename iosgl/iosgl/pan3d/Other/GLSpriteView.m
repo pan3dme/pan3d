@@ -28,6 +28,14 @@
 {
     return [CAEAGLLayer class];
 }
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+            self.posMatrix3d =  [[Matrix3D alloc]init];
+    }
+    return self;
+}
 
 -(void)layoutSubviews
 {
@@ -50,11 +58,8 @@
     //6、开始绘制
     [self renderLayer];
     
-    self.posMatrix3d =  [[Matrix3D alloc]init];
-    
-    NSLog(@"----------");
-    
-    [self.posMatrix3d outString];
+
+  
  
    
  
@@ -356,6 +361,7 @@
         0,0,0,1.0,
     };
     
+    
    // NSLog(@"--------%@",  [self.posMatrix3d getddm] );
     
     /*
@@ -369,7 +375,8 @@
     
     
     //将这个旋转矩阵传进顶点着色器里面的uniform中,uniform不仅可以传矩阵还可以是变量
-    glUniformMatrix4fv(rotateID, 1, GL_FALSE, zRotation);
+  
+    glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
     
     
     //数据是放入缓冲区了，但是还没有绘制,
