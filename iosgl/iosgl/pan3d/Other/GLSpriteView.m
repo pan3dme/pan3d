@@ -56,13 +56,18 @@
     [self setupFrameBuffer];
     
     //6、开始绘制
-    [self renderLayer];
-    
 
+    
+    [self renderLayer];
   
  
-   
+         [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
  
+}
+-(void)upFrame{
+    NSLog(@"-------");
+    
+        [self renderLayer];
 }
 
 //1、设置图层
@@ -375,7 +380,8 @@
     
     
     //将这个旋转矩阵传进顶点着色器里面的uniform中,uniform不仅可以传矩阵还可以是变量
-  
+   
+    [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
     glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
     
     
