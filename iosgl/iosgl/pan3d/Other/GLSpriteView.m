@@ -22,7 +22,7 @@
 @end
 
 @implementation GLSpriteView
-GLuint attrBuffer;
+GLuint attrBufferTwo;
 GLuint attrBufferOne;
 GLKTextureInfo *textureInfoOne;
 GLKTextureInfo *textureInfoTwo;
@@ -249,11 +249,13 @@ GLfloat* attrArrpos ;
    
      [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
      glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
-       glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
+  
     if(skipnum  %10==0){
+             glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
             glBindTexture(textureInfoOne.target,textureInfoOne.name);
     }else{
             glBindTexture(textureInfoTwo.target,textureInfoTwo.name);
+             glBindBuffer(GL_ARRAY_BUFFER, attrBufferTwo);
     }
      
 
@@ -360,9 +362,9 @@ GLfloat* attrArrpos ;
     //8、----处理顶点数据-----
   
     //申请一个缓存标记
-    glGenBuffers(1, &attrBuffer);
+    glGenBuffers(1, &attrBufferTwo);
     //确认缓存区是干什么的，就是绑定缓存区,在这里是存储顶点数组的
-    glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, attrBufferTwo);
     
     //将顶点缓冲区的CPU内存复制到GPU内存中
     /*
