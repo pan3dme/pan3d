@@ -24,6 +24,8 @@
 @implementation GLSpriteView
 GLuint attrBuffer;
 GLuint attrBufferOne;
+GLKTextureInfo *textureInfoOne;
+GLKTextureInfo *textureInfoTwo;
 int skipnum;
 GLfloat* attrArrpos ;
 +(Class)layerClass
@@ -63,7 +65,7 @@ GLfloat* attrArrpos ;
     [self renderLayer];
   
     skipnum=0;
-         [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
+         [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
  
 }
 
@@ -193,22 +195,32 @@ GLfloat* attrArrpos ;
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
 
 }
--(void)setupTexture:(NSString *)value
+-(void)setupTextureOne:(NSString *)value
 {
-    //第一步，获取纹理图片保存路径
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"xinshoupic" ofType:@"png"];
-    
-    //GLKTextureLoaderOriginBottomLeft,纹理坐标是相反的
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:value ofType:@"png"];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
+    textureInfoOne = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
     
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
-    
-    //着色器
-    _mEffect = [[GLKBaseEffect alloc]init];
-    //第一个纹理属性
-    _mEffect.texture2d0.enabled = GL_TRUE;
+  //  _mEffect = [[GLKBaseEffect alloc]init];
+  //  _mEffect.texture2d0.enabled = GL_TRUE;
     //纹理的名字
-    _mEffect.texture2d0.name = textureInfo.name;
+  //  _mEffect.texture2d0.name = textureInfo.name;
+}
+-(void)setupTextureTwo
+{
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"brdf_ltu" ofType:@"jpg"];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
+     textureInfoTwo= [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
+    
+ // _mEffect = [[GLKBaseEffect alloc]init];
+    
+  
+   
+ 
+ 
+  //  _mEffect.texture2d0.enabled = GL_TRUE;
+    //纹理的名字
+  //  _mEffect.texture2d0.name = textureInfo.name;
 }
 -(void)makeTwoBuff{
  
@@ -237,13 +249,13 @@ GLfloat* attrArrpos ;
    
      [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
      glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
-    
-    if(skipnum%2==0){
-               glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
+       glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
+    if(skipnum  %10==0){
+            glBindTexture(textureInfoOne.target,textureInfoOne.name);
     }else{
-               glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
+            glBindTexture(textureInfoTwo.target,textureInfoTwo.name);
     }
-      
+     
 
        GLuint position = glGetAttribLocation(self.myProgram, "position");
  
@@ -400,7 +412,8 @@ GLfloat* attrArrpos ;
     glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
     
     //10、加载纹理,通过一个自定义的方法来解决加载纹理的方法
-    [self setupTexture:@"03"];
+    [self setupTextureOne:@"xinshoupic"];
+    [self setupTextureTwo];
     
     //直接通过3D数学的公式来实现旋转
     //uniform只是从外部传入到顶点着色器或者片元着色器里面，内部不能改变
