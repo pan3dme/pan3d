@@ -23,8 +23,6 @@ GLfloat  minfo[16];
         _isIdentity=true;
         [self identity];
  
- 
-        [self prependTranslation:0.5 y:0.5 z:0];
     }
     return self;
 }

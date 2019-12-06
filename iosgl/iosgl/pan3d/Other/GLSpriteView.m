@@ -65,9 +65,21 @@
  
 }
 -(void)upFrame{
-    NSLog(@"-------");
+ 
+     glClearColor(    1,0, 0.0f, 1.0f);
+     glClear(GL_COLOR_BUFFER_BIT);
+
+     GLuint rotateID = glGetUniformLocation(self.myProgram, "rotateMatrix");
+   
+     [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
+     glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
+     
+   
+     glDrawArrays(GL_TRIANGLES, 0, 6);
+  
+     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
     
-        [self renderLayer];
+  
 }
 
 //1、设置图层
@@ -352,7 +364,7 @@
     //旋转 矩阵->Uniform 传递到vsh,fsh中
     
     //需求：旋转10度 -> 弧度
-    float rotate = 45 * 3.141592f /180.0f;
+    float rotate = 0 * 3.141592f /180.0f;
     
     //旋转的矩阵公式
     float s = sin(rotate);
@@ -377,12 +389,13 @@
      */
     //获取着色器程序中，指定为uniform类型变量的id
     GLuint rotateID = glGetUniformLocation(self.myProgram, "rotateMatrix");
+ 
     
     
     //将这个旋转矩阵传进顶点着色器里面的uniform中,uniform不仅可以传矩阵还可以是变量
-   
-    [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
-    glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
+    
+ 
+      glUniformMatrix4fv(rotateID, 1, GL_FALSE, zRotation);
     
     
     //数据是放入缓冲区了，但是还没有绘制,
