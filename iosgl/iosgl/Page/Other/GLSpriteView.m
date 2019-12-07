@@ -19,15 +19,15 @@
 @property (nonatomic, assign) GLuint myProgramTwo;
 
 
-
+@property (nonatomic, assign) GLuint attrBufferTwo;
+@property (nonatomic, assign) GLuint attrBufferOne;
+ 
 
 @end
 
 @implementation GLSpriteView
-GLuint attrBufferTwo;
-GLuint attrBufferOne;
-GLKTextureInfo *textureInfoOne;
-GLKTextureInfo *textureInfoTwo;
+ GLKTextureInfo *_textureInfoOne;
+ GLKTextureInfo *_textureInfoTwo;
 int skipnum;
 GLfloat* attrArrpos ;
 +(Class)layerClass
@@ -203,7 +203,7 @@ GLfloat* attrArrpos ;
 {
     NSString *filePath = [[NSBundle mainBundle]pathForResource:value ofType:@"png"];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
-    textureInfoOne = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
+    _textureInfoOne = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
     
     //  _mEffect = [[GLKBaseEffect alloc]init];
     //  _mEffect.texture2d0.enabled = GL_TRUE;
@@ -214,7 +214,7 @@ GLfloat* attrArrpos ;
 {
     NSString *filePath = [[NSBundle mainBundle]pathForResource:@"brdf_ltu" ofType:@"jpg"];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
-    textureInfoTwo= [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
+    _textureInfoTwo= [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
     
     // _mEffect = [[GLKBaseEffect alloc]init];
     
@@ -237,8 +237,8 @@ GLfloat* attrArrpos ;
         -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
         0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
     };
-    glGenBuffers(1, &attrBufferOne);
-    glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
+    glGenBuffers(1, &_attrBufferOne);
+    glBindBuffer(GL_ARRAY_BUFFER, _attrBufferOne);
     
     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
 }
@@ -256,13 +256,13 @@ GLfloat* attrArrpos ;
     if(skipnum  %10==0){
         selectProgram=self.myProgramOne;
                glUseProgram(selectProgram);
-        glBindBuffer(GL_ARRAY_BUFFER, attrBufferOne);
-        glBindTexture(textureInfoOne.target,textureInfoOne.name);
+        glBindBuffer(GL_ARRAY_BUFFER, _attrBufferOne);
+        glBindTexture(_textureInfoOne.target,_textureInfoOne.name);
     }else{
         selectProgram=self.myProgramTwo;
                glUseProgram(selectProgram);
-        glBindTexture(textureInfoTwo.target,textureInfoTwo.name);
-        glBindBuffer(GL_ARRAY_BUFFER, attrBufferTwo);
+        glBindTexture(_textureInfoTwo.target,_textureInfoTwo.name);
+        glBindBuffer(GL_ARRAY_BUFFER, _attrBufferTwo);
     }
 
     
@@ -373,9 +373,9 @@ GLfloat* attrArrpos ;
     //8、----处理顶点数据-----
     
     //申请一个缓存标记
-    glGenBuffers(1, &attrBufferTwo);
+    glGenBuffers(1, &_attrBufferTwo);
     //确认缓存区是干什么的，就是绑定缓存区,在这里是存储顶点数组的
-    glBindBuffer(GL_ARRAY_BUFFER, attrBufferTwo);
+    glBindBuffer(GL_ARRAY_BUFFER, _attrBufferTwo);
     
     //将顶点缓冲区的CPU内存复制到GPU内存中
     /*
