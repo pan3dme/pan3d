@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Matrix3D.h"
-#import "DisplayBaseShader3D.h"
+#import "Shader3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,8 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
-@property (nonatomic, assign) GLuint myProgramOne;
-@property (nonatomic, assign) GLuint myProgramTwo;
+ 
 @property (nonatomic, assign) GLuint attrBufferTwo;
 @property (nonatomic, assign) GLuint attrBufferOne;
 @property (nonatomic, assign) int skipnum;
@@ -30,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) GLKTextureInfo *textureInfoOne; 
 @property (nonatomic,copy) GLKTextureInfo *textureInfoTwo;
 
-@property (nonatomic, strong) DisplayBaseShader3D *shaderOne;
-@property (nonatomic, strong) DisplayBaseShader3D *shaderTwo;
+@property (nonatomic, strong) Shader3D *shaderOne;
+@property (nonatomic, strong) Shader3D *shaderTwo;
  
 @end
 

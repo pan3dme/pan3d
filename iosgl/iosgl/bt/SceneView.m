@@ -227,59 +227,19 @@
     //读取存储路径
  
     
-     
-    self.myProgramOne = [self LoadShader:[[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"] WithFrag: [[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"]];
+      
     
-    //5、链接
-    glLinkProgram(self.myProgramOne);
-    
-    //获取link的状态
-    GLint linkStatus;
-    //program是一个着色器程序的id；pname是GL_LINK_STATUS；param是返回值，在连接阶段使用glGetProgramiv获取连接情况
-    
-    /*首先通过glCreateProgram程序创建 OpenGL 程序，然后通过glAttachShader将着色器程序 ID 添加上 OpenGL 程序，
-     接下来通过glLinkProgram链接 OpenGL 程序，最后通过glGetProgramiv来验证链接是否失败。*/
-    glGetProgramiv(self.myProgramOne, GL_LINK_STATUS, &linkStatus);
-    
-    
-     self.myProgramTwo = [self LoadShader:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] WithFrag: [[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
- 
-    //5、链接
-    glLinkProgram(self.myProgramTwo);
-    glGetProgramiv(self.myProgramTwo, GL_LINK_STATUS, &linkStatus);
-    
-    self.shaderOne= [[DisplayBaseShader3D alloc]init];
+    self.shaderOne= [[Shader3D alloc]init];
     [self.shaderOne encodeVstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
     
-    self.shaderTwo= [[DisplayBaseShader3D alloc]init];
-    [self.shaderTwo encodeVstr:[[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"]];
+    self.shaderTwo= [[Shader3D alloc]init];
+    [self.shaderTwo encodeVstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"fsh"]];
     
     //判断linkStatus的状态
-    if(linkStatus==GL_FALSE)
-    {
-        //获取失败信息
-        GLchar message[512];
-        //来检查是否有error，并输出信息
-        /*
-         作用:连接着色器程序也可能出现错误，我们需要进行查询，获取错误日志信息
-         参数1: program 着色器程序标识
-         参数2: bufsize 最大日志长度
-         参数3: length 返回日志信息的长度
-         参数4：infoLog 保存在缓冲区中
-         */
-        glGetProgramInfoLog(self.myProgramOne, sizeof(message), 0, &message[0]);
-        
-        //将C语言字符串转换成OC字符串
-        NSString * messageStr = [NSString stringWithUTF8String:message];
-        
-        NSLog(@"Program Link Error:%@",messageStr);
-        
-        return;
-    }
-    NSLog(@"Program Link Success!");
     
+    GLuint myProgramOne= self.shaderTwo.program;
     //6、加载并使用链接好的程序
-    glUseProgram(self.myProgramOne);
+    glUseProgram(myProgramOne);
     
     //7.设置顶点,前三个是顶点的坐标，后两个是纹理的坐标
     GLfloat attrArr[] = {
@@ -316,7 +276,7 @@
      最后的数据通过glVertexAttribPointer传进来。它的第一个参数就是glGetAttribLocation返回的值。*/
     
     //9、获取着色器程序中，指定为attribute类型变量的id
-    GLuint position = glGetAttribLocation(self.myProgramOne, "position");
+    GLuint position = glGetAttribLocation(myProgramOne, "position");
     
     //告诉OpenGL，允许使用顶点坐标数组
     glEnableVertexAttribArray(position);
@@ -338,7 +298,7 @@
     //通过三个设置就可以往着色器语言中传入数据
     
     //处理纹理数据，也就是纹理坐标
-    GLuint textCoor = glGetAttribLocation(self.myProgramOne, "textCoordinate");
+    GLuint textCoor = glGetAttribLocation(myProgramOne, "textCoordinate");
     //参数：index：指定了需要启用的顶点属性数组的索引，注意：它只在OpenGL2.0及其以上版本才有。
     glEnableVertexAttribArray(textCoor);
     
@@ -378,7 +338,7 @@
      并且这个矩阵是按行定义的，那么你就需要设置这个参数为GL_TRUE。最后一个参数就是传递给uniform变量的数据的指针了。
      */
     //获取着色器程序中，指定为uniform类型变量的id
-    GLuint rotateID = glGetUniformLocation(self.myProgramOne, "rotateMatrix");
+    GLuint rotateID = glGetUniformLocation(myProgramOne, "rotateMatrix");
     
     
     
@@ -474,7 +434,7 @@
     glClear(GL_COLOR_BUFFER_BIT);
     //6、加载并使用链接好的程序
     
-    GLuint selectProgram=self.myProgramOne;
+    GLuint selectProgram;;
  
     
     if(_skipnum  %10==0){
