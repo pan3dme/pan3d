@@ -10,6 +10,8 @@
 #import <GLKit/GLKit.h>
 #import "Matrix3D.h"
 #import "Vector3D.h"
+#import "TextureRes.h"
+#import "MaterialManager.h"
 
 @implementation SceneView
    
@@ -306,6 +308,9 @@
     [self setupTextureOne:@"xinshoupic"];
     [self setupTextureTwo];
     
+    _textureResOne=[[MaterialManager default] getMaterialByUrl:@"xinshoupic.png"];
+    _textureResTwo=[[MaterialManager default] getMaterialByUrl:@"brdf_ltu.jpg"];
+    
     //直接通过3D数学的公式来实现旋转
     //uniform只是从外部传入到顶点着色器或者片元着色器里面，内部不能改变
     //旋转 矩阵->Uniform 传递到vsh,fsh中
@@ -438,7 +443,7 @@
         selectProgram= self.shaderOne.program;
                glUseProgram(selectProgram);
         glBindBuffer(GL_ARRAY_BUFFER, _attrBufferOne);
-        glBindTexture(_textureInfoOne.target,_textureInfoOne.name);
+        glBindTexture(_textureResOne.texture.target,_textureResOne.texture.name);
     }else{
         selectProgram= self.shaderTwo.program;
                glUseProgram(selectProgram);

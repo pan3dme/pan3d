@@ -38,6 +38,8 @@
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
 		FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088EB239BFC70007FB797 /* DisplayBaseShader3D.m */; };
+		FE2088F0239C176A007FB797 /* TextureRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088EF239C176A007FB797 /* TextureRes.m */; };
+		FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088F3239C183B007FB797 /* MaterialManager.m */; };
 		FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE259A2E239A0BB6007360E6 /* Vector3D.m */; };
 		FE2BB2D62397F38A00597658 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2D52397F38A00597658 /* GlkView.m */; };
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
@@ -108,6 +110,10 @@
 		FE2088E2239BE899007FB797 /* ProgrmaManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgrmaManager.m; sourceTree = "<group>"; };
 		FE2088EA239BFC70007FB797 /* DisplayBaseShader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayBaseShader3D.h; sourceTree = "<group>"; };
 		FE2088EB239BFC70007FB797 /* DisplayBaseShader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayBaseShader3D.m; sourceTree = "<group>"; };
+		FE2088EE239C176A007FB797 /* TextureRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureRes.h; sourceTree = "<group>"; };
+		FE2088EF239C176A007FB797 /* TextureRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureRes.m; sourceTree = "<group>"; };
+		FE2088F2239C183B007FB797 /* MaterialManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialManager.h; sourceTree = "<group>"; };
+		FE2088F3239C183B007FB797 /* MaterialManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialManager.m; sourceTree = "<group>"; };
 		FE259A2D239A0BB6007360E6 /* Vector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
 		FE259A2E239A0BB6007360E6 /* Vector3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector3D.m; sourceTree = "<group>"; };
 		FE2BB2D42397F38A00597658 /* GlkView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlkView.h; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		FE0FC254239511AC00D2483A /* bt */ = {
 			isa = PBXGroup;
 			children = (
+				FE2088F1239C1821007FB797 /* material */,
 				FE2088DA239BDF0B007FB797 /* program */,
 				FE678832239B944600262B53 /* base */,
 				FE67882E239B934C00262B53 /* display */,
@@ -292,6 +299,15 @@
 			path = program;
 			sourceTree = "<group>";
 		};
+		FE2088F1239C1821007FB797 /* material */ = {
+			isa = PBXGroup;
+			children = (
+				FE2088F2239C183B007FB797 /* MaterialManager.h */,
+				FE2088F3239C183B007FB797 /* MaterialManager.m */,
+			);
+			path = material;
+			sourceTree = "<group>";
+		};
 		FE4CA7D32398DA7C00BE6FB5 /* math */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +339,8 @@
 				FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */,
 				FE678837239B948D00262B53 /* ObjData.h */,
 				FE678838239B948D00262B53 /* ObjData.m */,
+				FE2088EE239C176A007FB797 /* TextureRes.h */,
+				FE2088EF239C176A007FB797 /* TextureRes.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -421,6 +439,7 @@
 			files = (
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
+				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
 				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
@@ -446,6 +465,7 @@
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
+				FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */,
 				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
 				FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */,
 				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
