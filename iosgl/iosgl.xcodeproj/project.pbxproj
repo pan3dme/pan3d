@@ -37,6 +37,7 @@
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
+		FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088EB239BFC70007FB797 /* DisplayBaseShader3D.m */; };
 		FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE259A2E239A0BB6007360E6 /* Vector3D.m */; };
 		FE2BB2D62397F38A00597658 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2D52397F38A00597658 /* GlkView.m */; };
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
@@ -105,6 +106,8 @@
 		FE2088DF239BE86A007FB797 /* ResGC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResGC.m; sourceTree = "<group>"; };
 		FE2088E1239BE899007FB797 /* ProgrmaManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgrmaManager.h; sourceTree = "<group>"; };
 		FE2088E2239BE899007FB797 /* ProgrmaManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgrmaManager.m; sourceTree = "<group>"; };
+		FE2088EA239BFC70007FB797 /* DisplayBaseShader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayBaseShader3D.h; sourceTree = "<group>"; };
+		FE2088EB239BFC70007FB797 /* DisplayBaseShader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayBaseShader3D.m; sourceTree = "<group>"; };
 		FE259A2D239A0BB6007360E6 /* Vector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
 		FE259A2E239A0BB6007360E6 /* Vector3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector3D.m; sourceTree = "<group>"; };
 		FE2BB2D42397F38A00597658 /* GlkView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlkView.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 			children = (
 				FE2088DB239BDF60007FB797 /* Shader3D.h */,
 				FE2088DC239BDF60007FB797 /* Shader3D.m */,
+				FE2088EA239BFC70007FB797 /* DisplayBaseShader3D.h */,
+				FE2088EB239BFC70007FB797 /* DisplayBaseShader3D.m */,
 				FE2088E1239BE899007FB797 /* ProgrmaManager.h */,
 				FE2088E2239BE899007FB797 /* ProgrmaManager.m */,
 			);
@@ -434,6 +439,7 @@
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
+				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,
