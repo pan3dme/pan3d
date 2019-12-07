@@ -209,6 +209,8 @@
 //6、开始绘制
 -(void)renderLayer
 {
+    
+  
     //1、开始写入顶点着色器、片元着色器
     //Vextex Shader
     //Fragment Shader
@@ -228,12 +230,7 @@
  
     
       
-    
-    self.shaderOne= [[Shader3D alloc]init];
-    [self.shaderOne encodeVstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
-    
-    self.shaderTwo= [[Shader3D alloc]init];
-    [self.shaderTwo encodeVstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"fsh"]];
+
     
     //判断linkStatus的状态
     
@@ -477,13 +474,20 @@
 -(void)layoutSubviews
 {
     
-    Vector3D *a=[[Vector3D alloc]x:0 y:88 z:0 w:1];
+   // Vector3D *a=[[Vector3D alloc]x:0 y:88 z:0 w:1];
     
     //1、设置图层
     [self setUpLayer];
+
     
     //2、创建上下文
     [self setupContext];
+    
+    self.shaderOne= [[Shader3D alloc]init];
+      [self.shaderOne encodeVstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
+      
+      self.shaderTwo= [[Shader3D alloc]init];
+      [self.shaderTwo encodeVstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"fsh"]];
     
     //3、清空缓冲区
     [self deleteRenderAndFrameBuffer];
@@ -495,6 +499,7 @@
     [self setupFrameBuffer];
     
     //6、开始绘制
+
     
     [self makeTwoBuff];
     [self renderLayer];
