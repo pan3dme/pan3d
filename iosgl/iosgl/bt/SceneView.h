@@ -21,6 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
 @property (nonatomic, assign) GLuint myProgramOne;
 @property (nonatomic, assign) GLuint myProgramTwo;
+@property (nonatomic, assign) GLuint attrBufferTwo;
+@property (nonatomic, assign) GLuint attrBufferOne;
+@property (nonatomic, assign) int skipnum;
+
+@property (nonatomic,copy) NSString *name;///< name
+@property (nonatomic,copy) GLKTextureInfo *textureInfoOne; 
+@property (nonatomic,copy) GLKTextureInfo *textureInfoTwo;
+
+
+ 
 @end
 
 NS_ASSUME_NONNULL_END
