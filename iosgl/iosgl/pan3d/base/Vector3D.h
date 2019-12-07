@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  float y;
 @property (nonatomic, assign)  float z;
 @property (nonatomic, assign)  float w;
+
+- (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
+
 @end
 
 NS_ASSUME_NONNULL_END
