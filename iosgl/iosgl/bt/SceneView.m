@@ -165,22 +165,7 @@
     
 }
  
--(void)makeTwoBuff{
-    
-    GLfloat attrArr[] = {
-        
-        0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
-        -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
-        -0.7f, -0.7f, 0.0f,    0.0f, 0.0f,
-        0.7f, 0.7f, 0.0f,      1.0f, 1.0f,
-        -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
-        0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
-    };
-    glGenBuffers(1, &_attrBufferOne);
-    glBindBuffer(GL_ARRAY_BUFFER, _attrBufferOne);
-    
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-}
+ 
 
 //6、开始绘制
 -(void)renderLayer
@@ -214,36 +199,10 @@
     //6、加载并使用链接好的程序
     glUseProgram(myProgramOne);
     
-    //7.设置顶点,前三个是顶点的坐标，后两个是纹理的坐标
-    GLfloat attrArr[] = {
-        
-        0.5f, -0.5f, 0.0f,     1.0f, 0.0f,
-        -0.5f, 0.5f, 0.0f,     0.0f, 1.0f,
-        -0.5f, -0.5f, 0.0f,    0.0f, 0.0f,
-        0.5f, 0.5f, 0.0f,      1.0f, 1.0f,
-        -0.5f, 0.5f, 0.0f,     0.0f, 1.0f,
-        0.5f, -0.5f, 0.0f,     1.0f, 0.0f,
-    };
+    
+    glBindBuffer(GL_ARRAY_BUFFER, _objDataOne.verticesBuffer);
+    
  
-    //8、----处理顶点数据-----
-    
-    //申请一个缓存标记
-    glGenBuffers(1, &_attrBufferTwo);
-    //确认缓存区是干什么的，就是绑定缓存区,在这里是存储顶点数组的
-    glBindBuffer(GL_ARRAY_BUFFER, _attrBufferTwo);
-    
-    //将顶点缓冲区的CPU内存复制到GPU内存中
-    /*
-     参数 target：与 glBindBuffer 中的参数 target 相同；
-     参数 size ：指定顶点缓存区的大小，以字节为单位计数；
-     data ：用于初始化顶点缓存区的数据，可以为 NULL，表示只分配空间，之后再由 glBufferSubData 进行初始化；
-     usage ：表示该缓存区域将会被如何使用，它的主要目的是用于提示OpenGL该对该缓存区域做何种程度的优化。其参数为以下三个之一：
-     GL_STATIC_DRAW：表示该缓存区不会被修改；
-     GL_DyNAMIC_DRAW：表示该缓存区会被周期性更改；
-     GL_STREAM_DRAW：表示该缓存区会被频繁更改；
-     */
-     
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
     
     /*glGetAttribLocation是用来获得vertex attribute的入口的,在我们要传递数据之前，首先要告诉OpenGL，所以要调用glEnableVertexAttribArray。
      最后的数据通过glVertexAttribPointer传进来。它的第一个参数就是glGetAttribLocation返回的值。*/
@@ -414,14 +373,15 @@
     
     if(_skipnum  %10==0){
         selectProgram= self.shaderOne.program;
-               glUseProgram(selectProgram);
-        glBindBuffer(GL_ARRAY_BUFFER, _attrBufferOne);
+        glUseProgram(selectProgram);
         glBindTexture(_textureResOne.texture.target,_textureResOne.texture.name);
+        glBindBuffer(GL_ARRAY_BUFFER, _objDataOne.verticesBuffer);
+
     }else{
         selectProgram= self.shaderTwo.program;
-               glUseProgram(selectProgram);
+        glUseProgram(selectProgram);
         glBindTexture(_textureResTwo.texture.target,_textureResTwo.texture.name);
-        glBindBuffer(GL_ARRAY_BUFFER, _attrBufferTwo);
+        glBindBuffer(GL_ARRAY_BUFFER, _objDataTwo.verticesBuffer);
     }
 
     
@@ -467,6 +427,12 @@
       self.shaderTwo= [[Shader3D alloc]init];
       [self.shaderTwo encodeVstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"fsh"]];
     
+    _objDataOne=[[ObjData alloc]init];
+    [_objDataOne upToGpu];
+    _objDataTwo=[[ObjData alloc]init];
+       [_objDataTwo upToGpu];
+    [self renderLayer];
+    
     //3、清空缓冲区
     [self deleteRenderAndFrameBuffer];
     
@@ -477,10 +443,7 @@
     [self setupFrameBuffer];
     
     //6、开始绘制
-
-    
-    [self makeTwoBuff];
-    [self renderLayer];
+ 
     
     _skipnum=0;
     [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];

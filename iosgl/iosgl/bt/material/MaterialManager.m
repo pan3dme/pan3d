@@ -19,7 +19,6 @@ static MaterialManager *instance = nil;
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
 {
     TextureRes *textureRes=[[TextureRes alloc]init];
-   // NSString *filePath = [[NSBundle mainBundle]pathForResource:@"brdf_ltu" ofType:@"jpg"];
     NSString *filePath =   [[NSBundle mainBundle]pathForAuxiliaryExecutable:urlStr];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
     textureRes.texture= [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];

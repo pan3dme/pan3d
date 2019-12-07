@@ -574,8 +574,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>

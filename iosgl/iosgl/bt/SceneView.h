@@ -10,6 +10,7 @@
 #import "Matrix3D.h"
 #import "Shader3D.h"
 #import "TextureRes.h"
+#import "ObjData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,8 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
  
-@property (nonatomic, assign) GLuint attrBufferTwo;
-@property (nonatomic, assign) GLuint attrBufferOne;
+ 
 @property (nonatomic, assign) int skipnum;
 
 @property (nonatomic,copy) NSString *name;///< name
@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) TextureRes *textureResTwo;
 @property (nonatomic, strong) Shader3D *shaderOne;
 @property (nonatomic, strong) Shader3D *shaderTwo;
+@property (nonatomic, strong) ObjData *objDataOne;
+@property (nonatomic, strong) ObjData *objDataTwo;
  
 @end
 
