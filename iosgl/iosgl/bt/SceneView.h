@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Matrix3D.h"
+#import "DisplayBaseShader3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,7 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) GLKTextureInfo *textureInfoOne; 
 @property (nonatomic,copy) GLKTextureInfo *textureInfoTwo;
 
-
+@property (nonatomic, strong) DisplayBaseShader3D *shaderOne;
+@property (nonatomic, strong) DisplayBaseShader3D *shaderTwo;
  
 @end
 

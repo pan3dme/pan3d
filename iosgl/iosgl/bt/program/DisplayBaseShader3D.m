@@ -13,6 +13,6 @@
     return    [[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"];
 }
 -(NSString *)getFragmentShaderString;{
-    return    [[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"fsh"];
+    return    [[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"];
 }
 @end

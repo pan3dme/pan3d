@@ -29,6 +29,7 @@
     self = [super init];
     if (self) {
         self.posMatrix3d =  [[Matrix3D alloc]init];
+      
     }
     return self;
 }
@@ -53,6 +54,8 @@
      设置此属性只影响由Core Animation管理的后台存储。如果将一个带有alpha通道的图像分配给该层的内容属性，则该图像保留其alpha通道，而不考虑该属性的值。
      */
     self.myEAGLayer.opaque=YES;
+    
+    
     
     //4、设置描述属性，
     /*
@@ -244,6 +247,12 @@
     //5、链接
     glLinkProgram(self.myProgramTwo);
     glGetProgramiv(self.myProgramTwo, GL_LINK_STATUS, &linkStatus);
+    
+    self.shaderOne= [[DisplayBaseShader3D alloc]init];
+    [self.shaderOne encodeVstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
+    
+    self.shaderTwo= [[DisplayBaseShader3D alloc]init];
+    [self.shaderTwo encodeVstr:[[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"]];
     
     //判断linkStatus的状态
     if(linkStatus==GL_FALSE)
@@ -467,15 +476,14 @@
     
     GLuint selectProgram=self.myProgramOne;
  
-  
     
     if(_skipnum  %10==0){
-        selectProgram=self.myProgramOne;
+        selectProgram= self.shaderOne.program;
                glUseProgram(selectProgram);
         glBindBuffer(GL_ARRAY_BUFFER, _attrBufferOne);
         glBindTexture(_textureInfoOne.target,_textureInfoOne.name);
     }else{
-        selectProgram=self.myProgramTwo;
+        selectProgram= self.shaderTwo.program;
                glUseProgram(selectProgram);
         glBindTexture(_textureInfoTwo.target,_textureInfoTwo.name);
         glBindBuffer(GL_ARRAY_BUFFER, _attrBufferTwo);
@@ -532,7 +540,7 @@
     [self renderLayer];
     
     _skipnum=0;
-    [NSTimer scheduledTimerWithTimeInterval:1.0/1.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
     
 }
 
