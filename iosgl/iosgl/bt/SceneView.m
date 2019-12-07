@@ -164,33 +164,7 @@
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
     
 }
--(void)setupTextureOne:(NSString *)value
-{
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:value ofType:@"png"];
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
-    _textureInfoOne = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
-    
-    //  _mEffect = [[GLKBaseEffect alloc]init];
-    //  _mEffect.texture2d0.enabled = GL_TRUE;
-    //纹理的名字
-    //  _mEffect.texture2d0.name = textureInfo.name;
-}
--(void)setupTextureTwo
-{
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"brdf_ltu" ofType:@"jpg"];
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@(1), GLKTextureLoaderOriginBottomLeft,NULL];
-    _textureInfoTwo= [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:NULL];
-    
-    // _mEffect = [[GLKBaseEffect alloc]init];
-    
-    
-    
-    
-    
-    //  _mEffect.texture2d0.enabled = GL_TRUE;
-    //纹理的名字
-    //  _mEffect.texture2d0.name = textureInfo.name;
-}
+ 
 -(void)makeTwoBuff{
     
     GLfloat attrArr[] = {
@@ -305,8 +279,7 @@
     glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
     
     //10、加载纹理,通过一个自定义的方法来解决加载纹理的方法
-    [self setupTextureOne:@"xinshoupic"];
-    [self setupTextureTwo];
+ 
     
     _textureResOne=[[MaterialManager default] getMaterialByUrl:@"xinshoupic.png"];
     _textureResTwo=[[MaterialManager default] getMaterialByUrl:@"brdf_ltu.jpg"];
@@ -447,7 +420,7 @@
     }else{
         selectProgram= self.shaderTwo.program;
                glUseProgram(selectProgram);
-        glBindTexture(_textureInfoTwo.target,_textureInfoTwo.name);
+        glBindTexture(_textureResTwo.texture.target,_textureResTwo.texture.name);
         glBindBuffer(GL_ARRAY_BUFFER, _attrBufferTwo);
     }
 

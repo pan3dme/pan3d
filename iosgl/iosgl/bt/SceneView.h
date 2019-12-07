@@ -27,9 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int skipnum;
 
 @property (nonatomic,copy) NSString *name;///< name
-@property (nonatomic,copy) GLKTextureInfo *textureInfoOne; 
-@property (nonatomic,copy) GLKTextureInfo *textureInfoTwo;
-
 
 @property (nonatomic, strong) TextureRes *textureResOne;
 @property (nonatomic, strong) TextureRes *textureResTwo;
