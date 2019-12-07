@@ -532,7 +532,7 @@
     [self renderLayer];
     
     _skipnum=0;
-    [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1.0/1.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
     
 }
 
