@@ -7,10 +7,14 @@
 //
 
 #import "Vector3D.h"
+#import "Matrix3D.h"
+#import "Scene3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3D : Vector3D
+@property (nonatomic, strong)  Matrix3D *posMatrix3d;
+ @property (nonatomic, strong) Scene3D *scene; // OpenGL context,管理使用opengl
 -(void) upFrame  ;
 -(void) destory  ;
 @end

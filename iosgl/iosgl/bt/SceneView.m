@@ -170,7 +170,7 @@
 -(void)upFrame{
     
     NSLog(@"-----skipnum=>%d",_skipnum++);
-    
+
     //1、开始写入顶点着色器、片元着色器
        //Vextex Shader
        //Fragment Shader
@@ -185,7 +185,7 @@
        //读取存储路径
  
     //6、加载并使用链接好的程序
-    
+    /*
     GLuint selectProgram;;
  
     
@@ -223,6 +223,10 @@
     
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
+    */
+    
+        [_dispOne upFrame ];
+    
     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
     
     
@@ -238,6 +242,9 @@
     
     //2、创建上下文
     [self setupContext];
+    
+    _scene3D=[[Scene3D alloc]init];
+    _scene3D.context3D=self.myContext;
     
     self.shaderOne= [[Shader3D alloc]init];
       [self.shaderOne encodeVstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
@@ -255,6 +262,11 @@
     _textureResTwo=[[MaterialManager default] getMaterialByUrl:@"brdf_ltu.jpg"];
     
    // [self renderLayer];
+    
+    
+    _dispOne=[[Display3DSprite alloc]init];
+    _dispOne.scene=_scene3D;
+    
     
     //3、清空缓冲区
     [self deleteRenderAndFrameBuffer];

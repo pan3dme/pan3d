@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Display3DSprite.h"
 #import "Matrix3D.h"
 #import "Shader3D.h"
 #import "TextureRes.h"
 #import "ObjData.h"
+#import "Scene3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Shader3D *shaderTwo;
 @property (nonatomic, strong) ObjData *objDataOne;
 @property (nonatomic, strong) ObjData *objDataTwo;
+
+@property (nonatomic, strong) Display3DSprite *dispOne;
+@property (nonatomic, strong) Scene3D *scene3D;
  
 @end
 

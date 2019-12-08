@@ -7,11 +7,16 @@
 //
 
 #import "Display3D.h"
+#import "TextureRes.h"
+#import "Shader3D.h"
+#import "ObjData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3DSprite : Display3D
-
+@property (nonatomic, strong) TextureRes *textureRes;
+@property (nonatomic, strong) Shader3D *shader3d;
+@property (nonatomic, strong) ObjData *objData;
 @end
 
 NS_ASSUME_NONNULL_END
