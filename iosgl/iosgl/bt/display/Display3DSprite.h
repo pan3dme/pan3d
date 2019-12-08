@@ -21,5 +21,5 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)loadShaderByUrl:(NSString*)value;
 -(void)loadObjDataByUrl:(NSString*)value;
 -(void)loadTextureResByUrl:(NSString*)value;
-
+@end
 NS_ASSUME_NONNULL_END
