@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL isIdentity;
 -(void)outString;
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  ;
+-(void)prependScale:(float  )x  y:(float)y z:(float)z;
 -(GLfloat *)m;
  
 @end

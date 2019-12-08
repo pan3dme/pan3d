@@ -60,13 +60,36 @@ GLfloat  minfo[16];
 }
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  {
     
-    GLfloat  *out =  minfo;
-    out[12] = out[0] * x + out[4] * y + out[8] * z + out[12];
-    out[13] = out[1] * x + out[5] * y + out[9] * z + out[13];
-    out[14] = out[2] * x + out[6] * y + out[10] * z + out[14];
-    out[15] = out[3] * x + out[7] * y + out[11] * z + out[15];
+   // GLfloat  *out =  minfo;
+    minfo[12] = minfo[0] * x + minfo[4] * y + minfo[8] * z + minfo[12];
+    minfo[13] = minfo[1] * x + minfo[5] * y + minfo[9] * z + minfo[13];
+    minfo[14] = minfo[2] * x + minfo[6] * y + minfo[10] * z + minfo[14];
+    minfo[15] = minfo[3] * x + minfo[7] * y + minfo[11] * z + minfo[15];
     
 }
+-(void)prependScale:(float  )x  y:(float)y z:(float)z ;
+{
+ 
+    GLfloat  *a =  minfo;
+GLfloat  *out =  minfo;
 
+            out[0] = a[0] * x;
+            out[1] = a[1] * x;
+            out[2] = a[2] * x;
+            out[3] = a[3] * x;
+            out[4] = a[4] * y;
+            out[5] = a[5] * y;
+            out[6] = a[6] * y;
+            out[7] = a[7] * y;
+            out[8] = a[8] * z;
+            out[9] = a[9] * z;
+            out[10] = a[10] * z;
+            out[11] = a[11] * z;
+            out[12] = a[12];
+            out[13] = a[13];
+            out[14] = a[14];
+            out[15] = a[15];
+         
+        };
 
 @end

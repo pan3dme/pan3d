@@ -11,15 +11,15 @@
 @implementation ObjData
 -(void)upToGpu;
 {
-    
+    float whf=1.0;
     GLfloat attrArr[] = {
         
-        0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
-        -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
-        -0.7f, -0.7f, 0.0f,    0.0f, 0.0f,
-        0.7f, 0.7f, 0.0f,      1.0f, 1.0f,
-        -0.7f, 0.7f, 0.0f,     0.0f, 1.0f,
-        0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
+        whf, -whf, 0.0f,     1.0f, 0.0f,
+        -whf, whf, 0.0f,     0.0f, 1.0f,
+        -whf, -whf, 0.0f,    0.0f, 0.0f,
+        whf, whf, 0.0f,      1.0f, 1.0f,
+        -whf, whf, 0.0f,     0.0f, 1.0f,
+        whf, -whf, 0.0f,     1.0f, 0.0f,
     };
     
  
