@@ -17,22 +17,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SceneView : UIView
-@property (nonatomic, strong)  Matrix3D *posMatrix3d;
-
- 
-@property (nonatomic, strong) GLKBaseEffect *mEffect;
- 
-
  
  
-@property (nonatomic, assign) int skipnum;
-
-@property (nonatomic,copy) NSString *name;///< name
-
  
-
-@property (nonatomic, strong) Display3DSprite *dispOne;
-@property (nonatomic, strong) Display3DSprite *dispTwo;
+ 
 @property (nonatomic, strong) Scene3D *scene3D;
  
 @end
