@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  float rotationY;
 @property (nonatomic, assign)  float rotationZ;
 @property (nonatomic, strong)  Matrix3D *posMatrix3d;
- @property (nonatomic, strong) Scene3D *scene; // OpenGL context,管理使用opengl
+//@property (nonatomic, strong) Scene3D *scene; // OpenGL context,管理使用opengl
 -(void) upFrame  ;
 -(void) destory  ;
 @end

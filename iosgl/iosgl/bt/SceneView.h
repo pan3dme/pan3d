@@ -22,8 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  
 @property (nonatomic, strong) GLKBaseEffect *mEffect;
  
-@property (nonatomic, assign) GLuint myColorRenderBuffer;
-@property (nonatomic, assign) GLuint myColorFrameBuffer;
+
  
  
 @property (nonatomic, assign) int skipnum;
