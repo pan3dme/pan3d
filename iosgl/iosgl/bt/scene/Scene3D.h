@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIView *uiView;
 - (instancetype)init:(UIView*)uiview;
-//-(void) addDisplay:(Display3D*)dis;
+-(void) addDisplay:(NSObject*)dis; 
 -(void) upFrame  ;
 @end
 

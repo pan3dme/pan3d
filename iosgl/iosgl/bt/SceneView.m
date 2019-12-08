@@ -70,9 +70,8 @@
  
     _scene3D=[[Scene3D alloc]init:self];
     _dispOne=[[Display3DSprite alloc]init];
- //   _dispOne.scene=_scene3D;
     _dispTwo=[[Display3DSprite alloc]init];
-  //  _dispTwo.scene=_scene3D;
+  
 
     [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
     
