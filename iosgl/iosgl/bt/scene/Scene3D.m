@@ -7,6 +7,7 @@
 //
 #import <GLKit/GLKit.h>
 #import "Display3D.h"
+#import "Context3D.h"
 #import "Scene3D.h"
 
 
@@ -18,7 +19,7 @@
         self.uiView=uiview;
         self.displayList=[[NSMutableArray alloc]init];
         [self setUpLayer];
-        [self setupContext];
+         self.context3D=[[Context3D alloc]init];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         
@@ -30,9 +31,7 @@
     for(int i=0;i<self.displayList.count;i++){
         Display3D *dis= self.displayList[i];
         [dis upFrame];
-    
     }
-    
 }
 -(void) addDisplay:(Display3D*)dis;
 {
@@ -56,7 +55,7 @@
     /*5、
      通过调用上下文的renderbufferStorage:fromDrawable:方法并传递层对象作为参数来分配其存储空间。宽度，高度和像素格式取自层，
      用于为renderbuffer分配存储空间*/
-    [self.context3D renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.myEAGLayer];
+    [self.context3D.gl renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.myEAGLayer];
     
     
 }
@@ -121,22 +120,6 @@
                                           kEAGLDrawablePropertyRetainedBacking,kEAGLColorFormatRGBA8,kEAGLDrawablePropertyColorFormat,nil];
     
 }
--(void)setupContext
-{
-    EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
-    EAGLContext * context = [[EAGLContext alloc]initWithAPI:api];
-    if(context==NULL)
-    {
-        NSLog(@"Create Context Failed!");
-        return;
-    }
-    if(![EAGLContext setCurrentContext:context])
-    {
-        NSLog(@"setCurrentContext failed!");
-        return;
-    }
-    self.context3D=context;
-    
-}
+ 
 
 @end

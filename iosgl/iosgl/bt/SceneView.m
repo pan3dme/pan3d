@@ -25,13 +25,15 @@
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
     [self.scene3D upFrame];
-    [self.scene3D.context3D presentRenderbuffer:GL_RENDERBUFFER];
+    [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
  
 }
  
 -(void)initConfigScene
 {
     self.scene3D=[[Scene3D alloc]init:self];
+    
+    
     Display3DSprite *dispOne=[[Display3DSprite alloc]init];
     Display3DSprite *dispTwo=[[Display3DSprite alloc]init];
     dispTwo.rotationZ=45;

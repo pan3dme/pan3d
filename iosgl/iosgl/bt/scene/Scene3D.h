@@ -9,13 +9,14 @@
 #import "ResGC.h"
 #import "Vector3D.h"
 #import "Display3D.h"
+#import "Context3D.h"
  
  
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Scene3D : ResGC
-@property (nonatomic, strong) EAGLContext *context3D; // OpenGL context,管理使用opengl
+@property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
 
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
