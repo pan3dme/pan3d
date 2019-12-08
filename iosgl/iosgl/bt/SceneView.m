@@ -46,7 +46,9 @@
     //比例因子决定了内容如何从逻辑坐标空间(以点度量)映射到设备坐标空间(以像素度量)。这个值通常是1.0或2.0。更高的比例因子表明，
     //每一个点在屏幕上都有一个以上的像素表示。例如，如果比例因子为2.0，而绘制矩形的大小为50 x 50，则底层区域的大小为100 x 100像素。
     //2、设置比例因子
-    [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
+  //  [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    
+      [self setContentScaleFactor:1.0];
     
     /**3、我们要绘制的东西是完全不透明的，所以可以去设置为YES
      一个布尔值，该值指示该层是否包含完全不透明的内容。
@@ -180,52 +182,11 @@
        //清除颜色缓冲区
        glClear(GL_COLOR_BUFFER_BIT);
 
-       glViewport(0, 0, self.frame.size.width*2.0, self.frame.size.height*2.0);
-       //3、读取顶点、片元着色器程序
-       //读取存储路径
- 
-    //6、加载并使用链接好的程序
-    /*
-    GLuint selectProgram;;
- 
-    
-    if(_skipnum  %10==0){
-        selectProgram= self.shaderOne.program;
-        glUseProgram(selectProgram);
-        glBindTexture(_textureResOne.texture.target,_textureResOne.texture.name);
-        glBindBuffer(GL_ARRAY_BUFFER, _objDataOne.verticesBuffer);
-
-    }else{
-        selectProgram= self.shaderTwo.program;
-        glUseProgram(selectProgram);
-        glBindTexture(_textureResTwo.texture.target,_textureResTwo.texture.name);
-        glBindBuffer(GL_ARRAY_BUFFER, _objDataTwo.verticesBuffer);
-    }
-
-    
-    GLuint rotateID = glGetUniformLocation( selectProgram, "rotateMatrix");
-      [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
-      glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
-    
-    GLuint position = glGetAttribLocation( selectProgram, "position");
-    
-    glEnableVertexAttribArray(position);
-    
-    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, NULL);
-    
-    GLuint textCoor = glGetAttribLocation( selectProgram, "textCoordinate");
-    
-    glEnableVertexAttribArray(textCoor);
-    
-    glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
-    // [self setupTexture:@"03"];
-    
-    
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-    
-    */
+       glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
+     
     
         [_dispOne upFrame ];
+         [_dispTwo upFrame ];
     
     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
     
@@ -246,26 +207,16 @@
     _scene3D=[[Scene3D alloc]init];
     _scene3D.context3D=self.myContext;
     
-    self.shaderOne= [[Shader3D alloc]init];
-      [self.shaderOne encodeVstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"]];
-      
-      self.shaderTwo= [[Shader3D alloc]init];
-      [self.shaderTwo encodeVstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:@"shaderone" ofType:@"fsh"]];
-    
-    _objDataOne=[[ObjData alloc]init];
-    [_objDataOne upToGpu];
-    _objDataTwo=[[ObjData alloc]init];
-       [_objDataTwo upToGpu];
-    
-    
-    _textureResOne=[[MaterialManager default] getMaterialByUrl:@"xinshoupic.png"];
-    _textureResTwo=[[MaterialManager default] getMaterialByUrl:@"brdf_ltu.jpg"];
+ 
     
    // [self renderLayer];
     
     
     _dispOne=[[Display3DSprite alloc]init];
     _dispOne.scene=_scene3D;
+    
+    _dispTwo=[[Display3DSprite alloc]init];
+    _dispTwo.scene=_scene3D;
     
     
     //3、清空缓冲区

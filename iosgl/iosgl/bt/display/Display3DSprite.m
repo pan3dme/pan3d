@@ -20,6 +20,8 @@
         [self loadObjDataByUrl:@"1"];
         [self loadTextureResByUrl:@"xinshoupic.png"];
         
+ 
+        
     }
     return self;
 }

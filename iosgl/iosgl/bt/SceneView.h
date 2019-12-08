@@ -30,14 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *name;///< name
 
-@property (nonatomic, strong) TextureRes *textureResOne;
-@property (nonatomic, strong) TextureRes *textureResTwo;
-@property (nonatomic, strong) Shader3D *shaderOne;
-@property (nonatomic, strong) Shader3D *shaderTwo;
-@property (nonatomic, strong) ObjData *objDataOne;
-@property (nonatomic, strong) ObjData *objDataTwo;
+ 
 
 @property (nonatomic, strong) Display3DSprite *dispOne;
+@property (nonatomic, strong) Display3DSprite *dispTwo;
 @property (nonatomic, strong) Scene3D *scene3D;
  
 @end
