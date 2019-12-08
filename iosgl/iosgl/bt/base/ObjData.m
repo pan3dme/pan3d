@@ -22,6 +22,8 @@
         0.7f, -0.7f, 0.0f,     1.0f, 0.0f,
     };
     
+ 
+  
    
     glGenBuffers(1, &_verticesBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _verticesBuffer);

@@ -18,8 +18,8 @@
         
         [self loadShaderByUrl:@"shadertwo"];
         [self loadObjDataByUrl:@"1"];
-        [self loadTextureResByUrl:@"xinshoupic.png"];
-        
+        [self loadTextureResByUrl:@"xinshoupic.png"]; 
+        [self.posMatrix3d prependTranslation:1 y:0 z:0];
  
         
     }
@@ -49,19 +49,34 @@
         
         
         GLuint rotateID = glGetUniformLocation( progame, "rotateMatrix");
-        //  [self.posMatrix3d prependTranslation:0.001 y:0 z:0];
-        glUniformMatrix4fv(rotateID, 1, GL_FALSE, self.posMatrix3d.m);
+       
+        
+        //需求：旋转10度 -> 弧度
+        float rotate = self.rotationZ * 3.141592f /180.0f;
+        
+        //旋转的矩阵公式
+        float s = sin(rotate);
+        float c = cos(rotate);
+        
+        //构建旋转的矩阵公式
+        GLfloat zRotation[16]={
+            c,-s,0,0,
+            s,c,0,0,
+            0,0,1.0,0,
+            0,0,0,1.0,
+        };
+        
+        
+        
+        glUniformMatrix4fv(rotateID, 1, GL_FALSE, zRotation);
         
         GLuint position = glGetAttribLocation( progame, "position");
-        
         glEnableVertexAttribArray(position);
-        
         glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, NULL);
         
+        
         GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
-        
         glEnableVertexAttribArray(textCoor);
-        
         glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
         
         glDrawArrays(GL_TRIANGLES, 0, 6);

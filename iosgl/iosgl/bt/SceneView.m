@@ -184,6 +184,7 @@
 
        glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
      
+    _dispOne.rotationZ=45;
     
         [_dispOne upFrame ];
          [_dispTwo upFrame ];

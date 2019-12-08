@@ -16,6 +16,10 @@
     self = [super init];
     if (self) {
         _posMatrix3d=[[Matrix3D alloc]init];
+        _rotationX=0;
+        _rotationY=0;
+        _rotationZ=0;
+        
     }
     return self;
 }
