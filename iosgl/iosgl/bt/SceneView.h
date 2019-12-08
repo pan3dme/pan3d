@@ -19,9 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SceneView : UIView
 @property (nonatomic, strong)  Matrix3D *posMatrix3d;
 
-@property (nonatomic, strong) EAGLContext *myContext; // OpenGL context,管理使用opengl es进行绘制的状态,命令及资源
+ 
 @property (nonatomic, strong) GLKBaseEffect *mEffect;
-@property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
+ 
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
  
