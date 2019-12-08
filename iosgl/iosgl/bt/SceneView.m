@@ -169,7 +169,7 @@
  
 -(void)upFrame{
     
-    NSLog(@"-----skipnum=>%d",_skipnum++);
+   // NSLog(@"-----skipnum=>%d",_skipnum++);
 
     //1、开始写入顶点着色器、片元着色器
        //Vextex Shader
