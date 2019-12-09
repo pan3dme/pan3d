@@ -19,7 +19,6 @@
         _rotationX=0;
         _rotationY=0;
         _rotationZ=0;
-        
     }
     return self;
 }

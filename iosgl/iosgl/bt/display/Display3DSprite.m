@@ -19,10 +19,7 @@
         [self loadShaderByUrl:@"shadertwo"];
         [self loadObjDataByUrl:@"1"];
         [self loadTextureResByUrl:@"xinshoupic.png"]; 
-       // [self.posMatrix3d prependTranslation:0 y:0 z:0];
-        
-         [self.posMatrix3d prependScale:0.9 y:1 z:1];
- 
+    
         [self.posMatrix3d outString];
     }
     return self;
