@@ -15,7 +15,7 @@
 #import "MaterialManager.h"
 
 @implementation SceneView
- 
+
 +(Class)layerClass
 {
     return [CAEAGLLayer class];
@@ -26,9 +26,9 @@
     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
- 
+    
 }
- 
+
 -(void)initConfigScene
 {
     self.scene3D=[[Scene3D alloc]init:self];
@@ -36,21 +36,21 @@
     
     Display3DSprite *dispOne=[[Display3DSprite alloc]init];
     Display3DSprite *dispTwo=[[Display3DSprite alloc]init];
- 
+    
     
     [dispOne.posMatrix3d prependScale:0.75 y:0.1 z:1];
     [dispTwo.posMatrix3d prependScale:0.1 y:0.75 z:1];
     
     [self.scene3D addDisplay:dispOne];
-   // [self.scene3D addDisplay:dispTwo];
- 
+    [self.scene3D addDisplay:dispTwo];
+    
     [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
 }
 -(void)layoutSubviews
 {
     
-      [self initConfigScene];
-
+    [self initConfigScene];
+    
     
 }
 
