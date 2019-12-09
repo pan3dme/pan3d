@@ -29,4 +29,5 @@
     glBindBuffer(GL_ARRAY_BUFFER, _verticesBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
 }
+
 @end

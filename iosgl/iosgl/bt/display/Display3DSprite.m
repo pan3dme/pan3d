@@ -8,6 +8,7 @@
 
 #import "Display3DSprite.h"
 #import "MaterialManager.h"
+#import "ObjDataManager.h"
 
 @implementation Display3DSprite
 
@@ -31,7 +32,9 @@
 }
 -(void)loadObjDataByUrl:(NSString*)value;
 {
-    self.objData=[[ObjData alloc]init];
+    
+    self.objData= [[ ObjDataManager default]getObjDataByUrl:value];
+   
     [self.objData upToGpu];
 }
 -(void)loadTextureResByUrl:(NSString*)value;
