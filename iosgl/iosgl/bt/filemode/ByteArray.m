@@ -20,15 +20,17 @@
 }
 -(int)getUint16;
 {
-    
-    return 1;
+    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position, self.position+2)];
+    Byte *testByte = (Byte *)[data0 bytes];
+    self.position+=2;
+    return  (testByte[0] << 8)+testByte[1];
 }
 - (NSString *) readUTF;
 {
-     self.position+=2;
-    int intSize =223;
-    NSData *data1 = [self.nsData subdataWithRange:NSMakeRange(self.position, self.position+intSize)];
+    int len =[self getUint16];;
+    NSData *data1 = [self.nsData subdataWithRange:NSMakeRange(self.position, self.position+len)];
     NSString *aString = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
+       self.position+=len;
     return aString;
     
 }
