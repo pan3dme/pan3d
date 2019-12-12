@@ -8,6 +8,7 @@
 
 #import "ObjDataManager.h"
 #import "ObjData.h"
+#import "ByteArray.h"
 
 static ObjDataManager *instance = nil;
 @implementation ObjDataManager
@@ -21,19 +22,34 @@ static ObjDataManager *instance = nil;
 {
     ObjData *objData=[[ObjData alloc]init];
     
-    [self isLittleEndian];
+     
+    NSString *path=  [[NSBundle mainBundle]pathForResource:@"baoxiang" ofType:@"txt"];
     
-     NSString *path=  [[NSBundle mainBundle]pathForResource:@"box" ofType:@"txt"];
-     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
+    NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
+    ByteArray *byteArray=[[ByteArray alloc]init:reader];
+   
+    int version = [byteArray readInt];
+    NSLog(@"version-->%d",version);
+    NSLog(@"---------");
     
-  
-    int  a=  [self intFromData:reader];
-     int  b=  [self intFromData:reader];
+    NSString *txtStr =   [byteArray readUTF];
+    NSLog(@"txtStr-->%@",txtStr);
     
     
     return objData;
-   
+    
 }
+-(int) checkCPUendian {//返回1，为小端；反之，为大端；
+    union
+    {
+        unsigned int  a;
+        unsigned char b;
+    }c;
+    c.a = 1;
+    return 1 == c.b;
+}
+
+
 - (int) intFromData:(NSData *)data
 {
     int intSize = sizeof(int); // change it to fixe length
@@ -46,11 +62,6 @@ static ObjDataManager *instance = nil;
     free(buffer);
     return num;
 }
-- (int) isLittleEndian
-{
-    int i = 0x12345678;
-    char *c = &i;
-    return ((c[0] == 0x78) && (c[1] == 0x56) && (c[2] == 0x34) && (c[3] == 0x12));
-}
- 
+
+
 @end

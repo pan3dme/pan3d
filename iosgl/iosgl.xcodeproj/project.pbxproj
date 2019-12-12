@@ -36,6 +36,8 @@
 		FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2A023957C7500D2483A /* xinshoupic.png */; };
 		FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1376A0239E90AE00755136 /* ObjDataManager.m */; };
 		FE1376A5239E944B00755136 /* box.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE1376A4239E944A00755136 /* box.txt */; };
+		FE1376A7239EBE7A00755136 /* ball.xml in Resources */ = {isa = PBXBuildFile; fileRef = FE1376A6239EBE7A00755136 /* ball.xml */; };
+		FE1376A9239EC1AC00755136 /* baoxiang_byte.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE1376A8239EC1AC00755136 /* baoxiang_byte.txt */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -48,6 +50,8 @@
 		FE2BB2D62397F38A00597658 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2D52397F38A00597658 /* GlkView.m */; };
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
 		FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */; };
+		FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FAD23A2177A00C49DA5 /* ByteArray.m */; };
+		FE515FB023A2376900C49DA5 /* baoxiang.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE515FAF23A2376800C49DA5 /* baoxiang.txt */; };
 		FE678831239B938200262B53 /* Display3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678830239B938200262B53 /* Display3D.m */; };
 		FE678836239B946800262B53 /* ResCount.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678835239B946800262B53 /* ResCount.m */; };
 		FE678839239B948D00262B53 /* ObjData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678838239B948D00262B53 /* ObjData.m */; };
@@ -106,6 +110,8 @@
 		FE13769F239E90AE00755136 /* ObjDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjDataManager.h; sourceTree = "<group>"; };
 		FE1376A0239E90AE00755136 /* ObjDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjDataManager.m; sourceTree = "<group>"; };
 		FE1376A4239E944A00755136 /* box.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = box.txt; path = ../../../../sceneEdit/sceneEdit/res/base/box.txt; sourceTree = "<group>"; };
+		FE1376A6239EBE7A00755136 /* ball.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ball.xml; path = ../../../../sceneEdit/sceneEdit/res/base/ball.xml; sourceTree = "<group>"; };
+		FE1376A8239EC1AC00755136 /* baoxiang_byte.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = baoxiang_byte.txt; path = ../../../../sceneEdit/sceneEdit/res/base/baoxiang_byte.txt; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -130,6 +136,9 @@
 		FE2BB2DB23980EE600597658 /* GLSpriteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSpriteView.m; sourceTree = "<group>"; };
 		FE4CA7D42398DAAA00BE6FB5 /* Matrix3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3D.h; sourceTree = "<group>"; };
 		FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix3D.m; sourceTree = "<group>"; };
+		FE515FAC23A2177A00C49DA5 /* ByteArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ByteArray.h; sourceTree = "<group>"; };
+		FE515FAD23A2177A00C49DA5 /* ByteArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ByteArray.m; sourceTree = "<group>"; };
+		FE515FAF23A2376800C49DA5 /* baoxiang.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = baoxiang.txt; path = ../../../../sceneEdit/sceneEdit/res/base/baoxiang.txt; sourceTree = "<group>"; };
 		FE67882F239B938200262B53 /* Display3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3D.h; sourceTree = "<group>"; };
 		FE678830239B938200262B53 /* Display3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3D.m; sourceTree = "<group>"; };
 		FE678834239B946800262B53 /* ResCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResCount.h; sourceTree = "<group>"; };
@@ -281,7 +290,10 @@
 		FE0FC29A2395735800D2483A /* assetfile */ = {
 			isa = PBXGroup;
 			children = (
+				FE1376A8239EC1AC00755136 /* baoxiang_byte.txt */,
+				FE515FAF23A2376800C49DA5 /* baoxiang.txt */,
 				FE1376A4239E944A00755136 /* box.txt */,
+				FE1376A6239EBE7A00755136 /* ball.xml */,
 				FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */,
 				FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */,
 				FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */,
@@ -295,6 +307,8 @@
 		FE13769E239E908100755136 /* filemode */ = {
 			isa = PBXGroup;
 			children = (
+				FE515FAC23A2177A00C49DA5 /* ByteArray.h */,
+				FE515FAD23A2177A00C49DA5 /* ByteArray.m */,
 				FE13769F239E90AE00755136 /* ObjDataManager.h */,
 				FE1376A0239E90AE00755136 /* ObjDataManager.m */,
 			);
@@ -428,8 +442,10 @@
 			files = (
 				FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */,
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
+				FE1376A7239EBE7A00755136 /* ball.xml in Resources */,
 				FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */,
 				FE1376A5239E944B00755136 /* box.txt in Resources */,
+				FE1376A9239EC1AC00755136 /* baoxiang_byte.txt in Resources */,
 				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
 				FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
@@ -437,6 +453,7 @@
 				FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
+				FE515FB023A2376900C49DA5 /* baoxiang.txt in Resources */,
 				FE0FC298239571A100D2483A /* tabone@3x.png in Resources */,
 				FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
@@ -460,6 +477,7 @@
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,
+				FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
 				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
