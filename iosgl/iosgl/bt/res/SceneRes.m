@@ -9,27 +9,34 @@
 #import "SceneRes.h"
 #import "ByteArray.h"
 
+@interface SceneRes ()
+
+ 
+
+ 
+@end
 @implementation SceneRes
 -(void)load:(NSString *)url;
 {
     NSString *path=  [[NSBundle mainBundle]pathForResource:url ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
-    ByteArray *byte=[[ByteArray alloc]init:reader];
+    self.byte=[[ByteArray alloc]init:reader];
     
-    [self loadComplete:byte];
+    [self loadComplete:self.byte];
     
 }
 -(void)loadComplete:(ByteArray *)byte;
 {
+    [self applyByteArray];
     
-    int version = [byte readInt];
-    NSLog(@"version-->%d",version);
-    int filetype = [byte readInt];
-    int imglen = [byte readInt];
-    for(int i=0;i<imglen;i++){
-        NSString *imgurl =   [byte readUTF];
-        NSLog(@"imgurl-->%@",imgurl);
-    }
 }
+-(void)applyByteArray;
+{
+  self.version = [self.byte readInt];
+    NSLog(@"version-->%d", self.version);
+    [self read];
+    
+}
+
 @end

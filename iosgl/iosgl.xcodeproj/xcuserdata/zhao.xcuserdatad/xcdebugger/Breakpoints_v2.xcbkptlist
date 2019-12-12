@@ -1031,32 +1031,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2D0EB8F5-32C7-426A-B714-0423A690E3A0"
+            uuid = "DEA209B0-3F9E-4B8D-BDC4-61B6D8A0C65A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "-loadComplete:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "95083013-A740-4543-BE9C-139A503B25EC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/res/SceneRes.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-loadComplete:"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-applyByteArray"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

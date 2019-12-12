@@ -7,11 +7,14 @@
 //
 
 #import "ResCount.h"
+#import "ByteArray.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseRes : ResCount
-
+@property (nonatomic, assign) int        version;    //
+@property (nonatomic, strong) ByteArray        *byte;    //
+ -(void)read ;
 @end
 
 NS_ASSUME_NONNULL_END
