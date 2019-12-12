@@ -53,6 +53,8 @@
 		FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FAD23A2177A00C49DA5 /* ByteArray.m */; };
 		FE515FB023A2376900C49DA5 /* baoxiang.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE515FAF23A2376800C49DA5 /* baoxiang.txt */; };
 		FE515FB223A2767A00C49DA5 /* 1001_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE515FB123A2767A00C49DA5 /* 1001_base.txt */; };
+		FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FB523A2802300C49DA5 /* BaseRes.m */; };
+		FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FB823A2803C00C49DA5 /* SceneRes.m */; };
 		FE678831239B938200262B53 /* Display3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678830239B938200262B53 /* Display3D.m */; };
 		FE678836239B946800262B53 /* ResCount.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678835239B946800262B53 /* ResCount.m */; };
 		FE678839239B948D00262B53 /* ObjData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678838239B948D00262B53 /* ObjData.m */; };
@@ -141,6 +143,10 @@
 		FE515FAD23A2177A00C49DA5 /* ByteArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ByteArray.m; sourceTree = "<group>"; };
 		FE515FAF23A2376800C49DA5 /* baoxiang.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = baoxiang.txt; path = ../../../../sceneEdit/sceneEdit/res/base/baoxiang.txt; sourceTree = "<group>"; };
 		FE515FB123A2767A00C49DA5 /* 1001_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 1001_base.txt; path = ../../../../sceneEdit/sceneEdit/res/base/1001_base.txt; sourceTree = "<group>"; };
+		FE515FB423A2802300C49DA5 /* BaseRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRes.h; sourceTree = "<group>"; };
+		FE515FB523A2802300C49DA5 /* BaseRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRes.m; sourceTree = "<group>"; };
+		FE515FB723A2803C00C49DA5 /* SceneRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneRes.h; sourceTree = "<group>"; };
+		FE515FB823A2803C00C49DA5 /* SceneRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneRes.m; sourceTree = "<group>"; };
 		FE67882F239B938200262B53 /* Display3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3D.h; sourceTree = "<group>"; };
 		FE678830239B938200262B53 /* Display3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3D.m; sourceTree = "<group>"; };
 		FE678834239B946800262B53 /* ResCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResCount.h; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 		FE0FC254239511AC00D2483A /* bt */ = {
 			isa = PBXGroup;
 			children = (
+				FE515FB323A2800500C49DA5 /* res */,
 				FE13769E239E908100755136 /* filemode */,
 				FE2088F1239C1821007FB797 /* material */,
 				FE2088DA239BDF0B007FB797 /* program */,
@@ -347,6 +354,17 @@
 			path = math;
 			sourceTree = "<group>";
 		};
+		FE515FB323A2800500C49DA5 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				FE515FB423A2802300C49DA5 /* BaseRes.h */,
+				FE515FB523A2802300C49DA5 /* BaseRes.m */,
+				FE515FB723A2803C00C49DA5 /* SceneRes.h */,
+				FE515FB823A2803C00C49DA5 /* SceneRes.m */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
 		FE67882E239B934C00262B53 /* display */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
@@ -496,6 +515,7 @@
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
+				FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,

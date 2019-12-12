@@ -9,6 +9,7 @@
 #import "ObjDataManager.h"
 #import "ObjData.h"
 #import "ByteArray.h"
+#import "SceneRes.h"
 
 static ObjDataManager *instance = nil;
 @implementation ObjDataManager
@@ -23,7 +24,9 @@ static ObjDataManager *instance = nil;
     ObjData *objData=[[ObjData alloc]init];
     
      
-    [self getLocalPathFileLength];
+  //  [self getLocalPathFileLength];
+    SceneRes *sceneRes=[[SceneRes alloc]init];
+    [sceneRes load:@"1001_base"];
     
     return objData;
     
