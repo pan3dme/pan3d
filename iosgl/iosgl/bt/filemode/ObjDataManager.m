@@ -23,21 +23,43 @@ static ObjDataManager *instance = nil;
     ObjData *objData=[[ObjData alloc]init];
     
      
-    NSString *path=  [[NSBundle mainBundle]pathForResource:@"baoxiang" ofType:@"txt"];
-    
-    NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
-    ByteArray *byteArray=[[ByteArray alloc]init:reader];
-   
-    int version = [byteArray readInt];
-    NSLog(@"version-->%d",version);
-    NSLog(@"---------");
-    
-    NSString *txtStr =   [byteArray readUTF];
-    NSLog(@"txtStr-->%@",txtStr);
-    
+    [self getLocalPathFileLength];
     
     return objData;
     
+}
+-(void)getLocalPath;
+{
+    NSString *path=  [[NSBundle mainBundle]pathForResource:@"baoxiang" ofType:@"txt"];
+      NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
+      ByteArray *byteArray=[[ByteArray alloc]init:reader];
+     
+      int version = [byteArray readInt];
+      NSLog(@"version-->%d",version);
+      NSLog(@"---------");
+      NSString *txtStr =   [byteArray readUTF];
+      NSLog(@"txtStr-->%@",txtStr);
+}
+- (void)getLocalPathFileLength
+{
+ 
+    NSString *path=  [[NSBundle mainBundle]pathForResource:@"1001_base" ofType:@"txt"];
+      NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
+      ByteArray *byteArray=[[ByteArray alloc]init:reader];
+      NSLog(@"-----length----%lu",   reader.length);
+      int version = [byteArray readInt];
+      NSLog(@"version-->%d",version);
+     int filetype = [byteArray readInt];
+     int imglen = [byteArray readInt];
+ 
+    for(int i=0;i<imglen;i++){
+        NSString *imgurl =   [byteArray readUTF];
+         NSLog(@"imgurl-->%@",imgurl);
+    }
+  
+ 
+   
+       NSLog(@"---------");
 }
 -(int) checkCPUendian {//返回1，为小端；反之，为大端；
     union
