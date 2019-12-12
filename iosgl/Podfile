@@ -11,5 +11,8 @@ pod 'MMPopupView'
 
 pod 'SDWebImage'
  
+pod 'SSZipArchive'
+
+pod 'GZIP', '~> 1.2' 
 
 end

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -194,7 +194,6 @@
 				341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */,
 				6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

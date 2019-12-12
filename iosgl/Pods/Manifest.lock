@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - GZIP (1.2.3)
   - Masonry (1.1.0)
   - MJRefresh (3.2.0)
   - MMPopupView (1.7.2):
@@ -21,28 +22,35 @@ PODS:
   - SDWebImage (5.2.3):
     - SDWebImage/Core (= 5.2.3)
   - SDWebImage/Core (5.2.3)
+  - SSZipArchive (2.2.2)
 
 DEPENDENCIES:
   - AFNetworking
+  - GZIP (~> 1.2)
   - MJRefresh
   - MMPopupView
   - SDWebImage
+  - SSZipArchive
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - GZIP
     - Masonry
     - MJRefresh
     - MMPopupView
     - SDWebImage
+    - SSZipArchive
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  GZIP: af5c90ef903776a7e9afe6ebebd794a84a2929d4
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MMPopupView: fe1dd010824029dfb632fdf1a531db5dd5386020
   SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
+  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
 
-PODFILE CHECKSUM: 66566f73048ee91f63735b1cf02bacc02fde1067
+PODFILE CHECKSUM: 733be0811b0860a0a22b87cd9b28d8d72a9942ed
 
 COCOAPODS: 1.8.4

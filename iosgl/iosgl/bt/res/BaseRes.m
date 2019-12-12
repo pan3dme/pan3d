@@ -8,6 +8,10 @@
 
 #import "BaseRes.h"
 #import <UIKit/UIKit.h>
+ 
+ #import "NSData+GZIP.h"
+ #import <zlib.h>
+ 
 
 @implementation BaseRes
 
@@ -38,13 +42,12 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
 }
 -(void)readZipObj;
 {
-        int zipLen = [self.byte readInt];
-        NSData *abb=  [self.byte getNsDataByLen:zipLen];
-        NSLog(@"len-%d-aaaaaaaaaaa>%ld",zipLen,abb.length);
-     
-       ByteArray *objByte=[[ByteArray alloc]init:abb];
-    
-       NSLog(@"----------" );
+    int zipLen = [self.byte readInt];
+    NSData *abb=  [self.byte getNsDataByLen:zipLen];
+    NSLog(@"len-%d-aaaaaaaaaaa>%ld",zipLen,abb.length);
+    NSData *outputData = [abb gunzippedData];
+    NSLog(@"len-%d-outputData>%ld",zipLen,outputData.length);
+    NSLog(@"----------" );
 }
 -(void)readImgs;
 {
