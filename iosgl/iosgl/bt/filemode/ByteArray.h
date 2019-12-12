@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init:(NSData *)value;
 - (int) readInt;
 -(int)getUint16;
+-(NSData *)getNsDataByLen:(int)len;
+ 
 - (NSString *) readUTF;
 @end
 

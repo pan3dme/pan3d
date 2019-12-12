@@ -8,6 +8,8 @@
 
 #import "ByteArray.h"
 
+
+
 @implementation ByteArray
 - (instancetype)init:(NSData *)value;
 {
@@ -32,6 +34,13 @@
     NSString *aString = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
     self.position+=len;
     return aString;
+    
+}
+-(NSData *)getNsDataByLen:(int)len;
+{
+    NSData *data1 = [self.nsData subdataWithRange:NSMakeRange(self.position,  len)];
+    self.position+=len;
+    return data1;
     
 }
 - (int) readInt;

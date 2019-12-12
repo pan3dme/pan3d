@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */; };
 		FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2392395104700D2483A /* AppDelegate.m */; };
 		FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC23C2395104700D2483A /* SceneDelegate.m */; };
 		FE0FC2402395104700D2483A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC23F2395104700D2483A /* ViewController.m */; };
@@ -67,6 +68,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.debug.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.debug.xcconfig"; sourceTree = "<group>"; };
+		6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.release.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.release.xcconfig"; sourceTree = "<group>"; };
+		763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosgl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0FC2352395104700D2483A /* iosgl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosgl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0FC2382395104700D2483A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE0FC2392395104700D2483A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -169,17 +173,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FFF4BB21976BDEE8C5A83DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D04E05D8DC2E1F6A8ECDF73F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */,
+				6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FE0FC22C2395104700D2483A = {
 			isa = PBXGroup;
 			children = (
 				FE0FC2372395104700D2483A /* iosgl */,
 				FE0FC2362395104700D2483A /* Products */,
+				D04E05D8DC2E1F6A8ECDF73F /* Pods */,
+				3FFF4BB21976BDEE8C5A83DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -411,9 +436,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE0FC2512395104800D2483A /* Build configuration list for PBXNativeTarget "iosgl" */;
 			buildPhases = (
+				8D1D2F124FC32704513C175D /* [CP] Check Pods Manifest.lock */,
 				FE0FC2312395104700D2483A /* Sources */,
 				FE0FC2322395104700D2483A /* Frameworks */,
 				FE0FC2332395104700D2483A /* Resources */,
+				0EEBB274E1C4CE830A5398C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -484,6 +511,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EEBB274E1C4CE830A5398C5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosgl/Pods-iosgl-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosgl/Pods-iosgl-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosgl/Pods-iosgl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D1D2F124FC32704513C175D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iosgl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FE0FC2312395104700D2483A /* Sources */ = {
@@ -665,6 +734,7 @@
 		};
 		FE0FC2522395104800D2483A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -682,6 +752,7 @@
 		};
 		FE0FC2532395104800D2483A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

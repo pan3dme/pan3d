@@ -36,6 +36,7 @@
   self.version = [self.byte readInt];
     NSLog(@"version-->%d", self.version);
     [self read];
+    [self read];
     
 }
 

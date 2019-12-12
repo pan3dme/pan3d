@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseRes : ResCount
 @property (nonatomic, assign) int        version;    //
 @property (nonatomic, strong) ByteArray        *byte;    //
+-(NSString *)skipByteLen:(int)len;
  -(void)read ;
 @end
 
