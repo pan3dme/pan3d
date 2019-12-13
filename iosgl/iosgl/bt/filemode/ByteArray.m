@@ -59,13 +59,28 @@
 }
 - (float) readFloat;
 {
-        self.position+=4;
-    return  1.0;
+    int floatSize = sizeof(float); // change it to fixe length
+    NSData *data1 = [self.nsData subdataWithRange:NSMakeRange(self.position,  floatSize)];
+    int32_t bytes;
+    [data1 getBytes:&bytes length:sizeof(bytes)];
+    bytes = OSSwapBigToHostInt32(bytes);
+    float number;
+    memcpy(&number, &bytes, sizeof(bytes));
+    self.position+=floatSize;
+    return  number;
+}
+-(int)readShort;
+{
+    int floatSize = sizeof(short); // change it to fixe length
+    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position,  floatSize)];
+    Byte *testByte = (Byte *)[data0 bytes];
+    self.position+=floatSize;
+    
+    return  (testByte[0] << 8)+testByte[1];
 }
 -(float)readFloatTwoByte :(float)scaleNum;
 {
-    self.position+=2;
-    return  1.0;
+    return  [self readShort]/scaleNum;
 }
 -(Boolean)readBoolean;
 {

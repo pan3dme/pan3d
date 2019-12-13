@@ -123,5 +123,34 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     }
     NSLog(@"----------" );
 }
++(void)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
+{
+    int verLength = [srcByte readInt];
+    if (verLength <= 0) {
+        return;
+    }
+    float scaleNum=1.0;
+    if (readType == 0) {
+        scaleNum = [srcByte readFloat];
+    }
+    float ccav;
+    int readNum = verLength / dataWidth;
+    for (int i = 0; i < readNum; i++) {
+      //  int pos = stride * i + offset;
+        for (int j = 0; j < dataWidth; j++) {
+            switch (readType) {
+                case 0:
+             ccav=  [srcByte readFloatTwoByte:scaleNum];
+                        NSLog(@"----->%f",ccav);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    NSLog(@"-------");
+    
+    
+}
  
 @end

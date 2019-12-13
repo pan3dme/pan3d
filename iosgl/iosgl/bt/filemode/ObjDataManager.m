@@ -23,8 +23,8 @@ static ObjDataManager *instance = nil;
 {
     ObjData *objData=[[ObjData alloc]init];
     
-     
-  //  [self getLocalPathFileLength];
+    
+    //  [self getLocalPathFileLength];
     SceneRes *sceneRes=[[SceneRes alloc]init];
     [sceneRes load:@"1001_base"];
     
@@ -34,35 +34,35 @@ static ObjDataManager *instance = nil;
 -(void)getLocalPath;
 {
     NSString *path=  [[NSBundle mainBundle]pathForResource:@"baoxiang" ofType:@"txt"];
-      NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
-      ByteArray *byteArray=[[ByteArray alloc]init:reader];
-     
-      int version = [byteArray readInt];
-      NSLog(@"version-->%d",version);
-      NSLog(@"---------");
-      NSString *txtStr =   [byteArray readUTF];
-      NSLog(@"txtStr-->%@",txtStr);
+    NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
+    ByteArray *byteArray=[[ByteArray alloc]init:reader];
+    
+    int version = [byteArray readInt];
+    NSLog(@"version-->%d",version);
+    NSLog(@"---------");
+    NSString *txtStr =   [byteArray readUTF];
+    NSLog(@"txtStr-->%@",txtStr);
 }
 - (void)getLocalPathFileLength
 {
- 
+    
     NSString *path=  [[NSBundle mainBundle]pathForResource:@"1001_base" ofType:@"txt"];
-      NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
-      ByteArray *byteArray=[[ByteArray alloc]init:reader];
-      NSLog(@"-----length----%lu",   reader.length);
-      int version = [byteArray readInt];
-      NSLog(@"version-->%d",version);
-     int filetype = [byteArray readInt];
-     int imglen = [byteArray readInt];
- 
+    NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
+    ByteArray *byteArray=[[ByteArray alloc]init:reader];
+    NSLog(@"-----length----%lu",   reader.length);
+    int version = [byteArray readInt];
+    NSLog(@"version-->%d",version);
+    int filetype = [byteArray readInt];
+    int imglen = [byteArray readInt];
+    
     for(int i=0;i<imglen;i++){
         NSString *imgurl =   [byteArray readUTF];
-         NSLog(@"imgurl-->%@",imgurl);
+        NSLog(@"imgurl-->%@",imgurl);
     }
-  
- 
-   
-       NSLog(@"---------");
+    
+    
+    
+    NSLog(@"---------");
 }
 -(int) checkCPUendian {//返回1，为小端；反之，为大端；
     union
@@ -96,24 +96,43 @@ static ObjDataManager *instance = nil;
     NSString *objUrl = [byte readUTF];
     NSLog(@"objUrl-->%@", objUrl);
     NSLog(@"obj长度 -->%lu",   byte.nsData.length);
- 
+    
     [self readObj2OneBuffer:byte  objdata:objData];
-   
+    
 }
 -(void)readObj2OneBuffer :(ByteArray*)byte objdata:(ObjData*)objdata{
     NSMutableArray *typeItem=[[NSMutableArray alloc]init];
+    int dataWidth=0;
     for (int i = 0; i < 6; i++) {
-       Boolean isTrue=  [byte readBoolean];
-   
-        if(isTrue){
-                 [typeItem addObject:@1];
-              NSLog(@"true");
+        Boolean tf=  [byte readBoolean];
+        if(tf){
+            [typeItem addObject:@1];
         }else{
-                 [typeItem addObject:@0];
-                 NSLog(@"false");
+            [typeItem addObject:@0];
+        }
+        if (tf) {
+            switch (i) {
+                case 1://uv
+                    dataWidth += 2;
+                    break;
+                case 2://lightuv
+                    dataWidth += 2;
+                    break;
+                default:
+                    dataWidth += 3;
+                    break;
+            }
+            
         }
     }
-        NSLog(@"-------");
+    int   len =(int) [byte readFloat]; //整体数据长度
+    len *= dataWidth * 4;
+     
+     NSMutableData *data13 = [[NSMutableData alloc] initWithLength:len];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:data13 dataWidth:3 offset:1 stride:len readType:0];
+    
+    
+    NSLog(@"-------");
 }
 
 @end
