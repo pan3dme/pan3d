@@ -8,67 +8,37 @@
 
 #import "BaseRes.h"
 #import <UIKit/UIKit.h>
- 
- #import "NSData+GZIP.h"
- #import <zlib.h>
- 
+
+#import "NSData+GZIP.h"
+#import <zlib.h>
+
 
 @implementation BaseRes
 
 typedef void (^PostSuccess)(NSDictionary *responseJson);
 
--(void)dddd  : (PostSuccess )PostSuccess{
-    
-}
--(void)read ;
-{
-    
-    int filetype = [self.byte readInt];
-       NSLog(@"位置-->%d",self.byte.position);
-    switch (filetype) {
-        case 1:
-            [self readImgs];
-            break;
-            case 6:
-                      [self readZipObj];
-                      break;
-        default:
-            NSLog(@"需要补充");
-            
-            break;
-    }
-}
--(void)readZipObj;
-{
-    int zipLen = [self.byte readInt];
-    NSData *abb=  [self.byte getNsDataByLen:zipLen];
-    NSData *outputData =[self gzipInflate:abb] ;
-    NSLog(@"len-%d-解压后长度>%ld",zipLen,outputData.length);
-    NSLog(@"----------" );
-}
- 
 //解压缩
 - (NSData *)gzipInflate:(NSData*)data
 {
     if ([data length] == 0) return data;
-       
+    
     unsigned long full_length = [data length];
     unsigned long  half_length = [data length] / 2;
-       
+    
     NSMutableData *decompressed = [NSMutableData dataWithLength: full_length + half_length];
     BOOL done = NO;
     int status;
-       
+    
     z_stream strm;
     strm.next_in = (Bytef *)[data bytes];
     strm.avail_in = (uInt)[data length];
     strm.total_out = 0;
     strm.zalloc = Z_NULL;
     strm.zfree = Z_NULL;
-       
+    
     if (inflateInit2(&strm, (15+32)) != Z_OK)
         return nil;
-       
+    
     while (!done)
     {
         // Make sure we have enough room and reset the lengths.
@@ -76,7 +46,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             [decompressed increaseLengthBy: half_length];
         strm.next_out = [decompressed mutableBytes] + strm.total_out;
         strm.avail_out = (uInt)([decompressed length] - strm.total_out);
-           
+        
         // Inflate another chunk.
         status = inflate (&strm, Z_SYNC_FLUSH);
         if (status == Z_STREAM_END)
@@ -86,7 +56,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     }
     if (inflateEnd (&strm) != Z_OK)
         return nil;
-       
+    
     // Set real length.
     if (done)
     {
@@ -95,17 +65,59 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     }
     else return nil;
 }
+-(void)dddd  : (PostSuccess )PostSuccess{
+    
+}
+-(void)read ;
+{
+    
+    int filetype = [self.byte readInt];
+    NSLog(@"位置-->%d",self.byte.position);
+    switch (filetype) {
+        case 1:
+            [self readImgs];
+            break;
+        case 6:
+            [self readZipObj];
+            break;
+        default:
+            NSLog(@"需要补充");
+            
+            break;
+    }
+}
+-(void)readZipObj;
+{
+    int zipLen = [self.byte readInt];
+    NSData *zipNsData=  [self.byte getNsDataByLen:zipLen];
+    NSData *outputData =[self gzipInflate:zipNsData] ;
+    NSLog(@"len-%d-解压后长度>%ld",zipLen,outputData.length);
+    
+    ByteArray *srcByte=  [[ByteArray alloc]init:outputData];
+    [self readObj:srcByte];
+    
+}
+
 -(void)readImgs;
 {
     int imglen = [self.byte readInt];
-       for(int i=0;i<imglen;i++){
-           NSString *imgurl =   [self.byte readUTF];
-                      NSLog(@"imgurl-->%@",imgurl);
-           int imgSize=  [self.byte readInt];
-       
-           
-           
-   NSLog(@"len-->%d",imgSize);
-       }
+    for(int i=0;i<imglen;i++){
+        NSString *imgurl =   [self.byte readUTF];
+        NSLog(@"imgurl-->%@",imgurl);
+        int imgSize=  [self.byte readInt];
+        NSLog(@"len-->%d",imgSize);
+    }
+}
+-(void)readObj:(ByteArray *)srcByte;
+{
+    int objlen = [srcByte readInt];
+    for(int i=0;i<objlen;i++){
+        NSString *objurl =   [srcByte readUTF];
+        NSLog(@"objurl-->%@",objurl);
+        int objSize=  [srcByte readInt];
+        NSData *objNsdata=  [srcByte getNsDataByLen:objSize];
+        
+    }
+    NSLog(@"----------" );
 }
 @end
