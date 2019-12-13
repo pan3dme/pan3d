@@ -133,24 +133,22 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     if (readType == 0) {
         scaleNum = [srcByte readFloat];
     }
-    float ccav;
+    float tempNum;
     int readNum = verLength / dataWidth;
     for (int i = 0; i < readNum; i++) {
-      //  int pos = stride * i + offset;
         for (int j = 0; j < dataWidth; j++) {
             switch (readType) {
                 case 0:
-             ccav=  [srcByte readFloatTwoByte:scaleNum];
-                        NSLog(@"----->%f",ccav);
+                    tempNum=  [srcByte readFloatTwoByte:scaleNum];
+                    NSLog(@"----->%f",tempNum);
                     break;
                 default:
                     break;
             }
         }
     }
-    NSLog(@"-------");
-    
+ 
     
 }
- 
+
 @end
