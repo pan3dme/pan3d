@@ -67,4 +67,13 @@
     self.position+=2;
     return  1.0;
 }
+-(Boolean)readBoolean;
+{
+     int intSize = sizeof(Boolean); // change it to fixe length
+     NSData *data1 = [self.nsData subdataWithRange:NSMakeRange(self.position,  intSize)];
+        unsigned char * buffer = malloc(intSize * sizeof(unsigned char));
+       [data1 getBytes:buffer length:intSize];
+    self.position+=intSize;
+    return buffer[0]!=0;
+}
 @end

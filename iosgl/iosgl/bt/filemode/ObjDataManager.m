@@ -95,12 +95,25 @@ static ObjDataManager *instance = nil;
     NSLog(@"version-->%d", objData.version);
     NSString *objUrl = [byte readUTF];
     NSLog(@"objUrl-->%@", objUrl);
-    
-      NSLog(@"obj长度 -->%lu",   byte.nsData.length);
-  
-    
-    NSMutableArray *vertices=[[NSMutableArray alloc]init];
-    [BaseRes readFloatTwoByte:byte arrItem:vertices];
+    NSLog(@"obj长度 -->%lu",   byte.nsData.length);
+ 
+    [self readObj2OneBuffer:byte  objdata:objData];
+   
+}
+-(void)readObj2OneBuffer :(ByteArray*)byte objdata:(ObjData*)objdata{
+    NSMutableArray *typeItem=[[NSMutableArray alloc]init];
+    for (int i = 0; i < 6; i++) {
+       Boolean isTrue=  [byte readBoolean];
+   
+        if(isTrue){
+                 [typeItem addObject:@1];
+              NSLog(@"true");
+        }else{
+                 [typeItem addObject:@0];
+                 NSLog(@"false");
+        }
+    }
+        NSLog(@"-------");
 }
 
 @end

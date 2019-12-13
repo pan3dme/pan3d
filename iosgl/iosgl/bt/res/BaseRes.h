@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseRes : ResCount
  
  -(void)read ;
-+(void)readFloatTwoByte :(ByteArray*)byte arrItem:(NSMutableArray *)arrItem;
  
 
 @end
