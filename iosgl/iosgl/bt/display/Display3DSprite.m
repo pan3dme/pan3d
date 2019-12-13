@@ -48,29 +48,7 @@
         glUseProgram(progame);
         glBindTexture(_textureRes.texture.target,_textureRes.texture.name);
        
-        
-        
-   
-       
-        
-        //需求：旋转10度 -> 弧度
-        float rotate = self.rotationZ * 3.141592f /180.0f;
-        
-        //旋转的矩阵公式
-        float s = sin(rotate);
-        float c = cos(rotate);
-        
-        //构建旋转的矩阵公式
-        GLfloat zRotation[16]={
-            1,0,0,0,
-            0,1,0,0,
-            0,0,10,0,
-            0,0,0,10,
-        };
-       
-        
       
-        
         GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
         glUniformMatrix4fv(rotateID, 1, GL_FALSE,   self.posMatrix3d.m );
         
@@ -78,7 +56,7 @@
         glBindBuffer(GL_ARRAY_BUFFER, _objData.verticesBuffer);
         GLuint position = glGetAttribLocation( progame, "position");
         glEnableVertexAttribArray(position);
-        glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, NULL);
+        glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, (GLfloat *)NULL);
         
         
         GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
