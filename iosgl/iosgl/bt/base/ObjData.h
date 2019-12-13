@@ -13,6 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ObjData : ResCount
   //  public vertices: Array<number> = new Array;
 @property (nonatomic, assign)  float  *vertices;
+
+@property (nonatomic, assign)  int uvsOffsets  ;
+@property (nonatomic, assign)  int lightuvsOffsets  ;
+@property (nonatomic, assign)  int normalsOffsets  ;
+@property (nonatomic, assign)  int tangentsOffsets ;
+@property (nonatomic, assign)  int bitangentsOffsets  ;
+@property (nonatomic, assign)  int stride  ;
 @property (nonatomic, assign) GLuint verticesBuffer ;
 -(void)upToGpu;
 @end
