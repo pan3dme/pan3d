@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  int position;
 - (instancetype)init:(NSData *)value;
 - (int) readInt;
+- (float) readFloat;
+-(float)readFloatTwoByte :(float)scaleNum;
 -(int)getUint16;
 -(NSData *)getNsDataByLen:(int)len;
  

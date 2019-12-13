@@ -87,6 +87,20 @@ static ObjDataManager *instance = nil;
     free(buffer);
     return num;
 }
-
+-(void)loadObjCom:(ByteArray *)value;
+{
+    ByteArray *byte=value;
+    ObjData *objData=[[ObjData alloc]init];
+    objData.version= [byte readInt];
+    NSLog(@"version-->%d", objData.version);
+    NSString *objUrl = [byte readUTF];
+    NSLog(@"objUrl-->%@", objUrl);
+    
+      NSLog(@"obj长度 -->%lu",   byte.nsData.length);
+  
+    
+    NSMutableArray *vertices=[[NSMutableArray alloc]init];
+    [BaseRes readFloatTwoByte:byte arrItem:vertices];
+}
 
 @end

@@ -8,12 +8,14 @@
 
 #import "ResGC.h"
 #import "ObjData.h"
+#import "ByteArray.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjDataManager : ResGC
 @property (nonatomic, strong)  NSMutableDictionary *dic;
 + (instancetype)default;
 -(ObjData *) getObjDataByUrl:(NSString*)urlStr;
+-(void)loadObjCom:(ByteArray *)value;
 @end
 
 NS_ASSUME_NONNULL_END

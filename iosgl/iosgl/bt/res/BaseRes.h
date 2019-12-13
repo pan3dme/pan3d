@@ -12,10 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseRes : ResCount
-@property (nonatomic, assign) int        version;    //
-@property (nonatomic, strong) ByteArray        *byte;    //
  
  -(void)read ;
++(void)readFloatTwoByte :(ByteArray*)byte arrItem:(NSMutableArray *)arrItem;
+ 
+
 @end
 
 NS_ASSUME_NONNULL_END

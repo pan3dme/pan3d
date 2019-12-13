@@ -8,7 +8,7 @@
 
 #import "BaseRes.h"
 #import <UIKit/UIKit.h>
-
+#import "ObjDataManager.h"
 #import "NSData+GZIP.h"
 #import <zlib.h>
 
@@ -116,8 +116,30 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         NSLog(@"objurl-->%@",objurl);
         int objSize=  [srcByte readInt];
         NSData *objNsdata=  [srcByte getNsDataByLen:objSize];
+        ByteArray *objByte=  [[ByteArray alloc]init:objNsdata];
+        [[ObjDataManager default] loadObjCom:objByte];
+        
         
     }
     NSLog(@"----------" );
+}
++(void)readFloatTwoByte :(ByteArray*)byte arrItem:(NSMutableArray *)arrItem;
+{
+    int varLen=[byte readInt];
+    if(varLen>0){
+          float scaleNum=[byte readFloat];
+        
+        NSLog(@"-----定点数量----%d",varLen );
+        
+          for(int i=0;i<varLen;i++){
+              float tempnum=[byte readFloatTwoByte:scaleNum];
+                 // NSLog(@"----------%f",tempnum );
+              
+          }
+        
+        
+    }
+    
+    
 }
 @end

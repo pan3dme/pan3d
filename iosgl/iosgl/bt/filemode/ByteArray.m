@@ -57,4 +57,14 @@
     self.position+=intSize;
     return num;
 }
+- (float) readFloat;
+{
+        self.position+=4;
+    return  1.0;
+}
+-(float)readFloatTwoByte :(float)scaleNum;
+{
+    self.position+=2;
+    return  1.0;
+}
 @end

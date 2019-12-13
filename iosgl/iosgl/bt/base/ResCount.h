@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ByteArray.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ResCount : NSObject
-
+@property (nonatomic, assign) int        version;    //
+@property (nonatomic, strong) ByteArray        *byte;    //
 @end
 
 NS_ASSUME_NONNULL_END
