@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (int) readInt;
 - (int) readShort;
 - (float) readFloat;
+- (float) readFloatOneByte  ;
 - (float) readFloatTwoByte :(float)scaleNum;
 - (Boolean)readBoolean;
 - (int)getUint16;

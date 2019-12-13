@@ -128,10 +128,28 @@ static ObjDataManager *instance = nil;
     int   len =(int) [byte readFloat]; //整体数据长度
     len *= dataWidth * 4;
      
-     NSMutableData *data13 = [[NSMutableData alloc] initWithLength:len];
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:data13 dataWidth:3 offset:1 stride:len readType:0];
+     NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:len];
+    
+    int uvsOffsets = 3;
+    int lightuvsOffsets = uvsOffsets + 2;
+    int normalsOffsets = typeItem[2] ? (lightuvsOffsets + 2) : (uvsOffsets + 2);
+    int tangentsOffsets = normalsOffsets + 3;
+    int bitangentsOffsets = tangentsOffsets + 3;
+    
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:0 stride:len readType:0];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:len readType:0];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:lightuvsOffsets stride:len readType:1];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:normalsOffsets stride:len readType:0];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:tangentsOffsets stride:len readType:0];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:bitangentsOffsets stride:len readType:0];
     
     
+      NSMutableData *indexNsData = [[NSMutableData alloc] initWithLength:len];
+      [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
+    
+// BaseRes.readIntForTwoByte(byte, $objData.indexs);
+ 
+     
     NSLog(@"-------");
 }
 

@@ -123,6 +123,16 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     }
     NSLog(@"----------" );
 }
++(void)readIntForTwoByte:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata ;
+{
+    int iLen = [srcByte readInt];
+    int tempIdx;
+    for (int i = 0; i < iLen; i++) {
+        tempIdx=  [srcByte readShort];
+        NSLog(@"----->%d",tempIdx);
+    }
+      NSLog(@"----------" );
+}
 +(void)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
 {
     int verLength = [srcByte readInt];
@@ -142,12 +152,17 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
                     NSLog(@"----->%f",tempNum);
                     break;
+                case 1:
+                    tempNum=  [srcByte readFloatOneByte];
+                    NSLog(@"----->%f",tempNum);
+                    break;
                 default:
+                    
                     break;
             }
         }
     }
- 
+    NSLog(@"----------" );
     
 }
 

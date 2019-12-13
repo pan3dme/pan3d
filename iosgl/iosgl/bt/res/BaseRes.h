@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseRes : ResCount
  
  -(void)read ;
++(void)readIntForTwoByte:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata ;
  +(void)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
 
 @end
