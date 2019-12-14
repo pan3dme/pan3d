@@ -69,8 +69,15 @@
               pv.columns[2][0],pv.columns[2][1],pv.columns[2][2],pv.columns[2][3],
               pv.columns[3][0],pv.columns[3][1],pv.columns[3][2],pv.columns[3][3],
             };
+        GLfloat dt[16]={
+             1,0,0,0,
+             0,1,0,0,
+             0,0,1.0,0,
+             0,0,0,1.0,
+         };
         
-        glUniformMatrix4fv(rotateID, 1, GL_FALSE,  self.posMatrix3d.m);
+   
+        glUniformMatrix4fv(rotateID, 1, GL_FALSE, abc);
         
         
         glBindBuffer(GL_ARRAY_BUFFER, _objData.verticesBuffer);
@@ -91,18 +98,20 @@
 }
 -(matrix_float4x4 )updata;
 {
-    static const vector_float4 cameraPosition = { 0, 0, -4, 1 };
+    static const vector_float4 cameraPosition = { 0, 0, 5, 1 };
     const CGSize size =CGSizeMake(300, 300);
     const CGFloat aspectRatio = size.width / size.height;
     const CGFloat verticalFOV = (aspectRatio > 1) ? 60 : 90;
     static const CGFloat near = 0.1;
-    static const CGFloat far = 10;
+    static const CGFloat far = 1;
     matrix_float4x4 pv = matrix_perspective_projection(aspectRatio, verticalFOV * (M_PI / 180), near, far);
      
     matrix_float4x4  modelViewProjectionMatrix = matrix_multiply(pv, pv );
     
     
-  
-    return pv;
+    vector_float3 tx={0,1,0};
+    
+    matrix_float4x4 ct= matrix_translation(tx);
+    return ct;
 }
 @end
