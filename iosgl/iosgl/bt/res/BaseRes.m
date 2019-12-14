@@ -129,7 +129,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     int tempIdx;
     for (int i = 0; i < iLen; i++) {
         tempIdx=  [srcByte readShort];
-        NSLog(@"----->%d",tempIdx);
+       // NSLog(@"----->%d",tempIdx);
     }
       NSLog(@"----------" );
 }
@@ -150,11 +150,11 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             switch (readType) {
                 case 0:
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
-                    NSLog(@"----->%f",tempNum);
+                  //  NSLog(@"----->%f",tempNum);
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
-                    NSLog(@"----->%f",tempNum);
+                 //   NSLog(@"----->%f",tempNum);
                     break;
                 default:
                     

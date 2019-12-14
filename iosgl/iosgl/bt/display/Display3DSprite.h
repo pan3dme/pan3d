@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) TextureRes *textureRes;
 @property (nonatomic, strong) Shader3D *shader3d;
 @property (nonatomic, strong) ObjData *objData;
- 
+ @property (nonatomic, assign) float   numskip;
 -(void)loadShaderByUrl:(NSString*)value;
 -(void)loadObjDataByUrl:(NSString*)value;
 -(void)loadTextureResByUrl:(NSString*)value;

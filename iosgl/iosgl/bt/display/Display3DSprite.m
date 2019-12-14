@@ -11,12 +11,12 @@
 #import "ObjDataManager.h"
 
 @implementation Display3DSprite
-
+ 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        
+        self.numskip=0.0;
         [self loadShaderByUrl:@"shadertwo"];
         [self loadObjDataByUrl:@"1"];
         [self loadTextureResByUrl:@"xinshoupic.png"]; 
@@ -44,6 +44,17 @@
 -(void)upFrame{
     [super upFrame];
     if(_shader3d&&_objData&&_textureRes){
+        
+        self.numskip+=2;
+        
+        Vector3D   *tempV  =[[Vector3D alloc]init];
+          tempV.x=0;
+          tempV.y=0;
+          tempV.z=1;
+      [self.posMatrix3d prependRotation:self.numskip/180.0f axis:tempV ];
+        
+        
+        
         GLuint progame= _shader3d.program;
         glUseProgram(progame);
         glBindTexture(_textureRes.texture.target,_textureRes.texture.name);

@@ -10,8 +10,7 @@
 
 @implementation Vector3D
  
- 
-
+  
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
 {
     _x=x;
@@ -21,4 +20,5 @@
     return self;
 }
  
+static Vector3D *  X_AXIS     ;
 @end

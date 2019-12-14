@@ -7,11 +7,12 @@
 //
 
 #import "Matrix3D.h"
+#import "Vector3D.h"
 #import <GLKit/GLKit.h>
 
 
 @interface Matrix3D()
- 
+
 @property (nonatomic, assign)  float  m00;
 @property (nonatomic, assign)  float  m01;
 @property (nonatomic, assign)  float  m02;
@@ -29,18 +30,20 @@
 @property (nonatomic, assign)  float  m14;
 @property (nonatomic, assign)  float  m15;
 
+ 
+
 @end
 
 @implementation Matrix3D
 
 GLfloat  minfo[16];
- 
+
 - (instancetype)init
 {
     
     self = [super init];
     if (self) {
-        
+    
         self.isIdentity=true;
         [self identity];
         
@@ -48,28 +51,28 @@ GLfloat  minfo[16];
     return self;
 }
 -(GLfloat *)m;{
- 
-    minfo[0]=_m00;
-    minfo[1]=_m01;
-    minfo[2]=_m02;
-    minfo[3]=_m03;
-    minfo[4]=_m04;
-    minfo[5]=_m05;
-    minfo[6]=_m06;
-    minfo[7]=_m07;
-    minfo[8]=_m08;
-    minfo[9]=_m09;
-    minfo[10]=_m10;
-    minfo[11]=_m11;
-    minfo[12]=_m12;
-    minfo[13]=_m13;
-    minfo[14]=_m14;
-    minfo[15]=_m15;
+    
+    minfo[0]=self.m00;
+    minfo[1]=self.m01;
+    minfo[2]=self.m02;
+    minfo[3]=self.m03;
+    minfo[4]=self.m04;
+    minfo[5]=self.m05;
+    minfo[6]=self.m06;
+    minfo[7]=self.m07;
+    minfo[8]=self.m08;
+    minfo[9]=self.m09;
+    minfo[10]=self.m10;
+    minfo[11]=self.m11;
+    minfo[12]=self.m12;
+    minfo[13]=self.m13;
+    minfo[14]=self.m14;
+    minfo[15]=self.m15;
     return minfo;
 }
 -(void)identity
 {
- 
+    
     self.m00=1;
     self.m01=0;
     self.m02=0;
@@ -93,28 +96,131 @@ GLfloat  minfo[16];
     
 }
 -(void)outString{
-   
+    
 }
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  {
     
-   
+    
     
 }
+-(void)  prependRotation:(float)rad axis:(Vector3D*)axis;
+{
+        
+    float x = axis.x, y = axis.y, z = axis.z,
+    len = sqrt(x * x + y * y + z * z),
+    s, c, t,
+    a00, a01, a02, a03,
+    a10, a11, a12, a13,
+    a20, a21, a22, a23,
+    b00, b01, b02,
+    b10, b11, b12,
+    b20, b21, b22;
+    
+    if (abs(len) < 0.000001) { return  ; };
+    
+    len = 1 / len;
+    x *= len;
+    y *= len;
+    z *= len;
+
+    s = sin(rad * 3.141592f /180.0f);
+    c = cos(rad * 3.141592f /180.0f);
+    t = 1 - c;
+
+    a00 = self.m00; a01 = self.m01; a02 = self.m02; a03 = self.m03;
+    a10 = self.m04; a11 = self.m05; a12 = self.m06; a13 = self.m07;
+    a20 = self.m08; a21 = self.m09; a22 = self.m10; a23 = self.m11;
+    
+    b00 = x * x * t + c; b01 = y * x * t + z * s; b02 = z * x * t - y * s;
+    b10 = x * y * t - z * s; b11 = y * y * t + c; b12 = z * y * t + x * s;
+    b20 = x * z * t + y * s; b21 = y * z * t - x * s; b22 = z * z * t + c;
+    
+    self.m00 = a00 * b00 + a10 * b01 + a20 * b02;
+    self.m01 = a01 * b00 + a11 * b01 + a21 * b02;
+    self.m02 = a02 * b00 + a12 * b01 + a22 * b02;
+    self.m03 = a03 * b00 + a13 * b01 + a23 * b02;
+    self.m04 = a00 * b10 + a10 * b11 + a20 * b12;
+    self.m05 = a01 * b10 + a11 * b11 + a21 * b12;
+    self.m06 = a02 * b10 + a12 * b11 + a22 * b12;
+    self.m07 = a03 * b10 + a13 * b11 + a23 * b12;
+    self.m08 = a00 * b20 + a10 * b21 + a20 * b22;
+    self.m09 = a01 * b20 + a11 * b21 + a21 * b22;
+    self.m10 = a02 * b20 + a12 * b21 + a22 * b22;
+    self.m11 = a03 * b20 + a13 * b21 + a23 * b22;
+     
+}
+/*
+public prependRotation(rad: number, axis: Vector3D): Float32Array {
+            var out: Float32Array = this.m;
+            var a: Float32Array = this.m;
+            var x = axis.x, y = axis.y, z = axis.z,
+                len = Math.sqrt(x * x + y * y + z * z),
+                s, c, t,
+                a00, a01, a02, a03,
+                a10, a11, a12, a13,
+                a20, a21, a22, a23,
+                b00, b01, b02,
+                b10, b11, b12,
+                b20, b21, b22;
+
+            if (Math.abs(len) < 0.000001) { return null; }
+
+            len = 1 / len;
+            x *= len;
+            y *= len;
+            z *= len;
+
+            s = Math.sin(rad * Math.PI / 180);
+            c = Math.cos(rad * Math.PI / 180);
+            t = 1 - c;
+
+            a00 = a[0]; a01 = a[1]; a02 = a[2]; a03 = a[3];
+            a10 = a[4]; a11 = a[5]; a12 = a[6]; a13 = a[7];
+            a20 = a[8]; a21 = a[9]; a22 = a[10]; a23 = a[11];
+
+            // Construct the elements of the rotation matrix
+            b00 = x * x * t + c; b01 = y * x * t + z * s; b02 = z * x * t - y * s;
+            b10 = x * y * t - z * s; b11 = y * y * t + c; b12 = z * y * t + x * s;
+            b20 = x * z * t + y * s; b21 = y * z * t - x * s; b22 = z * z * t + c;
+
+            // Perform rotation-specific matrix multiplication
+            out[0] = a00 * b00 + a10 * b01 + a20 * b02;
+            out[1] = a01 * b00 + a11 * b01 + a21 * b02;
+            out[2] = a02 * b00 + a12 * b01 + a22 * b02;
+            out[3] = a03 * b00 + a13 * b01 + a23 * b02;
+            out[4] = a00 * b10 + a10 * b11 + a20 * b12;
+            out[5] = a01 * b10 + a11 * b11 + a21 * b12;
+            out[6] = a02 * b10 + a12 * b11 + a22 * b12;
+            out[7] = a03 * b10 + a13 * b11 + a23 * b12;
+            out[8] = a00 * b20 + a10 * b21 + a20 * b22;
+            out[9] = a01 * b20 + a11 * b21 + a21 * b22;
+            out[10] = a02 * b20 + a12 * b21 + a22 * b22;
+            out[11] = a03 * b20 + a13 * b21 + a23 * b22;
+
+            if (a !== out) { // If the source and destination differ, copy the unchanged last row
+                out[12] = a[12];
+                out[13] = a[13];
+                out[14] = a[14];
+                out[15] = a[15];
+            }
+            return out;
+        }
+*/
 -(void)prependScale:(float  )x  y:(float)y z:(float)z ;
 {
     
-    _m00= _m00 * x;
-    _m01= _m01 * x;
-    _m02 = _m02 * x;
-    _m03 = _m03 * x;
-    _m04 = _m04 * y;
-    _m05 = _m05 * y;
-    _m06 = _m06 * y;
-    _m07= _m07 * y;
-    _m08 = _m08 * z;
-    _m09= _m09 * z;
-    _m10 =_m10 * z;
-    _m11=_m11 * z;
+    self.m00= self.m00 * x;
+    self.m01= self.m01 * x;
+    self.m02 = self.m02 * x;
+    self.m03 = self.m03 * x;
+    self.m04 = self.m04 * y;
+    self.m05 = self.m05 * y;
+    self.m06 = self.m06 * y;
+    self.m07= self.m07 * y;
+    self.m08 = self.m08 * z;
+    self.m09= self.m09 * z;
+    self.m10 =self.m10 * z;
+    self.m11=self.m11 * z;
     
     
 };
