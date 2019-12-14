@@ -19,7 +19,7 @@
 }
 -(void)setupContext
 {
-    EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
+    EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES3;
     self.gl = [[EAGLContext alloc]initWithAPI:api];
     if( self.gl==NULL)
     {

@@ -105,8 +105,32 @@ vector_float4 W = { 0, 0, 0, 1 };
 }
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  {
     
+self.m12 = self.m00 * x + self.m04 * y +self.m08 * z + self.m12;
+self.m13 = self.m01 * x + self.m05 * y + self.m09 * z + self.m13;
+self.m14 = self.m02 * x + self.m06 * y + self.m10 * z + self.m14;
+self.m15 = self.m03* x + self.m07 * y + self.m11 * z + self.m15;
     
-    
+}
+-(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
+{
+float yScale = 1.0 / tan(fieldOfViewY / 2.0);
+float xScale = yScale / aspectRatio;
+self.m00 = xScale;
+self.m01 = 0;
+self.m02 = 0;
+self.m03 = 0;
+self.m04= 0;
+self.m05= yScale;
+self.m06= 0;
+self.m07 = 0;
+self.m08= 0;
+self.m09= 0;
+self.m00= zFar / (zFar - zNear);
+self.m11= 1;
+self.m12 = 0;
+self.m13 = 0;
+self.m14 = (zNear * zFar) / (zNear - zFar);
+self.m15= 0;
 }
 -(void)  prependRotation:(float)rad axis:(Vector3D*)axis;
 {

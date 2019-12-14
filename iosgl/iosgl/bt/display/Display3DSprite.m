@@ -48,13 +48,16 @@
         
         self.numskip+=2;
         
+        /*
         Vector3D   *tempV  =[[Vector3D alloc]init];
           tempV.x=0;
           tempV.y=1;
           tempV.z=0;
       [self.posMatrix3d prependRotation:2 axis:tempV ];
+        */
         
         
+       [self.posMatrix3d prependTranslation:0.0 y:0 z:0.01];
         
         GLuint progame= _shader3d.program;
         glUseProgram(progame);
@@ -76,8 +79,8 @@
              0,0,0,1.0,
          };
         
-   
-        glUniformMatrix4fv(rotateID, 1, GL_FALSE, abc);
+     
+        glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.posMatrix3d.m);
         
         
         glBindBuffer(GL_ARRAY_BUFFER, _objData.verticesBuffer);
@@ -103,15 +106,15 @@
     const CGFloat aspectRatio = size.width / size.height;
     const CGFloat verticalFOV = (aspectRatio > 1) ? 60 : 90;
     static const CGFloat near = 0.1;
-    static const CGFloat far = 1;
-    matrix_float4x4 pv = matrix_perspective_projection(aspectRatio, verticalFOV * (M_PI / 180), near, far);
+    static const CGFloat far = 10;
+    matrix_float4x4 pv = matrix_perspective_projection(aspectRatio, verticalFOV * (3.14157 / 180), near, far);
      
-    matrix_float4x4  modelViewProjectionMatrix = matrix_multiply(pv, pv );
+//    matrix_float4x4  modelViewProjectionMatrix = matrix_multiply(pv, pv );
     
     
     vector_float3 tx={0,1,0};
     
     matrix_float4x4 ct= matrix_translation(tx);
-    return ct;
+    return pv;
 }
 @end

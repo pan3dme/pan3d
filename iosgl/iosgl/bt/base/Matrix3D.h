@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  ;
 -(void) prependScale:(float  )x  y:(float)y z:(float)z;
 -(void) prependRotation:(float)rad axis:(Vector3D*)axis;
+-(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
 -(GLfloat *)m;
  
 @end

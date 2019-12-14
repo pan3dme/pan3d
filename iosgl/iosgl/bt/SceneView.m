@@ -35,11 +35,13 @@
     
     
     Display3DSprite *dispOne=[[Display3DSprite alloc]init];
-    Display3DSprite *dispTwo=[[Display3DSprite alloc]init];
-    
+
     
     [dispOne.posMatrix3d prependScale:0.5 y:0.5 z:1];
-    [dispTwo.posMatrix3d prependScale:0.1 y:0.75 z:1];
+
+    
+    [dispOne.posMatrix3d perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:10];
+     // this.uiViewMatrix.perspectiveFieldOfViewLH(1, 1, 500, 5000);
     
    //     [dispTwo.posMatrix3d prependRotation:45 axis: ];
     
