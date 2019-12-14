@@ -38,7 +38,7 @@
     Display3DSprite *dispTwo=[[Display3DSprite alloc]init];
     
     
-    [dispOne.posMatrix3d prependScale:0.75 y:0.1 z:1];
+    [dispOne.posMatrix3d prependScale:0.5 y:0.5 z:1];
     [dispTwo.posMatrix3d prependScale:0.1 y:0.75 z:1];
     
    //     [dispTwo.posMatrix3d prependRotation:45 axis: ];
@@ -46,7 +46,7 @@
  
     
     [self.scene3D addDisplay:dispOne];
-    [self.scene3D addDisplay:dispTwo];
+//    [self.scene3D addDisplay:dispTwo];
     
     [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
 }

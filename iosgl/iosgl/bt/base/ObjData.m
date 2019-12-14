@@ -12,14 +12,15 @@
 -(void)upToGpu;
 {
     float whf=1.0;
+    float depth=0.0f;
     GLfloat attrArr[] = {
         
-        whf, -whf, 0.0f,     1.0f, 0.0f,
-        -whf, whf, 0.0f,     0.0f, 1.0f,
-        -whf, -whf, 0.0f,    0.0f, 0.0f,
-        whf, whf, 0.0f,      1.0f, 1.0f,
-        -whf, whf, 0.0f,     0.0f, 1.0f,
-        whf, -whf, 0.0f,     1.0f, 0.0f,
+        whf, -whf, depth,     1.0f, 0.0f,
+        -whf, whf, 1,     0.0f, 1.0f,
+        -whf, -whf, depth,    0.0f, 0.0f,
+        whf, whf, depth,      1.0f, 1.0f,
+        -whf, whf,1,     0.0f, 1.0f,
+        whf, -whf, depth,     1.0f, 0.0f,
     };
     
  

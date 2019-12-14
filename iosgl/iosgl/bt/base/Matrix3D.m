@@ -99,9 +99,6 @@ vector_float4 W = { 0, 0, 0, 1 };
     self.m15=1;
     
  
-   
-    
-    
 }
 -(void)outString{
     

@@ -50,8 +50,8 @@
         
         Vector3D   *tempV  =[[Vector3D alloc]init];
           tempV.x=0;
-          tempV.y=0;
-          tempV.z=1;
+          tempV.y=1;
+          tempV.z=0;
       [self.posMatrix3d prependRotation:2 axis:tempV ];
         
         
@@ -62,7 +62,15 @@
        
       
         GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
-        glUniformMatrix4fv(rotateID, 1, GL_FALSE,   self.posMatrix3d.m );
+       matrix_float4x4 pv=    [self updata];
+        GLfloat abc[16]={
+              pv.columns[0][0],pv.columns[0][1],pv.columns[0][2],pv.columns[0][3],
+              pv.columns[1][0],pv.columns[1][1],pv.columns[1][2],pv.columns[1][3],
+              pv.columns[2][0],pv.columns[2][1],pv.columns[2][2],pv.columns[2][3],
+              pv.columns[3][0],pv.columns[3][1],pv.columns[3][2],pv.columns[3][3],
+            };
+        
+        glUniformMatrix4fv(rotateID, 1, GL_FALSE,  self.posMatrix3d.m);
         
         
         glBindBuffer(GL_ARRAY_BUFFER, _objData.verticesBuffer);
@@ -78,17 +86,23 @@
         glDrawArrays(GL_TRIANGLES, 0, 6);
     }
     
-    [self updata];
+
     
 }
--(void)updata;
+-(matrix_float4x4 )updata;
 {
     static const vector_float4 cameraPosition = { 0, 0, -4, 1 };
     const CGSize size =CGSizeMake(300, 300);
     const CGFloat aspectRatio = size.width / size.height;
     const CGFloat verticalFOV = (aspectRatio > 1) ? 60 : 90;
     static const CGFloat near = 0.1;
-    static const CGFloat far = 200;
-     matrix_float4x4 projectionMatrix = matrix_perspective_projection(aspectRatio, verticalFOV * (M_PI / 180), near, far);
+    static const CGFloat far = 10;
+    matrix_float4x4 pv = matrix_perspective_projection(aspectRatio, verticalFOV * (M_PI / 180), near, far);
+     
+    matrix_float4x4  modelViewProjectionMatrix = matrix_multiply(pv, pv );
+    
+    
+  
+    return pv;
 }
 @end
