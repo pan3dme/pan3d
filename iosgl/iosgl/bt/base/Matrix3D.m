@@ -37,6 +37,10 @@
 @implementation Matrix3D
 
 GLfloat  minfo[16];
+vector_float4 X = { 1, 0, 0, 0 };
+vector_float4 Y = { 0, 1, 0, 0 };
+vector_float4 Z = { 0, 0, 1, 0 };
+vector_float4 W = { 0, 0, 0, 1 };
 
 - (instancetype)init
 {
@@ -47,9 +51,10 @@ GLfloat  minfo[16];
         self.isIdentity=true;
         [self identity];
         
+     
     }
     return self;
-}
+} 
 -(GLfloat *)m;{
     
     minfo[0]=self.m00;
@@ -92,6 +97,9 @@ GLfloat  minfo[16];
     self.m13=0;
     self.m14=0;
     self.m15=1;
+    
+ 
+   
     
     
 }

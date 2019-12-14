@@ -9,6 +9,7 @@
 #import "Display3DSprite.h"
 #import "MaterialManager.h"
 #import "ObjDataManager.h"
+#import "MetalMatrixUtilities.h"
 
 @implementation Display3DSprite
  
@@ -77,6 +78,17 @@
         glDrawArrays(GL_TRIANGLES, 0, 6);
     }
     
+    [self updata];
     
+}
+-(void)updata;
+{
+    static const vector_float4 cameraPosition = { 0, 0, -4, 1 };
+    const CGSize size =CGSizeMake(300, 300);
+    const CGFloat aspectRatio = size.width / size.height;
+    const CGFloat verticalFOV = (aspectRatio > 1) ? 60 : 90;
+    static const CGFloat near = 0.1;
+    static const CGFloat far = 200;
+     matrix_float4x4 projectionMatrix = matrix_perspective_projection(aspectRatio, verticalFOV * (M_PI / 180), near, far);
 }
 @end
