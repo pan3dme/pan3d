@@ -43,16 +43,12 @@
     
    //     [dispTwo.posMatrix3d prependRotation:45 axis: ];
     
-    Vector3D   *tempV  =[[Vector3D alloc]init];
-    tempV.x=0;
-    tempV.y=0;
-    tempV.z=1;
-     [dispTwo.posMatrix3d prependRotation:30 axis:tempV ];
+ 
     
     [self.scene3D addDisplay:dispOne];
     [self.scene3D addDisplay:dispTwo];
     
-    [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
 }
 -(void)layoutSubviews
 {

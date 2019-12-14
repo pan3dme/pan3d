@@ -27,7 +27,7 @@
     [super initFWUI];
    
     SceneView *abc=[[SceneView alloc]init];
-    abc.frame=CGRectMake(10, 100, 300, 500);
+    abc.frame=CGRectMake(10, 100, 300, 300);
    [self.view addSubview:abc];
     
  

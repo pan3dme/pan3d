@@ -51,7 +51,7 @@
           tempV.x=0;
           tempV.y=0;
           tempV.z=1;
-      [self.posMatrix3d prependRotation:self.numskip/180.0f axis:tempV ];
+      [self.posMatrix3d prependRotation:2 axis:tempV ];
         
         
         
