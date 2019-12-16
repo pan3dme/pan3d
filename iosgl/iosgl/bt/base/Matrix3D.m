@@ -100,7 +100,16 @@ GLfloat  minfo[16];
 -(void)outString{
     
 }
--(void) prependTranslation:(float  )x  y:(float)y z:(float)z  {
+ 
+-(void) appendTranslation:(float  )x  y:(float)y z:(float)z ;
+{
+     Matrix3D *tempM= [[Matrix3D alloc]init];
+     [tempM prependTranslation:x y:y z:z];
+     [self append:tempM];
+     
+}
+-(void) prependTranslation:(float  )x  y:(float)y z:(float)z ;
+{
     
     self.m12 = self.m00 * x + self.m04 * y +self.m08 * z + self.m12;
     self.m13 = self.m01 * x + self.m05 * y + self.m09 * z + self.m13;
@@ -129,9 +138,7 @@ GLfloat  minfo[16];
     self.m14 = (zNear * zFar) / (zNear - zFar);
     self.m15= 0;
 }
-/*
-  
- */
+ 
 -(void)append :(Matrix3D*)matrx3d;
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];
@@ -241,6 +248,13 @@ GLfloat  minfo[16];
     self.m15 = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
     
   
+}
+ 
+-(void)  appendRotation:(float)rad axis:(Vector3D*)axis;
+{
+    Matrix3D *tempM=[[Matrix3D alloc]init];
+    [tempM prependRotation: rad axis:axis];
+    [self append:tempM];
 }
 -(void)  prependRotation:(float)rad axis:(Vector3D*)axis;
 {
