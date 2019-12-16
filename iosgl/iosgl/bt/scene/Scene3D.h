@@ -10,6 +10,7 @@
 #import "Vector3D.h"
 #import "Display3D.h"
 #import "Context3D.h"
+#import "Matrix3D.h"
  
  
 
@@ -18,13 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Scene3D : ResGC
 @property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
-
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
-
 @property (nonatomic, strong) NSMutableArray   *displayList;    // 获取到的热门数据
-
 @property (nonatomic, strong) UIView *uiView;
+@property (nonatomic, strong) Matrix3D *viewMatrix;
 - (instancetype)init:(UIView*)uiview;
 -(void) addDisplay:(Display3D*)dis;
 -(void) upFrame  ;

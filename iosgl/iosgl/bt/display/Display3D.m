@@ -5,9 +5,10 @@
 //  Created by zhao on 7/12/2019.
 //  Copyright © 2019 zhao. All rights reserved.
 //
-
+#import "Scene3D.h"
 #import "Display3D.h"
 #import "Matrix3D.h"
+#import "Scene3D.h"
 
 @implementation Display3D
 

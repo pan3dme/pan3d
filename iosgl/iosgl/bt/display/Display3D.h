@@ -8,7 +8,10 @@
  
 #import "Vector3D.h"
 #import "Matrix3D.h"
+//#import "Scene3D.h"
 
+@class Scene3D;
+ 
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  float rotationY;
 @property (nonatomic, assign)  float rotationZ;
 @property (nonatomic, strong)  Matrix3D *posMatrix3d;
- 
+ @property (nonatomic, strong)  Scene3D *scene;
 -(void) upFrame  ;
 -(void) destory  ;
 @end

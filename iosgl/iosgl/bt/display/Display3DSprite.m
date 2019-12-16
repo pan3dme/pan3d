@@ -10,6 +10,7 @@
 #import "MaterialManager.h"
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
+#import "Scene3D.h"
 
 @implementation Display3DSprite
 
@@ -47,24 +48,15 @@
 -(void)upFrame{
     [super upFrame];
     if(_shader3d&&_objData&&_textureRes){
-        
+    
         self.numskip+=2;
         
-        
-        Matrix3D *modeMatrix=[[Matrix3D alloc]init];
-        [modeMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:10];
-        self.posMatrix3d =[[Matrix3D alloc]init];
-      
-
+       
+         self.posMatrix3d =[[Matrix3D alloc]init];
         [self.posMatrix3d prependTranslation:0.0 y:0 z:5];
         
-        Vector3D *bbbb=[[Vector3D alloc]init];
-              bbbb.x=0;
-              bbbb.y=1;
-              bbbb.z=0;
-         [self.posMatrix3d prependRotation :self.numskip axis:bbbb];
-        
-        
+        [self.posMatrix3d prependRotation :self.numskip axis:Vector3D.Y_AXIS];
+        Matrix3D *modeMatrix= [self.scene.viewMatrix clone];
         [modeMatrix prepend:self.posMatrix3d];
         
         GLuint progame= _shader3d.program;

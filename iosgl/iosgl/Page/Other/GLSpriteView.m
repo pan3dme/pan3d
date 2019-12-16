@@ -45,9 +45,7 @@ GLfloat* attrArrpos ;
 
 -(void)layoutSubviews
 {
-    
-    Vector3D *a=[[Vector3D alloc]x:0 y:88 z:0 w:1];
-    
+     
     //1、设置图层
     [self setUpLayer];
     

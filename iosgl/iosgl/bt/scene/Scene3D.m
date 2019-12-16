@@ -19,7 +19,9 @@
         self.uiView=uiview;
         self.displayList=[[NSMutableArray alloc]init];
         [self setUpLayer];
-         self.context3D=[[Context3D alloc]init];
+        self.context3D=[[Context3D alloc]init];
+        self.viewMatrix=[[Matrix3D alloc]init];
+        [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:10];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         
@@ -35,6 +37,7 @@
 }
 -(void) addDisplay:(Display3D*)dis;
 {
+    dis.scene=self;
     [self.displayList addObject:dis];
 }
 
