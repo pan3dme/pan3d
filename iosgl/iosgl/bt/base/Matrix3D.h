@@ -15,10 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Matrix3D : NSObject
  
 @property (nonatomic, assign)  BOOL isIdentity;
+-(Matrix3D *)clone;
 -(void) outString;
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  ;
 -(void) prependScale:(float  )x  y:(float)y z:(float)z;
 -(void) prependRotation:(float)rad axis:(Vector3D*)axis;
+-(void) prepend :(Matrix3D*)matrx3d;
+-(void) append :(Matrix3D*)matrx3d;
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
 -(GLfloat *)m;
  

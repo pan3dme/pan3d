@@ -16,10 +16,10 @@
     GLfloat attrArr[] = {
         
         whf, -whf, depth,     1.0f, 0.0f,
-        -whf, whf, 0,     0.0f, 1.0f,
+        -whf, whf, depth,     0.0f, 1.0f,
         -whf, -whf, depth,    0.0f, 0.0f,
         whf, whf, depth,      1.0f, 1.0f,
-        -whf, whf,0,     0.0f, 1.0f,
+        -whf, whf,depth,     0.0f, 1.0f,
         whf, -whf, depth,     1.0f, 0.0f,
     };
     

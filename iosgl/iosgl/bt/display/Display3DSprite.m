@@ -30,6 +30,8 @@
 {
     self.shader3d= [[Shader3D alloc]init];
     [self.shader3d encodeVstr:[[NSBundle mainBundle]pathForResource:value ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:value ofType:@"fsh"]];
+    
+   
 }
 -(void)loadObjDataByUrl:(NSString*)value;
 {
@@ -48,16 +50,14 @@
         
         self.numskip+=2;
         
-        /*
-        Vector3D   *tempV  =[[Vector3D alloc]init];
-          tempV.x=0;
-          tempV.y=1;
-          tempV.z=0;
-      [self.posMatrix3d prependRotation:2 axis:tempV ];
-        */
         
+        Matrix3D *a=[[Matrix3D alloc]init];
+         [a perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:10];
+      
+        self.posMatrix3d =[[Matrix3D alloc]init];
+        [self.posMatrix3d prependTranslation:0.0 y:2 z:5];
         
-       [self.posMatrix3d prependTranslation:0.0 y:0 z:0.01];
+        [a prepend:self.posMatrix3d];
         
         GLuint progame= _shader3d.program;
         glUseProgram(progame);
@@ -65,7 +65,7 @@
        
       
         GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
-        glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.posMatrix3d.m);
+        glUniformMatrix4fv(rotateID, 1, GL_TRUE, a.m);
         
         
         glBindBuffer(GL_ARRAY_BUFFER, _objData.verticesBuffer);
