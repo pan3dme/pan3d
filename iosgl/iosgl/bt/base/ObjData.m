@@ -12,10 +12,8 @@
 -(void)upToGpu;
 {
     if(self.vertices){
-           [self makeBase];
-     
+        [self makeBase];
         GLfloat attrArr[self.vertices.count+self.uvs.count];
-        
         for(int i=0;i<self.vertices.count/3;i++)
         {
             attrArr[i*5+0]= [self.vertices[i*3+0] floatValue];
@@ -24,53 +22,48 @@
             attrArr[i*5+3]=[self.uvs[i*0+0]floatValue];
             attrArr[i*5+4]=[self.uvs[i*1+1]floatValue];
         }
-    
-            glGenBuffers(1, &_verticesBuffer);
-            glBindBuffer(GL_ARRAY_BUFFER, self.verticesBuffer);
-            glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+        
+        glGenBuffers(1, &_verticesBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, self.verticesBuffer);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
         
         
-
-//        unsigned int Indices[] = { 0, 3, 1,
-//            1, 3, 2,
-//            2, 3, 0,
-//            0, 1, 2 };
         
         unsigned int Indices[self.indexs.count];
-          for(int j=0;j<self.indexs.count;j++)
-          {
-              Indices[j]=[self.indexs[j]intValue];
-          }
+        for(int j=0;j<self.indexs.count;j++)
+        {
+            Indices[j]=[self.indexs[j]intValue];
+        }
         
         glGenBuffers(1, &_indexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-       
+        
     }else
     {
         [self makeBase];
     }
- 
+    
 }
- 
+
 -(void)makeBase
 {
-      float whf=1.0;
-       float depth=0.0f;
-       GLfloat attrArr[] = {
-           
-           whf, -whf, depth,     1.0f, 0.0f,
-           -whf, whf, depth,     0.0f, 1.0f,
-           -whf, -whf, depth,    0.0f, 0.0f,
-           whf, whf, depth,      1.0f, 1.0f,
-           -whf, whf,depth,     0.0f, 1.0f,
-           whf, -whf, depth,     1.0f, 0.0f,
-       };
-       
+    float whf=1.0;
+    float depth=0.0f;
+    GLfloat attrArr[] = {
+        
+        whf, -whf, depth,     1.0f, 0.0f,
+        -whf, whf, depth,     0.0f, 1.0f,
+        -whf, -whf, depth,    0.0f, 0.0f,
+        whf, whf, depth,      1.0f, 1.0f,
+        -whf, whf,depth,     0.0f, 1.0f,
+        whf, -whf, depth,     1.0f, 0.0f,
+    };
     
-       glGenBuffers(1, &_verticesBuffer);
-       glBindBuffer(GL_ARRAY_BUFFER, self.verticesBuffer);
-       glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+    
+    glGenBuffers(1, &_verticesBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, self.verticesBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
 }
 
 @end

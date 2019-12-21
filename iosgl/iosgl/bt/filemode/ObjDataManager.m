@@ -27,17 +27,7 @@ static ObjDataManager *instance = nil;
     }
     return self;
 }
-- (ObjData *)getObjDataByUrl:(NSString *)urlStr ;
-{
-    ObjData *objData=[[ObjData alloc]init];
-    
-    
-    //  [self getLocalPathFileLength];
-
-    
-    return objData;
-    
-}
+  
 -(void)getLocalPath;
 {
     NSString *path=  [[NSBundle mainBundle]pathForResource:@"baoxiang" ofType:@"txt"];
@@ -94,30 +84,8 @@ static ObjDataManager *instance = nil;
     free(buffer);
     return num;
 }
-/*
- public getObjData($url: string, $fun: Function): void {
-
-            if (this._dic[$url]) {
-                $fun(this._dic[$url]);
-                this._dic[$url].useNum++;
-                return;
-            }
-            var ary: Array<Function>;
-            if (!this._loadList[$url]) {
-                this._loadList[$url] = new Array;
-
-                LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($byte: ArrayBuffer) => {
-                    this.loadObjCom($byte, $url);
-                });
-
-            }
-            ary = this._loadList[$url];
-            ary.push($fun);
-
-        }
-*/
-
--(void)getObjDataByccccccUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
+ 
+-(void)getObjDataByUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
 {
     if(self.dic[url]){
         block(self.dic[url]);
