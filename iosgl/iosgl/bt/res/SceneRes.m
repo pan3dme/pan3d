@@ -24,7 +24,6 @@
     self.byte=[[ByteArray alloc]init:reader];
     
     [self loadComplete:self.byte];
-    
     NSDictionary *bInfo=[[NSDictionary alloc]init];
     
     block(bInfo);
@@ -39,8 +38,9 @@
 {
   self.version = [self.byte readInt];
     NSLog(@"version-->%d", self.version);
-    [self read];
-    [self read];
+    [self read]; //img
+    [self read];//obj
+     [self read];//material
     
 }
 

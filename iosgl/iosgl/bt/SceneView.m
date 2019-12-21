@@ -46,13 +46,23 @@
 {
     self.scene3D=[[Scene3D alloc]init:self];
     
+ 
+   
     
-    Display3DSprite *tempDic=[[Display3DSprite alloc]init];
-    [tempDic.posMatrix3d appendScale: 0.015 y:0.015 z:0.015];
-    [tempDic loadShaderByUrl:@"shadertwo"];
-    [tempDic loadTextureResByUrl:@"xinshoupic.png"];
-    [tempDic loadObjDataByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/guankajibenmoxing/014/014_0.xml"];
-    [self.scene3D addDisplay:tempDic];
+    Display3DSprite *tempDis=[[Display3DSprite alloc]init];
+   tempDis.name=@"cc";
+    tempDis.rotationX=10;
+       tempDis.rotationY=20;
+       tempDis.rotationZ=30;
+    tempDis.x=100;
+      tempDis.y=200;
+      tempDis.z=300;
+    
+    [tempDis.posMatrix3d appendScale: 0.015 y:0.015 z:0.015];
+    [tempDis loadShaderByUrl:@"shadertwo"];
+    [tempDis loadTextureResByUrl:@"xinshoupic.png"];
+    [tempDis loadObjDataByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/guankajibenmoxing/014/014_0.xml"];
+    [self.scene3D addDisplay:tempDis];
     
     
     [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];

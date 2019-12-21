@@ -72,7 +72,8 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
 {
     
     int filetype = [self.byte readInt];
-    NSLog(@"位置-->%d",self.byte.position);
+    NSLog(@"filetype->%d",filetype);
+     NSLog(@"位置-->%d",self.byte.position);
     switch (filetype) {
         case 1:
             [self readImgs];

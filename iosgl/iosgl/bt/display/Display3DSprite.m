@@ -74,7 +74,7 @@
         
     }
     
-    
+   // NSLog(@"%f-%f-%f",self.rotationX,self.rotationY,self.rotationZ);
     
 }
 

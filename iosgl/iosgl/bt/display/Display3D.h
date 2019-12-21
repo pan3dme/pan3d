@@ -16,9 +16,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3D : Vector3D
-@property (nonatomic, assign)  float rotationX;
-@property (nonatomic, assign)  float rotationY;
-@property (nonatomic, assign)  float rotationZ;
+ {
+float _rotationX;
+float _rotationY;
+float _rotationZ;
+ NSString *_name;
+ }
+-(void)setRotationX:(float)value;
+-(float)rotationX;
+-(void)setRotationY:(float)value;
+-(float)rotationY;
+-(void)setRotationZ:(float)value;
+-(float)rotationZ;
+  
+ - (void)setName:(NSString *)name;
+ - (NSString *)name;
+ 
 @property (nonatomic, strong)  Matrix3D *posMatrix3d;
  @property (nonatomic, strong)  Scene3D *scene;
 -(void) upFrame  ;
