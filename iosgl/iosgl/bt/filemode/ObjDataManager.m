@@ -135,9 +135,11 @@ static ObjDataManager *instance = nil;
     NSLog(@"version-->%d", objData.version);
     NSString *objUrl = [byte readUTF];
     NSLog(@"objUrl-->%@", objUrl);
-    NSLog(@"obj长度 -->%lu",   byte.nsData.length);
+  //  NSLog(@"obj长度 -->%lu",   byte.nsData.length);
     [self readObj2OneBuffer:byte  objdata:objData];
     [self.dic setObject:objData forKey:objUrl];
+
+    
     
 }
 -(void)readObj2OneBuffer :(ByteArray*)byte objdata:(ObjData*)objdata{
