@@ -23,21 +23,29 @@
         [self loadObjDataByUrl:@"1"];
         [self loadTextureResByUrl:@"xinshoupic.png"];
         
+        [self loadModelByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/texiaowujian/pointmodel.xml"];
         [self.posMatrix3d outString];
     }
     return self;
+}
+-(void)loadModelByUrl:(NSString*)url
+{
+ 
+    [[ ObjDataManager default] getObjDataByccccccUrl: url Block:^(ObjData *objData) {
+  
+        NSLog(@"--");
+    }];
 }
 -(void)loadShaderByUrl:(NSString*)value;
 {
     self.shader3d= [[Shader3D alloc]init];
     [self.shader3d encodeVstr:[[NSBundle mainBundle]pathForResource:value ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:value ofType:@"fsh"]];
-    
-    
+ 
 }
 -(void)loadObjDataByUrl:(NSString*)value;
 {
     
-    self.objData= [[ ObjDataManager default]getObjDataByUrl:value];
+    self.objData= [[ ObjDataManager default]getObjDataByUrl:value ];
     
     [self.objData upToGpu];
 }

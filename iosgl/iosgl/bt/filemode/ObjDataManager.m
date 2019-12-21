@@ -19,6 +19,14 @@ static ObjDataManager *instance = nil;
     }
     return instance;
 }
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.dic=[[NSMutableDictionary alloc]init];
+    }
+    return self;
+}
 - (ObjData *)getObjDataByUrl:(NSString *)urlStr ;
 {
     ObjData *objData=[[ObjData alloc]init];
@@ -109,7 +117,7 @@ static ObjDataManager *instance = nil;
         }
 */
 
--(void)getObjDataByUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
+-(void)getObjDataByccccccUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
 {
     if(self.dic[url]){
         block(self.dic[url]);
@@ -187,7 +195,7 @@ static ObjDataManager *instance = nil;
     objdata.bitangentsOffsets = bitangentsOffsets * 4;
     objdata.stride = dataWidth * 4;
     
-    NSLog(@"-------");
+    NSLog(@"indexlen----%lu", objdata.indexs.count);
 }
 
 @end

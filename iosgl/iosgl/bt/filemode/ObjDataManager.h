@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  NSMutableDictionary *dic;
 + (instancetype)default;
 -(ObjData *) getObjDataByUrl:(NSString*)urlStr;
+-(void)getObjDataByccccccUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
 -(void)loadObjCom:(ByteArray *)value;
 @end
 
