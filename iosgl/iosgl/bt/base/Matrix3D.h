@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) outString;
 -(void) appendTranslation:(float  )x  y:(float)y z:(float)z ;
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z  ;
+-(void) appendScale:(float  )x  y:(float)y z:(float)z;
 -(void) prependScale:(float  )x  y:(float)y z:(float)z;
 -(void) appendRotation:(float)rad axis:(Vector3D*)axis;
 -(void) prependRotation:(float)rad axis:(Vector3D*)axis;

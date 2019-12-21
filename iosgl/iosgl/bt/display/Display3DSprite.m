@@ -53,9 +53,13 @@
         
        
          self.posMatrix3d =[[Matrix3D alloc]init];
-        [self.posMatrix3d prependTranslation:0.0 y:0 z:5];
+         [self.posMatrix3d appendScale: 1 y:0.5 z:1];
+         [self.posMatrix3d appendRotation: self.numskip axis:Vector3D.Y_AXIS];
+         [self.posMatrix3d appendTranslation: 0.0 y:0 z:5];
         
-        [self.posMatrix3d prependRotation :self.numskip axis:Vector3D.Y_AXIS];
+       
+           // [self.posMatrix3d prependScale: 2 y:0.5 z:1];
+     
         Matrix3D *modeMatrix= [self.scene.viewMatrix clone];
         [modeMatrix prepend:self.posMatrix3d];
         

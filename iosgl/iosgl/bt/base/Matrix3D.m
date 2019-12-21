@@ -305,7 +305,12 @@ GLfloat  minfo[16];
     self.m11 = a03 * b20 + a13 * b21 + a23 * b22;
     
 }
- 
+ -(void) appendScale:(float  )x  y:(float)y z:(float)z;
+{
+    Matrix3D *tempM=[[Matrix3D alloc]init];
+    [tempM prependScale: x y:y z:z];
+    [self append:tempM];
+}
 -(void)prependScale:(float  )x  y:(float)y z:(float)z ;
 {
     

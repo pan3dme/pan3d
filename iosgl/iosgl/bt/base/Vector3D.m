@@ -11,6 +11,7 @@
 
 @implementation Vector3D
  
+
   
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
 {
@@ -20,30 +21,17 @@
     _w=w;
     return self;
 }
- 
 + (Vector3D *)X_AXIS; 
 {
-    Vector3D *v=[[Vector3D alloc]init];
-    v.x=1;
-    v.y=0;
-    v.z=0;
-    return v;
+    return  [[Vector3D alloc]x:1 y:0 z:0 w:1];;
 }
 + (Vector3D *)Y_AXIS;
 {
-    Vector3D *v=[[Vector3D alloc]init];
-    v.x=0;
-    v.y=1;
-    v.z=0;
-    return v;
+    return  [[Vector3D alloc]x:0 y:1 z:0 w:1];;
 }
 + (Vector3D *)Z_AXIS;
 {
-    Vector3D *v=[[Vector3D alloc]init];
-    v.x=0;
-    v.y=0;
-    v.z=1;
-    return v;
+    return  [[Vector3D alloc]x:0 y:0 z:1 w:1];;
 }
  
 @end
