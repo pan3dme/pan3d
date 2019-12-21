@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  int bitangentsOffsets  ;
 @property (nonatomic, assign)  int stride  ;
 @property (nonatomic, assign) GLuint verticesBuffer ;
+@property (nonatomic, assign) GLuint indexBuffer ;
+
 -(void)upToGpu;
 @end
 

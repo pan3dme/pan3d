@@ -23,7 +23,7 @@
         [self loadObjDataByUrl:@"1"];
         [self loadTextureResByUrl:@"xinshoupic.png"];
         
-        [self loadModelByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/texiaowujian/pointmodel.xml"];
+        [self loadModelByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/guankajibenmoxing/014/014_0.xml"];
         [self.posMatrix3d outString];
     }
     return self;
@@ -34,6 +34,8 @@
     [[ ObjDataManager default] getObjDataByccccccUrl: url Block:^(ObjData *objData) {
   
         NSLog(@"--");
+        self.objData=objData;
+          [self.objData upToGpu];
     }];
 }
 -(void)loadShaderByUrl:(NSString*)value;
@@ -61,7 +63,7 @@
         
        
          self.posMatrix3d =[[Matrix3D alloc]init];
-         [self.posMatrix3d appendScale: 1 y:0.5 z:1];
+         [self.posMatrix3d appendScale: 0.015 y:0.015 z:0.015];
          [self.posMatrix3d appendRotation: self.numskip axis:Vector3D.Y_AXIS];
          [self.posMatrix3d appendTranslation: 0.0 y:0 z:5];
         
@@ -88,7 +90,14 @@
         glEnableVertexAttribArray(textCoor);
         glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
         
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        if(self.objData.indexs){
+          
+             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
+             glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
+        }else{
+               glDrawArrays(GL_TRIANGLES, 0, 6);
+        }
+     
     }
     
     
