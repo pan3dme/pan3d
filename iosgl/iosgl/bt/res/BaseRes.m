@@ -123,21 +123,25 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     }
     NSLog(@"----------" );
 }
-+(void)readIntForTwoByte:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata ;
++(NSMutableArray*)readIntForTwoByte:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata ;
 {
+      NSMutableArray *idxItem=[[NSMutableArray alloc]init];
     int iLen = [srcByte readInt];
     int tempIdx;
     for (int i = 0; i < iLen; i++) {
         tempIdx=  [srcByte readShort];
        // NSLog(@"----->%d",tempIdx);
+        [idxItem addObject:[NSNumber numberWithInt:tempIdx]];
     }
       NSLog(@"----------" );
+    return idxItem;
 }
-+(void)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
++(NSMutableArray*)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
 {
+    NSMutableArray *vItem=[[NSMutableArray alloc]init];
     int verLength = [srcByte readInt];
     if (verLength <= 0) {
-        return;
+        return nil;
     }
     float scaleNum=1.0;
     if (readType == 0) {
@@ -150,7 +154,8 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             switch (readType) {
                 case 0:
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
-                  //  NSLog(@"----->%f",tempNum);
+                   // NSLog(@"----->%f",tempNum);
+                    [vItem addObject:[NSNumber numberWithFloat:tempNum]];
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
@@ -162,6 +167,8 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             }
         }
     }
+    
+    return vItem;
     NSLog(@"----------" );
     
 }

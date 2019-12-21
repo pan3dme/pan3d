@@ -25,8 +25,7 @@ static ObjDataManager *instance = nil;
     
     
     //  [self getLocalPathFileLength];
-    SceneRes *sceneRes=[[SceneRes alloc]init];
-    [sceneRes load:@"1001_base"];
+
     
     return objData;
     
@@ -87,6 +86,39 @@ static ObjDataManager *instance = nil;
     free(buffer);
     return num;
 }
+/*
+ public getObjData($url: string, $fun: Function): void {
+
+            if (this._dic[$url]) {
+                $fun(this._dic[$url]);
+                this._dic[$url].useNum++;
+                return;
+            }
+            var ary: Array<Function>;
+            if (!this._loadList[$url]) {
+                this._loadList[$url] = new Array;
+
+                LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($byte: ArrayBuffer) => {
+                    this.loadObjCom($byte, $url);
+                });
+
+            }
+            ary = this._loadList[$url];
+            ary.push($fun);
+
+        }
+*/
+
+-(void)getObjDataByUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
+{
+    if(self.dic[url]){
+        block(self.dic[url]);
+    }else{
+        block(nil);
+    }
+    
+    
+}
 -(void)loadObjCom:(ByteArray *)value;
 {
     ByteArray *byte=value;
@@ -96,8 +128,8 @@ static ObjDataManager *instance = nil;
     NSString *objUrl = [byte readUTF];
     NSLog(@"objUrl-->%@", objUrl);
     NSLog(@"obj长度 -->%lu",   byte.nsData.length);
-    
     [self readObj2OneBuffer:byte  objdata:objData];
+    [self.dic setObject:objData forKey:objUrl];
     
 }
 -(void)readObj2OneBuffer :(ByteArray*)byte objdata:(ObjData*)objdata{
@@ -137,8 +169,8 @@ static ObjDataManager *instance = nil;
     int tangentsOffsets = normalsOffsets + 3;
     int bitangentsOffsets = tangentsOffsets + 3;
     
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:verOffsets stride:len readType:0];
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:len readType:0];
+  objdata.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:verOffsets stride:len readType:0];
+  objdata.uvs=   [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:len readType:0];
     [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:lightuvsOffsets stride:len readType:1];
     [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:normalsOffsets stride:len readType:0];
     [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:tangentsOffsets stride:len readType:0];
@@ -146,10 +178,8 @@ static ObjDataManager *instance = nil;
     
     
     NSMutableData *indexNsData = [[NSMutableData alloc] initWithLength:len];
-    [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
-    
-    
-    
+   objdata.indexs=   [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
+  
     objdata.uvsOffsets = uvsOffsets * 4;
     objdata.lightuvsOffsets = lightuvsOffsets * 4;
     objdata.normalsOffsets = normalsOffsets * 4;

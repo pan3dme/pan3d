@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjData : ResCount
   //  public vertices: Array<number> = new Array;
-@property (nonatomic, assign)  float  *vertices;
+@property (nonatomic, copy)  NSArray  *vertices;
+@property (nonatomic, copy)  NSArray  *uvs;
+@property (nonatomic, copy)  NSArray  *indexs;
 
 @property (nonatomic, assign)  int uvsOffsets  ;
 @property (nonatomic, assign)  int lightuvsOffsets  ;

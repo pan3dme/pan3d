@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SceneRes : BaseRes
--(void)load:(NSString *)url;
+-(void)load:(NSString *)url Block:(void (^)(NSDictionary* ))block;
 
 @end
 

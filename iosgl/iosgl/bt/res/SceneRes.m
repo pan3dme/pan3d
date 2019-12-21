@@ -16,7 +16,7 @@
  
 @end
 @implementation SceneRes
--(void)load:(NSString *)url;
+-(void)load:(NSString *)url Block:(void (^)(NSDictionary* ))block;
 {
     NSString *path=  [[NSBundle mainBundle]pathForResource:url ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
@@ -24,6 +24,10 @@
     self.byte=[[ByteArray alloc]init:reader];
     
     [self loadComplete:self.byte];
+    
+    NSDictionary *bInfo=[[NSDictionary alloc]init];
+    
+    block(bInfo);
     
 }
 -(void)loadComplete:(ByteArray *)byte;

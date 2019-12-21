@@ -12,6 +12,7 @@
 #import "Vector3D.h"
 #import "TextureRes.h"
 #import "Scene3D.h"
+#import "SceneRes.h"
 #import "MaterialManager.h"
 
 @implementation SceneView
@@ -32,31 +33,17 @@
 -(void)initConfigScene
 {
     self.scene3D=[[Scene3D alloc]init:self];
-    
-    
     Display3DSprite *dispOne=[[Display3DSprite alloc]init];
-
-    
-    [dispOne.posMatrix3d prependScale:0.5 y:0.5 z:1];
-
-    
-    [dispOne.posMatrix3d perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:10];
-     // this.uiViewMatrix.perspectiveFieldOfViewLH(1, 1, 500, 5000);
-    
-   //     [dispTwo.posMatrix3d prependRotation:45 axis: ];
-    
- 
-    
     [self.scene3D addDisplay:dispOne];
-//    [self.scene3D addDisplay:dispTwo];
-    
     [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
 }
 -(void)layoutSubviews
 {
+    SceneRes *sceneRes=[[SceneRes alloc]init];
+    [sceneRes load:@"1001_base"  Block:^(NSDictionary *responseJson) {
     
-    [self initConfigScene];
-    
+         [self initConfigScene];
+    }];
     
 }
 
