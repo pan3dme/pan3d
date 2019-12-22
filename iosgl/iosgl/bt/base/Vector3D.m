@@ -13,6 +13,17 @@
 @end
 @implementation Vector3D
   
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+         _x=0;
+         _y=0;
+         _z=0;
+         _w=1;
+    }
+    return self;
+}
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
 {
     _x=x;

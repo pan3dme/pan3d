@@ -40,7 +40,15 @@
     NSLog(@"version-->%d", self.version);
     [self read]; //img
     [self read];//obj
-     [self read];//material
+    [self read];//material
+    [self read];//particle
+    [self readScene];
+}
+-(void)readScene;
+{
+    int types = [self.byte readInt];
+ 
+   
     
 }
 

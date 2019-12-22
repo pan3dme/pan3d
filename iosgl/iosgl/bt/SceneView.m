@@ -25,14 +25,14 @@
     glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
-     self.numskip+=1;
+    self.numskip+=1;
     [self.scene3D.viewMatrix isIdentity];
-    [self.scene3D.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:100];
- 
+    [self.scene3D.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:1000];
+    
     Matrix3D *m =[[Matrix3D alloc]init];
     
     [m appendRotation: self.numskip axis:Vector3D.Y_AXIS];
-    [m appendTranslation: 0.0 y:0 z:10];
+    [m appendTranslation: 0.0 y:0 z:100];
     [self.scene3D.viewMatrix prepend:m];
     
     
@@ -46,19 +46,20 @@
 {
     self.scene3D=[[Scene3D alloc]init:self];
     
- 
-   
-    
     Display3DSprite *tempDis=[[Display3DSprite alloc]init];
-   tempDis.name=@"cc";
-    tempDis.rotationX=10;
-       tempDis.rotationY=20;
-       tempDis.rotationZ=30;
-    tempDis.x=100;
-      tempDis.y=200;
-      tempDis.z=300;
     
-    [tempDis.posMatrix3d appendScale: 0.015 y:0.015 z:0.015];
+    //    tempDis.rotationX=10;
+    //       tempDis.rotationY=20;
+    //       tempDis.rotationZ=30;
+    tempDis.x=0;
+    tempDis.y=0;
+    tempDis.z=0;
+    
+    
+    tempDis.scaleX=0.15;
+    tempDis.scaleY=0.15;
+    tempDis.scaleZ=0.15;
+    
     [tempDis loadShaderByUrl:@"shadertwo"];
     [tempDis loadTextureResByUrl:@"xinshoupic.png"];
     [tempDis loadObjDataByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/guankajibenmoxing/014/014_0.xml"];
@@ -71,7 +72,7 @@
 {
     SceneRes *sceneRes=[[SceneRes alloc]init];
     [sceneRes load:@"1001_base"  Block:^(NSDictionary *responseJson) {
-         [self initConfigScene];
+        [self initConfigScene];
     }];
     
 }

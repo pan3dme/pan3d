@@ -78,6 +78,12 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         case 1:
             [self readImgs];
             break;
+  case 3:
+        [self readMaterial];
+        break;
+            case 4:
+                  [self readParticle];
+                  break;
         case 6:
             [self readZipObj];
             break;
@@ -98,7 +104,61 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     [self readObj:srcByte];
     
 }
+-(void)readMaterial;
+{
+    int materLen = [self.byte readInt];
+ 
+  for(int i=0;i<materLen;i++){
+      NSString *materurl =   [self.byte readUTF];
+      NSLog(@"materurl-->%@",materurl);
+      int materSize=  [self.byte readInt];
+      NSData *materNsdata=  [self.byte getNsDataByLen:materSize];
+      ByteArray *materByte=  [[ByteArray alloc]init:materNsdata];
+    
+      
+      
+  }
+    
+}
+-(void)readParticle;
+{
+    int particeLen = [self.byte readInt];
+ 
+  for(int i=0;i<particeLen;i++){
+      NSString *particeurl =   [self.byte readUTF];
+      NSLog(@"partice-->%@",particeurl);
+      int particeSize=  [self.byte readInt];
+      NSData *particeNsdata=  [self.byte getNsDataByLen:particeSize];
+      ByteArray *particeByte=  [[ByteArray alloc]init:particeNsdata];
+ 
+  }
+    
+}
 
+
+/*
+ public readMaterial(): void {
+            var objNum: number = this._byte.readInt();
+            //this.materialAry = new Array;
+
+            var time: number = TimeUtil.getTimer();
+
+            for (var i: number = 0; i < objNum; i++) {
+                var url: string = Scene_data.fileRoot + this._byte.readUTF();
+                var size: number = this._byte.readInt();
+
+                var dataByte: Pan3dByteArray = new Pan3dByteArray;
+                dataByte.length = size;
+                this._byte.readBytes(dataByte, 0, size)
+                MaterialManager.getInstance().addResByte(url, dataByte);
+                //this.materialAry.push(url);
+
+            }
+            ////console.log("material time", (TimeUtil.getTimer() - time));
+
+            //this.read();
+        }
+*/
 -(void)readImgs;
 {
     int imglen = [self.byte readInt];

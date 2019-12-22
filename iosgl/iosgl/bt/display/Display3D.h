@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 float _rotationX;
 float _rotationY;
 float _rotationZ;
+ float _scaleX;
+ float _scaleY;
+ float _scaleZ;
  NSString *_name;
  }
 -(void)setRotationX:(float)value;
@@ -28,6 +31,13 @@ float _rotationZ;
 -(float)rotationY;
 -(void)setRotationZ:(float)value;
 -(float)rotationZ;
+
+-(void)setScaleX:(float)value;
+-(float)scaleX;
+-(void)setScaleY:(float)value;
+-(float)scaleY;
+-(void)setScaleZ:(float)value;
+-(float)scaleZ;
   
  - (void)setName:(NSString *)name;
  - (NSString *)name;
