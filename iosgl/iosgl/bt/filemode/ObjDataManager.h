@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
  
 -(void)getObjDataByUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
--(void)loadObjCom:(ByteArray *)value;
+-(void)loadObjCom:(ByteArray *)value  url:(NSString*)url;
 @end
 
 NS_ASSUME_NONNULL_END

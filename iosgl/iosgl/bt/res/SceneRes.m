@@ -22,12 +22,8 @@
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
     self.byte=[[ByteArray alloc]init:reader];
-    
     [self loadComplete:self.byte];
-    NSDictionary *bInfo=[[NSDictionary alloc]init];
-    
-    block(bInfo);
-    
+    block([[NSDictionary alloc]init]);
 }
 -(void)loadComplete:(ByteArray *)byte;
 {
@@ -47,12 +43,12 @@
 -(void)readScene;
 {
     int types = [self.byte readInt];
- 
     [self readAstat];
     [self readTerrainIdInfoBitmapData:self.byte];
      int sceneInfosize   = [self.byte readInt];
-    
-    
+   NSString *jsonStr= [self.byte readUTFBytes:sceneInfosize];
+   NSData *data=[jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+   self.sceneData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 }
 -(void)readAstat;
 {

@@ -78,6 +78,26 @@
     
     return  (testByte[0] << 8)+testByte[1];
 }
+-(NSString *)readUTFBytes:(int)len;
+{
+    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position,  len)];
+    NSString *aString = [[NSString alloc] initWithData:data0 encoding:NSUTF8StringEncoding];
+    self.position+=len;
+    
+    return aString;
+}
+
+//  public readUTFBytes(length: number): string {
+//            //if (!this.validate(length)) return null;
+//
+//            var bytes: Uint8Array = new Uint8Array(this.buffer, this.bufferOffset + this.position, length);
+//            this.position += length;
+//            /*var bytes: Uint8Array = new Uint8Array(new ArrayBuffer(length));
+//             for (var i = 0; i < length; i++) {
+//             bytes[i] = this.data.getUint8(this.position++);
+//             }*/
+//            return this.decodeUTF8(bytes);
+//        }
 - (int)readUnsignedInt;
 {
     int floatSize = sizeof(unsigned); // change it to fixe length

@@ -95,7 +95,7 @@ static ObjDataManager *instance = nil;
     
     
 }
--(void)loadObjCom:(ByteArray *)value;
+-(void)loadObjCom:(ByteArray *)value  url:(NSString*)url;
 {
     ByteArray *byte=value;
     ObjData *objData=[[ObjData alloc]init];
@@ -105,7 +105,7 @@ static ObjDataManager *instance = nil;
     NSLog(@"objUrl-->%@", objUrl);
   //  NSLog(@"obj长度 -->%lu",   byte.nsData.length);
     [self readObj2OneBuffer:byte  objdata:objData];
-    [self.dic setObject:objData forKey:objUrl];
+    [self.dic setObject:objData forKey:url];
 
     
     

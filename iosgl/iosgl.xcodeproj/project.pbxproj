@@ -63,6 +63,7 @@
 		FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE67883B239B973C00262B53 /* Display3DSprite.m */; };
 		FE678843239B980200262B53 /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678842239B980200262B53 /* SceneView.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
+		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */; };
 		FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */; };
 		FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */; };
@@ -167,6 +168,8 @@
 		FE678842239B980200262B53 /* SceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneView.m; sourceTree = "<group>"; };
 		FE74C8862396C85D0069A551 /* Base3dView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
 		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
+		FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DSprite.h; sourceTree = "<group>"; };
+		FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DSprite.m; sourceTree = "<group>"; };
 		FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = brdf_ltu.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/brdf_ltu.jpg; sourceTree = "<group>"; };
 		FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.vsh; sourceTree = "<group>"; };
 		FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.fsh; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 		FE67883D239B974C00262B53 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */,
+				FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */,
 				FE2A61BF239CB9DF0011BF9E /* Scene3D.h */,
 				FE2A61C0239CB9DF0011BF9E /* Scene3D.m */,
 			);
@@ -576,6 +581,7 @@
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,
 				FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */,
+				FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
 				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,

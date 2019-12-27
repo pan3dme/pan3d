@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)readUnsignedInt;
 - (NSData *)getNsDataByLen:(int)len;
 - (NSString *) readUTF;
+-(NSString *)readUTFBytes:(int)len;
 @end
 
 NS_ASSUME_NONNULL_END

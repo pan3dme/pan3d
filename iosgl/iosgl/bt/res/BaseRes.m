@@ -178,7 +178,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         int objSize=  [srcByte readInt];
         NSData *objNsdata=  [srcByte getNsDataByLen:objSize];
         ByteArray *objByte=  [[ByteArray alloc]init:objNsdata];
-        [[ObjDataManager default] loadObjCom:objByte];
+        [[ObjDataManager default] loadObjCom:objByte url:objurl];
         
         
     }

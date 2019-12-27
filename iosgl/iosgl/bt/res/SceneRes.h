@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SceneRes : BaseRes
+@property (nonatomic, strong)  NSDictionary *sceneData;
 -(void)load:(NSString *)url Block:(void (^)(NSDictionary* ))block;
 
 @end
