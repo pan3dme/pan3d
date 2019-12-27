@@ -78,6 +78,14 @@
     
     return  (testByte[0] << 8)+testByte[1];
 }
+- (int)readUnsignedInt;
+{
+    int floatSize = sizeof(unsigned); // change it to fixe length
+    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position, floatSize)];
+    Byte *testByte = (Byte *)[data0 bytes];
+    self.position+=floatSize;
+    return  (testByte[1] << 16)+ (testByte[2] << 8)+testByte[3];
+}
 -(float)readFloatTwoByte :(float)scaleNum;
 {
     return  [self readShort]/scaleNum;

@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (float) readFloatTwoByte :(float)scaleNum;
 - (Boolean)readBoolean;
 - (int)getUint16;
+- (int)readUnsignedInt;
 - (NSData *)getNsDataByLen:(int)len;
 - (NSString *) readUTF;
 @end
