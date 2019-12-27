@@ -24,8 +24,18 @@
 }
 -(void)upFrame{
     glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClearDepthf(1.0);
+    glDepthFunc(GL_LESS);
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(YES);
+    glEnable(GL_BLEND);
+    glFrontFace(GL_CCW);
+    glCullFace(GL_CULL_FACE );
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    
     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
+    
+    
     self.numskip+=1;
     [self.scene3D.viewMatrix isIdentity];
     [self.scene3D.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:1000];
@@ -33,11 +43,9 @@
     Matrix3D *m =[[Matrix3D alloc]init];
     
     [m appendRotation: self.numskip axis:Vector3D.Y_AXIS];
-    [m appendTranslation: 0.0 y:0 z:100];
+    [m appendTranslation: 0.0 y:0 z:500];
     [self.scene3D.viewMatrix prepend:m];
-    
-    
-    
+     
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
     
@@ -51,7 +59,10 @@
     self.scene3D=[[Scene3D alloc]init:self];
     
     for(int i=0;i<buildItem.count;i++){
-        [self addBuildSprite:buildItem[i]];
+        if(i==2){
+                   [self addBuildSprite:buildItem[i]];
+        }
+
     }
     /*
     Display3DSprite *tempDis=[[Display3DSprite alloc]init];
