@@ -23,29 +23,41 @@
     return [CAEAGLLayer class];
 }
 -(void)upFrame{
+    /*
     glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
     glClearDepthf(1.0);
     glDepthFunc(GL_LESS);
     glEnable(GL_DEPTH_TEST);
     glDepthMask(YES);
     glEnable(GL_BLEND);
-    glFrontFace(GL_CCW);
+    glFrontFace(GL_CW);
     glCullFace(GL_CULL_FACE );
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    */
     
+   
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+ 
+ 
+    glDepthFunc(GL_LESS);
+    
+    glEnable(GL_CULL_FACE);
+     glCullFace(GL_FRONT);
+ 
+ 
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
     
+    self.numskip=self.numskip+0.51;
     
-    self.numskip+=1;
     [self.scene3D.viewMatrix isIdentity];
     [self.scene3D.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:1000];
     
     Matrix3D *m =[[Matrix3D alloc]init];
-    
     [m appendRotation: self.numskip axis:Vector3D.Y_AXIS];
-    [m appendTranslation: 0.0 y:0 z:500];
+    [m appendTranslation: 0.0 y:0 z:100];
     [self.scene3D.viewMatrix prepend:m];
-     
+    
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
     
@@ -59,11 +71,14 @@
     self.scene3D=[[Scene3D alloc]init:self];
     
     for(int i=0;i<buildItem.count;i++){
-        if(i==2){
-                   [self addBuildSprite:buildItem[i]];
-        }
+         
+            
+       
+          
+       
 
     }
+          [self addBuildSprite:buildItem[0]];
     /*
     Display3DSprite *tempDis=[[Display3DSprite alloc]init];
     tempDis.x=0;
@@ -89,7 +104,10 @@
 -(void)layoutSubviews
 {
     SceneRes *sceneRes=[[SceneRes alloc]init];
-    [sceneRes load:@"1001_base"  Block:^(NSDictionary *responseJson) {
+    //1001_base
+   //5555_base
+    
+    [sceneRes load:@"5555_base"  Block:^(NSDictionary *responseJson) {
         [self initConfigScene:sceneRes];
     }];
     

@@ -93,9 +93,9 @@
     //比例因子决定了内容如何从逻辑坐标空间(以点度量)映射到设备坐标空间(以像素度量)。这个值通常是1.0或2.0。更高的比例因子表明，
     //每一个点在屏幕上都有一个以上的像素表示。例如，如果比例因子为2.0，而绘制矩形的大小为50 x 50，则底层区域的大小为100 x 100像素。
     //2、设置比例因子
-    //  [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
+   // [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
     
-    //   [self setContentScaleFactor:1.0];
+      [self.uiView setContentScaleFactor:1.0];
     
     /**3、我们要绘制的东西是完全不透明的，所以可以去设置为YES
      一个布尔值，该值指示该层是否包含完全不透明的内容。

@@ -156,7 +156,7 @@ static ObjDataManager *instance = nil;
     
     
     NSMutableData *indexNsData = [[NSMutableData alloc] initWithLength:len];
-   objdata.indexs=   [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
+    objdata.indexs=   [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
   
     objdata.uvsOffsets = uvsOffsets * 4;
     objdata.lightuvsOffsets = lightuvsOffsets * 4;
