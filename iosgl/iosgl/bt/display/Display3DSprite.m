@@ -33,6 +33,7 @@
     [[ ObjDataManager default] getObjDataByUrl: url Block:^(ObjData *objData) {
         self.objData=objData;
         [self.objData upToGpu];
+   
     }];
 }
 -(void)loadShaderByUrl:(NSString*)value;

@@ -22,11 +22,38 @@
 }
 -(int)getUint16;
 {
-    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position,  2)];
+    int floatSize = sizeof(uint16_t); // change it to fixe length
+    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position,  floatSize)];
     Byte *testByte = (Byte *)[data0 bytes];
-    self.position+=2;
+    self.position+=floatSize;
     return  (testByte[0] << 8)+testByte[1];
 }
+ 
+-(int)readShort;
+{
+    int floatSize = sizeof(short); // change it to fixe length
+    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position,  floatSize)];
+    Byte *testByte = (Byte *)[data0 bytes];
+    self.position+=floatSize;
+    short c= (testByte[ 0] << 8)|(testByte[1]&0xff);
+    return  c;
+}
+
+
+-(NSString *)hexStringFromData:(NSData *)data
+{
+    NSAssert(data.length > 0, @"data.length <= 0");
+    NSMutableString *hexString = [[NSMutableString alloc] init];
+    const Byte *bytes = data.bytes;
+    for (NSUInteger i=0; i<data.length; i++) {
+        Byte value = bytes[i];
+        Byte high = (value & 0xf0) >> 4;
+        Byte low = value & 0xf;
+        [hexString appendFormat:@"%x%x", high, low];
+    }//for
+    return hexString;
+}
+ 
 - (NSString *) readUTF;
 {
     int len =[self getUint16];;
@@ -69,15 +96,7 @@
     self.position+=floatSize;
     return  number;
 }
--(int)readShort;
-{
-    int floatSize = sizeof(short); // change it to fixe length
-    NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position,  floatSize)];
-    Byte *testByte = (Byte *)[data0 bytes];
-    self.position+=floatSize;
-    
-    return  (testByte[0] << 8)+testByte[1];
-}
+
 -(NSString *)readUTFBytes:(int)len;
 {
     NSData *data0 = [self.nsData subdataWithRange:NSMakeRange(self.position,  len)];
@@ -108,7 +127,7 @@
 }
 -(float)readFloatTwoByte :(float)scaleNum;
 {
-    return  [self readShort]/scaleNum;
+    return (float) [self readShort]/scaleNum;
 }
 -(float)readFloatOneByte  ;
 {

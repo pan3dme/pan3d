@@ -74,11 +74,11 @@
          
             
        
-          
+           [self addBuildSprite:buildItem[i]];
        
 
     }
-          [self addBuildSprite:buildItem[0]];
+       
     /*
     Display3DSprite *tempDis=[[Display3DSprite alloc]init];
     tempDis.x=0;
@@ -107,7 +107,7 @@
     //1001_base
    //5555_base
     
-    [sceneRes load:@"5555_base"  Block:^(NSDictionary *responseJson) {
+    [sceneRes load:@"1001_base"  Block:^(NSDictionary *responseJson) {
         [self initConfigScene:sceneRes];
     }];
     
