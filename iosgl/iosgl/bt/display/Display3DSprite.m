@@ -50,7 +50,8 @@
     if(_shader3d&&_objData&&_objData.indexs&&_textureRes){
         
      
-        Matrix3D *modeMatrix= [self.scene.viewMatrix clone];
+       // Matrix3D *modeMatrix= [self.scene.viewMatrix clone];
+         Matrix3D *modeMatrix= [self.scene.camera3D.modelMatrix clone];
         [modeMatrix prepend:self.posMatrix3d];
         
         GLuint progame= _shader3d.program;

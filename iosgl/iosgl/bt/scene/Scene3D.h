@@ -11,6 +11,7 @@
 #import "Display3D.h"
 #import "Context3D.h"
 #import "Matrix3D.h"
+#import "Camera3D.h"
  
  
 
@@ -23,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
 @property (nonatomic, strong) NSMutableArray   *displayList;    // 获取到的热门数据
 @property (nonatomic, strong) UIView *uiView;
-@property (nonatomic, strong) Matrix3D *viewMatrix;
+@property (nonatomic, strong) Camera3D *camera3D;
+
 - (instancetype)init:(UIView*)uiview;
 -(void) addDisplay:(Display3D*)dis;
 -(void) upFrame  ;

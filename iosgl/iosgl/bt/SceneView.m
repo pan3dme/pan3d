@@ -47,18 +47,8 @@
     
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
-    
-    self.numskip=self.numskip+0.51;
-    
-    [self.scene3D.viewMatrix isIdentity];
-    [self.scene3D.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:1000];
-    
-    Matrix3D *m =[[Matrix3D alloc]init];
-    //[m appendRotation: self.numskip axis:Vector3D.Y_AXIS];
-    [m appendRotation: -10 axis:Vector3D.X_AXIS];
-    [m appendTranslation: 0.0 y:0 z:500];
-    [self.scene3D.viewMatrix prepend:m];
-    
+     
+  
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
     

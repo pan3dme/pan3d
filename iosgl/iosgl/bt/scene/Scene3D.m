@@ -20,16 +20,15 @@
         self.displayList=[[NSMutableArray alloc]init];
         [self setUpLayer];
         self.context3D=[[Context3D alloc]init];
-        self.viewMatrix=[[Matrix3D alloc]init];
-        [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:10];
+        self.camera3D=[[Camera3D alloc]init];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
-        
     }
     return self;
 }
 -(void) upFrame  ;
 {
+    [self.camera3D upFrame];
     for(int i=0;i<self.displayList.count;i++){
         Display3D *dis= self.displayList[i];
         [dis upFrame];
