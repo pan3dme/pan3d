@@ -19,7 +19,6 @@
         _scaleX=1;
         _scaleY=1;
         _scaleZ=1;
- 
     }
     return self;
 }

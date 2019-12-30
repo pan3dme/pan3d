@@ -71,6 +71,8 @@
 		FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */; };
 		FEF6063423B9CB8A00DE6C2F /* 5555_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */; };
 		FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063623B9CF5D00DE6C2F /* Object3D.m */; };
+		FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063923B9D10100DE6C2F /* Camera3D.m */; };
+		FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063C23B9D20200DE6C2F /* Rectangle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +184,10 @@
 		FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 5555_base.txt; path = ../../../../sceneEdit/sceneEdit/res/base/5555_base.txt; sourceTree = "<group>"; };
 		FEF6063523B9CF5D00DE6C2F /* Object3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
 		FEF6063623B9CF5D00DE6C2F /* Object3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Object3D.m; sourceTree = "<group>"; };
+		FEF6063823B9D10100DE6C2F /* Camera3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera3D.h; sourceTree = "<group>"; };
+		FEF6063923B9D10100DE6C2F /* Camera3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Camera3D.m; sourceTree = "<group>"; };
+		FEF6063B23B9D20200DE6C2F /* Rectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
+		FEF6063C23B9D20200DE6C2F /* Rectangle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rectangle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +436,10 @@
 				FE259A2E239A0BB6007360E6 /* Vector3D.m */,
 				FEF6063523B9CF5D00DE6C2F /* Object3D.h */,
 				FEF6063623B9CF5D00DE6C2F /* Object3D.m */,
+				FEF6063B23B9D20200DE6C2F /* Rectangle.h */,
+				FEF6063C23B9D20200DE6C2F /* Rectangle.m */,
+				FEF6063823B9D10100DE6C2F /* Camera3D.h */,
+				FEF6063923B9D10100DE6C2F /* Camera3D.m */,
 				FE4CA7D42398DAAA00BE6FB5 /* Matrix3D.h */,
 				FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */,
 				FE678837239B948D00262B53 /* ObjData.h */,
@@ -624,6 +634,8 @@
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
 				FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */,
 				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
+				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
+				FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */,
 				FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */,
 				FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */,
 				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
