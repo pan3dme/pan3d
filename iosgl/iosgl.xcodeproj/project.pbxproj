@@ -52,7 +52,6 @@
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
 		FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */; };
 		FE47F5B723B870B200959DFF /* 256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE47F5B623B870B200959DFF /* 256.jpg */; };
-		FE47F5B923B8725F00959DFF /* 5555_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE47F5B823B8725F00959DFF /* 5555_base.txt */; };
 		FE47F5BB23B8748C00959DFF /* tu001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE47F5BA23B8748C00959DFF /* tu001.jpg */; };
 		FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */; };
 		FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FAD23A2177A00C49DA5 /* ByteArray.m */; };
@@ -70,6 +69,7 @@
 		FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */; };
 		FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */; };
 		FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */; };
+		FEF6063423B9CB8A00DE6C2F /* 5555_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,7 +150,6 @@
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
 		FE36BBE523A53D7B00180D7C /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
 		FE47F5B623B870B200959DFF /* 256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 256.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/256.jpg; sourceTree = "<group>"; };
-		FE47F5B823B8725F00959DFF /* 5555_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 5555_base.txt; path = ../../../../sceneEdit/sceneEdit/res/base/5555_base.txt; sourceTree = "<group>"; };
 		FE47F5BA23B8748C00959DFF /* tu001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tu001.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/tu001.jpg; sourceTree = "<group>"; };
 		FE4CA7D42398DAAA00BE6FB5 /* Matrix3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3D.h; sourceTree = "<group>"; };
 		FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix3D.m; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 		FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = brdf_ltu.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/brdf_ltu.jpg; sourceTree = "<group>"; };
 		FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.vsh; sourceTree = "<group>"; };
 		FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.fsh; sourceTree = "<group>"; };
+		FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 5555_base.txt; path = ../../../../sceneEdit/sceneEdit/res/base/5555_base.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,9 +336,9 @@
 		FE0FC29A2395735800D2483A /* assetfile */ = {
 			isa = PBXGroup;
 			children = (
+				FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */,
 				FE1376A8239EC1AC00755136 /* baoxiang_byte.txt */,
 				FE515FB123A2767A00C49DA5 /* 1001_base.txt */,
-				FE47F5B823B8725F00959DFF /* 5555_base.txt */,
 				FE47F5B623B870B200959DFF /* 256.jpg */,
 				FE47F5BA23B8748C00959DFF /* tu001.jpg */,
 				FE515FAF23A2376800C49DA5 /* baoxiang.txt */,
@@ -509,13 +509,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE47F5BB23B8748C00959DFF /* tu001.jpg in Resources */,
-				FE47F5B923B8725F00959DFF /* 5555_base.txt in Resources */,
 				FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */,
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
 				FE1376A7239EBE7A00755136 /* ball.xml in Resources */,
 				FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */,
 				FE1376A5239E944B00755136 /* box.txt in Resources */,
 				FE1376A9239EC1AC00755136 /* baoxiang_byte.txt in Resources */,
+				FEF6063423B9CB8A00DE6C2F /* 5555_base.txt in Resources */,
 				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
 				FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,

@@ -33,6 +33,7 @@
      */
      NSString *objsurl=[ value objectForKey:@"objsurl"];
     
+    /*
      self.x=[[ value objectForKey:@"x"]floatValue];
      self.y=[[ value objectForKey:@"y"]floatValue];
      self.z=[[ value objectForKey:@"z"]floatValue];
@@ -44,9 +45,21 @@
     self.rotationX=[[ value objectForKey:@"rotationX"]floatValue];
     self.rotationY=[[ value objectForKey:@"rotationY"]floatValue];
     self.rotationZ=[[ value objectForKey:@"rotationZ"]floatValue];
-  
+  */
+    
+    self.scaleX=[[ value objectForKey:@"scaleX"]floatValue];
+    self.scaleY=[[ value objectForKey:@"scaleY"]floatValue];
+    self.scaleZ=[[ value objectForKey:@"scaleZ"]floatValue];
+    
+    self.x=[[ value objectForKey:@"x"]floatValue];
+        self.y=[[ value objectForKey:@"y"]floatValue];
+        self.z=[[ value objectForKey:@"z"]floatValue];
+    
+        self.rotationX=[[ value objectForKey:@"rotationX"]floatValue];
+         self.rotationY=[[ value objectForKey:@"rotationY"]floatValue];
+         self.rotationZ=[[ value objectForKey:@"rotationZ"]floatValue];
    
-    //xinshoupic
+ 
     [self loadShaderByUrl:@"shadertwo"];
    // [self loadTextureResByUrl:@"256.jpg"];
     

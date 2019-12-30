@@ -54,8 +54,9 @@
     [self.scene3D.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:1000];
     
     Matrix3D *m =[[Matrix3D alloc]init];
-    [m appendRotation: self.numskip axis:Vector3D.Y_AXIS];
-    [m appendTranslation: 0.0 y:0 z:100];
+    //[m appendRotation: self.numskip axis:Vector3D.Y_AXIS];
+    [m appendRotation: -10 axis:Vector3D.X_AXIS];
+    [m appendTranslation: 0.0 y:0 z:500];
     [self.scene3D.viewMatrix prepend:m];
     
     [self.scene3D upFrame];
@@ -107,7 +108,7 @@
     //1001_base
    //5555_base
     
-    [sceneRes load:@"1001_base"  Block:^(NSDictionary *responseJson) {
+    [sceneRes load:@"5555_base"  Block:^(NSDictionary *responseJson) {
         [self initConfigScene:sceneRes];
     }];
     

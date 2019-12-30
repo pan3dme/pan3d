@@ -905,8 +905,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-initConfigScene:"
             landmarkType = "7">
          </BreakpointContent>
@@ -921,8 +921,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-addBuildSprite:"
             landmarkType = "7">
          </BreakpointContent>
@@ -953,8 +953,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "-initConfigScene:"
             landmarkType = "7">
          </BreakpointContent>
@@ -985,8 +985,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-initConfigScene:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1036,6 +1036,22 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "-readShort"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "655407F9-6819-422E-8D58-31F3AC15E99E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-setInof:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
