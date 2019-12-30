@@ -24,27 +24,27 @@
 }
 -(void)upFrame{
     /*
-    glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
-    glClearDepthf(1.0);
-    glDepthFunc(GL_LESS);
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(YES);
-    glEnable(GL_BLEND);
-    glFrontFace(GL_CW);
-    glCullFace(GL_CULL_FACE );
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    */
+     glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+     glClearDepthf(1.0);
+     glDepthFunc(GL_LESS);
+     glEnable(GL_DEPTH_TEST);
+     glDepthMask(YES);
+     glEnable(GL_BLEND);
+     glFrontFace(GL_CW);
+     glCullFace(GL_CULL_FACE );
+     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+     */
     
-   
+    
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
- 
- 
+    
+    
     glDepthFunc(GL_LESS);
     
     glEnable(GL_CULL_FACE);
-     glCullFace(GL_FRONT);
- 
- 
+    glCullFace(GL_FRONT);
+    
+    
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
     
@@ -62,38 +62,59 @@
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
     
+    [self addMouseEvents];
+    
+}
+-(void)addMouseEvents
+{
+    
+    UIView *flowView=self;
+    //添加滑动手势事件
+    UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:flowView action:@selector(handleGesture:)];
+    [flowView addGestureRecognizer:gestureRecognizer];
+      
+    //添加点击手势事件
+    flowView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:flowView action:@selector(goBigImageView)];
+    [flowView addGestureRecognizer:tap];
+}
+-(void)goBigImageView;
+{
+           NSLog(@"goBigImageView");
 }
 
+- (void)handleGesture:(UIPanGestureRecognizer *)recognizer {
+    //UITapGestureRecognizer
+   if (recognizer.state == UIGestureRecognizerStateChanged){
+       NSLog(@"UIGestureRecognizerStateChanged");
+   }else if(recognizer.state == UIGestureRecognizerStateEnded){
+       NSLog(@"UIGestureRecognizerStateEnded");
+   }else if(recognizer.state == UIGestureRecognizerStateBegan){
+       NSLog(@"UIGestureRecognizerStateBegan");
+   }else if(recognizer.state == UIGestureRecognizerStateCancelled){
+       NSLog(@"UIGestureRecognizerStateCancelled");
+   }else if(recognizer.state == UIGestureRecognizerStateFailed){
+       NSLog(@"UIGestureRecognizerStateFailed");
+   }else if(recognizer.state == UIGestureRecognizerStatePossible){
+       NSLog(@"UIGestureRecognizerStatePossible");
+   }else if(recognizer.state == UIGestureRecognizerStateRecognized){
+       NSLog(@"UIGestureRecognizerStateRecognized");
+   }
+  
+}
+-(void)mouseDownClik
+{
+    NSLog(@"here");
+}
 -(void)initConfigScene:(SceneRes *)sceneRes
 {
-  
-       NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
-   // [0]    (null)    @"buildItem" : @"6 elements"
+    
+    NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
     self.scene3D=[[Scene3D alloc]init:self];
-    
     for(int i=0;i<buildItem.count;i++){
-         
-            
-       
-           [self addBuildSprite:buildItem[i]];
-       
-
+        [self addBuildSprite:buildItem[i]];
     }
-       
-    /*
-    Display3DSprite *tempDis=[[Display3DSprite alloc]init];
-    tempDis.x=0;
-    tempDis.y=0;
-    tempDis.z=0;
-    tempDis.scaleX=0.15;
-    tempDis.scaleY=0.15;
-    tempDis.scaleZ=0.15;
-    [tempDis loadShaderByUrl:@"shadertwo"];
-    [tempDis loadTextureResByUrl:@"xinshoupic.png"];
-    [tempDis loadObjDataByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/guankajibenmoxing/014/014_0.xml"];
-    [self.scene3D addDisplay:tempDis];
-    */
-    
+
     [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
 }
 -(void)addBuildSprite:(NSDictionary*)value
@@ -105,9 +126,6 @@
 -(void)layoutSubviews
 {
     SceneRes *sceneRes=[[SceneRes alloc]init];
-    //1001_base
-   //5555_base
-    
     [sceneRes load:@"5555_base"  Block:^(NSDictionary *responseJson) {
         [self initConfigScene:sceneRes];
     }];

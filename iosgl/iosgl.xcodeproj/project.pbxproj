@@ -70,6 +70,7 @@
 		FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */; };
 		FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */; };
 		FEF6063423B9CB8A00DE6C2F /* 5555_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */; };
+		FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063623B9CF5D00DE6C2F /* Object3D.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +180,8 @@
 		FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.vsh; sourceTree = "<group>"; };
 		FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.fsh; sourceTree = "<group>"; };
 		FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 5555_base.txt; path = ../../../../sceneEdit/sceneEdit/res/base/5555_base.txt; sourceTree = "<group>"; };
+		FEF6063523B9CF5D00DE6C2F /* Object3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
+		FEF6063623B9CF5D00DE6C2F /* Object3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Object3D.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -425,6 +428,8 @@
 				FE678835239B946800262B53 /* ResCount.m */,
 				FE259A2D239A0BB6007360E6 /* Vector3D.h */,
 				FE259A2E239A0BB6007360E6 /* Vector3D.m */,
+				FEF6063523B9CF5D00DE6C2F /* Object3D.h */,
+				FEF6063623B9CF5D00DE6C2F /* Object3D.m */,
 				FE4CA7D42398DAAA00BE6FB5 /* Matrix3D.h */,
 				FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */,
 				FE678837239B948D00262B53 /* ObjData.h */,
@@ -605,6 +610,7 @@
 				FE678843239B980200262B53 /* SceneView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
+				FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
