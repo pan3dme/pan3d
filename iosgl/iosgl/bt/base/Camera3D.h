@@ -12,13 +12,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Camera3D : Object3D
-{
-float _distance;
-}
+ 
 @property (nonatomic, strong)  Object3D *lookAtTargt;
 @property (nonatomic, strong)  Matrix3D *camMatrix3D;
 @property (nonatomic, strong)  Matrix3D *viewMatrix;
 @property (nonatomic, strong)  Matrix3D *modelMatrix;
+@property (nonatomic, assign)  float   distance;
 -(void) upFrame  ;
  
 @end
