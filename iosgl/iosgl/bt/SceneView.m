@@ -43,11 +43,39 @@
 -(void)upFrame{
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glDepthFunc(GL_LESS);
+    
+   
+    
+    // glDepthFunc(GL_LESS);
+    /*
     glEnable(GL_CULL_FACE);
     glCullFace(GL_FRONT);
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
+    glFrontFace(GL_CCW);
+    glEnable(GL_DEPTH_TEST);
+
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
+    */
+   // glDisable(GL_DEPTH_TEST);
+    // glDisable(GL_CULL_FACE);
+    
+    /*
+     GLV.glDisable(GL_BLEND);
+     GLV.glDisable(GL_ALPHA_TEST);
+     GLV.glDisable(GL_DEPTH_TEST);
+     */
+    
+    glClearColor(0.18f, 0.04f, 0.14f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+     glCullFace(GL_FRONT_AND_BACK);
+    
+    glDisable(GL_BLEND);
+    
+    glDisable(GL_DEPTH_TEST);
+    
+
+  
+     glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
 
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
@@ -90,7 +118,9 @@
 -(void)layoutSubviews
 {
     SceneRes *sceneRes=[[SceneRes alloc]init];
-    [sceneRes load:@"5555_base"  Block:^(NSDictionary *responseJson) {
+    //5555_base
+    //1001_base
+    [sceneRes load:@"1001_base"  Block:^(NSDictionary *responseJson) {
         [self initConfigScene:sceneRes];
     }];
     

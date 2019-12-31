@@ -857,8 +857,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-initConfigScene:"
             landmarkType = "7">
          </BreakpointContent>
@@ -873,8 +873,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "-addBuildSprite:"
             landmarkType = "7">
          </BreakpointContent>
@@ -921,8 +921,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-initConfigScene:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1001,8 +1001,8 @@
             filePath = "iosgl/bt/base/Camera3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1033,8 +1033,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1065,8 +1065,8 @@
             filePath = "iosgl/bt/base/Camera3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1081,8 +1081,8 @@
             filePath = "iosgl/bt/SceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-touchesMoved:withEvent:"
             landmarkType = "7">
          </BreakpointContent>

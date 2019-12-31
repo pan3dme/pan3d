@@ -48,7 +48,7 @@
   */
     
     self.scaleX=[[ value objectForKey:@"scaleX"]floatValue];
-    self.scaleY=[[ value objectForKey:@"scaleY"]floatValue];
+    self.scaleY=[[ value objectForKey:@"scaleY"]floatValue]*1.0f;
     self.scaleZ=[[ value objectForKey:@"scaleZ"]floatValue];
     
     self.x=[[ value objectForKey:@"x"]floatValue];
@@ -61,9 +61,9 @@
    
  
     [self loadShaderByUrl:@"shadertwo"];
-   // [self loadTextureResByUrl:@"256.jpg"];
+  // [self loadTextureResByUrl:@"xinshoupic.png"];
     
-      [self loadTextureResByUrl:@"tu001.jpg"];
+       [self loadTextureResByUrl:@"tu001.jpg"];
     [self loadObjDataByUrl:objsurl];
 }
 @end
