@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
+@property (nonatomic, assign) GLuint mydepthRenderBuffer;
 @property (nonatomic, assign) GLuint myColorFrameBuffer;
 @property (nonatomic, strong) NSMutableArray   *displayList;    // 获取到的热门数据
 @property (nonatomic, strong) UIView *uiView;

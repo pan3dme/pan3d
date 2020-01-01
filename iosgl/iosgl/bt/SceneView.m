@@ -65,18 +65,18 @@
      */
     
     glClearColor(0.18f, 0.04f, 0.14f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-     glCullFace(GL_FRONT_AND_BACK);
-    
-    glDisable(GL_BLEND);
-    
-    glDisable(GL_DEPTH_TEST);
+    //glDisable(GL_DEPTH_TEST); //开启深度测试
+    //glEnable(GL_CULL_FACE); //正反面
+    //glFrontFace(GL_CW); //绘制方向
+    //glCullFace(GL_BACK); //证明踢出
+    glClear(GL_COLOR_BUFFER_BIT  );
     
 
-  
+    
+    //  glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER,    self.scene3D.mydepthRenderBuffer);
+    //  glBindRenderbuffer(GL_RENDERBUFFER, self.scene3D.myColorRenderBuffer);
      glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
-
+    self.scene3D.camera3D.distance=300;
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
     

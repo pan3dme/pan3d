@@ -21,8 +21,12 @@
         [self setUpLayer];
         self.context3D=[[Context3D alloc]init];
         self.camera3D=[[Camera3D alloc]init];
+        
+        [self setupDephtBuffer];
         [self setupRenderBuffer];
+        
         [self setupFrameBuffer];
+        
     }
     return self;
 }
@@ -61,6 +65,46 @@
     
     
 }
+-(void)setupDephtBuffer
+{
+    /*
+     glGenRenderbuffers（1& depthBuffer）;
+     
+     glBindRenderbuffer（GL_RENDERBUFFER，depthBuffer）;
+     
+     glRenderbufferStorage（GL_RENDERBUFFER，GL_DEPTH_COMPONENT，width，height）;
+     
+     glBindRenderbuffer（GL_RENDERBUFFER，0）;
+     glFramebufferRenderbuffer（GL_FRAMEBUFFER，GL_DEPTH_ATTACHMENT，GL_RENDERBUFFER，depthBuffer）;
+     */
+    
+    //1、定义一个缓冲区
+    /*
+     GLuint depthBuffer;
+     glGenRenderbuffers(1, &depthBuffer);
+     glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
+     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, 512, 512);
+     glBindRenderbuffer(GL_RENDERBUFFER, 0 );
+     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER, depthBuffer);
+     self.mydepthRenderBuffer=depthBuffer;
+     
+     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER,    self.mydepthRenderBuffer);
+     
+     */
+    GLuint depthBuffer;
+    GLint width=512;
+    GLint height=512;
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width);
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height);
+    
+    glGenRenderbuffers(1, &depthBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, width, height);
+    
+    
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER, depthBuffer);
+    
+}
 -(void)setupFrameBuffer
 {
     //1、定义一个缓冲区标记
@@ -92,9 +136,9 @@
     //比例因子决定了内容如何从逻辑坐标空间(以点度量)映射到设备坐标空间(以像素度量)。这个值通常是1.0或2.0。更高的比例因子表明，
     //每一个点在屏幕上都有一个以上的像素表示。例如，如果比例因子为2.0，而绘制矩形的大小为50 x 50，则底层区域的大小为100 x 100像素。
     //2、设置比例因子
-   // [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    // [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
     
-      [self.uiView setContentScaleFactor:1.0];
+    [self.uiView setContentScaleFactor:1.0];
     
     /**3、我们要绘制的东西是完全不透明的，所以可以去设置为YES
      一个布尔值，该值指示该层是否包含完全不透明的内容。
@@ -122,6 +166,6 @@
                                           kEAGLDrawablePropertyRetainedBacking,kEAGLColorFormatRGBA8,kEAGLDrawablePropertyColorFormat,nil];
     
 }
- 
+
 
 @end
