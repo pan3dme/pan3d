@@ -12,6 +12,7 @@
 #import "Context3D.h"
 #import "Matrix3D.h"
 #import "Camera3D.h"
+#import "Rectangle.h"
  
  
 
@@ -26,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray   *displayList;    // 获取到的热门数据
 @property (nonatomic, strong) UIView *uiView;
 @property (nonatomic, strong) Camera3D *camera3D;
+@property (nonatomic, strong) Rectangle *viewRect;
 
 - (instancetype)init:(UIView*)uiview;
 -(void) addDisplay:(Display3D*)dis;

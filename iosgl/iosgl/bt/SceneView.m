@@ -45,7 +45,9 @@
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_DEPTH_TEST);
     
-        glViewport(0, 0, self.frame.size.width*1.0, self.frame.size.height*1.0);
+ //glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+      glViewport(self.scene3D.viewRect.x,self.scene3D.viewRect.y,self.scene3D.viewRect.weight,self.scene3D.viewRect.height);
     self.scene3D.camera3D.distance=300;
     [self.scene3D upFrame];
     [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];

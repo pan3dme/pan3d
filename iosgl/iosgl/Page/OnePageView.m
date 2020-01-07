@@ -13,7 +13,7 @@
 #import "SceneView.h"
 #import "Matrix3D.h"
 @interface OnePageView ()
-
+@property (nonatomic, strong) SceneView *sceneView;
 @end
 
 @implementation OnePageView
@@ -26,14 +26,15 @@
 {
     [super initFWUI];
    
-    SceneView *abc=[[SceneView alloc]init];
-    abc.frame=CGRectMake(10, 100, 300, 300);
-   [self.view addSubview:abc];
+     self.sceneView=[[SceneView alloc]init];
+      self.sceneView.frame=CGRectMake(10, 100, 300, 300);
+     [self.view addSubview:  self.sceneView];
     
  
     
 
 }
+
 
  
  

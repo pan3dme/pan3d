@@ -17,8 +17,9 @@
     self = [super init];
     if (self) {
         self.uiView=uiview;
-        self.displayList=[[NSMutableArray alloc]init];
         [self setUpLayer];
+        self.displayList=[[NSMutableArray alloc]init];
+        self.viewRect=[[Rectangle alloc]x:0 y:0 width:300 height:300];
         self.context3D=[[Context3D alloc]init];
         self.camera3D=[[Camera3D alloc]init];
         
