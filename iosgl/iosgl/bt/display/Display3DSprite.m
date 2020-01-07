@@ -18,13 +18,6 @@
 {
     self = [super init];
     if (self) {
- 
- 
- //       [self.posMatrix3d appendScale: 0.015 y:0.015 z:0.015];
-//        [self loadShaderByUrl:@"shadertwo"];
-//        [self loadTextureResByUrl:@"xinshoupic.png"];
-//        [self loadObjDataByUrl:@"file:///D:/work/cannondemo/cannondemo/res/wudiqiuqiu/changjing/guankajibenmoxing/014/014_0.xml"];
- 
     }
     return self;
 }
@@ -33,7 +26,6 @@
     [[ ObjDataManager default] getObjDataByUrl: url Block:^(ObjData *objData) {
         self.objData=objData;
         [self.objData upToGpu];
-   
     }];
 }
 -(void)loadShaderByUrl:(NSString*)value;
@@ -48,9 +40,7 @@
 -(void)upFrame{
     [super upFrame];
     if(_shader3d&&_objData&&_objData.indexs&&_textureRes){
-        
      
-       // Matrix3D *modeMatrix= [self.scene.viewMatrix clone];
          Matrix3D *modeMatrix= [self.scene.camera3D.modelMatrix clone];
         [modeMatrix prepend:self.posMatrix3d];
         
@@ -75,9 +65,7 @@
         glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
   
     }
-    
-   // NSLog(@"%f-%f-%f",self.rotationX,self.rotationY,self.rotationZ);
-    
+  
 }
 
 @end
