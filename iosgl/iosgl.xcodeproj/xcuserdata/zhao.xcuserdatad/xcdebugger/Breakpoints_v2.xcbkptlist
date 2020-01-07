@@ -574,9 +574,9 @@
             filePath = "iosgl/bt/scene/Scene3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-init:"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -590,9 +590,9 @@
             filePath = "iosgl/bt/scene/Scene3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-init:"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -606,9 +606,9 @@
             filePath = "iosgl/bt/scene/Scene3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-upFrame"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-setupRenderBuffer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

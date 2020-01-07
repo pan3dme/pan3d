@@ -88,16 +88,20 @@
 }
 -(void)layoutSubviews
 {
-  
-  
+ 
+    [self loadSeceneByUrl:@"1001_base"];
+    
+    
+}
+-(void)loadSeceneByUrl:(NSString*)url
+{
+     //5555_base
+                //1001_base
     SceneRes *sceneRes=[[SceneRes alloc]init];
-                   //5555_base
-                   //1001_base
-                   [sceneRes load:@"1001_base"  Block:^(NSDictionary *responseJson) {
+            
+                   [sceneRes load:url  Block:^(NSDictionary *responseJson) {
                        [self initConfigScene:sceneRes];
                    }];
-    
-    
 }
  
 

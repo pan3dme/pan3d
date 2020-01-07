@@ -70,37 +70,10 @@
 }
 -(void)setupDephtBuffer
 {
-    /*
-     glGenRenderbuffers（1& depthBuffer）;
      
-     glBindRenderbuffer（GL_RENDERBUFFER，depthBuffer）;
-     
-     glRenderbufferStorage（GL_RENDERBUFFER，GL_DEPTH_COMPONENT，width，height）;
-     
-     glBindRenderbuffer（GL_RENDERBUFFER，0）;
-     glFramebufferRenderbuffer（GL_FRAMEBUFFER，GL_DEPTH_ATTACHMENT，GL_RENDERBUFFER，depthBuffer）;
-     */
-    
-    //1、定义一个缓冲区
-    /*
-     GLuint depthBuffer;
-     glGenRenderbuffers(1, &depthBuffer);
-     glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
-     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, 512, 512);
-     glBindRenderbuffer(GL_RENDERBUFFER, 0 );
-     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER, depthBuffer);
-     self.mydepthRenderBuffer=depthBuffer;
-     
-     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_COMPONENT, GL_RENDERBUFFER,    self.mydepthRenderBuffer);
-     
-     */
     GLuint depthBuffer;
     GLint width=512;
     GLint height=512;
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width);
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height);
-    
- 
   
   glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width);
   glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height);
