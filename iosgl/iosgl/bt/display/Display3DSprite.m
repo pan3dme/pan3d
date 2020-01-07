@@ -73,7 +73,7 @@
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
         glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
-        
+  
     }
     
    // NSLog(@"%f-%f-%f",self.rotationX,self.rotationY,self.rotationZ);

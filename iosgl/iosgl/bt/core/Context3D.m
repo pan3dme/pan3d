@@ -19,8 +19,9 @@
 }
 -(void)setupContext
 {
-    EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES3;
-    self.gl = [[EAGLContext alloc]initWithAPI:api];
+   
+    self.gl = [[EAGLContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES3];
+   
     if( self.gl==NULL)
     {
         NSLog(@"Create Context Failed!");
