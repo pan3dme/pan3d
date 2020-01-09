@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -212,8 +215,8 @@ var Pan3d;
                 var ma;
                 if (this._isRandom) {
                     var roundv3d = new Pan3d.Vector3D(this._round.x * this._round.w, this._round.y * this._round.w, this._round.z * this._round.w);
-                    if (this._isEven) {
-                        if (this._closeSurface) {
+                    if (this._isEven) { //圆柱
+                        if (this._closeSurface) { //紧贴表面
                             v3d = new Pan3d.Vector3D(0, 0, roundv3d.z);
                             ma = new Pan3d.Matrix3D;
                             ma.appendRotation(Math.random() * 360, Pan3d.Vector3D.Y_AXIS);
@@ -228,8 +231,8 @@ var Pan3d;
                             v3d.y = roundv3d.y * Math.random() * 2 - roundv3d.y;
                         }
                     }
-                    else {
-                        if (this._closeSurface) {
+                    else { //圆球
+                        if (this._closeSurface) { //只有xyz相等时候才能紧贴表面
                             v3d = new Pan3d.Vector3D(0, 0, roundv3d.z);
                             ma = new Pan3d.Matrix3D;
                             if (this._halfCircle) {
@@ -269,7 +272,7 @@ var Pan3d;
                 // if(this._shootAngly.z == -1){
                 //     //console.log(this._shootAngly.z);
                 // }
-                if (this._shootAngly.x != 0 || this._shootAngly.y != 0 || this._shootAngly.z != 0) {
+                if (this._shootAngly.x != 0 || this._shootAngly.y != 0 || this._shootAngly.z != 0) { //锥形速度
                     var r = Math.tan(this._shootAngly.w * Math.PI / 180 * Math.random());
                     var a = 360 * Math.PI / 180 * Math.random();
                     v3d = new Pan3d.Vector3D(Math.sin(a) * r, Math.cos(a) * r, 1);

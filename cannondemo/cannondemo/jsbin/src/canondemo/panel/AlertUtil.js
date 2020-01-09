@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -139,7 +142,8 @@ var msgalert;
             _this.height = UIData.designHeight;
             _this.center = 0;
             _this.middle = 0;
-            _this.layer = 9999;
+            _this.interfaceUI = true;
+            _this.layer = 999;
             _this._bottomRender = new AlphaUIRenderComponent;
             _this.addRender(_this._bottomRender);
             _this._topRender = new AlphaUIRenderComponent;

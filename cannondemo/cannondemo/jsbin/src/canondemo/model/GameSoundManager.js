@@ -43,7 +43,6 @@ var game;
         GameSoundManager.prototype.collidehit = function () {
             //当前时间大于上次碰撞变化的100ms
             if (TimeUtil.getTimer() > this.contactsLinkTm) {
-                this.contactsLinkTm = TimeUtil.getTimer() + 200;
                 if (!GameData.getStorageSync("o_shake_but")) {
                     this.playHitSound(1);
                     console.log("碰到", this.lastcontactsNum, TimeUtil.getTimer());

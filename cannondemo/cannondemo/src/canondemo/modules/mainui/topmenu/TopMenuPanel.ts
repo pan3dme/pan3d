@@ -61,6 +61,10 @@
 
             this.centreInofTxtView = new tips.CentreInofTxtView(this, this._topRender)
 
+
+          
+
+    
             this.a_tittle_level_bg = this.addEvntButUp("a_tittle_level_bg", this._midRender)
             this.a_back_home = this.addEvntButUp("a_back_home", this._midRender)
 
@@ -80,20 +84,11 @@
 
 
             this.a_sound_but = <FrameCompenent>this.addEvntButUp("a_sound_but", this._topRender);
-            this.a_vip_but = <FrameCompenent>this.addEvntButUp("a_vip_but", this._topRender);
-
-
-
-   
-
 
             if (Scene_data.stageHeight / Scene_data.stageWidth > 2) {
                 this.a_sound_but.y = this.a_sound_but.baseRec.y+40
             }
             this.a_effict_skin_icon.y = this.a_sound_but.y
-
-            this.a_vip_but.y = this.a_sound_but.y + (this.a_vip_but.baseRec.y- this.a_sound_but.baseRec.y)
-
      
             this.setVolumeBut()
             
@@ -105,9 +100,6 @@
             this.setTittleTxt("第 " + GameDataModel.levelNum + " 关")
 
         }
-        private colorMcItem: Array<FrameCompenent>
-        private a_vip_but: FrameCompenent
-
         private a_effict_skin_icon: UICompenent
         private setVolumeBut(): void {
             this.a_sound_but.goToAndStop(Boolean(GameData.getStorageSync("o_volume_but")) ? 0 : 1)
@@ -119,38 +111,11 @@
         private a_diamonds_num_txt: UICompenent
         private a_top_level_num_txt: UICompenent
         private a_reset_level_but: UICompenent
-
-        
-        private showColorFrame(): void {
-            if (!this.colorMcItem) {
-                this.colorMcItem = new Array();
-          
-                for (var i: number = 0; i < 4; i++) {
-                    var $temp: FrameCompenent = <FrameCompenent>this._topRender.getComponent("a_color_frame")
-                    var tw: number = $temp.baseRec.width +4
-                    $temp.addEventListener(InteractiveEvent.Up, this.butClik, this);
-                    $temp.goToAndStop(i)
-                    $temp.data=i
-                    this.colorMcItem.push($temp)
-                    $temp.x = $temp.baseRec.x + i * tw - 3 * tw;
-                }
-            }
-            
-            this.setUiListVisibleByItem(this.colorMcItem, true)
-        }
         protected butClik(evt: InteractiveEvent): void {
 
             switch (evt.target) {
                 case this.a_tittle_level_bg:
                     this.showCammandPanel()
-                    break
-                case this.a_vip_but:
-                 
-                    if (this.a_vip_but.current == 0) {
-                        this.showColorFrame()
-                    } else {
-                        Pan3d.ModuleEventManager.dispatchEvent(new vip.VipEvent(vip.VipEvent.SHOW_VIP_PANEL))
-                    }
                     break
                 case this.a_sound_but:
                     GameData.setStorageSync("o_volume_but", !Boolean(GameData.getStorageSync("o_volume_but")));
@@ -176,72 +141,43 @@
                     ModuleEventManager.dispatchEvent(new mainui.MainuiEvent(mainui.MainuiEvent.HIDE_MAIN_UI_PANEL))
                     ModuleEventManager.dispatchEvent(new topstart.TopStartEvent(topstart.TopStartEvent.SHOW_TOP_START_PANEL));
                     break
-
-      
                 default:
-                    if (evt.target.name == "a_color_frame") {
-
-                        this.setUiListVisibleByItem(this.colorMcItem, false)
-                        switch (evt.target.data) {
-                            case 0:
-                                game.GameSceneColor.makeBaseColor(0)
-                                break
-                            case 1:
-                                game.GameSceneColor.makeBaseColor(1)
-                                break
-                            case 2:
-                                game.GameSceneColor.makeBaseColor(2)
-                                break
-                            case 3:
-                                game.GameSceneColor.makeBaseColor(3)
-                                break
-                            default:
-                                game.GameSceneColor.makeBaseColor(4)
-                                break
-
-                        }
-
-                    }
-
                     break
 
             }
         }
-  
+        
         public refrishUi(): void {
             if (this.uiLoadComplte) {
-
+                LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.a_diamonds_num_txt.skinName, Pan3d.ColorType.Whiteffffff+ String(GameData.hasdiamondsHavenum), 26, TextAlign.CENTER)
                 this.setUiListVisibleByItem([this.a_effict_skin_icon], GameData.getStorageSync("isUseEffictSkin"))
-   
-                TweenLite.to(this, 0.3, { showhaveNum: GameData.hasdiamondsHavenum });
 
-                this.setUiListVisibleByItem([this.a_vip_but], (GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)+1) >= GameData.severinfo.vippanel.level)
-
-                if (GameData.getStorageSync("isvip")) {
-                    this.a_vip_but.goToAndStop(0)
-                } else {
-                    this.a_vip_but.goToAndStop(1)
-                }
-   
-        
-            }
-        }
-        private lastNumStr: string
-        private set showhaveNum(value: number) {
-            this._showhaveNum = value
-            if (this.lastNumStr != String(Math.floor(value))) {
-                this.lastNumStr = String(Math.floor(value))
-                LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.a_diamonds_num_txt.skinName, Pan3d.ColorType.Whiteffffff + this.lastNumStr, 26, TextAlign.CENTER)
-            }
   
+            }
+        }
+        /*
+        private _fristEffictRender: FrameUIRender;
+        private expEff: FrameTipCompenent
+        public showExpEff(): void {
+
+            if (!this._fristEffictRender) {
+                this._fristEffictRender = new FrameUIRender();
+                this.addRender(this._fristEffictRender);
+                this._fristEffictRender.setImg("panelui/topmenu/effict001.png", 4, 4, ($ui: any) => {
+                    this.expEff = $ui;
+                    this.expEff.x = this.a_effict_skin_icon.x
+                    this.expEff.y = this.a_effict_skin_icon.y
+                    this.expEff.width = this.a_effict_skin_icon.width
+                    this.expEff.height = this.a_effict_skin_icon.height
+
+                    this.expEff.speed =2;
+                    this.expEff.playOne(this);
+                    this.expEff.play()
+                })
+            }
 
         }
-        private _showhaveNum: number
-        private get showhaveNum(): number {
-            return this._showhaveNum;
-
-        }
-      
+        */
         public setTittleTxt(value: string): void {
             if (this.uiLoadComplte) {
                 LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.a_top_level_num_txt.skinName, value, 26, TextAlign.CENTER);

@@ -163,9 +163,13 @@
         }
         private onMouseDown($evt: InteractiveEvent): void {
             var $v2d: Pan3d.Vector2D=new Pan3d.Vector2D($evt.x, $evt.y)
-    
-       
-            if (!GameData.hasWinPanel) { //只有一组UI
+            var $play: boolean = true
+            for (var i: number = 0; i < Pan3d.UIManager.getInstance()._containerList.length; i++) {
+                if (Pan3d.UIManager.getInstance()._containerList[i].interfaceUI == false) {
+                    $play = false
+                }
+            }
+            if ($play) { //只有一组UI
                 GameDataModel.mouseDownPosint = $v2d
                 GameDataModel.lastRotation.x = GameDataModel.modelRotation.x;
                 GameDataModel.lastRotation.y = GameDataModel.modelRotation.y;

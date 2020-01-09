@@ -86,13 +86,8 @@
                 this.b_share_frame.goToAndStop(0);
             } 
             this.b_share_frame.goToAndStop(1); //现在只支持分享
-
-
             this.needRestNum= GameData.getNeedDiamondsReviveByLevel(GameDataModel.levelNum);
             LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.b_need_label.skinName, Pan3d.ColorType.Redff0000 + this.needRestNum, 20);
-
-      
-            this.setUiListVisibleByItem([this.b_share_frame], GameData.severinfo.canUseShareBut)
 
         }
         private b_need_label: UICompenent

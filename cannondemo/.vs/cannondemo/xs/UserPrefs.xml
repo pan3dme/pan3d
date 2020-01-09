@@ -1,26 +1,44 @@
 ﻿<Properties StartupConfiguration="{2A9562D5-24A0-4F44-94C5-EADCD36C5804}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/src/frame3d/Frame3dCannonSprite.ts">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/pan3d/engine/utils/ObjDataManager.ts">
     <Files>
-      <File FileName="cannondemo/src/frame3d/Frame3dRes.ts" Line="1" Column="1" />
-      <File FileName="cannondemo/src/frame3d/Frame3dCannonSprite.ts" Line="1" Column="1" />
-      <File FileName="cannondemo/src/frame3d/FrameCanonPrefabSprite.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/frame3d/Frame3dRes.ts" Line="306" Column="40" />
+      <File FileName="cannondemo/src/frame3d/Frame3dCannonSprite.ts" />
+      <File FileName="cannondemo/src/frame3d/FrameCanonPrefabSprite.ts" />
+      <File FileName="cannondemo/src/TestDisplaySprite.ts" />
+      <File FileName="cannondemo/src/canondemo/CannonGameStart.ts" Line="39" Column="1" />
+      <File FileName="cannondemo/src/canondemo/GameData.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/bin/js/engine/utils/ObjDataManager.js" Line="124" Column="30" />
+      <File FileName="cannondemo/pan3d/engine/utils/res/BaseRes.ts" Line="345" Column="42" />
+      <File FileName="cannondemo/bin/js/engine/utils/MeshDataManager.js" Line="193" Column="1" />
+      <File FileName="cannondemo/pan3d/engine/utils/ObjDataManager.ts" Line="182" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="cannondemo" expanded="True">
             <Node name="cannondemo" expanded="True">
-              <Node name="src" expanded="True">
-                <Node name="frame3d" expanded="True">
-                  <Node name="Frame3dCannonSprite.ts" selected="True" />
+              <Node name="bin" expanded="True">
+                <Node name="js" expanded="True">
+                  <Node name="engine" expanded="True">
+                    <Node name="utils" expanded="True" />
+                  </Node>
                 </Node>
+              </Node>
+              <Node name="pan3d" expanded="True">
+                <Node name="engine" expanded="True">
+                  <Node name="utils" expanded="True">
+                    <Node name="res" expanded="True" />
+                    <Node name="ObjDataManager.ts" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="src" expanded="True">
+                <Node name="canondemo" expanded="True" />
+                <Node name="frame3d" expanded="True" />
               </Node>
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

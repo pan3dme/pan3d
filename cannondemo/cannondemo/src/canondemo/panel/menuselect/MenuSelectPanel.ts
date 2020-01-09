@@ -99,8 +99,6 @@
  
             this.uiLoadComplte = true;
             this.showPanel()
-
-    
         }
 
     }

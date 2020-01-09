@@ -183,7 +183,7 @@ var Pan3d;
             var b = new Array;
             var a = new Array;
             for (var i = 0; i < arr.length; i++) {
-                if (i == (arr.length - 1)) {
+                if (i == (arr.length - 1)) { //最后一个
                     r.push(arr[i].vec3.x);
                     g.push(arr[i].vec3.y);
                     b.push(arr[i].vec3.z);

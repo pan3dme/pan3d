@@ -23,7 +23,6 @@
         public static SHOW_SPECIAL_FAIL_PANEL: string = "SHOW_SPECIAL_FAIL_PANEL";
         public static HIDE_SPECIAL_PANEL: string = "HIDE_SPECIAL_PANEL";
         public static SELECT_SPECIAL_LEVEL: string = "SELECT_SPECIAL_LEVEL";
-        public static FINISH_LIST_SPECIAL: string = "FINISH_LIST_SPECIAL";
     }
     export class SpecialModule extends Module {
         public getModuleName(): string {
@@ -47,22 +46,14 @@
 
             switch ($event.type) {
                 case SpecialEvent.SHOW_SPECIAL_PANEL:
-                    if (!this._specialPanel) {
-                        this._specialPanel = new SpecialPanel()
+                    if (!this._invitationPanel) {
+                        this._invitationPanel = new SpecialPanel()
                     }
-                    if ($event.data) {
-                        this._specialPanel.showItem = null //这表示需要更新
-                    }
-                    this._specialPanel.showPanel();
+                    this._invitationPanel.showPanel();
                     break
                 case SpecialEvent.HIDE_SPECIAL_PANEL:
-                    if (this._specialPanel) {
-                        this._specialPanel.hidePanel();
-                    }
-                    break
-                case SpecialEvent.FINISH_LIST_SPECIAL:
-                    if (this._specialPanel) {
-                        this._specialPanel.toBeFinishAll();
+                    if (this._invitationPanel) {
+                        this._invitationPanel.hidePanel();
                     }
                     break
                 case SpecialEvent.SHOW_SPECIAL_FAIL_PANEL:
@@ -121,7 +112,7 @@
                             msgalert.AlertUtil.show("恭喜你完成了" + this.selectSpecialMeshVo.name + "\n自动返回关卡模式", "提示", (value: any) => {
                                 GameData.dispatchToLevel(GameDataModel.levelNum)
                                 ModuleEventManager.dispatchEvent(new mainui.MainuiEvent(mainui.MainuiEvent.SHOW_MAIN_UI_PANEL));
-                                GameData.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.SHOW_SPECIAL_PANEL), true);
+                                ModuleEventManager.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.SHOW_SPECIAL_PANEL));
                             }, 2)
                         })
 
@@ -181,14 +172,13 @@
             game.GameSoundManager.getInstance().playSoundByName(Pan3d.Scene_data.fileRoot + "sound/" + "pass" + ".mp3");
         }
         private _specialLevelTopPanel: SpecialLevelTopPanel
-        private _specialPanel: SpecialPanel
+        private _invitationPanel: SpecialPanel
         protected listenModuleEvents(): Array<BaseEvent> {
             return [
                 new SpecialEvent(SpecialEvent.SHOW_SPECIAL_PANEL),
                 new SpecialEvent(SpecialEvent.HIDE_SPECIAL_PANEL),
                 new SpecialEvent(SpecialEvent.SHOW_SPECIAL_FAIL_PANEL),
                 new SpecialEvent(SpecialEvent.SELECT_SPECIAL_LEVEL),
-                new SpecialEvent(SpecialEvent.FINISH_LIST_SPECIAL),
                 new SceneEvent(SceneEvent.SELECT_SCENE_LEVEL),
                 new SceneEvent(SceneEvent.INIT_SCENE_CONFIG),
                 new leveluppan.LevelUpEvent(leveluppan.LevelUpEvent.SHOW_LEVEL_UP_PANEL),

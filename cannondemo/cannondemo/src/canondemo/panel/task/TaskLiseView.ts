@@ -109,7 +109,6 @@
                         switch ($taskMeshVo.type) {
                             case TaskMeshVo.specialLeveladd:
                                 Pan3d.ModuleEventManager.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.SHOW_SPECIAL_PANEL))
-
                                 break;
                             case TaskMeshVo.megameAdd:
                                 if (!TaskViewRender.isClikAddMe) {

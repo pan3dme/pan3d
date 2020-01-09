@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -11,7 +14,6 @@ var __extends = (this && this.__extends) || (function () {
 var basewin;
 (function (basewin) {
     var UIRenderComponent = Pan3d.UIRenderComponent;
-    var InteractiveEvent = Pan3d.InteractiveEvent;
     var Rectangle = Pan3d.Rectangle;
     var BaseWinPanel = /** @class */ (function (_super) {
         __extends(BaseWinPanel, _super);
@@ -43,8 +45,6 @@ var basewin;
             this.win_tip_bg.left = 0;
             this.win_tip_bg.width = 540 * Pan3d.UIData.Scale;
             this.win_tip_bg.height = 960 * Pan3d.UIData.Scale;
-            this.win_tip_bg.addEventListener(InteractiveEvent.Down, this.butClik, this);
-            this.win_tip_bg.addEventListener(InteractiveEvent.Up, this.butClik, this);
             this.base_title_bg = this.addChild(this._baseBotUiRender.getComponent("base_title_bg"));
             this.base_win_bg = this.addChild(this._baseMidUiRender.getComponent("base_win_bg"));
             this.base_win_close = this.addEvntButUp("base_win_close", this._baseTopUiRender);

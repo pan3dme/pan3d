@@ -52,8 +52,6 @@
 
             this.winRect = new Rectangle(0, 0, 480, 600)
 
-          
-
 
             this.addChild(this._topRender.getComponent("a_win_tittle_txt"));
  
@@ -113,43 +111,20 @@
             }
             GameData.setStorageSync("specialSelfshow", this.specialSelfshow);
         }
-
-        public toBeFinishAll(): void {
-            for (var i: number = 0; i < this.showItem.length; i++) {
-
-                var vo: SpecialMeshVo = this.showItem[i].data
-
-                var $specialdata: any = GameData.getStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR);
-                if (!$specialdata) {
-                    $specialdata = {}
-                }
-                if (!$specialdata[vo.levelnum]) {
-                    $specialdata[vo.levelnum] = {}
-                }
-                $specialdata[vo.levelnum].ispass = true;
-                GameData.setStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR, $specialdata);
-            }
-        }
-
-        public showItem: Array<SListItemData>;
+      
+        
         private showSpecialListData(): void {
-            if (this.showItem) {
-                return;
-            } else {
-                this.showItem = new Array;
-            }
+            var ary: Array<SListItemData> = new Array;
 
             LoadManager.getInstance().load(Scene_data.fileRoot + "panelui/special/bg/speciallist.txt", LoadManager.XML_TYPE,
                 ($str: string) => {
                     var $xmlArr: Array<any> = this.makeListArr($str);
+
                     //this.toBiFinish(5000)
                     //this.toBiFinish(5001)
                     //this.toBiFinish(5002)
                     //this.toBiFinish(5003)
-                    console.log("$xmlArr", $xmlArr);
-                    console.log(this.showItem)
-              
-                   
+                    console.log("$xmlArr", $xmlArr)
                     var $leveItem: Array<number> = new Array;
                     for (var i: number = 0; i < $xmlArr.length; i++) {
                         $leveItem.push($xmlArr[i].levelnum)
@@ -174,9 +149,11 @@
                             $taskMeshVo.id = 1
                             item.data = $taskMeshVo;
                             item.id = 1;
-                            this.showItem.push(item)
+                            ary.push(item)
                         }
-                        this._taskUiList.refreshData(this.showItem);
+                        this._taskUiList.refreshData(ary);
+
+                
                     })
                   
 
@@ -205,7 +182,16 @@
         }
 
         public static SPECIAL_DATA_SYNC_STR: string ="SPECIAL_DATA_SYNC_STR"
- 
+        /*
+        private toBiFinish($level: number): void {
+            var $specialdata: any = GameData.getStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR);
+            if (!$specialdata[$level]) {
+                $specialdata[$level] = {}
+            }
+            $specialdata[$level].ispass = true
+            GameData.setStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR, $specialdata);
+        }
+        */
         private isPassByLevel(value: number): boolean {
             var $specialdata: any = GameData.getStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR);
             if (!$specialdata) {
@@ -227,14 +213,7 @@
       
          
         protected butClik(evt: InteractiveEvent): void {
-
-            switch (evt.target) {
-                case this.base_win_close:
-                    this.hidePanel()
-                    break
-                default:
-                    break
-            }
+            this.hidePanel()
         }
         public showPanel(): void {
             if (this.uiLoadComplte) {

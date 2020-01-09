@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -32,7 +35,7 @@ var Pan3d;
         };
         RoleRes.prototype.readMesh = function () {
             this.roleUrl = this._byte.readUTF();
-            if (this.version >= 16) {
+            if (this.version >= 16) { //环境参数
                 this.ambientLightColor = new Pan3d.Vector3D;
                 this.sunLigthColor = new Pan3d.Vector3D;
                 this.nrmDircet = new Pan3d.Vector3D;

@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -13,7 +16,6 @@ var rightpanda;
     var UIRenderComponent = Pan3d.UIRenderComponent;
     var FrameUIRender = Pan3d.FrameUIRender;
     var UIManager = Pan3d.UIManager;
-    var Scene_data = Pan3d.Scene_data;
     var InteractiveEvent = Pan3d.InteractiveEvent;
     var ModuleEventManager = Pan3d.ModuleEventManager;
     var GameDataModel = game.GameDataModel;
@@ -51,11 +53,6 @@ var rightpanda;
             this.uiLoadComplte = true;
             //  this.showExpEff()
             this.showPanel();
-            if (Scene_data.stageHeight / Scene_data.stageWidth > 2) {
-            }
-            else {
-                this.top = -40;
-            }
         };
         RightPandaPanel.prototype.butDown = function (evt) {
             this.lastDownTm = Pan3d.TimeUtil.getTimer();

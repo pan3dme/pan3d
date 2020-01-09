@@ -137,11 +137,9 @@
 
         private refrishData(): void {
     
-            var $postStr: string = "";
-            $postStr += "openid=" + GameData.getStorageSync("openid");
-            $postStr += "&time=" + 0;
-            $postStr += "&type=" + 2;
-            GameData.WEB_SEVER_EVENT_AND_BACK("get_advertise_list", $postStr, (res: any) => {
+            GameData.getAdvertiseList((res: any) => {
+                console.log("回来的列表", res);
+    
                 if (res && res.data && res.data.list && res.data.list.length) {
                     console.log("回来的列表", res.data.list);
                     var $openidarr: Array<string> = new Array
@@ -159,6 +157,7 @@
                                 $gameUserVo.avatar = $listArr[j].avatar;
                                 this.userWebItem.push($gameUserVo)
                             }
+       
                         }
                         this.showTaskListData()
                     })
@@ -170,7 +169,6 @@
             })
        
         }
-      
    
        
 

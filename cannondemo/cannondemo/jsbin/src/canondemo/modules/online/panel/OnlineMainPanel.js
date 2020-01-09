@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -88,7 +91,7 @@ var online;
             var s = Math.floor(value / 60);
             var m = Math.floor((value % 60));
             var str = (s < 10 ? "0" : "") + s + ":" + (m < 10 ? "0" : "") + m;
-            if (this.b_time_txt.data != str) {
+            if (this.b_time_txt.data != str) { //如果同就不必要刷新。
                 this.b_time_txt.data = str;
                 ArtFont.getInstance().writeFontToSkinName(this._topRender.uiAtlas, this.b_time_txt.skinName, str, "NUM44", TextAlign.CENTER);
             }

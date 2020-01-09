@@ -162,18 +162,10 @@
         private endTime: number
 
         private isResetBut(): boolean {
-           
-
             if (GameData.severinfo.wxcloudModel == 1 || game.GameDataModel.levelNum < 10) {
                 return true
             } else {
-                if (GameData.severinfo.canUseShareBut) { //可以使用分享复活
-                    return false
-                } else {
-                    return true
-                }
-
-               
+                return false
             }
         }
         public showPanel(): void {

@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -12,6 +15,7 @@ var task;
 (function (task) {
     var UIRenderComponent = Pan3d.UIRenderComponent;
     var UIData = Pan3d.UIData;
+    var InteractiveEvent = Pan3d.InteractiveEvent;
     var Rectangle = Pan3d.Rectangle;
     var SListItemData = Pan3d.SListItemData;
     var TaskPanel = /** @class */ (function (_super) {
@@ -37,6 +41,8 @@ var task;
             this._topRender.uiAtlas = this.h5UIAtlas;
             this.uiLoadComplte = true;
             this.winRect = new Rectangle(0, -20, 450, 500);
+            this.win_tip_bg.addEventListener(InteractiveEvent.Down, function () { }, this);
+            this.win_tip_bg.addEventListener(InteractiveEvent.Up, function () { }, this);
             this.addChild(this._topRender.getComponent("a_win_tittle_txt"));
             this.addChild(this._topRender.getComponent("a_task_label_id"));
             this.addChild(this._topRender.getComponent("a_task_label_contet"));
@@ -216,13 +222,7 @@ var task;
             return item;
         };
         TaskPanel.prototype.butClik = function (evt) {
-            switch (evt.target) {
-                case this.base_win_close:
-                    this.hidePanel();
-                    break;
-                default:
-                    break;
-            }
+            this.hidePanel();
         };
         TaskPanel.prototype.showPanel = function () {
             if (this.uiLoadComplte) {

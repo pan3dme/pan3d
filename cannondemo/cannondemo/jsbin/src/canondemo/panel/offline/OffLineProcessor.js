@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -61,33 +64,26 @@ var offline;
                     if (GameData.severinfo.wxcloudModel == 1) {
                         return;
                     }
-                    if (GameData.hasWinPanel) {
-                        return;
-                    }
-                    var $offLineTm = GameData.getStorageSyncNumber("offlinetime"); //上次离线时间
-                    var $tm = GameData.getSeverTime() - $offLineTm; //离线时间
-                    console.log("离时间", Pan3d.TimeUtil.getDiffTime1(Math.floor($tm / 1000)));
-                    if (!GameData.getStorageSync("isUseEffictSkin") && GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL) >= 15 && Math.floor($tm / 1000) > 60) {
-                        //如果还没有领取过魔法球，离线收益就变成提示需要显示魔法球
-                        Pan3d.TimeUtil.addTimeOut(1000, function () {
-                            Pan3d.ModuleEventManager.dispatchEvent(new skineffict.SkineffictEvent(skineffict.SkineffictEvent.SHOW_SKINEFFICT_PANEL));
-                        });
-                    }
-                    else {
-                        offline.OffLinePanel.offLineMessVo = new offline.OffLineMessVo(GameData.severinfo.offline);
-                        if (offline.OffLinePanel.offLineMessVo.open && offline.OffLinePanel.offLineMessVo.openlevel <= GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)) {
-                            if ($offLineTm > 0 && $tm > offline.OffLinePanel.offLineMessVo.mintm * 1000) {
-                                if (!this.offLinePanel) {
-                                    this.offLinePanel = new offline.OffLinePanel();
-                                }
-                                this.offLinePanel.tmsecond = Math.floor($tm / 1000);
-                                this.offLinePanel.showPanel();
-                            }
-                            else {
-                                console.log("时间没到领取离线时间", Math.floor($tm / 1000));
-                            }
-                            GameData.setStorageSync("offlinetime", GameData.getSeverTime()); //更新离线时间，也包含了onhide也有写
+                    for (var i = 0; i < Pan3d.UIManager.getInstance()._containerList.length; i++) {
+                        if (Pan3d.UIManager.getInstance()._containerList[i].interfaceUI == false) {
+                            return;
                         }
+                    }
+                    offline.OffLinePanel.offLineMessVo = new offline.OffLineMessVo(GameData.severinfo.offline);
+                    if (offline.OffLinePanel.offLineMessVo.open && offline.OffLinePanel.offLineMessVo.openlevel <= GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)) {
+                        var $offLineTm = GameData.getStorageSyncNumber("offlinetime"); //上次离线时间
+                        var $tm = GameData.getSeverTime() - $offLineTm; //离线时间
+                        if ($offLineTm > 0 && $tm > offline.OffLinePanel.offLineMessVo.mintm * 1000) {
+                            if (!this.offLinePanel) {
+                            }
+                            this.offLinePanel = new offline.OffLinePanel();
+                            this.offLinePanel.tmsecond = Math.floor($tm / 1000);
+                            this.offLinePanel.showPanel();
+                        }
+                        else {
+                            console.log("时间没到领取离线时间", Math.floor($tm / 1000));
+                        }
+                        GameData.setStorageSync("offlinetime", GameData.getSeverTime()); //更新离线时间，也包含了onhide也有写
                     }
                     break;
                 case mainui.MainuiEvent.SHOW_MAIN_UI_PANEL:

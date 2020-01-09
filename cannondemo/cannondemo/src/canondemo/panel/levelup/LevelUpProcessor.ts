@@ -61,10 +61,6 @@
                             GameData.sendSuccessToWeb(GameDataModel.levelNum)
                         }
                         GameData.clearPandaOrInof(1, 8) //清理录像
-
-                        if (Math.random() <0.3) {
-                            Pan3d.ModuleEventManager.dispatchEvent(new SceneEvent(SceneEvent.CHANGE_BOTTOM_PANEL_AD))
-                        }
                         break
                     case LevelUpEvent.SHOW_BEST_FRIEND_PANEL:
                         if (GameDataModel.levelNum % 3 == 1 || GameDataModel.levelNum>15) {
@@ -119,7 +115,7 @@
     
         private sendBestSrouce(): void {
            
-            GameData.dispatchEvent(new SceneEvent(SceneEvent.SEND_TO_APPER_DATA), { key: "显示最佳", data: { level: game.GameDataModel.levelNum } })
+            GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.SEND_TO_APPER_DATA), { key: "显示最佳", data: { level: game.GameDataModel.levelNum } })
  
             if (GameDataModel.levelNum > GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)) { //存放自己最大的等级
                 GameData.setStorageSync(GameData.SELF_MAX_LEVEL, GameDataModel.levelNum)
@@ -129,7 +125,7 @@
         }
         private showFinishEfict(): void {
          
-            GameData.dispatchEvent(new SceneEvent(SceneEvent.SHOW_SPECIAL_EFFECT), { pos: GameDataModel.centenBall.getPostionV3d(), name: "levelup" })
+            GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.SHOW_SPECIAL_EFFECT), { pos: GameDataModel.centenBall.getPostionV3d(), name: "levelup" })
 
             game.GameSoundManager.getInstance().playSoundByName(Pan3d.Scene_data.fileRoot + "sound/" + "pass" + ".mp3");
         }

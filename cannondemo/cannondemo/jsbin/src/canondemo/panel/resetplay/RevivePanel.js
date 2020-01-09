@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -66,7 +69,6 @@ var revive;
             this.b_share_frame.goToAndStop(1); //现在只支持分享
             this.needRestNum = GameData.getNeedDiamondsReviveByLevel(GameDataModel.levelNum);
             LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.b_need_label.skinName, Pan3d.ColorType.Redff0000 + this.needRestNum, 20);
-            this.setUiListVisibleByItem([this.b_share_frame], GameData.severinfo.canUseShareBut);
         };
         RevivePanel.prototype.butClik = function (evt) {
             switch (evt.target) {

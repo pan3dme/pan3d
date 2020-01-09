@@ -829,7 +829,7 @@ var Pan3d;
                 else if (this.inRange(c, 0xDC00, 0xDFFF)) {
                     cps.push(0xFFFD);
                 }
-                else {
+                else { // (inRange(c, 0xD800, 0xDBFF))
                     if (i === n - 1) {
                         cps.push(0xFFFD);
                     }

@@ -57,10 +57,6 @@
             this.win_tip_bg.height = 960 * Pan3d.UIData.Scale;
 
 
-            this.win_tip_bg.addEventListener(InteractiveEvent.Down, this.butClik, this);
-            this.win_tip_bg.addEventListener(InteractiveEvent.Up, this.butClik, this);
-
-
             
             this.base_title_bg = this.addChild(this._baseBotUiRender.getComponent("base_title_bg"));
             this.base_win_bg = this.addChild(this._baseMidUiRender.getComponent("base_win_bg"));

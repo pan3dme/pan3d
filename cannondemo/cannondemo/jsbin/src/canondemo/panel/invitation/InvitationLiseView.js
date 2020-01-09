@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -109,7 +112,6 @@ var invitation;
                         invitationData[$taskMeshVo.txtvo.id] = true;
                         GameData.setStorageSync(InvitationListRender.INVITATION_SYNC_STR, JSON.stringify(invitationData));
                         GameData.hasdiamondsHavenum += $taskMeshVo.txtvo.resnum;
-                        msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + $taskMeshVo.txtvo.resnum);
                         this.render(this.itdata);
                     }
                 }

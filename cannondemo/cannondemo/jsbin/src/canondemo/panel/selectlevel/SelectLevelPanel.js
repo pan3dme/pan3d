@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -54,18 +57,14 @@ var selectlevel;
             this.addChild(this._tittleRender.getComponent("e_tittle_txt"));
             this.addChild(this._midRender.getComponent("e_window_bg"));
             this.e_back_an = this.addEvntButUp("e_back_an", this._topRender);
-            // GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)
+            this.adde_page_point();
+            this.pageNum = Math.floor(game.GameDataModel.levelNum / this.pageTatolNum24);
+            this.showLevelAll();
             this.uiLoadComplte = true;
             this.showPanel();
-            this.showLevelAll();
         };
         SelectLevelPanel.prototype.adde_page_point = function () {
-            if (!this.page_point_item) {
-                this.page_point_item = new Array();
-            }
-            while (this.page_point_item.length) {
-                this.removeChild(this.page_point_item.pop());
-            }
+            this.page_point_item = new Array();
             for (var i = 0; i < this.pageMax; i++) {
                 var $temp = (this.addChild(this._topRender.getComponent("e_page_point")));
                 $temp.center = i * 40 - 40;
@@ -203,10 +202,6 @@ var selectlevel;
         };
         SelectLevelPanel.prototype.showPanel = function () {
             if (this.uiLoadComplte) {
-                var ke = Math.min(GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL) + 2, GameData.severinfo.level);
-                this.pageMax = Math.ceil(ke / this.pageTatolNum24);
-                this.adde_page_point();
-                this.pageNum = Math.floor((game.GameDataModel.levelNum - 1) / this.pageTatolNum24);
                 this.center = 0;
                 Pan3d.UIManager.getInstance().addUIContainer(this);
                 if (!isNaN(this.lastShowMaxLevel) && this._topRender.uiAtlas) {

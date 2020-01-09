@@ -15,7 +15,7 @@ declare type Tween = TweenLite | TweenMax;
 declare type Timeline = SimpleTimeline | TimelineLite | TimelineMax;
 
 //com.greensock.core
-declare class Animation {
+declare class AnimationTween {
     static ticker: IDispatcher;
     data: any;
     timeline: SimpleTimeline;

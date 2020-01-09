@@ -49,7 +49,8 @@
 
             this.winRect = new Rectangle(0, -20, 450, 500)
 
-  
+            this.win_tip_bg.addEventListener(InteractiveEvent.Down, () => { }, this);
+            this.win_tip_bg.addEventListener(InteractiveEvent.Up, () => { }, this);
 
 
             this.addChild(this._topRender.getComponent("a_win_tittle_txt"));
@@ -258,15 +259,7 @@
             return item;
         }
         protected butClik(evt: InteractiveEvent): void {
-
-
-            switch (evt.target) {
-                case this.base_win_close:
-                    this.hidePanel()
-                     break
-                default:
-                    break
-            }
+            this.hidePanel()
         }
         public showPanel(): void {
             if (this.uiLoadComplte) {

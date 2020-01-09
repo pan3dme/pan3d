@@ -179,8 +179,8 @@ module msgalert {
             this.center = 0;
             this.middle = 0;
 
-        
-            this.layer = 9999;
+            this.interfaceUI = true;
+            this.layer = 999;
             this._bottomRender = new AlphaUIRenderComponent;
             this.addRender(this._bottomRender)
 

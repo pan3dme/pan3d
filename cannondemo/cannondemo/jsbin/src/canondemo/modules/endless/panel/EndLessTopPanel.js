@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -56,7 +59,7 @@ var endless;
             var s = Math.floor(value / 1000);
             var m = Math.floor((value % 1000 / 1000) * 60);
             var str = (s < 10 ? "0" : "") + s + ":" + (m < 10 ? "0" : "") + m;
-            if (this.a_endless_time.data != str) {
+            if (this.a_endless_time.data != str) { //如果同就不必要刷新。
                 this.a_endless_time.data = str;
                 ArtFont.getInstance().writeFontToSkinName(this._topRender.uiAtlas, this.a_endless_time.skinName, str, "NUM44", TextAlign.CENTER);
             }

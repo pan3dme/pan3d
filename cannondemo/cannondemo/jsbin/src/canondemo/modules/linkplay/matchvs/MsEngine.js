@@ -52,14 +52,14 @@ var MsEngine = /** @class */ (function () {
             if (status == 200) {
                 _this.roomInfo = roomInfo;
                 console.log("重连成功,有房间数据");
-                if (_this.roomInfo.state == 1) {
+                if (_this.roomInfo.state == 1) { //还没开始游戏
                     _this.roomUserInfoList = new Array;
                     for (var i = 0; i < roomUserInfoList.length; i++) {
                         var vo = new RoomUserVo();
                         vo.msRoomUserInfo = roomUserInfoList[i];
                         _this.roomUserInfoList.push(vo);
                     }
-                    if (roomInfo.owner == _this.msRegistRsp.userID) {
+                    if (roomInfo.owner == _this.msRegistRsp.userID) { //自己是房主
                         _this.roomUserInfoList.unshift(_this.getSelfRoomUserVo());
                     }
                     else {
@@ -67,9 +67,9 @@ var MsEngine = /** @class */ (function () {
                     }
                     Pan3d.ModuleEventManager.dispatchEvent(new linkplay.LinkPlayEvent(linkplay.LinkPlayEvent.MS_JOIN_ROOM_RESPONSE_EVENT));
                 }
-                if (_this.roomInfo.state == 2) {
+                if (_this.roomInfo.state == 2) { //在游戏里面
                     console.log("重连接，但已在游戏场景中了");
-                    if (MsEngine.linkplayGamestatus != 2) {
+                    if (MsEngine.linkplayGamestatus != 2) { //如果客户端不是在游戏页面，重连接收到房间关闭状态将视为不能再继续游戏。将执行退出房点
                         MsEngine.getInstance().leaveRoom(function () {
                             if (MsEngine.linkplayGamestatus == 1) {
                                 Pan3d.ModuleEventManager.dispatchEvent(new linkplay.LinkPlayEvent(linkplay.LinkPlayEvent.HIDE_LINK_PLAY_START_PANEL));

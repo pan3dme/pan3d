@@ -22,9 +22,7 @@
     import InteractiveEvent = Pan3d.InteractiveEvent;
     import ModuleEventManager = Pan3d.ModuleEventManager
 
-    import MainCanonPrefabSprite = cannondis.MainCanonPrefabSprite;
 
-    import GameDataModel = game.GameDataModel
     import SceneEvent = game.SceneEvent
     import PandaMeshData = rightpanda.PandaMeshData
 
@@ -85,10 +83,6 @@
 
             this.a_win_close = this.addEvntBut("a_win_close", this._topRender)
 
-            this.a_experience_but = this.addEvntBut("a_experience_but", this._topRender)
-
-            
-
  
             this.uiLoadComplte = true;
 
@@ -99,7 +93,6 @@
     
 
         }
-        private a_experience_but: UICompenent
         private a_but_frame_txt: FrameCompenent
         private a_big_frame_pic: UICompenent
         private expEff: FrameTipCompenent;
@@ -153,75 +146,21 @@
                     }
                     this.resetBut()
                     break;
-                case this.a_experience_but:
-                    this.experienceSkin();
                 case this.a_win_close:
                     this.hidePanel();
-  
- 
                     break
                 default:
                     break;
             }
           
         }
-        private experienceSkin(): void {
-            var $dis: MainCanonPrefabSprite = GameDataModel.centenBall
-            var $scale: number = 1.4
-            var $effictName: string = "skin001";
-            $dis.changeSkinById(4);
-            if (Scene_data.supportBlob) {
-                $dis.playLyf("model/" + $effictName + "_lyf.txt", null, $scale);
-            } else {
-                $dis.playLyf("model/" + $effictName + "_base.txt", null, $scale);
-            }
-            Pan3d.TimeUtil.addTimeOut(1000*60, () => {
-                game.GameDataModel.changeMainEffict();
-                if (!GameData.getStorageSync("isUseEffictSkin")) {
-                    var $postStr: string = "";
-                    $postStr += "openid=" + GameData.getStorageSync("openid");
-                    $postStr += "&time=" + 0;
-                    $postStr += "&type=" + 4;
-                    GameData.WEB_SEVER_EVENT_AND_BACK("get_advertise_list", $postStr, (res: any) => {
-                        if (res && res.data && res.data.list && res.data.list.length) {
-
-                        } else {
-                            if (!GameData.hasWinPanel) {
-                                msgalert.AlertUtil.show("你邀请的好友还没加入游戏，体验结束，请再邀请", "提示", (value: any) => {
-                                    if (value == 1) {
-                                        Pan3d.ModuleEventManager.dispatchEvent(new SkineffictEvent(SkineffictEvent.SHOW_SKINEFFICT_PANEL));
-                                    }
-                                }, 2)
-                            }
-                        
-                        }
-
-                    })
-                }
-                
-
-
-
-
-
-            })
-        }
  
         private shareBut_Clik(): void {
             GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.ALL_SHARE_SCENE_ONLY_EVENT), new AllShareMeshVo((value: number) => {
                 if (value == 1) {
                     this.setUiListVisibleByItem([this.a_wait_info_txt], true)
-                    this.setUiListVisibleByItem([this.a_experience_but], true)
-
-
-                    LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.a_wait_info_txt.skinName, Pan3d.ColorType.Whiteffffff+ "好友进入游戏后便可领取",18)
                     Pan3d.ModuleEventManager.dispatchEvent(new SkineffictEvent(SkineffictEvent.TEST_SKINEFFICT_ADVERTISE));
-
-                    rightpanda.PandaMeshData.showCentenTxtInfoType(rightpanda.PandaMeshData.key106,  "等待好友加入获取魔法 ", () => {
-                           Pan3d.ModuleEventManager.dispatchEvent(new SkineffictEvent(SkineffictEvent.SHOW_SKINEFFICT_PANEL));
-                    })
-                            
-                      
+                    rightpanda.PandaMeshData.showCentenTxtInfoType(rightpanda.PandaMeshData.key106, "等待好友加入获取魔法");
                 }
             }, AllShareMeshVo.type4))
         }
@@ -232,10 +171,6 @@
    
                
                 this.setUiListVisibleByItem([this.a_win_close], false)
-                this.setUiListVisibleByItem([this.a_wait_info_txt], false)
-                this.setUiListVisibleByItem([this.a_experience_but], false)
-
-        
                 Pan3d.TimeUtil.addTimeOut(500, () => {
                     this.setUiListVisibleByItem([this.a_win_close], true)
                 })

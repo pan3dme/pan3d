@@ -134,7 +134,7 @@ var linkplay;
                     var eeee = MsEngine.getInstance().getUserByuserId(value.srcUserID);
                     eeee.dis.pushVO(vo);
                     var $selfTm = TimeUtil.getTimer() - GameDataModel.levelStartTm; //我的时间
-                    if ($selfTm < vo.tm) {
+                    if ($selfTm < vo.tm) { //如果我的时间小于对方发出来之后的时间，说明我需要调整整
                         console.log("时间同步并进行调整调整了", vo.tm - $selfTm - 15, "毫秒");
                         GameDataModel.levelStartTm = TimeUtil.getTimer() - vo.tm - 15; //设定了一个15的网络延时
                     }

@@ -104,8 +104,9 @@
                 "关闭返回",
                 "开起关卡",
                 "审核模式",
+                "显示共享",
                 "钻石1000",
-                "离线时间",
+                "神秘宝箱",
                 "看完视屏",
                 "更新openid",
                 "删除微信",
@@ -113,8 +114,6 @@
                 "隐藏界面",
                 "增加邀请",
                 "显示阴影",
-                "完成特殊",
-                "测试面板",
                 
 
             ]
@@ -158,37 +157,6 @@
             var str: string = $listItemData.data.txt
             this.hide()
             switch (str) {
-                case "离线时间":
-                    console.log(GameData.getStorageSyncNumber("offlinetime"))
-                    GameData.setStorageSync("offlinetime", GameData.getStorageSyncNumber("offlinetime") - offline.OffLinePanel.offLineMessVo.mintm * 1000)
-                    console.log(GameData.getStorageSyncNumber("offlinetime"))
-                    break
-                case "WXOPENID":
-                    console.log(GameData.getStorageSync("wxopenid"))
-
-
-                    break
-                case "完成特殊":
-                    Pan3d.ModuleEventManager.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.FINISH_LIST_SPECIAL))
-
-
-                    break
-
-
-               
-                case "测试面板":
-
-                    //console.log(GameData.onLaunchRes);
-                    //console.log(GameData.onshowRes);
-
-                    //GameData.onshowRes.scene = 1035;
-
-                    //console.log("useConcernd", GameData.getStorageSync("useConcernd"))
-
-                    GameData.setStorageSync("isvip", true)
-
-                
-                    break
                 case "更新openid":
                     var openid: string = "panjiazhi_" + random(9999);
                     GameData.setStorageSync("openid", openid);
@@ -372,8 +340,7 @@
                     this.hide()
                     break;
                 case "开起关卡":
-                    var maxLevel: number = GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL) + 1
-                    GameData.setStorageSync(GameData.SELF_MAX_LEVEL, 70)
+                    GameData.setStorageSync(GameData.SELF_MAX_LEVEL, 55)
                     PandaMeshData.showRightPanda(PandaMeshData.key16, Scene_data.fileRoot + "ui/panda/16.png", new selectlevel.SelectLevelEvent(selectlevel.SelectLevelEvent.SHOW_SELECT_LEVEL));
                     break;
                 case "开关物理":

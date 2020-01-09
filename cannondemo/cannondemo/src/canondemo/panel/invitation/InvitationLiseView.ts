@@ -145,8 +145,6 @@
 
                         GameData.hasdiamondsHavenum += $taskMeshVo.txtvo.resnum;
 
-                        msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + $taskMeshVo.txtvo.resnum)
-
                         this.render(this.itdata)
                     }
                 } else {

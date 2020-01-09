@@ -138,8 +138,10 @@
                                 console.log("等级完成", GameDataModel.levelNum);
                                 GameDataModel.isLevelFinish = true
                                
-                         
-                                GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.GAME_LEVE_UP), { usetime: TimeUtil.getTimer() - game.GameDataModel.levelStartTm })
+                                var $SceneEvent = new game.SceneEvent(game.SceneEvent.GAME_LEVE_UP)
+                                $SceneEvent.levelNum = GameDataModel.levelNum
+                                $SceneEvent.data = { usetime: TimeUtil.getTimer() - game.GameDataModel.levelStartTm};
+                                ModuleEventManager.dispatchEvent($SceneEvent);
                                 ModuleEventManager.dispatchEvent(new leveluppan.LevelUpEvent(leveluppan.LevelUpEvent.SHOW_LEVEL_UP_PANEL));
                             } else {
                                 this.moveToPosByDis(value, this._gravityItem[i], $dis)

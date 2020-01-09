@@ -94,7 +94,7 @@ var game;
             this.statColor = game.GameDataModel.useColor.clone();
             this.statLight = game.GameDataModel.lightVo.clone();
             this._speedNum = 0;
-            TweenLite.to(this, 0.3, { speedNum: 1 });
+            TweenLite.to(this, 1, { speedNum: 1 });
         };
         Object.defineProperty(GameSceneColor, "speedNum", {
             get: function () {

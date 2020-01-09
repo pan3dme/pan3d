@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -93,11 +96,8 @@ var invitation;
         };
         InvitationPanel.prototype.refrishData = function () {
             var _this = this;
-            var $postStr = "";
-            $postStr += "openid=" + GameData.getStorageSync("openid");
-            $postStr += "&time=" + 0;
-            $postStr += "&type=" + 2;
-            GameData.WEB_SEVER_EVENT_AND_BACK("get_advertise_list", $postStr, function (res) {
+            GameData.getAdvertiseList(function (res) {
+                console.log("回来的列表", res);
                 if (res && res.data && res.data.list && res.data.list.length) {
                     console.log("回来的列表", res.data.list);
                     var $openidarr = new Array;

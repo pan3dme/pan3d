@@ -36,29 +36,6 @@
         public getName(): string {
             return "MainuiProcessor";
         }
-        private meshLoginRes(): void {
-            var $loginRes: any;
-            if (GameData.onLaunchRes) {
-                $loginRes = GameData.onLaunchRes
-            }
-            if (GameData.onshowRes) {
-                $loginRes = GameData.onshowRes
-            }
-            if ($loginRes && $loginRes.scene == 1035) {
-                GameData.setStorageSync("useConcernd", true);
-                var $dveryDataSync: EveryDataSync = GameData.getEveryDataSyncByName("concerndStr");
-                if (!$dveryDataSync.isget) {
-                    msgalert.AlertUtil.show("从公从号进入今天可领取100钻", "提示", (value: any) => {
-                        GameData.hasdiamondsHavenum += 100
-                        msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" +100)
-                        $dveryDataSync.isget = true;
-                        GameData.setStorageSync("concerndStr", $dveryDataSync);
-                    }, 2)
-                } else {
-                    console.log("从公从号进入今天已领取")
-                }
-            }
-        }
         private guideHandPanel: guidehand.GuideHandPanel
         protected receivedModuleEvent($event: BaseEvent): void {
             switch ($event.type) {
@@ -66,11 +43,10 @@
                     ModuleEventManager.dispatchEvent(new topmenu.TopMenuEvent(topmenu.TopMenuEvent.SHOW_TOP_MENU_PANEL));
                     ModuleEventManager.dispatchEvent(new rightpanda.RightPandaEvent(rightpanda.RightPandaEvent.SHOW_RIGHT_PANDA_PANEL));
                     ModuleEventManager.dispatchEvent(new platform.PlatFormEvent(platform.PlatFormEvent.SHOW_PLAT_FORM_PANEL));
-
-                    this.meshLoginRes();
+          
                     break
                 case game.SceneEvent.SELECT_SCENE_LEVEL:
-                    var $canShow: boolean = game.GameDataModel.levelNum <= 2 && GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL) <2
+                    var $canShow: boolean = game.GameDataModel.levelNum <=2
                     if ($canShow) {
                         if (!this.guideHandPanel) {
                             this.guideHandPanel = new guidehand.GuideHandPanel();

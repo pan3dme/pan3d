@@ -54,7 +54,6 @@
             queryStr += "type=" + "only_share";
             queryStr += "&openid=" + GameData.getStorageSync("openid");
             queryStr += "&sharetype=" + value.sharetype;
-            queryStr += "&tm=" + GameData.getSeverTime();
             GameData.WX_ON_SHARE_APP_MESSAGE("分享有礼", queryStr, (res: any) => {
             }, false)
             if (GameData.devicetypepc) {
@@ -133,23 +132,23 @@
                 case SceneEvent.SELECT_SCENE_LEVEL:
              
                     if (GameLevelManeger.getInstance().canUseLoaderLoad) {
-                        if (this.lastLevelNum != evt.data) {
+                        if (this.lastLevelNum != evt.levelNum) {
                      
-                            this.lastLevelNum = evt.data;
+                            this.lastLevelNum = evt.levelNum;
                         }
-                        GameDataModel.levelNum = Math.min(GameData.maxLevel, evt.data);
+                        GameDataModel.levelNum = Math.min(GameData.maxLevel, evt.levelNum);
                         var $mapUrl: string = ""
                         var isEasy: boolean = true;
                         $mapUrl = String(1000 + GameDataModel.levelNum)
                         GameLevelManeger.getInstance().initXmlModel($mapUrl, () => {
-                            for (var i: number = 1; i < 5; i++) {
+                            for (var i: number = 1; i < 10; i++) {
                                 if (GameDataModel.levelNum + i < GameData.maxLevel) {
                                     GameLevelManeger.getInstance().loadNextSceneData(String(1000 + GameDataModel.levelNum + i));
                                 }
                             }
                         });
                         GameData.dispatchEvent(new topmenu.TopMenuEvent(topmenu.TopMenuEvent.SET_TOP_TITTLE_TXT), Pan3d.ColorType.Whiteffffff + "第 " + GameDataModel.levelNum+" 关")
-                    
+                        ModuleEventManager.dispatchEvent(new SceneEvent(SceneEvent.WX_GET_FRIEND_CLOUD_STORAGE)); //选择关卡后，将本关最佳成绩的好友显示到纹理上
                     }
                     break
                 default:

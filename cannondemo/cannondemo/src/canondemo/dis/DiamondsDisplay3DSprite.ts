@@ -118,38 +118,35 @@
         public update(): void {
             this.rotationY++
        
-            if (this.objData && this.sceneVisible ) {
+            if (this.objData && this.sceneVisible) {
 
-       
-                if (game.GameDataModel.centenBall && Math.abs(this.y - game.GameDataModel.centenBall.y) < 300) {
-                    this.textHitCentenBall();
-                    Scene_data.context3D.setProgram(this.shader.program);
-                    Scene_data.context3D.setVcMatrix3fv(this.shader, "rotationMatrix3D", this._rotationData);
-                    Scene_data.context3D.setVcMatrix4fv(this.shader, "vpMatrix3D", Scene_data.vpMatrix.m);
-                    Scene_data.context3D.setVcMatrix4fv(this.shader, "posMatrix3D", this.posMatrix.m);
+                this.textHitCentenBall();
+                Scene_data.context3D.setProgram(this.shader.program);
+                Scene_data.context3D.setVcMatrix3fv(this.shader, "rotationMatrix3D", this._rotationData);
+                Scene_data.context3D.setVcMatrix4fv(this.shader, "vpMatrix3D", Scene_data.vpMatrix.m);
+                Scene_data.context3D.setVcMatrix4fv(this.shader, "posMatrix3D", this.posMatrix.m);
 
-                    Scene_data.context3D.renderContext.bindBuffer(Scene_data.context3D.renderContext.ARRAY_BUFFER, this.objData.vertexBuffer);
+                Scene_data.context3D.renderContext.bindBuffer(Scene_data.context3D.renderContext.ARRAY_BUFFER, this.objData.vertexBuffer);
 
-                    Scene_data.context3D.setRenderTexture(this.shader, "fs0", this.baseTexture.texture, 0);
-                    Scene_data.context3D.setRenderTexture(this.shader, "fs1", this.baseTexture.texture, 1);
+                Scene_data.context3D.setRenderTexture(this.shader, "fs0", this.baseTexture.texture, 0);
+                Scene_data.context3D.setRenderTexture(this.shader, "fs1", this.baseTexture.texture, 1);
 
-                    if (Scene_data.skyCubeMap) {
-                        var cubeTexture: WebGLTexture = Scene_data.skyCubeMap[0];
-                        Scene_data.context3D.setRenderTextureCube(this.shader.program, "fs2", cubeTexture, 2);
-                    }
-                    Scene_data.context3D.setVc4fv(this.shader, "fc", [Scene_data.cam3D.x / 100, Scene_data.cam3D.y / 100, Scene_data.cam3D.z / 100, 0, 1.5, 2.3, 0, 1]);
-                    Scene_data.context3D.setVaOffset(0, 3, this.objData.stride, 0);
-                    Scene_data.context3D.setVaOffset(1, 2, this.objData.stride, this.objData.uvsOffsets);
-                    Scene_data.context3D.setVaOffset(2, 3, this.objData.stride, this.objData.normalsOffsets);
+                if (Scene_data.skyCubeMap) {
+                    var cubeTexture: WebGLTexture = Scene_data.skyCubeMap[0];
+                    Scene_data.context3D.setRenderTextureCube(this.shader.program, "fs2", cubeTexture, 2);
+                }
+                Scene_data.context3D.setVc4fv(this.shader, "fc", [Scene_data.cam3D.x / 100, Scene_data.cam3D.y / 100, Scene_data.cam3D.z / 100, 0, 1.5, 2.3, 0, 1]);
+                Scene_data.context3D.setVaOffset(0, 3, this.objData.stride, 0);
+                Scene_data.context3D.setVaOffset(1, 2, this.objData.stride, this.objData.uvsOffsets);
+                Scene_data.context3D.setVaOffset(2, 3, this.objData.stride, this.objData.normalsOffsets);
+     
 
-
+                if (game.GameDataModel.centenBall && Math.abs(this.y - game.GameDataModel.centenBall.y)<400) {
                     Scene_data.context3D.drawCall(this.objData.indexBuffer, this.objData.treNum);
-
-                    Scene_data.context3D.setRenderTexture(this.shader, "fs1", null, 1);
-                    Scene_data.context3D.setRenderTexture(this.shader, "fs2", null, 2);
                 }
 
-              
+                Scene_data.context3D.setRenderTexture(this.shader, "fs1", null, 1);
+                Scene_data.context3D.setRenderTexture(this.shader, "fs2", null, 2);
             }
         }
         protected textHitCentenBall(): void {

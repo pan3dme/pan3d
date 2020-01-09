@@ -102,7 +102,6 @@
                     break
                 case this.a_get_but:
                     GameData.hasdiamondsHavenum += this.chanGetNum;
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + this.chanGetNum)
                     this.hidePanel();
                     break
                 case this.a_win_close:
@@ -123,9 +122,7 @@
                     }
                     if (value == 1) {
                         GameData.hasdiamondsHavenum += this.chanGetNum * 2;
-                        msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + this.chanGetNum * 2)
                         this.hidePanel();
-                        this.openBaoxianLog(2)
                     }
                     if (value == 0) {
                         this.toshareEvet();
@@ -142,21 +139,10 @@
             GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.ALL_SHARE_SCENE_ONLY_EVENT), new AllShareMeshVo((value: number) => {
                 if (value == 1) {
                     GameData.hasdiamondsHavenum += this.chanGetNum * 2;
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + this.chanGetNum * 2)
                     this.hidePanel();
-                    this.openBaoxianLog(1)
                 }
             }, AllShareMeshVo.type5));
         }
-        private openBaoxianLog(value: number): void {  //0和1
-            var $postAddShare: string = "";
-            $postAddShare += "openid=" + GameData.getStorageSync("openid");
-            $postAddShare += "&chest_id=" + 0;
-            $postAddShare += "&chest_type=" + value;
-
-            GameData.WEB_SEVER_EVENT_AND_BACK("add_chest_log", $postAddShare);
-        }
-
         public tmsecond: number //秒
         public showPanel(): void {
             if (this.uiLoadComplte) {

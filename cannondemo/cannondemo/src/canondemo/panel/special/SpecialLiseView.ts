@@ -110,17 +110,10 @@
                     if (GameData.isCanUseLookVideoBut) {
                         this.toLookAdAndPlay($specialMeshVo)
                     } else {
-                        if (GameData.severinfo.special.needshare) {
-                            this.shareBut_Clik($specialMeshVo)
-                        } else {
-                            this.isLoadFinish = true
-                            this.tobePlay($specialMeshVo)
-                        }
+                        this.shareBut_Clik($specialMeshVo)
                     }
                 }
             }
-
-          
         }
         private isLoadFinish: boolean
         private loadSpecialSceneData(mapStr: string): void {

@@ -87,26 +87,23 @@
             this.e_back_an = this.addEvntButUp("e_back_an", this._topRender)
 
 
-            // GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)
-  
 
- 
-            this.uiLoadComplte = true;
-            this.showPanel()
+            this.adde_page_point();
+
+
+            this.pageNum = Math.floor(game.GameDataModel.levelNum / this.pageTatolNum24);
+
+
             this.showLevelAll();
-        
+            this.uiLoadComplte = true;
+
+            this.showPanel()
 
         }
    
         private page_point_item: Array<AlphaUICompenent>
         private adde_page_point(): void {
-            if (!this.page_point_item) {
-                this.page_point_item = new Array()
-            }
-            while (this.page_point_item.length) {
-                this.removeChild( this.page_point_item.pop())
-            }
-         
+            this.page_point_item = new Array()
             for (var i: number = 0; i < this.pageMax; i++) {
                 var $temp: AlphaUICompenent = <AlphaUICompenent>( this.addChild(<AlphaUICompenent>this._topRender.getComponent("e_page_point")));
                 $temp.center = i * 40 - 40
@@ -258,19 +255,8 @@
             });
         }
         public showPanel(): void {
-
-
-        
-
-
+    
             if (this.uiLoadComplte) {
-
-                var ke: number = Math.min(GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL) + 2, GameData.severinfo.level)
-                this.pageMax = Math.ceil(ke / this.pageTatolNum24)
-                this.adde_page_point();
-                this.pageNum = Math.floor((game.GameDataModel.levelNum-1) / this.pageTatolNum24);
-
-
                 this.center = 0
                 Pan3d.UIManager.getInstance().addUIContainer(this)
                 if (!isNaN(this.lastShowMaxLevel) && this._topRender.uiAtlas) {

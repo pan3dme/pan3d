@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -41,8 +44,6 @@ var game;
         SceneEvent.MINI_GAME_NEED_UPDATA_EVENT = "MINI_GAME_NEED_UPDATA_EVENT";
         SceneEvent.Refresh_share_Canvas_to_Texture = "Refresh_share_Canvas_to_Texture";
         SceneEvent.ALL_SHARE_SCENE_ONLY_EVENT = "ALL_SHARE_SCENE_ONLY_EVENT"; //开始统一分享机制
-        SceneEvent.HIDE_FEED_BACK_BUTTON = "HIDE_FEED_BACK_BUTTON"; //开始统一分享机制
-        SceneEvent.CHANGE_BOTTOM_PANEL_AD = "CHANGE_BOTTOM_PANEL_AD"; //开始统一分享机制
         return SceneEvent;
     }(BaseEvent));
     game.SceneEvent = SceneEvent;

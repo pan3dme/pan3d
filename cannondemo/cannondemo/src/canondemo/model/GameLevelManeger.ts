@@ -50,21 +50,14 @@ module game {
 
   
         private canHitTm: number = 0;
-        private lastHitPos: Vector3D
+
         private addEvents(): void {
             GameDataModel.centenBall.body.addEventListener("collide", (evt: any) => {
                 var $hitBody: GameStateBody = evt.body
                 var $mainBody: CANNON.Body = GameDataModel.centenBall.body
-                var $pos: Vector3D = GameDataModel.centenBall.getPostionV3d();
-                var $highHit: boolean = false
-                if (this.lastHitPos && Math.abs(this.lastHitPos.y - $pos.y) > 2) {
-                    $highHit = true
-                }
-                this.lastHitPos = $pos
-                if (($hitBody && $hitBody.iswall || $highHit) && this.canHitTm < TimeUtil.getTimer()) {
+                if ($hitBody && $hitBody.iswall && this.canHitTm < TimeUtil.getTimer()) {
                     GameData.isHitColone = true;
-                    this.canHitTm = TimeUtil.getTimer() + 100
-                   
+                    this.canHitTm = TimeUtil.getTimer()+100
                 }
                 
             })
@@ -166,7 +159,7 @@ module game {
             } else {
                 this.canUseLoaderLoad = false;
             }
-           // value="1059"
+           // value="50012"
             this.nowSelectLevelUrl = value;
             this.makeBaseLevelObj();
             this.loadSceneByName(this.nowSelectLevelUrl, $bfun);

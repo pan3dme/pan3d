@@ -38,23 +38,28 @@ var game;
             };
             console.log("GameData.version", GameData.version);
             GameData.getSeverTime(); //同步服务器时间
-            GameData.WEB_SEVER_EVENT_AND_BACK("get_server_info", "version=" + GameData.version, function (res) {
+            /*
+            GameData.WEB_SEVER_EVENT_AND_BACK("get_server_info", "version=" + GameData.version, (res: any) => {
                 if (res && res.data && res.data.info) {
-                    var $info = res.data.info;
-                    if (!GameData.devicetypepc) {
-                        Scene_data.fileRoot = $info.fileRoot;
+                    var $info: any = res.data.info
+                    if (!GameData.devicetypepc) {//本地pc版本就不更换服务器文件地址
+                        Scene_data.fileRoot = $info.fileRoot
                     }
                     if ($info.hasUpdate == "true") {
-                        ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.MINI_GAME_NEED_UPDATA_EVENT));
+                        ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.MINI_GAME_NEED_UPDATA_EVENT) )
                     }
-                    CannonGameStart.loadWebConfigInfo($bfun, Scene_data.fileRoot + $info.serverinfourl);
+                    CannonGameStart.loadWebConfigInfo($bfun, Scene_data.fileRoot +$info.serverinfourl)
+                   
+                } else {
+                    Scene_data.fileRoot="res/"
+                    console.log("那就本地配置")
+                    CannonGameStart.loadWebConfigInfo($bfun, Scene_data.fileRoot+"serverinfo.json")
                 }
-                else {
-                    Scene_data.fileRoot = "res/";
-                    console.log("那就本地配置");
-                    CannonGameStart.loadWebConfigInfo($bfun, Scene_data.fileRoot + "serverinfo.json");
-                }
-            });
+            })
+            */
+            Scene_data.fileRoot = "res/";
+            console.log("那就本地配置");
+            CannonGameStart.loadWebConfigInfo($bfun, Scene_data.fileRoot + "serverinfo.json");
         };
         CannonGameStart.loadWebConfigInfo = function ($bfun, $url) {
             LoadManager.getInstance().load($url, LoadManager.XML_TYPE, function ($str) {
@@ -98,13 +103,7 @@ var game;
                                 var $postStr = "";
                                 $postStr += "from_openid=" + query.openid; //别人的
                                 $postStr += "&openid=" + GameData.getStorageSync("openid"); //自己的
-                                if (query.tm && (GameData.getSeverTime() - query.tm) > 0) {
-                                    var $useTim = GameData.getSeverTime() - query.tm;
-                                    $postStr += "&info=" + GameData.onLaunchRes.scene + "_" + TimeUtil.getDiffTime1(Math.floor($useTim / 1000));
-                                }
-                                else {
-                                    $postStr += "&info=" + GameData.onLaunchRes.scene;
-                                }
+                                $postStr += "&info=" + GameData.onLaunchRes.scene;
                                 $postStr += "&type=" + Number(query.sharetype);
                                 GameData.WEB_SEVER_EVENT_AND_BACK("add_advertise", $postStr, function (res) { });
                             }
@@ -117,31 +116,25 @@ var game;
             }
         };
         CannonGameStart.starInGame = function () {
-            var _this = this;
             //GameData.wxQuery = {}
             //GameData.wxQuery.type = "call_help"
             //GameData.wxQuery.nickName = "1"
             //GameData.wxQuery.avatarUrl = "1"
             //GameData.wxQuery.openid = "1"
             //GameData.wxQuery.level = 1
-            GameData.intervalLoginTm = 0;
+            var _this = this;
             GameData.getSeverTime(function () {
-                var $lastTime = GameData.getStorageSyncNumber("lasttime");
-                if ($lastTime > 0) {
-                    GameData.intervalLoginTm = Math.max(Math.floor((GameData.getSeverTime() - $lastTime) / 1000), 0);
-                    if (GameData.getStorageSyncNumber("loginnum") >= GameData.severinfo.resetlevel.loginnum || GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL) >= GameData.severinfo.resetlevel.minlevel) {
-                        // 大于登入次数， 大于最小等级
-                        console.log("离上一次间隔时间", GameData.intervalLoginTm, "秒");
-                        if (GameData.intervalLoginTm > GameData.severinfo.resetlevel.resettm) {
+                if (GameData.severinfo.resetleveltm > 0 && GameData.getStorageSyncNumber("loginnum") < 5) { //重置关卡
+                    var $lastTime = GameData.getStorageSyncNumber("lasttime");
+                    if ($lastTime > 0) {
+                        var $tm = (GameData.getSeverTime() - $lastTime) / 1000;
+                        console.log("离上一次间隔时间", $tm, "秒");
+                        if ($tm > GameData.severinfo.resetleveltm) {
                             GameData.setStorageSync("gameLevel", 1);
                             _this.iSresetLevel = true;
                         }
                     }
                     GameData.setStorageSync("lasttime", GameData.getSeverTime());
-                }
-                var $time = new Date(GameData.getSeverTime());
-                if (($time.getDay() == 6 || $time.getDay() == 0) && GameData.severinfo.aoutSharemode) {
-                    GameData.severinfo.adshareModel = 2; //如果是周末就限制改为分享模式
                 }
                 var $startLevelNum = GameData.getStorageSyncNumber("gameLevel");
                 if (_this.getWindowUrlParam() > 0) {
@@ -173,7 +166,13 @@ var game;
                 if (Physics.world && Physics.world.bodies) {
                     //   console.log(Physics.world.bodies.length)
                 }
-                if (GameData.hasWinPanel) {
+                var $hasWin = false;
+                for (var i = 0; i < Pan3d.UIManager.getInstance()._containerList.length; i++) {
+                    if (Pan3d.UIManager.getInstance()._containerList[i].interfaceUI == false) {
+                        $hasWin = true;
+                    }
+                }
+                if ($hasWin) {
                     GameDataModel.lastMainHitTm = TimeUtil.getTimer(); //这是为了更新最后的碰到，
                     return;
                 }
@@ -241,7 +240,7 @@ var game;
                 var tm = TimeUtil.getTimer() - GameDataModel.lastMainHitTm;
                 var $lost = GameDataModel.lastMainHitVect && Vector3D.distance($pos, GameDataModel.lastMainHitVect) > 700;
                 $lost = GameDataModel.lastMainHitVect && Vector3D.distance($pos, GameDataModel.lastMainHitVect) > 400;
-                if (tm > 2000 || $lost) {
+                if (tm > 2000 || $lost) { //脱离物体1500毫秒算失败
                     Physics.ready = false;
                     GameDataModel.modelRotation.x = 0;
                     GameDataModel.modelRotation.z = 0;

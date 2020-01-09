@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -339,7 +342,7 @@ var Pan3d;
             // //console.log("cur val", val, this.p_scrollY)
             this._topSize -= val;
             this._bottomSize += val;
-            if (this._topSize <= 0) {
+            if (this._topSize <= 0) { //下拉
                 this._bottomflag = true;
                 if (this._showDataIndex == 0) {
                     //到最顶了
@@ -370,7 +373,7 @@ var Pan3d;
                     this._topflag = true;
                 }
             }
-            else if (this._bottomSize <= 0) {
+            else if (this._bottomSize <= 0) { //上拉
                 this._topflag = true;
                 if ((this._showDataIndex + this._allItemNum) >= this._dataAry.length) {
                     //到最底了
@@ -896,7 +899,7 @@ var Pan3d;
         TransverseSList.prototype.scrollX = function (val) {
             this._topSize -= val;
             this._bottomSize += val;
-            if (this._topSize <= 0) {
+            if (this._topSize <= 0) { //下拉
                 this._bottomflag = true;
                 if (this._showDataIndex == 0) {
                     //到最顶了
@@ -922,7 +925,7 @@ var Pan3d;
                     this._topflag = true;
                 }
             }
-            else if (this._bottomSize <= 0) {
+            else if (this._bottomSize <= 0) { //上拉
                 this._topflag = true;
                 if ((this._showDataIndex + this._allItemNum) >= this._dataAry.length) {
                     //到最底了

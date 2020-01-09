@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -199,7 +202,7 @@ var Pan3d;
                 return;
             }
             this._weaponNum = num;
-            if (num <= 0) {
+            if (num <= 0) { //移除武器
                 this.removePart(SceneChar.WEAPON_PART);
             }
             else {
@@ -432,7 +435,7 @@ var Pan3d;
             }
             else {
                 this.setTarget();
-                if (!this._walkPath) {
+                if (!this._walkPath) { //已结束
                     this.px = this._astatTopos.x;
                     this.pz = this._astatTopos.z;
                     this.walkComplete();
@@ -721,7 +724,7 @@ var Pan3d;
         };
         SceneChar.prototype.mouseClik = function ($lineA, $lineB) {
             var $pos = Pan3d.Scene_data.cam3D.cameraMatrix.transformVector(this.getCurrentPos());
-            if ($pos.z < Pan3d.Scene_data.cam3D.distance / 3) {
+            if ($pos.z < Pan3d.Scene_data.cam3D.distance / 3) { //在Z后面
                 return null;
             }
             var hitVec2 = Pan3d.MathUtil.math3DWorldtoDisplay2DPos($lineB);

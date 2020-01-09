@@ -85,7 +85,7 @@ var Pan3d;
         };
         SceneManager.prototype.loadScene = function ($url, $completeFun, $progressFun, $analysisCompleteFun) {
             var _this = this;
-            if (this._currentUrl == $url) {
+            if (this._currentUrl == $url) { //原场景不加载
                 Pan3d.AstarUtil.porcessBak(true);
                 this._ready = true;
                 $completeFun();

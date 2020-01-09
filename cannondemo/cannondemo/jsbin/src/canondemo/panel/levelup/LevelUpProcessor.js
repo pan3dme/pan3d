@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -14,7 +17,6 @@ var leveluppan;
     var BaseEvent = Pan3d.BaseEvent;
     var Module = Pan3d.Module;
     var TimeUtil = Pan3d.TimeUtil;
-    var SceneEvent = game.SceneEvent;
     var GameDataModel = game.GameDataModel;
     var LevelUpEvent = /** @class */ (function (_super) {
         __extends(LevelUpEvent, _super);
@@ -70,15 +72,12 @@ var leveluppan;
                     this.showFinishEfict();
                     ;
                     var isquestHelp = this.testTipHelp();
-                    if (!isquestHelp) {
+                    if (!isquestHelp) { //不是帮助时才能存自己的最大等级
                         this.showLevelUpPanel();
                         this.sendBestSrouce();
                         GameData.sendSuccessToWeb(GameDataModel.levelNum);
                     }
                     GameData.clearPandaOrInof(1, 8); //清理录像
-                    if (Math.random() < 0.3) {
-                        Pan3d.ModuleEventManager.dispatchEvent(new SceneEvent(SceneEvent.CHANGE_BOTTOM_PANEL_AD));
-                    }
                     break;
                 case LevelUpEvent.SHOW_BEST_FRIEND_PANEL:
                     if (GameDataModel.levelNum % 3 == 1 || GameDataModel.levelNum > 15) {
@@ -119,13 +118,13 @@ var leveluppan;
             });
         };
         LevelUpProcessor.prototype.sendBestSrouce = function () {
-            GameData.dispatchEvent(new SceneEvent(SceneEvent.SEND_TO_APPER_DATA), { key: "显示最佳", data: { level: game.GameDataModel.levelNum } });
-            if (GameDataModel.levelNum > GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)) {
+            GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.SEND_TO_APPER_DATA), { key: "显示最佳", data: { level: game.GameDataModel.levelNum } });
+            if (GameDataModel.levelNum > GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)) { //存放自己最大的等级
                 GameData.setStorageSync(GameData.SELF_MAX_LEVEL, GameDataModel.levelNum);
             }
         };
         LevelUpProcessor.prototype.showFinishEfict = function () {
-            GameData.dispatchEvent(new SceneEvent(SceneEvent.SHOW_SPECIAL_EFFECT), { pos: GameDataModel.centenBall.getPostionV3d(), name: "levelup" });
+            GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.SHOW_SPECIAL_EFFECT), { pos: GameDataModel.centenBall.getPostionV3d(), name: "levelup" });
             game.GameSoundManager.getInstance().playSoundByName(Pan3d.Scene_data.fileRoot + "sound/" + "pass" + ".mp3");
         };
         LevelUpProcessor.prototype.listenModuleEvents = function () {

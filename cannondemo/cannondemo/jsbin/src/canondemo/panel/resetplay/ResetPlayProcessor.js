@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -60,14 +63,14 @@ var resetplay;
                         this._revivePanel.showPanel();
                     }
                     else {
-                        if (GameData.gameType == 1) {
+                        if (GameData.gameType == 1) { //普通模式下
                             if (!this._resetPlayPanel) {
                                 this._resetPlayPanel = new resetplay.ResetPlayPanel();
                             }
                             this._resetPlayPanel.showPanel();
                             GameData.sendFailToWeb(GameDataModel.levelNum);
                         }
-                        if (GameData.gameType == 5) {
+                        if (GameData.gameType == 5) { //神秘关卡
                             ModuleEventManager.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.SHOW_SPECIAL_FAIL_PANEL));
                         }
                     }

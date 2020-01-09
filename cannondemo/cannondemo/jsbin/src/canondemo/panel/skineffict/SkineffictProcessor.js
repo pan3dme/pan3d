@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -44,9 +47,7 @@ var skineffict;
     var SkineffictProcessor = /** @class */ (function (_super) {
         __extends(SkineffictProcessor, _super);
         function SkineffictProcessor() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.canTestAdverTm = 0;
-            return _this;
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         SkineffictProcessor.prototype.getName = function () {
             return "SkineffictProcessor";
@@ -82,11 +83,6 @@ var skineffict;
                 console.log("已使用过就不再进行判断");
                 return;
             }
-            if (TimeUtil.getTimer() < this.canTestAdverTm) {
-                //防止重复申请
-                return;
-            }
-            this.canTestAdverTm = TimeUtil.getTimer() + 9 * 1000;
             var $postStr = "";
             $postStr += "openid=" + GameData.getStorageSync("openid");
             $postStr += "&time=" + 0;

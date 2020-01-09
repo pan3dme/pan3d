@@ -138,7 +138,7 @@ var Pan3d;
                 t1 = tz_max;
             var kEpsilon = 0.0001;
             var tmin = 0;
-            if (t0 < t1 && t1 > kEpsilon) {
+            if (t0 < t1 && t1 > kEpsilon) { // condition for a hit
                 if (t0 > kEpsilon) {
                     tmin = t0; // ray hits outside surface
                 }

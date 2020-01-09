@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -52,13 +55,7 @@ var game;
             game.GameDataModel.centenBall.body.addEventListener("collide", function (evt) {
                 var $hitBody = evt.body;
                 var $mainBody = game.GameDataModel.centenBall.body;
-                var $pos = game.GameDataModel.centenBall.getPostionV3d();
-                var $highHit = false;
-                if (_this.lastHitPos && Math.abs(_this.lastHitPos.y - $pos.y) > 2) {
-                    $highHit = true;
-                }
-                _this.lastHitPos = $pos;
-                if (($hitBody && $hitBody.iswall || $highHit) && _this.canHitTm < TimeUtil.getTimer()) {
+                if ($hitBody && $hitBody.iswall && _this.canHitTm < TimeUtil.getTimer()) {
                     GameData.isHitColone = true;
                     _this.canHitTm = TimeUtil.getTimer() + 100;
                 }
@@ -144,7 +141,7 @@ var game;
             else {
                 this.canUseLoaderLoad = false;
             }
-            // value="1059"
+            // value="50012"
             this.nowSelectLevelUrl = value;
             this.makeBaseLevelObj();
             this.loadSceneByName(this.nowSelectLevelUrl, $bfun);
@@ -187,7 +184,7 @@ var game;
             if (!ResManager.getInstance()._dic[mapStr]) {
                 var sceneRes = new SceneRes;
                 sceneRes.load(mapStr, function () { }, function () { }, function ($data) {
-                    if (!ResManager.getInstance()._dic[mapStr]) {
+                    if (!ResManager.getInstance()._dic[mapStr]) { //写两次，防止两次加载，
                         ResManager.getInstance()._dic[mapStr] = sceneRes;
                         for (var j = 0; j < sceneRes.sceneData.buildItem.length; j++) {
                             var itemObj = sceneRes.sceneData.buildItem[j];
@@ -236,7 +233,7 @@ var game;
             var $key = this.getSceneCollisionItemByUid(itemObj.id);
             var $body = this.makeBodyByKey(itemObj, $key);
             //显示对象上的碰撞无效
-            if (String(itemObj.materialurl).indexOf("freetesture.txt") == -1) {
+            if (String(itemObj.materialurl).indexOf("freetesture.txt") == -1) { //特殊材质名字，
                 $body.collisionFilterGroup = game.GameDataModel.GROUP3;
                 $body.collisionFilterMask = game.GameDataModel.GROUP3;
                 //需要添加场景静态碰撞
@@ -335,7 +332,7 @@ var game;
                 hasStorageArr = JSON.parse($str);
             }
             var $isNum = Number(this.nowSelectLevelUrl);
-            if ($isNum > 1000) {
+            if ($isNum > 1000) { //这里特殊转换只有1000纯数字编号地图才可能有钻石
                 $isNum = $isNum - 1000;
                 var $arr = GameData.getDiamodsConfigByLevel($isNum);
                 for (var i = 0; $arr && i < $arr.length; i++) {
@@ -381,7 +378,7 @@ var game;
                         $needAdd = false;
                     }
                 }
-                if (vo.type == 1) {
+                if (vo.type == 1) { //是为宝箱
                     if (Math.random() < vo.random) {
                         $needAdd = true;
                     }

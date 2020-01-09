@@ -30,9 +30,6 @@
                 new baoxiang.BaoxiangModule(),
                 new offline.OffLineModule(),
                 new skineffict.SkineffictModule(),
-                new concern.ConcernModule(),
-                new vip.VipModule(),
-
                 new endless.EndLessStartModule(),
                 new endless.EndLessModule(),
                 new online.OnlineStartModule(),

@@ -121,7 +121,7 @@
             this.statColor = GameDataModel.useColor.clone();
             this.statLight = GameDataModel.lightVo.clone();
             this._speedNum = 0
-            TweenLite.to(this, 0.3, { speedNum: 1 });
+            TweenLite.to(this, 1, { speedNum: 1 });
         }
         private static statColor: GameSceneColorVo;
         private static statLight: LightVo;

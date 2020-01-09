@@ -834,8 +834,6 @@
     <TypeScriptCompile Include="src\canondemo\panel\offline\OffLinePanel.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\offline\OffLineProcessor.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\resetplay\RevivePanel.ts" />
-    <TypeScriptCompile Include="src\canondemo\panel\concern\ConcernPanel.ts" />
-    <TypeScriptCompile Include="src\canondemo\panel\concern\ConcernProcessor.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\skineffict\SkineffictPanel.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\skineffict\SkineffictProcessor.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\baoxiang\BaoxiangPanel.ts" />
@@ -874,8 +872,8 @@
     <TypeScriptCompile Include="src\canondemo\panel\special\SpecialPanel.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\special\SpecialProcessor.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\task\TaskGetPanel.ts" />
-    <TypeScriptCompile Include="src\canondemo\panel\vip\VipPanel.ts" />
-    <TypeScriptCompile Include="src\canondemo\panel\vip\VipProcessor.ts" />
+    <TypeScriptCompile Include="src\canondemo\panel\timegift\TimeGiftPanel.ts" />
+    <TypeScriptCompile Include="src\canondemo\panel\timegift\TimeGiftProcessor.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\topstart\TopStartProcessor.ts" />
     <TypeScriptCompile Include="src\canondemo\panel\levelup\LevelUpProcessor.ts" />
     <TypeScriptCompile Include="src\canondemo\modules\online\OnlineCanonPrefabSprite.ts" />

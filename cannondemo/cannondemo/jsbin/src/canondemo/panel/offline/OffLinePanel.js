@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -63,7 +66,6 @@ var offline;
                     break;
                 case this.a_get_but:
                     GameData.hasdiamondsHavenum += this.chanGetNum;
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + this.chanGetNum);
                     this.hidePanel();
                     break;
                 case this.a_win_close:
@@ -84,9 +86,7 @@ var offline;
                     }
                     if (value == 1) {
                         GameData.hasdiamondsHavenum += _this.chanGetNum * 2;
-                        msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + _this.chanGetNum * 2);
                         _this.hidePanel();
-                        _this.openBaoxianLog(2);
                     }
                     if (value == 0) {
                         _this.toshareEvet();
@@ -102,18 +102,9 @@ var offline;
             GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.ALL_SHARE_SCENE_ONLY_EVENT), new AllShareMeshVo(function (value) {
                 if (value == 1) {
                     GameData.hasdiamondsHavenum += _this.chanGetNum * 2;
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + _this.chanGetNum * 2);
                     _this.hidePanel();
-                    _this.openBaoxianLog(1);
                 }
             }, AllShareMeshVo.type5));
-        };
-        OffLinePanel.prototype.openBaoxianLog = function (value) {
-            var $postAddShare = "";
-            $postAddShare += "openid=" + GameData.getStorageSync("openid");
-            $postAddShare += "&chest_id=" + 0;
-            $postAddShare += "&chest_type=" + value;
-            GameData.WEB_SEVER_EVENT_AND_BACK("add_chest_log", $postAddShare);
         };
         OffLinePanel.prototype.showPanel = function () {
             if (this.uiLoadComplte) {

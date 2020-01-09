@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -43,7 +46,7 @@ var frame3d;
             else {
                 this.frame3dUrl = "frame3d/" + arr[0] + "_frame_base.txt"; //[0] 为机关名
             }
-            if (arr[1] && !isNaN(Number(arr[1]))) {
+            if (arr[1] && !isNaN(Number(arr[1]))) { //[1]为延时
                 this.delayedTm = Number(arr[1]);
             }
             else {

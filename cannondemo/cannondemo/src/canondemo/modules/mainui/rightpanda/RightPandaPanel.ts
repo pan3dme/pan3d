@@ -69,11 +69,6 @@
           //  this.showExpEff()
 
             this.showPanel();
-
-            if (Scene_data.stageHeight / Scene_data.stageWidth > 2) {
-            } else {
-                this.top=-40
-            }
         }
         private lastDownTm: number
         private butDown(evt: InteractiveEvent): void {

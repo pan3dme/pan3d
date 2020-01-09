@@ -65,9 +65,13 @@
 
 
         public static onMouseDown($v2d: Vector2D): void {
-      
-             
-            if (!GameData.hasWinPanel && GameDataModel.modelRotation) { //只有一组UI
+            var $play: boolean = true
+            for (var i: number = 0; i < Pan3d.UIManager.getInstance()._containerList.length; i++) {
+                if (Pan3d.UIManager.getInstance()._containerList[i].interfaceUI == false) {
+                    $play = false
+                }
+            }
+            if ($play && GameDataModel.modelRotation) { //只有一组UI
                 GameDataModel.mouseDownPosint = $v2d
                 GameDataModel.lastRotation.x = GameDataModel.modelRotation.x;
                 GameDataModel.lastRotation.y = GameDataModel.modelRotation.y;
@@ -125,15 +129,8 @@
             if (GameData.getStorageSync("useEffictSkin")) {
                 $effictName = "skin001";
                 $scale = 1.4
-                $dis.changeSkinById(4);
-                
-
-                //$effictName = "skin002";
-                //$scale = 2.5
-                //$dis.changeSkinById(11);
-
                 $trunPos = null
- 
+                $dis.changeSkinById(4);
             } else {
                 $effictName = "genshui";
                 $scale = 1

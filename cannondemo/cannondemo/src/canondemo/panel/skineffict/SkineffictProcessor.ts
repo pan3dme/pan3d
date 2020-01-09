@@ -64,19 +64,11 @@
 
         }
         private isFrist: boolean;
-
-        private canTestAdverTm: number=0
         private testAdvertise(): void {
             if (GameData.getStorageSync("isUseEffictSkin")) {
                 console.log("已使用过就不再进行判断")
                 return 
             }
-            if (TimeUtil.getTimer() < this.canTestAdverTm) {
-                //防止重复申请
-                return
-            }
-            this.canTestAdverTm = TimeUtil.getTimer()+9*1000
-
             var $postStr: string = "";
             $postStr += "openid=" + GameData.getStorageSync("openid");
             $postStr += "&time=" + 0;

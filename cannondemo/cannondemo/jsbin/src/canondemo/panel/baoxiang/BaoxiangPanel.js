@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -100,7 +103,6 @@ var baoxiang;
                 if (value == 1) {
                     _this.openBaoxianLog(1);
                     GameData.hasdiamondsHavenum += _this.selectVo.num;
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + _this.selectVo.num);
                     _this.hidePanel();
                 }
             }, AllShareMeshVo.type11));
@@ -117,7 +119,7 @@ var baoxiang;
             GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.WX_LOOK_VIDEO_VD_EVENT), function (value) {
                 if (value == 2) {
                     var $tipStr = "需要看完视屏才能领取宝箱";
-                    if (GameData.severinfo.adshareModel == 0) {
+                    if (GameData.severinfo.adshareModel == 0) { //兼容模式视屏有双倍宝箱
                         $tipStr = "需要看完视屏才能领取双倍宝箱";
                     }
                     msgalert.AlertUtil.show($tipStr, "提示", function (value) {
@@ -125,12 +127,10 @@ var baoxiang;
                 }
                 if (value == 1) {
                     _this.openBaoxianLog(2);
-                    var $addNum = _this.selectVo.num;
-                    if (GameData.severinfo.adshareModel == 0) {
-                        $addNum += _this.selectVo.num;
+                    GameData.hasdiamondsHavenum += _this.selectVo.num;
+                    if (GameData.severinfo.adshareModel == 0) { //兼容模式视屏有双倍宝箱
+                        GameData.hasdiamondsHavenum += _this.selectVo.num;
                     }
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + $addNum);
-                    GameData.hasdiamondsHavenum += $addNum;
                     _this.hidePanel();
                 }
                 if (value == 0) {
@@ -162,10 +162,6 @@ var baoxiang;
                     this.a_close.y = this.a_close.baseRec.y - 40;
                 }
             }
-            if (GameData.SystemInfo) {
-                var th = GameData.SystemInfo.windowHeight;
-                this.a_close.bottom = th * UIData.Scale * 0.23;
-            }
             this.a_big_but.selected = this.tobeLookVideo;
             this.a_small.selected = this.tobeLookVideo;
         };
@@ -192,7 +188,7 @@ var baoxiang;
         };
         BaoxiangPanel.prototype.hidePanel = function () {
             var _this = this;
-            this.setUiListVisibleByItem([this.a_win_close_but, this.a_close], false);
+            this.setUiListVisibleByItem([this.a_win_close_but], false);
             this.TweenLiteScale(UIData.Scale, 0.3, 0.2, function () {
                 UIManager.getInstance().removeUIContainer(_this);
             });

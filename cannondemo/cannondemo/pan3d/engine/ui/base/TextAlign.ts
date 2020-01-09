@@ -1,12 +1,12 @@
 ﻿module Pan3d {
     export class TextAlign {
-        public static LEFT: string = "left";
-        public static CENTER: string = "center";
-        public static RIGHT: string = "right";
+        public static LEFT: any = "left";
+        public static CENTER: any = "center";
+        public static RIGHT: any = "right";
 
-        public static TOP: string = "top";
-        public static MIDDLE: string = "middle";
-        public static BOTTOM: string = "bottom";
+        public static TOP: any  = "top";
+        public static MIDDLE: any = "middle";
+        public static BOTTOM: any = "bottom";
 
     }
 }

@@ -67,23 +67,6 @@ var GameData = /** @class */ (function () {
             }
         }
     };
-    Object.defineProperty(GameData, "hasWinPanel", {
-        get: function () {
-            for (var i = 0; i < Pan3d.UIManager.getInstance()._containerList.length; i++) {
-                if (Pan3d.UIManager.getInstance()._containerList[i].interfaceUI == false) {
-                    var $clas = Pan3d.UIManager.getInstance()._containerList[i];
-                    if ($clas instanceof msgalert.OnlyTopTxt) {
-                    }
-                    else {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        },
-        enumerable: true,
-        configurable: true
-    });
     GameData.lookVideoFinishAdd = function () {
         var tempData = GameData.getEveryDataSyncByName("todaylookvideonum");
         GameData.setEveryDataSyncByName("todaylookvideonum", tempData.num + 1);
@@ -222,39 +205,22 @@ var GameData = /** @class */ (function () {
         $arr.push({ name: $name, time: Date.now().toString() });
         GameData.setStorageSync("hasDiamonds", JSON.stringify($arr));
     };
-    Object.defineProperty(GameData, "haveAdvertiseListLen", {
-        get: function () {
-            //1分钟可以更新一次
-            if (this.lastGetAdvertiseTm < Pan3d.TimeUtil.getTimer() - 60 * 1000) {
-                this.getAdvertiseList();
-            }
-            if (this.advertiseList) {
-                return this.advertiseList.length;
-            }
-            else {
-                return 0;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    GameData.getAdvertiseList = function () {
+    GameData.getAdvertiseList = function ($fun) {
         var _this = this;
-        //获取所有邀请列表
+        if ($fun === void 0) { $fun = null; }
+        //获取帮助列表
         if (!this.advertiseList) {
             this.advertiseList = new Array;
         }
-        this.lastGetAdvertiseTm = Pan3d.TimeUtil.getTimer();
         var $postStr = "";
         $postStr += "openid=" + GameData.getStorageSync("openid");
         $postStr += "&time=" + 0;
-        $postStr += "&type=" + 99;
-        console.log("$postStr", $postStr);
+        $postStr += "&type=" + 2;
         GameData.WEB_SEVER_EVENT_AND_BACK("get_advertise_list", $postStr, function (res) {
             if (res && res.data && res.data.list && res.data.list.length) {
                 _this.advertiseList = res.data.list;
-                console.log("获取了全部邀请", _this.advertiseList);
             }
+            $fun && $fun(res);
         });
         return this.advertiseList;
     };
@@ -264,7 +230,7 @@ var GameData = /** @class */ (function () {
         $postStr += "level=" + $level;
         $postStr += "&openid=" + GameData.getStorageSync("openid"); //自己的
         if (GameData.userInfo && GameData.userInfo.nickName) {
-            $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.haveAdvertiseListLen;
+            $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.getAdvertiseList().length;
         }
         else {
             $postStr += "&info=" + "没名-" + "_" + String(GameData.hasdiamondsHavenum);
@@ -281,7 +247,7 @@ var GameData = /** @class */ (function () {
         $postStr += "&time=" + useTim;
         if (GameData.isOtherPlay()) {
             if (GameData.userInfo && GameData.userInfo.nickName) {
-                $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.haveAdvertiseListLen;
+                $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.getAdvertiseList().length;
             }
             else {
                 var $addStrinfo = "";
@@ -407,7 +373,9 @@ var GameData = /** @class */ (function () {
     };
     GameData.dispatchToLevel = function ($toLevenNum) {
         GameData.gameType = 1;
-        GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.SELECT_SCENE_LEVEL), $toLevenNum);
+        var $evt = new game.SceneEvent(game.SceneEvent.SELECT_SCENE_LEVEL);
+        $evt.levelNum = $toLevenNum;
+        Pan3d.ModuleEventManager.dispatchEvent($evt);
         GameData.setStorageSync("gameLevel", $toLevenNum);
     };
     GameData.GET_USER_INFO_LIST = function ($arr, $fun) {
@@ -621,8 +589,7 @@ var GameData = /** @class */ (function () {
         var $postAddShare = "";
         $postAddShare += "openid=" + GameData.getStorageSync("openid");
         if (GameData.userInfo && GameData.userInfo.nickName) {
-            var $addStr = "u_" + GameData.haveAdvertiseListLen + "m_" + GameData.hasdiamondsHavenum;
-            $postAddShare += "&info=" + GameData.userInfo.nickName + $addStr;
+            $postAddShare += "&info=" + GameData.userInfo.nickName;
         }
         else {
             $postAddShare += "&info=" + "没授权用户";
@@ -642,7 +609,7 @@ var GameData = /** @class */ (function () {
     GameData.skinType = 1;
     GameData.pixelRatio = 2;
     GameData.maxLevel = 55; //游戏可玩的最大等级;
-    GameData.version = 65;
+    GameData.version = 50;
     GameData.SELF_MAX_LEVEL = "SELF_MAX_LEVEL";
     GameData.isCanLookVidel = true;
     GameData.gameStorageKey = "qiuqiu20181112";

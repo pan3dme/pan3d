@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -168,7 +171,13 @@ var online;
         };
         OnlineProcessor.prototype.onMouseDown = function ($evt) {
             var $v2d = new Pan3d.Vector2D($evt.x, $evt.y);
-            if (!GameData.hasWinPanel) {
+            var $play = true;
+            for (var i = 0; i < Pan3d.UIManager.getInstance()._containerList.length; i++) {
+                if (Pan3d.UIManager.getInstance()._containerList[i].interfaceUI == false) {
+                    $play = false;
+                }
+            }
+            if ($play) { //只有一组UI
                 GameDataModel.mouseDownPosint = $v2d;
                 GameDataModel.lastRotation.x = GameDataModel.modelRotation.x;
                 GameDataModel.lastRotation.y = GameDataModel.modelRotation.y;

@@ -209,7 +209,7 @@ var Pan3d;
                 if (!this.isGridCanWalk(gridVec2DB)) {
                     return null;
                 }
-                if (!gridVec2DA) {
+                if (!gridVec2DA) { //特殊处理如果出去了将直接跳到目的地
                     //console.log("逻辑格位置有错")
                     return null;
                 }
@@ -434,7 +434,8 @@ var Pan3d;
                     backB = $XZ;
                     break;
                 }
-                if ($dis > 1000) {
+                if ($dis > 1000) //当向前1000都还没找到。就退出
+                 {
                     backB = null;
                     break;
                 }

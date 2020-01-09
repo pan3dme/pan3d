@@ -12,3 +12,10 @@ D:\work\cannondemo\cannondemo\obj\Debug\cannondemo.csproj.CoreCompileInputs.cach
 D:\work\cannondemo\cannondemo\obj\Debug\cannondemo.dll
 D:\work\cannondemo\cannondemo\obj\Debug\cannondemo.pdb
 D:\work\cannondemo\cannondemo\obj\Debug\cannondemo.csprojResolveAssemblyReference.cache
+E:\github\cannondemo\cannondemo\obj\Debug\cannondemo.dll
+E:\github\cannondemo\cannondemo\obj\Debug\cannondemo.pdb
+E:\github\cannondemo\cannondemo\bin\cannondemo.dll.config
+E:\github\cannondemo\cannondemo\bin\cannondemo.dll
+E:\github\cannondemo\cannondemo\bin\cannondemo.pdb
+E:\github\cannondemo\cannondemo\obj\Debug\cannondemo.csproj.CoreCompileInputs.cache
+E:\github\cannondemo\cannondemo\obj\Debug\cannondemo.csprojAssemblyReference.cache

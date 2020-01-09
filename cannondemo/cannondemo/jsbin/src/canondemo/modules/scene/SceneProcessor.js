@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -58,7 +61,6 @@ var game;
             queryStr += "type=" + "only_share";
             queryStr += "&openid=" + GameData.getStorageSync("openid");
             queryStr += "&sharetype=" + value.sharetype;
-            queryStr += "&tm=" + GameData.getSeverTime();
             GameData.WX_ON_SHARE_APP_MESSAGE("分享有礼", queryStr, function (res) {
             }, false);
             if (GameData.devicetypepc) {
@@ -132,21 +134,22 @@ var game;
                     break;
                 case game.SceneEvent.SELECT_SCENE_LEVEL:
                     if (GameLevelManeger.getInstance().canUseLoaderLoad) {
-                        if (this.lastLevelNum != evt.data) {
-                            this.lastLevelNum = evt.data;
+                        if (this.lastLevelNum != evt.levelNum) {
+                            this.lastLevelNum = evt.levelNum;
                         }
-                        GameDataModel.levelNum = Math.min(GameData.maxLevel, evt.data);
+                        GameDataModel.levelNum = Math.min(GameData.maxLevel, evt.levelNum);
                         var $mapUrl = "";
                         var isEasy = true;
                         $mapUrl = String(1000 + GameDataModel.levelNum);
                         GameLevelManeger.getInstance().initXmlModel($mapUrl, function () {
-                            for (var i = 1; i < 5; i++) {
+                            for (var i = 1; i < 10; i++) {
                                 if (GameDataModel.levelNum + i < GameData.maxLevel) {
                                     GameLevelManeger.getInstance().loadNextSceneData(String(1000 + GameDataModel.levelNum + i));
                                 }
                             }
                         });
                         GameData.dispatchEvent(new topmenu.TopMenuEvent(topmenu.TopMenuEvent.SET_TOP_TITTLE_TXT), Pan3d.ColorType.Whiteffffff + "第 " + GameDataModel.levelNum + " 关");
+                        ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.WX_GET_FRIEND_CLOUD_STORAGE)); //选择关卡后，将本关最佳成绩的好友显示到纹理上
                     }
                     break;
                 default:

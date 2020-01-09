@@ -33,7 +33,6 @@
         public static WX_LOOK_VIDEO_VD_EVENT: string = "WX_LOOK_VIDEO_VD_EVENT"
         public static WX_SHOW_TOAST_MSG: string = "WX_SHOW_TOAST_MSG"
 
-
         public static MINI_GAME_NEED_UPDATA_EVENT: string = "MINI_GAME_NEED_UPDATA_EVENT"
 
          
@@ -43,15 +42,10 @@
 
         public static ALL_SHARE_SCENE_ONLY_EVENT: string = "ALL_SHARE_SCENE_ONLY_EVENT"  //开始统一分享机制
 
-        public static HIDE_FEED_BACK_BUTTON: string = "HIDE_FEED_BACK_BUTTON"  //开始统一分享机制
 
-        public static CHANGE_BOTTOM_PANEL_AD: string = "CHANGE_BOTTOM_PANEL_AD"  //开始统一分享机制
-
-
-        
  
  
-       
+        public levelNum: number
 
     }
 

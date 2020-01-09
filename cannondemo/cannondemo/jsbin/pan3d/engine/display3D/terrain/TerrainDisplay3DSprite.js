@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -70,6 +73,7 @@ var Pan3d;
                                     break;
                                 default:
                                     throw new Error("信息索引没有编入");
+                                //break;
                             }
                             $groundDataMesh.idBitmap.setRgb(k, h, new Pan3d.Vector3D($vid.x / 255, $vid.y / 255, $vid.z / 255, 1));
                             var $vinfo = new Pan3d.Vector3D();

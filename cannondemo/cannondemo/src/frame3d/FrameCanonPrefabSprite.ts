@@ -125,13 +125,8 @@
                     this.body.quaternion.z = $obj.rz
                     this.body.quaternion.w = $obj.rw
                 }
-
-
-                if (  game.GameDataModel.centenBall && Math.abs(this.y - game.GameDataModel.centenBall.y) < 400) {
-                    super.update();
-                }
    
-        
+                    super.update();
 
            
             }

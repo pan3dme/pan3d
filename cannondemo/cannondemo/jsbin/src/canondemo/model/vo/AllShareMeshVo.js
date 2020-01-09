@@ -8,7 +8,7 @@ var AllShareMeshVo = /** @class */ (function () {
         AllShareMeshVo.shareSkipId = this.id;
     }
     AllShareMeshVo.shareSkipId = 0;
-    AllShareMeshVo.type1 = 1; //转盘
+    AllShareMeshVo.type1 = 1; //宝箱
     AllShareMeshVo.type2 = 2; //邀请
     AllShareMeshVo.type3 = 3; //必须邀请的通关 暂时没用到
     AllShareMeshVo.type4 = 4; //魔法球
@@ -16,10 +16,9 @@ var AllShareMeshVo = /** @class */ (function () {
     AllShareMeshVo.type6 = 6; //原来复活
     AllShareMeshVo.type7 = 7; //任务获取
     AllShareMeshVo.type8 = 8; //时间礼物，现在还没用上
-    AllShareMeshVo.type9 = 9; //进入神秘关卡
+    AllShareMeshVo.type9 = 9; //开起宝箱
     AllShareMeshVo.type10 = 10; //复活点复活
     AllShareMeshVo.type11 = 11; //开起宝箱
-    AllShareMeshVo.type12 = 12; //vip
     return AllShareMeshVo;
 }());
 //# sourceMappingURL=AllShareMeshVo.js.map

@@ -117,8 +117,6 @@
             var $taskMeshVo: TaskMeshVo = this.taskMeshVo;
             GameData.hasdiamondsHavenum += $taskMeshVo.num;
 
-            msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + $taskMeshVo.num)
-
             switch ($taskMeshVo.type) {
                 case TaskMeshVo.megameAdd:
     

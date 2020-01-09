@@ -145,7 +145,7 @@ var Pan3d;
             }
             maxWidth = maxWidth * 0.98; //特殊缩小
             if ($filterColor != "") {
-                if ($filterColor.indexOf("[") != -1) {
+                if ($filterColor.indexOf("[") != -1) { //[00ff00]
                     $filterColor = "#" + $filterColor.substr(1, 6);
                 }
                 $ctx.strokeStyle = $filterColor;
@@ -229,7 +229,7 @@ var Pan3d;
             if ($gapScale === void 0) { $gapScale = 1.0; }
             TextRegExp.defaultColor = baseColor;
             if ($filterColor != "") {
-                if ($filterColor.indexOf("[") != -1) {
+                if ($filterColor.indexOf("[") != -1) { //[00ff00]
                     $filterColor = "#" + $filterColor.substr(1, 6);
                 }
                 $ctx.strokeStyle = $filterColor;
@@ -413,7 +413,7 @@ var Pan3d;
             if ($ty === void 0) { $ty = 0; }
             if ($filterWidth === void 0) { $filterWidth = 4; }
             if ($bolder === void 0) { $bolder = true; }
-            if ($baseColor.indexOf("[") != -1) {
+            if ($baseColor.indexOf("[") != -1) { //[00ff00]
                 $baseColor = "#" + $baseColor.substr(1, 6);
             }
             var $uiRect = $uiAtlas.getRec($key);
@@ -444,7 +444,7 @@ var Pan3d;
             if ($ty === void 0) { $ty = 0; }
             if ($filterWidth === void 0) { $filterWidth = 4; }
             if ($bolder === void 0) { $bolder = true; }
-            if ($baseColor.indexOf("[") != -1) {
+            if ($baseColor.indexOf("[") != -1) { //[00ff00]
                 $baseColor = "#" + $baseColor.substr(1, 6);
             }
             var hight = fontsize + 4;
@@ -476,7 +476,7 @@ var Pan3d;
             if ($baseColor === void 0) { $baseColor = "#ffffff"; }
             if ($filterColor === void 0) { $filterColor = ""; }
             if ($bolder === void 0) { $bolder = true; }
-            if ($baseColor.indexOf("[") != -1) {
+            if ($baseColor.indexOf("[") != -1) { //[00ff00]
                 $baseColor = "#" + $baseColor.substr(1, 6);
             }
             $ctx.fillStyle = $baseColor;
@@ -504,7 +504,7 @@ var Pan3d;
             if ($baseColor === void 0) { $baseColor = "#ffffff"; }
             if ($filterColor === void 0) { $filterColor = ""; }
             if ($bolder === void 0) { $bolder = true; }
-            if ($baseColor.indexOf("[") != -1) {
+            if ($baseColor.indexOf("[") != -1) { //[00ff00]
                 $baseColor = "#" + $baseColor.substr(1, 6);
             }
             $ctx.fillStyle = $baseColor;
@@ -523,7 +523,7 @@ var Pan3d;
             if ($baseColor === void 0) { $baseColor = "#ffffff"; }
             if ($filterColor === void 0) { $filterColor = ""; }
             if ($bolder === void 0) { $bolder = true; }
-            if ($baseColor.indexOf("[") != -1) {
+            if ($baseColor.indexOf("[") != -1) { //[00ff00]
                 $baseColor = "#" + $baseColor.substr(1, 6);
             }
             $ctx.fillStyle = $baseColor;
@@ -552,7 +552,7 @@ var Pan3d;
             if ($maxWidth === void 0) { $maxWidth = 0; }
             if (bolder === void 0) { bolder = false; }
             if ($textAlign === void 0) { $textAlign = Pan3d.TextAlign.LEFT; }
-            if (fontColor.indexOf("[") != -1) {
+            if (fontColor.indexOf("[") != -1) { //[00ff00]
                 fontColor = "#" + fontColor.substr(1, 6);
             }
             var totalwidthAndheight = [10, 10];
@@ -572,7 +572,7 @@ var Pan3d;
         LabelTextFont.writeTextAutoCenterByAnchor = function ($uiAtlas, $key, $str, fontsize, fontColor, $maxWidth, bolder, $filterColor) {
             if (bolder === void 0) { bolder = true; }
             if ($filterColor === void 0) { $filterColor = ""; }
-            if (fontColor.indexOf("[") != -1) {
+            if (fontColor.indexOf("[") != -1) { //[00ff00]
                 fontColor = "#" + fontColor.substr(1, 6);
             }
             var uiRect = $uiAtlas.getRec($key);
@@ -590,7 +590,7 @@ var Pan3d;
         LabelTextFont.writeTextAutoVerticalCenter = function ($uiAtlas, $key, $str, fontsize, fontColor, $maxWidth, $filterColor, bolder) {
             if ($filterColor === void 0) { $filterColor = ""; }
             if (bolder === void 0) { bolder = false; }
-            if (fontColor.indexOf("[") != -1) {
+            if (fontColor.indexOf("[") != -1) { //[00ff00]
                 fontColor = "#" + fontColor.substr(1, 6);
             }
             var uiRect = $uiAtlas.getRec($key);
@@ -614,7 +614,7 @@ var Pan3d;
         */
         LabelTextFont.writeTextAutoCenter = function ($uiAtlas, $key, $str, fontsize, fontColor, $maxWidth, bolder) {
             if (bolder === void 0) { bolder = false; }
-            if (fontColor.indexOf("[") != -1) {
+            if (fontColor.indexOf("[") != -1) { //[00ff00]
                 fontColor = "#" + fontColor.substr(1, 6);
             }
             var uiRect = $uiAtlas.getRec($key);

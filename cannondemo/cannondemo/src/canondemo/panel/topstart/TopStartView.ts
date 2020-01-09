@@ -43,42 +43,25 @@
 
         }
         private lastUserInfo: any
-        private isStartPlayVideo: boolean //是否播放过视屏
-        private c_game_star_bg: UICompenent;
+        private c_game_star_bg: UICompenent
         protected butClik(evt: InteractiveEvent): void {
             switch (evt.target) {
                 case this.win_tip_bg:
                     break
                 case this.c_game_star_bg:
-                    var $intervalTm: boolean = GameData.intervalLoginTm > GameData.severinfo.starPlayVideo.mintm && GameData.intervalLoginTm < GameData.severinfo.starPlayVideo.maxtm;//间隔时间内，不是审核模式，第一次点击才会播放视屏,等于不小于
-
-              
-
-                    if (GameData.severinfo.wxcloudModel != 1 && $intervalTm && !this.isStartPlayVideo && GameData.getStorageSyncNumber(GameData.SELF_MAX_LEVEL)>=10) { 
-                        this.isStartPlayVideo = true;
-                        GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.WX_LOOK_VIDEO_VD_EVENT), (value: number) => {
-                            this.clikStartBut();
-                            this.saveStartVideoValueToWeb(value);
-                        })
-                    } else {
-                        this.clikStartBut();
-                    }
+                    this.clikStartBut()
                     break;
                 case this.c_skin_but:
                     Pan3d.ModuleEventManager.dispatchEvent(new skinui.SkinListEvent(skinui.SkinListEvent.SHOW_SKIN_LIST_PANEL));
-                    ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.HIDE_FEED_BACK_BUTTON));
                     break;
                 case this.c_level_but:
                     Pan3d.ModuleEventManager.dispatchEvent(new selectlevel.SelectLevelEvent(selectlevel.SelectLevelEvent.SHOW_SELECT_LEVEL));
-                    ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.HIDE_FEED_BACK_BUTTON));
                     break;
                 case this.c_system_but:
                     Pan3d.ModuleEventManager.dispatchEvent(new setupui.SetupWinEvent(setupui.SetupWinEvent.SHOW_SETUP_WIN_PANEL));
-                    ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.HIDE_FEED_BACK_BUTTON));
                     break;
                 case this.c_rank_but:
                     Pan3d.ModuleEventManager.dispatchEvent(new rank.RankEvent(rank.RankEvent.SHOW_RANK_PANEL));
-                    ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.HIDE_FEED_BACK_BUTTON));
                     break
                 case this.c_ad_cell_0:
                 case this.c_ad_cell_1:
@@ -87,25 +70,11 @@
                     GameData.dispatchEvent(new platform.PlatFormEvent(platform.PlatFormEvent.CLIK_PLAT_OTHER_GAME), evt.target.data)
                     break
 
-                case this.c_concern_but:
-
-         
-
-                    Pan3d.ModuleEventManager.dispatchEvent(new concern.ConcernEvent(concern.ConcernEvent.SHOW_CONCERN_PANEL));
-                    break
-
                 
                 default:
                     break
 
             }
-        }
-        private saveStartVideoValueToWeb(value: number): void {  //0和1
-            var $postAddShare: string = "";
-            $postAddShare += "openid=" + GameData.getStorageSync("openid");
-            $postAddShare += "&chest_id=" + "startvideo";
-            $postAddShare += "&chest_type=" + value;
-            GameData.WEB_SEVER_EVENT_AND_BACK("add_chest_log", $postAddShare);
         }
     
 
@@ -180,15 +149,12 @@
                         if (GameData.onshowRes.referrerInfo.appId) {
                             $enter_type = "&enter_type=" + GameData.onshowRes.referrerInfo.appId;
                         } else {
-                            $enter_type = "&enter_type=" + GameData.onshowRes.scene;
+                            $enter_type = "&enter_type=" + "无";
                         }
                     }  
                 }
                 if ($enter_type.length <= 0) {
                     $enter_type = this.getInputQuest(GameData.onshowRes);
-                    if ($enter_type.length <= 0 && GameData.onshowRes) {
-                        $enter_type = "&enter_type="+"不确定_" + GameData.onshowRes.scene;
-                    }
                 }
                 $postStr += $enter_type;
             } else {
@@ -199,7 +165,6 @@
                 console.log("第一次登入，注册用户信息")
                 if (res && res.data && res.data.success) {
                     this.getSelfInfo();
-                    this.makeWxOpenId()
                 }
             })
 
@@ -259,10 +224,7 @@
             this.c_ad_cell_1 = this.addEvntButUp("c_ad_cell_1", this._topRender)
             this.c_ad_cell_2 = this.addEvntButUp("c_ad_cell_2", this._topRender)
 
-            
-            this.c_concern_but = this.addEvntButUp("c_concern_but", this._topRender)
-            this.c_concern_but.right = 0
-           // this.c_concern_but.middle = 0
+ 
 
             this.c_level_but = this.addEvntButUp("c_level_but", this._topRender)
             this.c_rank_but = this.addEvntButUp("c_rank_but", this._topRender)
@@ -283,39 +245,13 @@
             this.showPanel()
 
         }
-        private isFrist: boolean = true;
-        private c_concern_but: UICompenent
-
-        private makeWxOpenId(): void {
-            var $wxopenid: string = GameData.getStorageSync("wxopenid");
-            if ($wxopenid && $wxopenid.length > 5) { //有微信openid 
-                var $postStr: string = "";
-                $postStr += "wxid=" + $wxopenid;
-                GameData.WEB_SEVER_EVENT_AND_BACK("find_user_by_wxid", $postStr, (res: any) => {
-                    if (res && res.data) {
-                        if (res.data.success) {
-                            console.log("找到了我的openid", res.data.user)
-                        } else {
-                            console.log("设置我的微信OpenID", $wxopenid)
-                            GameData.changeWebUserInfo("wxid", $wxopenid);
-                        }
-                    }  
-
-                })
-            }
-         
-        }
-
-
+        private isFrist: boolean = true
         private clikStartBut(): void {
             this.hidePanel();
-     
+      
             if (this.isFrist) {
-       
+                GameData.setStorageSync("loginnum", GameData.getStorageSyncNumber("loginnum")+1)
                 GameData.getAdvertiseList();
-                GameData.setStorageSync("loginnum", GameData.getStorageSyncNumber("loginnum") + 1)
-                this.makeWxOpenId()
-         
                 this.isFrist = false; //每次打开只执行一次
                 if (this.lastUserInfo && Boolean(GameData.getStorageSync("user_create"))) {
                     var $postStr: string = "";
@@ -327,7 +263,7 @@
                 } else {
                     this.user_create()
                 }
-                TimeUtil.addTimeOut(1000*60, () => {
+                TimeUtil.addTimeOut(1000, () => {
                     this.loadPanelH5UiXml();
                 })
                 ModuleEventManager.dispatchEvent(new help.HelpEvent(help.HelpEvent.CHECK_SELF_HELP_INFO));
@@ -361,17 +297,11 @@
                 if (!GameDataModel.levelNum) {
                     GameDataModel.levelNum = 1
                 }
-
-
-                this.setUiListVisibleByItem([this.c_concern_but], false)
-
             
 
                 LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.c_level_txt.skinName, Pan3d.ColorType.Whiteffffff+ String(GameDataModel.levelNum), 24, TextAlign.CENTER);
      
-                this.TweenLiteScale(this.startPanelScale, UIData.Scale, 0.5, () => {
-                    this.setUiListVisibleByItem([this.c_concern_but], !GameData.getStorageSync("useConcernd"))
-                });
+                this.TweenLiteScale(this.startPanelScale, UIData.Scale, 0.5);
 
 
                 this.showAdList()
@@ -417,10 +347,6 @@
         }
         public hidePanel(): void {
             if (this.hasStage) {
-
-                ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.HIDE_FEED_BACK_BUTTON));
-       
-                this.setUiListVisibleByItem([this.c_concern_but], false)
                 this.TweenLiteScale(UIData.Scale, 0.3, 0.2, () => {
                     this.startPanelScale=0.3
                     UIManager.getInstance().removeUIContainer(this);

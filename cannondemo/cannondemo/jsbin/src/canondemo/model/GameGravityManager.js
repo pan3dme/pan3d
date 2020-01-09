@@ -96,7 +96,7 @@ var game;
                     var $dis = Display3D.distance(selfPos, this._gravityItem[i]);
                     if (this._gravityItem[i].type == 1) {
                         if ($dis < 12) {
-                            if ($dis < 1) {
+                            if ($dis < 1) { //一定是在范围内
                                 ball.body.sleep();
                                 ball.aotuFallDownTm = TimeUtil.getTimer();
                                 ball.beginGravityVo = this._gravityItem[i];
@@ -111,12 +111,15 @@ var game;
                         }
                     }
                     if (this._gravityItem[i].type == 3) {
-                        if ($dis < 10) {
-                            if ($dis < 1) {
+                        if ($dis < 10) { //一定是在范围内
+                            if ($dis < 1) { //一定是在范围内
                                 value.body.sleep();
                                 console.log("等级完成", game.GameDataModel.levelNum);
                                 game.GameDataModel.isLevelFinish = true;
-                                GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.GAME_LEVE_UP), { usetime: TimeUtil.getTimer() - game.GameDataModel.levelStartTm });
+                                var $SceneEvent = new game.SceneEvent(game.SceneEvent.GAME_LEVE_UP);
+                                $SceneEvent.levelNum = game.GameDataModel.levelNum;
+                                $SceneEvent.data = { usetime: TimeUtil.getTimer() - game.GameDataModel.levelStartTm };
+                                ModuleEventManager.dispatchEvent($SceneEvent);
                                 ModuleEventManager.dispatchEvent(new leveluppan.LevelUpEvent(leveluppan.LevelUpEvent.SHOW_LEVEL_UP_PANEL));
                             }
                             else {

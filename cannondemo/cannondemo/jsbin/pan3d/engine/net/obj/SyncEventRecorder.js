@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -573,7 +576,7 @@ var Pan3d;
                         break;
                 }
             }
-            else if (binlog.typ == Pan3d.SyncEvent.TYPE_BIT) {
+            else if (binlog.typ == Pan3d.SyncEvent.TYPE_BIT) { //FIXME			
                 switch (binlog.opt) {
                     case Pan3d.SyncEvent.OPT_SET:
                         //this._uint32_values[index] = SyncEvent.SetBitValue(this._uint32_values[index], 1, binlog.uint32);

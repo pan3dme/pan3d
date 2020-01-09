@@ -51,25 +51,19 @@
                     this._SkinListPanel.hidePanel();
                     break
                 case SkinListEvent.LEVEL_UP_TEST_NEED_SKIN:
-
-
                     var $haveSkinList: Array<number> = GameData.getStorageSync("haveSkinList");
                     if (!$haveSkinList) {
                         $haveSkinList = new Array()
                     }
-                    if (GameData.hasdiamondsHavenum >= 10 && !GameData.getStorageSync("isUseEffictSkin")) {
-                        TimeUtil.addTimeOut(1000, () => {
-                            if (GameDataModel.levelNum > 10 && $haveSkinList.length < 1) {
-                                msgalert.AlertUtil.show("需要购买一个新皮肤才能继续进行", "提示", (value: any) => {
-                                    if (value == 1) {
-                                        Pan3d.ModuleEventManager.dispatchEvent(new SkinListEvent(SkinListEvent.SHOW_SKIN_LIST_PANEL))
-                                    }
-                                }, 2)
-                            }
-                        })
-                    }
-
-             
+                    TimeUtil.addTimeOut(1000, () => {
+                        if (GameDataModel.levelNum >10 && $haveSkinList.length<1) {
+                            msgalert.AlertUtil.show("需要购买一个新皮肤才能继续进行", "提示", (value: any) => {
+                                if (value == 1) {
+                                    Pan3d.ModuleEventManager.dispatchEvent(new SkinListEvent(SkinListEvent.SHOW_SKIN_LIST_PANEL))
+                                }
+                            }, 2)
+                        }
+                    })
                     break
                 default:
                     break

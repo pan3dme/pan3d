@@ -41,15 +41,12 @@ class GameData {
     public static SystemInfo: any
 
     public static maxLevel: number = 55; //游戏可玩的最大等级;
-    public static version: number = 65;
+    public static version: number = 50;
 
  
     public static helpBeforSelfLevel: number;
     public static SELF_MAX_LEVEL: string = "SELF_MAX_LEVEL";
     public static loginTime: number;
-
-    public static intervalLoginTm: number; //离上次登入间隔时间
-
 
     public static isHitColone: boolean;
 
@@ -92,20 +89,6 @@ class GameData {
                 return GameData.diamondsconfigRes.restpaly[key].num;
             }
         }
-    }
-
-    public static get hasWinPanel(): boolean {
-        for (var i: number = 0; i < Pan3d.UIManager.getInstance()._containerList.length; i++) {
-            if (Pan3d.UIManager.getInstance()._containerList[i].interfaceUI == false) {
-                var $clas: any = Pan3d.UIManager.getInstance()._containerList[i];
-                if ($clas instanceof msgalert.OnlyTopTxt) {
-
-                } else {
-                    return true
-                }
-            }
-        }
-        return false
     }
 
     public static lookVideoFinishAdd(): void {
@@ -248,38 +231,22 @@ class GameData {
         $arr.push({ name: $name, time: Date.now().toString() })
         GameData.setStorageSync("hasDiamonds", JSON.stringify($arr))
     }
-    private static advertiseList: Array<any>;
-    private static lastGetAdvertiseTm: number
-    public static get haveAdvertiseListLen(): number {
-        //1分钟可以更新一次
-        if (this.lastGetAdvertiseTm < Pan3d.TimeUtil.getTimer() - 60 * 1000) {
-             this.getAdvertiseList();
-        }
-        if (this.advertiseList) {
-            return this.advertiseList.length;
-        } else {
-            return 0;
-        }
-
-
-    }
-    public static getAdvertiseList( ): Array<any>  {
-        //获取所有邀请列表
+    private static advertiseList: Array<any> 
+    public static getAdvertiseList($fun: Function = null): Array<any>  {
+        //获取帮助列表
         if (!this.advertiseList) {
             this.advertiseList = new Array;
         }
-        this.lastGetAdvertiseTm = Pan3d.TimeUtil.getTimer()
         var $postStr: string = "";
         $postStr += "openid=" + GameData.getStorageSync("openid");
         $postStr += "&time=" + 0;
-        $postStr += "&type=" + 99;
-
-        console.log("$postStr", $postStr)
+        $postStr += "&type=" + 2;
         GameData.WEB_SEVER_EVENT_AND_BACK("get_advertise_list", $postStr, (res: any) => {
             if (res && res.data && res.data.list && res.data.list.length) {
                 this.advertiseList = res.data.list;
-                console.log("获取了全部邀请", this.advertiseList )
+  
             }
+            $fun && $fun(res);
         })
         return this.advertiseList;
 
@@ -290,7 +257,7 @@ class GameData {
         $postStr += "level=" + $level
         $postStr += "&openid=" + GameData.getStorageSync("openid") //自己的
         if (GameData.userInfo && GameData.userInfo.nickName) {
-            $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.haveAdvertiseListLen;
+            $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.getAdvertiseList().length;
         } else {
             $postStr += "&info=" + "没名-" + "_" + String(GameData.hasdiamondsHavenum);
         }
@@ -308,7 +275,7 @@ class GameData {
         if (GameData.isOtherPlay()) {
             if (GameData.userInfo && GameData.userInfo.nickName) {
 
-                $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.haveAdvertiseListLen ;
+                $postStr += "&info=" + GameData.userInfo.nickName + "_" + String(GameData.hasdiamondsHavenum) + "-v-" + GameData.version + "-u-" + GameData.getAdvertiseList().length;
             } else {
                 var $addStrinfo: string = ""
                 if (GameData.userInfo) {
@@ -435,9 +402,9 @@ class GameData {
     }
     public static dispatchToLevel($toLevenNum: number): void {
         GameData.gameType = 1
- 
-
-        GameData.dispatchEvent(new game.SceneEvent(game.SceneEvent.SELECT_SCENE_LEVEL), $toLevenNum)
+        var $evt: game.SceneEvent = new game.SceneEvent(game.SceneEvent.SELECT_SCENE_LEVEL);
+        $evt.levelNum = $toLevenNum
+        Pan3d.ModuleEventManager.dispatchEvent($evt)
         GameData.setStorageSync("gameLevel", $toLevenNum)
 
     }
@@ -682,8 +649,7 @@ class GameData {
         var $postAddShare: string = "";
         $postAddShare += "openid=" + GameData.getStorageSync("openid");
         if (GameData.userInfo && GameData.userInfo.nickName) {
-            var $addStr: string = "u_" + GameData.haveAdvertiseListLen + "m_" + GameData.hasdiamondsHavenum;
-            $postAddShare += "&info=" + GameData.userInfo.nickName + $addStr;
+            $postAddShare += "&info="  + GameData.userInfo.nickName;
         } else {
             $postAddShare += "&info=" + "没授权用户";
         }

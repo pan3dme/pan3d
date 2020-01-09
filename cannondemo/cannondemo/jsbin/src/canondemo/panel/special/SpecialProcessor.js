@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -28,7 +31,6 @@ var special;
         SpecialEvent.SHOW_SPECIAL_FAIL_PANEL = "SHOW_SPECIAL_FAIL_PANEL";
         SpecialEvent.HIDE_SPECIAL_PANEL = "HIDE_SPECIAL_PANEL";
         SpecialEvent.SELECT_SPECIAL_LEVEL = "SELECT_SPECIAL_LEVEL";
-        SpecialEvent.FINISH_LIST_SPECIAL = "FINISH_LIST_SPECIAL";
         return SpecialEvent;
     }(BaseEvent));
     special.SpecialEvent = SpecialEvent;
@@ -62,22 +64,14 @@ var special;
             var _this = this;
             switch ($event.type) {
                 case SpecialEvent.SHOW_SPECIAL_PANEL:
-                    if (!this._specialPanel) {
-                        this._specialPanel = new special.SpecialPanel();
+                    if (!this._invitationPanel) {
+                        this._invitationPanel = new special.SpecialPanel();
                     }
-                    if ($event.data) {
-                        this._specialPanel.showItem = null; //这表示需要更新
-                    }
-                    this._specialPanel.showPanel();
+                    this._invitationPanel.showPanel();
                     break;
                 case SpecialEvent.HIDE_SPECIAL_PANEL:
-                    if (this._specialPanel) {
-                        this._specialPanel.hidePanel();
-                    }
-                    break;
-                case SpecialEvent.FINISH_LIST_SPECIAL:
-                    if (this._specialPanel) {
-                        this._specialPanel.toBeFinishAll();
+                    if (this._invitationPanel) {
+                        this._invitationPanel.hidePanel();
                     }
                     break;
                 case SpecialEvent.SHOW_SPECIAL_FAIL_PANEL:
@@ -133,7 +127,7 @@ var special;
                             msgalert.AlertUtil.show("恭喜你完成了" + _this.selectSpecialMeshVo.name + "\n自动返回关卡模式", "提示", function (value) {
                                 GameData.dispatchToLevel(GameDataModel.levelNum);
                                 ModuleEventManager.dispatchEvent(new mainui.MainuiEvent(mainui.MainuiEvent.SHOW_MAIN_UI_PANEL));
-                                GameData.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.SHOW_SPECIAL_PANEL), true);
+                                ModuleEventManager.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.SHOW_SPECIAL_PANEL));
                             }, 2);
                         });
                         this.sendFinishTmToWeb(this.selectSpecialMeshVo.levelnum);
@@ -186,7 +180,6 @@ var special;
                 new SpecialEvent(SpecialEvent.HIDE_SPECIAL_PANEL),
                 new SpecialEvent(SpecialEvent.SHOW_SPECIAL_FAIL_PANEL),
                 new SpecialEvent(SpecialEvent.SELECT_SPECIAL_LEVEL),
-                new SpecialEvent(SpecialEvent.FINISH_LIST_SPECIAL),
                 new SceneEvent(SceneEvent.SELECT_SCENE_LEVEL),
                 new SceneEvent(SceneEvent.INIT_SCENE_CONFIG),
                 new leveluppan.LevelUpEvent(leveluppan.LevelUpEvent.SHOW_LEVEL_UP_PANEL),

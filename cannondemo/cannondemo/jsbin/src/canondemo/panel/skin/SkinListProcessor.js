@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -69,17 +72,15 @@ var skinui;
                     if (!$haveSkinList) {
                         $haveSkinList = new Array();
                     }
-                    if (GameData.hasdiamondsHavenum >= 10 && !GameData.getStorageSync("isUseEffictSkin")) {
-                        TimeUtil.addTimeOut(1000, function () {
-                            if (GameDataModel.levelNum > 10 && $haveSkinList.length < 1) {
-                                msgalert.AlertUtil.show("需要购买一个新皮肤才能继续进行", "提示", function (value) {
-                                    if (value == 1) {
-                                        Pan3d.ModuleEventManager.dispatchEvent(new SkinListEvent(SkinListEvent.SHOW_SKIN_LIST_PANEL));
-                                    }
-                                }, 2);
-                            }
-                        });
-                    }
+                    TimeUtil.addTimeOut(1000, function () {
+                        if (GameDataModel.levelNum > 10 && $haveSkinList.length < 1) {
+                            msgalert.AlertUtil.show("需要购买一个新皮肤才能继续进行", "提示", function (value) {
+                                if (value == 1) {
+                                    Pan3d.ModuleEventManager.dispatchEvent(new SkinListEvent(SkinListEvent.SHOW_SKIN_LIST_PANEL));
+                                }
+                            }, 2);
+                        }
+                    });
                     break;
                 default:
                     break;

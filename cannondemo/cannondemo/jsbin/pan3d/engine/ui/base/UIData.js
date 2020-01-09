@@ -409,7 +409,7 @@ var Pan3d;
             if ($fontcolor === void 0) { $fontcolor = "#000000"; }
             if ($bgwidth === void 0) { $bgwidth = 0; }
             if ($bgheight === void 0) { $bgheight = 0; }
-            if ($fontcolor.indexOf("[") != -1) {
+            if ($fontcolor.indexOf("[") != -1) { //[00ff00]
                 $fontcolor = "#" + $fontcolor.substr(1, 6);
             }
             var $rec = $uiAtlas.getRec($skinName);

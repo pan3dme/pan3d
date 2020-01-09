@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -15,15 +18,12 @@ var leveluppan;
     var UIManager = Pan3d.UIManager;
     var LabelTextFont = Pan3d.LabelTextFont;
     var TextAlign = Pan3d.TextAlign;
-    var ModuleEventManager = Pan3d.ModuleEventManager;
-    var SceneEvent = game.SceneEvent;
     var GameDataModel = game.GameDataModel;
     var Rectangle = Pan3d.Rectangle;
     var FristLevelUpPanel = /** @class */ (function (_super) {
         __extends(FristLevelUpPanel, _super);
         function FristLevelUpPanel() {
             var _this = _super.call(this) || this;
-            _this.nextShowBestFriend = 0;
             _this.width = 540;
             _this.height = 960;
             _this.center = 0;
@@ -43,43 +43,17 @@ var leveluppan;
             this.h5UIAtlas.setInfo("panelui/levelup/levelup.txt", "panelui/levelup/levelup.png", function () { _this.loadConfigCom(); });
         };
         FristLevelUpPanel.prototype.willToNextLevel = function () {
-            if (this.needUseNumToNextLevel) {
-                GameData.hasdiamondsHavenum = Math.max(0, GameData.hasdiamondsHavenum - 10);
-            }
-            else {
-                GameData.hasdiamondsHavenum += GameData.getFristLevelUpByLevel(GameDataModel.levelNum);
-            }
+            GameData.hasdiamondsHavenum += GameData.getFristLevelUpByLevel(GameDataModel.levelNum);
             GameData.dispatchToLevel(GameDataModel.levelNum + 1);
             this.hidePanel();
             Pan3d.ModuleEventManager.dispatchEvent(new skinui.SkinListEvent(skinui.SkinListEvent.LEVEL_UP_TEST_NEED_SKIN));
             Pan3d.ModuleEventManager.dispatchEvent(new leveluppan.LevelUpEvent(leveluppan.LevelUpEvent.SHOW_BEST_FRIEND_PANEL));
-            if (GameData.severinfo.wxcloudModel != 1) {
-                if (GameDataModel.levelNum == GameData.severinfo.showSkinefficLevel) {
-                    Pan3d.ModuleEventManager.dispatchEvent(new skineffict.SkineffictEvent(skineffict.SkineffictEvent.SHOW_SKINEFFICT_PANEL));
-                }
-                if (GameDataModel.levelNum == GameData.severinfo.vippanel.level && GameData.severinfo.vippanel.open) {
-                    Pan3d.ModuleEventManager.dispatchEvent(new vip.VipEvent(vip.VipEvent.SHOW_VIP_PANEL));
-                }
-                if (GameDataModel.levelNum == GameData.severinfo.special.openlevel) {
-                    msgalert.AlertUtil.show("你已具备挑战神秘关卡的能力，点确定前往", "提示", function (value) {
-                        if (value == 1) {
-                            Pan3d.ModuleEventManager.dispatchEvent(new special.SpecialEvent(special.SpecialEvent.SHOW_SPECIAL_PANEL));
-                        }
-                    }, 2);
-                }
-            }
-            if (this.nextShowBestFriend < Pan3d.TimeUtil.getTimer()) {
-                ModuleEventManager.dispatchEvent(new SceneEvent(SceneEvent.WX_GET_FRIEND_CLOUD_STORAGE)); //选择关卡后，将本关最佳成绩的好友显示到纹理上
-                if (GameData.severinfo.wxcloudModel == 1) {
-                    this.nextShowBestFriend = Pan3d.TimeUtil.getTimer() + 1000 * 1;
-                }
-                else {
-                    this.nextShowBestFriend = Pan3d.TimeUtil.getTimer() + 1000 * 60;
-                }
+            if (GameDataModel.levelNum == 15) {
+                Pan3d.ModuleEventManager.dispatchEvent(new skineffict.SkineffictEvent(skineffict.SkineffictEvent.SHOW_SKINEFFICT_PANEL));
             }
         };
         FristLevelUpPanel.prototype.clearFristLevelUp = function ($level) {
-            if ($level >= 10) {
+            if ($level >= 10) { //大于或小于10关的才必须处理
                 var $str = GameData.getStorageSync("fristlevelupdata");
                 if ($str) {
                     var $arr = JSON.parse($str);
@@ -126,31 +100,12 @@ var leveluppan;
                 UIManager.getInstance().removeUIContainer(_this);
             });
         };
-        FristLevelUpPanel.prototype.needUseMunToNext = function (value) {
-            if (GameData.hasdiamondsHavenum > 10) {
-                for (var i = 0; i < GameData.severinfo.levelupneedmunArr.length; i++) {
-                    if (value == GameData.severinfo.levelupneedmunArr[i]) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        };
         FristLevelUpPanel.prototype.showPanel = function () {
             if (this.uiLoadComplte) {
                 Pan3d.UIManager.getInstance().addUIContainer(this);
                 this.TweenLiteScale(0.3, UIData.Scale, 0.5);
                 var $addNum = GameData.getFristLevelUpByLevel(GameDataModel.levelNum);
-                this.needUseNumToNextLevel = this.needUseMunToNext(GameDataModel.levelNum);
-                var $str = "";
-                if (this.needUseNumToNextLevel) {
-                    $str = Pan3d.ColorType.Brown40120a + "开启下一关卡消耗x10钻石";
-                }
-                else {
-                    $str = Pan3d.ColorType.Brown40120a + "x " + $addNum;
-                }
-                this.setUiListVisibleByItem([this.b_info_top_txt], !this.needUseNumToNextLevel);
-                LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.b_context_txt.skinName, $str, 20, TextAlign.CENTER);
+                LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.b_context_txt.skinName, Pan3d.ColorType.Brown40120a + "x " + $addNum, 20, TextAlign.CENTER);
                 this.isShowLevelUpInfo();
             }
             else {
@@ -173,7 +128,7 @@ var leveluppan;
         Object.defineProperty(FristLevelUpPanel.prototype, "isNeeShareLevelUp", {
             get: function () {
                 var $arr = GameData.severinfo.needshareToNextLevelArr;
-                if (GameData.severinfo.wxcloudModel == 2 && AllShareMeshVo.shareSkipId < $arr[$arr.length - 1]) {
+                if (GameData.severinfo.wxcloudModel == 2 && AllShareMeshVo.shareSkipId < $arr[$arr.length - 1]) { //正试版本才需要  数据最后一位用于标记少于多少次分享将才会提示分享
                     for (var i = 0; i < $arr.length - 1; i++) {
                         if ($arr[i] == GameDataModel.levelNum) {
                             return true;
@@ -193,7 +148,7 @@ var leveluppan;
             this.b_next_but = this.addEvntButUp("b_next_but", this._topRender);
             this.addChild(this._topRender.getComponent("b_big_icon"));
             this.addChild(this._topRender.getComponent("b_tittle_txt"));
-            this.b_info_top_txt = this.addChild(this._topRender.getComponent("b_info_top_txt"));
+            this.addChild(this._topRender.getComponent("b_info_top_txt"));
             this.b_context_txt = this.addChild(this._topRender.getComponent("b_context_txt"));
             this.b_but_txt_frame = this.addChild(this._topRender.getComponent("b_but_txt_frame"));
             this.b_friend_tips = this.addChild(this._topRender.getComponent("b_friend_tips"));

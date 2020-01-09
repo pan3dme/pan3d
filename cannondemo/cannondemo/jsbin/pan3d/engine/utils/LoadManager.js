@@ -110,10 +110,10 @@ var Pan3d;
                 this._xhr.send();
             }
             else if (this._loadInfo.type == LoadManager.IMG_TYPE) {
-                if (this._img.url == loadInfo.vurl) {
+                if (this._img.url == loadInfo.vurl) { //路径相同
                     this.loadImg();
                 }
-                else {
+                else { //执行加载
                     this.makeNewImg();
                     this._img.url = loadInfo.vurl;
                     this._img.src = loadInfo.vurl;
@@ -122,7 +122,7 @@ var Pan3d;
         };
         LoaderThread.prototype.loadError = function () {
             if (this._loadInfo && this._loadInfo.info) {
-                if (this._loadInfo.info.info) {
+                if (this._loadInfo.info.info) { //需要特别说明兼容
                     this._loadInfo.info.info.failfun && this._loadInfo.info.info.failfun();
                 }
                 else {

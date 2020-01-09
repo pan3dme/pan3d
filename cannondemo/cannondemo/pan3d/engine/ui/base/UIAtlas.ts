@@ -253,8 +253,8 @@ module Pan3d {
          * 返回CanvasRenderingContext2D对象
          */
         public updateLableCtx($ctx: CanvasRenderingContext2D, $str: string, $x: number, $y: number, $fontsize: number
-            , $textAlign: string = TextAlign.CENTER
-            , $textBaseline: string = TextAlign.MIDDLE
+            , $textAlign: any = TextAlign.CENTER
+            , $textBaseline: any = TextAlign.MIDDLE
             , $textcolor: string = "#000000"
             , $textbolder: string = "bolder"
             , $maxWidth: number = 0): void {
@@ -273,8 +273,8 @@ module Pan3d {
             }
         }
 
-        public getTextCtx($rec: UIRectangle, $fontsize: number, $fontColor: string, $bolder: boolean, $textBaseline: string
-            , $textAlign: string): CanvasRenderingContext2D {
+        public getTextCtx($rec: UIRectangle, $fontsize: number, $fontColor: string, $bolder: boolean, $textBaseline: any
+            , $textAlign: any): CanvasRenderingContext2D {
 
             var $ctx: CanvasRenderingContext2D = UIManager.getInstance().getContext2D($rec.pixelWitdh, $rec.pixelHeight, false);
             $ctx.textBaseline = $textBaseline;

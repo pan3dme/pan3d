@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -88,28 +91,9 @@ var special;
             }
             GameData.setStorageSync("specialSelfshow", this.specialSelfshow);
         };
-        SpecialPanel.prototype.toBeFinishAll = function () {
-            for (var i = 0; i < this.showItem.length; i++) {
-                var vo = this.showItem[i].data;
-                var $specialdata = GameData.getStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR);
-                if (!$specialdata) {
-                    $specialdata = {};
-                }
-                if (!$specialdata[vo.levelnum]) {
-                    $specialdata[vo.levelnum] = {};
-                }
-                $specialdata[vo.levelnum].ispass = true;
-                GameData.setStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR, $specialdata);
-            }
-        };
         SpecialPanel.prototype.showSpecialListData = function () {
             var _this = this;
-            if (this.showItem) {
-                return;
-            }
-            else {
-                this.showItem = new Array;
-            }
+            var ary = new Array;
             LoadManager.getInstance().load(Scene_data.fileRoot + "panelui/special/bg/speciallist.txt", LoadManager.XML_TYPE, function ($str) {
                 var $xmlArr = _this.makeListArr($str);
                 //this.toBiFinish(5000)
@@ -117,7 +101,6 @@ var special;
                 //this.toBiFinish(5002)
                 //this.toBiFinish(5003)
                 console.log("$xmlArr", $xmlArr);
-                console.log(_this.showItem);
                 var $leveItem = new Array;
                 for (var i = 0; i < $xmlArr.length; i++) {
                     $leveItem.push($xmlArr[i].levelnum);
@@ -140,9 +123,9 @@ var special;
                         $taskMeshVo.id = 1;
                         item.data = $taskMeshVo;
                         item.id = 1;
-                        _this.showItem.push(item);
+                        ary.push(item);
                     }
-                    _this._taskUiList.refreshData(_this.showItem);
+                    _this._taskUiList.refreshData(ary);
                 });
             });
         };
@@ -161,6 +144,16 @@ var special;
             }
             return $arr;
         };
+        /*
+        private toBiFinish($level: number): void {
+            var $specialdata: any = GameData.getStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR);
+            if (!$specialdata[$level]) {
+                $specialdata[$level] = {}
+            }
+            $specialdata[$level].ispass = true
+            GameData.setStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR, $specialdata);
+        }
+        */
         SpecialPanel.prototype.isPassByLevel = function (value) {
             var $specialdata = GameData.getStorageSync(SpecialPanel.SPECIAL_DATA_SYNC_STR);
             if (!$specialdata) {
@@ -179,13 +172,7 @@ var special;
             }
         };
         SpecialPanel.prototype.butClik = function (evt) {
-            switch (evt.target) {
-                case this.base_win_close:
-                    this.hidePanel();
-                    break;
-                default:
-                    break;
-            }
+            this.hidePanel();
         };
         SpecialPanel.prototype.showPanel = function () {
             if (this.uiLoadComplte) {

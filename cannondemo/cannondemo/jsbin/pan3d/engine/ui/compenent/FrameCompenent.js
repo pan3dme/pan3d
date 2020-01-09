@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -103,7 +106,7 @@ var Pan3d;
             this.applyRenderSize();
         };
         FrameCompenent.prototype.Invisible = function () {
-            if (this.renderData[2] != 0 && this.renderData[3] != 0) {
+            if (this.renderData[2] != 0 && this.renderData[3] != 0) { //这里特殊规避重复设置 高宽不为0
                 this.stopEnd();
                 this.renderData[0] = 0;
                 this.renderData[1] = 0;

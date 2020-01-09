@@ -135,10 +135,10 @@ static ObjDataManager *instance = nil;
             
         }
     }
+    int buffStride=dataWidth * 4;
     int   len =(int) [byte readFloat]; //整体数据长度
-    len *= dataWidth * 4;
-    
-    NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:len];
+  
+    NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:buffStride*len];
     
     int verOffsets = 0;
     int uvsOffsets = 3;
@@ -147,12 +147,12 @@ static ObjDataManager *instance = nil;
     int tangentsOffsets = normalsOffsets + 3;
     int bitangentsOffsets = tangentsOffsets + 3;
     
-  objdata.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:verOffsets stride:len readType:0];
-  objdata.uvs=   [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:len readType:0];
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:lightuvsOffsets stride:len readType:1];
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:normalsOffsets stride:len readType:0];
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:tangentsOffsets stride:len readType:0];
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:bitangentsOffsets stride:len readType:0];
+  objdata.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:verOffsets stride:buffStride readType:0];
+  objdata.uvs=   [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:buffStride readType:0];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:lightuvsOffsets stride:buffStride readType:1];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:normalsOffsets stride:buffStride readType:0];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:tangentsOffsets stride:buffStride readType:0];
+    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:bitangentsOffsets stride:buffStride readType:0];
     
     
     NSMutableData *indexNsData = [[NSMutableData alloc] initWithLength:len];
@@ -163,7 +163,7 @@ static ObjDataManager *instance = nil;
     objdata.normalsOffsets = normalsOffsets * 4;
     objdata.tangentsOffsets = tangentsOffsets * 4;
     objdata.bitangentsOffsets = bitangentsOffsets * 4;
-    objdata.stride = dataWidth * 4;
+    objdata.stride = buffStride;
     
     NSLog(@"indexlen----%lu", objdata.indexs.count);
 }

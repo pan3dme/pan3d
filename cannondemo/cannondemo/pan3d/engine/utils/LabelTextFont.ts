@@ -442,7 +442,7 @@
         /*
         *写入多行颜色字体，字号,对齐，基础颜色 并上传显卡
         */
-        public static writeTextLabel($uiAtlas: UIAtlas, $key: string, $str: string, fontsize: number = 12, $align: string = TextAlign.CENTER, $maxWidth: number = 500,
+        public static writeTextLabel($uiAtlas: UIAtlas, $key: string, $str: string, fontsize: number = 12, $align: any = TextAlign.CENTER, $maxWidth: number = 500,
             $baseColor: string = "#ffffff", $filterColor: string = "", $ty: number = 0, $filterWidth: number = 4, $bolder: boolean = true): Array<number> {
 
             if ($baseColor.indexOf("[") != -1) {  //[00ff00]
@@ -553,7 +553,7 @@
          */
         public static writeText($uiAtlas: UIAtlas, $key: string,
             $x: number, $y: number,
-            $str: string, fontsize: number, fontColor: string, $maxWidth: number = 0, bolder: boolean = false, $textAlign: string = TextAlign.LEFT): Array<number> {
+            $str: string, fontsize: number, fontColor: string, $maxWidth: number = 0, bolder: boolean = false, $textAlign: any = TextAlign.LEFT): Array<number> {
 
             if (fontColor.indexOf("[") != -1) {  //[00ff00]
                 fontColor = "#" + fontColor.substr(1, 6);

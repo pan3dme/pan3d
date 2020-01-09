@@ -23,7 +23,7 @@ var game;
             for (var i = 0; i < jiguanSpriteItem.length; i++) {
                 var $spriteItem = jiguanSpriteItem[i].spriteItem;
                 for (var j = 0; j < $spriteItem.length; j++) {
-                    if ($spriteItem[j].frameFileNode.frameNodeVo.name.indexOf("startup") != -1) {
+                    if ($spriteItem[j].frameFileNode.frameNodeVo.name.indexOf("startup") != -1) { //机关开关
                         var $paretDis = $spriteItem[j]._directShadowDisplay3DSprite;
                         var groupItem = $spriteItem[j]._directShadowDisplay3DSprite.groupItem;
                         for (var k = 0; k < groupItem.length; k++) {

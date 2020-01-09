@@ -145,8 +145,6 @@
                 if (value == 1) {
                     this.openBaoxianLog(1)
                     GameData.hasdiamondsHavenum += this.selectVo.num
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+" + this.selectVo.num)
- 
                     this.hidePanel();
                 }
             }, AllShareMeshVo.type11))
@@ -172,12 +170,11 @@
                 }
                 if (value == 1) {
                     this.openBaoxianLog(2)
-                    var $addNum: number = this.selectVo.num
+                    GameData.hasdiamondsHavenum += this.selectVo.num;
                     if (GameData.severinfo.adshareModel == 0) {//兼容模式视屏有双倍宝箱
-                        $addNum += this.selectVo.num
-                    }
-                    msgalert.OnlyTopTxt.show(Pan3d.ColorType.Whiteffffff + "获得钻石+"+ $addNum)
-                    GameData.hasdiamondsHavenum += $addNum;
+                        GameData.hasdiamondsHavenum += this.selectVo.num  
+                    }  
+                  
                     this.hidePanel();
                 } 
                 if (value == 0) {
@@ -221,13 +218,6 @@
                     this.a_close.y = this.a_close.baseRec.y - 40
                 }
             }
-            if (GameData.SystemInfo) {
-                var th: number = GameData.SystemInfo.windowHeight;
-       
-                this.a_close.bottom = th * UIData.Scale * 0.23
-
-            }
- 
 
             this.a_big_but.selected = this.tobeLookVideo;
             this.a_small.selected = this.tobeLookVideo;
@@ -241,8 +231,6 @@
                 this.changeButSelect()
 
                 this.setUiListVisibleByItem([this.a_win_close_but, this.a_close], false);
-
-      
 
                 Pan3d.TimeUtil.addTimeOut(1000, () => {
                     this.setUiListVisibleByItem([this.a_close], true);
@@ -260,7 +248,7 @@
         }
 
         private hidePanel(): void {
-            this.setUiListVisibleByItem([this.a_win_close_but, this.a_close], false);
+            this.setUiListVisibleByItem([this.a_win_close_but], false);
             this.TweenLiteScale(UIData.Scale, 0.3, 0.2, () => {
                 UIManager.getInstance().removeUIContainer(this);
       
