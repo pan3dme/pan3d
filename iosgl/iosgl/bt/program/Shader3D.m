@@ -12,28 +12,14 @@
  
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 {
-    if(!vstr){
     vstr=[self getVertexShaderString];
-    }
-
-    if(!fstr){
-    fstr=[self getFragmentShaderString];
-    }
- 
+      fstr=[self getFragmentShaderString];
     
     GLuint verShader,fragShader;
     _program = glCreateProgram();
-     [self compileShader:&verShader type:GL_VERTEX_SHADER file:vstr];
-    
+     [self compileShaderStr:&verShader type:GL_VERTEX_SHADER str:vstr];
+     [self compileShaderStr:&fragShader type:GL_FRAGMENT_SHADER str:fstr];
  
-  // [self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fstr];
-    
-     
-    
-    NSString * content = [NSString stringWithContentsOfFile:fstr encoding:NSUTF8StringEncoding error:nil];
-   [self compileShaderStrCopy:&fragShader  type:GL_FRAGMENT_SHADER str:content];
-    
-    
     glAttachShader(_program, verShader);
     glAttachShader(_program, fragShader);
     glDeleteShader(verShader);
@@ -67,13 +53,6 @@
     }
 }
 
--(void)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
-{
-    NSString * content = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
-
-    [self compileShaderStr:shader type:type str:content];
-    
-}
 -(void)compileShaderStr:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
 {
     NSLog(@"%@",str);
@@ -81,26 +60,6 @@
     *shader = glCreateShader(type);
     glShaderSource(*shader, 1, &source,NULL);
     glCompileShader(*shader);
-    
-    
-}
--(void)compileShaderStrCopy:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
-{
- 
- 
-    const char* relplayChat =
-    "varying lowp vec2 varyTextCoord;\n"
-    "uniform sampler2D colorMap;\n"
-    "void main()"
-    "{"
-    "gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
-    "}";
-
-     NSString * copyStr =[ NSString stringWithFormat:@"%s" ,relplayChat];
-     const GLchar * source = (GLchar *)[copyStr UTF8String];
-     *shader = glCreateShader(type);
-     glShaderSource(*shader, 1, &source,NULL);
-     glCompileShader(*shader);
     
     
 }
