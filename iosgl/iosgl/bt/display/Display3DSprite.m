@@ -32,7 +32,7 @@
 -(void)loadShaderByUrl:(NSString*)value;
 {
     self.shader3d= [[DisplayBaseShader3D alloc]init];
-    [self.shader3d encodeVstr:[[NSBundle mainBundle]pathForResource:value ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:value ofType:@"fsh"]];
+   [self.shader3d encodeVstr:@"" encodeFstr:@""];
 }
 -(void)loadTextureResByUrl:(NSString*)value;
 {

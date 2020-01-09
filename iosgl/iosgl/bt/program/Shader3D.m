@@ -13,7 +13,7 @@
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 {
     vstr=[self getVertexShaderString];
-      fstr=[self getFragmentShaderString];
+    fstr=[self getFragmentShaderString];
     
     GLuint verShader,fragShader;
     _program = glCreateProgram();
@@ -55,7 +55,6 @@
 
 -(void)compileShaderStr:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
 {
-    NSLog(@"%@",str);
     const GLchar * source = (GLchar *)[str UTF8String];
     *shader = glCreateShader(type);
     glShaderSource(*shader, 1, &source,NULL);
