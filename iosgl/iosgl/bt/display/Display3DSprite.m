@@ -11,6 +11,7 @@
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
 #import "Scene3D.h"
+#import "DisplayBaseShader3D.h"
 
 @implementation Display3DSprite
 
@@ -30,7 +31,7 @@
 }
 -(void)loadShaderByUrl:(NSString*)value;
 {
-    self.shader3d= [[Shader3D alloc]init];
+    self.shader3d= [[DisplayBaseShader3D alloc]init];
     [self.shader3d encodeVstr:[[NSBundle mainBundle]pathForResource:value ofType:@"vsh"] encodeFstr:[[NSBundle mainBundle]pathForResource:value ofType:@"fsh"]];
 }
 -(void)loadTextureResByUrl:(NSString*)value;

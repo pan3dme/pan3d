@@ -12,18 +12,25 @@
  
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 {
-   if(!vstr){
-          vstr=[self getVertexShaderString];
-      }
+    if(!vstr){
+    vstr=[self getVertexShaderString];
+    }
+
     if(!fstr){
-           fstr=[self getFragmentShaderString];
-       }
-   
+    fstr=[self getFragmentShaderString];
+    }
+ 
     
     GLuint verShader,fragShader;
     _program = glCreateProgram();
-    [self compileShader:&verShader type:GL_VERTEX_SHADER file:vstr];
-    [self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fstr];
+     [self compileShader:&verShader type:GL_VERTEX_SHADER file:vstr];
+    
+ 
+   [self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fstr];
+    
+     // [self compileShaderStrCopy:&fragShader type:GL_FRAGMENT_SHADER str:@""];
+    
+    
     glAttachShader(_program, verShader);
     glAttachShader(_program, fragShader);
     glDeleteShader(verShader);
@@ -57,13 +64,51 @@
     }
 }
 
--(void)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file
+-(void)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
 {
     NSString * content = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
-    const GLchar * source = (GLchar *)[content UTF8String];
+
+    [self compileShaderStr:shader type:type str:content];
+    
+}
+-(void)compileShaderStr:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
+{
+    NSLog(@"%@",str);
+    const GLchar * source = (GLchar *)[str UTF8String];
     *shader = glCreateShader(type);
     glShaderSource(*shader, 1, &source,NULL);
     glCompileShader(*shader);
+    
+    
+}
+-(void)compileShaderStrCopy:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
+{
+ 
+   
+   
+
+    const char* fragmentShaderSource = "#version 330 core\n"
+    "varying  vec2 varyTextCoord;\n"
+     "uniform sampler2D colorMap;\n"
+    "void main()\n"
+    "{\n"
+        "color = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
+    "}";
+
+    int success;
+    *shader = glCreateShader(GL_FRAGMENT_SHADER);
+        glShaderSource(*shader, 1, &fragmentShaderSource, NULL);
+        glCompileShader(*shader);
+        // 错误检查
+        glGetShaderiv(*shader, GL_COMPILE_STATUS, &success);
+     
+     
+    
+    /*
+    *shader = glCreateShader(type);
+    glShaderSource(*shader, 1, &source,NULL);
+    glCompileShader(*shader);
+     */
     
     
 }

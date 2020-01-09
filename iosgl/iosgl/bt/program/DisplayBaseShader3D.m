@@ -10,9 +10,13 @@
 
 @implementation DisplayBaseShader3D
 -(NSString *)getVertexShaderString;{
-    return    [[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"];
+    NSString *vertexShader= [[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"vsh"];
+ 
+    return   vertexShader;
 }
 -(NSString *)getFragmentShaderString;{
-    return    [[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"];
+    NSString *fragmentShader= [[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"];
+ 
+    return    fragmentShader;
 }
 @end

@@ -30,15 +30,9 @@
 		FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC28D2395669100D2483A /* BaseUIViewController.m */; };
 		FE0FC292239568BE00D2483A /* FourPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC290239568BE00D2483A /* FourPageView.m */; };
 		FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC291239568BE00D2483A /* FourPageView.xib */; };
-		FE0FC298239571A100D2483A /* tabone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC296239571A100D2483A /* tabone@3x.png */; };
-		FE0FC299239571A100D2483A /* tabone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC297239571A100D2483A /* tabone@2x.png */; };
 		FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC29C2395768D00D2483A /* FivePageView.m */; };
 		FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC29D2395768D00D2483A /* FivePageView.xib */; };
-		FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2A023957C7500D2483A /* xinshoupic.png */; };
 		FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1376A0239E90AE00755136 /* ObjDataManager.m */; };
-		FE1376A5239E944B00755136 /* box.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE1376A4239E944A00755136 /* box.txt */; };
-		FE1376A7239EBE7A00755136 /* ball.xml in Resources */ = {isa = PBXBuildFile; fileRef = FE1376A6239EBE7A00755136 /* ball.xml */; };
-		FE1376A9239EC1AC00755136 /* baoxiang_byte.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE1376A8239EC1AC00755136 /* baoxiang_byte.txt */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -51,12 +45,20 @@
 		FE2BB2D62397F38A00597658 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2D52397F38A00597658 /* GlkView.m */; };
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
 		FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */; };
-		FE47F5B723B870B200959DFF /* 256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE47F5B623B870B200959DFF /* 256.jpg */; };
-		FE47F5BB23B8748C00959DFF /* tu001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE47F5BA23B8748C00959DFF /* tu001.jpg */; };
+		FE49FE6023C70E3A001FAE9B /* 1001_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5423C70E39001FAE9B /* 1001_base.txt */; };
+		FE49FE6123C70E3A001FAE9B /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5523C70E39001FAE9B /* shadow.png */; };
+		FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5623C70E39001FAE9B /* 256.jpg */; };
+		FE49FE6323C70E3A001FAE9B /* brdf_ltu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5723C70E39001FAE9B /* brdf_ltu.jpg */; };
+		FE49FE6423C70E3A001FAE9B /* shadertwo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5823C70E39001FAE9B /* shadertwo.fsh */; };
+		FE49FE6523C70E3A001FAE9B /* baoxiang_byte.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5923C70E39001FAE9B /* baoxiang_byte.txt */; };
+		FE49FE6623C70E3A001FAE9B /* baoxiang.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5A23C70E3A001FAE9B /* baoxiang.txt */; };
+		FE49FE6723C70E3A001FAE9B /* ball.xml in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5B23C70E3A001FAE9B /* ball.xml */; };
+		FE49FE6823C70E3A001FAE9B /* box.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5C23C70E3A001FAE9B /* box.txt */; };
+		FE49FE6923C70E3A001FAE9B /* shadertwo.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5D23C70E3A001FAE9B /* shadertwo.vsh */; };
+		FE49FE6A23C70E3A001FAE9B /* 5555_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5E23C70E3A001FAE9B /* 5555_base.txt */; };
+		FE49FE6B23C70E3A001FAE9B /* tu001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5F23C70E3A001FAE9B /* tu001.jpg */; };
 		FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */; };
 		FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FAD23A2177A00C49DA5 /* ByteArray.m */; };
-		FE515FB023A2376900C49DA5 /* baoxiang.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE515FAF23A2376800C49DA5 /* baoxiang.txt */; };
-		FE515FB223A2767A00C49DA5 /* 1001_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE515FB123A2767A00C49DA5 /* 1001_base.txt */; };
 		FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FB523A2802300C49DA5 /* BaseRes.m */; };
 		FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515FB823A2803C00C49DA5 /* SceneRes.m */; };
 		FE678831239B938200262B53 /* Display3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678830239B938200262B53 /* Display3D.m */; };
@@ -66,10 +68,6 @@
 		FE678843239B980200262B53 /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678842239B980200262B53 /* SceneView.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
-		FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */; };
-		FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */; };
-		FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */; };
-		FEF6063423B9CB8A00DE6C2F /* 5555_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */; };
 		FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063623B9CF5D00DE6C2F /* Object3D.m */; };
 		FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063923B9D10100DE6C2F /* Camera3D.m */; };
 		FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063C23B9D20200DE6C2F /* Rectangle.m */; };
@@ -116,17 +114,11 @@
 		FE0FC28F239568BE00D2483A /* FourPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourPageView.h; sourceTree = "<group>"; };
 		FE0FC290239568BE00D2483A /* FourPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourPageView.m; sourceTree = "<group>"; };
 		FE0FC291239568BE00D2483A /* FourPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourPageView.xib; sourceTree = "<group>"; };
-		FE0FC296239571A100D2483A /* tabone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabone@3x.png"; sourceTree = "<group>"; };
-		FE0FC297239571A100D2483A /* tabone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabone@2x.png"; sourceTree = "<group>"; };
 		FE0FC29B2395768D00D2483A /* FivePageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FivePageView.h; sourceTree = "<group>"; };
 		FE0FC29C2395768D00D2483A /* FivePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePageView.m; sourceTree = "<group>"; };
 		FE0FC29D2395768D00D2483A /* FivePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePageView.xib; sourceTree = "<group>"; };
-		FE0FC2A023957C7500D2483A /* xinshoupic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinshoupic.png; sourceTree = "<group>"; };
 		FE13769F239E90AE00755136 /* ObjDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjDataManager.h; sourceTree = "<group>"; };
 		FE1376A0239E90AE00755136 /* ObjDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjDataManager.m; sourceTree = "<group>"; };
-		FE1376A4239E944A00755136 /* box.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = box.txt; path = ../../../../sceneEdit/sceneEdit/res/base/box.txt; sourceTree = "<group>"; };
-		FE1376A6239EBE7A00755136 /* ball.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ball.xml; path = ../../../../sceneEdit/sceneEdit/res/base/ball.xml; sourceTree = "<group>"; };
-		FE1376A8239EC1AC00755136 /* baoxiang_byte.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = baoxiang_byte.txt; path = ../../../../sceneEdit/sceneEdit/res/base/baoxiang_byte.txt; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -152,14 +144,22 @@
 		FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalMatrixUtilities.h; sourceTree = "<group>"; };
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
 		FE36BBE523A53D7B00180D7C /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
-		FE47F5B623B870B200959DFF /* 256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 256.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/256.jpg; sourceTree = "<group>"; };
-		FE47F5BA23B8748C00959DFF /* tu001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tu001.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/tu001.jpg; sourceTree = "<group>"; };
+		FE49FE5423C70E39001FAE9B /* 1001_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1001_base.txt; sourceTree = "<group>"; };
+		FE49FE5523C70E39001FAE9B /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
+		FE49FE5623C70E39001FAE9B /* 256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 256.jpg; sourceTree = "<group>"; };
+		FE49FE5723C70E39001FAE9B /* brdf_ltu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brdf_ltu.jpg; sourceTree = "<group>"; };
+		FE49FE5823C70E39001FAE9B /* shadertwo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.fsh; sourceTree = "<group>"; };
+		FE49FE5923C70E39001FAE9B /* baoxiang_byte.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = baoxiang_byte.txt; sourceTree = "<group>"; };
+		FE49FE5A23C70E3A001FAE9B /* baoxiang.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = baoxiang.txt; sourceTree = "<group>"; };
+		FE49FE5B23C70E3A001FAE9B /* ball.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ball.xml; sourceTree = "<group>"; };
+		FE49FE5C23C70E3A001FAE9B /* box.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = box.txt; sourceTree = "<group>"; };
+		FE49FE5D23C70E3A001FAE9B /* shadertwo.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.vsh; sourceTree = "<group>"; };
+		FE49FE5E23C70E3A001FAE9B /* 5555_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5555_base.txt; sourceTree = "<group>"; };
+		FE49FE5F23C70E3A001FAE9B /* tu001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tu001.jpg; sourceTree = "<group>"; };
 		FE4CA7D42398DAAA00BE6FB5 /* Matrix3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3D.h; sourceTree = "<group>"; };
 		FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix3D.m; sourceTree = "<group>"; };
 		FE515FAC23A2177A00C49DA5 /* ByteArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ByteArray.h; sourceTree = "<group>"; };
 		FE515FAD23A2177A00C49DA5 /* ByteArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ByteArray.m; sourceTree = "<group>"; };
-		FE515FAF23A2376800C49DA5 /* baoxiang.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = baoxiang.txt; path = ../../../../sceneEdit/sceneEdit/res/base/baoxiang.txt; sourceTree = "<group>"; };
-		FE515FB123A2767A00C49DA5 /* 1001_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 1001_base.txt; path = ../../../../sceneEdit/sceneEdit/res/base/1001_base.txt; sourceTree = "<group>"; };
 		FE515FB423A2802300C49DA5 /* BaseRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRes.h; sourceTree = "<group>"; };
 		FE515FB523A2802300C49DA5 /* BaseRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRes.m; sourceTree = "<group>"; };
 		FE515FB723A2803C00C49DA5 /* SceneRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneRes.h; sourceTree = "<group>"; };
@@ -178,10 +178,6 @@
 		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
 		FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DSprite.h; sourceTree = "<group>"; };
 		FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DSprite.m; sourceTree = "<group>"; };
-		FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = brdf_ltu.jpg; path = ../../../../sceneEdit/sceneEdit/res/base/brdf_ltu.jpg; sourceTree = "<group>"; };
-		FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.vsh; sourceTree = "<group>"; };
-		FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shadertwo.fsh; sourceTree = "<group>"; };
-		FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 5555_base.txt; path = ../../../../sceneEdit/sceneEdit/res/base/5555_base.txt; sourceTree = "<group>"; };
 		FEF6063523B9CF5D00DE6C2F /* Object3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
 		FEF6063623B9CF5D00DE6C2F /* Object3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Object3D.m; sourceTree = "<group>"; };
 		FEF6063823B9D10100DE6C2F /* Camera3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera3D.h; sourceTree = "<group>"; };
@@ -345,20 +341,18 @@
 		FE0FC29A2395735800D2483A /* assetfile */ = {
 			isa = PBXGroup;
 			children = (
-				FEF6063323B9CB8A00DE6C2F /* 5555_base.txt */,
-				FE1376A8239EC1AC00755136 /* baoxiang_byte.txt */,
-				FE515FB123A2767A00C49DA5 /* 1001_base.txt */,
-				FE47F5B623B870B200959DFF /* 256.jpg */,
-				FE47F5BA23B8748C00959DFF /* tu001.jpg */,
-				FE515FAF23A2376800C49DA5 /* baoxiang.txt */,
-				FE1376A4239E944A00755136 /* box.txt */,
-				FE1376A6239EBE7A00755136 /* ball.xml */,
-				FEDE16E5239ACD6A002361C1 /* brdf_ltu.jpg */,
-				FEDE16E8239ADA4E002361C1 /* shadertwo.fsh */,
-				FEDE16E7239ADA4E002361C1 /* shadertwo.vsh */,
-				FE0FC2A023957C7500D2483A /* xinshoupic.png */,
-				FE0FC297239571A100D2483A /* tabone@2x.png */,
-				FE0FC296239571A100D2483A /* tabone@3x.png */,
+				FE49FE5623C70E39001FAE9B /* 256.jpg */,
+				FE49FE5423C70E39001FAE9B /* 1001_base.txt */,
+				FE49FE5E23C70E3A001FAE9B /* 5555_base.txt */,
+				FE49FE5B23C70E3A001FAE9B /* ball.xml */,
+				FE49FE5923C70E39001FAE9B /* baoxiang_byte.txt */,
+				FE49FE5A23C70E3A001FAE9B /* baoxiang.txt */,
+				FE49FE5C23C70E3A001FAE9B /* box.txt */,
+				FE49FE5723C70E39001FAE9B /* brdf_ltu.jpg */,
+				FE49FE5823C70E39001FAE9B /* shadertwo.fsh */,
+				FE49FE5D23C70E3A001FAE9B /* shadertwo.vsh */,
+				FE49FE5523C70E39001FAE9B /* shadow.png */,
+				FE49FE5F23C70E3A001FAE9B /* tu001.jpg */,
 			);
 			path = assetfile;
 			sourceTree = "<group>";
@@ -523,27 +517,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE47F5BB23B8748C00959DFF /* tu001.jpg in Resources */,
-				FE0FC2A123957C7500D2483A /* xinshoupic.png in Resources */,
+				FE49FE6423C70E3A001FAE9B /* shadertwo.fsh in Resources */,
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
-				FE1376A7239EBE7A00755136 /* ball.xml in Resources */,
-				FEDE16EA239ADA4E002361C1 /* shadertwo.fsh in Resources */,
-				FE1376A5239E944B00755136 /* box.txt in Resources */,
-				FE1376A9239EC1AC00755136 /* baoxiang_byte.txt in Resources */,
-				FEF6063423B9CB8A00DE6C2F /* 5555_base.txt in Resources */,
+				FE49FE6723C70E3A001FAE9B /* ball.xml in Resources */,
+				FE49FE6823C70E3A001FAE9B /* box.txt in Resources */,
 				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
-				FEDE16E6239ACD6A002361C1 /* brdf_ltu.jpg in Resources */,
+				FE49FE6023C70E3A001FAE9B /* 1001_base.txt in Resources */,
+				FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */,
+				FE49FE6A23C70E3A001FAE9B /* 5555_base.txt in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
-				FE0FC299239571A100D2483A /* tabone@2x.png in Resources */,
-				FEDE16E9239ADA4E002361C1 /* shadertwo.vsh in Resources */,
-				FE47F5B723B870B200959DFF /* 256.jpg in Resources */,
+				FE49FE6323C70E3A001FAE9B /* brdf_ltu.jpg in Resources */,
+				FE49FE6523C70E3A001FAE9B /* baoxiang_byte.txt in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
+				FE49FE6923C70E3A001FAE9B /* shadertwo.vsh in Resources */,
+				FE49FE6123C70E3A001FAE9B /* shadow.png in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
-				FE515FB223A2767A00C49DA5 /* 1001_base.txt in Resources */,
-				FE515FB023A2376900C49DA5 /* baoxiang.txt in Resources */,
-				FE0FC298239571A100D2483A /* tabone@3x.png in Resources */,
 				FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
+				FE49FE6623C70E3A001FAE9B /* baoxiang.txt in Resources */,
+				FE49FE6B23C70E3A001FAE9B /* tu001.jpg in Resources */,
 				FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

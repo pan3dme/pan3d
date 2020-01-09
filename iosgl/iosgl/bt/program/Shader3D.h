@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)  NSString* fragment;
 @property (nonatomic,assign)  GLuint program;
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
-
 -(NSString *)getVertexShaderString;
 -(NSString *)getFragmentShaderString;
 @end
