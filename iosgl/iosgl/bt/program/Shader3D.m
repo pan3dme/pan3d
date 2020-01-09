@@ -86,31 +86,17 @@
 }
 -(void)compileShaderStrCopy:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
 {
-    NSLog(@"\n---------");
-       NSLog(@"%@",str);
-   NSLog(@"\n---------");
-
-    const char* fragmentShaderSource =
-    "varying  vec2 varyTextCoord;\n"
-     "uniform sampler2D colorMap;\n"
-    "void main()\n"
-    "{\n"
-        "gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);\n"
-    "}\n";
-    NSString *changeStr=@"gl_FragColor = texture2D(colorMap,varyTextCoord)";
+ 
  
     const char* relplayChat =
+    "varying lowp vec2 varyTextCoord;\n"
+    "uniform sampler2D colorMap;\n"
+    "void main()"
+    "{"
     "gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
     "}";
-    
-    
-    NSRange range = [str rangeOfString:changeStr];
-    NSString * subString1 = [str substringToIndex:range.location];
- 
-    NSString * copyStr =[ NSString stringWithFormat:@"%@%s",subString1,relplayChat];
-    
-   // copyStr=[NSString stringWithFormat:@"%s",fragmentShaderSource];
-    
+
+     NSString * copyStr =[ NSString stringWithFormat:@"%s" ,relplayChat];
      const GLchar * source = (GLchar *)[copyStr UTF8String];
      *shader = glCreateShader(type);
      glShaderSource(*shader, 1, &source,NULL);

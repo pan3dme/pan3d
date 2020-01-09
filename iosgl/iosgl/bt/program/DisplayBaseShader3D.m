@@ -15,8 +15,13 @@
     return   vertexShader;
 }
 -(NSString *)getFragmentShaderString;{
-    NSString *fragmentShader= [[NSBundle mainBundle]pathForResource:@"shadertwo" ofType:@"fsh"];
- 
-    return    fragmentShader;
+     char* relplayChat =
+    "varying lowp vec2 varyTextCoord;\n"
+    "uniform sampler2D colorMap;\n"
+    "void main()"
+    "{"
+    "gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
+    "}";
+    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
 @end
