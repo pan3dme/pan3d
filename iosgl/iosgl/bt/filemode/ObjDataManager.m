@@ -138,7 +138,7 @@ static ObjDataManager *instance = nil;
     int buffStride=dataWidth * 4;
     int   len =(int) [byte readFloat]; //整体数据长度
   
-    NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:buffStride*len];
+    NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:len*buffStride];
     
     int verOffsets = 0;
     int uvsOffsets = 3;

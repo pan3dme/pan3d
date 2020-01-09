@@ -218,8 +218,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
                    // NSLog(@"----->%f",tempNum);
                     [vItem addObject:[NSNumber numberWithFloat:tempNum]];
-                    
-                    
+                    [nsdata replaceBytesInRange:NSMakeRange(pos+j*4, 4) withBytes: &tempNum length:4];
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
