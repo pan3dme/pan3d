@@ -67,6 +67,7 @@
 		FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE67883B239B973C00262B53 /* Display3DSprite.m */; };
 		FE678843239B980200262B53 /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678842239B980200262B53 /* SceneView.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
+		FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063623B9CF5D00DE6C2F /* Object3D.m */; };
 		FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063923B9D10100DE6C2F /* Camera3D.m */; };
@@ -176,6 +177,8 @@
 		FE678842239B980200262B53 /* SceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneView.m; sourceTree = "<group>"; };
 		FE74C8862396C85D0069A551 /* Base3dView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
 		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
+		FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DShader.h; sourceTree = "<group>"; };
+		FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DShader.m; sourceTree = "<group>"; };
 		FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DSprite.h; sourceTree = "<group>"; };
 		FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DSprite.m; sourceTree = "<group>"; };
 		FEF6063523B9CF5D00DE6C2F /* Object3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
@@ -450,6 +453,8 @@
 		FE67883D239B974C00262B53 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */,
+				FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */,
 				FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */,
 				FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */,
 				FE2A61BF239CB9DF0011BF9E /* Scene3D.h */,
@@ -600,6 +605,7 @@
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,
 				FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */,
+				FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */,
 				FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
 				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
