@@ -164,6 +164,7 @@ static ObjDataManager *instance = nil;
     objdata.tangentsOffsets = tangentsOffsets * 4;
     objdata.bitangentsOffsets = bitangentsOffsets * 4;
     objdata.stride = buffStride;
+    objdata.dataView=dataBase;
     
     NSLog(@"indexlen----%lu", objdata.indexs.count);
 }

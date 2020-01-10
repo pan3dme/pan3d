@@ -12,7 +12,7 @@
 -(void)upToGpu;
 {
     if(self.vertices){
-        [self makeBase];
+     
         GLfloat attrArr[self.vertices.count+self.uvs.count];
         for(int i=0;i<self.vertices.count/3;i++)
         {
@@ -39,31 +39,19 @@
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
         
-    }else
-    {
-        [self makeBase];
+        
+        glGenBuffers(1, &_dataViewBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, self.dataViewBuffer);
+        //self.dataView = [[NSMutableData alloc] initWithLength:1024];
+        glBufferData(GL_ARRAY_BUFFER, self.dataView.length, self.dataView.bytes,GL_STATIC_DRAW);
+   
+        NSLog(@"mData-%lu", self.dataView.length);
+        
+        //self.dataView.bytes;
+        
     }
     
 }
-
--(void)makeBase
-{
-    float whf=1.0;
-    float depth=0.0f;
-    GLfloat attrArr[] = {
-        
-        whf, -whf, depth,     1.0f, 0.0f,
-        -whf, whf, depth,     0.0f, 1.0f,
-        -whf, -whf, depth,    0.0f, 0.0f,
-        whf, whf, depth,      1.0f, 1.0f,
-        -whf, whf,depth,     0.0f, 1.0f,
-        whf, -whf, depth,     1.0f, 0.0f,
-    };
-    
-    
-    glGenBuffers(1, &_verticesBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, self.verticesBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-}
+ 
 
 @end

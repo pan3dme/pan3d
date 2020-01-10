@@ -39,33 +39,32 @@
     self.textureRes=[[MaterialManager default] getMaterialByUrl:value];
 }
 -(void)upFrame{
-    [super upFrame];
-    if(_shader3d&&_objData&&_objData.indexs&&_textureRes){
-     
-         Matrix3D *modeMatrix= [self.scene.camera3D.modelMatrix clone];
-        [modeMatrix prepend:self.posMatrix3d];
-        
-        GLuint progame= _shader3d.program;
-        glUseProgram(progame);
-        glBindTexture(_textureRes.texture.target,_textureRes.texture.name);
-        
-        GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
-        glUniformMatrix4fv(rotateID, 1, GL_TRUE, modeMatrix.m);
-        
-        glBindBuffer(GL_ARRAY_BUFFER, _objData.verticesBuffer);
-        GLuint position = glGetAttribLocation( progame, "position");
-        glEnableVertexAttribArray(position);
-        glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, (GLfloat *)NULL);
-        
-        
-        GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
-        glEnableVertexAttribArray(textCoor);
-        glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
-        
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
-        glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
-  
-    }
+ 
+     if(self.shader3d&&self.objData&&self.objData.indexs&&self.textureRes){
+      
+         [self upDataCamView];
+          
+          GLuint progame= self.shader3d.program;
+          glUseProgram(progame);
+          glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
+          
+          GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
+          glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
+          
+          glBindBuffer(GL_ARRAY_BUFFER, self.objData.verticesBuffer);
+          GLuint position = glGetAttribLocation( progame, "position");
+          glEnableVertexAttribArray(position);
+          glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,sizeof(GLfloat)*5, (GLfloat *)NULL);
+          
+          
+          GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
+          glEnableVertexAttribArray(textCoor);
+          glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat *)NULL+3);
+          
+          glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
+          glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
+    
+      }
   
 }
 

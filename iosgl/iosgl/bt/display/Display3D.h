@@ -19,9 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Display3D : Object3D
   
 @property (nonatomic, strong)  Matrix3D *posMatrix3d;
- @property (nonatomic, strong)  Scene3D *scene;
+@property (nonatomic, strong)  Matrix3D *modeMatrix;
+
+@property (nonatomic, strong)  Scene3D *scene;
 -(void) upFrame  ;
 -(void) destory  ;
+-(void) upDataCamView;
 @end
 
 NS_ASSUME_NONNULL_END
