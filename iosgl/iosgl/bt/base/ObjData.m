@@ -11,8 +11,9 @@
 @implementation ObjData
 -(void)upToGpu;
 {
-    if(self.vertices){
+    if(self.dataView){
      
+        /*
         GLfloat attrArr[self.vertices.count+self.uvs.count];
         for(int i=0;i<self.vertices.count/3;i++)
         {
@@ -27,7 +28,7 @@
         glBindBuffer(GL_ARRAY_BUFFER, self.verticesBuffer);
         glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
         
-        
+        */
         
         unsigned int Indices[self.indexs.count];
         for(int j=0;j<self.indexs.count;j++)

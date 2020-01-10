@@ -191,10 +191,8 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     int tempIdx;
     for (int i = 0; i < iLen; i++) {
         tempIdx=  [srcByte readShort];
-       // NSLog(@"----->%d",tempIdx);
         [idxItem addObject:[NSNumber numberWithInt:tempIdx]];
     }
-      NSLog(@"----------" );
     return idxItem;
 }
 +(NSMutableArray*)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
@@ -211,18 +209,17 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     float tempNum;
     int readNum = verLength / dataWidth;
     for (int i = 0; i < readNum; i++) {
-        int pos = stride * i + offset;
+        int pos = stride * i + offset*4;
         for (int j = 0; j < dataWidth; j++) {
             switch (readType) {
                 case 0:
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
-                   // NSLog(@"----->%f",tempNum);
                     [vItem addObject:[NSNumber numberWithFloat:tempNum]];
                     [nsdata replaceBytesInRange:NSMakeRange(pos+j*4, 4) withBytes: &tempNum length:4];
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
-                 //   NSLog(@"----->%f",tempNum);
+          
                     break;
                 default:
                     
