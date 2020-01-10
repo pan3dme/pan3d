@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{2A9562D5-24A0-4F44-94C5-EADCD36C5804}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/src/canondemo/dis/DiamondsDisplay3DSprite.ts">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/src/canondemo/dis/MainDirectShadowDisplay3DSprite.ts">
     <Files>
       <File FileName="cannondemo/src/frame3d/Frame3dRes.ts" Line="306" Column="40" />
       <File FileName="cannondemo/src/frame3d/Frame3dCannonSprite.ts" />
@@ -11,10 +11,11 @@
       <File FileName="cannondemo/pan3d/engine/utils/res/BaseRes.ts" />
       <File FileName="cannondemo/bin/js/engine/utils/MeshDataManager.js" />
       <File FileName="cannondemo/pan3d/engine/utils/ObjDataManager.ts" />
-      <File FileName="cannondemo/pan3d/engine/context/Context3D.ts" Line="33" Column="10" />
-      <File FileName="cannondemo/pan3d/engine/display3D/BaseDiplay3dSprite.ts" Line="60" Column="37" />
-      <File FileName="cannondemo/pan3d/engine/program/BuildShader.ts" Line="18" Column="37" />
-      <File FileName="cannondemo/src/canondemo/dis/DiamondsDisplay3DSprite.ts" Line="32" Column="34" />
+      <File FileName="cannondemo/pan3d/engine/context/Context3D.ts" />
+      <File FileName="cannondemo/pan3d/engine/display3D/BaseDiplay3dSprite.ts" />
+      <File FileName="cannondemo/pan3d/engine/program/BuildShader.ts" />
+      <File FileName="cannondemo/src/canondemo/dis/DiamondsDisplay3DSprite.ts" Line="32" Column="14" />
+      <File FileName="cannondemo/src/canondemo/dis/MainDirectShadowDisplay3DSprite.ts" Line="33" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -42,7 +43,7 @@
               <Node name="src" expanded="True">
                 <Node name="canondemo" expanded="True">
                   <Node name="dis" expanded="True">
-                    <Node name="DiamondsDisplay3DSprite.ts" selected="True" />
+                    <Node name="MainDirectShadowDisplay3DSprite.ts" selected="True" />
                   </Node>
                 </Node>
                 <Node name="frame3d" expanded="True" />

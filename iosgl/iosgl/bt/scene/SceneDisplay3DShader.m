@@ -20,7 +20,7 @@
     "attribute vec3 v3Normal;\n"
     "uniform mat4 posMatrix;\n"
     "varying lowp vec2 varyTextCoord;\n"
-     "varying  lowp vec3 nrmvec3;\n"
+    "varying  lowp vec3 nrmvec3;\n"
     "void main()"
     "{"
         "varyTextCoord = textCoordinate;\n"
@@ -34,7 +34,7 @@
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
     "varying lowp vec2 varyTextCoord;\n"
-     "varying  lowp vec3 nrmvec3;\n"
+    "varying  lowp vec3 nrmvec3;\n"
     "uniform sampler2D colorMap;\n"
     "void main()"
     "{"
