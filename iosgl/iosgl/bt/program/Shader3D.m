@@ -12,8 +12,13 @@
  
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 {
-    vstr=[self getVertexShaderString];
-    fstr=[self getFragmentShaderString];
+ 
+   if(!vstr){
+          vstr=[self getVertexShaderString];
+      }
+    if(!fstr){
+          fstr=[self getFragmentShaderString];
+       }
     
     GLuint verShader,fragShader;
     _program = glCreateProgram();
