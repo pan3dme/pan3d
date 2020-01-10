@@ -17,13 +17,14 @@
     char* relplayChat =
     "attribute vec3 position;\n"
     "attribute vec2 textCoordinate;\n"
- 
+    "attribute vec3 v3Normal;\n"
     "uniform mat4 posMatrix;\n"
     "varying lowp vec2 varyTextCoord;\n"
- 
+     "varying  lowp vec3 nrmvec3;\n"
     "void main()"
     "{"
         "varyTextCoord = textCoordinate;\n"
+        "nrmvec3 = v3Normal;\n"
         "vec4 vPos = vec4(position.xyz,1.0);\n"
         "gl_Position = vPos * posMatrix;\n"
     "}";
@@ -33,11 +34,12 @@
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
     "varying lowp vec2 varyTextCoord;\n"
- 
+     "varying  lowp vec3 nrmvec3;\n"
     "uniform sampler2D colorMap;\n"
     "void main()"
     "{"
-        "gl_FragColor = vec4(0.0, 1.0, 1.0, 1.0);\n"
+        "gl_FragColor =texture2D(colorMap,varyTextCoord);\n"
+        "gl_FragColor =vec4(nrmvec3.xyz,1.0);\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

@@ -14,7 +14,7 @@
       <File FileName="cannondemo/pan3d/engine/context/Context3D.ts" Line="33" Column="10" />
       <File FileName="cannondemo/pan3d/engine/display3D/BaseDiplay3dSprite.ts" Line="60" Column="37" />
       <File FileName="cannondemo/pan3d/engine/program/BuildShader.ts" Line="18" Column="37" />
-      <File FileName="cannondemo/src/canondemo/dis/DiamondsDisplay3DSprite.ts" Line="26" Column="67" />
+      <File FileName="cannondemo/src/canondemo/dis/DiamondsDisplay3DSprite.ts" Line="32" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

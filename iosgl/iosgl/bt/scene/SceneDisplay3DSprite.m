@@ -61,9 +61,9 @@
         glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
         
         
-//        GLuint v3Normal = glGetAttribLocation( progame, "v3Normal");
-//              glEnableVertexAttribArray(v3Normal);
-//              glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,self.objData.stride, (GLfloat *)NULL);
+        GLuint v3Normal = glGetAttribLocation( progame, "v3Normal");
+        glEnableVertexAttribArray(v3Normal);
+        glVertexAttribPointer(v3Normal, 3, GL_FLOAT, GL_FALSE,self.objData.stride,  (GLfloat *)NULL+self.objData.normalsOffsets);
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
         glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
