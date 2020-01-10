@@ -9,6 +9,10 @@
 #import "SceneDisplay3DShader.h"
 
 @implementation SceneDisplay3DShader
++(NSString*)shaderStr;
+{
+    return @"SceneDisplay3DShader";
+}
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
     "attribute vec3 position;\n"
@@ -30,7 +34,7 @@
     "uniform sampler2D colorMap;\n"
     "void main()"
     "{"
-        "gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);\n"
+        "gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

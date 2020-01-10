@@ -30,6 +30,7 @@ static ProgrmaManager *instance = nil;
     if([_dic objectForKey:value]){
           return  _dic[value];
     }else{
+        
         return  nil;
     }
   
@@ -38,7 +39,8 @@ static ProgrmaManager *instance = nil;
     if([_dic objectForKey:keystr]){
     
     }else{
-       [_dic setValue:shader3d forKey:keystr]; 
+       [_dic setValue:shader3d forKey:keystr];
+      [shader3d encodeVstr:nil encodeFstr:nil];
     }
 }
 @end

@@ -11,7 +11,7 @@
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
 #import "Scene3D.h"
-#import "DisplayBaseShader3D.h"
+ 
 
 @implementation Display3DSprite
 
@@ -29,34 +29,7 @@
         [self.objData upToGpu];
     }];
 }
--(void)makeShader;
-{
-    char* vstr =
-    "attribute vec3 position;\n"
-    "attribute vec2 textCoordinate;\n"
-    "uniform mat4 posMatrix;\n"
-    "varying lowp vec2 varyTextCoord;\n"
-    "void main()"
-    "{"
-        "varyTextCoord = textCoordinate;\n"
-        "vec4 vPos = vec4(position.xyz,1.0);\n"
-        "gl_Position = vPos * posMatrix;\n"
-    "}";
-    
-    char* fstr =
-    "varying lowp vec2 varyTextCoord;\n"
-    "uniform sampler2D colorMap;\n"
-    "void main()"
-    "{"
-        "gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
-    "}";
-    
-    
-    self.shader3d= [[Shader3D alloc]init];
-   [self.shader3d encodeVstr:[ NSString stringWithFormat:@"%s" ,vstr] encodeFstr:[ NSString stringWithFormat:@"%s" ,fstr]];
-    
-    
-}
+ 
 -(void)loadTextureResByUrl:(NSString*)value;
 {
     self.textureRes=[[MaterialManager default] getMaterialByUrl:value];

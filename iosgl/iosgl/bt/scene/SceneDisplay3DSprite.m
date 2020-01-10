@@ -8,6 +8,7 @@
 
 #import "SceneDisplay3DSprite.h"
 #import "SceneDisplay3DShader.h"
+#import "ProgrmaManager.h"
 @interface SceneDisplay3DSprite()
 
 @end
@@ -29,48 +30,41 @@
     self.rotationY=[[ value objectForKey:@"rotationY"]floatValue];
     self.rotationZ=[[ value objectForKey:@"rotationZ"]floatValue];
     
- 
-    [self makeShader ];
+    
+    [[ProgrmaManager default] registe:SceneDisplay3DShader.shaderStr shader3d: [[SceneDisplay3DShader alloc]init]];
+    self.shader3d=  [[ProgrmaManager default] getProgram:SceneDisplay3DShader.shaderStr];
     
     [self loadTextureResByUrl:@"tu001.jpg"];
     [self loadObjDataByUrl:objsurl];
 }
--(void)makeShader
-{
- 
-    self.shader3d= [[SceneDisplay3DShader alloc]init];
-    [self.shader3d encodeVstr:nil encodeFstr:nil];
-    
-    
-}
+
 -(void)upFrame{
- 
-   if(self.shader3d&&self.objData&&self.objData.indexs&&self.textureRes){
-          
-             [self upDataCamView];
-              
-              GLuint progame= self.shader3d.program;
-              glUseProgram(progame);
-              glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
-              
-              GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
-              glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
-            
-             
-             
-              glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
-              GLuint position = glGetAttribLocation( progame, "position");
-              glEnableVertexAttribArray(position);
-              glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,self.objData.stride, (GLfloat *)NULL);
-              GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
-              glEnableVertexAttribArray(textCoor);
-              glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
-              
-              glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
-              glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
+    
+    if(self.shader3d&&self.objData&&self.objData.indexs&&self.textureRes){
         
-          }
-     
-  
+        [self upDataCamView];
+        
+        GLuint progame= self.shader3d.program;
+        glUseProgram(progame);
+        glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
+        
+        GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
+        glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
+         
+        
+        glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
+        GLuint position = glGetAttribLocation( progame, "position");
+        glEnableVertexAttribArray(position);
+        glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,self.objData.stride, (GLfloat *)NULL);
+        GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
+        glEnableVertexAttribArray(textCoor);
+        glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
+        
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
+        glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
+        
+    }
+    
+    
 }
 @end

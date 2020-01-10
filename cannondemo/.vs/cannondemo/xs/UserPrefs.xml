@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{2A9562D5-24A0-4F44-94C5-EADCD36C5804}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/pan3d/engine/context/Context3D.ts">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/pan3d/engine/display3D/BaseDiplay3dSprite.ts">
     <Files>
       <File FileName="cannondemo/src/frame3d/Frame3dRes.ts" Line="306" Column="40" />
       <File FileName="cannondemo/src/frame3d/Frame3dCannonSprite.ts" />
@@ -12,6 +12,7 @@
       <File FileName="cannondemo/bin/js/engine/utils/MeshDataManager.js" />
       <File FileName="cannondemo/pan3d/engine/utils/ObjDataManager.ts" />
       <File FileName="cannondemo/pan3d/engine/context/Context3D.ts" Line="33" Column="10" />
+      <File FileName="cannondemo/pan3d/engine/display3D/BaseDiplay3dSprite.ts" Line="61" Column="68" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,14 +22,16 @@
               <Node name="bin" expanded="True">
                 <Node name="js" expanded="True">
                   <Node name="engine" expanded="True">
+                    <Node name="program" expanded="True" />
                     <Node name="utils" expanded="True" />
                   </Node>
                 </Node>
               </Node>
               <Node name="pan3d" expanded="True">
                 <Node name="engine" expanded="True">
-                  <Node name="context" expanded="True">
-                    <Node name="Context3D.ts" selected="True" />
+                  <Node name="context" expanded="True" />
+                  <Node name="display3D" expanded="True">
+                    <Node name="BaseDiplay3dSprite.ts" selected="True" />
                   </Node>
                   <Node name="utils" expanded="True">
                     <Node name="res" expanded="True" />
