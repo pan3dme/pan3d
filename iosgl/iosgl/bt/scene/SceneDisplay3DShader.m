@@ -19,6 +19,7 @@
     "attribute vec2 textCoordinate;\n"
     "attribute vec3 v3Normal;\n"
     "uniform mat4 posMatrix;\n"
+    "uniform vec3 sunDirect;\n"
     "varying lowp vec2 varyTextCoord;\n"
     "varying  lowp vec3 nrmvec3;\n"
     "void main()"

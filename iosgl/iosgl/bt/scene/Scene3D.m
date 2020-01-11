@@ -44,7 +44,7 @@
 }
 -(void) addDisplay:(Display3D*)dis;
 {
-    dis.scene=self;
+    dis.scene3d=self;
     [self.displayList addObject:dis];
 }
 

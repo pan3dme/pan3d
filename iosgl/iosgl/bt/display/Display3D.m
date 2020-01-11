@@ -38,8 +38,8 @@
 }
 -(void)upDataCamView;
 {
-      if(self.scene){
-          self.modeMatrix= [self.scene.camera3D.modelMatrix clone];
+      if(self.scene3d){
+          self.modeMatrix= [self.scene3d.camera3D.modelMatrix clone];
            [ self.modeMatrix prepend:self.posMatrix3d];
       }
 }

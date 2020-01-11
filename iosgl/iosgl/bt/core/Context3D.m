@@ -35,4 +35,15 @@
   
     
 }
+-(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(float32x4_t)data;
+{
+     GLuint glPos = glGetAttribLocation( shader.program, name);
+ 
+     const GLfloat color[3] = {  255.0, 255.0,255.0 };
+     glUniform3fv(glPos, 1, color);
+    
+     
+    
+    //        glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
+}
 @end

@@ -12,7 +12,18 @@
  
 @end
 @implementation Vector3D
-  
+  + (Vector3D *)X_AXIS;
+  {
+      return  [[Vector3D alloc]x:1 y:0 z:0 w:1];;
+  }
+  + (Vector3D *)Y_AXIS;
+  {
+      return  [[Vector3D alloc]x:0 y:1 z:0 w:1];;
+  }
+  + (Vector3D *)Z_AXIS;
+  {
+      return  [[Vector3D alloc]x:0 y:0 z:1 w:1];;
+  }
 - (instancetype)init
 {
     self = [super init];
@@ -57,18 +68,24 @@
        return _w;
 }
  
-+ (Vector3D *)X_AXIS; 
+-(float)length;
 {
-    return  [[Vector3D alloc]x:1 y:0 z:0 w:1];;
+      return sqrt(_x * _x + _y * _y + _z * _z);
 }
-+ (Vector3D *)Y_AXIS;
+-(void)scaleBy:(float)value;
 {
-    return  [[Vector3D alloc]x:0 y:1 z:0 w:1];;
+    _x *= value;
+    _y *= value;
+    _z *= value;
+    _w *= value;
 }
-+ (Vector3D *)Z_AXIS;
+-(void)normalize;
 {
-    return  [[Vector3D alloc]x:0 y:0 z:1 w:1];;
+    float le = [self length];
+    if (le == 0) {
+        return;
+    }
+    [self scaleBy:(1 / le)];
 }
- 
 
 @end
