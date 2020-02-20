@@ -39,6 +39,19 @@
     [self loadTextureResByUrl:@"tu001.jpg"];
     [self loadObjDataByUrl:objsurl];
 }
+-(void)ccav;
+{
+    Matrix3D *tempM=[[Matrix3D alloc]init];
+    
+     [tempM appendScale:_scaleX y:_scaleY z:_scaleZ];
+     [tempM appendRotation:_rotationX axis:Vector3D.X_AXIS];
+     [tempM appendRotation:_rotationY axis:Vector3D.Y_AXIS];
+     [tempM appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
+     [tempM appendTranslation:_x y: _y z:_z];
+    
+    [tempM outString];
+    
+}
 
 -(void)upFrame{
     
@@ -56,14 +69,9 @@
         GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
         glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
         
-        
-        
-        Matrix4x4 modelview = Matrix4x4Identity  ;
-     
-        for(int i=0;i<16;i++){
-                 modelview.data[i]= self.modeMatrix.m[i];
-        }
-        glUniformMatrix4fv(rotateID, 1, GL_TRUE, (const GLfloat *)&modelview);
+      
+        [self ccav];
+    //    glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m44m);
         
         
         GLuint glPos = glGetAttribLocation( progame, "sunDirect");

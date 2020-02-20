@@ -72,7 +72,13 @@ GLfloat  minfo[16];
     minfo[13]=self.m13;
     minfo[14]=self.m14;
     minfo[15]=self.m15;
+    
+
     return minfo;
+}
+-(GLfloat *)m44m;
+{
+    return (GLfloat *)&_matrix4x4;
 }
 -(void)identity
 {
@@ -122,7 +128,7 @@ GLfloat  minfo[16];
     self.m15 = self.m03* x + self.m07 * y + self.m11 * z + self.m15;
     
     
-     Matrix4x4Translate(self.matrix4x4,x,y,z);
+  self.matrix4x4=   Matrix4x4Translate(self.matrix4x4,x,y,z);
     
 }
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
@@ -167,6 +173,10 @@ GLfloat  minfo[16];
     tempM.m14=matrx3d.m14;
     tempM.m15=matrx3d.m15;
     
+    
+    tempM.matrix4x4= Matrix4x4clone(matrx3d.matrix4x4);
+ 
+    
     [tempM prepend:self];
     
     self.m00=tempM.m00;
@@ -185,6 +195,10 @@ GLfloat  minfo[16];
     self.m13=tempM.m13;
     self.m14=tempM.m14;
     self.m15=tempM.m15;
+    
+    
+    self.matrix4x4= Matrix4x4clone(tempM.matrix4x4);
+
     
 }
 -(Matrix3D *)clone;
@@ -256,6 +270,8 @@ GLfloat  minfo[16];
     self.m15 = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
     
   
+    
+   self.matrix4x4=Matrix4x4Multiply( matrx3d.matrix4x4,self.matrix4x4);
 }
  
 -(void)  appendRotation:(float)rad axis:(Vector3D*)axis;
@@ -312,7 +328,7 @@ GLfloat  minfo[16];
     self.m10 = a02 * b20 + a12 * b21 + a22 * b22;
     self.m11 = a03 * b20 + a13 * b21 + a23 * b22;
     
-   Matrix4x4Rotate(self.matrix4x4,rad,axis.x,axis.y,axis.z);
+ self.matrix4x4=  Matrix4x4Rotate(self.matrix4x4,rad,axis.x,axis.y,axis.z);
     
 }
  -(void) appendScale:(float  )x  y:(float)y z:(float)z;
@@ -338,7 +354,7 @@ GLfloat  minfo[16];
     self.m11=self.m11 * z;
     
     
-    Matrix4x4Scale(self.matrix4x4,x,y,z);
+   self.matrix4x4= Matrix4x4Scale(self.matrix4x4,x,y,z);
     
     
 };

@@ -221,6 +221,32 @@ static inline Matrix4x4 Matrix4x4Scale (Matrix4x4 m, float x, float y, float z) 
 
     return m;
 }
+static inline Matrix4x4 Matrix4x4clone (Matrix4x4 m) {
+    
+    Matrix4x4 temp=Matrix4x4Zero;
+    temp.data[0]=  m.data[0];
+    temp.data[1]=  m.data[1];
+    temp.data[2]=  m.data[2];
+    temp.data[3]=  m.data[3];
+    temp.data[4]=  m.data[4];
+    temp.data[5]=  m.data[5];
+    temp.data[6]=  m.data[6];
+    temp.data[7]=  m.data[7];
+    temp.data[8]=  m.data[8];
+    temp.data[9]=  m.data[9];
+    temp.data[10]=  m.data[10];
+    temp.data[11]=  m.data[11];
+    temp.data[12]=  m.data[12];
+    temp.data[13]=  m.data[13];
+    temp.data[14]=  m.data[14];
+    temp.data[15]=  m.data[15];
+    
+    
+ 
+
+    return m;
+}
+
 
 static inline Matrix4x4 Matrix4x4Rotate (Matrix4x4 m, float angle, float axisX, float axisY, float axisZ) {
     angle *= M_PI / 180;
