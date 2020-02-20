@@ -42,10 +42,6 @@
     [tempM prependTranslation:x y:y z:z];
     [self append:tempM];
 }
--(void) prependTranslation:(float  )x  y:(float)y z:(float)z ;
-{
-    self.matrix4x4=   Matrix4x4Translate(self.matrix4x4,x,y,z);
-}
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
 {
     float yScale = 1.0 / tan(fieldOfViewY / 2.0);
@@ -66,15 +62,6 @@
     Matrix3D *tempM= [[Matrix3D alloc]init];
     tempM.matrix4x4=Matrix4x4clone(self.matrix4x4);
     return tempM;
-    
-}
--(void)prepend :(Matrix3D*)matrx3d;
-{
-    self.matrix4x4=Matrix4x4Multiply( self.matrix4x4,  matrx3d.matrix4x4);
-}
--(void)  prependRotation:(float)rad axis:(Vector3D*)axis;
-{
-    self.matrix4x4=  Matrix4x4Rotate(self.matrix4x4,rad,axis.x,axis.y,axis.z);
 }
 -(void)  appendRotation:(float)rad axis:(Vector3D*)axis;
 {
@@ -88,6 +75,18 @@
     Matrix3D *tempM=[[Matrix3D alloc]init];
     [tempM prependScale: x y:y z:z];
     [self append:tempM];
+}
+-(void)prepend:(Matrix3D*)matrx3d;
+{
+    self.matrix4x4=Matrix4x4Multiply( self.matrix4x4,  matrx3d.matrix4x4);
+}
+-(void)prependTranslation:(float  )x  y:(float)y z:(float)z ;
+{
+    self.matrix4x4=   Matrix4x4Translate(self.matrix4x4,x,y,z);
+}
+-(void)prependRotation:(float)rad axis:(Vector3D*)axis;
+{
+    self.matrix4x4=  Matrix4x4Rotate(self.matrix4x4,rad,axis.x,axis.y,axis.z);
 }
 -(void)prependScale:(float  )x  y:(float)y z:(float)z ;
 {
