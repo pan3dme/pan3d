@@ -69,10 +69,7 @@
         GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
         glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
         
-      
-        [self ccav];
-    //    glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m44m);
-        
+       
         
         GLuint glPos = glGetAttribLocation( progame, "sunDirect");
        float textureColor[3]={0.5,1.0,1.0};
