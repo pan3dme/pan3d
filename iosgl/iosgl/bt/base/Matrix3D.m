@@ -271,7 +271,7 @@ GLfloat  minfo[16];
     
   
     
-   self.matrix4x4=Matrix4x4Multiply(  matrx3d.matrix4x4, self.matrix4x4);
+   self.matrix4x4=Matrix4x4Multiply( self.matrix4x4,  matrx3d.matrix4x4);
 }
  
 -(void)  appendRotation:(float)rad axis:(Vector3D*)axis;

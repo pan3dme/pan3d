@@ -18,6 +18,7 @@
     "attribute vec3 position;\n"
     "attribute vec2 textCoordinate;\n"
     "attribute vec3 v3Normal;\n"
+    "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
     "uniform vec3 sunDirect;\n"
     "varying lowp vec2 varyTextCoord;\n"
@@ -27,7 +28,7 @@
         "varyTextCoord = textCoordinate;\n"
         "nrmvec3 = v3Normal;\n"
         "vec4 vPos = vec4(position.xyz,1.0);\n"
-        "gl_Position = vPos * posMatrix;\n"
+        "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     

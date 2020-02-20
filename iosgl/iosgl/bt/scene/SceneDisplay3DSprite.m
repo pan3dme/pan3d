@@ -66,9 +66,16 @@
         
         glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
         
-        GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
-        glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
         
+        GLuint viewMaID = glGetUniformLocation( progame, "viewMatrix");
+        glUniformMatrix4fv(viewMaID, 1, GL_TRUE, self.scene3d.camera3D.modelMatrix.m);
+        
+        
+        GLuint posMaID = glGetUniformLocation( progame, "posMatrix");
+        glUniformMatrix4fv(posMaID, 1, GL_TRUE, self.posMatrix3d.m44m);
+        
+        
+     
        
         
         GLuint glPos = glGetAttribLocation( progame, "sunDirect");
