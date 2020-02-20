@@ -21,7 +21,7 @@
     NSString *objsurl=[ value objectForKey:@"objsurl"];
     
     self.scaleX=[[ value objectForKey:@"scaleX"]floatValue];
-    self.scaleY=[[ value objectForKey:@"scaleY"]floatValue]*1.0f;
+    self.scaleY=[[ value objectForKey:@"scaleY"]floatValue];
     self.scaleZ=[[ value objectForKey:@"scaleZ"]floatValue];
     
     self.x=[[ value objectForKey:@"x"]floatValue];

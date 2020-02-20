@@ -109,6 +109,8 @@ GLfloat  minfo[16];
      Matrix3D *tempM= [[Matrix3D alloc]init];
      [tempM prependTranslation:x y:y z:z];
      [self append:tempM];
+    
+ 
      
 }
 -(void) prependTranslation:(float  )x  y:(float)y z:(float)z ;
@@ -118,6 +120,9 @@ GLfloat  minfo[16];
     self.m13 = self.m01 * x + self.m05 * y + self.m09 * z + self.m13;
     self.m14 = self.m02 * x + self.m06 * y + self.m10 * z + self.m14;
     self.m15 = self.m03* x + self.m07 * y + self.m11 * z + self.m15;
+    
+    
+     Matrix4x4Translate(self.matrix4x4,x,y,z);
     
 }
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
@@ -307,6 +312,8 @@ GLfloat  minfo[16];
     self.m10 = a02 * b20 + a12 * b21 + a22 * b22;
     self.m11 = a03 * b20 + a13 * b21 + a23 * b22;
     
+   Matrix4x4Rotate(self.matrix4x4,rad,axis.x,axis.y,axis.z);
+    
 }
  -(void) appendScale:(float  )x  y:(float)y z:(float)z;
 {
@@ -329,6 +336,9 @@ GLfloat  minfo[16];
     self.m09= self.m09 * z;
     self.m10 =self.m10 * z;
     self.m11=self.m11 * z;
+    
+    
+    Matrix4x4Scale(self.matrix4x4,x,y,z);
     
     
 };
