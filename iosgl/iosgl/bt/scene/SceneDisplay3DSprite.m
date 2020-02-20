@@ -39,40 +39,26 @@
     [self loadTextureResByUrl:@"tu001.jpg"];
     [self loadObjDataByUrl:objsurl];
 }
--(void)ccav;
-{
-    Matrix3D *tempM=[[Matrix3D alloc]init];
-    
-     [tempM appendScale:_scaleX y:_scaleY z:_scaleZ];
-     [tempM appendRotation:_rotationX axis:Vector3D.X_AXIS];
-     [tempM appendRotation:_rotationY axis:Vector3D.Y_AXIS];
-     [tempM appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
-     [tempM appendTranslation:_x y: _y z:_z];
-    
-    [tempM outString];
-    
-}
+
 
 -(void)upFrame{
     
     if(self.shader3d&&self.objData&&self.objData.indexs&&self.textureRes){
         
-       
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
         
         glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
-        
         GLuint viewMaID = glGetUniformLocation( progame, "viewMatrix");
-        glUniformMatrix4fv(viewMaID, 1, GL_TRUE,  self.viewMatrix.m);
+        glUniformMatrix4fv(viewMaID, 1, GL_TRUE,  self.viewMatrix.m44m);
         
         GLuint posMaID = glGetUniformLocation( progame, "posMatrix");
         glUniformMatrix4fv(posMaID, 1, GL_TRUE, self.posMatrix3d.m44m);
         
         GLuint glPos = glGetAttribLocation( progame, "sunDirect");
-       float textureColor[3]={0.5,1.0,1.0};
+        float textureColor[3]={0.5,1.0,1.0};
         glUniform3fv(glPos, 1, (const GLfloat*) &textureColor);
-         
+        
         
         glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
         GLuint position = glGetAttribLocation( progame, "position");
@@ -90,7 +76,7 @@
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
         glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
         
-    
+        
     }
     
     
@@ -112,33 +98,33 @@
 }
 /*
  var $numr: Vector3D = new Vector3D(0.5, 0.6, -0.7);
-               $numr.normalize()
-               var mGamA: Matrix3D = new Matrix3D;
-               mGamA.appendRotation(-game.GameDataModel.gameAngle, Vector3D.Y_AXIS);
-               $numr = mGamA.transformVector($numr)
-               Scene_data.context3D.setVc3fv($shader, "sunDirect", [$numr.x, $numr.y, $numr.z]);
-               Scene_data.context3D.setVc3fv($shader, "sunColor", [0.8, 0.8, 0.8]);
-               Scene_data.context3D.setVc3fv($shader, "ambientColor", [0.2, 0.2, 0.2]);
-
-    
-               Scene_data.context3D.setVcMatrix3fv($shader, "rotationMatrix3D", $dis._rotationData);
-               Scene_data.context3D.setVcMatrix4fv($shader, "vpMatrix3D", Scene_data.vpMatrix.m);
-               Scene_data.context3D.setVcMatrix4fv($shader, "posMatrix3D", this.posMatrix.m);
-
-               Scene_data.context3D.renderContext.bindBuffer(Scene_data.context3D.renderContext.ARRAY_BUFFER, $objdata.vertexBuffer);
-
-               Scene_data.context3D.setVaOffset(0, 3, $objdata.stride, 0);
-               Scene_data.context3D.setVaOffset(1, 2, $objdata.stride, $objdata.uvsOffsets);
-               Scene_data.context3D.setVaOffset(2, 3, $objdata.stride, $objdata.normalsOffsets);
-
-               if (this.skinTexture) {
-                   Scene_data.context3D.setRenderTexture($shader, "fs0", this.skinTexture.texture, 0);
-               } else {
-                   Scene_data.context3D.setRenderTexture($shader, "fs0", this._uvTextureRes.texture, 0);
-               }
-               if (shadow.ShadowModel.visible) {
-                   Scene_data.context3D.setVcMatrix4fv($shader, "shadowViewMatx3D", ShadowModel.shadowViewMatx3D.m);
-                   Scene_data.context3D.setRenderTexture($shader, "fs1", (<scene3d.OverrideSceneManager>this._scene).fbo.texture, 1);
-               }
+ $numr.normalize()
+ var mGamA: Matrix3D = new Matrix3D;
+ mGamA.appendRotation(-game.GameDataModel.gameAngle, Vector3D.Y_AXIS);
+ $numr = mGamA.transformVector($numr)
+ Scene_data.context3D.setVc3fv($shader, "sunDirect", [$numr.x, $numr.y, $numr.z]);
+ Scene_data.context3D.setVc3fv($shader, "sunColor", [0.8, 0.8, 0.8]);
+ Scene_data.context3D.setVc3fv($shader, "ambientColor", [0.2, 0.2, 0.2]);
+ 
+ 
+ Scene_data.context3D.setVcMatrix3fv($shader, "rotationMatrix3D", $dis._rotationData);
+ Scene_data.context3D.setVcMatrix4fv($shader, "vpMatrix3D", Scene_data.vpMatrix.m);
+ Scene_data.context3D.setVcMatrix4fv($shader, "posMatrix3D", this.posMatrix.m);
+ 
+ Scene_data.context3D.renderContext.bindBuffer(Scene_data.context3D.renderContext.ARRAY_BUFFER, $objdata.vertexBuffer);
+ 
+ Scene_data.context3D.setVaOffset(0, 3, $objdata.stride, 0);
+ Scene_data.context3D.setVaOffset(1, 2, $objdata.stride, $objdata.uvsOffsets);
+ Scene_data.context3D.setVaOffset(2, 3, $objdata.stride, $objdata.normalsOffsets);
+ 
+ if (this.skinTexture) {
+ Scene_data.context3D.setRenderTexture($shader, "fs0", this.skinTexture.texture, 0);
+ } else {
+ Scene_data.context3D.setRenderTexture($shader, "fs0", this._uvTextureRes.texture, 0);
+ }
+ if (shadow.ShadowModel.visible) {
+ Scene_data.context3D.setVcMatrix4fv($shader, "shadowViewMatx3D", ShadowModel.shadowViewMatx3D.m);
+ Scene_data.context3D.setRenderTexture($shader, "fs1", (<scene3d.OverrideSceneManager>this._scene).fbo.texture, 1);
+ }
  */
 @end

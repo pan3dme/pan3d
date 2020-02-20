@@ -270,8 +270,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "-prependRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +286,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "-prependRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +302,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "-prependRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "-prependRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,8 +366,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "-prependRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "-prependRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +398,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "-prependRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
@@ -418,22 +418,6 @@
             endingLineNumber = "113"
             landmarkName = "matrix_perspective_projection(aspect, fovy, near, far)"
             landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B881DC6F-0D10-48E8-98D6-65F8C7A23AD6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/base/Matrix3D.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-append:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1545,8 +1529,8 @@
             filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1561,8 +1545,8 @@
             filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-setShaderInfo"
             landmarkType = "7">
          </BreakpointContent>
@@ -1641,8 +1625,8 @@
             filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1666,38 +1650,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "20BD441B-5282-405E-BD34-EC9E6BE250A3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-ccav"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "065280DF-CA0C-4824-978D-961E3DB5ECE9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-ccav"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D040F0B2-111A-4EE9-8D81-088437613052"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1705,8 +1657,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "-prependScale:y:z:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1721,8 +1673,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "-prependScale:y:z:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1737,25 +1689,9 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "-appendScale:y:z:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "865F46D3-38CD-4925-8FE4-011CAFA6199B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-ccav"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1769,8 +1705,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "-append:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1785,8 +1721,8 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-prepend:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1801,9 +1737,57 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-append:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6EA7573E-EB7F-46EE-B1C2-5D203C24A764"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/base/Matrix3D.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-perspectiveFieldOfViewLH:aspectRatio:zNear:zFar:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57BBF907-EDB3-4023-9A2C-ACB63547B45E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-upFrame"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A03BEBB-C7B7-44E3-842C-A349AFC1C93E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/base/Camera3D.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

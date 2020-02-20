@@ -151,6 +151,9 @@ GLfloat  minfo[16];
     self.m13 = 0;
     self.m14 = (zNear * zFar) / (zNear - zFar);
     self.m15= 0;
+    
+    self.matrix4x4 = Matrix4x4Make
+    (xScale,0,0,0,0,yScale,0,0,0,0,zFar / (zFar - zNear),1,0,0,(zNear * zFar) / (zNear - zFar),0);
 }
  
 -(void)append :(Matrix3D*)matrx3d;
@@ -220,6 +223,9 @@ GLfloat  minfo[16];
      tempM.m13=self.m13;
      tempM.m14=self.m14;
      tempM.m15=self.m15;
+    
+    
+    tempM.matrix4x4=Matrix4x4clone(self.matrix4x4);
     
     return tempM;
     
