@@ -8,6 +8,7 @@
 
 #import "Matrix3D.h"
 #import "Vector3D.h"
+#import "Matrix4x4.h"
 #import <GLKit/GLKit.h>
 
 
@@ -29,7 +30,7 @@
 @property (nonatomic, assign)  float  m13;
 @property (nonatomic, assign)  float  m14;
 @property (nonatomic, assign)  float  m15;
-
+@property (nonatomic, assign)  Matrix4x4  matrix4x4;
 
 
 @end
@@ -45,6 +46,7 @@ GLfloat  minfo[16];
     self = [super init];
     if (self) {
         
+        self.matrix4x4=Matrix4x4Zero;
         self.isIdentity=true;
         [self identity];
         
@@ -95,6 +97,7 @@ GLfloat  minfo[16];
     self.m14=0;
     self.m15=1;
     
+    self.matrix4x4=Matrix4x4Identity;
     
 }
 -(void)outString{

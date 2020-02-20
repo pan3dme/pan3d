@@ -10,6 +10,7 @@
 #import "SceneDisplay3DShader.h"
 #import "ProgrmaManager.h"
 #import "Scene3D.h"
+#import "Matrix4x4.h"
 @interface SceneDisplay3DSprite()
 
 @end
@@ -54,6 +55,16 @@
         
         GLuint rotateID = glGetUniformLocation( progame, "posMatrix");
         glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
+        
+        
+        
+        Matrix4x4 modelview = Matrix4x4Identity  ;
+     
+        for(int i=0;i<16;i++){
+                 modelview.data[i]= self.modeMatrix.m[i];
+        }
+        glUniformMatrix4fv(rotateID, 1, GL_TRUE, (const GLfloat *)&modelview);
+        
         
         GLuint glPos = glGetAttribLocation( progame, "sunDirect");
        float textureColor[3]={0.5,1.0,1.0};
