@@ -38,8 +38,7 @@
  
        if(self.shader3d&&self.objData&&self.objData.indexs&&self.textureRes){
        
-          [self upDataCamView];
-           
+     
            GLuint progame= self.shader3d.program;
            glUseProgram(progame);
            glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);

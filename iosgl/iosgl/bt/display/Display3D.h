@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Scene3D *scene3d;
 -(void) upFrame  ;
 -(void) destory  ;
--(void) upDataCamView;
+-(Matrix3D*)viewMatrix;
 @end
 
 NS_ASSUME_NONNULL_END
