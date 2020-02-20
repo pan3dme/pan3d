@@ -22,18 +22,13 @@
 }
 -(void)updateMatrix;
 {
-    [self.posMatrix3d isIdentity];
-    self.posMatrix3d=[[Matrix3D alloc]init];
-    [self.posMatrix3d outString];
-    
+ 
+    [self.posMatrix3d identity];
     [self.posMatrix3d appendScale:_scaleX y:_scaleY z:_scaleZ];
     [self.posMatrix3d appendRotation:_rotationX axis:Vector3D.X_AXIS];
     [self.posMatrix3d appendRotation:_rotationY axis:Vector3D.Y_AXIS];
     [self.posMatrix3d appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
     [self.posMatrix3d appendTranslation:_x y: _y z:_z];
-    
-  
-  
 
 }
  

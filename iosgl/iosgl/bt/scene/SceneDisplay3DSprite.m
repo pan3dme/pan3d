@@ -50,10 +50,10 @@
         
         glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
         GLuint viewMaID = glGetUniformLocation( progame, "viewMatrix");
-        glUniformMatrix4fv(viewMaID, 1, GL_TRUE,  self.viewMatrix.m44m);
+        glUniformMatrix4fv(viewMaID, 1, GL_TRUE,  self.viewMatrix.m);
         
         GLuint posMaID = glGetUniformLocation( progame, "posMatrix");
-        glUniformMatrix4fv(posMaID, 1, GL_TRUE, self.posMatrix3d.m44m);
+        glUniformMatrix4fv(posMaID, 1, GL_TRUE, self.posMatrix3d.m);
         
         GLuint glPos = glGetAttribLocation( progame, "sunDirect");
         float textureColor[3]={0.5,1.0,1.0};
