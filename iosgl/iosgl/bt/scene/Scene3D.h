@@ -19,6 +19,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Scene3D : ResGC
+ {
+float _sceneScale;
+ }
 @property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
@@ -28,12 +31,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *uiView;
 @property (nonatomic, strong) Camera3D *camera3D;
 @property (nonatomic, strong) Rectangle *viewRect;
-
+ 
+-(void)setSceneScale:(float)value;
+-(float)sceneScale;
 - (instancetype)init:(UIView*)uiview;
 -(void) addDisplay:(Display3D*)dis;
 -(void) clearAll;
 -(void) upFrame  ;
--(void)resetViewport;
+//-(void)resetViewport;
 @end
 
 NS_ASSUME_NONNULL_END

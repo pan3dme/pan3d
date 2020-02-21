@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     self.sceneView=[[SceneView alloc]init];
-    self.sceneView.frame=CGRectMake(10, 100, 300, 300);
+    self.sceneView.frame=CGRectMake(10, 100, 300, 500);
     [self.view addSubview:  self.sceneView];
     [self addLisienEvent];
     
@@ -54,7 +54,7 @@
 - (IBAction)zoom_min_clik:(id)sender {
     [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.5];
-        self.sceneView.frame =CGRectMake(10, 100, 300, 300);
+        self.sceneView.frame =CGRectMake(20, 120, 300, 300);
         [UIView commitAnimations];
 }
 @end

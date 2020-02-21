@@ -56,6 +56,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    /*
     NSLog(@"--->%f--->%f" ,self.frame.size.width,self.frame.size.height);
     [MathCore traceTmNow];
     if(self.scene3D){
@@ -63,14 +64,14 @@
          self.scene3D.camera3D.fh=self.frame.size.height;
         [self.scene3D.camera3D upFrame];
         
-        self.scene3D.viewRect.x=-self.frame.origin.x;
-        self.scene3D.viewRect.y=-self.frame.origin.y;
+        self.scene3D.viewRect.x=0;
+        self.scene3D.viewRect.y=0;
          self.scene3D.viewRect.height=self.frame.size.height;
          self.scene3D.viewRect.height=self.frame.size.height;
         
-        [self.scene3D resetViewport];
+      
     }
-  
+  */
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
