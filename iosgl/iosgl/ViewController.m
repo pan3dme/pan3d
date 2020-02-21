@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "BaseNavigationViewController.h"
-#import "OnePageView.h"
+#import "TokenSceneView.h"
 #import "TwoPageView.h"
 #import "ThirdPageView.h"
 #import "FourPageView.h"
@@ -42,7 +42,7 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    OnePageView *vc01=[[OnePageView alloc] init];
+    TokenSceneView *vc01=[[TokenSceneView alloc] init];
     TwoPageView *vc02=[[TwoPageView alloc] init];
     ThirdPageView *vc03= [[ThirdPageView alloc]init];
     FourPageView *vc04=[[FourPageView alloc] init];

@@ -69,6 +69,8 @@
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
 		FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
+		FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4424002A94009F6575 /* TokenSceneView.m */; };
+		FED0DA4724002A94009F6575 /* TokenSceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA4524002A94009F6575 /* TokenSceneView.xib */; };
 		FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063623B9CF5D00DE6C2F /* Object3D.m */; };
 		FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063923B9D10100DE6C2F /* Camera3D.m */; };
 		FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063C23B9D20200DE6C2F /* Rectangle.m */; };
@@ -183,6 +185,9 @@
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
 		FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DSprite.h; sourceTree = "<group>"; };
 		FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DSprite.m; sourceTree = "<group>"; };
+		FED0DA4324002A94009F6575 /* TokenSceneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSceneView.h; sourceTree = "<group>"; };
+		FED0DA4424002A94009F6575 /* TokenSceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSceneView.m; sourceTree = "<group>"; };
+		FED0DA4524002A94009F6575 /* TokenSceneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokenSceneView.xib; sourceTree = "<group>"; };
 		FEF6063523B9CF5D00DE6C2F /* Object3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
 		FEF6063623B9CF5D00DE6C2F /* Object3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Object3D.m; sourceTree = "<group>"; };
 		FEF6063823B9D10100DE6C2F /* Camera3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera3D.h; sourceTree = "<group>"; };
@@ -325,6 +330,9 @@
 				FE0FC26423951FAC00D2483A /* Other */,
 				FE0FC28C2395669100D2483A /* BaseUIViewController.h */,
 				FE0FC28D2395669100D2483A /* BaseUIViewController.m */,
+				FED0DA4324002A94009F6575 /* TokenSceneView.h */,
+				FED0DA4424002A94009F6575 /* TokenSceneView.m */,
+				FED0DA4524002A94009F6575 /* TokenSceneView.xib */,
 				FE0FC27D23955AA200D2483A /* OnePageView.h */,
 				FE0FC27E23955AA200D2483A /* OnePageView.m */,
 				FE0FC27F23955AA200D2483A /* OnePageView.xib */,
@@ -540,6 +548,7 @@
 				FE49FE6823C70E3A001FAE9B /* box.txt in Resources */,
 				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
 				FE49FE6023C70E3A001FAE9B /* 1001_base.txt in Resources */,
+				FED0DA4724002A94009F6575 /* TokenSceneView.xib in Resources */,
 				FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */,
 				FE49FE6A23C70E3A001FAE9B /* 5555_base.txt in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
@@ -634,6 +643,7 @@
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
+				FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */,
 				FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
