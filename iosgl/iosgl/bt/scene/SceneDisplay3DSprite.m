@@ -12,6 +12,7 @@
 #import "Scene3D.h"
 #import "Matrix4x4.h"
 @interface SceneDisplay3DSprite()
+@property (nonatomic, assign)  int skipnum  ;
 
 @end
 @implementation SceneDisplay3DSprite
@@ -67,17 +68,26 @@
     
     
 }
+ 
 -(void)setShaderInfo
 {
-     Context3D *context3D=self.scene3d.context3D;
-    
-    float gameAngle=45;
-    Vector3D *numr = [[Vector3D  alloc]x:0.5 y:0.6 z:-0.7 w:1];
+    Context3D *context3D=self.scene3d.context3D;
+    if(!self.skipnum){
+        self.skipnum=1;
+    }
+    float gameAngle=45+self.skipnum++;
+    Vector3D *numr = [[Vector3D  alloc]x:0.5 y:0.6 z:0.7 w:1];
     [numr normalize];
-    Matrix3D *mGamA  = [[Matrix3D alloc]init];;
-    [mGamA appendRotation:gameAngle axis:Vector3D.Y_AXIS];
-    [context3D setVc3fv:self.shader3d name:"sunDirect" data: (  GLfloat []) {1,1, 0}];
+    Matrix3D *tempM  = [[Matrix3D alloc]init];;
+    [tempM appendRotation:gameAngle axis:Vector3D.Y_AXIS];
     
+    numr=  [tempM transformVector:numr];
+    
+    [context3D setVc3fv:self.shader3d name:"sunDirect" data: (  GLfloat []) {numr.x,numr.y,numr.z}];
+    [context3D setVc3fv:self.shader3d name:"sunColor" data: ( GLfloat []) {0.8,0.8, 0.8}];
+    [context3D setVc3fv:self.shader3d name:"ambientColor" data: ( GLfloat []) {0.2,0.2, 0.2}];
+    
+    //NSLog(@"->%f->%f->%f",numr.x,numr.y,numr.z);
 }
 /*
  var $numr: Vector3D = new Vector3D(0.5, 0.6, -0.7);

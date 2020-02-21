@@ -1433,8 +1433,8 @@
             filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1449,9 +1449,9 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-prependScale:y:z:"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-prependTranslation:y:z:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1465,9 +1465,9 @@
             filePath = "iosgl/bt/base/Matrix3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-prependRotation:axis:"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-prepend:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1516,6 +1516,22 @@
             startingLineNumber = "55"
             endingLineNumber = "55"
             landmarkName = "-setVaOffset:name:dataWidth:stride:offset:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33F518F2-5BF9-4083-958F-813E95DFE226"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-setShaderInfo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

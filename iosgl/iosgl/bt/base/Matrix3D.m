@@ -49,7 +49,17 @@
     self.matrix4x4 = Matrix4x4Make
     (xScale,0,0,0,0,yScale,0,0,0,0,zFar / (zFar - zNear),1,0,0,(zNear * zFar) / (zNear - zFar),0);
 }
-
+-(Vector3D*)transformVector:(Vector3D*)vec3d;
+{
+    Matrix4x4 mvp= self.matrix4x4;
+    Vector3D *out  = [[Vector3D alloc]init];
+    out.x = mvp.data[0] * vec3d.x + mvp.data[4] * vec3d.y + mvp.data[8] * vec3d.z + mvp.data[12] * vec3d.w;
+    out.y = mvp.data[1] * vec3d.x + mvp.data[5] * vec3d.y + mvp.data[9] * vec3d.z + mvp.data[13] * vec3d.w;
+    out.z = mvp.data[2] * vec3d.x + mvp.data[6] * vec3d.y + mvp.data[10] * vec3d.z + mvp.data[14] * vec3d.w;
+    out.w = mvp.data[3] * vec3d.x + mvp.data[7] * vec3d.y + mvp.data[11] * vec3d.z + mvp.data[15] * vec3d.w;
+    return out;
+ 
+}
 -(void)append :(Matrix3D*)matrx3d;
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];

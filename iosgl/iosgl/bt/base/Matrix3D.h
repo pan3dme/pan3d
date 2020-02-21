@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) prepend :(Matrix3D*)matrx3d;
 -(void) append :(Matrix3D*)matrx3d;
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
+-(Vector3D*)transformVector:(Vector3D*)vec3d;
 -(GLfloat *)m;
  
 @end
