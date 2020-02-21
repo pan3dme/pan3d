@@ -47,56 +47,36 @@
         
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
-        
-        glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
-        
-        [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix];
-        [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d];
-        
-        GLuint _uLight = glGetUniformLocation( progame, "sunDirect");
-        glUniform3fv(_uLight, 1, (const GLfloat []) {1,1, 0});
-     
-        /*
-             glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
-        GLuint position = glGetAttribLocation( progame, "position");
-        glEnableVertexAttribArray(position);
-        glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,self.objData.stride, (GLfloat *)NULL);
-        
-        GLuint v3Normal = glGetAttribLocation( progame, "v3Normal");
-        glEnableVertexAttribArray(v3Normal);
-        glVertexAttribPointer(v3Normal, 3, GL_FLOAT, GL_FALSE,self.objData.stride,  (GLfloat *)NULL+self.objData.normalsOffsets);
-        GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
-        glEnableVertexAttribArray(textCoor);
-        glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
-       */
-        
-          glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
-        [self.scene3d.context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:self.objData.stride offset:0];
-        [self.scene3d.context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets];
-        [self.scene3d.context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets];
-       
-        
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
-        glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
+        [self setShaderInfo];
         
         
+        Context3D *context3D=self.scene3d.context3D;
+        
+        [context3D setRenderTexture:self.textureRes.texture ];
+        [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix];
+        [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d];
+      
+        [context3D pushVa:self.objData.dataViewBuffer];
+        [context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:self.objData.stride offset:0];
+        [context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets];
+        [context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets];
+   
+        [context3D drawCall:self.objData.indexBuffer  numTril:(int)self.objData.indexs.count ];
+
     }
     
     
 }
 -(void)setShaderInfo
 {
+     Context3D *context3D=self.scene3d.context3D;
+    
     float gameAngle=45;
     Vector3D *numr = [[Vector3D  alloc]x:0.5 y:0.6 z:-0.7 w:1];
     [numr normalize];
     Matrix3D *mGamA  = [[Matrix3D alloc]init];;
     [mGamA appendRotation:gameAngle axis:Vector3D.Y_AXIS];
-    
-    Scene3D *scene3d=self.scene3d;
-    
-    float32x4_t sunDirect = (float32x4_t) { 0.0f,  1.0f,  2.0f,  3.0f};
-    [ scene3d.context3D setVc3fv:self.shader3d name:"sunDirect" data:sunDirect];
-    
+    [context3D setVc3fv:self.shader3d name:"sunDirect" data: (  GLfloat []) {1,1, 0}];
     
 }
 /*

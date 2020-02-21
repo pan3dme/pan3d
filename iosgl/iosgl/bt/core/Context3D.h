@@ -17,9 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Context3D : ResGC
 @property (nonatomic, strong) EAGLContext *gl; // OpenGL context,管理使用opengl
 
--(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(float32x4_t)data;
+-(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 -(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(Matrix3D*)data;
+-(void)pushVa:(GLuint)dataBuffer;
 -(void)setVaOffset:(Shader3D*)shader name:(GLchar*)name dataWidth:(int)dataWidth stride:(int)stride offset:(int)offset;
+-(void)drawCall:(GLuint)ibuff numTril:(int)numTril;
+-(void)setRenderTexture:(GLKTextureInfo*)textureRes;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

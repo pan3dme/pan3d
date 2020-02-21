@@ -1394,22 +1394,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3125784F-7D33-4DFE-91D8-16752FF440A9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-setShaderInfo"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "506A9C15-522C-4788-B356-BCBB2AE4FB58"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1417,8 +1401,8 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-setVc3fv:name:data:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1449,8 +1433,8 @@
             filePath = "iosgl/bt/scene/SceneDisplay3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1513,8 +1497,8 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "-setVcMatrix4fv:name:data:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1529,8 +1513,8 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-setVaOffset:name:dataWidth:stride:offset:"
             landmarkType = "7">
          </BreakpointContent>
