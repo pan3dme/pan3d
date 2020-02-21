@@ -23,13 +23,17 @@
     "uniform vec3 sunDirect;\n"
     "uniform vec3 sunColor;\n"
     "uniform vec3 ambientColor;\n"
-    "varying lowp vec2 varyTextCoord;\n"
-    "varying  lowp vec3 nrmvec3;\n"
+    "varying vec2 varyTextCoord;\n"
+    "varying vec3 nrmvec3;\n"
     "void main()"
     "{"
         "varyTextCoord = textCoordinate;\n"
         "nrmvec3 = vec3(1.0,0.0,0.0);\n"
         "nrmvec3 = vec3(v3Normal.xyz);\n"
+    
+      //  "float suncos =  clamp(dot(v3Normal.xyz,sunDirect.xyz),0.0,1.0);\n"
+      //  "nrmvec3 = vec3(suncos,suncos,suncos)*sunColor+ambientColor;\n"
+    
         "vec4 vPos = vec4(position.xyz,1.0);\n"
         "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";
@@ -38,8 +42,9 @@
 }
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
-    "varying lowp vec2 varyTextCoord;\n"
-    "varying lowp vec3 nrmvec3;\n"
+    "precision mediump float;\n"
+    "varying   vec2 varyTextCoord;\n"
+    "varying   vec3 nrmvec3;\n"
     "uniform sampler2D colorMap;\n"
     "void main()"
     "{"
