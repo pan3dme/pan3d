@@ -9,6 +9,7 @@
 #import "ResGC.h"
 #import "Shader3D.h"
 #import "Vector3D.h"
+#import "Matrix3D.h"
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) EAGLContext *gl; // OpenGL context,管理使用opengl
 
 -(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(float32x4_t)data;
-
+-(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(Matrix3D*)data;
 @end
 
 NS_ASSUME_NONNULL_END

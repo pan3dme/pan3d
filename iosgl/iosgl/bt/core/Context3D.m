@@ -7,6 +7,7 @@
 //
 
 #import "Context3D.h"
+#import "Matrix3D.h"
 
 @implementation Context3D
 - (instancetype)init
@@ -38,12 +39,15 @@
 -(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(float32x4_t)data;
 {
      GLuint glPos = glGetAttribLocation( shader.program, name);
- 
      const GLfloat color[3] = {  255.0, 255.0,255.0 };
      glUniform3fv(glPos, 1, color);
-    
-     
-    
-    //        glUniformMatrix4fv(rotateID, 1, GL_TRUE, self.modeMatrix.m);
+}
+// Scene_data.context3D.setVcMatrix3fv($shader, "rotationMatrix3D", $dis._rotationData);
+
+-(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(Matrix3D*)data;
+{
+     GLuint glPos = glGetAttribLocation( shader.program, name);
+    glUniformMatrix4fv(glPos, 1, GL_TRUE,  data.m);
+ 
 }
 @end

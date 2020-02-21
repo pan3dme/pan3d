@@ -52,6 +52,8 @@
         GLuint viewMaID = glGetUniformLocation( progame, "viewMatrix");
         glUniformMatrix4fv(viewMaID, 1, GL_TRUE,  self.viewMatrix.m);
         
+        [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:@"viewMatrix" data:self.viewMatrix];
+        
         GLuint posMaID = glGetUniformLocation( progame, "posMatrix");
         glUniformMatrix4fv(posMaID, 1, GL_TRUE, self.posMatrix3d.m);
         
