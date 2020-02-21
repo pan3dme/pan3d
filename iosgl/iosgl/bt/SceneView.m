@@ -52,7 +52,11 @@
     }
  
 }
- 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    NSLog(@"-----");
+}
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     

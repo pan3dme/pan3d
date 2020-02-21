@@ -36,13 +36,25 @@
     [mDict setObject:@"cctv"  forKey:@"data"];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
     
-    
      [self.sceneView loadSeceneByUrl:@"5555_base"];
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
-    
-    
      [self.sceneView loadSeceneByUrl:@"1001_base"];
+}
+
+- (IBAction)zoom_max_clik:(id)sender {
+    
+     [UIView beginAnimations:nil context:nil];
+     [UIView setAnimationDuration:0.3];
+     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
+     [UIView commitAnimations];
+}
+
+- (IBAction)zoom_min_clik:(id)sender {
+    [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        self.sceneView.frame =CGRectMake(10, 100, 200, 200);
+        [UIView commitAnimations];
 }
 @end

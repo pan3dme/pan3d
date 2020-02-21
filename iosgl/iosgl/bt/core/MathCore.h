@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MathCore : NSObject
 
++(void)traceTmNow;
 @end
 
 NS_ASSUME_NONNULL_END

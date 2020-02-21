@@ -10,4 +10,9 @@
 
 @implementation MathCore
 
++(void)traceTmNow;
+{
+    NSTimeInterval tm=[ [NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
+    NSLog(@"tm----%f",tm);
+}
 @end
