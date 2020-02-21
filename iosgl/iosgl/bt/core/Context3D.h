@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(float32x4_t)data;
 -(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(Matrix3D*)data;
+-(void)setVaOffset:(Shader3D*)shader name:(GLchar*)name dataWidth:(int)dataWidth stride:(int)stride offset:(int)offset;
 @end
 
 NS_ASSUME_NONNULL_END

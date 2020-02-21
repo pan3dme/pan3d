@@ -58,16 +58,25 @@
         glUniform3fv(glPos, 1, (const GLfloat*) &textureColor);
         
         glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
+     
+        /*
         GLuint position = glGetAttribLocation( progame, "position");
         glEnableVertexAttribArray(position);
         glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,self.objData.stride, (GLfloat *)NULL);
-        GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
-        glEnableVertexAttribArray(textCoor);
-        glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
         
         GLuint v3Normal = glGetAttribLocation( progame, "v3Normal");
         glEnableVertexAttribArray(v3Normal);
         glVertexAttribPointer(v3Normal, 3, GL_FLOAT, GL_FALSE,self.objData.stride,  (GLfloat *)NULL+self.objData.normalsOffsets);
+        GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
+        glEnableVertexAttribArray(textCoor);
+        glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
+       */
+        
+      
+        [self.scene3d.context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:self.objData.stride offset:0];
+        [self.scene3d.context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets];
+        [self.scene3d.context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets];
+       
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
         glDrawElements(GL_TRIANGLES, (int)self.objData.indexs.count, GL_UNSIGNED_INT, 0);
