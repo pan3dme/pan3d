@@ -18,6 +18,7 @@
     if (self) {
         self.uiView=uiview;
         [self setUpLayer];
+       
         self.displayList=[[NSMutableArray alloc]init];
         self.viewRect=[[Rectangle alloc]x:0 y:0 width:300 height:300];
         self.context3D=[[Context3D alloc]init];
@@ -26,10 +27,12 @@
         [self setupDephtBuffer];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
-        
+        [self resetViewport];
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, self.mydepthRenderBuffer);
         glBindRenderbuffer(GL_RENDERBUFFER, self.myColorRenderBuffer);
+        
+           
         
     }
     return self;
@@ -41,6 +44,10 @@
         Display3D *dis= self.displayList[i];
         [dis upFrame];
     }
+}
+-(void)resetViewport;
+{
+    glViewport(self.viewRect.x,self.viewRect.y,self.viewRect.weight,self.viewRect.height);
 }
 -(void) addDisplay:(Display3D*)dis;
 {

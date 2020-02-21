@@ -14,6 +14,7 @@
 #import "SceneDisplay3DSprite.h"
 #import "Scene3D.h"
 #import "SceneRes.h"
+#import "MathCore.h"
 #import "MaterialManager.h"
 
 
@@ -45,7 +46,7 @@
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_DEPTH_TEST);
-   glViewport(self.scene3D.viewRect.x,self.scene3D.viewRect.y,self.scene3D.viewRect.weight,self.scene3D.viewRect.height);
+   
         self.scene3D.camera3D.distance=300;
         [self.scene3D upFrame];
         [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
@@ -55,7 +56,21 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    NSLog(@"-----");
+    NSLog(@"--->%f--->%f" ,self.frame.size.width,self.frame.size.height);
+    [MathCore traceTmNow];
+    if(self.scene3D){
+        self.scene3D.camera3D.fw=self.frame.size.width;
+         self.scene3D.camera3D.fh=self.frame.size.height;
+        [self.scene3D.camera3D upFrame];
+        
+        self.scene3D.viewRect.x=-self.frame.origin.x;
+        self.scene3D.viewRect.y=-self.frame.origin.y;
+         self.scene3D.viewRect.height=self.frame.size.height;
+         self.scene3D.viewRect.height=self.frame.size.height;
+        
+        [self.scene3D resetViewport];
+    }
+  
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -79,6 +94,7 @@
     NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
     if(!self.scene3D){
         self.scene3D=[[Scene3D alloc]init:self];
+        
     }else{
         [self.scene3D clearAll];
     }

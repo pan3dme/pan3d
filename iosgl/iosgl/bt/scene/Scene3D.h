@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) addDisplay:(Display3D*)dis;
 -(void) clearAll;
 -(void) upFrame  ;
+-(void)resetViewport;
 @end
 
 NS_ASSUME_NONNULL_END
