@@ -11,34 +11,38 @@
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
 @end
- 
+
 @implementation TokenSceneView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-       self.sceneView=[[SceneView alloc]init];
-       self.sceneView.frame=CGRectMake(10, 100, 300, 300);
-       [self.view addSubview:  self.sceneView];
-     
+    self.sceneView=[[SceneView alloc]init];
+    self.sceneView.frame=CGRectMake(10, 100, 300, 300);
+    [self.view addSubview:  self.sceneView];
+    [self addLisienEvent];
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)addLisienEvent{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSceneEvent:) name:@"loadScneInfo" object:nil];
+    
 }
-*/
+-(void)loadSceneEvent:(NSNotification *)notification{
+    NSLog(@"here");
+}
 
 - (IBAction)scene_but_1_clik:(id)sender {
+    NSMutableDictionary *mDict = [[NSMutableDictionary alloc]init];
+    [mDict setObject:@"cctv"  forKey:@"data"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
     
     
+     [self.sceneView loadSeceneByUrl:@"5555_base"];
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
+    
+    
+     [self.sceneView loadSeceneByUrl:@"1001_base"];
 }
 @end

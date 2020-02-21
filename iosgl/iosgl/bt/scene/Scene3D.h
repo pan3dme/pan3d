@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init:(UIView*)uiview;
 -(void) addDisplay:(Display3D*)dis;
+-(void) clearAll;
 -(void) upFrame  ;
 @end
 

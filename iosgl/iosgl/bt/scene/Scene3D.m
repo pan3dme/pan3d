@@ -47,6 +47,10 @@
     dis.scene3d=self;
     [self.displayList addObject:dis];
 }
+-(void) clearAll;
+{
+    [self.displayList removeAllObjects];
+}
 
 -(void)setupRenderBuffer
 {

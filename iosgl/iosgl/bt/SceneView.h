@@ -17,12 +17,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SceneView : UIView
- 
- 
-  @property (nonatomic, assign) float   numskip;
- 
 @property (nonatomic, strong) Scene3D *scene3D;
- 
+-(void)loadSeceneByUrl:(NSString*)url;
 @end
 
 NS_ASSUME_NONNULL_END
