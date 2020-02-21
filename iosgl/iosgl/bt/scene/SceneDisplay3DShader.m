@@ -26,7 +26,8 @@
     "void main()"
     "{"
         "varyTextCoord = textCoordinate;\n"
-        "nrmvec3 = v3Normal;\n"
+        "nrmvec3 = vec3(1.0,0.0,0.0);\n"
+      "nrmvec3 = vec3(sunDirect.xyz);\n"
         "vec4 vPos = vec4(position.xyz,1.0);\n"
         "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";
@@ -36,7 +37,7 @@
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
     "varying lowp vec2 varyTextCoord;\n"
-    "varying  lowp vec3 nrmvec3;\n"
+    "varying lowp vec3 nrmvec3;\n"
     "uniform sampler2D colorMap;\n"
     "void main()"
     "{"

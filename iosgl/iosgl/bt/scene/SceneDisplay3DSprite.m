@@ -53,13 +53,11 @@
         [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix];
         [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d];
         
-        GLuint glPos = glGetAttribLocation( progame, "sunDirect");
-        float textureColor[3]={0.5,1.0,1.0};
-        glUniform3fv(glPos, 1, (const GLfloat*) &textureColor);
-        
-        glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
+        GLuint _uLight = glGetUniformLocation( progame, "sunDirect");
+        glUniform3fv(_uLight, 1, (const GLfloat []) {1,1, 0});
      
         /*
+             glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
         GLuint position = glGetAttribLocation( progame, "position");
         glEnableVertexAttribArray(position);
         glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,self.objData.stride, (GLfloat *)NULL);
@@ -72,7 +70,7 @@
         glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
        */
         
-      
+          glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
         [self.scene3d.context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:self.objData.stride offset:0];
         [self.scene3d.context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets];
         [self.scene3d.context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets];
