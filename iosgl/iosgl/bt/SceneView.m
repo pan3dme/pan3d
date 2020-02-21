@@ -91,7 +91,7 @@
 -(void)layoutSubviews
 {
  
-    [self loadSeceneByUrl:@"5555_base"];
+    [self loadSeceneByUrl:@"1001_base"];
     
     
 }
