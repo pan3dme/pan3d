@@ -60,8 +60,8 @@
       
         [context3D pushVa:self.objData.dataViewBuffer];
         [context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:self.objData.stride offset:0];
-        [context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets];
-        [context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets];
+        [context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets/4];
+        [context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets/4];
    
         [context3D drawCall:self.objData.indexBuffer  numTril:(int)self.objData.indexs.count ];
 
@@ -77,7 +77,7 @@
         self.skipnum=1;
     }
     float gameAngle=45+self.skipnum++;
-    Vector3D *numr = [[Vector3D  alloc]x:0.5 y:0 z:0.5 w:1];
+    Vector3D *numr = [[Vector3D  alloc]x:0.5 y:0.5 z:0.5 w:1];
     [numr normalize];
     Matrix3D *tempM  = [[Matrix3D alloc]init];;
     [tempM appendRotation:gameAngle axis:Vector3D.Y_AXIS];

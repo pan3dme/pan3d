@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
   //  public vertices: Array<number> = new Array;
 @property (nonatomic, copy)  NSArray  *vertices;
 @property (nonatomic, copy)  NSArray  *uvs;
+@property (nonatomic, copy)  NSArray  *nrms;
 @property (nonatomic, copy)  NSArray  *indexs;
 
 @property (nonatomic, assign)  int uvsOffsets  ;
