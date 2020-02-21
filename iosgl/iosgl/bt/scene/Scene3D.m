@@ -18,22 +18,17 @@
     if (self) {
         self.uiView=uiview;
         [self setUpLayer];
-       
-        self.displayList=[[NSMutableArray alloc]init];
-        self.viewRect=[[Rectangle alloc]x:0 y:0 width:300 height:300];
         self.context3D=[[Context3D alloc]init];
         self.camera3D=[[Camera3D alloc]init];
+        self.displayList=[[NSMutableArray alloc]init];
         
+        self.viewRect=[[Rectangle alloc]x:0 y:0 width:300 height:300];
+
         [self setupDephtBuffer];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         [self resetViewport];
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, self.mydepthRenderBuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, self.myColorRenderBuffer);
-        
-           
-        
+     
     }
     return self;
 }
@@ -48,6 +43,10 @@
 -(void)resetViewport;
 {
     glViewport(self.viewRect.x,self.viewRect.y,self.viewRect.weight,self.viewRect.height);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, self.mydepthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, self.myColorRenderBuffer);
+
 }
 -(void) addDisplay:(Display3D*)dis;
 {
@@ -84,16 +83,13 @@
 {
      
     GLuint depthBuffer;
-    GLint width=512;
-    GLint height=512;
-  
-  glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width);
-  glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height);
-  
-  glGenRenderbuffers(1, &depthBuffer);
-  glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
-  
-  glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);
+    GLint width=self.viewRect.weight;
+    GLint height=self.viewRect.height;
+    //  glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width);
+    //  glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height);
+    glGenRenderbuffers(1, &depthBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);
     self.mydepthRenderBuffer=depthBuffer;
     
 }
