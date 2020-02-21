@@ -60,8 +60,8 @@
       
         [context3D pushVa:self.objData.dataViewBuffer];
         [context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:self.objData.stride offset:0];
-        [context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets/4];
-        [context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets/4];
+        [context3D setVaOffset:self.shader3d name:"textCoordinate" dataWidth:2 stride:self.objData.stride offset:self.objData.uvsOffsets];
+        [context3D setVaOffset:self.shader3d name:"v3Normal" dataWidth:3 stride:self.objData.stride offset:self.objData.normalsOffsets];
    
         [context3D drawCall:self.objData.indexBuffer  numTril:(int)self.objData.indexs.count ];
 
@@ -77,18 +77,16 @@
         self.skipnum=1;
     }
     float gameAngle=45+self.skipnum++;
-    Vector3D *numr = [[Vector3D  alloc]x:0.5 y:0.5 z:0.5 w:1];
-    [numr normalize];
-    Matrix3D *tempM  = [[Matrix3D alloc]init];;
-    [tempM appendRotation:gameAngle axis:Vector3D.Y_AXIS];
+    Vector3D *nrmVec3 = [[Vector3D  alloc]x:0.5 y:0.5 z:0.5 w:1];
+    [nrmVec3 normalize];
+    Matrix3D *rotationM  = [[Matrix3D alloc]init];;
+    [rotationM appendRotation:gameAngle axis:Vector3D.Y_AXIS];
+    nrmVec3=  [rotationM transformVector:nrmVec3];
     
-    numr=  [tempM transformVector:numr];
-    
-    [context3D setVc3fv:self.shader3d name:"sunDirect" data: (  GLfloat []) {numr.x,numr.y,numr.z}];
+    [context3D setVc3fv:self.shader3d name:"sunDirect" data: (  GLfloat []) {nrmVec3.x,nrmVec3.y,nrmVec3.z}];
     [context3D setVc3fv:self.shader3d name:"sunColor" data: ( GLfloat []) {0.8,0.8, 0.8}];
     [context3D setVc3fv:self.shader3d name:"ambientColor" data: ( GLfloat []) {0.2,0.2, 0.2}];
-    
-     NSLog(@"->%f->%f->%f",numr.x,numr.y,numr.z);
+   
 }
 /*
  var $numr: Vector3D = new Vector3D(0.5, 0.6, -0.7);
