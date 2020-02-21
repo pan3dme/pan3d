@@ -56,6 +56,7 @@
         [context3D setRenderTexture:self.textureRes.texture ];
         [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix];
         [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d];
+        [context3D setVcMatrix4fv:self.shader3d name:"rotationMatrix3D" data:self.rotationMatrix3D];
       
         [context3D pushVa:self.objData.dataViewBuffer];
         [context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:self.objData.stride offset:0];

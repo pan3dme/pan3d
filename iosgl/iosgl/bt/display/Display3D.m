@@ -17,6 +17,7 @@
     if (self) {
         self.posMatrix3d=[[Matrix3D alloc]init];
         self.modeMatrix=[[Matrix3D alloc]init];
+        self.rotationMatrix3D=[[Matrix3D alloc]init];
     }
     return self;
 }
@@ -29,6 +30,13 @@
     [self.posMatrix3d appendRotation:_rotationY axis:Vector3D.Y_AXIS];
     [self.posMatrix3d appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
     [self.posMatrix3d appendTranslation:_x y: _y z:_z];
+    
+    
+    [self.rotationMatrix3D identity];
+    [self.rotationMatrix3D appendRotation:_rotationX axis:Vector3D.X_AXIS];
+    [self.rotationMatrix3D appendRotation:_rotationY axis:Vector3D.Y_AXIS];
+    [self.rotationMatrix3D appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
+ 
 
 }
  
