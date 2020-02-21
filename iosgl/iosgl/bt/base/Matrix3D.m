@@ -14,6 +14,7 @@
 
 @interface Matrix3D()
 @property (nonatomic, assign)  Matrix4x4  matrix4x4;
+@property (nonatomic, assign)  Matrix3x3  matrix3x3;
 @end
 @implementation Matrix3D
 - (instancetype)init
@@ -21,6 +22,7 @@
     self = [super init];
     if (self) {
         self.matrix4x4=Matrix4x4Zero;
+        self.matrix3x3=Matrix3x3Zero;
         [self identity];
     }
     return self;
@@ -29,6 +31,19 @@
 -(GLfloat *)m;
 {
     return (GLfloat *)&_matrix4x4;
+}
+-(GLfloat *)rotationM;
+{
+    _matrix3x3.data[0]=_matrix4x4.data[0];
+    _matrix3x3.data[1]=_matrix4x4.data[1];
+    _matrix3x3.data[2]=_matrix4x4.data[2];
+    _matrix3x3.data[3]=_matrix4x4.data[4];
+    _matrix3x3.data[4]=_matrix4x4.data[5];
+    _matrix3x3.data[5]=_matrix4x4.data[6];
+    _matrix3x3.data[6]=_matrix4x4.data[8];
+    _matrix3x3.data[7]=_matrix4x4.data[9];
+    _matrix3x3.data[8]=_matrix4x4.data[10];
+    return (GLfloat *)&_matrix3x3;
 }
 -(void)identity
 {
@@ -60,6 +75,20 @@
     return out;
  
 }
+/*
+public getRotaion(b: Float32Array): void {
+          b[0] = this.m[0];
+          b[1] = this.m[1];
+          b[2] = this.m[2];
+          b[3] = this.m[4];
+          b[4] = this.m[5];
+          b[5] = this.m[6];
+          b[6] = this.m[8];
+          b[7] = this.m[9];
+          b[8] = this.m[10];
+      }
+*/
+
 -(void)append :(Matrix3D*)matrx3d;
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];

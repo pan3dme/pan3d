@@ -20,7 +20,7 @@
     "attribute vec3 v3Normal;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
-    "uniform mat4 rotationMatrix3D;\n"
+    "uniform mat3 rotationMat3x3;\n"
     
     "uniform vec3 sunDirect;\n"
     "uniform vec3 sunColor;\n"
@@ -33,9 +33,9 @@
         "nrmvec3 = vec3(1.0,0.0,0.0);\n"
         "nrmvec3 = vec3(v3Normal.xyz);\n"
     
-        "vec4 n = rotationMatrix3D * vec4(v3Normal.xyz,1.0);\n"
-         "float suncos =  clamp(dot(n.xyz,sunDirect.xyz),0.0,1.0);\n"
-          "nrmvec3 = vec3(suncos,suncos,suncos)*sunColor+ambientColor;\n"
+        "vec3 n = rotationMat3x3 * v3Normal;\n"
+        "float suncos =  clamp(dot(n.xyz,sunDirect.xyz),0.0,1.0);\n"
+        "nrmvec3 = vec3(suncos,suncos,suncos)*sunColor+ambientColor;\n"
     
         "vec4 vPos = vec4(position.xyz,1.0);\n"
         "gl_Position = vPos * posMatrix* viewMatrix;\n"

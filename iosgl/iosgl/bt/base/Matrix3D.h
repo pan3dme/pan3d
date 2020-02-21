@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
 -(Vector3D*)transformVector:(Vector3D*)vec3d;
 -(GLfloat *)m;
+-(GLfloat *)rotationM;
  
 @end
 

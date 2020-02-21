@@ -40,9 +40,13 @@
 {
     glUniform3fv( glGetUniformLocation( shader.program, name), 1, data);
 }
--(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(Matrix3D*)data;
+-(void)setVcMatrix3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 {
-    glUniformMatrix4fv(  glGetUniformLocation( shader.program,name), 1, GL_TRUE,  data.m);
+    glUniformMatrix3fv(  glGetUniformLocation( shader.program,name), 1, GL_TRUE,  data);
+}
+-(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
+{
+    glUniformMatrix4fv(  glGetUniformLocation( shader.program,name), 1, GL_TRUE,  data);
 }
 -(void)pushVa:(GLuint)dataBuffer;
 {
