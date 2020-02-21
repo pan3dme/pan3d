@@ -46,8 +46,9 @@
 
 -(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(Matrix3D*)data;
 {
-     GLuint glPos = glGetAttribLocation( shader.program, name);
-    glUniformMatrix4fv(glPos, 1, GL_TRUE,  data.m);
+
+      glUniformMatrix4fv(  glGetUniformLocation( shader.program,name), 1, GL_TRUE,  data.m);
+     
  
 }
 @end

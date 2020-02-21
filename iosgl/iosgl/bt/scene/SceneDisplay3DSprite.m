@@ -49,18 +49,13 @@
         glUseProgram(progame);
         
         glBindTexture(self.textureRes.texture.target,self.textureRes.texture.name);
-        GLuint viewMaID = glGetUniformLocation( progame, "viewMatrix");
-        glUniformMatrix4fv(viewMaID, 1, GL_TRUE,  self.viewMatrix.m);
         
-        [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:@"viewMatrix" data:self.viewMatrix];
-        
-        GLuint posMaID = glGetUniformLocation( progame, "posMatrix");
-        glUniformMatrix4fv(posMaID, 1, GL_TRUE, self.posMatrix3d.m);
+        [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix];
+        [ self.scene3d.context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d];
         
         GLuint glPos = glGetAttribLocation( progame, "sunDirect");
         float textureColor[3]={0.5,1.0,1.0};
         glUniform3fv(glPos, 1, (const GLfloat*) &textureColor);
-        
         
         glBindBuffer(GL_ARRAY_BUFFER, self.objData.dataViewBuffer);
         GLuint position = glGetAttribLocation( progame, "position");
@@ -69,7 +64,6 @@
         GLuint textCoor = glGetAttribLocation( progame, "textCoordinate");
         glEnableVertexAttribArray(textCoor);
         glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, self.objData.stride, (GLfloat *)NULL+self.objData.uvsOffsets);
-        
         
         GLuint v3Normal = glGetAttribLocation( progame, "v3Normal");
         glEnableVertexAttribArray(v3Normal);
