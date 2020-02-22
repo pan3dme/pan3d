@@ -54,6 +54,7 @@
 		FE3D4EEC2401C24200185FD3 /* Display3DParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D4EEB2401C24200185FD3 /* Display3DParticle.m */; };
 		FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D4EEE2401C25D00185FD3 /* ParticleData.m */; };
 		FE3D4EF32401C79000185FD3 /* ParticleFacetData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D4EF22401C79000185FD3 /* ParticleFacetData.m */; };
+		FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D4EF62401C9CC00185FD3 /* ParticleBallData.m */; };
 		FE49FE6023C70E3A001FAE9B /* 1001_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5423C70E39001FAE9B /* 1001_base.txt */; };
 		FE49FE6123C70E3A001FAE9B /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5523C70E39001FAE9B /* shadow.png */; };
 		FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5623C70E39001FAE9B /* 256.jpg */; };
@@ -176,6 +177,8 @@
 		FE3D4EEE2401C25D00185FD3 /* ParticleData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleData.m; sourceTree = "<group>"; };
 		FE3D4EF12401C79000185FD3 /* ParticleFacetData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleFacetData.h; sourceTree = "<group>"; };
 		FE3D4EF22401C79000185FD3 /* ParticleFacetData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleFacetData.m; sourceTree = "<group>"; };
+		FE3D4EF52401C9CC00185FD3 /* ParticleBallData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleBallData.h; sourceTree = "<group>"; };
+		FE3D4EF62401C9CC00185FD3 /* ParticleBallData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleBallData.m; sourceTree = "<group>"; };
 		FE49FE5423C70E39001FAE9B /* 1001_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1001_base.txt; sourceTree = "<group>"; };
 		FE49FE5523C70E39001FAE9B /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
 		FE49FE5623C70E39001FAE9B /* 256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 256.jpg; sourceTree = "<group>"; };
@@ -449,6 +452,7 @@
 		FE3D4EE02401C12400185FD3 /* particle */ = {
 			isa = PBXGroup;
 			children = (
+				FE3D4EF42401C9B900185FD3 /* ball */,
 				FE3D4EF02401C76500185FD3 /* face */,
 				FE3D4EE42401C16C00185FD3 /* CombineParticle.h */,
 				FE3D4EE52401C16C00185FD3 /* CombineParticle.m */,
@@ -469,6 +473,15 @@
 				FE3D4EF22401C79000185FD3 /* ParticleFacetData.m */,
 			);
 			path = face;
+			sourceTree = "<group>";
+		};
+		FE3D4EF42401C9B900185FD3 /* ball */ = {
+			isa = PBXGroup;
+			children = (
+				FE3D4EF52401C9CC00185FD3 /* ParticleBallData.h */,
+				FE3D4EF62401C9CC00185FD3 /* ParticleBallData.m */,
+			);
+			path = ball;
 			sourceTree = "<group>";
 		};
 		FE4CA7D32398DA7C00BE6FB5 /* math */ = {
@@ -729,6 +742,7 @@
 				FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */,
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
 				FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */,
+				FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */,
 				FE3D4EDF2401BF5A00185FD3 /* ParticleManager.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,

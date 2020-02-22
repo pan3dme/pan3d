@@ -9,6 +9,7 @@
 #import "CombineParticleData.h"
 #import "ParticleData.h"
 #import "ParticleFacetData.h"
+#import "ParticleBallData.h"
 
 @implementation CombineParticleData
 -(void)setDataByte:(ByteArray*)byte;
@@ -21,6 +22,7 @@
         int particleType=[byte readInt];
         ParticleData *pdata= [self getParticleDataType:particleType];
         pdata.version=version;
+        [pdata setAllByteInfo:byte];
       
     }
     /*
@@ -56,7 +58,9 @@
         case 1:
             pdata = [[ParticleFacetData alloc]init];
             break;
-            
+        case 18:
+            pdata = [[ParticleBallData alloc]init];
+            break;
         default:
             break;
     }
