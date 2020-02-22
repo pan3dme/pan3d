@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SceneView : UIView
 @property (nonatomic, strong) Scene3D *scene3D;
 -(void)loadSeceneByUrl:(NSString*)url;
+-(void)makeEemptyScene;
 @end
 
 NS_ASSUME_NONNULL_END

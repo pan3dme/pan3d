@@ -13,6 +13,15 @@ typedef void (^SuccessBlock)(int code);
 @property (nonatomic, assign)  SuccessBlock    bfun;
 @end
 @implementation GroupRes
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.dataAry=[[NSMutableArray alloc]init];
+    }
+    return self;
+}
 -(void)load:(NSString*)url Block:(void (^)(int))block;
 {
     NSString *path=  [[NSBundle mainBundle]pathForResource:url ofType:@"txt"];
@@ -65,6 +74,7 @@ typedef void (^SuccessBlock)(int code);
          groupItem.materialUrl =[self.byte readUTF];
          groupItem.materialInfoArr = [self readMaterialInfo];
     }
+    [self.dataAry  addObject:groupItem];
 }
 /*
    private readItem(isG: boolean): void {

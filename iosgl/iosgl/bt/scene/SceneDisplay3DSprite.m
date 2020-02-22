@@ -21,17 +21,19 @@
     
     NSString *objsurl=[ value objectForKey:@"objsurl"];
     
-    self.scaleX=[[ value objectForKey:@"scaleX"]floatValue];
-    self.scaleY=[[ value objectForKey:@"scaleY"]floatValue];
-    self.scaleZ=[[ value objectForKey:@"scaleZ"]floatValue];
+    self.scaleX=[self getFloatByKey:value keystr:@"scaleX"];
+    self.scaleY=[self getFloatByKey:value keystr:@"scaleY"];
+    self.scaleZ=[self getFloatByKey:value keystr:@"scaleZ"];
     
-    self.x=[[ value objectForKey:@"x"]floatValue];
-    self.y=[[ value objectForKey:@"y"]floatValue];
-    self.z=[[ value objectForKey:@"z"]floatValue];
+    self.x=[self getFloatByKey:value keystr:@"x"];
+    self.y=[self getFloatByKey:value keystr:@"y"];
+    self.z=[self getFloatByKey:value keystr:@"z"];
     
-    self.rotationX=[[ value objectForKey:@"rotationX"]floatValue];
-    self.rotationY=[[ value objectForKey:@"rotationY"]floatValue];
-    self.rotationZ=[[ value objectForKey:@"rotationZ"]floatValue];
+    self.rotationX=[self getFloatByKey:value keystr:@"rotationX"];
+    self.rotationY=[self getFloatByKey:value keystr:@"rotationY"];
+    self.rotationZ=[self getFloatByKey:value keystr:@"rotationZ"];
+    
+   
     
     
     [[ProgrmaManager default] registe:SceneDisplay3DShader.shaderStr shader3d: [[SceneDisplay3DShader alloc]init]];
@@ -39,6 +41,11 @@
     
     [self loadTextureResByUrl:@"tu001.jpg"];
     [self loadObjDataByUrl:objsurl];
+}
+-(float)getFloatByKey:(NSDictionary*)dic keystr:(NSString*)keystr
+{
+    float a=  [[ dic objectForKey:keystr ]floatValue];
+    return a;
 }
 
 

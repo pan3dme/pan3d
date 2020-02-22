@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GroupRes : BaseRes
+@interface GroupRes : BaseRes;
+@property (nonatomic, strong)  NSMutableArray *dataAry;
 -(void)load:(NSString*)url Block:(void (^)(int))block;
 @end
 

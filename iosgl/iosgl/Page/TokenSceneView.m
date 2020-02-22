@@ -9,7 +9,9 @@
 #import "TokenSceneView.h"
 #import "SceneView.h"
 #import "GroupDataManager.h"
+#import "SceneDisplay3DSprite.h"
 #import "ObjDataManager.h"
+#import "GroupItem.h"
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
 @end
@@ -45,7 +47,11 @@
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
-     [self.sceneView loadSeceneByUrl:@"1001_base"];
+     //[self.sceneView loadSeceneByUrl:@"1001_base"];
+    [self.sceneView makeEemptyScene];
+    
+  
+     // [self.scene3D addDisplay:tempDis];
 }
 
 - (IBAction)zoom_max_clik:(id)sender {
@@ -58,8 +64,21 @@
     
     //baoxiang001
     //baoxiang001_base
+       [self.sceneView makeEemptyScene];
     [[GroupDataManager default]getGroupData:@"baoxiang001_base" Block:^(GroupRes *groupRes) {
-        
+  
+        for(int i=0;i<groupRes.dataAry.count;i++){
+            GroupItem *groupItem= groupRes.dataAry[i];
+            NSMutableDictionary *infodic=[[NSMutableDictionary alloc]init];
+            [infodic setValue:  groupItem.objUrl forKey:@"objsurl"];
+            [infodic setValue:@"1" forKey:@"scaleX"];
+            [infodic setValue:@"1" forKey:@"scaleY"];
+            [infodic setValue:@"1" forKey:@"scaleZ"];
+            SceneDisplay3DSprite *tempDis=[[SceneDisplay3DSprite alloc]init];
+            [tempDis setInof:infodic];
+            
+            [self.sceneView.scene3D addDisplay:tempDis];
+        }
     }];
  
 }
