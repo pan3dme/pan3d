@@ -119,19 +119,13 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
 {
       int objNum = [self.byte readInt];
     for(int i=0;i<objNum;i++){
-//        var url: string = Scene_data.fileRoot + $srcByte.readUTF();
-//                         var size: number = $srcByte.readInt();
-//                         var newByte: Pan3dByteArray = new Pan3dByteArray();
-//                         newByte.length = size;
-//                         $srcByte.readBytes(newByte, 0, size);
-//                         var objData: ObjData = ObjDataManager.getInstance().loadObjCom(newByte.buffer, url);
-       
+ 
         NSString *url =   [self.byte readUTF];
         int objsSize=  [self.byte readInt];
         NSData *objsNsdata=  [self.byte getNsDataByLen:objsSize];
         ByteArray *objsByte=  [[ByteArray alloc]init:objsNsdata];
-        
-         
+        [[ ObjDataManager default] loadObjCom:objsByte url:url];
+   
      }
 }
 -(void)readZipObj;
