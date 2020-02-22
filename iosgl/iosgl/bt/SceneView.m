@@ -95,11 +95,8 @@
 {
     
     NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
-    if(!self.scene3D){
-        self.scene3D=[[Scene3D alloc]init:self];
-    }else{
-        [self.scene3D clearAll];
-    }
+   
+    [self makeEemptyScene];
     for(int i=0;i<buildItem.count;i++){
         [self addBuildSprite:buildItem[i]];
     }

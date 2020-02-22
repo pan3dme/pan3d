@@ -45,6 +45,8 @@
 		FE2BB2D62397F38A00597658 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2D52397F38A00597658 /* GlkView.m */; };
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
 		FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */; };
+		FE3D4EDB2401B52600185FD3 /* levelup_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4ED92401B52600185FD3 /* levelup_base.txt */; };
+		FE3D4EDC2401B52600185FD3 /* levelup_lyf.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4EDA2401B52600185FD3 /* levelup_lyf.txt */; };
 		FE49FE6023C70E3A001FAE9B /* 1001_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5423C70E39001FAE9B /* 1001_base.txt */; };
 		FE49FE6123C70E3A001FAE9B /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5523C70E39001FAE9B /* shadow.png */; };
 		FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE49FE5623C70E39001FAE9B /* 256.jpg */; };
@@ -151,6 +153,8 @@
 		FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalMatrixUtilities.h; sourceTree = "<group>"; };
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
 		FE36BBE523A53D7B00180D7C /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		FE3D4ED92401B52600185FD3 /* levelup_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = levelup_base.txt; sourceTree = "<group>"; };
+		FE3D4EDA2401B52600185FD3 /* levelup_lyf.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = levelup_lyf.txt; sourceTree = "<group>"; };
 		FE49FE5423C70E39001FAE9B /* 1001_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1001_base.txt; sourceTree = "<group>"; };
 		FE49FE5523C70E39001FAE9B /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
 		FE49FE5623C70E39001FAE9B /* 256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 256.jpg; sourceTree = "<group>"; };
@@ -367,6 +371,8 @@
 			isa = PBXGroup;
 			children = (
 				FE49FE5623C70E39001FAE9B /* 256.jpg */,
+				FE3D4ED92401B52600185FD3 /* levelup_base.txt */,
+				FE3D4EDA2401B52600185FD3 /* levelup_lyf.txt */,
 				FED0DA5524016C44009F6575 /* baoxiang001_base.txt */,
 				FED0DA5424016C43009F6575 /* baoxiang001.txt */,
 				FE49FE5423C70E39001FAE9B /* 1001_base.txt */,
@@ -576,12 +582,14 @@
 				FED0DA4724002A94009F6575 /* TokenSceneView.xib in Resources */,
 				FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */,
 				FE49FE6A23C70E3A001FAE9B /* 5555_base.txt in Resources */,
+				FE3D4EDB2401B52600185FD3 /* levelup_base.txt in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
 				FE49FE6323C70E3A001FAE9B /* brdf_ltu.jpg in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FED0DA5724016C44009F6575 /* baoxiang001_base.txt in Resources */,
 				FE49FE6923C70E3A001FAE9B /* shadertwo.vsh in Resources */,
 				FE49FE6123C70E3A001FAE9B /* shadow.png in Resources */,
+				FE3D4EDC2401B52600185FD3 /* levelup_lyf.txt in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
 				FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,

@@ -56,14 +56,15 @@
 
 - (IBAction)zoom_max_clik:(id)sender {
     
+    /*
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationDelegate:self];
     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
     [UIView commitAnimations];
+    */
     
-    //baoxiang001
-    //baoxiang001_base
+ 
        [self.sceneView makeEemptyScene];
     [[GroupDataManager default]getGroupData:@"baoxiang001_base" Block:^(GroupRes *groupRes) {
   
@@ -76,7 +77,6 @@
             [infodic setValue:@"1" forKey:@"scaleZ"];
             SceneDisplay3DSprite *tempDis=[[SceneDisplay3DSprite alloc]init];
             [tempDis setInof:infodic];
-            
             [self.sceneView.scene3D addDisplay:tempDis];
         }
     }];
@@ -84,9 +84,16 @@
 }
 
 - (IBAction)zoom_min_clik:(id)sender {
+    /*
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     self.sceneView.frame =CGRectMake(20, 120, 300, 300);
     [UIView commitAnimations];
+    */
+     [self.sceneView makeEemptyScene];
+    [[GroupDataManager default]getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
+    
+           
+      }];
 }
 @end
