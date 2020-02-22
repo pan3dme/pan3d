@@ -73,17 +73,20 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     
     int filetype = [self.byte readInt];
     NSLog(@"filetype->%d",filetype);
-     NSLog(@"位置-->%d",self.byte.position);
+    NSLog(@"位置-->%d",self.byte.position);
     switch (filetype) {
         case 1:
             [self readImgs];
             break;
-  case 3:
-        [self readMaterial];
-        break;
-            case 4:
-                  [self readParticle];
-                  break;
+        case 2:
+            [self readObj];
+            break;
+        case 3:
+            [self readMaterial];
+            break;
+        case 4:
+            [self readParticle];
+            break;
         case 6:
             [self readZipObj];
             break;
@@ -92,6 +95,44 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             
             break;
     }
+}
+/*
+        public readObj($srcByte: Pan3dByteArray): void {
+             var objNum: number = $srcByte.readInt();
+ 
+             for (var i: number = 0; i < objNum; i++) {
+                 var url: string = Scene_data.fileRoot + $srcByte.readUTF();
+                 var size: number = $srcByte.readInt();
+                 var newByte: Pan3dByteArray = new Pan3dByteArray();
+                 newByte.length = size;
+                 $srcByte.readBytes(newByte, 0, size);
+                 var objData: ObjData = ObjDataManager.getInstance().loadObjCom(newByte.buffer, url);
+             }
+ 
+             if (this._imgFun) {
+                 this._imgFun();
+             }
+ 
+         }
+ */
+-(void)readObj;
+{
+      int objNum = [self.byte readInt];
+    for(int i=0;i<objNum;i++){
+//        var url: string = Scene_data.fileRoot + $srcByte.readUTF();
+//                         var size: number = $srcByte.readInt();
+//                         var newByte: Pan3dByteArray = new Pan3dByteArray();
+//                         newByte.length = size;
+//                         $srcByte.readBytes(newByte, 0, size);
+//                         var objData: ObjData = ObjDataManager.getInstance().loadObjCom(newByte.buffer, url);
+       
+        NSString *url =   [self.byte readUTF];
+        int objsSize=  [self.byte readInt];
+        NSData *objsNsdata=  [self.byte getNsDataByLen:objsSize];
+        ByteArray *objsByte=  [[ByteArray alloc]init:objsNsdata];
+        
+         
+     }
 }
 -(void)readZipObj;
 {

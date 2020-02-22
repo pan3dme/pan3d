@@ -8,6 +8,8 @@
 
 #import "TokenSceneView.h"
 #import "SceneView.h"
+#import "GroupDataManager.h"
+#import "ObjDataManager.h"
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
 @end
@@ -21,6 +23,9 @@
     self.sceneView.frame=CGRectMake(10, 100, 300, 300);
     [self.view addSubview:  self.sceneView];
     [self addLisienEvent];
+    
+    
+    
     
 }
 -(void)addLisienEvent{
@@ -50,6 +55,12 @@
     [UIView setAnimationDelegate:self];
     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
     [UIView commitAnimations];
+    
+    //baoxiang001
+    //baoxiang001_base
+    [[GroupDataManager default]getGroupData:@"baoxiang001_base" Block:^(GroupRes *groupRes) {
+        
+    }];
  
 }
 
