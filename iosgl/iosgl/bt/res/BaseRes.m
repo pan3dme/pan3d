@@ -9,6 +9,7 @@
 #import "BaseRes.h"
 #import <UIKit/UIKit.h>
 #import "ObjDataManager.h"
+#import "ParticleManager.h"
 #import "NSData+GZIP.h"
 #import <zlib.h>
 
@@ -158,15 +159,15 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
 -(void)readParticle;
 {
     int particeLen = [self.byte readInt];
- 
-  for(int i=0;i<particeLen;i++){
-      NSString *particeurl =   [self.byte readUTF];
-      NSLog(@"partice-->%@",particeurl);
-      int particeSize=  [self.byte readInt];
-      NSData *particeNsdata=  [self.byte getNsDataByLen:particeSize];
-      ByteArray *particeByte=  [[ByteArray alloc]init:particeNsdata];
- 
-  }
+    
+    for(int i=0;i<particeLen;i++){
+        NSString *particeurl =   [self.byte readUTF];
+        NSLog(@"partice-->%@",particeurl);
+        int particeSize=  [self.byte readInt];
+        NSData *particeNsdata=  [self.byte getNsDataByLen:particeSize];
+        ByteArray *particeByte=  [[ByteArray alloc]init:particeNsdata];
+        [[ParticleManager default] addResByte:particeurl byteArray:particeByte];
+    }
     
 }
 -(NSMutableArray*)readMaterialInfo;

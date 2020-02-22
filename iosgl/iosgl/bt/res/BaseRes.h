@@ -10,6 +10,8 @@
 #import "ByteArray.h"
 
 static NSInteger const PREFAB_TYPE                          = 1;
+static NSInteger const SCENE_PARTICLE_TYPE                          = 11;
+
 
 NS_ASSUME_NONNULL_BEGIN
 
