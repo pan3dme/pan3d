@@ -7,11 +7,14 @@
 //
 
 #import "ResCount.h"
+#import "ByteArray.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CombineParticleData : ResCount
-
+@property (nonatomic, assign)  int maxTime;
+@property (nonatomic, strong)  NSMutableArray *dataAry;
+-(void)setDataByte:(ByteArray*)byte;
 @end
 
 NS_ASSUME_NONNULL_END

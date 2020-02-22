@@ -1,5 +1,5 @@
 //
-//  ParticleData.m
+//  ParticleFacetData.h
 //  iosgl
 //
 //  Created by zhao on 23/2/2020.
@@ -8,9 +8,10 @@
 
 #import "ParticleData.h"
 
-@implementation ParticleData
--(void)setAllByteInfo:(ByteArray*)byte;
-{
-    
-}
+NS_ASSUME_NONNULL_BEGIN
+
+@interface ParticleFacetData : ParticleData
+
 @end
+
+NS_ASSUME_NONNULL_END
