@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     self.sceneView=[[SceneView alloc]init];
-    self.sceneView.frame=CGRectMake(10, 100, 300, 500);
+    self.sceneView.frame=CGRectMake(10, 100, 300, 300);
     [self.view addSubview:  self.sceneView];
     [self addLisienEvent];
     
