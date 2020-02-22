@@ -56,22 +56,22 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    /*
+   
     NSLog(@"--->%f--->%f" ,self.frame.size.width,self.frame.size.height);
     [MathCore traceTmNow];
     if(self.scene3D){
-        self.scene3D.camera3D.fw=self.frame.size.width;
-         self.scene3D.camera3D.fh=self.frame.size.height;
+        self.scene3D.camera3D.fovw=self.frame.size.width;
+         self.scene3D.camera3D.fovh=self.frame.size.height;
         [self.scene3D.camera3D upFrame];
         
-        self.scene3D.viewRect.x=0;
-        self.scene3D.viewRect.y=0;
-         self.scene3D.viewRect.height=self.frame.size.height;
-         self.scene3D.viewRect.height=self.frame.size.height;
+//self.scene3D.viewRect.x=0;
+      //  self.scene3D.viewRect.y=0;
+       //  self.scene3D.viewRect.height=self.frame.size.height;
+        // self.scene3D.viewRect.height=self.frame.size.height;
         
       
     }
-  */
+ 
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {

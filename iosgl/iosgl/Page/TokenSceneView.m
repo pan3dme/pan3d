@@ -47,7 +47,7 @@
     
      [UIView beginAnimations:nil context:nil];
      [UIView setAnimationDuration:0.5];
-     self.sceneView.frame =CGRectMake(20, 120, 200, 500);
+     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
      [UIView commitAnimations];
 }
 

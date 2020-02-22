@@ -18,8 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Matrix3D *viewMatrix;
 @property (nonatomic, strong)  Matrix3D *modelMatrix;
 @property (nonatomic, assign)  float   distance;
-@property (nonatomic, assign)  float   fw;
-@property (nonatomic, assign)  float   fh;
+@property (nonatomic, assign)  float   sceneViewHW;
+@property (nonatomic, assign)  float   fovw;
+@property (nonatomic, assign)  float   fovh;
 -(void) upFrame  ;
  
 @end
