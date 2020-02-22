@@ -18,15 +18,10 @@ typedef void (^SuccessBlock)(int code);
     NSString *path=  [[NSBundle mainBundle]pathForResource:url ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
-    
     self.bfun = block;
     self.byte=[[ByteArray alloc]init:reader];
-    
-    
     [self loadComplete:self.byte];
-    
     self.bfun(1);
-    
 }
 -(void)loadComplete:(ByteArray *)byte;
 {
@@ -37,7 +32,6 @@ typedef void (^SuccessBlock)(int code);
     [self read]; //material
     [self read]; //particle
     BOOL isGroup = [self.byte readBoolean];
-    
     if (isGroup) {
         int len = [self.byte readInt];
         for (int i = 0; i < len; i++) {
@@ -45,10 +39,7 @@ typedef void (^SuccessBlock)(int code);
         }
     } else {
         [self readItem:NO];
-        
     }
-
-    
 }
 -(void)readItem:(BOOL)isG
 {
@@ -72,10 +63,8 @@ typedef void (^SuccessBlock)(int code);
     if (types ==   PREFAB_TYPE) {
          groupItem.objUrl = [self.byte readUTF];
          groupItem.materialUrl =[self.byte readUTF];
-    
-        
+         groupItem.materialInfoArr = [self readMaterialInfo];
     }
-    
 }
 /*
    private readItem(isG: boolean): void {

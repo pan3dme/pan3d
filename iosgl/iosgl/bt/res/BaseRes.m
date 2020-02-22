@@ -169,31 +169,80 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
   }
     
 }
-
-
-/*
- public readMaterial(): void {
-            var objNum: number = this._byte.readInt();
-            //this.materialAry = new Array;
-
-            var time: number = TimeUtil.getTimer();
-
-            for (var i: number = 0; i < objNum; i++) {
-                var url: string = Scene_data.fileRoot + this._byte.readUTF();
-                var size: number = this._byte.readInt();
-
-                var dataByte: Pan3dByteArray = new Pan3dByteArray;
-                dataByte.length = size;
-                this._byte.readBytes(dataByte, 0, size)
-                MaterialManager.getInstance().addResByte(url, dataByte);
-                //this.materialAry.push(url);
-
+-(NSMutableArray*)readMaterialInfo;
+{
+    NSMutableArray *arr;
+    int len = [self.byte readInt];
+    if (len > 0) {
+        arr=[[NSMutableArray alloc] init];
+        for (int i = 0; i < len; i++) {
+            NSMutableDictionary *mDic=[[NSMutableDictionary alloc]init];
+            int type= [self.byte readInt];
+            [mDic setObject:[NSString stringWithFormat:@"%d",type] forKey:@"type"];
+            [mDic setObject:[self.byte readUTF] forKey:@"name"];
+            switch (type) {
+                case 0:
+                    [mDic setObject:[self.byte readUTF] forKey:@"url"];
+                    break;
+                case 1:
+                    [mDic setObject:  [NSString stringWithFormat:@"%f",[self.byte readFloat]]  forKey:@"x"];
+                    break;
+                case 2:
+                    [mDic setObject:  [NSString stringWithFormat:@"%f",[self.byte readFloat]]  forKey:@"x"];
+                    [mDic setObject:  [NSString stringWithFormat:@"%f",[self.byte readFloat]]  forKey:@"y"];
+                    
+                    break;
+                case 3:
+                    [mDic setObject:  [NSString stringWithFormat:@"%f",[self.byte readFloat]]  forKey:@"x"];
+                    [mDic setObject:  [NSString stringWithFormat:@"%f",[self.byte readFloat]]  forKey:@"y"];
+                    [mDic setObject:  [NSString stringWithFormat:@"%f",[self.byte readFloat]]  forKey:@"z"];
+                    break;
+                    
+                default:
+                    break;
             }
-            ////console.log("material time", (TimeUtil.getTimer() - time));
-
-            //this.read();
+            [arr addObject:mDic];
         }
-*/
+    }
+    
+    return arr;
+    
+}
+ /*
+ 
+          public readMaterialInfo(): Array<any> {
+  
+              var len: number = this._byte.readInt();
+              if (len > 0) {
+                  var $arr: Array<any> = new Array
+                  for (var i: number = 0; i < len; i++) {
+                      var $temp: any = new Object();
+                      $temp.type = this._byte.readInt()
+                      $temp.name = this._byte.readUTF()
+                      if ($temp.type == 0) {
+                          $temp.url = this._byte.readUTF()
+                      }
+                      if ($temp.type == 1) {
+                          $temp.x = this._byte.readFloat()
+                      }
+                      if ($temp.type == 2) {
+                          $temp.x = this._byte.readFloat()
+                          $temp.y = this._byte.readFloat()
+                      }
+                      if ($temp.type == 3) {
+                          $temp.x = this._byte.readFloat()
+                          $temp.y = this._byte.readFloat()
+                          $temp.z = this._byte.readFloat()
+                      }
+  
+                      $arr.push($temp)
+                  }
+                  return $arr
+              } else {
+                  return null
+              }
+          }
+  */
 -(void)readImgs;
 {
     int imglen = [self.byte readInt];

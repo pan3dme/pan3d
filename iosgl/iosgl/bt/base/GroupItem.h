@@ -23,7 +23,7 @@ public objUrl: string;
 @property (nonatomic, strong) NSString *objUrl;
 @property (nonatomic, strong) NSString *materialUrl;
 @property (nonatomic, strong) NSString *particleUrl;
-@property (nonatomic, assign) NSMutableArray *materialInfoArr;
+@property (nonatomic, strong) NSArray *materialInfoArr;
 @property (nonatomic, assign) BOOL isGroup;
 @property (nonatomic, assign) int types;
 @end

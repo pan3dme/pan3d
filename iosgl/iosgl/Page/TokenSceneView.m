@@ -5,7 +5,7 @@
 //  Created by zhao on 21/2/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
-
+#import "AppWorldHeader.h"
 #import "TokenSceneView.h"
 #import "SceneView.h"
 #import "GroupDataManager.h"
@@ -23,9 +23,9 @@
     self.sceneView.frame=CGRectMake(10, 100, 300, 300);
     [self.view addSubview:  self.sceneView];
     [self addLisienEvent];
+ 
     
-    
-    
+    NSLog(@"%@",AppName);
     
 }
 -(void)addLisienEvent{
