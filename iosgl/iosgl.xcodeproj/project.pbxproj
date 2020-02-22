@@ -73,6 +73,7 @@
 		FED0DA4D24016395009F6575 /* GroupRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4C24016395009F6575 /* GroupRes.m */; };
 		FED0DA5624016C44009F6575 /* baoxiang001.txt in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA5424016C43009F6575 /* baoxiang001.txt */; };
 		FED0DA5724016C44009F6575 /* baoxiang001_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA5524016C44009F6575 /* baoxiang001_base.txt */; };
+		FED0DA5A24017531009F6575 /* GroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA5924017531009F6575 /* GroupItem.m */; };
 		FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063623B9CF5D00DE6C2F /* Object3D.m */; };
 		FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063923B9D10100DE6C2F /* Camera3D.m */; };
 		FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF6063C23B9D20200DE6C2F /* Rectangle.m */; };
@@ -194,6 +195,8 @@
 		FED0DA4C24016395009F6575 /* GroupRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupRes.m; sourceTree = "<group>"; };
 		FED0DA5424016C43009F6575 /* baoxiang001.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = baoxiang001.txt; sourceTree = "<group>"; };
 		FED0DA5524016C44009F6575 /* baoxiang001_base.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = baoxiang001_base.txt; sourceTree = "<group>"; };
+		FED0DA5824017531009F6575 /* GroupItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupItem.h; sourceTree = "<group>"; };
+		FED0DA5924017531009F6575 /* GroupItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupItem.m; sourceTree = "<group>"; };
 		FEF6063523B9CF5D00DE6C2F /* Object3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
 		FEF6063623B9CF5D00DE6C2F /* Object3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Object3D.m; sourceTree = "<group>"; };
 		FEF6063823B9D10100DE6C2F /* Camera3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera3D.h; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 				FE36BBE523A53D7B00180D7C /* Types.h */,
 				FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */,
 				FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */,
+				FED0DA5824017531009F6575 /* GroupItem.h */,
+				FED0DA5924017531009F6575 /* GroupItem.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -643,6 +648,7 @@
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */,
 				FE2088E0239BE86A007FB797 /* ResGC.m in Sources */,
+				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,

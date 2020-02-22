@@ -27,26 +27,16 @@ static GroupDataManager *instance = nil;
 }
 -(void)getGroupData:(NSString*)url Block:(void (^)(GroupRes * ))block;
 {
- 
-    GroupRes *group=[[GroupRes alloc]init];
-   [group load:url  Block:^(int code) {
-       
-   }];
-
-    /*
-              group.load($url, () => {
-                  var ary: Array<Function> = this._loadDic[$url];
-                  for (var i: number = 0; i < ary.length; i++) {
-                      var fun: Function = ary[i];
-                      fun(group);
-                  }
-                  this._dic[$url] = group;
-                  delete this._loadDic[$url];
-                  group.initReg();
-              })
-     */
     
-    
+    if(self.dic[url]){
+        block(self.dic[url]);
+    }else{
+        GroupRes *groupRes=[[GroupRes alloc]init];
+        [groupRes load:url  Block:^(int code) {
+            self.dic[url]=groupRes;
+            block(self.dic[url]);
+        }];
+    }
 }
   
 @end

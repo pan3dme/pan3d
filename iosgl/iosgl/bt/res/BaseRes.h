@@ -9,6 +9,8 @@
 #import "ResCount.h"
 #import "ByteArray.h"
 
+static NSInteger const PREFAB_TYPE                          = 1;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseRes : ResCount
