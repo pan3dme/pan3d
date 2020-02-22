@@ -45,16 +45,18 @@
 
 - (IBAction)zoom_max_clik:(id)sender {
     
-     [UIView beginAnimations:nil context:nil];
-     [UIView setAnimationDuration:0.5];
-     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
-     [UIView commitAnimations];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelegate:self];
+    self.sceneView.frame =CGRectMake(20, 120, 300, 500);
+    [UIView commitAnimations];
+ 
 }
 
 - (IBAction)zoom_min_clik:(id)sender {
     [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.5];
-        self.sceneView.frame =CGRectMake(20, 120, 300, 300);
-        [UIView commitAnimations];
+    [UIView setAnimationDuration:0.5];
+    self.sceneView.frame =CGRectMake(20, 120, 300, 300);
+    [UIView commitAnimations];
 }
 @end
