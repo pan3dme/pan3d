@@ -39,6 +39,7 @@ float _w;
 -(void)normalize;
 -(float)length;
 -(void)scaleBy:(float)value;
+-(void)scaleByW;
 -(void)addByx:(float)x y:(float)y z:(float)z w:(float)w;
 @end
 

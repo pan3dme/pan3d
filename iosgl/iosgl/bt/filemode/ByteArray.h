@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Vector3D.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ByteArray : NSObject
 @property (nonatomic, strong)  NSData *nsData;
 @property (nonatomic, assign)  int position;
 - (instancetype)init:(NSData *)value;
+-(Vector3D*)readVector3D;
+-(Vector3D*)readVector3D:(BOOL)w;
 - (int) readInt;
 - (int) readShort;
 - (float) readFloat;

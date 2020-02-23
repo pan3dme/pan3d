@@ -79,6 +79,12 @@
     _z *= value;
     _w *= value;
 }
+-(void)scaleByW;
+{
+    _x *= _w;
+    _y *= _w;
+    _z *= _w;
+}
 -(void)normalize;
 {
     float le = [self length];

@@ -7,7 +7,7 @@
 //
 
 #import "ByteArray.h"
-
+#import "Vector3D.h"
 
 
 @implementation ByteArray
@@ -69,6 +69,21 @@
     self.position+=len;
     return data1;
     
+}
+-(Vector3D*)readVector3D;
+{
+    Vector3D* vec3=[[Vector3D alloc]init];
+    vec3.x= [self readFloat];
+     vec3.y= [self readFloat];
+     vec3.z= [self readFloat];
+    return vec3;
+    
+}
+-(Vector3D*)readVector3D:(BOOL)w;
+{
+     Vector3D* vec3= [self readVector3D];
+       vec3.w= [self readFloat];
+       return vec3;
 }
 - (int) readInt;
 {
