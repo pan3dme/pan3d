@@ -1,7 +1,0 @@
-{
-"version":1,
-"changeLocalFile":1,
-"share_flag":0
-
-
-}

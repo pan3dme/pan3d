@@ -1,1 +1,0 @@
-{"version":3,"file":"Event.js","sourceRoot":"","sources":["../../../../pan3d/engine/events/Event.ts"],"names":[],"mappings":"AAAA,IAAO,KAAK,CAYX;AAZD,WAAO,KAAK;IACR;QAKI,mBAAmB,KAAa;YAC5B,IAAI,CAAC,IAAI,GAAG,KAAK,CAAC;QACtB,CAAC;QAEa,kBAAQ,GAAW,UAAU,CAAC;QAChD,gBAAC;KAAA,AAVD,IAUC;IAVY,eAAS,YAUrB,CAAA;AACL,CAAC,EAZM,KAAK,KAAL,KAAK,QAYX"}

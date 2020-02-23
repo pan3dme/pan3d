@@ -1,7 +1,0 @@
-C:\wamp\www\work\mulscenelaya\mulscenelaya\bin\mulscenelaya.dll.config
-C:\wamp\www\work\mulscenelaya\mulscenelaya\bin\mulscenelaya.dll
-C:\wamp\www\work\mulscenelaya\mulscenelaya\bin\mulscenelaya.pdb
-C:\wamp\www\work\mulscenelaya\mulscenelaya\obj\Debug\mulscenelaya.csproj.CoreCompileInputs.cache
-C:\wamp\www\work\mulscenelaya\mulscenelaya\obj\Debug\mulscenelaya.dll
-C:\wamp\www\work\mulscenelaya\mulscenelaya\obj\Debug\mulscenelaya.pdb
-C:\wamp\www\work\mulscenelaya\mulscenelaya\obj\Debug\mulscenelaya.csprojResolveAssemblyReference.cache
