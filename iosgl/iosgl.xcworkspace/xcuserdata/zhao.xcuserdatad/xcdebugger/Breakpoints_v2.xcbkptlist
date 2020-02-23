@@ -2242,7 +2242,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "548C5CD5-F8BE-4B84-8D40-9F35F9E0D196"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/display/particle/ball/ParticleBallData.m"
