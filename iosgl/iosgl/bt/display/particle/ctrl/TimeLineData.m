@@ -10,6 +10,14 @@
 #import "Vector3D.h"
 
 @implementation TimeLineData
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.dataAry=[[NSMutableArray alloc]init];
+    }
+    return self;
+}
 -(void)setByteData:(ByteArray*)byte;
 {
     float len =[byte readFloat];
@@ -31,6 +39,11 @@
     }
     self.maxFrameNum = 100;
     self.beginTime = 0;
+    
+     
+    
+   // self.maxFrameNum = self.dataAry[self.dataAry.count - 1].frameNum;
+   // self.beginTime = self.dataAry[0].frameNum * Scene_data.frameTime;
     
     /*
       var len: number = $byte.readFloat();
