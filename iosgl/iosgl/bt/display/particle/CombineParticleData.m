@@ -23,13 +23,10 @@
         ParticleData *pdata= [self getParticleDataType:particleType];
         pdata.version=version;
         [pdata setAllByteInfo:byte];
-        
         [self.dataAry addObject:pdata];
-        
         if (pdata.timelineData.maxFrameNum > self.maxTime) {
-                           self.maxTime = pdata.timelineData.maxFrameNum;
+               self.maxTime = pdata.timelineData.maxFrameNum;
           }
-        
         i=len;
       
     }

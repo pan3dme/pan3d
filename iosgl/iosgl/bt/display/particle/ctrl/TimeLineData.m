@@ -37,13 +37,9 @@
             }
         }
     }
-    self.maxFrameNum = 100;
-    self.beginTime = 0;
-    
-     
-    
-   // self.maxFrameNum = self.dataAry[self.dataAry.count - 1].frameNum;
-   // self.beginTime = self.dataAry[0].frameNum * Scene_data.frameTime;
+ 
+    self.maxFrameNum =  ((KeyFrame *)(self.dataAry[self.dataAry.count - 1]) ).frameNum;
+    self.beginTime = ((KeyFrame *)(self.dataAry[0]) ).frameNum;
     
     /*
       var len: number = $byte.readFloat();
