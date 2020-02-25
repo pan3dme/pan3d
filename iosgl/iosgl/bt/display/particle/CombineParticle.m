@@ -42,6 +42,18 @@
     [self._displayAry addObject:dic];
     
 }
+-(void)updateTime:(float)t;
+{
+    
+}
+-(void)update;
+{
+    
+}
+-(void)updateItem:(int)idx;
+{
+    
+}
 /*
  public addPrticleItem($dis: Display3DParticle): void {
             $dis.visible = false;

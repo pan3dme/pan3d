@@ -101,7 +101,8 @@
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {
               CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
-                [[ParticleManager default] addParticle:particle];
+           
+                [particleManager addParticle:particle];
             
             } else {
                NSLog(@"播放的不是单纯特效");

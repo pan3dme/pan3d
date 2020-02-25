@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  NSString*  _materialUrl;
 //@property (nonatomic, assign)  BOOL  materialParam: MaterialParam;
 @property (nonatomic, strong)  NSMutableDictionary*  materialParamData;
-@property (nonatomic, assign)  ObjData*  objData;
+@property (nonatomic, strong)  ObjData*  objData;
 @property (nonatomic, strong)  TimeLineData*  timelineData;
 @property (nonatomic, strong)  Vector3D*  rotationV3d;
 @property (nonatomic, strong)  Vector3D*  center;
@@ -55,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setAllByteInfo:(ByteArray*)byte;
 -(Display3DParticle*)creatPartilce;
 -(Display3DParticle*)getParticle;
+-(void)uploadGpu;
+-(void)regShader;
+-(void)initVcData;
  
 @end
 

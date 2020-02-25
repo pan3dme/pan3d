@@ -9,12 +9,14 @@
 #import "ParticleManager.h"
 static ParticleManager *instance = nil;
 @implementation ParticleManager
+ 
 + (instancetype)default{
     if (instance == nil) {
         instance = [[ParticleManager alloc] init];
     }
     return instance;
 }
+ 
 - (instancetype)init
 {
     self = [super init];
@@ -56,11 +58,43 @@ static ParticleManager *instance = nil;
     }
     [self .renderDic[url] addObject: particle];
 }
-//public addParticle($particle: CombineParticle): void {
-//           if (this._particleList.lastIndexOf($particle) != -1) {
-//               return;
-//           }
-//           this._particleList.push($particle);
-//           this.addRenderDic($particle);
-//       }
+-(void) update  ;
+{
+    [self updateRenderDic];
+}
+-(void)updateRenderDic;
+{
+    for (NSString* key in self.renderDic) {
+        
+        NSArray *list= self.renderDic[key];
+        if(list.count==1){
+            [( (CombineParticle*)(list[0])) update];
+        }else{
+            NSLog(@"批处理");
+        }
+    }
+    /*
+          for (var key in this.renderDic) {
+                     var list: Array<CombineParticle> = this.renderDic[key];
+                     if (list.length == 1) {
+                         list[0].update();
+                     } else {
+                         var size: number = list[0].size;
+     
+                         for (var j: number = 0; j < size; j++) {
+                             for (var i: number = 0; i < list.length; i++) {
+                                 list[i].updateItem(j);
+                             }
+                         }
+     
+                     }
+     
+                 }
+             }
+     */
+}
+-(void) updateTime  ;
+{
+    
+}
 @end

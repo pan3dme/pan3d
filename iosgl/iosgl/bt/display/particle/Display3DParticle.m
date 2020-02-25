@@ -12,6 +12,22 @@
 
 -(void)onCreated;
 {
-    
 }
+-(void)update;
+{
+    [self updateMatrix];
+    [self setVc];
+    [self setVa];
+    [self resetVa];
+}
+-(void)setVc;
+{
+}
+-(void)setVa;
+{
+}
+-(void)resetVa;
+{
+}
+ 
 @end

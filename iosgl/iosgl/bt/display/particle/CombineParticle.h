@@ -30,6 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  hasDestory;
 @property (nonatomic, assign)  float  maxTime;
 -(void)addPrticleItem:(Display3DParticle*)dic;
+-(void)updateTime:(float)t;
+-(void)update;
+-(void)updateItem:(int)idx;
+
 @end
 
 NS_ASSUME_NONNULL_END

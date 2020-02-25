@@ -9,6 +9,7 @@
 #import "ParticleBallData.h"
 #import "ByteArray.h"
 #import "Vector3D.h"
+#import "ParticleBallGpuData.h"
 #import "Display3DBallPartilce.h"
 
 @implementation ParticleBallData
@@ -144,26 +145,21 @@
     
     self._textureRandomColorInfo = obj;
     
+    
+    [self uploadGpu];
+    
 }
-
-/*
- 
- private readRandomColor($byte: Pan3dByteArray): void {
- var randomColorLen: number = $byte.readInt();
- var obj: any = new Object;
- obj.alpha = new Array;
- obj.color = new Array;
- obj.pos = new Array;
- //fs.writeFloat(randomColor.alpha[i])
- //fs.writeFloat(randomColor.color[i])
- //fs.writeFloat(randomColor.pos[i])
- 
- for (var i: number = 0; i < randomColorLen; i++) {
- obj.alpha.push($byte.readFloat())
- obj.color.push($byte.readFloat())
- obj.pos.push($byte.readFloat())
- }
- this._textureRandomColorInfo = obj;
- }
- */
+-(void)uploadGpu;
+{
+     self.objData =[[ParticleBallGpuData alloc]init] ;
+    
+}
+-(void)regShader;
+{
+    
+}
+-(void)initVcData;
+{
+    
+}
 @end

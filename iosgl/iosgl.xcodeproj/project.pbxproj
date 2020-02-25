@@ -80,6 +80,8 @@
 		FE678843239B980200262B53 /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678842239B980200262B53 /* SceneView.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
 		FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */; };
+		FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE80570D2405BE15000F6D17 /* ParticleGpuData.m */; };
+		FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4424002A94009F6575 /* TokenSceneView.m */; };
 		FED0DA4724002A94009F6575 /* TokenSceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA4524002A94009F6575 /* TokenSceneView.xib */; };
@@ -223,6 +225,10 @@
 		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
 		FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DShader.h; sourceTree = "<group>"; };
 		FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DShader.m; sourceTree = "<group>"; };
+		FE80570C2405BE15000F6D17 /* ParticleGpuData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleGpuData.h; sourceTree = "<group>"; };
+		FE80570D2405BE15000F6D17 /* ParticleGpuData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleGpuData.m; sourceTree = "<group>"; };
+		FE80570F2405BE4F000F6D17 /* ParticleBallGpuData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleBallGpuData.h; sourceTree = "<group>"; };
+		FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleBallGpuData.m; sourceTree = "<group>"; };
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
 		FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DSprite.h; sourceTree = "<group>"; };
 		FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DSprite.m; sourceTree = "<group>"; };
@@ -486,6 +492,8 @@
 				FE3D4EE82401C18B00185FD3 /* CombineParticleData.m */,
 				FE3D4EEA2401C24200185FD3 /* Display3DParticle.h */,
 				FE3D4EEB2401C24200185FD3 /* Display3DParticle.m */,
+				FE80570C2405BE15000F6D17 /* ParticleGpuData.h */,
+				FE80570D2405BE15000F6D17 /* ParticleGpuData.m */,
 				FE3D4EED2401C25D00185FD3 /* ParticleData.h */,
 				FE3D4EEE2401C25D00185FD3 /* ParticleData.m */,
 			);
@@ -506,6 +514,8 @@
 			children = (
 				FE3D4EF52401C9CC00185FD3 /* ParticleBallData.h */,
 				FE3D4EF62401C9CC00185FD3 /* ParticleBallData.m */,
+				FE80570F2405BE4F000F6D17 /* ParticleBallGpuData.h */,
+				FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */,
 				FE189B2024049454008E2FF6 /* Display3DBallPartilce.h */,
 				FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */,
 			);
@@ -746,6 +756,7 @@
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
 				FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */,
+				FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
 				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
@@ -788,6 +799,7 @@
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
+				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
 				FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */,
 				FE3D4EEC2401C24200185FD3 /* Display3DParticle.m in Sources */,

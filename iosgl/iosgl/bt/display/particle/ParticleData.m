@@ -226,26 +226,17 @@
     }
     self.materialParamData[@"conAry"] = arr;
 }
-/*
-  private readMaterialParaConAry($byte: Pan3dByteArray): void {
-             var arr: Array<any> = new Array
-             var conAryLen: number = $byte.readInt()
-             for (var i: number = 0; i < conAryLen; i++) {
-                 var obj: any = new Object;
-                 obj.type = $byte.readFloat();
-                 obj.indexID = $byte.readFloat();
-                 obj.paramName = $byte.readUTF();
- 
- 
-                 obj.curve = new Object()
-                 this.readTempCurve($byte, obj.curve)
- 
-                 arr.push(obj);
-             }
- 
-             this.materialParamData.conAry = arr
- 
-         }
-
- */
+-(void)uploadGpu;
+{
+    
+}
+-(void)regShader;
+{
+    
+}
+-(void)initVcData;
+{
+    
+}
+  
 @end

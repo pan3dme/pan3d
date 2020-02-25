@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
 -(CombineParticle*)getParticleByte:(NSString*)url;
 -(void)addParticle:(CombineParticle*)particle;
+-(void) updateTime  ;
+-(void) update  ;
+
 @end
 
 NS_ASSUME_NONNULL_END

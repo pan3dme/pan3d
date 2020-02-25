@@ -30,7 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Vector3D*   groupScale;
 @property (nonatomic, assign)  Vector3D*   groupRotation;
 -(void)onCreated;
-
+-(void)update;
+-(void)setVc;
+-(void)setVa;
+-(void)resetVa;
 @end
 
 NS_ASSUME_NONNULL_END
