@@ -20,6 +20,8 @@ static ParticleManager *instance = nil;
     self = [super init];
     if (self) {
         self.dic=[[NSMutableDictionary alloc]init];
+        self.renderDic=[[NSMutableDictionary alloc]init];
+        self._particleList=[[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -30,13 +32,37 @@ static ParticleManager *instance = nil;
         [combineParticleData setDataByte:byteArray];
          self.dic[url]=combineParticleData;
     }
-    /*
-    if (!this._dic[$url]) {
-        var baseData: CombineParticleData = new CombineParticleData();
-        ////console.log("load particle",$url);
-        baseData.setDataByte($data);
-        this._dic[$url] = baseData;
-    }
-    */
 }
+-(CombineParticle*)getParticleByte:(NSString*)url;
+{
+    CombineParticle *combineParticle=[[CombineParticle alloc]init];
+    if(self.dic[url]){
+        CombineParticleData *baseData = self.dic[url];
+        
+        [baseData getCombineParticle];
+        
+      //   combineParticle = baseData.getCombineParticle();
+    }
+    return combineParticle;
+}
+-(void)addParticle:(CombineParticle*)particle;
+{
+    [self._particleList addObject:particle];
+    [self addRenderDic:particle];
+}
+-(void)addRenderDic:(CombineParticle*)particle;
+{
+    NSString* url = particle.url;
+    if (!self.renderDic[url]) {
+        self.renderDic[url] = [[NSMutableArray alloc]init];
+    }
+    [self .renderDic[url] addObject: particle];
+}
+//public addParticle($particle: CombineParticle): void {
+//           if (this._particleList.lastIndexOf($particle) != -1) {
+//               return;
+//           }
+//           this._particleList.push($particle);
+//           this.addRenderDic($particle);
+//       }
 @end

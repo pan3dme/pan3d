@@ -9,6 +9,7 @@
 #import "ParticleBallData.h"
 #import "ByteArray.h"
 #import "Vector3D.h"
+#import "Display3DBallPartilce.h"
 
 @implementation ParticleBallData
 
@@ -121,7 +122,10 @@
     
     [super setAllByteInfo:byte];
 }
-
+-(Display3DParticle*)getParticle;
+{
+    return [[Display3DBallPartilce alloc]init];
+}
 -(void)readRandomColor:(ByteArray*)byte;
 {
     int randomColorLen =  [byte readInt];

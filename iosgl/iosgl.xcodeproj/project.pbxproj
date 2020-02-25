@@ -35,6 +35,8 @@
 		FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1376A0239E90AE00755136 /* ObjDataManager.m */; };
 		FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189AD724026AF1008E2FF6 /* TimeLineData.m */; };
 		FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189ADA24026B7E008E2FF6 /* KeyFrame.m */; };
+		FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */; };
+		FE189B2524049C2E008E2FF6 /* TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189B2424049C2E008E2FF6 /* TimeLine.m */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -141,6 +143,10 @@
 		FE189AD724026AF1008E2FF6 /* TimeLineData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeLineData.m; sourceTree = "<group>"; };
 		FE189AD924026B7E008E2FF6 /* KeyFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyFrame.h; sourceTree = "<group>"; };
 		FE189ADA24026B7E008E2FF6 /* KeyFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyFrame.m; sourceTree = "<group>"; };
+		FE189B2024049454008E2FF6 /* Display3DBallPartilce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DBallPartilce.h; sourceTree = "<group>"; };
+		FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DBallPartilce.m; sourceTree = "<group>"; };
+		FE189B2324049C2E008E2FF6 /* TimeLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeLine.h; sourceTree = "<group>"; };
+		FE189B2424049C2E008E2FF6 /* TimeLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeLine.m; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -440,6 +446,8 @@
 				FE189AD724026AF1008E2FF6 /* TimeLineData.m */,
 				FE189AD924026B7E008E2FF6 /* KeyFrame.h */,
 				FE189ADA24026B7E008E2FF6 /* KeyFrame.m */,
+				FE189B2324049C2E008E2FF6 /* TimeLine.h */,
+				FE189B2424049C2E008E2FF6 /* TimeLine.m */,
 			);
 			path = ctrl;
 			sourceTree = "<group>";
@@ -498,6 +506,8 @@
 			children = (
 				FE3D4EF52401C9CC00185FD3 /* ParticleBallData.h */,
 				FE3D4EF62401C9CC00185FD3 /* ParticleBallData.m */,
+				FE189B2024049454008E2FF6 /* Display3DBallPartilce.h */,
+				FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */,
 			);
 			path = ball;
 			sourceTree = "<group>";
@@ -773,6 +783,7 @@
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
+				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
@@ -781,6 +792,7 @@
 				FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */,
 				FE3D4EEC2401C24200185FD3 /* Display3DParticle.m in Sources */,
 				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
+				FE189B2524049C2E008E2FF6 /* TimeLine.m in Sources */,
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
 				FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */,
 				FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */,

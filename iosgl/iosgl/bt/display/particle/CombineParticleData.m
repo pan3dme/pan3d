@@ -10,6 +10,8 @@
 #import "ParticleData.h"
 #import "ParticleFacetData.h"
 #import "ParticleBallData.h"
+#import "CombineParticle.h"
+#import "Display3DParticle.h"
 
 @implementation CombineParticleData
 -(void)setDataByte:(ByteArray*)byte;
@@ -124,4 +126,16 @@
              return pdata;
          }
  */
+
+-(CombineParticle*)getCombineParticle;
+{
+    CombineParticle* particle=[[CombineParticle alloc]init];
+    particle.maxTime=self.maxTime;
+    for (int i = 0; i < self.dataAry.count; i++) {
+         Display3DParticle *display = [((ParticleData*)self.dataAry[i]) creatPartilce];
+        [particle addPrticleItem:display];
+    }
+    particle.sourceData = self;
+    return particle;
+}
 @end

@@ -12,6 +12,8 @@
 #import "SceneDisplay3DSprite.h"
 #import "ObjDataManager.h"
 #import "GroupItem.h"
+#import "CombineParticle.h"
+#import "ParticleManager.h"
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
 @end
@@ -93,7 +95,38 @@
      [self.sceneView makeEemptyScene];
     [[GroupDataManager default]getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
     
+        for (int i = 0; i < groupRes.dataAry.count; i++) {
+            GroupItem *item = groupRes.dataAry[i];
+            if (item.types ==SCENE_PARTICLE_TYPE) {
+              CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
+         
+                
+                [[ParticleManager default] addParticle:particle];
+                NSLog(@"播放的不是单纯特效");
+            } else {
+               NSLog(@"播放的不是单纯特效");
+            }
+        }
            
       }];
 }
+/*
+ for (var i: number = 0; i < groupRes.dataAry.length; i++) {
+     var item: Pan3d.GroupItem = groupRes.dataAry[i];
+     if (item.types == Pan3d.BaseRes.SCENE_PARTICLE_TYPE) {
+         var $particle: Pan3d.CombineParticle = $scene.particleManager.getParticleByte(Pan3d.Scene_data.fileRoot + item.particleUrl);
+         $particle.x = $pos.x;
+         $particle.y = $pos.y;
+         $particle.z = $pos.z;
+         $particle.scaleX = 3;
+         $particle.scaleY = 3;
+         $particle.scaleZ = 3;
+         $particle.rotationY = $r;
+         $scene.particleManager.addParticle($particle);
+         $particle.addEventListener(Pan3d.BaseEvent.COMPLETE, this.onPlayCom, this);
+     } else {
+         console.log("播放的不是单纯特效");
+     }
+ }
+ */
 @end

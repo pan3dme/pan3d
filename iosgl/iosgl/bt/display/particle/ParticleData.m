@@ -9,6 +9,7 @@
 #import "ParticleData.h"
 #import "TimeLineData.h"
 #import "ByteArray.h"
+#import "TimeLine.h"
 
 @implementation ParticleData
 -(void)setAllByteInfo:(ByteArray*)byte;
@@ -87,16 +88,34 @@
 {
     
 }
-
-/*
- private set materialByteUrl(value: string) {
-            if (this._materialUrl == value) {
-                return;
-            }
-            this._materialUrl = value;
-            MaterialManager.getInstance().getMaterialByte(Scene_data.fileRoot + value, ($matrial: Material) => { this.onMaterialLoad($matrial) })
-        }
- */
+-(Display3DParticle*)creatPartilce;
+{
+    Display3DParticle *particle = [self getParticle];
+     particle.data = self;
+     TimeLine* tl=[[TimeLine alloc]init];
+     [tl setAllDataInfo:self.timelineData];
+    [particle onCreated];
+    
+ /*
+   var particle: Display3DParticle = this.getParticle();
+  
+              particle.data = this;
+              var tl: TimeLine = new TimeLine();
+              tl.setAllDataInfo(this.timelineData);
+              particle.setTimeLine(tl);
+  
+              particle.onCreated();
+  
+              return particle;
+  */
+                return particle;
+}
+-(Display3DParticle*)getParticle;
+{
+    return nil;
+}
+ 
+ 
 -(void)readMaterialPara:(ByteArray*)byte
 {
       ParticleData* this=self;

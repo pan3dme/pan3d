@@ -10,4 +10,8 @@
 
 @implementation Display3DParticle
 
+-(void)onCreated;
+{
+    
+}
 @end
