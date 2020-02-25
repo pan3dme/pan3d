@@ -9,6 +9,7 @@
 #import "Display3D.h"
 #import "Matrix3D.h"
 #import "Vector3D.h"
+#import "Scene3D.h"
 
 @class  ParticleData;
 
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Vector3D*   groupPos;
 @property (nonatomic, assign)  Vector3D*   groupScale;
 @property (nonatomic, assign)  Vector3D*   groupRotation;
+@property (nonatomic, strong)  Scene3D *scene3d;
 -(void)onCreated;
 -(void)update;
 -(void)setVc;

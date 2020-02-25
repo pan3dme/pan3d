@@ -48,7 +48,12 @@
 }
 -(void)update;
 {
-    
+    for(int i=0;i<self._displayAry.count;i++)
+    {
+        Display3DParticle *dis=((Display3DParticle*)(self._displayAry[i]));
+        dis.scene3d=self.scene3d;
+        [dis update];
+    }
 }
 -(void)updateItem:(int)idx;
 {

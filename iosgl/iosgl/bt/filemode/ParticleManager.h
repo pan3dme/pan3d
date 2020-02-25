@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 @property (nonatomic, strong)  NSMutableDictionary *dic;
 @property (nonatomic, strong)  NSMutableDictionary *renderDic;
-
+@property (nonatomic, strong)  Scene3D *scene3d;
 @property (nonatomic, strong)  NSMutableArray *_particleList;
 
 -(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;

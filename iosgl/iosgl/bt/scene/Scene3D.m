@@ -48,6 +48,7 @@
         Display3D *dis= self.displayList[i];
         [dis upFrame];
     }
+    self.particleManager.scene3d=self;
     [self.particleManager update];
 }
 -(void)resetViewport;

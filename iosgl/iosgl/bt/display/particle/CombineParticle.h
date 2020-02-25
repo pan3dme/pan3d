@@ -12,6 +12,8 @@
 #import "Display3DParticle.h"
 #import "Matrix3D.h"
 
+@class Display3DParticle;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CombineParticle : EventDispatcher
@@ -29,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  dynamic;
 @property (nonatomic, assign)  BOOL  hasDestory;
 @property (nonatomic, assign)  float  maxTime;
+@property (nonatomic, strong)  Scene3D *scene3d;
 -(void)addPrticleItem:(Display3DParticle*)dic;
 -(void)updateTime:(float)t;
 -(void)update;

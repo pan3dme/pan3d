@@ -153,6 +153,13 @@
 {
      self.objData =[[ParticleBallGpuData alloc]init] ;
     
+    [self initBaseData];
+}
+-(void)initBaseData
+{
+  
+   
+   
 }
 -(void)regShader;
 {

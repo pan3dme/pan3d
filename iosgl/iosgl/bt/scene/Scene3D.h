@@ -15,7 +15,7 @@
 #import "Rectangle.h"
 #import "ParticleManager.h"
  
- 
+@class ParticleManager;
 
 NS_ASSUME_NONNULL_BEGIN
 
