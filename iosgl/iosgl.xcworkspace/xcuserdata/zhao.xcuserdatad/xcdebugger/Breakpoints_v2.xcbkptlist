@@ -2024,8 +2024,8 @@
             filePath = "iosgl/bt/filemode/ParticleManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "-getParticleByte:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2616,8 +2616,8 @@
             filePath = "iosgl/Page/TokenSceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-zoom_min_clik:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2706,7 +2706,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CB8FAF27-4A95-4941-AED7-D662F0BB9385"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/Page/TokenSceneView.m"

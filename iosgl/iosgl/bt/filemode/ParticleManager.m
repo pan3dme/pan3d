@@ -38,11 +38,9 @@ static ParticleManager *instance = nil;
     CombineParticle *combineParticle=[[CombineParticle alloc]init];
     if(self.dic[url]){
         CombineParticleData *baseData = self.dic[url];
-        
-        [baseData getCombineParticle];
-        
-      //   combineParticle = baseData.getCombineParticle();
+       combineParticle= [baseData getCombineParticle];
     }
+    combineParticle.url=url;
     return combineParticle;
 }
 -(void)addParticle:(CombineParticle*)particle;

@@ -13,6 +13,7 @@
 #import "Matrix3D.h"
 #import "Camera3D.h"
 #import "Rectangle.h"
+#import "ParticleManager.h"
  
  
 
@@ -31,6 +32,7 @@ float _sceneScale;
 @property (nonatomic, strong) UIView *uiView;
 @property (nonatomic, strong) Camera3D *camera3D;
 @property (nonatomic, strong) Rectangle *viewRect;
+@property (nonatomic, strong) ParticleManager *particleManager;
  
 -(void)setSceneScale:(float)value;
 -(float)sceneScale;

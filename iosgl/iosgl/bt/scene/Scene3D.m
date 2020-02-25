@@ -9,6 +9,7 @@
 #import "Display3D.h"
 #import "Context3D.h"
 #import "Scene3D.h"
+#import "ParticleManager.h"
 
 
 @implementation Scene3D
@@ -21,14 +22,13 @@
         self.context3D=[[Context3D alloc]init];
         self.camera3D=[[Camera3D alloc]init];
         self.displayList=[[NSMutableArray alloc]init];
-    
+        self.particleManager=[[ParticleManager alloc]init];
         self.viewRect=[[Rectangle alloc]x:0 y:0 width:300 height:300];
 
         self.sceneScale=1.0;
         [self.uiView setContentScaleFactor:1];
         [self resetViewport];
-            
-     
+ 
     }
     return self;
 }

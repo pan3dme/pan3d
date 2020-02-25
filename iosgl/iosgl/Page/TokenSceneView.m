@@ -93,16 +93,16 @@
     [UIView commitAnimations];
     */
      [self.sceneView makeEemptyScene];
-    [[GroupDataManager default]getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
+    
+    ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
+    [[GroupDataManager default] getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
     
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {
               CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
-         
-                
                 [[ParticleManager default] addParticle:particle];
-                NSLog(@"播放的不是单纯特效");
+            
             } else {
                NSLog(@"播放的不是单纯特效");
             }
