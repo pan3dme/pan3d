@@ -94,25 +94,20 @@
     [UIView commitAnimations];
     */
      [self.sceneView makeEemptyScene];
-    
+    //     [self.sceneView.scene3D addDisplay:[[Display3DSprite alloc]init]];
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
     [[GroupDataManager default] getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
-    
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {
-              CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
-           
-               // [particleManager addParticle:particle];
-                
-                [self.sceneView.scene3D addDisplay:[[Display3DSprite alloc]init]];
-            
+                CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
+                [particleManager addParticle:particle];
             } else {
-               NSLog(@"播放的不是单纯特效");
+                NSLog(@"播放的不是单纯特效");
             }
         }
-           
-      }];
+        
+    }];
 }
 /*
  for (var i: number = 0; i < groupRes.dataAry.length; i++) {

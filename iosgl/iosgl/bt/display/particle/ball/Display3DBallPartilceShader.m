@@ -16,10 +16,15 @@
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
     "attribute vec3 position;\n"
+    
+    "uniform mat4 viewMatrix;\n"
+    "uniform mat4 posMatrix;\n"
+    
     "void main()"
     "{"
-        "vec4 vPos = vec4(position.xyz,0.5);\n"
-        "gl_Position = vPos ;\n"
+         "vec4 vPos = vec4(position.xyz,1.0);\n"
+          "gl_Position = vPos * posMatrix* viewMatrix;\n"
+ 
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     

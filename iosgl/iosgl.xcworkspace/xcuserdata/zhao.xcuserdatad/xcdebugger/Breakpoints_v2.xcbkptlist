@@ -2568,8 +2568,8 @@
             filePath = "iosgl/Page/TokenSceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-zoom_min_clik:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2600,8 +2600,8 @@
             filePath = "iosgl/Page/TokenSceneView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-zoom_min_clik:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2689,22 +2689,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CB8FAF27-4A95-4941-AED7-D662F0BB9385"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/Page/TokenSceneView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-zoom_min_clik:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E93EC45D-0EAA-4B8F-A91B-6CE9599D7F26"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -2776,8 +2760,8 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
@@ -2808,8 +2792,8 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
@@ -2824,8 +2808,8 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-onCreated"
             landmarkType = "7">
          </BreakpointContent>
@@ -2840,8 +2824,8 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-onCreated"
             landmarkType = "7">
          </BreakpointContent>
@@ -2856,25 +2840,9 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-onCreated"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D57E21E8-F376-4320-92A7-F72000851BFD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2888,8 +2856,8 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
@@ -2904,8 +2872,8 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>
@@ -2936,8 +2904,8 @@
             filePath = "iosgl/bt/display/particle/ball/Display3DBallPartilce.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "-update"
             landmarkType = "7">
          </BreakpointContent>

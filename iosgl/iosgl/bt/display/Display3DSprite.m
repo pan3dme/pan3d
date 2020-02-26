@@ -30,7 +30,7 @@
 {
     self.objData=[[ObjData alloc]init];
     GLfloat attrArr[12];
-    attrArr[0]=0.10f;
+    attrArr[0]=-0.50f;
     attrArr[1]=0.0f;
     attrArr[2]=0.0f;
     
