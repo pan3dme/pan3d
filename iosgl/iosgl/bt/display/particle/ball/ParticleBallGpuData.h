@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ParticleBallGpuData : ParticleGpuData
-@property (nonatomic, strong)  NSMutableArray*   basePos;
+@property (nonatomic, assign)  GLfloat*    basePos;
 @property (nonatomic, assign) GLuint   basePosBuffer;
 @property (nonatomic, strong)  NSMutableArray*   beMove;
 @property (nonatomic, assign) GLuint   beMoveBuffer;

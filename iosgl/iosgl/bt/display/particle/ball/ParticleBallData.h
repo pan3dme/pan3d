@@ -9,6 +9,8 @@
 #import "ParticleData.h"
 #import "Vector3D.h"
 #import "Matrix3D.h"
+#import "ParticleGpuData.h"
+#import "ParticleBallGpuData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -60,6 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  NSMutableArray*  _uvCtrlVec;
 @property (nonatomic, assign)  Matrix3D*  _allRotationMatrix;
  
+
+-(ParticleBallGpuData*)particleGpuData;
 @end
 
 NS_ASSUME_NONNULL_END
