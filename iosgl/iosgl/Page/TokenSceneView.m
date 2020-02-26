@@ -14,6 +14,7 @@
 #import "GroupItem.h"
 #import "CombineParticle.h"
 #import "ParticleManager.h"
+#import "Display3DSprite.h"
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
 @end
@@ -102,7 +103,9 @@
             if (item.types ==SCENE_PARTICLE_TYPE) {
               CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
            
-                [particleManager addParticle:particle];
+               // [particleManager addParticle:particle];
+                
+                [self.sceneView.scene3D addDisplay:[[Display3DSprite alloc]init]];
             
             } else {
                NSLog(@"播放的不是单纯特效");

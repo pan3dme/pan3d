@@ -16,6 +16,11 @@
 
 @end
 @implementation SceneDisplay3DSprite
+
+-(void)onCreated;
+{
+    
+}
 -(void) setInof:(NSDictionary*)value;
 {
     
