@@ -24,7 +24,10 @@
 
 -(void)onCreated;
 {
-    int lznum=1;
+    int lznum=self.particleBallData._totalNum;
+    float tw=10.0f;
+    float th=10.0f;
+    
     self.objData=[[ObjData alloc]init];
     GLfloat attrArr[lznum*12];
     
@@ -33,20 +36,20 @@
     
     for(int i=0;i<lznum;i++){
         int skipAtt=i*12;
-        attrArr[skipAtt+0]=0.0f;
-        attrArr[skipAtt+1]=0.0f;
+        attrArr[skipAtt+0]=-tw;
+        attrArr[skipAtt+1]=-th;
         attrArr[skipAtt+2]=0.0f;
         
-        attrArr[skipAtt+3]=100.0f;
-        attrArr[skipAtt+4]=0.0f;
+        attrArr[skipAtt+3]=tw;
+        attrArr[skipAtt+4]=-th;
         attrArr[skipAtt+5]=0.0f;
         
-        attrArr[skipAtt+6]=100.0f;
-        attrArr[skipAtt+7]=100.0f;
+        attrArr[skipAtt+6]=tw;
+        attrArr[skipAtt+7]=th;
         attrArr[skipAtt+8]=0.0f;
         
-        attrArr[skipAtt+9]=0.0f;
-        attrArr[skipAtt+10]=100.0f;
+        attrArr[skipAtt+9]=-tw;
+        attrArr[skipAtt+10]=th;
         attrArr[skipAtt+11]=0.0f;
         
         int skipTri=i*4;
@@ -74,6 +77,7 @@
     self.shader3d=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
     
 }
+/*
 -(void)creatBaseTestBuFF
 {
     self.objData=[[ObjData alloc]init];
@@ -114,6 +118,7 @@
     [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
     self.shader3d=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
 }
+*/
 - (void)update;
 {
     if(self.shader3d ){
@@ -129,7 +134,11 @@
         [ctx pushVa: self.particleBallGpuData.basePosBuffer];
         [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:3 stride:0 offset:0];
       
-        [ctx drawCall:self.objData.indexBuffer  numTril:6 ];
+        
+        int lznum=self.particleBallData._totalNum;
+        
+        
+        [ctx drawCall:self.objData.indexBuffer  numTril:6*lznum ];
     }
     
 }

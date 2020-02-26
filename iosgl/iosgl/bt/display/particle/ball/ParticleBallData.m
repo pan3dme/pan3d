@@ -157,20 +157,24 @@
 }
 -(void)initBaseData
 {
-    int lznum=1;
+    int lznum=self._totalNum;
+ 
     GLfloat basePos[lznum*12];
-    
-    Vector3D* v3d=[[Vector3D alloc]init];
-    v3d.x=-arc4random() % 100;
-    v3d.y=arc4random() % 100;;
-    v3d.z=0;
-    int idx=0;
-    for(int i=0;i<4;i++){
-        idx=i*3;
-        basePos[idx+0]=v3d.x;
-        basePos[idx+1]=v3d.y;
-        basePos[idx+2]=v3d.z;
+     int idx=0;
+    for (int i=0; i<lznum; i++) {
+      Vector3D* v3d=[[Vector3D alloc]init];
+           v3d.x=-arc4random() % 200 -100.0f;
+           v3d.y=arc4random() % 200 -100.0f;
+           v3d.z=arc4random() % 200 -100.0f;
+       
+           for(int j=0;j<4;j++){
+               idx=12*i+j*3;
+               basePos[idx+0]=v3d.x;
+               basePos[idx+1]=v3d.y;
+               basePos[idx+2]=v3d.z;
+           }
     }
+   
     
     self.particleGpuData.basePos=basePos;
     GLuint basePosBuffer;
