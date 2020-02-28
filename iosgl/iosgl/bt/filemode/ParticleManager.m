@@ -67,7 +67,7 @@ static ParticleManager *instance = nil;
     for (NSString* key in self.renderDic) {
         
         NSArray *list= self.renderDic[key];
-        if(list.count==1){
+        if(list.count>=1){
             CombineParticle* combineParticle=( (CombineParticle*)(list[0]));
             combineParticle.scene3d=self.scene3d;
             [combineParticle update];
