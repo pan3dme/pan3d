@@ -15,6 +15,9 @@ class TpSceneEvent extends BaseEvent {
     
     public mapId: number
 
+
+
+
 }
 class TpSceneProcessor extends BaseProcessor {
 
@@ -39,9 +42,10 @@ class TpSceneProcessor extends BaseProcessor {
                     Scene_data.cam3D.distance = 250;
                 }
                 */
-                console.log("1111");
+                console.log("233");
                 Scene_data.supportBlob=true;
                GroupDataManager.getInstance().getGroupData(  Scene_data.fileRoot + "model/levelup_lyf.txt", (groupRes: GroupRes) => {
+
 
 
                    for (var i: number = 0; i < groupRes.dataAry.length; i++) {
@@ -52,9 +56,10 @@ class TpSceneProcessor extends BaseProcessor {
                            ParticleManager.getInstance().addParticle($particle);
 
                        } else {
-                           console.log("播放的不是单纯特效");
+                           console.log("播放的3不是3单纯特效");
                        }
                    }
+
 
 
 
