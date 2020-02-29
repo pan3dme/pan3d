@@ -157,32 +157,85 @@
 }
 -(void)initBaseData
 {
-    int lznum=self._totalNum;
+  
+  int lznum=self._totalNum;
+     float tw=10.0f;
+     float th=10.0f;
  
-    GLfloat basePos[lznum*12];
-     int idx=0;
-    for (int i=0; i<lznum; i++) {
-      Vector3D* v3d=[[Vector3D alloc]init];
-           v3d.x=-arc4random() % 200 -100.0f;
-           v3d.y=arc4random() % 200 -100.0f;
-           v3d.z=arc4random() % 200 -100.0f;
-       
-           for(int j=0;j<4;j++){
-               idx=12*i+j*3;
-               basePos[idx+0]=v3d.x;
-               basePos[idx+1]=v3d.y;
-               basePos[idx+2]=v3d.z;
-           }
-    }
-   
+     GLfloat attrArr[lznum*12];
+     
+     unsigned int Indices[lznum*6];
+ 
+     for(int i=0;i<lznum;i++){
+         int skipAtt=i*12;
+         attrArr[skipAtt+0]=-tw;
+         attrArr[skipAtt+1]=-th;
+         attrArr[skipAtt+2]=0.0f;
+         
+         attrArr[skipAtt+3]=tw;
+         attrArr[skipAtt+4]=-th;
+         attrArr[skipAtt+5]=0.0f;
+         
+         attrArr[skipAtt+6]=tw;
+         attrArr[skipAtt+7]=th;
+         attrArr[skipAtt+8]=0.0f;
+         
+         attrArr[skipAtt+9]=-tw;
+         attrArr[skipAtt+10]=th;
+         attrArr[skipAtt+11]=0.0f;
+         
+         int skipTri=i*4;
+         int skipInd=i*6;
+         Indices[skipInd+0]=0+skipTri;
+         Indices[skipInd+1]=1+skipTri;
+         Indices[skipInd+2]=2+skipTri;
+         Indices[skipInd+3]=0+skipTri;
+         Indices[skipInd+4]=2+skipTri;
+         Indices[skipInd+5]=3+skipTri;
+     }
+     
+  
+     GLuint verticesBuffer;
+     glGenBuffers(1, &verticesBuffer);
+     glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
+     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+     self.objData.verticesBuffer=verticesBuffer;
+     
+     GLuint indexBuffer;
+     glGenBuffers(1, &indexBuffer);
+     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+     self.objData.indexBuffer=indexBuffer;
+ 
+  
+    [self initBasePos];
+}
+-(void)initBasePos;
+{
+     int lznum=self._totalNum;
     
-    self.particleGpuData.basePos=basePos;
-    GLuint basePosBuffer;
-    glGenBuffers(1, &basePosBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, basePosBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(basePos), basePos, GL_DYNAMIC_DRAW);
-    self.particleGpuData.basePosBuffer=basePosBuffer;
-   
+       GLfloat basePos[lznum*12];
+        int idx=0;
+       for (int i=0; i<lznum; i++) {
+         Vector3D* v3d=[[Vector3D alloc]init];
+              v3d.x=-arc4random() % 200 -100.0f;
+              v3d.y=arc4random() % 200 -100.0f;
+              v3d.z=arc4random() % 200 -100.0f;
+          
+              for(int j=0;j<4;j++){
+                  idx=12*i+j*3;
+                  basePos[idx+0]=v3d.x;
+                  basePos[idx+1]=v3d.y;
+                  basePos[idx+2]=v3d.z;
+              }
+       }
+    
+       self.particleGpuData.basePos=basePos;
+       GLuint basePosBuffer;
+       glGenBuffers(1, &basePosBuffer);
+       glBindBuffer(GL_ARRAY_BUFFER, basePosBuffer);
+       glBufferData(GL_ARRAY_BUFFER, sizeof(basePos), basePos, GL_DYNAMIC_DRAW);
+       self.particleGpuData.basePosBuffer=basePosBuffer;
 }
 -(void)regShader;
 {
@@ -191,6 +244,10 @@
 -(void)initVcData;
 {
     
+}
+-(void)setParticleGpuData:(ParticleBallGpuData*)value;
+{
+    self.objData=value;
 }
 -(ParticleBallGpuData*)particleGpuData;
 {
