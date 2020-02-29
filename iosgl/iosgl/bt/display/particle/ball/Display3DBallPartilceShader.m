@@ -65,14 +65,18 @@
  */
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
-    "attribute vec3 position;\n"
+    "attribute vec4 position;\n"
     "attribute vec3 basePos;\n"
-    
+    "attribute vec3 texcoord;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
     
+    "varying vec2 v0;\n"
+    "varying vec2 v1;\n"
+    
     "void main()"
     "{"
+        "v1=vec2(texcoord.xy);\n"
         "vec4 vPos = vec4(position.xyz,1.0);\n"
         "vPos.xyz = vPos.xyz+basePos.xyz;\n"
         "gl_Position = vPos * posMatrix* viewMatrix;\n"
@@ -82,10 +86,15 @@
 }
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
-    "precision mediump float;\n"
+     "precision mediump float;\n"
+     "varying vec2 v0;\n"
+     "varying vec2 v1;\n"
+    "uniform sampler2D colorMap;\n"
     "void main()"
     "{"
-        "gl_FragColor =vec4(1.0,0.0,0.0,1.0);\n"
+        "vec4 infoUvA   =texture2D(colorMap,v1.xy);\n"
+        "vec4 infoUv  = vec4(1.0,0.0,0.0,1.0);\n"
+        "gl_FragColor =infoUvA;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

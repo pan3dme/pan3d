@@ -48,6 +48,7 @@
 		FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2A61C3239D04FD0011BF9E /* Context3D.m */; };
 		FE2BB2D62397F38A00597658 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2D52397F38A00597658 /* GlkView.m */; };
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
+		FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1B9F2409EEE0005E287F /* Vector2D.m */; };
 		FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */; };
 		FE3D4EDB2401B52600185FD3 /* levelup_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4ED92401B52600185FD3 /* levelup_base.txt */; };
 		FE3D4EDC2401B52600185FD3 /* levelup_lyf.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4EDA2401B52600185FD3 /* levelup_lyf.txt */; };
@@ -173,6 +174,8 @@
 		FE2BB2D52397F38A00597658 /* GlkView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlkView.m; sourceTree = "<group>"; };
 		FE2BB2DA23980EE600597658 /* GLSpriteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSpriteView.h; sourceTree = "<group>"; };
 		FE2BB2DB23980EE600597658 /* GLSpriteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSpriteView.m; sourceTree = "<group>"; };
+		FE2F1B9E2409EEE0005E287F /* Vector2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
+		FE2F1B9F2409EEE0005E287F /* Vector2D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vector2D.m; sourceTree = "<group>"; };
 		FE36A7B523FEB7D000F2DE86 /* Matrix3x3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3x3.h; sourceTree = "<group>"; };
 		FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalMatrixUtilities.h; sourceTree = "<group>"; };
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 				FE678835239B946800262B53 /* ResCount.m */,
 				FE259A2D239A0BB6007360E6 /* Vector3D.h */,
 				FE259A2E239A0BB6007360E6 /* Vector3D.m */,
+				FE2F1B9E2409EEE0005E287F /* Vector2D.h */,
+				FE2F1B9F2409EEE0005E287F /* Vector2D.m */,
 				FEF6063523B9CF5D00DE6C2F /* Object3D.h */,
 				FEF6063623B9CF5D00DE6C2F /* Object3D.m */,
 				FEF6063B23B9D20200DE6C2F /* Rectangle.h */,
@@ -762,6 +767,7 @@
 			files = (
 				FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
+				FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,

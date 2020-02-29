@@ -9,6 +9,7 @@
 #import "ParticleBallData.h"
 #import "ByteArray.h"
 #import "Vector3D.h"
+#import "Vector2D.h"
 #import "ParticleBallGpuData.h"
 #import "Display3DBallPartilce.h"
 
@@ -154,35 +155,41 @@
      self.objData =[[ParticleBallGpuData alloc]init] ;
     
     [self initBaseData];
+    [self initUV ];
+    [self initBasePos];
 }
 -(void)initBaseData
 {
   
   int lznum=self._totalNum;
-     float tw=10.0f;
-     float th=10.0f;
+     float tw=100.0f;
+     float th=100.0f;
  
-     GLfloat attrArr[lznum*12];
+     GLfloat attrArr[lznum*16];
      
      unsigned int Indices[lznum*6];
  
      for(int i=0;i<lznum;i++){
-         int skipAtt=i*12;
+         int skipAtt=i*16;
          attrArr[skipAtt+0]=-tw;
          attrArr[skipAtt+1]=-th;
          attrArr[skipAtt+2]=0.0f;
+            attrArr[skipAtt+3]=i;
          
-         attrArr[skipAtt+3]=tw;
-         attrArr[skipAtt+4]=-th;
-         attrArr[skipAtt+5]=0.0f;
+         attrArr[skipAtt+4]=tw;
+         attrArr[skipAtt+5]=-th;
+         attrArr[skipAtt+6]=0.0f;
+           attrArr[skipAtt+7]=i;
          
-         attrArr[skipAtt+6]=tw;
-         attrArr[skipAtt+7]=th;
-         attrArr[skipAtt+8]=0.0f;
+         attrArr[skipAtt+8]=tw;
+         attrArr[skipAtt+9]=th;
+         attrArr[skipAtt+10]=0.0f;
+           attrArr[skipAtt+11]=i;
          
-         attrArr[skipAtt+9]=-tw;
-         attrArr[skipAtt+10]=th;
-         attrArr[skipAtt+11]=0.0f;
+         attrArr[skipAtt+12]=-tw;
+         attrArr[skipAtt+13]=th;
+         attrArr[skipAtt+14]=0.0f;
+           attrArr[skipAtt+15]=i;
          
          int skipTri=i*4;
          int skipInd=i*6;
@@ -208,7 +215,46 @@
      self.objData.indexBuffer=indexBuffer;
  
   
-    [self initBasePos];
+ 
+}
+-(void)initUV;
+{
+    int lznum=self._totalNum;
+ 
+    Vector2D* a= [[Vector2D alloc]x:0.0f y:0.0f];
+    Vector2D* b= [[Vector2D alloc]x:1.0f y:0.0f];
+    Vector2D* c= [[Vector2D alloc]x:1.0f y:1.0f];
+    Vector2D* d= [[Vector2D alloc]x:0.0f y:1.0f];
+ 
+    
+        GLfloat uvArr[lznum*12];
+    
+        for(int i=0;i<lznum;i++){
+            int skipAtt=i*12;
+            uvArr[skipAtt+0]=a.x;
+            uvArr[skipAtt+1]=a.y;
+            uvArr[skipAtt+2]=i;
+            
+            uvArr[skipAtt+3]=b.x;
+            uvArr[skipAtt+4]=b.y;
+            uvArr[skipAtt+5]=i;
+            
+            uvArr[skipAtt+6]=c.x;
+            uvArr[skipAtt+7]=c.y;
+            uvArr[skipAtt+8]=i;
+            
+            uvArr[skipAtt+9]=d.x;
+            uvArr[skipAtt+10]=d.y;
+            uvArr[skipAtt+11]=i;
+   
+        }
+    
+      GLuint uvBuffer;
+      glGenBuffers(1, &uvBuffer);
+      glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+      glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
+      self.particleGpuData.uvBuffer=uvBuffer;
+        
 }
 -(void)initBasePos;
 {
