@@ -27,12 +27,34 @@ class TpSceneProcessor extends BaseProcessor {
     public getName(): string {
         return "TpSceneProcessor";
     }
+    private onMouseDown($evt: InteractiveEvent): void {
+
+        this.playLyf("model/levelup_lyf.txt")
+    }
+    protected playLyf(url:string)
+    {
+        GroupDataManager.getInstance().getGroupData(  Scene_data.fileRoot +url, (groupRes: GroupRes) => {
+
+            for (var i: number = 0; i < groupRes.dataAry.length; i++) {
+                var item:GroupItem = groupRes.dataAry[i];
+                if (item.types ==BaseRes.SCENE_PARTICLE_TYPE) {
+                    var $particle: CombineParticle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
+
+                    ParticleManager.getInstance().addParticle($particle);
+
+                } else {
+                    console.log("播放的3不是3单纯特效");
+                }
+            }
+
+        })
+    }
     protected receivedModuleEvent($event: BaseEvent): void {
         if ($event instanceof TpSceneEvent) {
             var $tpMenuEvent: TpSceneEvent = <TpSceneEvent>$event;
             if ($tpMenuEvent.type == TpSceneEvent.SHOW_TP_SCENE_EVENT) {
               this.addGridLineSprite();
-
+                Scene_data.uiBlankStage.addEventListener(InteractiveEvent.Down, this.onMouseDown, this);
                 /*
                 if (!getUrlParam("id")) {
                     window.location.href = "index.html?id=" + random(10);
@@ -44,26 +66,7 @@ class TpSceneProcessor extends BaseProcessor {
                 */
                 console.log("233");
                 Scene_data.supportBlob=true;
-               GroupDataManager.getInstance().getGroupData(  Scene_data.fileRoot + "model/levelup_lyf.txt", (groupRes: GroupRes) => {
 
-
-
-                   for (var i: number = 0; i < groupRes.dataAry.length; i++) {
-                       var item:GroupItem = groupRes.dataAry[i];
-                       if (item.types ==BaseRes.SCENE_PARTICLE_TYPE) {
-                           var $particle: CombineParticle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
-
-                           ParticleManager.getInstance().addParticle($particle);
-
-                       } else {
-                           console.log("播放的3不是3单纯特效");
-                       }
-                   }
-
-
-
-
-                })
             }
         }
 
@@ -119,8 +122,11 @@ class TpSceneProcessor extends BaseProcessor {
                 console.log(TimeUtil.getTimer())
             })
         };
+
+
     
     }
+
 
 
     private textPlaySkillFun: Function
