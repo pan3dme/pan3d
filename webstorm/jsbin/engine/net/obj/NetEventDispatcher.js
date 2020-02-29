@@ -240,3 +240,4 @@ var NetEventDispatcher = /** @class */ (function () {
     NetEventDispatcher.KEY_TYPE_INT_MASK = 2;
     return NetEventDispatcher;
 }());
+//# sourceMappingURL=NetEventDispatcher.js.map

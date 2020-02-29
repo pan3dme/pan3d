@@ -7839,3 +7839,4 @@ var c2s_raise_adventurespell = /** @class */ (function () {
     c2s_raise_adventurespell.optname = "onRaise_adventurespell";
     return c2s_raise_adventurespell;
 }());
+//# sourceMappingURL=clientmsg.js.map

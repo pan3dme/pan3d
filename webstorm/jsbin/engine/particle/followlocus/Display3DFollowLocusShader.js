@@ -69,3 +69,4 @@ var Display3DFollowLocusShader = /** @class */ (function (_super) {
     Display3DFollowLocusShader.shader_vec4 = { camPos: [2, 0] };
     return Display3DFollowLocusShader;
 }(Shader3D));
+//# sourceMappingURL=Display3DFollowLocusShader.js.map

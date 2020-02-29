@@ -45,3 +45,4 @@ var BaseButton = /** @class */ (function (_super) {
     };
     return BaseButton;
 }(UICompenent));
+//# sourceMappingURL=BaseButton.js.map

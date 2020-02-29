@@ -287,3 +287,4 @@ var GuidObjectTable = /** @class */ (function (_super) {
     GuidObjectTable.applyBlock_tmp_obj = new GuidObject;
     return GuidObjectTable;
 }(SyncEvent));
+//# sourceMappingURL=GuidObjectTable.js.map

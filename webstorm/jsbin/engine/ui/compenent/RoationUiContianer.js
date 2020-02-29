@@ -125,3 +125,4 @@ var RoationUICompenent = /** @class */ (function (_super) {
     };
     return RoationUICompenent;
 }(UICompenent));
+//# sourceMappingURL=RoationUiContianer.js.map

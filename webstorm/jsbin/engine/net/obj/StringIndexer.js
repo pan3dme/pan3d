@@ -154,3 +154,4 @@ var StringIndexer = /** @class */ (function () {
     };
     return StringIndexer;
 }());
+//# sourceMappingURL=StringIndexer.js.map

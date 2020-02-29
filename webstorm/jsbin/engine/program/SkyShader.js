@@ -72,3 +72,4 @@ var SkyShader = /** @class */ (function (_super) {
     SkyShader.Sky_Shader = "SkyShader";
     return SkyShader;
 }(Shader3D));
+//# sourceMappingURL=SkyShader.js.map

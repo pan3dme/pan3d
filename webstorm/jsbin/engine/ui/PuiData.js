@@ -191,3 +191,4 @@ var PuiData = /** @class */ (function () {
     PuiData.A_CARD_B = "A_CARD_B"; //押镖图标
     return PuiData;
 }());
+//# sourceMappingURL=PuiData.js.map

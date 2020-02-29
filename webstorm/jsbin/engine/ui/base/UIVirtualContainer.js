@@ -21,3 +21,4 @@ var UIVirtualContainer = /** @class */ (function (_super) {
     }
     return UIVirtualContainer;
 }(UIConatiner));
+//# sourceMappingURL=UIVirtualContainer.js.map

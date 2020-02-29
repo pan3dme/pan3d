@@ -6,3 +6,4 @@ var BaseEvent = /** @class */ (function () {
     BaseEvent.COMPLETE = "complete";
     return BaseEvent;
 }());
+//# sourceMappingURL=Event.js.map

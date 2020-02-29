@@ -76,3 +76,4 @@ var RankData = /** @class */ (function (_super) {
     };
     return RankData;
 }(GuidObject));
+//# sourceMappingURL=RankData.js.map

@@ -132,3 +132,4 @@ var GiftBaseVo = /** @class */ (function () {
     };
     return GiftBaseVo;
 }());
+//# sourceMappingURL=GiftPacksData.js.map

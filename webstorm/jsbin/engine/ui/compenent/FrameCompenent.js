@@ -126,3 +126,4 @@ var FrameCompenent = /** @class */ (function (_super) {
     };
     return FrameCompenent;
 }(UICompenent));
+//# sourceMappingURL=FrameCompenent.js.map

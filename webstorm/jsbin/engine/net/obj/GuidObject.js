@@ -47,3 +47,4 @@ var GuidObject = /** @class */ (function (_super) {
     };
     return GuidObject;
 }(SyncEventRecorder));
+//# sourceMappingURL=GuidObject.js.map

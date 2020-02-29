@@ -263,3 +263,4 @@ var AstarDataMesh = /** @class */ (function () {
     }
     return AstarDataMesh;
 }());
+//# sourceMappingURL=SceneRes.js.map

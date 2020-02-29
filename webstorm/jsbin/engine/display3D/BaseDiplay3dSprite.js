@@ -106,3 +106,4 @@ var BaseDiplay3dSprite = /** @class */ (function (_super) {
     };
     return BaseDiplay3dSprite;
 }(Display3D));
+//# sourceMappingURL=BaseDiplay3dSprite.js.map

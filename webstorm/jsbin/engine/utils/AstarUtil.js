@@ -264,3 +264,4 @@ var AstarUtil = /** @class */ (function () {
     AstarUtil.canwalkItem = [];
     return AstarUtil;
 }());
+//# sourceMappingURL=AstarUtil.js.map

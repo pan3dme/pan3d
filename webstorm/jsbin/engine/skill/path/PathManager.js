@@ -17,3 +17,4 @@ var PathManager = /** @class */ (function () {
     PathManager.dic = new Object;
     return PathManager;
 }());
+//# sourceMappingURL=PathManager.js.map

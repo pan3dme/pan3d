@@ -32,3 +32,4 @@ var MountChar = /** @class */ (function (_super) {
     };
     return MountChar;
 }(SceneBaseChar));
+//# sourceMappingURL=MountChar.js.map

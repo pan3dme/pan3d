@@ -206,3 +206,4 @@ var IconManager = /** @class */ (function () {
     };
     return IconManager;
 }());
+//# sourceMappingURL=IconManager.js.map

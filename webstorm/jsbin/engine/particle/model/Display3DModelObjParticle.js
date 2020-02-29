@@ -28,3 +28,4 @@ var Display3DModelObjParticle = /** @class */ (function (_super) {
     };
     return Display3DModelObjParticle;
 }(Display3DModelPartilce));
+//# sourceMappingURL=Display3DModelObjParticle.js.map

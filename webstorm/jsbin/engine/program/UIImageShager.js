@@ -51,3 +51,4 @@ var UIImageShader = /** @class */ (function (_super) {
     UIImageShader.UI_IMG_SHADER = "UI_img_Shader";
     return UIImageShader;
 }(Shader3D));
+//# sourceMappingURL=UIImageShager.js.map

@@ -21,3 +21,4 @@ var ResGC = /** @class */ (function () {
     };
     return ResGC;
 }());
+//# sourceMappingURL=ResGC.js.map

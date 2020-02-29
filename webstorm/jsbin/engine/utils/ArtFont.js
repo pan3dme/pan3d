@@ -374,3 +374,4 @@ var ArtFont = /** @class */ (function () {
     ArtFont.num64 = "NUM64"; //NUM
     return ArtFont;
 }());
+//# sourceMappingURL=ArtFont.js.map

@@ -50,3 +50,4 @@ var AxisMove = /** @class */ (function (_super) {
     };
     return AxisMove;
 }(BaseAnim));
+//# sourceMappingURL=AxisMove.js.map

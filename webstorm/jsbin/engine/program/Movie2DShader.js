@@ -65,3 +65,4 @@ var Movie2DShader = /** @class */ (function (_super) {
     Movie2DShader.MOVIE2D_SHADER = "Movie2DShader";
     return Movie2DShader;
 }(Shader3D));
+//# sourceMappingURL=Movie2DShader.js.map

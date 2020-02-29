@@ -24,3 +24,4 @@ var InteractiveEvent = /** @class */ (function (_super) {
     InteractiveEvent.Pinch = "Pinch";
     return InteractiveEvent;
 }(BaseEvent));
+//# sourceMappingURL=InteractiveEvent.js.map

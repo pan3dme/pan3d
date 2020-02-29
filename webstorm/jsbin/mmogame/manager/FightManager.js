@@ -408,3 +408,4 @@ var SkillBeAttackData = /** @class */ (function () {
     }
     return SkillBeAttackData;
 }());
+//# sourceMappingURL=FightManager.js.map

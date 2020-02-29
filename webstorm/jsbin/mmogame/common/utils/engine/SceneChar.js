@@ -961,3 +961,4 @@ var SceneChar = /** @class */ (function (_super) {
     SceneChar.Defaul_WoMan_Avater = 2012; //女
     return SceneChar;
 }(SceneBaseChar));
+//# sourceMappingURL=SceneChar.js.map

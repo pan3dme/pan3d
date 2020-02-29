@@ -61,3 +61,4 @@ var BindParticle = /** @class */ (function () {
     }
     return BindParticle;
 }());
+//# sourceMappingURL=MeshData.js.map

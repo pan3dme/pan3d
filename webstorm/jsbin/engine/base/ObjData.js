@@ -77,3 +77,4 @@ var ObjData = /** @class */ (function (_super) {
     };
     return ObjData;
 }(ResCount));
+//# sourceMappingURL=ObjData.js.map

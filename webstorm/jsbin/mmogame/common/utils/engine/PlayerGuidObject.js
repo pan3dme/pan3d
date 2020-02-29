@@ -1121,3 +1121,4 @@ var PlayerGuidObject = /** @class */ (function (_super) {
     };
     return PlayerGuidObject;
 }(GuidObject));
+//# sourceMappingURL=PlayerGuidObject.js.map

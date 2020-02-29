@@ -134,3 +134,4 @@ var SkillTrajectory = /** @class */ (function (_super) {
     };
     return SkillTrajectory;
 }(SkillKey));
+//# sourceMappingURL=SkillTrajectory.js.map

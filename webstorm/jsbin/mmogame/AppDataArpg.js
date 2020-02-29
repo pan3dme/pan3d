@@ -66,3 +66,4 @@ var AppDataArpg = /** @class */ (function () {
     AppDataArpg.lockMainChar = true;
     return AppDataArpg;
 }());
+//# sourceMappingURL=AppDataArpg.js.map

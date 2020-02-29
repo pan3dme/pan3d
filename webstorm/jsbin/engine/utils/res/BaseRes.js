@@ -358,3 +358,4 @@ var BaseRes = /** @class */ (function (_super) {
     BaseRes.SCENE_PARTICLE_TYPE = 11;
     return BaseRes;
 }(ResCount));
+//# sourceMappingURL=BaseRes.js.map

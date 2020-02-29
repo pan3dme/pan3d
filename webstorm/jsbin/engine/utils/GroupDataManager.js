@@ -53,3 +53,4 @@ var GroupDataManager = /** @class */ (function (_super) {
     };
     return GroupDataManager;
 }(ResGC));
+//# sourceMappingURL=GroupDataManager.js.map

@@ -75,3 +75,4 @@ var BuildShader = /** @class */ (function (_super) {
     BuildShader.buildShader = "BuildShader";
     return BuildShader;
 }(Shader3D));
+//# sourceMappingURL=BuildShader.js.map

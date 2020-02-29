@@ -73,3 +73,4 @@ var SkillSinPath = /** @class */ (function (_super) {
     };
     return SkillSinPath;
 }(SkillPath));
+//# sourceMappingURL=SkillSinPath.js.map

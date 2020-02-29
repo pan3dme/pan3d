@@ -36,3 +36,4 @@ var Vector2D = /** @class */ (function () {
     };
     return Vector2D;
 }());
+//# sourceMappingURL=Vector2D.js.map

@@ -41,3 +41,4 @@ var SkillMouseEventModel = /** @class */ (function () {
     };
     return SkillMouseEventModel;
 }());
+//# sourceMappingURL=SkillMouseEventModel.js.map

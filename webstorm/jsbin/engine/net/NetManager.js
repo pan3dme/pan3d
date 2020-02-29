@@ -72,3 +72,4 @@ var NetManager = /** @class */ (function () {
     };
     return NetManager;
 }());
+//# sourceMappingURL=NetManager.js.map

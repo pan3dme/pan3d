@@ -161,3 +161,4 @@ var ParticleManager = /** @class */ (function (_super) {
     };
     return ParticleManager;
 }(ResGC));
+//# sourceMappingURL=ParticleManager.js.map

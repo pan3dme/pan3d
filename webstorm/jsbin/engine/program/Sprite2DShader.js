@@ -56,3 +56,4 @@ var Sprite2DShader = /** @class */ (function (_super) {
     Sprite2DShader.SPRITE2D_SHADER = "Sprite2DShader";
     return Sprite2DShader;
 }(Shader3D));
+//# sourceMappingURL=Sprite2DShader.js.map

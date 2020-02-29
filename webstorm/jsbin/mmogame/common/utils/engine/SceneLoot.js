@@ -44,3 +44,4 @@ var SceneLoot = /** @class */ (function (_super) {
     };
     return SceneLoot;
 }(SceneChar));
+//# sourceMappingURL=SceneLoot.js.map

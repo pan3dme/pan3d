@@ -87,3 +87,4 @@ var MaterialBaseParam = /** @class */ (function (_super) {
     };
     return MaterialBaseParam;
 }(GC));
+//# sourceMappingURL=MaterialBaseParam.js.map

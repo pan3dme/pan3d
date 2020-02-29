@@ -55,3 +55,4 @@ var SceneBaseChar = /** @class */ (function (_super) {
     };
     return SceneBaseChar;
 }(Display3dMovie));
+//# sourceMappingURL=SceneBaseChar.js.map

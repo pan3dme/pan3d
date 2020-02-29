@@ -38,3 +38,4 @@ var BitMapData = /** @class */ (function () {
     };
     return BitMapData;
 }());
+//# sourceMappingURL=BitMapData.js.map

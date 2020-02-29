@@ -257,3 +257,4 @@ var fightui;
     }(UIPanel));
     fightui.FightSkillPanel = FightSkillPanel;
 })(fightui || (fightui = {}));
+//# sourceMappingURL=FightSkillPanel.js.map

@@ -31,3 +31,4 @@ var Scene2dManager = /** @class */ (function () {
     };
     return Scene2dManager;
 }());
+//# sourceMappingURL=Scene2dManager.js.map

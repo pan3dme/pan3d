@@ -36,3 +36,4 @@ var ParticleFollowData = /** @class */ (function (_super) {
     };
     return ParticleFollowData;
 }(ParticleBallData));
+//# sourceMappingURL=ParticleFollowData.js.map

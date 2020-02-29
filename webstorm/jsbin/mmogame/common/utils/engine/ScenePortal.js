@@ -34,3 +34,4 @@ var ScenePortal = /** @class */ (function (_super) {
     };
     return ScenePortal;
 }(SceneChar));
+//# sourceMappingURL=ScenePortal.js.map

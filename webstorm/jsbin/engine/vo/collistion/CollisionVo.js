@@ -37,3 +37,4 @@ var CollisionType = /** @class */ (function () {
     CollisionType.Cone = 4; //圆锥
     return CollisionType;
 }());
+//# sourceMappingURL=CollisionVo.js.map

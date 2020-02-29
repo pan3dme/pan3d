@@ -56,3 +56,4 @@ var UIShader = /** @class */ (function (_super) {
     UIShader.UI_SHADER = "UIShader";
     return UIShader;
 }(Shader3D));
+//# sourceMappingURL=UIShader.js.map

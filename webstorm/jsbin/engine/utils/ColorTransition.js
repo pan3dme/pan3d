@@ -43,3 +43,4 @@ var ColorTransition = /** @class */ (function () {
     };
     return ColorTransition;
 }());
+//# sourceMappingURL=ColorTransition.js.map

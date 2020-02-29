@@ -42,3 +42,4 @@ var ResCount = /** @class */ (function (_super) {
     ResCount.GCTime = 2;
     return ResCount;
 }(GC));
+//# sourceMappingURL=ResCount.js.map

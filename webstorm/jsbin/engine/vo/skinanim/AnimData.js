@@ -59,3 +59,4 @@ var AnimData = /** @class */ (function () {
     };
     return AnimData;
 }());
+//# sourceMappingURL=AnimData.js.map

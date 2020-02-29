@@ -22,3 +22,4 @@ var ScenePerfab = /** @class */ (function (_super) {
     };
     return ScenePerfab;
 }(Display3dMovie));
+//# sourceMappingURL=ScenePerfab.js.map

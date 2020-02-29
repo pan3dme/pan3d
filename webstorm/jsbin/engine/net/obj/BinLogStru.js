@@ -366,3 +366,4 @@ var BinLogStru = /** @class */ (function (_super) {
     BinLogStru._pool = new Array;
     return BinLogStru;
 }(SyncEvent));
+//# sourceMappingURL=BinLogStru.js.map

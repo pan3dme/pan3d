@@ -272,6 +272,7 @@ var SceneManager = /** @class */ (function () {
                 this.mathCamFar();
             }
         }
+        Engine.resetViewMatrx3D();
         Scene_data.context3D.update();
         Scene_data.context3D.setDepthTest(false);
         UIManager.getInstance().upLeyerZero();
@@ -381,3 +382,4 @@ var SceneManager = /** @class */ (function () {
     SceneManager.mapQudaTreeDistance = 200;
     return SceneManager;
 }());
+//# sourceMappingURL=SceneManager.js.map

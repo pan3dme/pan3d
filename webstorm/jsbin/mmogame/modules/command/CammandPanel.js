@@ -137,3 +137,4 @@ var camand;
     }(UIConatiner));
     camand.CammandPanel = CammandPanel;
 })(camand || (camand = {}));
+//# sourceMappingURL=CammandPanel.js.map

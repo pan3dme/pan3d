@@ -187,3 +187,4 @@ var SyncEventFilter = /** @class */ (function (_super) {
     SyncEventFilter.EV_UPDATE_S = 3;
     return SyncEventFilter;
 }(SyncEvent));
+//# sourceMappingURL=SyncEventFilter.js.map

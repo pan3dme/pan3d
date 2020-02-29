@@ -31,3 +31,4 @@ var Rectangle = /** @class */ (function () {
     };
     return Rectangle;
 }());
+//# sourceMappingURL=Rectangle.js.map

@@ -34,3 +34,4 @@ var SyncEvent = /** @class */ (function () {
     return SyncEvent;
 }());
 SyncEvent.init();
+//# sourceMappingURL=SyncEvent.js.map

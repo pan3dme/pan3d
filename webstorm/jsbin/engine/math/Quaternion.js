@@ -125,3 +125,4 @@ var Quaternion = /** @class */ (function () {
     };
     return Quaternion;
 }());
+//# sourceMappingURL=Quaternion.js.map

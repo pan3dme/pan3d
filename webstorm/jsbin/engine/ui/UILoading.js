@@ -57,3 +57,4 @@ var UILoading = /** @class */ (function (_super) {
     };
     return UILoading;
 }(UIConatiner));
+//# sourceMappingURL=UILoading.js.map

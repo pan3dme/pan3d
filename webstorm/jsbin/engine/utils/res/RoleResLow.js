@@ -19,3 +19,4 @@ var RoleResLow = /** @class */ (function (_super) {
     }
     return RoleResLow;
 }(RoleRes));
+//# sourceMappingURL=RoleResLow.js.map

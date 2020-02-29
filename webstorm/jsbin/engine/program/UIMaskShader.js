@@ -45,3 +45,4 @@ var UIMaskShader = /** @class */ (function (_super) {
     UIMaskShader.UI_MASK_SHADER = "UImaskShader";
     return UIMaskShader;
 }(Shader3D));
+//# sourceMappingURL=UIMaskShader.js.map

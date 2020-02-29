@@ -673,3 +673,4 @@ var act_rank_info = /** @class */ (function () {
     };
     return act_rank_info;
 }());
+//# sourceMappingURL=clientstru.js.map

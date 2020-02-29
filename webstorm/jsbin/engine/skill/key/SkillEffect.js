@@ -29,3 +29,4 @@ var SkillEffect = /** @class */ (function (_super) {
     };
     return SkillEffect;
 }(SkillKey));
+//# sourceMappingURL=SkillEffect.js.map

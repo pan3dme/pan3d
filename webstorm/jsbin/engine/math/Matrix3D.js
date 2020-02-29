@@ -466,3 +466,4 @@ var Matrix3D = /** @class */ (function () {
     Matrix3D.tempM = new Matrix3D();
     return Matrix3D;
 }());
+//# sourceMappingURL=Matrix3D.js.map

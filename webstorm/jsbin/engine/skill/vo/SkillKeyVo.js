@@ -65,3 +65,4 @@ var SkillTrajectoryTargetKeyVo = /** @class */ (function (_super) {
     };
     return SkillTrajectoryTargetKeyVo;
 }(SkillKeyVo));
+//# sourceMappingURL=SkillKeyVo.js.map

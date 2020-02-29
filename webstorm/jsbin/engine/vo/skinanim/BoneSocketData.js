@@ -4,3 +4,4 @@ var BoneSocketData = /** @class */ (function () {
     }
     return BoneSocketData;
 }());
+//# sourceMappingURL=BoneSocketData.js.map

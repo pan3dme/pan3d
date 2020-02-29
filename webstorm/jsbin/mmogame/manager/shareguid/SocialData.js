@@ -305,3 +305,4 @@ var SocialItemData = /** @class */ (function () {
     }
     return SocialItemData;
 }());
+//# sourceMappingURL=SocialData.js.map

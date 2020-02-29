@@ -43,3 +43,4 @@ var UIStage = /** @class */ (function (_super) {
     };
     return UIStage;
 }(EventDispatcher));
+//# sourceMappingURL=UIStage.js.map

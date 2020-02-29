@@ -339,3 +339,4 @@ var UICompenent = /** @class */ (function (_super) {
     };
     return UICompenent;
 }(EventDispatcher));
+//# sourceMappingURL=UICompenent.js.map

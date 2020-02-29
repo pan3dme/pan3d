@@ -60,3 +60,4 @@ var ColorType = /** @class */ (function () {
     ColorType.color9c9b9b = "[9c9b9b]";
     return ColorType;
 }());
+//# sourceMappingURL=ColorType.js.map

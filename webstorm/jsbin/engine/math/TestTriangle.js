@@ -50,3 +50,4 @@ var TestTriangle = /** @class */ (function () {
     TestTriangle.baseTri = new TestTriangle;
     return TestTriangle;
 }());
+//# sourceMappingURL=TestTriangle.js.map

@@ -52,3 +52,4 @@ var SkillType = /** @class */ (function () {
     SkillType.TrajectoryDynamicPoint = 3;
     return SkillType;
 }());
+//# sourceMappingURL=SkillVo.js.map

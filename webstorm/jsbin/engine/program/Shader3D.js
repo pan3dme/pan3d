@@ -77,3 +77,4 @@ var Shader3D = /** @class */ (function (_super) {
     };
     return Shader3D;
 }(ResCount));
+//# sourceMappingURL=Shader3D.js.map

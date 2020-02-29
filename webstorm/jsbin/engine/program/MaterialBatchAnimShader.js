@@ -215,3 +215,4 @@ var MaterialBatchAnimShader = /** @class */ (function (_super) {
     };
     return MaterialBatchAnimShader;
 }(Shader3D));
+//# sourceMappingURL=MaterialBatchAnimShader.js.map

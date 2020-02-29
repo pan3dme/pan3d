@@ -35,3 +35,4 @@ var ObjectDef = /** @class */ (function () {
     ObjectDef.GAME_CONFIG = "G.gameconfig";
     return ObjectDef;
 }());
+//# sourceMappingURL=ObjectDef.js.map

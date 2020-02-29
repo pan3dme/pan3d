@@ -20,3 +20,4 @@ var DynamicBaseTexItem = /** @class */ (function () {
     });
     return DynamicBaseTexItem;
 }());
+//# sourceMappingURL=DynamicBaseTexItem.js.map

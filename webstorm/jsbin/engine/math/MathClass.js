@@ -167,3 +167,4 @@ var MathClass = /** @class */ (function () {
     };
     return MathClass;
 }());
+//# sourceMappingURL=MathClass.js.map

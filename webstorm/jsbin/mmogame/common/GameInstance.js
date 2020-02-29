@@ -158,3 +158,4 @@ var GameInstance = /** @class */ (function () {
     GameInstance.first = false;
     return GameInstance;
 }());
+//# sourceMappingURL=GameInstance.js.map

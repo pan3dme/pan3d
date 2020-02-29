@@ -3000,3 +3000,4 @@ var SharedDef = /** @class */ (function () {
     SharedDef.ADVENTURE_UNLOCK_LIMIT_MOUNT = 6; // 坐骑到几星几阶
     return SharedDef;
 }());
+//# sourceMappingURL=SharedDef.js.map

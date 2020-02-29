@@ -177,3 +177,4 @@ var ObjDataManager = /** @class */ (function (_super) {
     };
     return ObjDataManager;
 }(ResGC));
+//# sourceMappingURL=ObjDataManager.js.map

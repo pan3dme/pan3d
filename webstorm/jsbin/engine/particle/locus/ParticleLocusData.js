@@ -140,3 +140,4 @@ var ParticleLocusData = /** @class */ (function (_super) {
     };
     return ParticleLocusData;
 }(ParticleData));
+//# sourceMappingURL=ParticleLocusData.js.map

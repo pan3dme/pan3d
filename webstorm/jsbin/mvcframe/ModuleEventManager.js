@@ -13,3 +13,4 @@ var ModuleEventManager = /** @class */ (function () {
     ModuleEventManager._instance = new EventDispatcher();
     return ModuleEventManager;
 }());
+//# sourceMappingURL=ModuleEventManager.js.map

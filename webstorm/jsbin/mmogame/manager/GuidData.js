@@ -4,3 +4,4 @@ var GuidData = /** @class */ (function () {
     }
     return GuidData;
 }());
+//# sourceMappingURL=GuidData.js.map

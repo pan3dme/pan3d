@@ -22,3 +22,4 @@ var TextureRes = /** @class */ (function (_super) {
     };
     return TextureRes;
 }(ResCount));
+//# sourceMappingURL=TextureRes.js.map

@@ -93,3 +93,4 @@ var ParticleFollowLocusData = /** @class */ (function (_super) {
     };
     return ParticleFollowLocusData;
 }(ParticleData));
+//# sourceMappingURL=ParticleFollowLocusData.js.map

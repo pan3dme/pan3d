@@ -175,3 +175,4 @@ var GlobelValueData = /** @class */ (function (_super) {
     };
     return GlobelValueData;
 }(GuidObject));
+//# sourceMappingURL=GlobelValueData.js.map

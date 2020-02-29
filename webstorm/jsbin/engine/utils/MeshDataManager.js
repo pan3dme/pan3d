@@ -288,3 +288,4 @@ var MeshDataManager = /** @class */ (function (_super) {
     };
     return MeshDataManager;
 }(ResGC));
+//# sourceMappingURL=MeshDataManager.js.map

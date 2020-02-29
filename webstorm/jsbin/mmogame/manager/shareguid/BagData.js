@@ -526,3 +526,4 @@ var ItemData = /** @class */ (function () {
     }
     return ItemData;
 }());
+//# sourceMappingURL=BagData.js.map

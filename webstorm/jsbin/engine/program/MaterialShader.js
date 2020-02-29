@@ -187,3 +187,4 @@ var MaterialShader = /** @class */ (function (_super) {
     MaterialShader.MATERIAL_SHADER = "Material_shader";
     return MaterialShader;
 }(Shader3D));
+//# sourceMappingURL=MaterialShader.js.map

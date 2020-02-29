@@ -130,3 +130,4 @@ var UIRenderOnlyPicComponent = /** @class */ (function (_super) {
     };
     return UIRenderOnlyPicComponent;
 }(UIRenderComponent));
+//# sourceMappingURL=UIBackImg.js.map

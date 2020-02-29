@@ -27,3 +27,4 @@ var TpGame = /** @class */ (function () {
     TpGame.ready = false;
     return TpGame;
 }());
+//# sourceMappingURL=TpGame.js.map

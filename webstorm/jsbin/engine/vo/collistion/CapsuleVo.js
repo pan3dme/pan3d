@@ -6,3 +6,4 @@ var CapsuleVo = /** @class */ (function () {
     }
     return CapsuleVo;
 }());
+//# sourceMappingURL=CapsuleVo.js.map

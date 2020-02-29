@@ -64,3 +64,4 @@ var Camera3D = /** @class */ (function (_super) {
     });
     return Camera3D;
 }(Object3D));
+//# sourceMappingURL=Camera3D.js.map

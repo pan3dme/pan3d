@@ -87,3 +87,4 @@ var Display3DModelPartilce = /** @class */ (function (_super) {
     };
     return Display3DModelPartilce;
 }(Display3DParticle));
+//# sourceMappingURL=Display3DModelPartilce.js.map

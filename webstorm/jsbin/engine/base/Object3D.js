@@ -174,3 +174,4 @@ var Object3D = /** @class */ (function (_super) {
     };
     return Object3D;
 }(EventDispatcher));
+//# sourceMappingURL=Object3D.js.map

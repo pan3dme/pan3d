@@ -71,3 +71,4 @@ var SkillMulTrajectory = /** @class */ (function (_super) {
     };
     return SkillMulTrajectory;
 }(SkillTrajectory));
+//# sourceMappingURL=SkillMulTrajectory.js.map

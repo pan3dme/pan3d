@@ -123,3 +123,4 @@ var Display3DLocusShader = /** @class */ (function (_super) {
     Display3DLocusShader.shader_vec4 = { uvMove: [3, 0], camPos: [3, 1], isUv: [3, 2] };
     return Display3DLocusShader;
 }(Shader3D));
+//# sourceMappingURL=Display3DLocusShader.js.map

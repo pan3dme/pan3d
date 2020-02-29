@@ -260,3 +260,4 @@ var InstanceData = /** @class */ (function (_super) {
     };
     return InstanceData;
 }(GuidObject));
+//# sourceMappingURL=InstanceData.js.map

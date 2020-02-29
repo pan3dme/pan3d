@@ -26,3 +26,4 @@ var Display3dModelAnimParticle = /** @class */ (function (_super) {
     };
     return Display3dModelAnimParticle;
 }(Display3DModelPartilce));
+//# sourceMappingURL=Display3dModelAnimParticle.js.map

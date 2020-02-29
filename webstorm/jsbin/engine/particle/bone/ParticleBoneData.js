@@ -119,3 +119,4 @@ var ParticleBoneData = /** @class */ (function (_super) {
     };
     return ParticleBoneData;
 }(ParticleData));
+//# sourceMappingURL=ParticleBoneData.js.map

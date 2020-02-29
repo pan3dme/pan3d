@@ -51,3 +51,4 @@ var LineDisplayShader = /** @class */ (function (_super) {
     LineDisplayShader.LineShader = "LineShader";
     return LineDisplayShader;
 }(Shader3D));
+//# sourceMappingURL=LineDisplayShader.js.map

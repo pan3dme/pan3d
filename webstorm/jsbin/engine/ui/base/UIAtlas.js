@@ -299,3 +299,4 @@ var UIAtlas = /** @class */ (function () {
     };
     return UIAtlas;
 }());
+//# sourceMappingURL=UIAtlas.js.map

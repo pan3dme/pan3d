@@ -178,3 +178,4 @@ var TpSceneProcessor = /** @class */ (function (_super) {
     };
     return TpSceneProcessor;
 }(BaseProcessor));
+//# sourceMappingURL=TpSceneProcessor.js.map

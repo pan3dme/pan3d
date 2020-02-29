@@ -255,3 +255,4 @@ var Display3DBallShader = /** @class */ (function (_super) {
     Display3DBallShader.shader_vec4 = { time: [5, 0], scale: [5, 1], scaleCtrl: [5, 2], force: [5, 3], worldPos: [6, 0], camPos: [6, 1], animCtrl: [6, 2], uvCtrl: [6, 3] };
     return Display3DBallShader;
 }(Shader3D));
+//# sourceMappingURL=Display3DBallShader.js.map

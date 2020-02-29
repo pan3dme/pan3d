@@ -102,10 +102,13 @@ var Engine = /** @class */ (function () {
         var fovw = Scene_data.stageWidth;
         var fovh = Scene_data.stageHeight;
         Scene_data.sceneViewHW = Math.max(fovw, fovh);
-        console.log("resetViewMatrx3D", Scene_data.sceneViewHW);
-        Scene_data.viewMatrx3D.appendScale(1 / Scene_data.sceneViewHW * 2, 1 / Scene_data.sceneViewHW * 2, 1 / 1000);
+        /*
+                Scene_data.viewMatrx3D.appendScale(1 / Scene_data.sceneViewHW * 2, 1 / Scene_data.sceneViewHW * 2, 1 / 1000);
+                Scene_data.viewMatrx3D.appendScale(1 * (Scene_data.sceneViewHW / fovw * 2), fovw / fovh * (Scene_data.sceneViewHW / fovw * 2), 1);
+                Scene_data.viewMatrx3D.appendScale(2 * UIData.htmlScale, 2 * UIData.htmlScale, 1);
+        */
+        Scene_data.viewMatrx3D.perspectiveFieldOfViewLH(this.sceneCamScale, 1, 50, Scene_data.camFar);
         Scene_data.viewMatrx3D.appendScale(1 * (Scene_data.sceneViewHW / fovw * 2), fovw / fovh * (Scene_data.sceneViewHW / fovw * 2), 1);
-        Scene_data.viewMatrx3D.appendScale(2 * UIData.htmlScale, 2 * UIData.htmlScale, 1);
         if (this.resetFun) {
             this.resetFun();
         }
@@ -123,3 +126,4 @@ var Engine = /** @class */ (function () {
     Engine.sceneCamScale = 1.76;
     return Engine;
 }());
+//# sourceMappingURL=Engine.js.map

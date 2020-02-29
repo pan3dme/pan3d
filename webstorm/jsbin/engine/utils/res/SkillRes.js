@@ -138,3 +138,4 @@ var SkillRes = /** @class */ (function (_super) {
     };
     return SkillRes;
 }(BaseRes));
+//# sourceMappingURL=SkillRes.js.map

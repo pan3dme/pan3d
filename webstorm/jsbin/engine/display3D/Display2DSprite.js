@@ -137,3 +137,4 @@ var Sprite = /** @class */ (function (_super) {
     });
     return Sprite;
 }(Object3D));
+//# sourceMappingURL=Display2DSprite.js.map

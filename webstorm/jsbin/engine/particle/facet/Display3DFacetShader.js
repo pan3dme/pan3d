@@ -65,3 +65,4 @@ var Display3DFacetShader = /** @class */ (function (_super) {
     Display3DFacetShader.shader_vec4 = { uvMove: [4, 0] };
     return Display3DFacetShader;
 }(Shader3D));
+//# sourceMappingURL=Display3DFacetShader.js.map

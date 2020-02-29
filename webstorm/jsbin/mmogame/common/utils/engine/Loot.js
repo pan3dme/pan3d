@@ -149,3 +149,4 @@ var Loot = /** @class */ (function (_super) {
     };
     return Loot;
 }(Unit));
+//# sourceMappingURL=Loot.js.map

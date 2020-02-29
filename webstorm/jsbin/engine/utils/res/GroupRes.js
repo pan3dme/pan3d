@@ -130,3 +130,4 @@ var GroupItem = /** @class */ (function (_super) {
     }
     return GroupItem;
 }(Object3D));
+//# sourceMappingURL=GroupRes.js.map

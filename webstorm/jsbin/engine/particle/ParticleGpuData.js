@@ -19,3 +19,4 @@ var ParticleGpuData = /** @class */ (function (_super) {
     }
     return ParticleGpuData;
 }(ObjData));
+//# sourceMappingURL=ParticleGpuData.js.map

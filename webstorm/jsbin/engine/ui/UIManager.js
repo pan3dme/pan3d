@@ -422,3 +422,4 @@ var UIManager = /** @class */ (function () {
     UIManager.cando = true; //  标记只会选择一次。此循环结束
     return UIManager;
 }());
+//# sourceMappingURL=UIManager.js.map

@@ -719,3 +719,4 @@ var FactionLeadData = /** @class */ (function () {
     }
     return FactionLeadData;
 }());
+//# sourceMappingURL=FactionData.js.map

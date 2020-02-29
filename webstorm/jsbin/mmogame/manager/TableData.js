@@ -4658,3 +4658,4 @@ var TableData = /** @class */ (function () {
     TableData.tb_equip_suit_effect = "tb_equip_suit_effect";
     return TableData;
 }());
+//# sourceMappingURL=TableData.js.map

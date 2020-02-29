@@ -22,3 +22,4 @@ var UIGridRentangle = /** @class */ (function (_super) {
     }
     return UIGridRentangle;
 }(UIRectangle));
+//# sourceMappingURL=UIGridRectangle.js.map

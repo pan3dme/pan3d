@@ -140,3 +140,4 @@ var SceneAstarModel = /** @class */ (function (_super) {
     };
     return SceneAstarModel;
 }(UIPanel));
+//# sourceMappingURL=SceneAstarModel.js.map

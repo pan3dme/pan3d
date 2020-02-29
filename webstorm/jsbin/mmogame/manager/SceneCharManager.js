@@ -140,3 +140,4 @@ var SceneCharManager = /** @class */ (function () {
     };
     return SceneCharManager;
 }());
+//# sourceMappingURL=SceneCharManager.js.map

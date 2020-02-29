@@ -13,7 +13,7 @@ class TpSceneEvent extends BaseEvent {
     public static SHOW_TP_SCENE_EVENT: string = "SHOW_TP_SCENE_EVENT";
     public static ENTER_SCENE_EVENT: string = "ENTER_SCENE_EVENT";
     
-    public mapId: number
+    public  mapId: number
 
 
 

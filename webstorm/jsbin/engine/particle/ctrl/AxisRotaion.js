@@ -51,3 +51,4 @@ var AxisRotaion = /** @class */ (function (_super) {
     };
     return AxisRotaion;
 }(BaseAnim));
+//# sourceMappingURL=AxisRotaion.js.map

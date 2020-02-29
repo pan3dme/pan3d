@@ -75,3 +75,4 @@ var ParticleModelData = /** @class */ (function (_super) {
     };
     return ParticleModelData;
 }(ParticleData));
+//# sourceMappingURL=ParticleModelData.js.map

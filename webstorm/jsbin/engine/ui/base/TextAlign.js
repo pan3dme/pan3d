@@ -10,3 +10,4 @@ var TextAlign = /** @class */ (function () {
     TextAlign.BOTTOM = "bottom";
     return TextAlign;
 }());
+//# sourceMappingURL=TextAlign.js.map

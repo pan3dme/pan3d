@@ -655,3 +655,4 @@ var GameData = /** @class */ (function () {
     GameData.configData = new GameConfigData;
     return GameData;
 }());
+//# sourceMappingURL=GameData.js.map

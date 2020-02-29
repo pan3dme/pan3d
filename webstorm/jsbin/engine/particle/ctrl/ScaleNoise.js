@@ -51,3 +51,4 @@ var ScaleNoise = /** @class */ (function (_super) {
     };
     return ScaleNoise;
 }(BaseAnim));
+//# sourceMappingURL=ScaleNoise.js.map

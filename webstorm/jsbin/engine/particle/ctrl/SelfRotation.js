@@ -45,3 +45,4 @@ var SelfRotation = /** @class */ (function (_super) {
     };
     return SelfRotation;
 }(BaseAnim));
+//# sourceMappingURL=SelfRotation.js.map

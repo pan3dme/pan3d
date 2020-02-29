@@ -490,3 +490,4 @@ var FirstvictoryVo = /** @class */ (function () {
     }
     return FirstvictoryVo;
 }());
+//# sourceMappingURL=MapInfo.js.map

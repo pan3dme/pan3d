@@ -250,3 +250,4 @@ var Skill = /** @class */ (function (_super) {
     Skill.MaxTime = 1000 * 5;
     return Skill;
 }(ResCount));
+//# sourceMappingURL=Skill.js.map

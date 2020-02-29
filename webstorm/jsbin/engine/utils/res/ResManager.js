@@ -108,3 +108,4 @@ var ResManager = /** @class */ (function (_super) {
     };
     return ResManager;
 }(ResGC));
+//# sourceMappingURL=ResManager.js.map

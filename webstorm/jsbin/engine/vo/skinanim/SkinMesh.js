@@ -118,3 +118,4 @@ var SkinMesh = /** @class */ (function (_super) {
     };
     return SkinMesh;
 }(ResCount));
+//# sourceMappingURL=SkinMesh.js.map

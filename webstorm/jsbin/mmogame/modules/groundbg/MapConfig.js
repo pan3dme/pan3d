@@ -68,3 +68,4 @@ var MapConfig = /** @class */ (function () {
     MapConfig.Scale = 1;
     return MapConfig;
 }());
+//# sourceMappingURL=MapConfig.js.map

@@ -27,3 +27,4 @@ var UIRectangle = /** @class */ (function (_super) {
     }
     return UIRectangle;
 }(Rectangle));
+//# sourceMappingURL=UIRectangle.js.map

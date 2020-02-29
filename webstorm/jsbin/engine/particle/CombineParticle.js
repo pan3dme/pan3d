@@ -408,3 +408,4 @@ var CombineParticle = /** @class */ (function (_super) {
     };
     return CombineParticle;
 }(EventDispatcher));
+//# sourceMappingURL=CombineParticle.js.map

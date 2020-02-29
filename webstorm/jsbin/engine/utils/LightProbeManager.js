@@ -98,3 +98,4 @@ var PosItem = /** @class */ (function () {
     };
     return PosItem;
 }());
+//# sourceMappingURL=LightProbeManager.js.map

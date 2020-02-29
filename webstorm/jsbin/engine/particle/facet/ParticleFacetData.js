@@ -101,3 +101,4 @@ var ParticleFacetData = /** @class */ (function (_super) {
     };
     return ParticleFacetData;
 }(ParticleData));
+//# sourceMappingURL=ParticleFacetData.js.map

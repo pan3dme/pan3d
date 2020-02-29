@@ -41,3 +41,4 @@ var EngineEvent = /** @class */ (function (_super) {
     EngineEvent.SYSTEM_OPEN_EVENT = "SYSTEM_OPEN_EVENT"; //新系统开启事件
     return EngineEvent;
 }(BaseEvent));
+//# sourceMappingURL=EngineEvent.js.map

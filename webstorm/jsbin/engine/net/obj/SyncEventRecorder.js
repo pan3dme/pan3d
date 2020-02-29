@@ -802,3 +802,4 @@ var SyncEventRecorder = /** @class */ (function (_super) {
     SyncEventRecorder.tmpStrMask = new UpdateMask;
     return SyncEventRecorder;
 }(SyncEvent));
+//# sourceMappingURL=SyncEventRecorder.js.map

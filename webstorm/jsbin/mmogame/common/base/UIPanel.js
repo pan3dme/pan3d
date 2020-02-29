@@ -43,3 +43,4 @@ var UIPanel = /** @class */ (function (_super) {
     };
     return UIPanel;
 }(UIConatiner));
+//# sourceMappingURL=UIPanel.js.map

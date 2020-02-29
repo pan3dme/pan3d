@@ -67,3 +67,4 @@ var GameStart = /** @class */ (function () {
     GameStart.appVersion = 0;
     return GameStart;
 }());
+//# sourceMappingURL=GameStart.js.map

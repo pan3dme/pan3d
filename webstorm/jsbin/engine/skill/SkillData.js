@@ -19,3 +19,4 @@ var SkillData = /** @class */ (function (_super) {
     }
     return SkillData;
 }(ResCount));
+//# sourceMappingURL=SkillData.js.map

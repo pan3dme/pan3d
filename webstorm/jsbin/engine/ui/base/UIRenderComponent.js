@@ -385,3 +385,4 @@ var UIRenderComponent = /** @class */ (function () {
     };
     return UIRenderComponent;
 }());
+//# sourceMappingURL=UIRenderComponent.js.map

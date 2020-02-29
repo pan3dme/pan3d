@@ -37,3 +37,4 @@ var KeyboardType = /** @class */ (function () {
     KeyboardType.F2 = 113;
     return KeyboardType;
 }());
+//# sourceMappingURL=KeyboardType.js.map

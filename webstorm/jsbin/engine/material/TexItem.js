@@ -37,3 +37,4 @@ var TexItem = /** @class */ (function () {
     TexItem.REFRACTIONMAP = 5;
     return TexItem;
 }());
+//# sourceMappingURL=TexItem.js.map

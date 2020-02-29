@@ -51,3 +51,4 @@ var ModelRes = /** @class */ (function (_super) {
     };
     return ModelRes;
 }(BaseRes));
+//# sourceMappingURL=ModelRes.js.map

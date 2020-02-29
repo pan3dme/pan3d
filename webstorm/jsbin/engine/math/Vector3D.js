@@ -100,3 +100,4 @@ var Vector3D = /** @class */ (function () {
     Vector3D.Z_AXIS = new Vector3D(0, 0, 1);
     return Vector3D;
 }());
+//# sourceMappingURL=Vector3D.js.map

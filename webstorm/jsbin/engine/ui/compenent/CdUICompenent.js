@@ -171,3 +171,4 @@ var CdUIShader = /** @class */ (function (_super) {
     CdUIShader.CdUIShader = "CdUIShader";
     return CdUIShader;
 }(Shader3D));
+//# sourceMappingURL=CdUICompenent.js.map

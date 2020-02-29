@@ -31,3 +31,4 @@ var SkillSceneChar = /** @class */ (function (_super) {
     };
     return SkillSceneChar;
 }(SceneChar));
+//# sourceMappingURL=SkillSceneChar.js.map

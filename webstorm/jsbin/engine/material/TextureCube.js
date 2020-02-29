@@ -4,3 +4,4 @@ var TextureCube = /** @class */ (function () {
     }
     return TextureCube;
 }());
+//# sourceMappingURL=TextureCube.js.map

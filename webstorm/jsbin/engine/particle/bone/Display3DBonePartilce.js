@@ -136,3 +136,4 @@ var Display3DBonePartilce = /** @class */ (function (_super) {
     };
     return Display3DBonePartilce;
 }(Display3DParticle));
+//# sourceMappingURL=Display3DBonePartilce.js.map

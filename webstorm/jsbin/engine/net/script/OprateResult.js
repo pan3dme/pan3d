@@ -525,3 +525,4 @@ var OprateResult = /** @class */ (function () {
     OprateResult.MONEYTREE_TYPE_CRIT = 1; // 暴击
     return OprateResult;
 }());
+//# sourceMappingURL=OprateResult.js.map

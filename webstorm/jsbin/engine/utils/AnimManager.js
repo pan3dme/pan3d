@@ -228,3 +228,4 @@ var ObjectBone = /** @class */ (function (_super) {
     }
     return ObjectBone;
 }(ObjectBaseBone));
+//# sourceMappingURL=AnimManager.js.map

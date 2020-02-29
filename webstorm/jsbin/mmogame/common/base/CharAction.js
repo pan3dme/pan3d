@@ -20,3 +20,4 @@ var CharAction = /** @class */ (function () {
     CharAction.s_attack_01 = "s_attack_01"; //移动中行走的特殊技能
     return CharAction;
 }());
+//# sourceMappingURL=CharAction.js.map

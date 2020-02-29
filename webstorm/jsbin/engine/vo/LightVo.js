@@ -18,3 +18,4 @@ var LightVo = /** @class */ (function () {
     };
     return LightVo;
 }());
+//# sourceMappingURL=LightVo.js.map

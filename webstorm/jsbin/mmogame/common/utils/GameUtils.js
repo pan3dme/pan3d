@@ -234,3 +234,4 @@ function costRes($costary, fun, failFun) {
 function hasEnoughResItem($costary) {
     return false;
 }
+//# sourceMappingURL=GameUtils.js.map

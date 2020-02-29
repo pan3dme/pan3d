@@ -88,3 +88,4 @@ var ScaleChange = /** @class */ (function (_super) {
     };
     return ScaleChange;
 }(BaseAnim));
+//# sourceMappingURL=ScaleChange.js.map

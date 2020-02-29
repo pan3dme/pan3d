@@ -19,3 +19,4 @@ var SceneBaseCollection = /** @class */ (function (_super) {
     }
     return SceneBaseCollection;
 }(SceneChar));
+//# sourceMappingURL=SceneBaseCollection.js.map

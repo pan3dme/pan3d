@@ -104,3 +104,4 @@ var Display3DFacetParticle = /** @class */ (function (_super) {
     };
     return Display3DFacetParticle;
 }(Display3DParticle));
+//# sourceMappingURL=Display3DFacetParticle.js.map

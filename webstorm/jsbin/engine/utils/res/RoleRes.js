@@ -80,3 +80,4 @@ var RoleRes = /** @class */ (function (_super) {
     };
     return RoleRes;
 }(BaseRes));
+//# sourceMappingURL=RoleRes.js.map

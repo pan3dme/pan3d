@@ -93,3 +93,4 @@ var FrameTipCompenent = /** @class */ (function (_super) {
     };
     return FrameTipCompenent;
 }(FrameCompenent));
+//# sourceMappingURL=FrameUIRender.js.map

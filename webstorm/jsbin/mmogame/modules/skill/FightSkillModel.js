@@ -112,3 +112,4 @@ var FightSkillModel = /** @class */ (function () {
     };
     return FightSkillModel;
 }());
+//# sourceMappingURL=FightSkillModel.js.map
