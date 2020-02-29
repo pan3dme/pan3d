@@ -65,7 +65,7 @@
         
         Context3D *context3D=self.scene3d.context3D;
         
-        [context3D setRenderTexture:self.textureRes.texture ];
+     //   [context3D setRenderTexture:self.textureRes.texture ];
         [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
         [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
         [context3D setVcMatrix3fv:self.shader3d name:"rotationMat3x3" data:self.rotationMatrix3D.rotationM];

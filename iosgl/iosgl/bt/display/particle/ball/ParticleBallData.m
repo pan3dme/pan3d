@@ -162,8 +162,8 @@
 {
   
   int lznum=self._totalNum;
-     float tw=100.0f;
-     float th=100.0f;
+     float tw=20.0f;
+     float th=20.0f;
  
      GLfloat attrArr[lznum*16];
      

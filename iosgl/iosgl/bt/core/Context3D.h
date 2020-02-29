@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)pushVa:(GLuint)dataBuffer;
 -(void)setVaOffset:(Shader3D*)shader name:(GLchar*)name dataWidth:(int)dataWidth stride:(int)stride offset:(int)offset;
 -(void)drawCall:(GLuint)ibuff numTril:(int)numTril;
--(void)setRenderTexture:(GLKTextureInfo*)textureRes;
+-(void)setRenderTexture:(Shader3D*)shader name:(GLchar*)name  texture: (GLuint)texture;
  
 @end
 

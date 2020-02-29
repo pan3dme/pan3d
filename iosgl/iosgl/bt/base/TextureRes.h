@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TextureRes : ResCount
-@property (nonatomic,copy) GLKTextureInfo *texture;
+ 
+@property (nonatomic, assign) GLuint  textTureLuint;
 @end
 
 NS_ASSUME_NONNULL_END
