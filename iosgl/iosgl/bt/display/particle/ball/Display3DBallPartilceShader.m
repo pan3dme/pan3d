@@ -122,11 +122,13 @@
     
 
        // "outvec3=speed;\n"
-        "v1=vec2(texcoord.xy);\n"
-        "vec4 vPos = vec4(vPosition.xyz,1.0);\n"
-        "vPos.x = vPos.x+ctime;\n"
-        "vPos.xyz = vPos.xyz+basePos.xyz;\n"
-        "gl_Position = vPos * posMatrix* viewMatrix;\n"
+  
+     "pos.xyz = pos.xyz + basePos.xyz + addPos.xyz;\n"
+      
+        "gl_Position = pos * posMatrix* viewMatrix;\n"
+    
+         "v1=vec2(texcoord.xy);\n"
+    
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     
@@ -141,8 +143,8 @@
     "void main()"
     "{"
         "vec4 infoUvA   =texture2D(colorMap,v1.xy);\n"
-       // "vec4 infoUv  = vec4(outvec3,1.0);\n"
-        "gl_FragColor =infoUvA;\n"
+        "vec4 infoUv  = vec4(1.0,0.0,0.0,1.0);\n"
+        "gl_FragColor =infoUv;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

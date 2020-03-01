@@ -76,6 +76,8 @@
     //this._time / Scene_data.frameTime * this.balldata._playSpeed;
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
+    
+    //timeVec.x=50.0f;
     [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
     
     Vector3D*  scaleVec =   self.ballData._scaleVec;
@@ -87,12 +89,10 @@
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
     
-  
-    
     if(this.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
     }
-    
+  
 }
  
 -(ParticleBallData*)ballData;

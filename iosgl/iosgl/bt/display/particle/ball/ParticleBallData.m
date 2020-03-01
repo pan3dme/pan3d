@@ -127,6 +127,8 @@
     [super setAllByteInfo:byte];
      
     this._timeVec = [[Vector3D alloc]x:0.0f y:this._acceleration z:this._life w:this._isLoop ? 1.0f : -1.0f];
+    
+   [self uploadGpu];
 }
 -(Display3DParticle*)getParticle;
 {
@@ -151,7 +153,7 @@
     self._textureRandomColorInfo = obj;
     
     
-    [self uploadGpu];
+ 
     
 }
 -(void)uploadGpu;
@@ -165,47 +167,58 @@
 }
 -(void)initBaseData
 {
-  
-  int lznum=self._totalNum;
-     float tw=20.0f;
-     float th=20.0f;
- 
-     GLfloat attrArr[lznum*16];
+    float width=self._width;
+    float height=self._height;
+    float ranScale=  drand48()*(self._particleRandomScale.x-self._particleRandomScale.y)+self._particleRandomScale.y;
+    /*
+     var ranScale: number = Math.random() * (this._particleRandomScale.x - this._particleRandomScale.y) + this._particleRandomScale.y;
      
-     unsigned int Indices[lznum*6];
- 
-     for(int i=0;i<lznum;i++){
-         int skipAtt=i*16;
-         attrArr[skipAtt+0]=-tw;
-         attrArr[skipAtt+1]=-th;
-         attrArr[skipAtt+2]=0.0f;
-            attrArr[skipAtt+3]=i;
-         
-         attrArr[skipAtt+4]=tw;
-         attrArr[skipAtt+5]=-th;
-         attrArr[skipAtt+6]=0.0f;
-           attrArr[skipAtt+7]=i;
-         
-         attrArr[skipAtt+8]=tw;
-         attrArr[skipAtt+9]=th;
-         attrArr[skipAtt+10]=0.0f;
-           attrArr[skipAtt+11]=i;
-         
-         attrArr[skipAtt+12]=-tw;
-         attrArr[skipAtt+13]=th;
-         attrArr[skipAtt+14]=0.0f;
-           attrArr[skipAtt+15]=i;
-         
-         int skipTri=i*4;
-         int skipInd=i*6;
-         Indices[skipInd+0]=0+skipTri;
-         Indices[skipInd+1]=1+skipTri;
-         Indices[skipInd+2]=2+skipTri;
-         Indices[skipInd+3]=0+skipTri;
-         Indices[skipInd+4]=2+skipTri;
-         Indices[skipInd+5]=3+skipTri;
-     }
-     
+     verterList.push((-offsetX * width) * ranScale, (height - offsetY * height) * ranScale, 0);
+     verterList.push((width - offsetX * width) * ranScale, (height - offsetY * height) * ranScale, 0);
+     verterList.push((width - offsetX * width) * ranScale, (-offsetY * height) * ranScale, 0);
+     verterList.push((-offsetX * width) * ranScale, (-offsetY * height) * ranScale, 0);
+     */
+    
+    int lznum=self._totalNum;
+    float tw=10.0f;
+    float th=10.0f;
+    
+    GLfloat attrArr[lznum*16];
+    
+    unsigned int Indices[lznum*6];
+    
+    for(int i=0;i<lznum;i++){
+        int skipAtt=i*16;
+        attrArr[skipAtt+0]=-tw;
+        attrArr[skipAtt+1]=-th;
+        attrArr[skipAtt+2]=0.0f;
+        attrArr[skipAtt+3]=i;
+        
+        attrArr[skipAtt+4]=tw;
+        attrArr[skipAtt+5]=-th;
+        attrArr[skipAtt+6]=0.0f;
+        attrArr[skipAtt+7]=i;
+        
+        attrArr[skipAtt+8]=tw;
+        attrArr[skipAtt+9]=th;
+        attrArr[skipAtt+10]=0.0f;
+        attrArr[skipAtt+11]=i;
+        
+        attrArr[skipAtt+12]=-tw;
+        attrArr[skipAtt+13]=th;
+        attrArr[skipAtt+14]=0.0f;
+        attrArr[skipAtt+15]=i;
+        
+        int skipTri=i*4;
+        int skipInd=i*6;
+        Indices[skipInd+0]=0+skipTri;
+        Indices[skipInd+1]=1+skipTri;
+        Indices[skipInd+2]=2+skipTri;
+        Indices[skipInd+3]=0+skipTri;
+        Indices[skipInd+4]=2+skipTri;
+        Indices[skipInd+5]=3+skipTri;
+    }
+    
   
      GLuint verticesBuffer;
      glGenBuffers(1, &verticesBuffer);
