@@ -316,31 +316,73 @@
 }
 -(void)initBasePos;
 {
-     int lznum=self._totalNum;
+    ParticleBallData* this=self;
+    int lznum=self._totalNum;
+    Vector3D* v3d =[[Vector3D alloc]init];
+    Matrix3D* ma=[[Matrix3D alloc]init];
+    Vector3D* roundv3d=[[Vector3D alloc]init];
+    GLfloat basePos[lznum*16];
+    int idx=0;
+    for (int i=0; i<lznum; i++) {
+        if (this._isRandom) {
+            roundv3d= [[Vector3D alloc]x:this._round.x * this._round.w y:this._round.y * this._round.w z:this._round.z * this._round.w];
+            if (this._isEven) {//圆柱
+                if (this._closeSurface) {//紧贴表面
+                    v3d =[[Vector3D alloc]x:0  y:0 z:roundv3d.z];
+                } else {
+                    v3d =[[Vector3D alloc]x:0  y:0 z:roundv3d.z * drand48()* 2 - roundv3d.z];
+                }
+                [ma identity];
+                [ma appendRotation:drand48()*360 axis:Vector3D.Y_AXIS];
+                v3d=[ma transformVector:v3d];
+                v3d.y = roundv3d.y * drand48()* 2 - roundv3d.y;
+            }else{
+                if (this._closeSurface) {//只有xyz相等时候才能紧贴表面
+                    v3d =[[Vector3D alloc]x:0  y:0 z:roundv3d.z];
+                    [ma identity];
+                    if (this._halfCircle) {
+                        [ma appendRotation:drand48()*180 axis:Vector3D.X_AXIS];
+                    } else {
+                        [ma appendRotation:drand48()*360 axis:Vector3D.X_AXIS];
+                    }
+                    [ma appendRotation:drand48()*360 axis:Vector3D.Y_AXIS];
+                    v3d=[ma transformVector:v3d];
+                }else{
+                    if (this._halfCircle) {
+                        v3d =[[Vector3D alloc]x:roundv3d.x *  drand48() * 2 - roundv3d.x  y: roundv3d.y *  drand48() z: roundv3d.y *  drand48()];
+                    } else {
+                        v3d =[[Vector3D alloc]x:roundv3d.x * drand48() * 2 - roundv3d.x  y:roundv3d.y *drand48() * 2 - roundv3d.y z:roundv3d.z * drand48()* 2 - roundv3d.z];
+                    }
+                }
+                
+                
+            }
+        }else{
+            v3d =[[Vector3D alloc]init];
+        }
+        v3d = [v3d add:this._basePositon];
+        v3d.w=i * this._shootSpeed;
+        
+//        v3d.x=-arc4random() % 200 -100.0f;
+//        v3d.y=arc4random() % 200 -100.0f;
+//        v3d.z=arc4random() % 200 -100.0f;
+//        v3d.w=0.0f;
+        
+        for(int j=0;j<4;j++){
+            idx=16*i+j*4;
+            basePos[idx+0]=v3d.x;
+            basePos[idx+1]=v3d.y;
+            basePos[idx+2]=v3d.z;
+            basePos[idx+3]=v3d.w;
+        }
+    }
     
-       GLfloat basePos[lznum*16];
-        int idx=0;
-       for (int i=0; i<lznum; i++) {
-         Vector3D* v3d=[[Vector3D alloc]init];
-              v3d.x=-arc4random() % 200 -100.0f;
-              v3d.y=arc4random() % 200 -100.0f;
-              v3d.z=arc4random() % 200 -100.0f;
-              v3d.w=0.0f;
-              for(int j=0;j<4;j++){
-                  idx=16*i+j*4;
-                  basePos[idx+0]=v3d.x;
-                  basePos[idx+1]=v3d.y;
-                  basePos[idx+2]=v3d.z;
-                  basePos[idx+3]=v3d.w;
-              }
-       }
-    
-       self.particleGpuData.basePos=basePos;
-       GLuint basePosBuffer;
-       glGenBuffers(1, &basePosBuffer);
-       glBindBuffer(GL_ARRAY_BUFFER, basePosBuffer);
-       glBufferData(GL_ARRAY_BUFFER, sizeof(basePos), basePos, GL_DYNAMIC_DRAW);
-       self.particleGpuData.basePosBuffer=basePosBuffer;
+    self.particleGpuData.basePos=basePos;
+    GLuint basePosBuffer;
+    glGenBuffers(1, &basePosBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, basePosBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(basePos), basePos, GL_DYNAMIC_DRAW);
+    self.particleGpuData.basePosBuffer=basePosBuffer;
 }
 -(void)regShader;
 {
