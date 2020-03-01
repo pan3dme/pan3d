@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 #import "Vector3D.h"
+#import "Matrix4x4.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,9 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) prependRotation:(float)rad axis:(Vector3D*)axis;
 -(void) prepend :(Matrix3D*)matrx3d;
 -(void) append :(Matrix3D*)matrx3d;
+-(void)fromVtoV:(Vector3D*)basePos newPos:(Vector3D*)newPos;
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
 -(Vector3D*)transformVector:(Vector3D*)vec3d;
 -(GLfloat *)m;
+-(void)setM4x4:(Matrix4x4)value;
+-(Matrix4x4)m4x4;
 -(GLfloat *)rotationM;
  
 @end

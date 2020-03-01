@@ -9,6 +9,7 @@
 #import "Matrix3D.h"
 #import "Vector3D.h"
 #import "Matrix4x4.h"
+#import "Quaternion.h"
 #import <GLKit/GLKit.h>
 
 
@@ -32,6 +33,14 @@
 {
     return (GLfloat *)&_matrix4x4;
 }
+-(Matrix4x4)m4x4;
+{
+    return self.matrix4x4;
+}
+-(void)setM4x4:(Matrix4x4)value;
+{
+    self.matrix4x4=value;
+}
 -(GLfloat *)rotationM;
 {
     _matrix3x3.data[0]=_matrix4x4.data[0];
@@ -45,6 +54,24 @@
     _matrix3x3.data[8]=_matrix4x4.data[10];
     return (GLfloat *)&_matrix3x3;
 }
+-(void)fromVtoV:(Vector3D*)basePos newPos:(Vector3D*)newPos;
+{
+    Vector3D* axis = [basePos cross:newPos];
+    double angle = acos([basePos dot:newPos]);
+    Quaternion* q=[[Quaternion alloc]init];
+    [q fromAxisAngle:axis angle:angle];
+    [q toMatrix3D:self];
+}
+
+/*
+ public fromVtoV($basePos: Vector3D, $newPos: Vector3D): void {
+       var axis: Vector3D = $basePos.cross($newPos);
+       var angle: number = Math.acos($basePos.dot($newPos));
+       var q: Quaternion = new Quaternion();
+       q.fromAxisAngle(axis, angle);
+       q.toMatrix3D(this);
+   }
+ */
 -(void)identity
 {
     self.matrix4x4=Matrix4x4Identity;

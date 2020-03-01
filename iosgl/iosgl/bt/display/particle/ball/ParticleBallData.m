@@ -157,6 +157,7 @@
     [self initBaseData];
     [self initUV ];
     [self initBasePos];
+    [self initSpeed];
 }
 -(void)initBaseData
 {
@@ -256,23 +257,81 @@
       self.particleGpuData.uvBuffer=uvBuffer;
         
 }
+-(void)initSpeed;
+{
+    ParticleBallData* this=self;
+    int lznum=self._totalNum;
+    
+    Vector3D* resultv3d = [[Vector3D alloc]init];
+    Vector3D* v3d =[[Vector3D alloc]init];
+    Matrix3D* ma=[[Matrix3D alloc]init];
+    GLfloat speedArr[lznum*12];
+    int idx=0;
+    for (int i=0; i<lznum; i++) {
+        if (this._shootAngly.x != 0 || this._shootAngly.y != 0 || this._shootAngly.z != 0) {//锥形速度
+            double r = tan(this._shootAngly.w * M_PI / 180 *  drand48());
+            double a = 360 * M_PI/ 180 * drand48();
+            v3d = [[Vector3D  alloc]x:sin(a)*r y:cos(a)*r z:1];
+            [ma identity];
+            [ma fromVtoV:Vector3D.Z_AXIS newPos: this._shootAngly ];
+            v3d = [ma transformVector:v3d];
+            [v3d normalize];
+            resultv3d =[resultv3d add:v3d];
+        }
+        if (this._lixinForce.x != 0 || this._lixinForce.y != 0 || this._lixinForce.z != 0) {
+            v3d=[[Vector3D alloc]x:drand48()>0.5f?-this._lixinForce.x : this._lixinForce.x y:drand48()>0.5f?-this._lixinForce.y : this._lixinForce.y z:drand48()>0.5f?-this._lixinForce.z : this._lixinForce.z];
+            [v3d normalize];
+            resultv3d =[resultv3d add:v3d];
+        }
+        if (this._islixinAngly) {
+            if (this._isEven) {
+                v3d=[[Vector3D alloc]x:this.particleGpuData.basePos[i * 16] y:0 z:this.particleGpuData.basePos[i * 16+2] ];
+            } else {
+                v3d=[[Vector3D alloc]x:this.particleGpuData.basePos[i * 16] y:this.particleGpuData.basePos[i * 16+1] z:this.particleGpuData.basePos[i * 16+2] ];
+            }
+            [v3d normalize];
+            resultv3d =[resultv3d add:v3d];
+        }
+        
+        [resultv3d normalize ];
+        
+        if (this._isSendRandom) {
+            [resultv3d scaleBy:this._speed * drand48()];
+        } else {
+            [resultv3d scaleBy:this._speed];
+        }
+        for(int j=0;j<4;j++){
+            idx=12*i+j*3;
+            speedArr[idx+0]=resultv3d.x;
+            speedArr[idx+1]=resultv3d.y;
+            speedArr[idx+2]=resultv3d.z;
+        }
+    }
+    GLuint speedBuffer;
+    glGenBuffers(1, &speedBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, speedBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(speedArr), speedArr, GL_DYNAMIC_DRAW);
+    self.particleGpuData.speedBuffer=speedBuffer;
+ 
+}
 -(void)initBasePos;
 {
      int lznum=self._totalNum;
     
-       GLfloat basePos[lznum*12];
+       GLfloat basePos[lznum*16];
         int idx=0;
        for (int i=0; i<lznum; i++) {
          Vector3D* v3d=[[Vector3D alloc]init];
               v3d.x=-arc4random() % 200 -100.0f;
               v3d.y=arc4random() % 200 -100.0f;
               v3d.z=arc4random() % 200 -100.0f;
-          
+              v3d.w=0.0f;
               for(int j=0;j<4;j++){
-                  idx=12*i+j*3;
+                  idx=16*i+j*4;
                   basePos[idx+0]=v3d.x;
                   basePos[idx+1]=v3d.y;
                   basePos[idx+2]=v3d.z;
+                  basePos[idx+3]=v3d.w;
               }
        }
     

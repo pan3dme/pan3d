@@ -35,6 +35,13 @@
     }
     return self;
 }
+- (instancetype)x:(float)x y:(float)y z:(float)z;
+{
+    _x=x;
+    _y=y;
+    _z=z;
+    return self;
+}
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
 {
     _x=x;
@@ -84,6 +91,22 @@
     _x *= _w;
     _y *= _w;
     _z *= _w;
+}
+-(Vector3D*)cross:(Vector3D*)value;
+{
+    return [[Vector3D alloc]x:self.y * value.z - self.z * value.y y:self.z * value.x - self.x * value.z z:self.x * value.y - self.y * value.x ];
+}
+-(double)dot:(Vector3D*)value;
+{
+    return self.x * value.x + self.y * value.y + self.z * value.z;
+}
+ -(void)addByx:(float)x y:(float)y z:(float)z w:(float)w;
+{
+    
+}
+-(Vector3D*)add:(Vector3D*)value;
+{
+    return [[Vector3D alloc]x:self.x + value.x y:self.y + value.y z:self.z + value.z];
 }
 -(void)normalize;
 {

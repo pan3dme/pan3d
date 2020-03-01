@@ -51,9 +51,10 @@
         [ctx pushVa:self.particleBallGpuData.uvBuffer];
         [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:3 stride:0 offset:0];
         [ctx pushVa: self.particleBallGpuData.basePosBuffer];
-        [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:3 stride:0 offset:0];
+        [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
+        [ctx pushVa: self.particleBallGpuData.speedBuffer];
+        [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
         
-   
         [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
          
       

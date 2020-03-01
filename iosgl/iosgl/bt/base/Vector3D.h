@@ -35,12 +35,16 @@ float _w;
 + (Vector3D *)X_AXIS;
 + (Vector3D *)Y_AXIS;
 + (Vector3D *)Z_AXIS;
+- (instancetype)x:(float)x y:(float)y z:(float)z;
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
 -(void)normalize;
 -(float)length;
 -(void)scaleBy:(float)value;
 -(void)scaleByW;
 -(void)addByx:(float)x y:(float)y z:(float)z w:(float)w;
+-(Vector3D*)add:(Vector3D*)value;
+-(Vector3D*)cross:(Vector3D*)value;
+-(double)dot:(Vector3D*)value;
 @end
 
 NS_ASSUME_NONNULL_END

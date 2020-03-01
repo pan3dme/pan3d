@@ -33,6 +33,7 @@ float _scaleZ;
 -(void)setScaleZ:(float)value;
 -(float)scaleZ;
 -(void)updateMatrix;
+
 @end
 
 NS_ASSUME_NONNULL_END
