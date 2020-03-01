@@ -55,9 +55,11 @@
         [ctx pushVa: self.particleBallGpuData.speedBuffer];
         [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
         
-        [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
+ 
          
-        [ctx setVcUniform1f:self.shader3d name:"time" data:self._time];
+        [ctx setVcUniform4f:self.shader3d name:"timeVc" x:self._time y:0 z:0 w:0];
+        
+        [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
      
         [Scene_data default].frameTime=1;
       

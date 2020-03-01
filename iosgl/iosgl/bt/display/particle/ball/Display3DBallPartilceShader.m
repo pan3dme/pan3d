@@ -75,15 +75,15 @@
     "varying vec2 v0;\n"
     "varying vec2 v1;\n"
     "varying vec3 outvec3;\n"
-    "uniform float time;\n"
+    "uniform vec4 timeVc;\n"
     
     "void main()"
     "{"
-        "float ctime = time- basePos.w;\n"
+        "float ctime = timeVc.x- basePos.w;\n"
         "outvec3=speed;\n"
         "v1=vec2(texcoord.xy);\n"
         "vec4 vPos = vec4(position.xyz,1.0);\n"
-     
+         "vPos.x = vPos.x+ctime;\n"
         "vPos.xyz = vPos.xyz+basePos.xyz;\n"
         "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";
@@ -101,7 +101,7 @@
     "{"
         "vec4 infoUvA   =texture2D(colorMap,v1.xy);\n"
         "vec4 infoUv  = vec4(outvec3,1.0);\n"
-        "gl_FragColor =infoUv;\n"
+        "gl_FragColor =infoUvA;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

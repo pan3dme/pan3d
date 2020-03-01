@@ -1323,7 +1323,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
-            landmarkName = "-setVc3fv:name:data:"
+            landmarkName = "-setVcUniform4f:name:x:y:z:w:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
