@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Context3D : ResGC
 @property (nonatomic, strong) EAGLContext *gl; // OpenGL context,管理使用opengl
-
+-(void)setVcUniform1f:(Shader3D*)shader name:(GLchar*)name data:(CGFloat)data;
 -(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 -(void)setVcMatrix3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 -(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;

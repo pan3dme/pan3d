@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  hasDestory;
 @property (nonatomic, assign)  float  maxTime;
 @property (nonatomic, strong)  Scene3D *scene3d;
+
 -(void)addPrticleItem:(Display3DParticle*)dic;
 -(void)updateTime:(float)t;
 -(void)update;

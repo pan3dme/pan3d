@@ -6,7 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
-
+#import "Scene_data.h"
 #import "Display3DBallPartilce.h"
 #import "ObjData.h"
 #import "ParticleData.h"
@@ -57,6 +57,9 @@
         
         [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
          
+        [ctx setVcUniform1f:self.shader3d name:"time" data:self._time];
+     
+        [Scene_data default].frameTime=1;
       
         int lznum=self.particleBallData._totalNum;
         [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*lznum ];

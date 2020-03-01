@@ -50,6 +50,7 @@
 		FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2BB2DB23980EE600597658 /* GLSpriteView.m */; };
 		FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1B9F2409EEE0005E287F /* Vector2D.m */; };
 		FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1BA5240BAD5A005E287F /* Quaternion.m */; };
+		FE2F1BAC240BF2D0005E287F /* Scene_data.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1BAB240BF2D0005E287F /* Scene_data.m */; };
 		FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */; };
 		FE3D4EDB2401B52600185FD3 /* levelup_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4ED92401B52600185FD3 /* levelup_base.txt */; };
 		FE3D4EDC2401B52600185FD3 /* levelup_lyf.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4EDA2401B52600185FD3 /* levelup_lyf.txt */; };
@@ -180,6 +181,8 @@
 		FE2F1BA3240BA820005E287F /* Quaternion3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quaternion3D.h; sourceTree = "<group>"; };
 		FE2F1BA4240BAD5A005E287F /* Quaternion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
 		FE2F1BA5240BAD5A005E287F /* Quaternion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Quaternion.m; sourceTree = "<group>"; };
+		FE2F1BAA240BF2D0005E287F /* Scene_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene_data.h; sourceTree = "<group>"; };
+		FE2F1BAB240BF2D0005E287F /* Scene_data.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scene_data.m; sourceTree = "<group>"; };
 		FE36A7B523FEB7D000F2DE86 /* Matrix3x3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3x3.h; sourceTree = "<group>"; };
 		FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalMatrixUtilities.h; sourceTree = "<group>"; };
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
@@ -616,6 +619,8 @@
 				FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */,
 				FE2A61BF239CB9DF0011BF9E /* Scene3D.h */,
 				FE2A61C0239CB9DF0011BF9E /* Scene3D.m */,
+				FE2F1BAA240BF2D0005E287F /* Scene_data.h */,
+				FE2F1BAB240BF2D0005E287F /* Scene_data.m */,
 			);
 			path = scene;
 			sourceTree = "<group>";
@@ -795,6 +800,7 @@
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */,
 				FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */,
+				FE2F1BAC240BF2D0005E287F /* Scene_data.m in Sources */,
 				FE3D4EE32401C15300185FD3 /* EventDispatcher.m in Sources */,
 				FE3D4EE92401C18B00185FD3 /* CombineParticleData.m in Sources */,
 				FE2088E0239BE86A007FB797 /* ResGC.m in Sources */,

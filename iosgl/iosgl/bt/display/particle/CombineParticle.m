@@ -11,19 +11,17 @@
 
 @interface CombineParticle ()
 @property (nonatomic, strong)  NSMutableArray*  _displayAry ;
-@property (nonatomic, assign)  float  _time;
-
 @property (nonatomic, assign)  NSString*  _bindSocket;
 @property (nonatomic, assign)  float  _rotationX;
 @property (nonatomic, assign)  float  _rotationY;
 @property (nonatomic, assign)  float  _rotationZ;
+@property (nonatomic, assign)  float  _time;
 @property (nonatomic, assign)  BOOL  _isInGroup;
 @property (nonatomic, assign)  Vector3D*  _groupPos;
 @property (nonatomic, assign)  Vector3D*  _groupRotation;
 @property (nonatomic, assign)  Vector3D*  _groupScale;
 @end
 
- 
 @implementation CombineParticle
 
 - (instancetype)init
@@ -44,7 +42,11 @@
 }
 -(void)updateTime:(float)t;
 {
-    
+    for(int i=0;i<self._displayAry.count;i++)
+      {
+          Display3DParticle *dis=((Display3DParticle*)(self._displayAry[i]));
+          [dis updateTime:t];
+      }
 }
 -(void)update;
 {

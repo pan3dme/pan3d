@@ -60,6 +60,7 @@ static ParticleManager *instance = nil;
 }
 -(void) update  ;
 {
+    [self updateTime];
     [self updateRenderDic];
 }
 -(void)updateRenderDic;
@@ -75,28 +76,33 @@ static ParticleManager *instance = nil;
             NSLog(@"批处理");
         }
     }
-    /*
-          for (var key in this.renderDic) {
-                     var list: Array<CombineParticle> = this.renderDic[key];
-                     if (list.length == 1) {
-                         list[0].update();
-                     } else {
-                         var size: number = list[0].size;
-     
-                         for (var j: number = 0; j < size; j++) {
-                             for (var i: number = 0; i < list.length; i++) {
-                                 list[i].updateItem(j);
-                             }
-                         }
-     
-                     }
-     
-                 }
-             }
-     */
-}
--(void) updateTime  ;
-{
     
 }
+-(void)  updateTime ;
+{
+
+   for (NSString* key in self.renderDic) {
+        
+        NSArray *list= self.renderDic[key];
+        if(list.count>=1){
+            CombineParticle* combineParticle=( (CombineParticle*)(list[0]));
+            [combineParticle updateTime:1];
+        }else{
+            NSLog(@"批处理");
+        }
+    }
+    /*
+     var _tempTime: number = TimeUtil.getTimer();
+          var t: number = _tempTime - this._time;
+          for (var i: number = 0; i < this._particleList.length; i++) {
+              if (!this._particleList[i].sceneVisible) {
+                  continue;
+              }
+              this._particleList[i].updateTime(t);
+          }
+          this._time = _tempTime;
+     */
+
+}
+ 
 @end

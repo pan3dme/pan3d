@@ -36,6 +36,10 @@
     
     
 }
+-(void)setVcUniform1f:(Shader3D*)shader name:(GLchar*)name data:(CGFloat)data;
+{
+     glUniform1f( glGetUniformLocation(shader.program, name), data);
+}
 -(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 {
     glUniform3fv( glGetUniformLocation( shader.program, name), 1, data);

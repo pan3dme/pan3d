@@ -71,16 +71,19 @@
     "attribute vec3 speed;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
-    
+    "uniform mat4 vcmat[7];\n"
     "varying vec2 v0;\n"
     "varying vec2 v1;\n"
     "varying vec3 outvec3;\n"
+    "uniform float time;\n"
     
     "void main()"
     "{"
+        "float ctime = time- basePos.w;\n"
         "outvec3=speed;\n"
         "v1=vec2(texcoord.xy);\n"
         "vec4 vPos = vec4(position.xyz,1.0);\n"
+     
         "vPos.xyz = vPos.xyz+basePos.xyz;\n"
         "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";

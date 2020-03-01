@@ -10,8 +10,20 @@
 
 @implementation Display3DParticle
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self._time=0;
+    }
+    return self;
+}
 -(void)onCreated;
 {
+}
+-(void)updateTime:(float)t;
+{
+    self._time += t;
 }
 -(void)update;
 {

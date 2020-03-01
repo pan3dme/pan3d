@@ -30,9 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Vector3D*   groupPos;
 @property (nonatomic, assign)  Vector3D*   groupScale;
 @property (nonatomic, assign)  Vector3D*   groupRotation;
+@property (nonatomic, assign)  float  _time;
 @property (nonatomic, strong)  Scene3D *scene3d;
 -(void)onCreated;
 -(void)update;
+-(void)updateTime:(float)t;
 -(void)setVc;
 -(void)setVa;
 -(void)resetVa;
