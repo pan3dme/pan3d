@@ -47,7 +47,7 @@
         [ctx setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
         
         [ctx pushVa:self.particleBallGpuData.verticesBuffer];
-        [ctx setVaOffset:self.shader3d name:"position" dataWidth:4 stride:0 offset:0];
+        [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:4 stride:0 offset:0];
         [ctx pushVa:self.particleBallGpuData.uvBuffer];
         [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:3 stride:0 offset:0];
         [ctx pushVa: self.particleBallGpuData.basePosBuffer];
@@ -56,25 +56,51 @@
         [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
         
  
-         
-        [ctx setVcUniform4f:self.shader3d name:"timeVc" x:self._time y:0 z:0 w:0];
+      
+        [self setVCVCVCVCVC];
         
         [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
      
         [Scene_data default].frameTime=1;
       
-        int lznum=self.particleBallData._totalNum;
+        int lznum=self.ballData._totalNum;
         [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*lznum ];
     }
     
 }
+-(void)setVCVCVCVCVC;
+{
+    Display3DBallPartilce* this=self;
+    
+    Context3D *ctx=self.scene3d.context3D;
+    //this._time / Scene_data.frameTime * this.balldata._playSpeed;
+    Vector3D*  timeVec =   self.ballData._timeVec;
+    timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
+    [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
+    
+    Vector3D*  scaleVec =   self.ballData._scaleVec;
+    [ctx setVcUniform4f:self.shader3d name:"vcmat51" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
+    
+    Vector3D*  scaleCtrl =   self.ballData._scaleCtrlVec;
+    [ctx setVcUniform4f:self.shader3d name:"vcmat52" x:scaleCtrl.x y:scaleCtrl.y z:scaleCtrl.z w:scaleCtrl.w];
+    
+    Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
+    [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
+    
+  
+    
+    if(this.ballData._is3Dlizi){
+        NSLog(@"_is3Dlizi");
+    }
+    
+}
  
--(ParticleBallData*)particleBallData;
+-(ParticleBallData*)ballData;
 {
     return ((ParticleBallData*)(self.data));
 }
 -(ParticleBallGpuData*)particleBallGpuData;
 {
-    return self.particleBallData.particleGpuData;
+    return self.ballData.particleGpuData;
 }
 @end

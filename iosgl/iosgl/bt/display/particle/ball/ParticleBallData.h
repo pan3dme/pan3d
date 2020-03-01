@@ -52,15 +52,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  _needScale;
 @property (nonatomic, assign)  BOOL  _needAddSpeed;
 @property (nonatomic, assign)  int  _uvType;
-@property (nonatomic, assign)  NSMutableArray*  _timeVec;
-@property (nonatomic, assign)  NSMutableArray*  _addSpeedVec;
+@property (nonatomic, strong)  Vector3D*  _timeVec;
+@property (nonatomic, strong)  Vector3D*  _addSpeedVec;
 @property (nonatomic, assign)  NSMutableArray*  _wordPosVec;
 @property (nonatomic, assign)  NSMutableArray*  _caramPosVec;
-@property (nonatomic, assign)  NSMutableArray*  _scaleVec;
-@property (nonatomic, assign)  NSMutableArray*  _scaleCtrlVec;
-@property (nonatomic, assign)  NSMutableArray*  _animCtrlVec;
-@property (nonatomic, assign)  NSMutableArray*  _uvCtrlVec;
-@property (nonatomic, assign)  Matrix3D*  _allRotationMatrix;
+@property (nonatomic, strong)  Vector3D*  _scaleVec;
+@property (nonatomic, strong)  Vector3D*  _scaleCtrlVec;
+@property (nonatomic, strong)  Vector3D*  _animCtrlVec;
+@property (nonatomic, strong)  Vector3D*  _uvCtrlVec;
+@property (nonatomic, strong)  Matrix3D*  _allRotationMatrix;
  
 
 -(ParticleBallGpuData*)particleGpuData;

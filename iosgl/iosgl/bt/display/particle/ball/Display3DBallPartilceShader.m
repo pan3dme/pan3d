@@ -24,19 +24,19 @@
  void main(){
  float ctime = vcmat[5][0].x - basePos.w;
  if (vcmat[5][0].w > 0.0 && ctime >= 0.0) {
- ctime = fract(ctime / vcmat[5][0].z) * vcmat[5][0].z;
+    ctime = fract(ctime / vcmat[5][0].z) * vcmat[5][0].z;
  }
  vec4 pos = vPosition;
  float stime = ctime - vcmat[5][1].w;
  stime = max(stime,0.0);
  float sf = vcmat[5][1].x * stime;
  if (vcmat[5][1].y != 0.0 && vcmat[5][1].z != 0.0) {
- sf += sin(vcmat[5][1].y * stime) * vcmat[5][1].z;
+    sf += sin(vcmat[5][1].y * stime) * vcmat[5][1].z;
  }
  if (sf > vcmat[5][2].z) {
- sf = vcmat[5][2].z;
+    sf = vcmat[5][2].z;
  } else if (sf < vcmat[5][2].w) {
- sf = vcmat[5][2].w;
+    sf = vcmat[5][2].w;
  }
  vec2 sv2 = vec2(vcmat[5][2].x * sf, vcmat[5][2].y * sf);
  sv2 = sv2 + 1.0;
@@ -45,15 +45,15 @@
  vec3 addPos = speed * ctime;
  vec3 uspeed = vec3(0,0,0);
  if (ctime < 0.0 || ctime >= vcmat[5][0].z) {
- addPos.y = addPos.y + 100000.0;
+    addPos.y = addPos.y + 100000.0;
  }
  if(vcmat[5][0].y != 0.0 && length(speed) != 0.0) {
- uspeed = vec3(speed.x, speed.y, speed.z);
- uspeed = normalize(uspeed);
- uspeed = uspeed * vcmat[5][0].y;
- uspeed.xyz = uspeed.xyz + vcmat[5][3].xyz;
+     uspeed = vec3(speed.x, speed.y, speed.z);
+     uspeed = normalize(uspeed);
+     uspeed = uspeed * vcmat[5][0].y;
+     uspeed.xyz = uspeed.xyz + vcmat[5][3].xyz;
  } else {
- uspeed = vec3(vcmat[5][3].x, vcmat[5][3].y, vcmat[5][3].z);
+    uspeed = vec3(vcmat[5][3].x, vcmat[5][3].y, vcmat[5][3].z);
  }
  addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;
  pos = vcmat[3] * pos;
@@ -65,7 +65,7 @@
  */
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
-    "attribute vec4 position;\n"
+    "attribute vec4 vPosition;\n"
     "attribute vec3 texcoord;\n"
     "attribute vec4 basePos;\n"
     "attribute vec3 speed;\n"
@@ -75,15 +75,56 @@
     "varying vec2 v0;\n"
     "varying vec2 v1;\n"
     "varying vec3 outvec3;\n"
-    "uniform vec4 timeVc;\n"
+    "uniform vec4 vcmat50;\n"
+    "uniform vec4 vcmat51;\n"
+    "uniform vec4 vcmat52;\n"
+    "uniform vec4 vcmat53;\n"
     
     "void main()"
     "{"
-        "float ctime = timeVc.x- basePos.w;\n"
-        "outvec3=speed;\n"
+        "float ctime = vcmat50.x- basePos.w;\n"
+        "if (vcmat50.w > 0.0 && ctime >= 0.0) {;\n"
+            "ctime = fract(ctime /vcmat50.z) * vcmat50.z;\n"
+        "}\n"
+
+        "vec4 pos = vPosition;\n"
+        "float stime = ctime - vcmat51.w;\n"
+        "stime = max(stime,0.0);\n"
+        "float sf = vcmat51.x * stime;\n"
+        "if (vcmat51.y != 0.0 && vcmat51.z != 0.0) {\n"
+            "sf += sin(vcmat51.y * stime) * vcmat[5][1].z;\n"
+        "}\n"
+        "if (sf > vcmat52.z) {\n"
+            "sf = vcmat52.z;\n"
+        "} else if (sf < vcmat52.w) {\n"
+            "sf = vcmat52.w;\n"
+        "}\n"
+        "vec2 sv2 = vec2(vcmat52.x * sf, vcmat52.y * sf);\n"
+        "sv2 = sv2 + 1.0;\n"
+        "pos.x *= sv2.x;\n"
+        "pos.y *= sv2.y;\n"
+    
+    
+        "vec3 addPos = speed * ctime;\n"
+        "vec3 uspeed = vec3(0,0,0);\n"
+        "if (ctime < 0.0 || ctime >= vcmat50.z) {\n"
+            "addPos.y = addPos.y + 100000.0;\n"
+        "}\n"
+        "if(vcmat50.y != 0.0 && length(speed) != 0.0) {\n"
+            "uspeed = vec3(speed.x, speed.y, speed.z);\n"
+            "uspeed = normalize(uspeed);\n"
+            "uspeed = uspeed * vcmat50.y;\n"
+            "uspeed.xyz = uspeed.xyz + vcmat53.xyz;\n"
+        "} else {\n"
+            "uspeed = vec3(vcmat53.x, vcmat53.y, vcmat53.z);\n"
+        "}\n"
+         "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;\n"
+    
+
+       // "outvec3=speed;\n"
         "v1=vec2(texcoord.xy);\n"
-        "vec4 vPos = vec4(position.xyz,1.0);\n"
-         "vPos.x = vPos.x+ctime;\n"
+        "vec4 vPos = vec4(vPosition.xyz,1.0);\n"
+        "vPos.x = vPos.x+ctime;\n"
         "vPos.xyz = vPos.xyz+basePos.xyz;\n"
         "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";
@@ -100,7 +141,7 @@
     "void main()"
     "{"
         "vec4 infoUvA   =texture2D(colorMap,v1.xy);\n"
-        "vec4 infoUv  = vec4(outvec3,1.0);\n"
+       // "vec4 infoUv  = vec4(outvec3,1.0);\n"
         "gl_FragColor =infoUvA;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];

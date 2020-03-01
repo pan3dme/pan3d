@@ -22,6 +22,7 @@
         self._round=[[Vector3D alloc]init];
         self._shootAngly=[[Vector3D alloc]init];
         self._particleRandomScale=[[Vector3D alloc]init];
+        self._timeVec=[[Vector3D alloc]init];
         
     }
     return self;
@@ -107,22 +108,25 @@
     
     [self readRandomColor:byte];
     
+    
     if (this._acceleration != 0 || this._addforce.x != 0 || this._addforce.y != 0 || this._addforce.z != 0) {
         this._needAddSpeed = true;
-        // this._addSpeedVec = [this._addforce.x, this._addforce.y, this._addforce.z];
+        this._addSpeedVec = [[Vector3D alloc]x:this._addforce.x y:this._addforce.y z:this._addforce.z];
     } else {
         this._needAddSpeed = false;
     }
     if (this._toscale != 0 || this._waveform.x != 0 || this._waveform.y != 0) {
         this._needScale = true;
-        // this._scaleVec = [this._toscale, this._waveform.x, this._waveform.y, this._beginScale];
-        // this._scaleCtrlVec = [this._widthFixed ? 0 : 1, this._heightFixed ? 0 : 1, this._paticleMaxScale - 1, this._paticleMinScale - 1];
+        this._scaleVec =[[Vector3D alloc] x:this._toscale y:this._waveform.x z:this._waveform.y w:this._beginScale];
+        this._scaleCtrlVec =[[Vector3D alloc]x:this._widthFixed ? 0.0f : 1.0f y:this._heightFixed ? 0.0f : 1.0f z:this._paticleMaxScale - 1.0f w:this._paticleMinScale - 1.0f];
     } else {
         this._needScale = false;
     }
-    
+ 
     
     [super setAllByteInfo:byte];
+     
+    this._timeVec = [[Vector3D alloc]x:0.0f y:this._acceleration z:this._life w:this._isLoop ? 1.0f : -1.0f];
 }
 -(Display3DParticle*)getParticle;
 {
