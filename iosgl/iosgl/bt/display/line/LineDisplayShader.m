@@ -1,17 +1,17 @@
 //
-//  Display3DShader.m
+//  LineDisplayShader.m
 //  iosgl
 //
-//  Created by zhao on 26/2/2020.
+//  Created by zhao on 6/3/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
-#import "Display3DShader.h"
+#import "LineDisplayShader.h"
 
-@implementation Display3DShader
+@implementation LineDisplayShader
 +(NSString*)shaderStr;
 {
-    return @"Display3DShader";
+    return @"LineDisplayShader";
 }
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
@@ -36,4 +36,3 @@
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
 @end
-

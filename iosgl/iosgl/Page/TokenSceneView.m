@@ -15,6 +15,8 @@
 #import "CombineParticle.h"
 #import "ParticleManager.h"
 #import "Display3DSprite.h"
+#import "LineDisplaySprite.h"
+#import "DisplayBaseTriSprite.h"
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
 @end
@@ -93,8 +95,11 @@
     self.sceneView.frame =CGRectMake(20, 120, 300, 300);
     [UIView commitAnimations];
     */
+//    #import "Display3DSprite.h"
+//    #import "LineDisplaySprite.h"
+//    #import "DisplayBaseTriSprite.h"
      [self.sceneView makeEemptyScene];
-    //     [self.sceneView.scene3D addDisplay:[[Display3DSprite alloc]init]];
+    [self.sceneView.scene3D addDisplay:[[Display3DSprite alloc]init]];
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
     [[GroupDataManager default] getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
