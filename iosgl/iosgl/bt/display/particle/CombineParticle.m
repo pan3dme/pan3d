@@ -29,23 +29,23 @@
     self = [super init];
     if (self) {
         self._displayAry=[[NSMutableArray alloc]init];
+        self._time=0;
     }
     return self;
 }
 
 -(void)addPrticleItem:(Display3DParticle*)dic
 {
-    dic.visible=NO;
-    
+    dic.visible=YES;
     [self._displayAry addObject:dic];
     
 }
 -(void)updateTime:(float)t;
 {
+    self._time += t;
     for(int i=0;i<self._displayAry.count;i++)
       {
- 
-          [self._displayAry[i] updateTime:t];
+          [self._displayAry[i] updateTime:self._time];
       }
 }
 -(void)update;

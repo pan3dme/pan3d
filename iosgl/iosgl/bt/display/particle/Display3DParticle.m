@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         self._time=0;
+        self.visible=YES;
     }
     return self;
 }
@@ -23,14 +24,18 @@
 }
 -(void)updateTime:(float)t;
 {
-    self._time += t;
+    self._time = t - self._beginTime;
+    
 }
 -(void)update;
 {
-    [self updateMatrix];
-    [self setVc];
-    [self setVa];
-    [self resetVa];
+    if(self.visible){
+        [self updateMatrix];
+        [self setVc];
+        [self setVa];
+        [self resetVa];
+    }
+    
 }
 -(void)setVc;
 {
@@ -41,5 +46,5 @@
 -(void)resetVa;
 {
 }
- 
+
 @end

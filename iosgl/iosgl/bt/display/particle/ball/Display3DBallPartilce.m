@@ -33,42 +33,42 @@
 -(void)onCreated;
 {
     [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
-      self.shader3d=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
-  
-     self.textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
-  
+    self.shader3d=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
+    self.textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
+    
 }
 - (void)update;
 {
-    
+    [Scene_data default].frameTime=1;
     if(self.shader3d&&self.textureRes&&self.textureRes.textTureLuint ){
         glUseProgram(self.shader3d.program);
-        Context3D *ctx=self.scene3d.context3D;
-        
-        [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
-        [ctx setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
-        
-        [ctx pushVa:self.particleBallGpuData.verticesBuffer];
-        [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:4 stride:0 offset:0];
-        [ctx pushVa:self.particleBallGpuData.uvBuffer];
-        [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:3 stride:0 offset:0];
-        [ctx pushVa: self.particleBallGpuData.basePosBuffer];
-        [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
-        [ctx pushVa: self.particleBallGpuData.speedBuffer];
-        [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
-        
- 
-      
-        [self setVcmat];
-        
-        [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
-     
-        [Scene_data default].frameTime=1;
-      
-        int lznum=self.ballData._totalNum;
-        [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*lznum ];
+        [super update];
     }
     
+}
+-(void)setVc;
+{
+    Context3D *ctx=self.scene3d.context3D;
+    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
+    [ctx setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+    [self setVcmat];
+}
+-(void)setVa;
+{
+    Context3D *ctx=self.scene3d.context3D;
+    [ctx pushVa:self.particleBallGpuData.verticesBuffer];
+    [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:4 stride:0 offset:0];
+    [ctx pushVa:self.particleBallGpuData.uvBuffer];
+    [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:3 stride:0 offset:0];
+    [ctx pushVa: self.particleBallGpuData.basePosBuffer];
+    [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
+    [ctx pushVa: self.particleBallGpuData.speedBuffer];
+    [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
+    [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
+    [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
+}
+-(void)resetVa;
+{
 }
 -(void)setVcmat;
 {
@@ -95,9 +95,9 @@
     if(this.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
     }
-     NSLog(@"--timeVec.x----%f",timeVec.x);
+    NSLog(@"--timeVec.x----%f",timeVec.x);
 }
- 
+
 -(ParticleBallData*)ballData;
 {
     return ((ParticleBallData*)(self.data));

@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setVc;
 -(void)setVa;
 -(void)resetVa;
+ 
 @end
 
 NS_ASSUME_NONNULL_END
