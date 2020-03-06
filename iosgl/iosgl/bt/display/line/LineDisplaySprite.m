@@ -19,7 +19,7 @@
 {
     self.objData=[[ObjData alloc]init];
     GLfloat attrArr[12];
-    attrArr[0]=100.50f;
+    attrArr[0]=0.0f;
     attrArr[1]=0.0f;
     attrArr[2]=0.0f;
     
@@ -30,30 +30,25 @@
     attrArr[6]=100.25f;
     attrArr[7]=0.25f;
     attrArr[8]=100.0f;
-    
-    attrArr[9]=0.0f;
-    attrArr[10]=0.25f;
-    attrArr[11]=100.0f;
-    
+  
     GLuint verticesBuffer;
     glGenBuffers(1, &verticesBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
     self.objData.verticesBuffer=verticesBuffer;
     
-    unsigned int Indices[6];
-    Indices[0]=1;
-    Indices[1]=2;
-    Indices[2]=3;
-    Indices[3]=1;
-    Indices[4]=3;
-    Indices[5]=4;
+    unsigned int Indices[4];
+    Indices[0]=0;
+    Indices[1]=1;
+    Indices[2]=1;
+    Indices[3]=2;
+ 
     GLuint indexBuffer;
     glGenBuffers(1, &indexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     self.objData.indexBuffer=indexBuffer;
-    self.objData.trinum=6;
+    self.objData.trinum=3;
     
     [[ProgrmaManager default] registe:LineDisplayShader.shaderStr shader3d: [[LineDisplayShader alloc]init]];
     self.shader3d=  [[ProgrmaManager default] getProgram:LineDisplayShader.shaderStr];
@@ -71,7 +66,10 @@
         glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,0, (GLfloat *)NULL+0);
         [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
         [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
-        [context3D drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
+     
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
+        glDrawElements(GL_LINES, 4, GL_UNSIGNED_INT, 0);
+   
     }
     
 }

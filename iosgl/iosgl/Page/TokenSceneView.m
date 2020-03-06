@@ -99,7 +99,7 @@
 //    #import "LineDisplaySprite.h"
 //    #import "DisplayBaseTriSprite.h"
      [self.sceneView makeEemptyScene];
-    [self.sceneView.scene3D addDisplay:[[Display3DSprite alloc]init]];
+    [self.sceneView.scene3D addDisplay:[[LineDisplaySprite alloc]init]];
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
     [[GroupDataManager default] getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
