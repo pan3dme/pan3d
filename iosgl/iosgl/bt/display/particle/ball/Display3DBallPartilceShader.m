@@ -118,12 +118,11 @@
         "} else {\n"
             "uspeed = vec3(vcmat53.x, vcmat53.y, vcmat53.z);\n"
         "}\n"
-         "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;\n"
-    
-
+       //  "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;\n"
+  
        // "outvec3=speed;\n"
   
-     "pos.xyz = pos.xyz + basePos.xyz + addPos.xyz;\n"
+     "pos.xyz =pos.xyz+  speed.xyz * ctime;\n"
       
         "gl_Position = pos * posMatrix* viewMatrix;\n"
     

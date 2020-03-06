@@ -45,6 +45,7 @@ float _w;
 -(Vector3D*)add:(Vector3D*)value;
 -(Vector3D*)cross:(Vector3D*)value;
 -(double)dot:(Vector3D*)value;
+ -(void)nslogStr;
 @end
 
 NS_ASSUME_NONNULL_END

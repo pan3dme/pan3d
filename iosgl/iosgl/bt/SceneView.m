@@ -15,6 +15,7 @@
 #import "Scene3D.h"
 #import "SceneRes.h"
 #import "MathCore.h"
+#import "Scene_data.h"
 #import "MaterialManager.h"
 
 
@@ -50,6 +51,8 @@
         self.scene3D.camera3D.distance=300;
         [self.scene3D upFrame];
         [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
+        
+        [Scene_data default].frameTime++;
     }
  
 }

@@ -37,6 +37,7 @@
 		FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189ADA24026B7E008E2FF6 /* KeyFrame.m */; };
 		FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */; };
 		FE189B2524049C2E008E2FF6 /* TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189B2424049C2E008E2FF6 /* TimeLine.m */; };
+		FE1D8B4324118B3900A04FC4 /* TimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1D8B4224118B3900A04FC4 /* TimeUtil.m */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -154,6 +155,8 @@
 		FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DBallPartilce.m; sourceTree = "<group>"; };
 		FE189B2324049C2E008E2FF6 /* TimeLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeLine.h; sourceTree = "<group>"; };
 		FE189B2424049C2E008E2FF6 /* TimeLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeLine.m; sourceTree = "<group>"; };
+		FE1D8B4124118B3900A04FC4 /* TimeUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeUtil.h; sourceTree = "<group>"; };
+		FE1D8B4224118B3900A04FC4 /* TimeUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeUtil.m; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -341,13 +344,13 @@
 		FE0FC254239511AC00D2483A /* bt */ = {
 			isa = PBXGroup;
 			children = (
+				FE1D8B4024118B2700A04FC4 /* utils */,
 				FE515FB323A2800500C49DA5 /* res */,
 				FE13769E239E908100755136 /* filemode */,
 				FE2088F1239C1821007FB797 /* material */,
 				FE2088DA239BDF0B007FB797 /* program */,
 				FE678832239B944600262B53 /* base */,
 				FE67882E239B934C00262B53 /* display */,
-				FE4CA7D32398DA7C00BE6FB5 /* math */,
 				FE0FC2782395531F00D2483A /* core */,
 				FE67883D239B974C00262B53 /* scene */,
 				FE678841239B980200262B53 /* SceneView.h */,
@@ -474,6 +477,15 @@
 			path = ctrl;
 			sourceTree = "<group>";
 		};
+		FE1D8B4024118B2700A04FC4 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				FE1D8B4124118B3900A04FC4 /* TimeUtil.h */,
+				FE1D8B4224118B3900A04FC4 /* TimeUtil.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		FE2088DA239BDF0B007FB797 /* program */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,13 +550,6 @@
 				FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */,
 			);
 			path = ball;
-			sourceTree = "<group>";
-		};
-		FE4CA7D32398DA7C00BE6FB5 /* math */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = math;
 			sourceTree = "<group>";
 		};
 		FE515FB323A2800500C49DA5 /* res */ = {
@@ -839,6 +844,7 @@
 				FE189B2524049C2E008E2FF6 /* TimeLine.m in Sources */,
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
 				FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */,
+				FE1D8B4324118B3900A04FC4 /* TimeUtil.m in Sources */,
 				FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */,
 				FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */,
 				FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */,

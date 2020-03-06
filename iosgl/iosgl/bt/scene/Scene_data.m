@@ -9,7 +9,12 @@
 #import "Scene_data.h"
 static Scene_data *instance = nil;
 @implementation Scene_data
-
++ (instancetype)default{
+    if (instance == nil) {
+        instance = [[Scene_data alloc] init];
+    }
+    return instance;
+}
 - (instancetype)init
 {
     self = [super init];
@@ -18,10 +23,5 @@ static Scene_data *instance = nil;
     }
     return self;
 }
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[Scene_data alloc] init];
-    }
-    return instance;
-}
+
 @end

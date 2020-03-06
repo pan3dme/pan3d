@@ -17,6 +17,7 @@
 #import "ParticleBallData.h"
 #import "MaterialManager.h"
 #import "TextureRes.h"
+#import "TimeUtil.h"
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
@@ -39,6 +40,7 @@
 }
 - (void)update;
 {
+    
     if(self.shader3d&&self.textureRes&&self.textureRes.textTureLuint ){
         glUseProgram(self.shader3d.program);
         Context3D *ctx=self.scene3d.context3D;
@@ -57,7 +59,7 @@
         
  
       
-        [self setVCVCVCVCVC];
+        [self setVcmat];
         
         [ctx setRenderTexture:self.shader3d name:"colorMap" texture: self.textureRes.textTureLuint];
      
@@ -68,7 +70,7 @@
     }
     
 }
--(void)setVCVCVCVCVC;
+-(void)setVcmat;
 {
     Display3DBallPartilce* this=self;
     
@@ -77,7 +79,8 @@
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
     
-    //timeVec.x=50.0f;
+    // timeVec.x=50.0f;
+    timeVec.x=self._time;
     [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
     
     Vector3D*  scaleVec =   self.ballData._scaleVec;
@@ -92,7 +95,7 @@
     if(this.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
     }
-  
+     NSLog(@"--timeVec.x----%f",timeVec.x);
 }
  
 -(ParticleBallData*)ballData;

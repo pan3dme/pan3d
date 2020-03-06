@@ -279,12 +279,14 @@
     ParticleBallData* this=self;
     int lznum=self._totalNum;
     
-    Vector3D* resultv3d = [[Vector3D alloc]init];
-    Vector3D* v3d =[[Vector3D alloc]init];
+    Vector3D* resultv3d ;
+    Vector3D* v3d ;
     Matrix3D* ma=[[Matrix3D alloc]init];
     GLfloat speedArr[lznum*12];
     int idx=0;
     for (int i=0; i<lznum; i++) {
+        resultv3d = [[Vector3D alloc]init];
+        v3d =[[Vector3D alloc]init];
         if (this._shootAngly.x != 0 || this._shootAngly.y != 0 || this._shootAngly.z != 0) {//锥形速度
             double r = tan(this._shootAngly.w * M_PI / 180 *  drand48());
             double a = 360 * M_PI/ 180 * drand48();
@@ -317,12 +319,14 @@
         } else {
             [resultv3d scaleBy:this._speed];
         }
+        [resultv3d nslogStr];
         for(int j=0;j<4;j++){
             idx=12*i+j*3;
             speedArr[idx+0]=resultv3d.x;
             speedArr[idx+1]=resultv3d.y;
             speedArr[idx+2]=resultv3d.z;
         }
+  
     }
     GLuint speedBuffer;
     glGenBuffers(1, &speedBuffer);

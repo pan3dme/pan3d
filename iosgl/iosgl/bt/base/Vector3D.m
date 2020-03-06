@@ -117,4 +117,8 @@
     [self scaleBy:(1 / le)];
 }
 
+ -(void)nslogStr;
+{
+     NSLog(@"%f,%f,%f",self.x,self.y,self.z);
+ }
 @end
