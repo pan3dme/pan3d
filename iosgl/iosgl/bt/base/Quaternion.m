@@ -80,7 +80,7 @@
 -(Matrix3D*)toMatrix3D:(Matrix3D*)value;
 {
     Matrix3D* outm=   [self toMatrix3D];
-    value.m4x4=  outm.m4x4;
+    value.matrix4x4=  outm.matrix4x4;
     return value;
 }
 -(Matrix3D*)toMatrix3D;
@@ -106,7 +106,7 @@
     double     wy = w * y2;
     double     wz = w * z2;
     
-    Matrix4x4 tempM4x4=outm.m4x4;
+     Matrix4x4 tempM4x4=Matrix4x4Zero;
     tempM4x4.data[0] = 1 - yy - zz;
     tempM4x4.data[1] = yx + wz;
     tempM4x4.data[2] = zx - wy;
@@ -128,7 +128,7 @@
     tempM4x4.data[15] = 1;
     
     
-    
+    outm.matrix4x4=tempM4x4;
     return outm;
 }
 /*

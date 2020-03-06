@@ -14,7 +14,7 @@
 
 
 @interface Matrix3D()
-@property (nonatomic, assign)  Matrix4x4  matrix4x4;
+
 @property (nonatomic, assign)  Matrix3x3  matrix3x3;
 @end
 @implementation Matrix3D
@@ -33,14 +33,7 @@
 {
     return (GLfloat *)&_matrix4x4;
 }
--(Matrix4x4)m4x4;
-{
-    return self.matrix4x4;
-}
--(void)setM4x4:(Matrix4x4)value;
-{
-    self.matrix4x4=value;
-}
+ 
 -(GLfloat *)rotationM;
 {
     _matrix3x3.data[0]=_matrix4x4.data[0];
@@ -93,6 +86,7 @@
 }
 -(Vector3D*)transformVector:(Vector3D*)vec3d;
 {
+     
     Matrix4x4 mvp= self.matrix4x4;
     Vector3D *out  = [[Vector3D alloc]init];
     out.x = mvp.data[0] * vec3d.x + mvp.data[4] * vec3d.y + mvp.data[8] * vec3d.z + mvp.data[12] * vec3d.w;
@@ -102,19 +96,7 @@
     return out;
  
 }
-/*
-public getRotaion(b: Float32Array): void {
-          b[0] = this.m[0];
-          b[1] = this.m[1];
-          b[2] = this.m[2];
-          b[3] = this.m[4];
-          b[4] = this.m[5];
-          b[5] = this.m[6];
-          b[6] = this.m[8];
-          b[7] = this.m[9];
-          b[8] = this.m[10];
-      }
-*/
+ 
 
 -(void)append :(Matrix3D*)matrx3d;
 {

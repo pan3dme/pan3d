@@ -14,6 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Matrix3D : NSObject
+@property (nonatomic, assign)  Matrix4x4  matrix4x4;
 -(void)identity;
 -(Matrix3D *)clone;
 -(void) outString;
@@ -29,8 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) perspectiveFieldOfViewLH:(float)fieldOfViewY  aspectRatio:(float)aspectRatio zNear:(float)zNear zFar:(float)zFar;
 -(Vector3D*)transformVector:(Vector3D*)vec3d;
 -(GLfloat *)m;
--(void)setM4x4:(Matrix4x4)value;
--(Matrix4x4)m4x4;
 -(GLfloat *)rotationM;
  
 @end
