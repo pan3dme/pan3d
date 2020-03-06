@@ -16,12 +16,15 @@
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
     "attribute vec3 position;\n"
+    "attribute vec3 attcolor;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
+    "varying vec3 outColor;\n"
     "void main()"
     "{"
+        "outColor = attcolor;\n"
         "vec4 vPos = vec4(position.xyz,1.0);\n"
-         "gl_Position = vPos * posMatrix* viewMatrix;\n"
+        "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     
@@ -29,9 +32,10 @@
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
     "precision mediump float;\n"
+     "varying vec3 outColor;\n"
     "void main()"
     "{"
-        "gl_FragColor =vec4(1.0,0.0,1.0,1.0);\n"
+        "gl_FragColor =vec4(outColor.xyz,1.0);\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
