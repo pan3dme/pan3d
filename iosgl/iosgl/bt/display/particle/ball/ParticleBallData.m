@@ -22,7 +22,16 @@
         self._round=[[Vector3D alloc]init];
         self._shootAngly=[[Vector3D alloc]init];
         self._particleRandomScale=[[Vector3D alloc]init];
+        self._waveform=[[Vector3D alloc]init];
+        self._lixinForce=[[Vector3D alloc]init];
+        self._addforce=[[Vector3D alloc]init];
+        self._basePositon=[[Vector3D alloc]init];
+        self._scaleCtrlVec=[[Vector3D alloc]init];
+        self._animCtrlVec=[[Vector3D alloc]init];
+        self._uvCtrlVec=[[Vector3D alloc]init];
         self._timeVec=[[Vector3D alloc]init];
+//         self._wordPosVec=[[Vector3D alloc]init];
+//         self._caramPosVec=[[Vector3D alloc]init];
         
     }
     return self;

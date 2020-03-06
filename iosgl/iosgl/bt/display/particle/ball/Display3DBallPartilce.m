@@ -93,11 +93,27 @@
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
     
+    
+//    80: 0
+//    81: -0.09000000357627869
+//    82: 78
+//    83: -1
+//    84: 0.0044999998062849045
+//    85: 0.5
+//    86: 0.30000001192092896
+//    87: 0
+//    88: 1
+//    89: 1
+//    90: 99
+//    91: -1
+//    92: 0
+//    93: -0.02500000037252903
+    
     if(this.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
     }
   //  NSLog(@"--timeVec.x----%f",timeVec.x);
-    
+    // public static shader_vec4 = {time:[5,0],scale:[5,1],scaleCtrl:[5,2],force:[5,3],worldPos:[6,0],camPos:[6,1],animCtrl:[6,2],uvCtrl:[6,3]};
     
 }
 

@@ -28,6 +28,8 @@
         self.sceneScale=1.0;
         [self.uiView setContentScaleFactor:1];
         [self resetViewport];
+        
+             self.camera3D.rotationX=-45;
  
     }
     return self;

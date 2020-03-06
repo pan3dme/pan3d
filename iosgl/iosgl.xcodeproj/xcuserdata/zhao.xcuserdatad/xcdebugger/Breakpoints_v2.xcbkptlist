@@ -560,7 +560,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "-upFrame"
+            landmarkName = "-sceneScale"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -592,7 +592,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "-addDisplay:"
+            landmarkName = "-resetViewport"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -92,24 +92,23 @@
         "stime = max(stime,0.0);\n"
         "float sf = vcmat51.x * stime;\n"
         "if (vcmat51.y != 0.0 && vcmat51.z != 0.0) {\n"
-            "sf += sin(vcmat51.y * stime) * vcmat[5][1].z;\n"
+             "sf += sin(vcmat51.y * stime) * vcmat[5][1].z;\n"
         "}\n"
         "if (sf > vcmat52.z) {\n"
-            "sf = vcmat52.z;\n"
+             "sf = vcmat52.z;\n"
         "} else if (sf < vcmat52.w) {\n"
-            "sf = vcmat52.w;\n"
+             "sf = vcmat52.w;\n"
         "}\n"
         "vec2 sv2 = vec2(vcmat52.x * sf, vcmat52.y * sf);\n"
         "sv2 = sv2 + 1.0;\n"
+        
         "pos.x *= sv2.x;\n"
         "pos.y *= sv2.y;\n"
-    
-    
         "vec3 addPos = speed * ctime;\n"
-        "vec3 uspeed = vec3(0,0,0);\n"
-        "if (ctime < 0.0 || ctime >= vcmat50.z) {\n"
-            "addPos.y = addPos.y + 100000.0;\n"
+        "if (ctime < 0.0 || ctime > vcmat50.z) {\n"
+            "addPos.x =addPos.x+  10000.0;\n"
         "}\n"
+        "vec3 uspeed = vec3(0,0,0);\n"
         "if(vcmat50.y != 0.0 && length(speed) != 0.0) {\n"
             "uspeed = vec3(speed.x, speed.y, speed.z);\n"
             "uspeed = normalize(uspeed);\n"
@@ -118,11 +117,9 @@
         "} else {\n"
             "uspeed = vec3(vcmat53.x, vcmat53.y, vcmat53.z);\n"
         "}\n"
-       //  "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;\n"
-  
-       // "outvec3=speed;\n"
-  
-     "pos.xyz =pos.xyz+  speed.xyz * ctime;\n"
+    
+        "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;\n"
+        "pos.xyz = pos.xyz + basePos.xyz + addPos.xyz;\n"
       
         "gl_Position = pos * posMatrix* viewMatrix;\n"
     
