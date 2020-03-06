@@ -30,20 +30,20 @@
 {
       self.objData=[[ObjData alloc]init];
       GLfloat attrArr[12];
-      attrArr[0]=100.50f;
+      attrArr[0]=-100.0f;
       attrArr[1]=0.0f;
       attrArr[2]=0.0f;
       
-      attrArr[3]=100.25f;
+      attrArr[3]=0.0f;
       attrArr[4]=0.0f;
-      attrArr[5]=0.0f;
+      attrArr[5]=100.0f;
       
-      attrArr[6]=100.25f;
-      attrArr[7]=0.25f;
+      attrArr[6]=100.0f;
+      attrArr[7]=0.0f;
       attrArr[8]=100.0f;
       
-      attrArr[9]=0.0f;
-      attrArr[10]=0.25f;
+      attrArr[9]=-100.0f;
+      attrArr[10]=0.0f;
       attrArr[11]=100.0f;
       
       GLuint verticesBuffer;
@@ -53,12 +53,12 @@
       self.objData.verticesBuffer=verticesBuffer;
       
       unsigned int Indices[6];
-      Indices[0]=1;
-      Indices[1]=2;
-      Indices[2]=3;
-      Indices[3]=1;
-      Indices[4]=3;
-      Indices[5]=4;
+      Indices[0]=0;
+      Indices[1]=1;
+      Indices[2]=2;
+      Indices[3]=0;
+      Indices[4]=2;
+      Indices[5]=3;
       GLuint indexBuffer;
       glGenBuffers(1, &indexBuffer);
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
