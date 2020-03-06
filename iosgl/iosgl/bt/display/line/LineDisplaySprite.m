@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSMutableArray<Vector3D *>*  linePointArr;
  
 
-@property (nonatomic, strong) Vector3D* colorV3d;
+
 @end
 @implementation LineDisplaySprite
 
