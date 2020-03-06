@@ -96,7 +96,7 @@
     if(this.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
     }
-    NSLog(@"--timeVec.x----%f",timeVec.x);
+  //  NSLog(@"--timeVec.x----%f",timeVec.x);
     
     
 }
