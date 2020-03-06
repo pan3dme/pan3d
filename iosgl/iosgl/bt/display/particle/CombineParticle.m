@@ -10,7 +10,7 @@
 #import "Display3DParticle.h"
 
 @interface CombineParticle ()
-@property (nonatomic, strong)  NSMutableArray*  _displayAry ;
+@property (nonatomic, strong)  NSMutableArray<Display3DParticle*>*  _displayAry ;
 @property (nonatomic, assign)  NSString*  _bindSocket;
 @property (nonatomic, assign)  float  _rotationX;
 @property (nonatomic, assign)  float  _rotationY;
@@ -44,17 +44,16 @@
 {
     for(int i=0;i<self._displayAry.count;i++)
       {
-          Display3DParticle *dis=((Display3DParticle*)(self._displayAry[i]));
-          [dis updateTime:t];
+ 
+          [self._displayAry[i] updateTime:t];
       }
 }
 -(void)update;
 {
     for(int i=0;i<self._displayAry.count;i++)
     {
-        Display3DParticle *dis=((Display3DParticle*)(self._displayAry[i]));
-        dis.scene3d=self.scene3d;
-        [dis update];
+        self._displayAry[i].scene3d=self.scene3d;
+        [self._displayAry[i] update];
     }
 }
 -(void)updateItem:(int)idx;

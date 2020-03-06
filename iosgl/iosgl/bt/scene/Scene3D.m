@@ -23,7 +23,7 @@
         self.camera3D=[[Camera3D alloc]init];
         self.displayList=[[NSMutableArray alloc]init];
         self.particleManager=[[ParticleManager alloc]init];
-        self.viewRect=[[Rectangle alloc]x:0 y:0 width:300 height:300];
+        self.viewRect=[[Rectangle alloc]x:0 y:0 width:360 height:360];
 
         self.sceneScale=1.0;
         [self.uiView setContentScaleFactor:1];
@@ -56,7 +56,7 @@
     [self setupDephtBuffer];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
-    glViewport(0,0,300,300);
+    glViewport(0,0,360,360);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, self.mydepthRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, self.myColorRenderBuffer);
