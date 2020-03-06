@@ -292,10 +292,24 @@
             double a = 360 * M_PI/ 180 * drand48();
             v3d = [[Vector3D  alloc]x:sin(a)*r y:cos(a)*r z:1];
             [ma identity];
-            [ma fromVtoV:Vector3D.Z_AXIS newPos: this._shootAngly ];
+          
+            [ma fromVtoV:Vector3D.Z_AXIS newPos:   [[Vector3D alloc]x:this._shootAngly.x y:this._shootAngly.y z:this._shootAngly.z]];
+             
             v3d = [ma transformVector:v3d];
             [v3d normalize];
             resultv3d =[resultv3d add:v3d];
+            
+            /*
+             var r: number = Math.tan(this._shootAngly.w * Math.PI / 180 * Math.random());
+                            var a: number = 360 * Math.PI / 180 * Math.random();
+                            v3d = new Vector3D(Math.sin(a) * r, Math.cos(a) * r, 1);
+                            var ma: Matrix3D = new Matrix3D();//moveMatrix3D();
+                            ma.fromVtoV(new Vector3D(0, 0, 1), new Vector3D(this._shootAngly.x, this._shootAngly.y, this._shootAngly.z));
+                            v3d = ma.transformVector(v3d);
+                            v3d.normalize();
+                            resultv3d = resultv3d.add(v3d);
+             */
+            
         }
         if (this._lixinForce.x != 0 || this._lixinForce.y != 0 || this._lixinForce.z != 0) {
             v3d=[[Vector3D alloc]x:drand48()>0.5f?-this._lixinForce.x : this._lixinForce.x y:drand48()>0.5f?-this._lixinForce.y : this._lixinForce.y z:drand48()>0.5f?-this._lixinForce.z : this._lixinForce.z];

@@ -9,9 +9,9 @@
 #import "Display3D.h"
 #import "Matrix3D.h"
 #import "Vector3D.h"
-#import "Scene3D.h"
+ 
 
-@class  ParticleData;
+ @class  ParticleData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  visible;
 @property (nonatomic, assign)  int  timeline;
 @property (nonatomic, assign)  int  _beginTime;
-@property (nonatomic, strong)  ParticleData*  data;
+
 @property (nonatomic, assign)  Vector3D*  bindMatrix;
 @property (nonatomic, assign)  Vector3D*  bindVecter3d;
 @property (nonatomic, assign)  Vector3D*  bindScale;
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Vector3D*   groupScale;
 @property (nonatomic, assign)  Vector3D*   groupRotation;
 @property (nonatomic, assign)  float  _time;
-@property (nonatomic, strong)  Scene3D *scene3d;
+ @property (nonatomic, strong)  ParticleData*  data;
 -(void)onCreated;
 -(void)update;
 -(void)updateTime:(float)t;

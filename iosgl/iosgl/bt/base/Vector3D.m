@@ -40,6 +40,7 @@
     _x=x;
     _y=y;
     _z=z;
+    _w=1;
     return self;
 }
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;

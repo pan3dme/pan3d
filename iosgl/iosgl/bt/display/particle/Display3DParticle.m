@@ -7,6 +7,7 @@
 //
 
 #import "Display3DParticle.h"
+#import "ParticleData.h"
 
 @implementation Display3DParticle
 
@@ -24,18 +25,16 @@
 }
 -(void)updateTime:(float)t;
 {
-    self._time = t - self._beginTime;
-    
+    self._time=t;
 }
 -(void)update;
 {
-    if(self.visible){
+    if(self.visible ){
         [self updateMatrix];
         [self setVc];
         [self setVa];
         [self resetVa];
     }
-    
 }
 -(void)setVc;
 {

@@ -18,6 +18,7 @@
 #import "MaterialManager.h"
 #import "TextureRes.h"
 #import "TimeUtil.h"
+#import "Scene3D.h"
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
@@ -96,6 +97,8 @@
         NSLog(@"_is3Dlizi");
     }
     NSLog(@"--timeVec.x----%f",timeVec.x);
+    
+    
 }
 
 -(ParticleBallData*)ballData;
