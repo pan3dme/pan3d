@@ -16,6 +16,7 @@
 #import "ParticleManager.h"
 #import "Display3DSprite.h"
 #import "LineDisplaySprite.h"
+#import "GridLineSprite.h"
 #import "DisplayBaseTriSprite.h"
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
@@ -98,8 +99,9 @@
 //    #import "Display3DSprite.h"
 //    #import "LineDisplaySprite.h"
 //    #import "DisplayBaseTriSprite.h"
+    //GridLineSprite
      [self.sceneView makeEemptyScene];
-    [self.sceneView.scene3D addDisplay:[[LineDisplaySprite alloc]init]];
+    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
     [[GroupDataManager default] getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
