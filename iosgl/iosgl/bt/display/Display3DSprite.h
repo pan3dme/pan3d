@@ -22,5 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)loadTextureResByUrl:(NSString*)value;
 -(void)loadObjDataByUrl:(NSString*)url;
 -(void)onCreated;
+-(void)setVc;
+-(void)setVa;
 @end
 NS_ASSUME_NONNULL_END

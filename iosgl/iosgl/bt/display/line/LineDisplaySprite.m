@@ -96,18 +96,31 @@
         [self refrishLineDataToGpu];
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
-        Context3D *context3D=self.scene3d.context3D;
-        [context3D pushVa:self.objData.verticesBuffer];
-        [context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:24 offset:0];
-        [context3D setVaOffset:self.shader3d name:"attcolor" dataWidth:3 stride:24 offset:3];
-        [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
-        [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+    
+        [self setVc];
+        [self setVa];
+        
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.objData.indexBuffer);
         glDrawElements(GL_LINES, self.objData.trinum, GL_UNSIGNED_INT, 0);
         
     }
+ 
+}
+-(void)setVc;
+{
+    Context3D *context3D=self.scene3d.context3D;
+    [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
+    [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+}
+-(void)setVa;
+{
+    Context3D *context3D=self.scene3d.context3D;
+    [context3D pushVa:self.objData.verticesBuffer];
+    [context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:24 offset:0];
+    [context3D setVaOffset:self.shader3d name:"attcolor" dataWidth:3 stride:24 offset:3];
     
 }
+
 
 
 @end
