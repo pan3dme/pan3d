@@ -57,25 +57,10 @@
 -(void)setVc;
 {
     Context3D *ctx=self.scene3d.context3D;
-    
-    [self.scene3d.camera3D upFrame];
-     
+   
     [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.scene3d.camera3D.viewMatrix.m];
     [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:self.scene3d.camera3D.camMatrix3D.m];
-    
-    
-    /*
-    Matrix3D *tempviewMatrix=[[Matrix3D alloc]init];
-    Matrix3D *tempcamMatrix=[[Matrix3D alloc]init];
-
-    [tempviewMatrix inputStrData:@"1.6533515453338623,0,0,0,0,2.9392917156219482,0,0,0,0,1.0526316165924072,1,0,0,-52.6315803527832,0"];
-      [tempcamMatrix inputStrData:@"0.7071067690849304,-0.4911976754665375,-0.5086500644683838,0,0,0.7193397879600525,-0.6946583986282349,0,0.7071067690849304,0.4911976754665375,0.5086500644683838,0,0,0,562,1"];
-  
-    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:tempviewMatrix.m];
-    [ctx setVcMatrix4fv:self.shader3d name:"posMatrix" data:tempcamMatrix.m];
-    
-    */
-      
+ 
 }
  
 @end

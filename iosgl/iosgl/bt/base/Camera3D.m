@@ -29,8 +29,9 @@
 {
   
     [self.viewMatrix identity];
-    [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:1000];
-    [self.viewMatrix appendScale:  (self.sceneViewHW / self.fovw * 2) y:self.fovw / self.fovh * ( self.sceneViewHW / self.fovw * 2) z:1];
+//    [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:0.01 zFar:1000];
+//    [self.viewMatrix appendScale:  (self.sceneViewHW / self.fovw * 2) y:self.fovw / self.fovh * ( self.sceneViewHW / self.fovw * 2) z:1];
+    [self.viewMatrix inputStrData:@"1.8304877281188965,0,0,0,0,1.8304877281188965,0,0,0,0,1.0016694068908691,1,0,0,-1.0016694068908691,0"];
    
     [self.camMatrix3D identity];
     [self.camMatrix3D appendRotation: self.rotationY axis:Vector3D.Y_AXIS];
