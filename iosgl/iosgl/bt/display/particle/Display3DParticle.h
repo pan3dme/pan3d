@@ -25,7 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Vector3D*  bindScale;
 @property (nonatomic, assign)  Matrix3D*  invertBindMatrix;
 @property (nonatomic, assign)  Matrix3D*   groupMatrix;
-@property (nonatomic, assign)  Matrix3D*   modelMatrix;
+ 
+ 
 @property (nonatomic, assign)  BOOL   isInGroup;
 @property (nonatomic, assign)  Vector3D*   groupPos;
 @property (nonatomic, assign)  Vector3D*   groupScale;
