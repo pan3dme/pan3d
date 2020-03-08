@@ -140,5 +140,16 @@
 {
     self.matrix4x4= Matrix4x4Scale(self.matrix4x4,x,y,z);
 };
+-(void)inputStrData:(NSString*)str;
+{
+    NSArray *array = [str componentsSeparatedByString:@","];
+    for(int i=0;i<16;i++){
+        _matrix4x4.data[i]=[array[i] floatValue] ;
+        
+    }
+    self.m;
+    
+    
+}
 
 @end

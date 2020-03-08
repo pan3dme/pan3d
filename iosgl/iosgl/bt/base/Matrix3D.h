@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(Vector3D*)transformVector:(Vector3D*)vec3d;
 -(GLfloat *)m;
 -(GLfloat *)rotationM;
+-(void)inputStrData:(NSString*)str;
  
 @end
 
