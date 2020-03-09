@@ -8,14 +8,36 @@
 #import <GLKit/GLKit.h>
 #import "TextureRes.h"
 #import "Material.h"
+#import "MaterialLoad.h"
 #import "MaterialManager.h"
 static MaterialManager *instance = nil;
+
+//private _loadDic: Object;
+//private _resDic: Object;
+//private _regDic: Object;
+@interface MaterialManager()
+@property (nonatomic, strong)  NSMutableDictionary* loadDic;
+@property (nonatomic, strong)  NSMutableDictionary* resDic;
+@property (nonatomic, strong)  NSMutableDictionary* regDic;
+@end
+
 @implementation MaterialManager
 + (instancetype)default{
     if (instance == nil) {
         instance = [[MaterialManager alloc] init];
     }
     return instance;
+}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _dic=[[NSMutableDictionary alloc]init];
+        _loadDic=[[NSMutableDictionary alloc]init];
+        _resDic=[[NSMutableDictionary alloc]init];
+        _regDic=[[NSMutableDictionary alloc]init];
+    }
+    return self;
 }
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
 {
@@ -63,19 +85,48 @@ static MaterialManager *instance = nil;
     
     return textureID;
 }
--(void)getMaterialByte:(NSString*)url fun:(void (^)(Material* ))fun info:(NSMutableDictionary*)info;
+-(void)getMaterialByte:(NSString*)url fun:(void (^)(Material* ))fun info:(NSDictionary*)info;
 {
     if(_dic[url]){
-        
-        
+        fun(_dic[url]);
+        return;
+    }
+    MaterialLoad* materialLoad= [[MaterialLoad alloc]init:fun info:info url:url autoReg:YES regName:@"d" shader: nil];
+    if ( _loadDic[url]) {
+        NSMutableArray<MaterialLoad*>* ary   =  _loadDic[url];
+        [ary addObject:materialLoad];
+        return;
+    }
+    _loadDic[url] = [[NSMutableArray alloc]init];
+    [_loadDic[url] addObject:materialLoad];
+    if (_resDic[url]) {
+    
     }else{
         
     }
-    
-    
+    /*
+     
+
+     this._loadDic[$url] = new Array;
+     this._loadDic[$url].push(materialLoad);
+
+     if (this._resDic[$url]) {
+
+         this.meshByteMaterialByt(this._resDic[$url], materialLoad);
+
+         if(this._regDic[$url]){
+             this._dic[$url].useNum += this._regDic[$url];
+             delete this._regDic[$url];
+         }
+
+         delete this._resDic[$url];
+     } else {
+         LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($data: ArrayBuffer, _info: MaterialLoad) => { this.loadMaterialByteCom($data, _info) }, materialLoad);
+     }
+     */
+  
     
 }
-//public getMaterialByte($url: string, $fun: Function, $info: Object = null, $autoReg: boolean = false, $regName: string = null, $shader3DCls: any = null): void {
-
+ 
                    
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Shader3D.h"
+#import "Material.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL  autoReg;
 @property (nonatomic, strong) NSString*  regName;
 @property (nonatomic, strong) Shader3D*  shader3D;
-
+- (instancetype)init:(void (^)(Material* ))fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
 @end
 
 NS_ASSUME_NONNULL_END

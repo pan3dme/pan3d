@@ -8,14 +8,15 @@
 
 #import "MaterialLoad.h"
 #import "Shader3D.h"
+#import "Material.h"
 
 @implementation MaterialLoad
 
-- (instancetype)init:(void (^)(int))fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
+- (instancetype)init:(void (^)(Material* ))fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
 {
     self = [super init];
     if (self) {
-        self.info=info;
+         self.info=info;
          self.url=url;
          self.autoReg=autoReg;
          self.regName=regName;
