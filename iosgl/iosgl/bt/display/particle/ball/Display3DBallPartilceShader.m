@@ -139,19 +139,41 @@
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     
 }
+/*
+ precision mediump float;
+ uniform sampler2D fs0;
+ uniform sampler2D fs1;
+ uniform vec4 fc[1];
+ varying vec2 v0;
+ varying vec2 v1;
+ void main(void){
+
+ vec4 ft0 = texture2D(fs0,v0);
+ ft0.xyz *= ft0.w;
+ vec4 ft1 = texture2D(fs1,v1);
+ ft1.xyz = ft1.xyz * ft1.w;
+ vec4 ft2 = ft0 * fc[0];
+ ft0 = ft2 * ft1;
+ ft1.xyz = ft0.xyz;
+ ft1.w = ft0.w;
+
+ gl_FragColor = ft1;
+ */
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
     "precision mediump float;\n"
+    "uniform sampler2D fs0;\n"
+    "uniform sampler2D fs1;\n"
     "varying vec2 v0;\n"
     "varying vec2 v1;\n"
     "varying vec3 outvec3;\n"
-    "uniform sampler2D colorMap;\n"
+
     "void main()"
     "{"
-        "vec4 infoUvA   =texture2D(colorMap,v1.xy);\n"
+        "vec4 infoUvA   =texture2D(fs0,v1.xy);\n"
      //   "vec4 infoUv  = vec4(1.0,0.0,0.0,1.0);\n"
        "vec4 infoUv  = vec4(outvec3.xyz,1.0);\n"
-        "gl_FragColor =infoUv;\n"
+        "gl_FragColor =infoUvA;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
