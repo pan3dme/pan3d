@@ -93,6 +93,8 @@
 		FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */; };
 		FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057132405CD16000F6D17 /* Display3DBallPartilceShader.m */; };
 		FE805728240698DD000F6D17 /* Display3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE805727240698DD000F6D17 /* Display3DShader.m */; };
+		FE887D502416731200025A74 /* CurveVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D4F2416731200025A74 /* CurveVo.m */; };
+		FE887D532416733900025A74 /* ParamDataVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D522416733900025A74 /* ParamDataVo.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4424002A94009F6575 /* TokenSceneView.m */; };
@@ -264,6 +266,10 @@
 		FE8057132405CD16000F6D17 /* Display3DBallPartilceShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DBallPartilceShader.m; sourceTree = "<group>"; };
 		FE805726240698DD000F6D17 /* Display3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DShader.h; sourceTree = "<group>"; };
 		FE805727240698DD000F6D17 /* Display3DShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DShader.m; sourceTree = "<group>"; };
+		FE887D4E2416731200025A74 /* CurveVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurveVo.h; sourceTree = "<group>"; };
+		FE887D4F2416731200025A74 /* CurveVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurveVo.m; sourceTree = "<group>"; };
+		FE887D512416733900025A74 /* ParamDataVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParamDataVo.h; sourceTree = "<group>"; };
+		FE887D522416733900025A74 /* ParamDataVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParamDataVo.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
@@ -491,6 +497,10 @@
 				FE189ADA24026B7E008E2FF6 /* KeyFrame.m */,
 				FE189B2324049C2E008E2FF6 /* TimeLine.h */,
 				FE189B2424049C2E008E2FF6 /* TimeLine.m */,
+				FE887D4E2416731200025A74 /* CurveVo.h */,
+				FE887D4F2416731200025A74 /* CurveVo.m */,
+				FE887D512416733900025A74 /* ParamDataVo.h */,
+				FE887D522416733900025A74 /* ParamDataVo.m */,
 			);
 			path = ctrl;
 			sourceTree = "<group>";
@@ -832,6 +842,7 @@
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
 				FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
+				FE887D532416733900025A74 /* ParamDataVo.m in Sources */,
 				FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
@@ -880,6 +891,7 @@
 				FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
+				FE887D502416731200025A74 /* CurveVo.m in Sources */,
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
 				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,

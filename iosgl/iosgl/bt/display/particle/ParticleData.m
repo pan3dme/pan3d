@@ -10,6 +10,11 @@
 #import "TimeLineData.h"
 #import "ByteArray.h"
 #import "TimeLine.h"
+#import "CurveVo.h"
+#import "ParamDataVo.h"
+
+ 
+ 
 
 @implementation ParticleData
 -(void)setAllByteInfo:(ByteArray*)byte;
@@ -118,30 +123,30 @@
  
 -(void)readMaterialPara:(ByteArray*)byte
 {
-      ParticleData* this=self;
+    ParticleData* this=self;
     this.materialParamData = [[NSMutableDictionary alloc]init];
     NSString* materlUrl = [byte readUTF];
-      this.materialParamData[@"materialUrl"] = materlUrl;
+    this.materialParamData[@"materialUrl"] = materlUrl;
     
-   
+    
     int texAryLen =  [byte readInt];
     this.materialParamData[@"texAry"] = [[NSMutableArray alloc]init];
     for (int i = 0; i < texAryLen; i++) {
-        NSMutableDictionary* temp = [[NSMutableDictionary alloc]init];
-        temp[@"isParticleColor"] = [byte readBoolean]?@1:@0 ;
-        temp[@"paramName"] =  [byte readUTF];
-        temp[@"url"] =[byte readUTF];
-        if ( [temp[@"isParticleColor"]isEqual:@1]) {
-            temp[@"curve"] =[[NSMutableDictionary alloc]init];
-            [self readTempCurve: byte   curve:temp[@"curve"]];
+        ParamDataVo* temp =[[ParamDataVo alloc]init];
+        temp.isParticleColor= [byte readBoolean] ;
+        temp.paramName =  [byte readUTF];
+        temp.url =[byte readUTF];
+        if ( temp.isParticleColor) {
+            temp.curve=[[CurveVo alloc]init];
+            [self readTempCurve: byte   curve:temp.curve];
         }
         [this.materialParamData[@"texAry"] addObject:temp];
     }
     [self readMaterialParaConAry:byte];
 }
--(void)readTempCurve:(ByteArray*)byte curve:(NSMutableDictionary*)curve;
+-(void)readTempCurve:(ByteArray*)byte curve:(CurveVo*)curve;
 {
-    curve[@"values"] = [[NSMutableArray alloc]init];
+    curve.values = [[NSMutableArray alloc]init];
     int valuesLen =  [byte readInt];
     float scaleNum;
     if (valuesLen > 0) {
@@ -153,21 +158,21 @@
         for (int k = 0; k < rgbLen; k++) {
             [valuesArr addObject:[NSString stringWithFormat:@"%f",[byte readFloatOneByte]*1-127] ];
         }
-        [curve[@"values"] addObject:valuesArr];
+        [curve.values addObject:valuesArr];
     }
-    curve[@"type"] = [NSString stringWithFormat:@"%f", [byte readFloat]];
-    curve[@"maxFrame"] =  [NSString stringWithFormat:@"%f", [byte readFloat]];
-    curve[@"sideType"] =    [byte readBoolean]?@1:@0 ;
-    curve[@"speedType"] = [byte readBoolean]?@1:@0 ;
-    curve[@"useColorType"] =  [byte readBoolean]?@1:@0 ;
-    curve[@"items"] = [self readItems:byte];
-  //  [self makeCurveData:curve];
+    curve.type = [byte readFloat] ;
+    curve.maxFrame =   [byte readFloat];
+    curve.sideType =    [byte readBoolean]  ;
+    curve.speedType = [byte readBoolean]  ;
+    curve.useColorType =  [byte readBoolean]  ;
+    curve.items = [self readItems:byte];
+    [self makeCurveData:curve];
 }
--(void)makeCurveData:(NSMutableDictionary*)curve
+-(void)makeCurveData:(CurveVo*)curve
 {
-    NSMutableArray* arr  = curve[@"items"];
+    NSMutableArray* arr  = curve.items;
     NSMutableArray* r  = [[NSMutableArray alloc]init];
-    NSMutableArray* g =[[NSMutableArray alloc]init];
+    NSMutableArray* g  = [[NSMutableArray alloc]init];
     NSMutableArray* b  = [[NSMutableArray alloc]init];
     NSMutableArray* a  = [[NSMutableArray alloc]init];
     for (int i = 0; i < arr.count; i++) {
@@ -191,11 +196,13 @@
              */
         }
     }
-    curve[@"values"] =[[NSMutableArray alloc]init];
-    [curve[@"values"] addObject:@"1"];
-    [curve[@"values"] addObject:@"1"];
-    [curve[@"values"] addObject:@"1"];
-    [curve[@"values"] addObject:@"1"];
+    curve.values =[[NSMutableArray alloc]init];
+    [curve.values addObject:@"1"];
+    [curve.values addObject:@"1"];
+    [curve.values addObject:@"1"];
+    [curve.values addObject:@"1"];
+    
+    
 }
 -(NSMutableArray*)readItems:(ByteArray*)byte;
 {
@@ -220,7 +227,7 @@
         obj[@"type"] = [NSString stringWithFormat:@"%f", [byte readFloat]];
         obj[@"indexID"] = [NSString stringWithFormat:@"%d", (int)[byte readFloat]];
         obj[@"paramName"] = [byte readUTF];
-        obj[@"curve"] =[[NSMutableDictionary alloc]init];
+        obj[@"curve"] =[[CurveVo alloc]init];
         [self readTempCurve:byte  curve:obj[@"curve"] ];
         [arr addObject:obj];
     }
