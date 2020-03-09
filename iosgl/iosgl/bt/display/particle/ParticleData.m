@@ -12,6 +12,7 @@
 #import "TimeLine.h"
 #import "CurveVo.h"
 #import "ParamDataVo.h"
+#import "MaterialManager.h"
 
  
  
@@ -83,14 +84,20 @@
     [this readMaterialPara:byte];
     
     NSString* strMaterialUrl = [byte readUTF];
-   // strMaterialUrl = strMaterialUrl.replace("_byte.txt", ".txt");
-   // strMaterialUrl = strMaterialUrl.replace(".txt", "_byte.txt");
+ 
     self.materialByteUrl = strMaterialUrl;
-    //strMaterialUrl    __NSCFString *    @"content/particleresources/materials/m_ef_par.txt"    0x0000000280608280
-    //content/particleresources/materials/m_ef_par_byte.txt
+  
 }
 -(void)setMaterialByteUrl:(NSString*)value;
 {
+    if ([self._materialUrl  isEqualToString:value]) {
+       return;
+    }
+    self._materialUrl = value;
+    [[MaterialManager default] getMaterialByte:value fun:^(Material * material) {
+        
+    } info:nil];
+
     
 }
 -(Display3DParticle*)creatPartilce;

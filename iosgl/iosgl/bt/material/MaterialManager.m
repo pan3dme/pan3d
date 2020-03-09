@@ -7,6 +7,7 @@
 //
 #import <GLKit/GLKit.h>
 #import "TextureRes.h"
+#import "Material.h"
 #import "MaterialManager.h"
 static MaterialManager *instance = nil;
 @implementation MaterialManager
@@ -62,6 +63,19 @@ static MaterialManager *instance = nil;
     
     return textureID;
 }
+-(void)getMaterialByte:(NSString*)url fun:(void (^)(Material* ))fun info:(NSMutableDictionary*)info;
+{
+    if(_dic[url]){
+        
+        
+    }else{
+        
+    }
+    
+    
+    
+}
+//public getMaterialByte($url: string, $fun: Function, $info: Object = null, $autoReg: boolean = false, $regName: string = null, $shader3DCls: any = null): void {
 
                    
 @end

@@ -104,6 +104,7 @@
 		FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D67241676B000025A74 /* MaterialBaseParam.m */; };
 		FE887D6B241676BF00025A74 /* MaterialParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D6A241676BF00025A74 /* MaterialParam.m */; };
 		FE887D6E241676CC00025A74 /* TexItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D6D241676CC00025A74 /* TexItem.m */; };
+		FE887D71241681B300025A74 /* MaterialLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D70241681B300025A74 /* MaterialLoad.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4424002A94009F6575 /* TokenSceneView.m */; };
@@ -297,6 +298,8 @@
 		FE887D6A241676BF00025A74 /* MaterialParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialParam.m; sourceTree = "<group>"; };
 		FE887D6C241676CC00025A74 /* TexItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TexItem.h; sourceTree = "<group>"; };
 		FE887D6D241676CC00025A74 /* TexItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TexItem.m; sourceTree = "<group>"; };
+		FE887D6F241681B300025A74 /* MaterialLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialLoad.h; sourceTree = "<group>"; };
+		FE887D70241681B300025A74 /* MaterialLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialLoad.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
@@ -583,6 +586,8 @@
 		FE2088F1239C1821007FB797 /* material */ = {
 			isa = PBXGroup;
 			children = (
+				FE887D6F241681B300025A74 /* MaterialLoad.h */,
+				FE887D70241681B300025A74 /* MaterialLoad.m */,
 				FE2088EE239C176A007FB797 /* TextureRes.h */,
 				FE2088EF239C176A007FB797 /* TextureRes.m */,
 				FE2088F2239C183B007FB797 /* MaterialManager.h */,
@@ -921,6 +926,7 @@
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
+				FE887D71241681B300025A74 /* MaterialLoad.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
 				FE678843239B980200262B53 /* SceneView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
