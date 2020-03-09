@@ -95,6 +95,15 @@
 		FE805728240698DD000F6D17 /* Display3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE805727240698DD000F6D17 /* Display3DShader.m */; };
 		FE887D502416731200025A74 /* CurveVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D4F2416731200025A74 /* CurveVo.m */; };
 		FE887D532416733900025A74 /* ParamDataVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D522416733900025A74 /* ParamDataVo.m */; };
+		FE887D562416765600025A74 /* ConstItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D552416765600025A74 /* ConstItem.m */; };
+		FE887D592416766700025A74 /* DynamicBaseConstItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D582416766700025A74 /* DynamicBaseConstItem.m */; };
+		FE887D5C2416767500025A74 /* DynamicBaseTexItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D5B2416767500025A74 /* DynamicBaseTexItem.m */; };
+		FE887D5F2416768700025A74 /* DynamicConstItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D5E2416768700025A74 /* DynamicConstItem.m */; };
+		FE887D622416769500025A74 /* DynamicTexItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D612416769500025A74 /* DynamicTexItem.m */; };
+		FE887D65241676A200025A74 /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D64241676A200025A74 /* Material.m */; };
+		FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D67241676B000025A74 /* MaterialBaseParam.m */; };
+		FE887D6B241676BF00025A74 /* MaterialParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D6A241676BF00025A74 /* MaterialParam.m */; };
+		FE887D6E241676CC00025A74 /* TexItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D6D241676CC00025A74 /* TexItem.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4424002A94009F6575 /* TokenSceneView.m */; };
@@ -270,6 +279,24 @@
 		FE887D4F2416731200025A74 /* CurveVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurveVo.m; sourceTree = "<group>"; };
 		FE887D512416733900025A74 /* ParamDataVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParamDataVo.h; sourceTree = "<group>"; };
 		FE887D522416733900025A74 /* ParamDataVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParamDataVo.m; sourceTree = "<group>"; };
+		FE887D542416765600025A74 /* ConstItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstItem.h; sourceTree = "<group>"; };
+		FE887D552416765600025A74 /* ConstItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConstItem.m; sourceTree = "<group>"; };
+		FE887D572416766700025A74 /* DynamicBaseConstItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicBaseConstItem.h; sourceTree = "<group>"; };
+		FE887D582416766700025A74 /* DynamicBaseConstItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicBaseConstItem.m; sourceTree = "<group>"; };
+		FE887D5A2416767500025A74 /* DynamicBaseTexItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicBaseTexItem.h; sourceTree = "<group>"; };
+		FE887D5B2416767500025A74 /* DynamicBaseTexItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicBaseTexItem.m; sourceTree = "<group>"; };
+		FE887D5D2416768700025A74 /* DynamicConstItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicConstItem.h; sourceTree = "<group>"; };
+		FE887D5E2416768700025A74 /* DynamicConstItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicConstItem.m; sourceTree = "<group>"; };
+		FE887D602416769500025A74 /* DynamicTexItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTexItem.h; sourceTree = "<group>"; };
+		FE887D612416769500025A74 /* DynamicTexItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTexItem.m; sourceTree = "<group>"; };
+		FE887D63241676A200025A74 /* Material.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
+		FE887D64241676A200025A74 /* Material.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Material.m; sourceTree = "<group>"; };
+		FE887D66241676B000025A74 /* MaterialBaseParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialBaseParam.h; sourceTree = "<group>"; };
+		FE887D67241676B000025A74 /* MaterialBaseParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialBaseParam.m; sourceTree = "<group>"; };
+		FE887D69241676BF00025A74 /* MaterialParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialParam.h; sourceTree = "<group>"; };
+		FE887D6A241676BF00025A74 /* MaterialParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialParam.m; sourceTree = "<group>"; };
+		FE887D6C241676CC00025A74 /* TexItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TexItem.h; sourceTree = "<group>"; };
+		FE887D6D241676CC00025A74 /* TexItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TexItem.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
@@ -556,8 +583,28 @@
 		FE2088F1239C1821007FB797 /* material */ = {
 			isa = PBXGroup;
 			children = (
+				FE2088EE239C176A007FB797 /* TextureRes.h */,
+				FE2088EF239C176A007FB797 /* TextureRes.m */,
 				FE2088F2239C183B007FB797 /* MaterialManager.h */,
 				FE2088F3239C183B007FB797 /* MaterialManager.m */,
+				FE887D542416765600025A74 /* ConstItem.h */,
+				FE887D552416765600025A74 /* ConstItem.m */,
+				FE887D572416766700025A74 /* DynamicBaseConstItem.h */,
+				FE887D582416766700025A74 /* DynamicBaseConstItem.m */,
+				FE887D5A2416767500025A74 /* DynamicBaseTexItem.h */,
+				FE887D5B2416767500025A74 /* DynamicBaseTexItem.m */,
+				FE887D5D2416768700025A74 /* DynamicConstItem.h */,
+				FE887D5E2416768700025A74 /* DynamicConstItem.m */,
+				FE887D602416769500025A74 /* DynamicTexItem.h */,
+				FE887D612416769500025A74 /* DynamicTexItem.m */,
+				FE887D63241676A200025A74 /* Material.h */,
+				FE887D64241676A200025A74 /* Material.m */,
+				FE887D66241676B000025A74 /* MaterialBaseParam.h */,
+				FE887D67241676B000025A74 /* MaterialBaseParam.m */,
+				FE887D69241676BF00025A74 /* MaterialParam.h */,
+				FE887D6A241676BF00025A74 /* MaterialParam.m */,
+				FE887D6C241676CC00025A74 /* TexItem.h */,
+				FE887D6D241676CC00025A74 /* TexItem.m */,
 			);
 			path = material;
 			sourceTree = "<group>";
@@ -658,8 +705,6 @@
 				FE4CA7D52398DAAA00BE6FB5 /* Matrix3D.m */,
 				FE678837239B948D00262B53 /* ObjData.h */,
 				FE678838239B948D00262B53 /* ObjData.m */,
-				FE2088EE239C176A007FB797 /* TextureRes.h */,
-				FE2088EF239C176A007FB797 /* TextureRes.m */,
 				FE36BBE523A53D7B00180D7C /* Types.h */,
 				FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */,
 				FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */,
@@ -846,6 +891,7 @@
 				FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
+				FE887D5F2416768700025A74 /* DynamicConstItem.m in Sources */,
 				FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */,
 				FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */,
 				FE1D8B522412903600A04FC4 /* DisplayBaseTriShader.m in Sources */,
@@ -855,11 +901,13 @@
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,
 				FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */,
+				FE887D6B241676BF00025A74 /* MaterialParam.m in Sources */,
 				FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */,
 				FE3D4EE62401C16C00185FD3 /* CombineParticle.m in Sources */,
 				FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */,
 				FE805728240698DD000F6D17 /* Display3DShader.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
+				FE887D622416769500025A74 /* DynamicTexItem.m in Sources */,
 				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */,
@@ -872,6 +920,7 @@
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
+				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
 				FE678843239B980200262B53 /* SceneView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
@@ -879,9 +928,11 @@
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
 				FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */,
 				FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */,
+				FE887D592416766700025A74 /* DynamicBaseConstItem.m in Sources */,
 				FE3D4EDF2401BF5A00185FD3 /* ParticleManager.m in Sources */,
 				FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
+				FE887D6E241676CC00025A74 /* TexItem.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
@@ -897,14 +948,17 @@
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,
 				FE1D8B552412A64E00A04FC4 /* GridLineSprite.m in Sources */,
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,
+				FE887D562416765600025A74 /* ConstItem.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
+				FE887D5C2416767500025A74 /* DynamicBaseTexItem.m in Sources */,
 				FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */,
 				FE3D4EEC2401C24200185FD3 /* Display3DParticle.m in Sources */,
 				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
 				FE189B2524049C2E008E2FF6 /* TimeLine.m in Sources */,
+				FE887D65241676A200025A74 /* Material.m in Sources */,
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
 				FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */,
 				FE1D8B4324118B3900A04FC4 /* TimeUtil.m in Sources */,
