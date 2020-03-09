@@ -49,6 +49,7 @@
                 this.maxTime = pdata.timelineData.maxFrameNum;
             }
            i=len;
+            
         }
 
         this.maxTime *= Scene_data.frameTime;

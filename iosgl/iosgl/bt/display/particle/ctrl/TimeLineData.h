@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  public beginTime: number;
  */
 @interface TimeLineData : NSObject
-@property (nonatomic, strong)  NSMutableArray*  dataAry ;
+@property (nonatomic, strong)  NSMutableArray<KeyFrame*>*  dataAry ;
 @property (nonatomic, assign)  float  maxFrameNum;
 @property (nonatomic, assign)  float  beginTime;
 -(void)setByteData:(ByteArray*)byte;

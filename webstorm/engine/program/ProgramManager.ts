@@ -105,16 +105,16 @@
         shader.useNum++;
 
         if (!encodetf ){ 
-            console.log("**********错误" + keyStr);
+            console.log("************错误" + keyStr);
             console.log(shader.vertex);
             console.log(shader.fragment);
         }
-         if (keyStr.search("Display3DBallShader_res") != -1 && true) {
+        //if (keyStr.search("staticstandtrans") != -1 && true) {
 
-            this.outShader(shader.vertex)
-            console.log(shader.vertex);
-            console.log(shader.fragment);
-         }
+            //this.outShader(shader.vertex)
+            //console.log(shader.vertex);
+            //console.log(shader.fragment);
+        //}
 
         this._dic[keyStr] = shader;
         

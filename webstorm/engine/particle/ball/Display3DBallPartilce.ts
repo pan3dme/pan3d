@@ -94,8 +94,6 @@
              Scene_data.context3D.setVc4fv(this.data.materialParam.shader, "scaleCtrl", this.balldata._scaleCtrlVec);
          }
         */
-
-
         if (this.balldata._is3Dlizi) {
             this.updateAllRotationMatrix();
 

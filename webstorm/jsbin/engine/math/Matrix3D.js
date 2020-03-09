@@ -59,6 +59,13 @@ var Matrix3D = /** @class */ (function () {
         $target.m[14] = this.m[14];
         $target.m[15] = this.m[15];
     };
+    Matrix3D.prototype.outPopStr = function () {
+        var str = "";
+        for (var i = 0; i < 16; i++) {
+            str += this.m[i] + ",";
+        }
+        console.log(str);
+    };
     Matrix3D.prototype.identity = function () {
         this.m[0] = 1;
         this.m[1] = 0;
