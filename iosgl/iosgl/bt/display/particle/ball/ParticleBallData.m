@@ -176,10 +176,12 @@
 }
 -(void)initBaseData
 {
+    
+        /*
     float width=self._width;
     float height=self._height;
     float ranScale=  drand48()*(self._particleRandomScale.x-self._particleRandomScale.y)+self._particleRandomScale.y;
-    /*
+
      var ranScale: number = Math.random() * (this._particleRandomScale.x - this._particleRandomScale.y) + this._particleRandomScale.y;
      
      verterList.push((-offsetX * width) * ranScale, (height - offsetY * height) * ranScale, 0);
@@ -189,8 +191,8 @@
      */
     
     int lznum=self._totalNum;
-    float tw=10.0f;
-    float th=10.0f;
+    float tw=5.0f;
+    float th=5.0f;
     
     GLfloat attrArr[lznum*16];
     

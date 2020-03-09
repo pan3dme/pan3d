@@ -97,7 +97,7 @@
             "ctime = fract(ctime /vcmat50.z) * vcmat50.z;\n"
         "}\n"
 
-        "vec4 pos = vPosition;\n"
+        "vec4 pos = vec4(vPosition.xyz,1.0);\n"
         "float stime = ctime - vcmat51.w;\n"
         "stime = max(stime,0.0);\n"
         "float sf = vcmat51.x * stime;\n"
@@ -111,8 +111,8 @@
         "vec2 sv2 = vec2(vcmat52.x * sf, vcmat52.y * sf);\n"
         "sv2 = sv2 + 1.0;\n"
         
-//        "pos.x *= sv2.x;\n"
-//        "pos.y *= sv2.y;\n"
+         "pos.x *= sv2.x;\n"
+         "pos.y *= sv2.y;\n"
         "vec3 addPos = speed * ctime;\n"
         "if (ctime < 0.0 || ctime > vcmat50.z) {\n"
             "pos.x =0.0;\n"
