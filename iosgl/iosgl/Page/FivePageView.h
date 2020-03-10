@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FivePageView : BaseUIViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *scrolView;
+- (IBAction)submitClikEvent:(id)sender;
 
 @end
 

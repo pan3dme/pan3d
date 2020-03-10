@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.title=@"one";
+ //    self.title=@"one";
 }
 - (void)initFWUI NS_REQUIRES_SUPER;
 {

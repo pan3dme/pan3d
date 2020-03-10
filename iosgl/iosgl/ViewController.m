@@ -36,19 +36,24 @@
 }
 
 - (void) setTabItemInfo:(NSString *) iconname  VC:(UIViewController *) vc {
-    vc.tabBarItem.image = [[UIImage imageNamed:@"red_tabbar_chongzhi_01"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"red_tabbar_chongzhi_01"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
+    vc.tabBarItem.image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@_ac",iconname]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage = [[UIImage imageNamed:iconname] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
     OnePageView *vc01=[[OnePageView alloc] init];
-    TwoPageView *vc02=[[TwoPageView alloc] init];
-    ThirdPageView *vc03= [[ThirdPageView alloc]init];
-    FourPageView *vc04=[[FourPageView alloc] init];
+    OnePageView *vc02=[[OnePageView alloc] init];
+    OnePageView *vc03=[[OnePageView alloc]init];
+    OnePageView *vc04=[[OnePageView alloc] init];
     FivePageView *vc05=[[FivePageView alloc] init];
+ 
     
-    //  GlkView *glkview=[[GlkView alloc] init];
+    
+    [self setTabItemInfo:@"red_tabbar_home" VC:vc01];
+    [self setTabItemInfo:@"red_tabbar_huodong01" VC:vc02];
+    [self setTabItemInfo:@"red_tabbar_chongzhi_01" VC:vc03];
+    [self setTabItemInfo:@"red_tabbar_congzhi" VC:vc04];
+    [self setTabItemInfo:@"red_tabbar_my" VC:vc05];
     
     
     vc01.tabBarItem.title = @"首3页";
@@ -57,12 +62,7 @@
     vc04.tabBarItem.title = @"消息";
     vc05.tabBarItem.title = @"其他";
     
-    
-    [self setTabItemInfo:@"shouye" VC:vc01];
-    [self setTabItemInfo:@"chongzhi" VC:vc02];
-    [self setTabItemInfo:@"tuiguang" VC:vc03];
-    [self setTabItemInfo:@"my" VC:vc04];
-    [self setTabItemInfo:@"my" VC:vc05];
+   vc03.tabBarItem.imageInsets = UIEdgeInsetsMake(-10, -5, 0,-5);
     
     
     BaseNavigationViewController *nav001 = [[BaseNavigationViewController alloc] initWithRootViewController:vc01];
