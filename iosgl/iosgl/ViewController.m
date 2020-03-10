@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "BaseNavigationViewController.h"
-#import "TokenSceneView.h"
+#import "OnePageView.h"
 #import "TwoPageView.h"
 #import "ThirdPageView.h"
 #import "FourPageView.h"
@@ -36,13 +36,13 @@
 }
 
 - (void) setTabItemInfo:(NSString *) iconname  VC:(UIViewController *) vc {
-    vc.tabBarItem.image = [[UIImage imageNamed:@"tabone"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabone"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.image = [[UIImage imageNamed:@"red_tabbar_chongzhi_01"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"red_tabbar_chongzhi_01"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    TokenSceneView *vc01=[[TokenSceneView alloc] init];
+    OnePageView *vc01=[[OnePageView alloc] init];
     TwoPageView *vc02=[[TwoPageView alloc] init];
     ThirdPageView *vc03= [[ThirdPageView alloc]init];
     FourPageView *vc04=[[FourPageView alloc] init];
