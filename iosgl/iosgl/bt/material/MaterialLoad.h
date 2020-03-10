@@ -11,22 +11,16 @@
 #import "Material.h"
 
 NS_ASSUME_NONNULL_BEGIN
+typedef void (^MaterialBlock)(Material* material);
 
 @interface MaterialLoad : NSObject
-/*
- public fun: Function;
- public info: any;
- public url: string;
- public autoReg: boolean;
- public regName: string;
- public shader3D: any;
- */
+ 
 @property (nonatomic, strong) NSDictionary*  info;
 @property (nonatomic, strong) NSString*  url;
 @property (nonatomic, assign) BOOL  autoReg;
 @property (nonatomic, strong) NSString*  regName;
 @property (nonatomic, strong) Shader3D*  shader3D;
-- (instancetype)init:(void (^)(Material* ))fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
+- (instancetype)init:(MaterialBlock)fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
 @end
 
 NS_ASSUME_NONNULL_END

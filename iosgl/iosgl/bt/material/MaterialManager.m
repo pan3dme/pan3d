@@ -85,7 +85,7 @@ static MaterialManager *instance = nil;
     
     return textureID;
 }
--(void)getMaterialByte:(NSString*)url fun:(void (^)(Material* ))fun info:(NSDictionary*)info;
+-(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info;
 {
     if(_dic[url]){
         fun(_dic[url]);

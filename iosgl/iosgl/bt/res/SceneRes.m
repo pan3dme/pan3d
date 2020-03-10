@@ -24,6 +24,7 @@
     self.byte=[[ByteArray alloc]init:reader];
     [self loadComplete:self.byte];
     block([[NSDictionary alloc]init]);
+   
 }
 -(void)loadComplete:(ByteArray *)byte;
 {

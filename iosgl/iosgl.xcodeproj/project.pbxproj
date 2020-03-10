@@ -105,6 +105,8 @@
 		FE887D6B241676BF00025A74 /* MaterialParam.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D6A241676BF00025A74 /* MaterialParam.m */; };
 		FE887D6E241676CC00025A74 /* TexItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D6D241676CC00025A74 /* TexItem.m */; };
 		FE887D71241681B300025A74 /* MaterialLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D70241681B300025A74 /* MaterialLoad.m */; };
+		FE887D7424168FDE00025A74 /* LoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D7324168FDE00025A74 /* LoadManager.m */; };
+		FE887D772416963300025A74 /* LoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D762416963300025A74 /* LoadInfo.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4424002A94009F6575 /* TokenSceneView.m */; };
@@ -300,6 +302,10 @@
 		FE887D6D241676CC00025A74 /* TexItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TexItem.m; sourceTree = "<group>"; };
 		FE887D6F241681B300025A74 /* MaterialLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialLoad.h; sourceTree = "<group>"; };
 		FE887D70241681B300025A74 /* MaterialLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialLoad.m; sourceTree = "<group>"; };
+		FE887D7224168FDE00025A74 /* LoadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadManager.h; sourceTree = "<group>"; };
+		FE887D7324168FDE00025A74 /* LoadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadManager.m; sourceTree = "<group>"; };
+		FE887D752416963300025A74 /* LoadInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadInfo.h; sourceTree = "<group>"; };
+		FE887D762416963300025A74 /* LoadInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadInfo.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
@@ -540,6 +546,10 @@
 			children = (
 				FE1D8B4124118B3900A04FC4 /* TimeUtil.h */,
 				FE1D8B4224118B3900A04FC4 /* TimeUtil.m */,
+				FE887D752416963300025A74 /* LoadInfo.h */,
+				FE887D762416963300025A74 /* LoadInfo.m */,
+				FE887D7224168FDE00025A74 /* LoadManager.h */,
+				FE887D7324168FDE00025A74 /* LoadManager.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -921,6 +931,7 @@
 				FE3D4EE32401C15300185FD3 /* EventDispatcher.m in Sources */,
 				FE1D8B4824128B1400A04FC4 /* LineDisplaySprite.m in Sources */,
 				FE3D4EE92401C18B00185FD3 /* CombineParticleData.m in Sources */,
+				FE887D772416963300025A74 /* LoadInfo.m in Sources */,
 				FE2088E0239BE86A007FB797 /* ResGC.m in Sources */,
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
@@ -970,6 +981,7 @@
 				FE1D8B4324118B3900A04FC4 /* TimeUtil.m in Sources */,
 				FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */,
 				FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */,
+				FE887D7424168FDE00025A74 /* LoadManager.m in Sources */,
 				FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */,
 				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
 				FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */,

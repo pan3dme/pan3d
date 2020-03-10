@@ -12,7 +12,7 @@
 
 @implementation MaterialLoad
 
-- (instancetype)init:(void (^)(Material* ))fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
+- (instancetype)init:(MaterialBlock)fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
 {
     self = [super init];
     if (self) {
