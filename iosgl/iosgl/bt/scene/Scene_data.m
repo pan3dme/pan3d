@@ -23,5 +23,9 @@ static Scene_data *instance = nil;
     }
     return self;
 }
-
+-(NSString*)getWorkUrlByFilePath:(NSString*)value;
+{
+    NSString* rootUrl=@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile";
+    return [NSString stringWithFormat:@"%@/%@",rootUrl,value];
+}
 @end

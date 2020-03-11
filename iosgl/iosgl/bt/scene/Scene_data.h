@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Scene_data : NSObject
 + (instancetype)default;
 @property (nonatomic, assign) float frameTime;
+
+-(NSString*)getWorkUrlByFilePath:(NSString*)value; 
 @end
 
 NS_ASSUME_NONNULL_END

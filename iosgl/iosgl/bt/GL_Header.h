@@ -13,4 +13,6 @@ typedef void (^SuccessBlock)(NSString* localPath);
 typedef void (^FailureBlock)(NSError *error);
 typedef void (^ProceeseBlock)(int);
 
+
+
 #endif /* GL_Header_h */

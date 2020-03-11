@@ -11,6 +11,7 @@
 #import "DynamicHeader.h"
 #import "LoadManager.h"
 #import "DynamicController.h"
+#import "Scene_data.h"
 
 @interface FivePageView ()
 @property (nonatomic,strong) NSURLSession *session;
@@ -37,10 +38,9 @@
     
     NSLog(@"--");
  
- 
- 
-    [self one];
+   //
     [self two];
+    [self one];
  }
 -(void)one;
 {
@@ -57,14 +57,15 @@
 
 -(void)two;
 {
-    NSString* url=@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg";
-      [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
-          NSLog(@"加载完成");
-          UIImageView* imageView=[[UIImageView alloc]init];
-           imageView.frame=CGRectMake(20, 200, 100, 100);
-           [self.view addSubview:imageView];
-           [imageView setImage:[UIImage imageNamed: value]];
+ 
+      [[LoadManager default] loadUrl: [[Scene_data default]getWorkUrlByFilePath:@"5555_base.txt"] type:IMG_TYPE fun:^(NSString* value) {
+          NSLog(@"加载完成%@",value);
+       //34632
+           NSData* reader = [[NSData alloc] initWithContentsOfFile:value];
+           NSLog(@"-----length----%lu",   reader.length);
       }];
+    
+  
       
 }
  
