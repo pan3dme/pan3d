@@ -10,6 +10,7 @@
 #import "ByteArray.h"
 #import "LoaderThread.h"
 #import "LoadInfo.h"
+#import "GL_Header.h"
 #import "AFNetworking.h"
 @interface LoadManager()
 @property (nonatomic, strong) NSMutableArray<LoaderThread*>* loadThreadList;
@@ -37,13 +38,20 @@ static LoadManager *instance = nil;
     }
     return self;
 }
--(void)load:(NSString*)url type:(int)type fun:(FinishBlock)fun info:(NSDictionary*)info progressFun:(void (^)(int))progressFun;
+-(void)load:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
 {
     
-   //   var loadInfo: LoadInfo = new LoadInfo($url, $type, $fun, $info, $progressFun);
+    LoadInfo* loadInfo= [[LoadInfo alloc]initUrl:url type:type  fun:fun info:info progressFun:progressFun];
+       for (int i = 0; i < self.loadThreadList.count; i++) {
+           if (self.loadThreadList[i].idle) {
+              [self.loadThreadList[i] load:loadInfo] ;
+               return;
+           }
+       }
+    [self.waitLoadList addObject:loadInfo];
+ 
     
-    LoadInfo* loadInfo= [[LoadInfo alloc]init];
-    
+   
 }
  
 

@@ -7,24 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "GL_Header.h"
 NS_ASSUME_NONNULL_BEGIN
-/*
-public url: string;
-
-   public type: string;
-
-   public fun: Function;
-
-   public info: any;
-
-   public progressFun: Function;
-*/
+ 
 @interface LoadInfo : NSObject
 @property (nonatomic, assign) NSInteger  type;
 @property (nonatomic, strong) NSString*  url;
-@property (nonatomic, assign) NSDictionary*  info;
-@property (nonatomic, strong) NSObject*  progressFun;
+@property (nonatomic, strong) ProceeseBlock  progressFun;
+@property (nonatomic, strong) SuccessBlock  successFun;
+
+- (instancetype)initUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
 @end
 
 NS_ASSUME_NONNULL_END

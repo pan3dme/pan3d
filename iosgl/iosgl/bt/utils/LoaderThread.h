@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LoadInfo.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoaderThread : NSObject
-
+@property (nonatomic, assign) BOOL  idle;
+@property (nonatomic, strong) NSString* url;
+@property (nonatomic, strong) LoadInfo* loadInfo;
+-(void)load:(LoadInfo*)loadInfo;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

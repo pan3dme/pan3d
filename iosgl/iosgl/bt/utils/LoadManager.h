@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GL_Header.h"
 
-typedef void (^SuccessBlock)(NSObject* data);
-typedef void (^FailureBlock)(NSError *error);
-typedef void (^FinishBlock)(int);
  
 typedef NS_ENUM(NSInteger, LOAD_MANAGER_TYPE)
 {
@@ -26,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LoadManager : NSObject
 <NSURLConnectionDataDelegate>
 + (instancetype)default;
--(void)load:(NSString*)url type:(int)type fun:(FinishBlock)fun info:(NSDictionary*)info progressFun:(void (^)(int))progressFun;
+-(void)load:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
 @end
 
 NS_ASSUME_NONNULL_END

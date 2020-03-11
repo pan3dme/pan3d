@@ -37,21 +37,23 @@
     
     NSLog(@"--");
     
+   
+     [[LoadManager default]load:@"" type:IMG_TYPE fun:^(NSObject* value) {
+         
+     } info:nil progressFun:nil];
      
-    DynamicController* vc=[[DynamicController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    DynamicController* vc=[[DynamicController alloc]init];
+//    [self.navigationController pushViewController:vc animated:YES];
    
     
-    [self downLoad:@"http://pic1.win4000.com/pic/b/03/21691230681.jpg"];
+  //  [self downLoad:@"http://pic1.win4000.com/pic/b/03/21691230681.jpg"];
  }
 - (void)downLoad:(NSString*)value;
 {
     
     [self delegateUrl];
     NSString * url=@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg";
-    [[LoadManager default]load:url type:1 fun:^(int value) {
-        
-    } info:nil progressFun:nil];
+   
     
     [self delegateUrl];
 }

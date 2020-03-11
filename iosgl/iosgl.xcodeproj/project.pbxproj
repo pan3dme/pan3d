@@ -223,6 +223,7 @@
 		FE2F2FCE2418112D0005F686 /* DynamicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicHeader.h; sourceTree = "<group>"; };
 		FE2F2FCF2418BE7A0005F686 /* LoaderThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoaderThread.h; sourceTree = "<group>"; };
 		FE2F2FD02418BE7A0005F686 /* LoaderThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoaderThread.m; sourceTree = "<group>"; };
+		FE2F2FD32418C3340005F686 /* GL_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GL_Header.h; sourceTree = "<group>"; };
 		FE36A7B523FEB7D000F2DE86 /* Matrix3x3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3x3.h; sourceTree = "<group>"; };
 		FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalMatrixUtilities.h; sourceTree = "<group>"; };
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
@@ -423,6 +424,7 @@
 				FE67883D239B974C00262B53 /* scene */,
 				FE678841239B980200262B53 /* SceneView.h */,
 				FE678842239B980200262B53 /* SceneView.m */,
+				FE2F2FD32418C3340005F686 /* GL_Header.h */,
 			);
 			path = bt;
 			sourceTree = "<group>";

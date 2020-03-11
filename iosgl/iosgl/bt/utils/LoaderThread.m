@@ -17,9 +17,46 @@
 {
     self = [super init];
     if (self) {
+        self.idle=YES;
            self.session= [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     }
     return self;
+}
+// public load(loadInfo: LoadInfo): void {
+-(void)load:(LoadInfo*)loadInfo;
+{
+    self.loadInfo=loadInfo;
+    self.idle=NO;
+    self.url=self.loadInfo.url;
+    
+    NSURL *url = [NSURL URLWithString:@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg"];
+       NSURLRequest *request = [NSURLRequest requestWithURL:url];
+       self.downloadTask = [self.session downloadTaskWithRequest:request];
+       [self.downloadTask resume];
+    
+    /*
+     this._loadInfo = loadInfo;
+            this.idle = false;
+            this._url = loadInfo.url;
+
+            if (this._loadInfo.type == LoadManager.BYTE_TYPE) {
+                this._xhr.open("GET", loadInfo.url, true);
+                this._xhr.responseType = "arraybuffer";
+                this._xhr.send();
+            } else if (this._loadInfo.type == LoadManager.XML_TYPE) {
+                this._xhr.open("GET", loadInfo.url, true);
+                this._xhr.responseType = "text";
+                this._xhr.send();
+            } else if (this._loadInfo.type == LoadManager.IMG_TYPE) {
+                if(this._img.url == loadInfo.url){//路径相同
+                    this.loadImg();
+                }else{//执行加载
+                    this._img.url = loadInfo.url;
+                    this._img.src = loadInfo.url;
+                }
+                
+            }
+     */
 }
 -(void)delegateUrl
 {
