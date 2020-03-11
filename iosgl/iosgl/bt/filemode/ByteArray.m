@@ -85,6 +85,16 @@
        vec3.w= [self readFloat];
        return vec3;
 }
+- (int)readByte;
+{
+    int intSize = sizeof(Byte); // change it to fixe length
+        NSData *data1 = [self.nsData subdataWithRange:NSMakeRange(self.position,  intSize)];
+           unsigned char * buffer = malloc(intSize * sizeof(unsigned char));
+          [data1 getBytes:buffer length:intSize];
+       self.position+=intSize;
+       
+    return  buffer[0];
+}
 - (int) readInt;
 {
     int intSize = sizeof(int); // change it to fixe length

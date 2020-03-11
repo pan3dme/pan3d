@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init:(NSData *)value;
 -(Vector3D*)readVector3D;
 -(Vector3D*)readVector3D:(BOOL)w;
+- (int) readByte;
 - (int) readInt;
 - (int) readShort;
 - (float) readFloat;

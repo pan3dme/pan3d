@@ -89,7 +89,7 @@ static MaterialManager *instance = nil;
 {
     
     if(! self.dic[url]&&! self.resDic[url]){
-        self.dic[url]=dataByte;
+        self.resDic[url]=dataByte;
     }
  
 }
@@ -107,6 +107,8 @@ static MaterialManager *instance = nil;
     }
     _loadDic[url] = [[NSMutableArray alloc]init];
     [_loadDic[url] addObject:materialLoad];
+  
+    
     if (_resDic[url]) {
         [self meshByteMaterialByt:self.resDic[url] info:materialLoad];
     }else{
@@ -138,7 +140,7 @@ static MaterialManager *instance = nil;
 -(void)meshByteMaterialByt:(ByteArray*)byte info:(MaterialLoad*)info;
 {
     Material* material=[[Material alloc]init];
-   // [material setByteData:byte];
+    [material setByteData:byte];
     /*
      var material: Material = new Material()
             material.setByteData(byte)

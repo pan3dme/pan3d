@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  NSString*  url;
 
 @property (nonatomic, assign)  NSString*  shaderStr;
-@property (nonatomic, assign)  NSMutableArray<TexItem*>*  texList ;
+@property (nonatomic, strong)  NSMutableArray<TexItem*>*  texList ;
 @property (nonatomic, assign)  NSMutableArray<ConstItem*>*  constList ;
 @property (nonatomic, assign)  BOOL  hasTime;
 @property (nonatomic, assign)  float  timeSpeed;
@@ -79,11 +79,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  noLight;
 @property (nonatomic, assign)  BOOL  scaleLightMap;
 @property (nonatomic, assign)  float  fogMode;
-@property (nonatomic, assign)  float  fcNum;
-@property (nonatomic, assign)  NSMutableArray*  fcIDAry ;
+@property (nonatomic, assign)  int  fcNum;
+@property (nonatomic, strong)  NSMutableArray*  fcIDAry ;
+//  public fcIDAry:Array<number>;
 @property (nonatomic, assign)  BOOL  hasParticleColor;
 @property (nonatomic, assign)  NSMutableDictionary*  locationDic;
-@property (nonatomic, assign)  float   fcData;
+@property (nonatomic, assign)  GLfloat*   fcData;
 @property (nonatomic, assign)  float  sceneNumId;
 
 -(void)setByteData:(ByteArray*)byte;

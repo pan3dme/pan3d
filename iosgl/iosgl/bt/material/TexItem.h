@@ -7,10 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TextureRes.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TexItem : NSObject
+ 
+@property (nonatomic, assign)  int   id;
+@property (nonatomic, strong)  NSString*   url;
+@property (nonatomic, assign)  TextureRes*   textureRes;
+@property (nonatomic, assign)  BOOL   isDynamic;
+@property (nonatomic, strong)  NSString*   paramName;
+@property (nonatomic, assign)  BOOL   isParticleColor;
+@property (nonatomic, assign)  BOOL   isMain;
+@property (nonatomic, assign)  float   type;
+@property (nonatomic, strong)  NSString*   name;
+@property (nonatomic, assign)  float   wrap;
+@property (nonatomic, assign)  float   filter;
+@property (nonatomic, assign)  float   mipmap;
 
 @end
 

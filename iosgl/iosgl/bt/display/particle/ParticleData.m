@@ -84,6 +84,8 @@
     [this readMaterialPara:byte];
     
     NSString* strMaterialUrl = [byte readUTF];
+     strMaterialUrl= [strMaterialUrl stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
+     strMaterialUrl= [strMaterialUrl stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
  
     self.materialByteUrl = strMaterialUrl;
   
