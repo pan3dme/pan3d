@@ -5,12 +5,14 @@
 //  Created by zhao on 22/2/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
-
+#import "Scene_data.h"
+#import "LoadManager.h"
+#import "GL_Header.h"
 #import "GroupRes.h"
 #import "GroupItem.h"
-typedef void (^SuccessBlock)(int code);
+ 
 @interface GroupRes ()
-@property (nonatomic, assign)  SuccessBlock    bfun;
+@property (nonatomic, copy)  SuccessBlock    bfun;
 @end
 @implementation GroupRes
 
@@ -22,15 +24,24 @@ typedef void (^SuccessBlock)(int code);
     }
     return self;
 }
--(void)load:(NSString*)url Block:(void (^)(int))block;
+-(void)load:(NSString*)url Block:(SuccessBlock)block;
 {
+    /*
+     
+    本地文件
     NSString *path=  [[NSBundle mainBundle]pathForResource:url ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
-    self.bfun = block;
-    self.byte=[[ByteArray alloc]init:reader];
-    [self loadComplete:self.byte];
-    self.bfun(1);
+ */
+ 
+    self.bfun=block;
+    
+    [[LoadManager default] loadUrl: [[Scene_data default]getWorkUrlByFilePath:url] type:IMG_TYPE fun:^(NSString* value) {
+        NSData* reader = [[NSData alloc] initWithContentsOfFile:value];
+        self.byte=[[ByteArray alloc]init:reader];
+         [self loadComplete:self.byte];
+           self.bfun(@"");
+    }];
 }
 -(void)loadComplete:(ByteArray *)byte;
 {

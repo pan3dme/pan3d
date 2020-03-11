@@ -10,6 +10,7 @@
 #define GL_Header_h
 
 typedef void (^SuccessBlock)(NSString* localPath);
+typedef void (^FinishBlock)(NSDictionary* dic);
 typedef void (^FailureBlock)(NSError *error);
 typedef void (^ProceeseBlock)(int);
 

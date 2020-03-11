@@ -8,6 +8,7 @@
 
 #import "GroupDataManager.h"
 #import "GroupRes.h"
+#import "GL_Header.h"
 
 static GroupDataManager *instance = nil;
 @implementation GroupDataManager
@@ -32,7 +33,7 @@ static GroupDataManager *instance = nil;
         block(self.dic[url]);
     }else{
         GroupRes *groupRes=[[GroupRes alloc]init];
-        [groupRes load:url  Block:^(int code) {
+        [groupRes load:url  Block:^(NSString* value) {
             self.dic[url]=groupRes;
             block(self.dic[url]);
         }];

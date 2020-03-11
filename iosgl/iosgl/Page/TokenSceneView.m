@@ -77,7 +77,7 @@
     
  
        [self.sceneView makeEemptyScene];
-    [[GroupDataManager default]getGroupData:@"baoxiang001_base" Block:^(GroupRes *groupRes) {
+    [[GroupDataManager default]getGroupData:@"baoxiang001_base.txt" Block:^(GroupRes *groupRes) {
   
         for(int i=0;i<groupRes.dataAry.count;i++){
             GroupItem *groupItem= groupRes.dataAry[i];
@@ -115,7 +115,7 @@
  
  
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
-    [[GroupDataManager default] getGroupData:@"levelup_base" Block:^(GroupRes *groupRes) {
+    [[GroupDataManager default] getGroupData:@"levelup_base.txt" Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {

@@ -7,12 +7,13 @@
 //
 
 #import "BaseRes.h"
+#import "GL_Header.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GroupRes : BaseRes;
 @property (nonatomic, strong)  NSMutableArray *dataAry;
--(void)load:(NSString*)url Block:(void (^)(int))block;
+-(void)load:(NSString*)url Block:(SuccessBlock)block;
 @end
 
 NS_ASSUME_NONNULL_END
