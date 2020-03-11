@@ -11,7 +11,7 @@
 @interface LoadInfo ()
 
 
-@property (nonatomic, assign) NSDictionary*  info;
+
 
 @end
 @implementation LoadInfo
@@ -25,6 +25,7 @@
           self.type=type;
           self.info=info;
           self.progressFun=progressFun;
+          self.fun = fun;
          
       }
       return self;

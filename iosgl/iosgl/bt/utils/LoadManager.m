@@ -38,9 +38,12 @@ static LoadManager *instance = nil;
     }
     return self;
 }
--(void)load:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
+-(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun;
 {
-    
+    [self loadUrl:url type:type fun:fun info:nil progressFun:nil];
+}
+-(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
+{
     LoadInfo* loadInfo= [[LoadInfo alloc]initUrl:url type:type  fun:fun info:info progressFun:progressFun];
        for (int i = 0; i < self.loadThreadList.count; i++) {
            if (self.loadThreadList[i].idle) {
@@ -49,12 +52,18 @@ static LoadManager *instance = nil;
            }
        }
     [self.waitLoadList addObject:loadInfo];
- 
-    
-   
 }
- 
-
+-(void)loadWaitList;
+{
+    for (int i = 0; self.waitLoadList.count&&i < self.loadThreadList.count; i++) {
+        if (self.loadThreadList[i].idle) {
+            LoadInfo* loadInfo=self.waitLoadList[0];
+            [self.waitLoadList removeObjectAtIndex:0];
+            [self.loadThreadList[i] load:loadInfo] ;
+            return;
+        }
+    }
+}
 
 
 @end

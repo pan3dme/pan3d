@@ -18,13 +18,13 @@ typedef NS_ENUM(NSInteger, LOAD_MANAGER_TYPE)
 };
  
 NS_ASSUME_NONNULL_BEGIN
-
  
-
 @interface LoadManager : NSObject
 <NSURLConnectionDataDelegate>
 + (instancetype)default;
--(void)load:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
+-(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun;
+-(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
+-(void)loadWaitList;
 @end
 
 NS_ASSUME_NONNULL_END

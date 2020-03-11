@@ -38,9 +38,16 @@
     NSLog(@"--");
     
    
-     [[LoadManager default]load:@"" type:IMG_TYPE fun:^(NSObject* value) {
+     [[LoadManager default] loadUrl:@"" type:IMG_TYPE fun:^(NSString* value) {
          
-     } info:nil progressFun:nil];
+         NSLog(@"加载完成");
+         
+         UIImageView* imageView=[[UIImageView alloc]init];
+          imageView.frame=CGRectMake(0, 0, 200, 200);
+          [self.view addSubview:imageView];
+          [imageView setImage:[UIImage imageNamed: value]];
+         
+     }];
      
 //    DynamicController* vc=[[DynamicController alloc]init];
 //    [self.navigationController pushViewController:vc animated:YES];

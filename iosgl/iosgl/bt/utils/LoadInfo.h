@@ -13,8 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LoadInfo : NSObject
 @property (nonatomic, assign) NSInteger  type;
 @property (nonatomic, strong) NSString*  url;
+@property (nonatomic, assign) NSDictionary*  info;
 @property (nonatomic, strong) ProceeseBlock  progressFun;
-@property (nonatomic, strong) SuccessBlock  successFun;
+@property (nonatomic, strong) SuccessBlock  fun;
 
 - (instancetype)initUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
 @end

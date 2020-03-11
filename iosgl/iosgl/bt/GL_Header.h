@@ -9,7 +9,7 @@
 #ifndef GL_Header_h
 #define GL_Header_h
 
-typedef void (^SuccessBlock)(NSObject* data);
+typedef void (^SuccessBlock)(NSString* localPath);
 typedef void (^FailureBlock)(NSError *error);
 typedef void (^ProceeseBlock)(int);
 

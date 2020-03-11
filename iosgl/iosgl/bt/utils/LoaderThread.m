@@ -7,9 +7,15 @@
 //
 
 #import "LoaderThread.h"
+#import "LoadManager.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 @interface LoaderThread()
 @property (nonatomic, strong) NSURLSessionDownloadTask* downloadTask;
 @property (nonatomic, strong) NSURLSession* session;
+@property (nonatomic, strong) NSString*  localPath;
+ 
 @end
 @implementation LoaderThread
 
@@ -110,7 +116,9 @@
     [[NSFileManager defaultManager]moveItemAtURL:location toURL:[NSURL fileURLWithPath:fullPath] error:nil];
     NSLog(@"fullPath%@",fullPath);
     
+    self.localPath=fullPath;
     
+   // self.uiImage=[UIImage imageNamed: fullPath];
 }
 
 /**
@@ -119,6 +127,33 @@
 -(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
     NSLog(@"didCompleteWithError");
+    [self loadImg];
 }
+
+-(void)loadImg;
+{
+    if (self.loadInfo.info) {
+         self.loadInfo.fun(  self.localPath);
+    }else{
+        self.loadInfo.fun(  self.localPath);
+    }
+    self.idle=YES;
+    self.loadInfo=nil;
+    [[LoadManager default]loadWaitList];
+    
+    
+}
+/*
+public loadImg(): void {
+     if (this._loadInfo.info) {
+         this._loadInfo.fun(this._img, this._loadInfo.info);
+     } else {
+         this._loadInfo.fun(this._img);
+     }
+     this.idle = true;
+     this._loadInfo = null;
+     LoadManager.getInstance().loadWaitList();
+ }
+*/
 
 @end
