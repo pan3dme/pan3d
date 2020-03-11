@@ -32,7 +32,7 @@ static LoadManager *instance = nil;
     if (self) {
         self.loadThreadList=[[NSMutableArray alloc]init];
         self.waitLoadList=[[NSMutableArray alloc]init];
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             [self.loadThreadList addObject:[[LoaderThread alloc]init] ];
         }
     }
@@ -41,6 +41,7 @@ static LoadManager *instance = nil;
 -(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun;
 {
     [self loadUrl:url type:type fun:fun info:nil progressFun:nil];
+    
 }
 -(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
 {

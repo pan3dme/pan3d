@@ -3735,8 +3735,8 @@
             filePath = "iosgl/bt/utils/LoaderThread.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "-load:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3751,8 +3751,8 @@
             filePath = "iosgl/bt/utils/LoaderThread.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-loadImg"
             landmarkType = "7">
          </BreakpointContent>
@@ -3767,25 +3767,9 @@
             filePath = "iosgl/bt/utils/LoaderThread.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "-loadImg"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F6EF26C0-3C0B-41DD-A401-195411A6CEEC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/Page/FivePageView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-submitClikEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,10 +12,11 @@
 #import <Foundation/Foundation.h>
 
 @interface LoaderThread()
+<NSURLSessionDelegate>
 @property (nonatomic, strong) NSURLSessionDownloadTask* downloadTask;
 @property (nonatomic, strong) NSURLSession* session;
 @property (nonatomic, strong) NSString*  localPath;
- 
+
 @end
 @implementation LoaderThread
 
@@ -24,7 +25,7 @@
     self = [super init];
     if (self) {
         self.idle=YES;
-           self.session= [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+        self.session= [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     }
     return self;
 }
@@ -35,42 +36,13 @@
     self.idle=NO;
     self.url=self.loadInfo.url;
     
-    NSURL *url = [NSURL URLWithString:@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg"];
-       NSURLRequest *request = [NSURLRequest requestWithURL:url];
-       self.downloadTask = [self.session downloadTaskWithRequest:request];
-       [self.downloadTask resume];
     
-    /*
-     this._loadInfo = loadInfo;
-            this.idle = false;
-            this._url = loadInfo.url;
-
-            if (this._loadInfo.type == LoadManager.BYTE_TYPE) {
-                this._xhr.open("GET", loadInfo.url, true);
-                this._xhr.responseType = "arraybuffer";
-                this._xhr.send();
-            } else if (this._loadInfo.type == LoadManager.XML_TYPE) {
-                this._xhr.open("GET", loadInfo.url, true);
-                this._xhr.responseType = "text";
-                this._xhr.send();
-            } else if (this._loadInfo.type == LoadManager.IMG_TYPE) {
-                if(this._img.url == loadInfo.url){//路径相同
-                    this.loadImg();
-                }else{//执行加载
-                    this._img.url = loadInfo.url;
-                    this._img.src = loadInfo.url;
-                }
-                
-            }
-     */
-}
--(void)delegateUrl
-{
-     NSURL *url = [NSURL URLWithString:@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLRequest *request = [NSURLRequest requestWithURL: [NSURL URLWithString:  self.url]];
     self.downloadTask = [self.session downloadTaskWithRequest:request];
     [self.downloadTask resume];
+    
 }
+
 
 #pragma mark ----------------------
 #pragma mark NSURLSessionDownloadDelegate
@@ -99,7 +71,6 @@
 {
     NSLog(@"func%s",__func__);
 }
-
 /**
  *  当下载完成的时候调用
  *
@@ -107,18 +78,13 @@
  */
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
 {
-    NSLog(@"location%@",location);
-    
     //1 拼接文件全路径
     NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:downloadTask.response.suggestedFilename];
     
     //2 剪切文件
     [[NSFileManager defaultManager]moveItemAtURL:location toURL:[NSURL fileURLWithPath:fullPath] error:nil];
     NSLog(@"fullPath%@",fullPath);
-    
     self.localPath=fullPath;
-    
-   // self.uiImage=[UIImage imageNamed: fullPath];
 }
 
 /**
@@ -133,27 +99,15 @@
 -(void)loadImg;
 {
     if (self.loadInfo.info) {
-         self.loadInfo.fun(  self.localPath);
+        self.loadInfo.fun(  self.localPath);
     }else{
         self.loadInfo.fun(  self.localPath);
     }
     self.idle=YES;
     self.loadInfo=nil;
     [[LoadManager default]loadWaitList];
-    
-    
+ 
 }
-/*
-public loadImg(): void {
-     if (this._loadInfo.info) {
-         this._loadInfo.fun(this._img, this._loadInfo.info);
-     } else {
-         this._loadInfo.fun(this._img);
-     }
-     this.idle = true;
-     this._loadInfo = null;
-     LoadManager.getInstance().loadWaitList();
- }
-*/
+ 
 
 @end
