@@ -26,21 +26,22 @@
 }
 -(void)load:(NSString*)url Block:(SuccessBlock)block;
 {
-    /*
      
-    本地文件
-    NSString *path=  [[NSBundle mainBundle]pathForResource:url ofType:@"txt"];
+     
+   
+    //本地文件
+    NSString *path=  [[NSBundle mainBundle]pathForResource:@"levelup_base" ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
- */
+ 
  
     self.bfun=block;
     
-    [[LoadManager default] loadUrl: [[Scene_data default]getWorkUrlByFilePath:url] type:IMG_TYPE fun:^(NSString* value) {
-        NSData* reader = [[NSData alloc] initWithContentsOfFile:value];
+    [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
+      //  NSData* reader = [[NSData alloc] initWithContentsOfFile:value];
         self.byte=[[ByteArray alloc]init:reader];
          [self loadComplete:self.byte];
-           self.bfun(@"");
+          self.bfun(@"");
     }];
 }
 -(void)loadComplete:(ByteArray *)byte;

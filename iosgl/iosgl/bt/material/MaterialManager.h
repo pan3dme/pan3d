@@ -9,6 +9,7 @@
 #import "ResGC.h"
 #import <GLKit/GLKit.h>
 #import "Material.h"
+#import "ByteArray.h"
 #import "TextureRes.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  NSMutableDictionary* dic;
 + (instancetype)default;
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
+-(void)addResByte:(NSString*)url dataByte:(ByteArray*)dataByte;
 -(void)getMaterialByte:(NSString*)url fun:(void (^)(Material* ))fun info:(NSDictionary*)info;
 @end
 

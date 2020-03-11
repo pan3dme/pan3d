@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "ObjDataManager.h"
 #import "ParticleManager.h"
+#import "MaterialManager.h"
 #import "NSData+GZIP.h"
 #import <zlib.h>
 
@@ -151,6 +152,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
       NSData *materNsdata=  [self.byte getNsDataByLen:materSize];
       ByteArray *materByte=  [[ByteArray alloc]init:materNsdata];
     
+      [[MaterialManager default]addResByte:materurl dataByte:materByte];
       
       
   }

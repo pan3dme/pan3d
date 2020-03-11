@@ -34,7 +34,7 @@
 
     
     
-    [[LoadManager default] loadUrl: [[Scene_data default]getWorkUrlByFilePath:url] type:IMG_TYPE fun:^(NSString* value) {
+    [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
         NSData* reader = [[NSData alloc] initWithContentsOfFile:value];
         self.byte=[[ByteArray alloc]init:reader];
         [self loadComplete:self.byte];

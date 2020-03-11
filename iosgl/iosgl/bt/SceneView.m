@@ -127,8 +127,10 @@
 {
      //5555_base
     //1001_base
+    
+    NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:@"map/5555_base.txt"];
     SceneRes *sceneRes=[[SceneRes alloc]init];
-                   [sceneRes load:url  bfun:^(NSString *value) {
+                   [sceneRes load:webUrl  bfun:^(NSString *value) {
                        [self initConfigScene:sceneRes];
                    }];
 }

@@ -19,6 +19,7 @@
 #import "GridLineSprite.h"
 #import "DisplayBaseTriSprite.h"
 #import "LoadManager.h"
+#import "Scene_data.h"
 #import "UIImageView+WebCache.h"
 
 @interface TokenSceneView ()
@@ -77,7 +78,8 @@
     
  
        [self.sceneView makeEemptyScene];
-    [[GroupDataManager default]getGroupData:@"baoxiang001_base.txt" Block:^(GroupRes *groupRes) {
+    
+    [[GroupDataManager default]getGroupData:[[Scene_data default]getWorkUrlByFilePath:@"model/baoxiang001_base.txt"] Block:^(GroupRes *groupRes) {
   
         for(int i=0;i<groupRes.dataAry.count;i++){
             GroupItem *groupItem= groupRes.dataAry[i];
@@ -113,9 +115,9 @@
 //    } info:nil progressFun:nil];
     
  
- 
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
-    [[GroupDataManager default] getGroupData:@"levelup_base.txt" Block:^(GroupRes *groupRes) {
+    NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/levelup_base.txt"];
+    [[GroupDataManager default] getGroupData:modeurl Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {

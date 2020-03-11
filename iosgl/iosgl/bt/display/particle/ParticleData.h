@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Vector3D*  center;
  
 
--(void)setAllByteInfo:(ByteArray*)byte;
+-(void)setAllByteInfo:(ByteArray*)fs;
 -(Display3DParticle*)creatPartilce;
 -(Display3DParticle*)getParticle;
 -(void)uploadGpu;

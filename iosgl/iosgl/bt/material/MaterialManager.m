@@ -85,6 +85,14 @@ static MaterialManager *instance = nil;
     
     return textureID;
 }
+-(void)addResByte:(NSString*)url dataByte:(ByteArray*)dataByte;
+{
+    
+    if(! self.dic[url]&&! self.resDic[url]){
+        self.dic[url]=dataByte;
+    }
+ 
+}
 -(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info;
 {
     if(_dic[url]){
@@ -100,7 +108,7 @@ static MaterialManager *instance = nil;
     _loadDic[url] = [[NSMutableArray alloc]init];
     [_loadDic[url] addObject:materialLoad];
     if (_resDic[url]) {
-    
+        [self meshByteMaterialByt:self.resDic[url] info:materialLoad];
     }else{
         
     }
@@ -127,6 +135,43 @@ static MaterialManager *instance = nil;
   
     
 }
- 
+-(void)meshByteMaterialByt:(ByteArray*)byte info:(MaterialLoad*)info;
+{
+    Material* material=[[Material alloc]init];
+   // [material setByteData:byte];
+    /*
+     var material: Material = new Material()
+            material.setByteData(byte)
+            material.url = _info.url;
+
+
+            this.loadMaterial(material);
+
+            if (_info.autoReg) {
+                material.shader = ProgrmaManager.getInstance().getMaterialProgram(_info.regName, _info.shader3D, material, null, true);
+                material.program = material.shader.program;
+            }
+
+
+            var ary: Array<TextureLoad> = this._loadDic[_info.url];
+            for (var i: number = 0; i < ary.length; i++) {
+                if (ary[i].info) {
+                    ary[i].fun(material, ary[i].info);
+                } else {
+                    ary[i].fun(material);
+                }
+                material.useNum++;
+
+                // if (_info.url.indexOf("m_ef_ver_byte.txt") != -1) {
+                //     console.log("aaaaaaaaaaaaaaaa", material.useNum)
+                // }
+
+            }
+
+            delete this._loadDic[_info.url];
+
+            this._dic[_info.url] = material;
+     */
+}
                    
 @end
