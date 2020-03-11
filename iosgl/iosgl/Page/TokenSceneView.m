@@ -54,7 +54,7 @@
     [mDict setObject:@"cctv"  forKey:@"data"];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
     
-     [self.sceneView loadSeceneByUrl:@"5555_base"];
+     [self.sceneView loadSeceneByUrl:@"5555_base.txt"];
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {

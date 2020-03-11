@@ -322,22 +322,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ECCEF903-B1CE-41B8-8DD2-61BB66EB74FB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/res/SceneRes.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "-load:Block:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "02B4F4A4-5746-44EE-A12E-4C47D2702A93"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -505,8 +489,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-readScene"
             landmarkType = "7">
          </BreakpointContent>
@@ -521,8 +505,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-readAstat"
             landmarkType = "7">
          </BreakpointContent>
@@ -537,8 +521,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-readAstat"
             landmarkType = "7">
          </BreakpointContent>
@@ -553,8 +537,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-readAstat"
             landmarkType = "7">
          </BreakpointContent>
@@ -569,8 +553,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-readAstarFromByte:"
             landmarkType = "7">
          </BreakpointContent>
@@ -585,8 +569,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-readAstat"
             landmarkType = "7">
          </BreakpointContent>
@@ -617,8 +601,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-readAstarFromByte:"
             landmarkType = "7">
          </BreakpointContent>
@@ -633,8 +617,8 @@
             filePath = "iosgl/bt/res/SceneRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-readTerrainIdInfoBitmapData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3642,38 +3626,6 @@
             startingLineNumber = "96"
             endingLineNumber = "96"
             landmarkName = "-setMaterialByteUrl:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6FF2673A-8BF6-43A5-8D81-5C696936DA35"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/res/SceneRes.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-load:Block:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "95412230-F88B-4BB7-AADE-80FF324205BD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/res/SceneRes.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-load:Block:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

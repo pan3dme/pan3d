@@ -17,6 +17,7 @@
 #import "MathCore.h"
 #import "Scene_data.h"
 #import "MaterialManager.h"
+#import "GL_Header.h"
 
 
 @interface SceneView ()
@@ -127,7 +128,7 @@
      //5555_base
     //1001_base
     SceneRes *sceneRes=[[SceneRes alloc]init];
-                   [sceneRes load:url  Block:^(NSDictionary *responseJson) {
+                   [sceneRes load:url  bfun:^(NSString *value) {
                        [self initConfigScene:sceneRes];
                    }];
 }
