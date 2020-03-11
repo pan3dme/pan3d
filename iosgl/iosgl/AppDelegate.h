@@ -12,7 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
-
++ (instancetype)sharedAppDelegate;
 - (void)saveContext;
 
 

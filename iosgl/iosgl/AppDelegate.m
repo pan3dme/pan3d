@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Foundation/Foundation.h>
 #import "ViewController.h"
+#import "DynamicHeader.h"
  
 
 @interface AppDelegate ()
@@ -16,14 +17,68 @@
 @end
 
 @implementation AppDelegate
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
++ (instancetype)sharedAppDelegate
+{
+    __block AppDelegate *delegate;
+    dispatch_main_sync_safe_yt((^{
+        delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    }));
+    return delegate;
+}
+#pragma mark 初始化顶部渐变色块的底色
+-(void)setHeadTitleView{
+ /*
    
- 
- 
+    if(![AppDelegate sharedAppDelegate].statusBarLayer){
+        [AppDelegate sharedAppDelegate].statusBarLayer = [CAGradientLayer layer];
+        [AppDelegate sharedAppDelegate].statusBarLayer.startPoint = CGPointMake(0, 1);//（0，0）表示从左上角开始变化。默认值是(0.5,0.0)表示从x轴为中间，y为顶端的开始变化
+        [AppDelegate sharedAppDelegate].statusBarLayer.endPoint = CGPointMake(1, 1);//（1，1）表示到右下角变化结束。默认值是(0.5,1.0)  表示从x轴为中间，y为低端的结束变化
+        [[AppDelegate sharedAppDelegate].statusBarLayer setColors:@[(id)[RGB(255, 65, 98) CGColor],(id)[RGB(254,116,35) CGColor]]];//渐变数组
+        
+        int height = 0;
+        int y = 0;
+    
+        if (@available(iOS 13.0, *)) {
+            if(iPhone6_Plus||iPhone8){
+                height = 65;
+            }else{
+                height = 90;
+            }
+        }else{
+            if(iPhone6_Plus||iPhone8){
+                y = -20;
+                height = 65;
+            }else{
+                y = -45;
+                height = 90;
+            }
+        }
+      
+     
+        [AppDelegate sharedAppDelegate].statusBarLayer.frame = CGRectMake(0, y, kScreenW, height);
+    }
+    
+    
+    
+    if (@available(iOS 13.0, *)) {
+        [self.navigationViewController.navigationBar.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if ([obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]||[obj isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
+                [obj.layer insertSublayer:[AppDelegate sharedAppDelegate].statusBarLayer atIndex:2];
+                obj.backgroundColor = kClearColor;
+            }
+        }];
+    }else{
+        [self.navigationViewController.navigationBar.layer insertSublayer:[AppDelegate sharedAppDelegate].statusBarLayer atIndex:1];
+    }
+    [self.navigationViewController.navigationBar setTintColor:kWhiteColor];
+    [self.navigationViewController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    */
+}
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
         return YES;
-  
  
 }
 

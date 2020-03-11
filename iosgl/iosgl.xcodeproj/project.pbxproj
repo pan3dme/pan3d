@@ -57,6 +57,8 @@
 		FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1B9F2409EEE0005E287F /* Vector2D.m */; };
 		FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1BA5240BAD5A005E287F /* Quaternion.m */; };
 		FE2F1BAC240BF2D0005E287F /* Scene_data.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1BAB240BF2D0005E287F /* Scene_data.m */; };
+		FE2F2FCB2417FAF80005F686 /* DynamicController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F2FCA2417FAF80005F686 /* DynamicController.m */; };
+		FE2F2FD12418BE7A0005F686 /* LoaderThread.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F2FD02418BE7A0005F686 /* LoaderThread.m */; };
 		FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */; };
 		FE3D4EDB2401B52600185FD3 /* levelup_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4ED92401B52600185FD3 /* levelup_base.txt */; };
 		FE3D4EDC2401B52600185FD3 /* levelup_lyf.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4EDA2401B52600185FD3 /* levelup_lyf.txt */; };
@@ -216,6 +218,11 @@
 		FE2F1BA5240BAD5A005E287F /* Quaternion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Quaternion.m; sourceTree = "<group>"; };
 		FE2F1BAA240BF2D0005E287F /* Scene_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene_data.h; sourceTree = "<group>"; };
 		FE2F1BAB240BF2D0005E287F /* Scene_data.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scene_data.m; sourceTree = "<group>"; };
+		FE2F2FC92417FAF80005F686 /* DynamicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicController.h; sourceTree = "<group>"; };
+		FE2F2FCA2417FAF80005F686 /* DynamicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicController.m; sourceTree = "<group>"; };
+		FE2F2FCE2418112D0005F686 /* DynamicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicHeader.h; sourceTree = "<group>"; };
+		FE2F2FCF2418BE7A0005F686 /* LoaderThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoaderThread.h; sourceTree = "<group>"; };
+		FE2F2FD02418BE7A0005F686 /* LoaderThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoaderThread.m; sourceTree = "<group>"; };
 		FE36A7B523FEB7D000F2DE86 /* Matrix3x3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3x3.h; sourceTree = "<group>"; };
 		FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalMatrixUtilities.h; sourceTree = "<group>"; };
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
@@ -381,6 +388,7 @@
 		FE0FC2372395104700D2483A /* iosgl */ = {
 			isa = PBXGroup;
 			children = (
+				FE2F2FC82417FA940005F686 /*  dynamic */,
 				FE0FC25A239512E500D2483A /* base */,
 				FE0FC254239511AC00D2483A /* bt */,
 				FE0FC27C23955A7F00D2483A /* Page */,
@@ -548,6 +556,8 @@
 				FE1D8B4224118B3900A04FC4 /* TimeUtil.m */,
 				FE887D752416963300025A74 /* LoadInfo.h */,
 				FE887D762416963300025A74 /* LoadInfo.m */,
+				FE2F2FCF2418BE7A0005F686 /* LoaderThread.h */,
+				FE2F2FD02418BE7A0005F686 /* LoaderThread.m */,
 				FE887D7224168FDE00025A74 /* LoadManager.h */,
 				FE887D7324168FDE00025A74 /* LoadManager.m */,
 			);
@@ -622,6 +632,16 @@
 				FE887D6D241676CC00025A74 /* TexItem.m */,
 			);
 			path = material;
+			sourceTree = "<group>";
+		};
+		FE2F2FC82417FA940005F686 /*  dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				FE2F2FC92417FAF80005F686 /* DynamicController.h */,
+				FE2F2FCA2417FAF80005F686 /* DynamicController.m */,
+				FE2F2FCE2418112D0005F686 /* DynamicHeader.h */,
+			);
+			path = " dynamic";
 			sourceTree = "<group>";
 		};
 		FE3D4EE02401C12400185FD3 /* particle */ = {
@@ -900,6 +920,7 @@
 			files = (
 				FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
+				FE2F2FD12418BE7A0005F686 /* LoaderThread.m in Sources */,
 				FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
 				FE887D532416733900025A74 /* ParamDataVo.m in Sources */,
@@ -914,6 +935,7 @@
 				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
+				FE2F2FCB2417FAF80005F686 /* DynamicController.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,
 				FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */,
 				FE887D6B241676BF00025A74 /* MaterialParam.m in Sources */,

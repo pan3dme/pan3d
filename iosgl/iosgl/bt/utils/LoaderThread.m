@@ -1,81 +1,32 @@
 //
-//  FivePageView.m
+//  LoaderThread.m
 //  iosgl
 //
-//  Created by zhao on 2/12/2019.
-//  Copyright © 2019 zhao. All rights reserved.
+//  Created by zhao on 11/3/2020.
+//  Copyright © 2020 zhao. All rights reserved.
 //
 
-#import "FivePageView.h"
-#import "AppDelegate.h"
-#import "DynamicHeader.h"
-#import "LoadManager.h"
-#import "DynamicController.h"
-
-@interface FivePageView ()
-@property (nonatomic,strong) NSURLSession *session;
+#import "LoaderThread.h"
+@interface LoaderThread()
+@property (nonatomic, strong) NSURLSessionDownloadTask* downloadTask;
+@property (nonatomic, strong) NSURLSession* session;
 @end
+@implementation LoaderThread
 
-@implementation FivePageView
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.view.frame=CGRectMake(0, 0, kScreenW, kScreenH);
-      self.view.backgroundColor=[UIColor whiteColor];
-}
- 
-- (void)viewDidAppear:(BOOL)animated
+- (instancetype)init
 {
-    [super viewDidAppear:animated];
-    
-    self.title=@"主窗口";
-    self.navigationController.navigationBar.hidden = NO;  //显示头部
+    self = [super init];
+    if (self) {
+           self.session= [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    }
+    return self;
 }
-
-- (IBAction)submitClikEvent:(id)sender {
-    
-    NSLog(@"--");
-    
-     
-    DynamicController* vc=[[DynamicController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-   
-    
-    [self downLoad:@"http://pic1.win4000.com/pic/b/03/21691230681.jpg"];
- }
-- (void)downLoad:(NSString*)value;
-{
-    
-    [self delegateUrl];
-    NSString * url=@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg";
-    [[LoadManager default]load:url type:1 fun:^(int value) {
-        
-    } info:nil progressFun:nil];
-    
-    [self delegateUrl];
-}
-
 -(void)delegateUrl
 {
-    //1.url
-   // NSURL *url = [NSURL URLWithString:@"http://pic1.win4000.com/pic/b/03/21691230681.jpg"];
-    
      NSURL *url = [NSURL URLWithString:@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg"];
-    
-    
-    //
-    //2.创建请求对象
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    //3.创建session ：注意代理为NSURLSessionDownloadDelegate
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-    
-    //4.创建Task
-    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request];
-    
-    //5.执行Task
-    [downloadTask resume];
+    self.downloadTask = [self.session downloadTaskWithRequest:request];
+    [self.downloadTask resume];
 }
 
 #pragma mark ----------------------
@@ -123,12 +74,6 @@
     NSLog(@"fullPath%@",fullPath);
     
     
-    UIImageView* imageView=[[UIImageView alloc]init];
-    imageView.frame=CGRectMake(0, 0, 200, 200);
-    [self.view addSubview:imageView];
-    [imageView setImage:[UIImage imageNamed: fullPath]];
-    
-    
 }
 
 /**
@@ -139,5 +84,4 @@
     NSLog(@"didCompleteWithError");
 }
 
-  
 @end

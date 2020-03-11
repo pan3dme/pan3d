@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkName = "+sharedAppDelegate"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -80,7 +80,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkName = "+sharedAppDelegate"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
