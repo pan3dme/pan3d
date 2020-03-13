@@ -26,20 +26,18 @@
 }
 -(void)load:(NSString*)url Block:(SuccessBlock)block;
 {
-     
-     
-   
     //本地文件
+    /*
     NSString *path=  [[NSBundle mainBundle]pathForResource:@"levelup_base" ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
- 
+ */
  
     self.bfun=block;
     
     [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
-      //  NSData* reader = [[NSData alloc] initWithContentsOfFile:value];
-        self.byte=[[ByteArray alloc]init:reader];
+         NSData* netNsData = [[NSData alloc] initWithContentsOfFile:value];
+         self.byte=[[ByteArray alloc]init:netNsData];
          [self loadComplete:self.byte];
           self.bfun(@"");
     }];

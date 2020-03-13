@@ -40,7 +40,9 @@ static LoadManager *instance = nil;
 }
 -(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun;
 {
-    [self loadUrl:url type:type fun:fun info:nil progressFun:nil];
+    NSDictionary* a=[[NSDictionary alloc]init];
+    ProceeseBlock b=^(int num){};
+    [self loadUrl:url type:type fun:fun info:a progressFun:b];
     
 }
 -(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;

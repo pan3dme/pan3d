@@ -22,20 +22,18 @@
 -(void)load:(NSString *)url bfun:(SuccessBlock)bfun;
 {
     
-    /*
-     本地文件读取
-    NSString *path=  [[NSBundle mainBundle]pathForResource:url ofType:@"txt"];
+  
+     //本地文件读取
+    NSString *path=  [[NSBundle mainBundle]pathForResource:@"5555_base" ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
     self.byte=[[ByteArray alloc]init:reader];
     [self loadComplete:self.byte];
-    */
+  
  
-
-    
     
     [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
-        NSData* reader = [[NSData alloc] initWithContentsOfFile:value];
+        NSData* netNsData = [[NSData alloc] initWithContentsOfFile:value];
         self.byte=[[ByteArray alloc]init:reader];
         [self loadComplete:self.byte];
         bfun(nil);

@@ -127,8 +127,9 @@
 {
      //5555_base
     //1001_base
-    
+   //webUrl    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/RedbagApp/res/map/5555_base.txt"    0x00000002824f4620
     NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:@"map/5555_base.txt"];
+    
     SceneRes *sceneRes=[[SceneRes alloc]init];
                    [sceneRes load:webUrl  bfun:^(NSString *value) {
                        [self initConfigScene:sceneRes];
