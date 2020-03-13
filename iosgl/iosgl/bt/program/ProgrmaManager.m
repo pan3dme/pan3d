@@ -8,6 +8,7 @@
 
 #import "ProgrmaManager.h"
 #import "Shader3D.h"
+#import "Material.h"
 static ProgrmaManager *instance = nil;
 @implementation ProgrmaManager
 + (instancetype)default{
@@ -43,6 +44,29 @@ static ProgrmaManager *instance = nil;
       [shader3d encodeVstr:nil encodeFstr:nil];
     }
 }
+// public getMaterialProgram(key: String, shaderCls: any, $material: Material, paramAry: any = null, parmaByFragmet: boolean = false): Shader3D {
+-(Shader3D*)getMaterialProgram:(NSString*)key shaderCls:(NSObject*)shaderCls   material:(Material*)material paramAry:(NSArray*)paramAry parmaByFragmet:(BOOL)parmaByFragmet ;
+{
+    NSString* keyStr = [key stringByAppendingFormat:@"%@",material.url];
+    if (paramAry) {
+        for (int i=0; i < paramAry.count; i++) {
+            keyStr= [keyStr stringByAppendingFormat:@"_%@",paramAry[i]];
+        }
+        if (parmaByFragmet) {
+            keyStr= [keyStr stringByAppendingFormat:@"true_"];
+        } else {
+            keyStr= [keyStr stringByAppendingFormat:@"false_"];
+        }
+    }
+    
+    
+    return nil;
+}
+
+/*
+public getMaterialProgram(key: String, shaderCls: any, $material: Material, paramAry: any = null, parmaByFragmet: boolean = false): Shader3D {
+      var keyStr: string = key + "_" + $material.url;
+    */
 @end
 
 

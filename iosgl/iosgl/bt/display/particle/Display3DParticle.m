@@ -36,6 +36,12 @@
         [self resetVa];
     }
 }
+-(void)setMaterialTexture;
+{
+    if(!self.data.materialParam){
+        return;
+    }
+}
 -(void)setVc;
 {
 }
@@ -45,5 +51,6 @@
 -(void)resetVa;
 {
 }
+
 
 @end

@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TextureRes.h"
+#import "TexItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DynamicBaseTexItem : NSObject
-
+@property (nonatomic, strong)  NSString* paramName;
+@property (nonatomic, strong)  TexItem* target;
+@property (nonatomic, strong)  TextureRes* textureRes;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

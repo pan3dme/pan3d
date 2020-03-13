@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setVc;
 -(void)setVa;
 -(void)resetVa;
+-(void)setMaterialTexture;
  
 @end
 

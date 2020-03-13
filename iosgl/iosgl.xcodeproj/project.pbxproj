@@ -59,6 +59,8 @@
 		FE2F1BAC240BF2D0005E287F /* Scene_data.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F1BAB240BF2D0005E287F /* Scene_data.m */; };
 		FE2F2FCB2417FAF80005F686 /* DynamicController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F2FCA2417FAF80005F686 /* DynamicController.m */; };
 		FE2F2FD12418BE7A0005F686 /* LoaderThread.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F2FD02418BE7A0005F686 /* LoaderThread.m */; };
+		FE2F3016241C28490005F686 /* Curve.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F3015241C28480005F686 /* Curve.m */; };
+		FE2F3019241C2CBD0005F686 /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2F3018241C2CBD0005F686 /* TextureManager.m */; };
 		FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */; };
 		FE3D4EDB2401B52600185FD3 /* levelup_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4ED92401B52600185FD3 /* levelup_base.txt */; };
 		FE3D4EDC2401B52600185FD3 /* levelup_lyf.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE3D4EDA2401B52600185FD3 /* levelup_lyf.txt */; };
@@ -224,6 +226,10 @@
 		FE2F2FCF2418BE7A0005F686 /* LoaderThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoaderThread.h; sourceTree = "<group>"; };
 		FE2F2FD02418BE7A0005F686 /* LoaderThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoaderThread.m; sourceTree = "<group>"; };
 		FE2F2FD32418C3340005F686 /* GL_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GL_Header.h; sourceTree = "<group>"; };
+		FE2F3014241C28480005F686 /* Curve.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Curve.h; sourceTree = "<group>"; };
+		FE2F3015241C28480005F686 /* Curve.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Curve.m; sourceTree = "<group>"; };
+		FE2F3017241C2CBD0005F686 /* TextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		FE2F3018241C2CBD0005F686 /* TextureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
 		FE36A7B523FEB7D000F2DE86 /* Matrix3x3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3x3.h; sourceTree = "<group>"; };
 		FE36BBE223A53D3A00180D7C /* MetalMatrixUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalMatrixUtilities.h; sourceTree = "<group>"; };
 		FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalMatrixUtilities.m; sourceTree = "<group>"; };
@@ -530,6 +536,8 @@
 				FED0DA49240162F8009F6575 /* GroupDataManager.m */,
 				FE3D4EDD2401BF5A00185FD3 /* ParticleManager.h */,
 				FE3D4EDE2401BF5A00185FD3 /* ParticleManager.m */,
+				FE2F3017241C2CBD0005F686 /* TextureManager.h */,
+				FE2F3018241C2CBD0005F686 /* TextureManager.m */,
 			);
 			path = filemode;
 			sourceTree = "<group>";
@@ -545,6 +553,8 @@
 				FE189B2424049C2E008E2FF6 /* TimeLine.m */,
 				FE887D4E2416731200025A74 /* CurveVo.h */,
 				FE887D4F2416731200025A74 /* CurveVo.m */,
+				FE2F3014241C28480005F686 /* Curve.h */,
+				FE2F3015241C28480005F686 /* Curve.m */,
 				FE887D512416733900025A74 /* ParamDataVo.h */,
 				FE887D522416733900025A74 /* ParamDataVo.m */,
 			);
@@ -656,12 +666,12 @@
 				FE3D4EE52401C16C00185FD3 /* CombineParticle.m */,
 				FE3D4EE72401C18B00185FD3 /* CombineParticleData.h */,
 				FE3D4EE82401C18B00185FD3 /* CombineParticleData.m */,
-				FE3D4EEA2401C24200185FD3 /* Display3DParticle.h */,
-				FE3D4EEB2401C24200185FD3 /* Display3DParticle.m */,
 				FE80570C2405BE15000F6D17 /* ParticleGpuData.h */,
 				FE80570D2405BE15000F6D17 /* ParticleGpuData.m */,
 				FE3D4EED2401C25D00185FD3 /* ParticleData.h */,
 				FE3D4EEE2401C25D00185FD3 /* ParticleData.m */,
+				FE3D4EEA2401C24200185FD3 /* Display3DParticle.h */,
+				FE3D4EEB2401C24200185FD3 /* Display3DParticle.m */,
 			);
 			path = particle;
 			sourceTree = "<group>";
@@ -981,6 +991,7 @@
 				FE3D4EF32401C79000185FD3 /* ParticleFacetData.m in Sources */,
 				FED0DA4A240162F8009F6575 /* GroupDataManager.m in Sources */,
 				FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */,
+				FE2F3016241C28490005F686 /* Curve.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE887D502416731200025A74 /* CurveVo.m in Sources */,
@@ -1006,6 +1017,7 @@
 				FE36BBE423A53D3A00180D7C /* MetalMatrixUtilities.m in Sources */,
 				FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */,
 				FE887D7424168FDE00025A74 /* LoadManager.m in Sources */,
+				FE2F3019241C2CBD0005F686 /* TextureManager.m in Sources */,
 				FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */,
 				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
 				FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */,

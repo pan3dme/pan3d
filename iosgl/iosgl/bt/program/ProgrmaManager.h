@@ -7,6 +7,7 @@
 //
 
 #import "ResGC.h"
+#import "Material.h"
 #import "Shader3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,8 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 -(Shader3D*) getProgram:(NSString*)value ;
 -(void)registe:(NSString*)keystr shader3d:(Shader3D*)shader3d;
-
- 
+-(Shader3D*)getMaterialProgram:(NSString*)key shaderCls:(NSObject*)shaderCls   material:(Material*)material paramAry:(NSArray*)paramAry parmaByFragmet:(BOOL)parmaByFragmet ;
    
 @end
 

@@ -7,11 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Material.h"
+#import "Shader3D.h"
+#import "MaterialBaseParam.h"
 
 NS_ASSUME_NONNULL_BEGIN
+ 
+@interface MaterialParam : MaterialBaseParam
 
-@interface MaterialParam : NSObject
+@property (nonatomic, strong)  NSString*  materialUrl;
+@property (nonatomic, strong)  Shader3D*  shader;
+ 
 
+-(void)setMaterial:(Material*)materialTree;
+-(void)setLife:(float)life;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

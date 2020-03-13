@@ -96,12 +96,21 @@
        return;
     }
     self._materialUrl = value;
+ 
     [[MaterialManager default] getMaterialByte:value fun:^(Material * material) {
-        
-    } info:nil];
+        [self onMaterialLoad:material];
+    } info:[[NSDictionary alloc]init]];
 
+}
+-(void)onMaterialLoad:(Material*)material;
+{
+     ParticleData* this=self;
+     this.materialParam = [[MaterialParam alloc]init] ;
+     [this.materialParam setMaterial:material];
     
 }
+
+
 -(Display3DParticle*)creatPartilce;
 {
     Display3DParticle *particle = [self getParticle];

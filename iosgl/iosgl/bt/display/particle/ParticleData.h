@@ -10,6 +10,7 @@
 #import "ByteArray.h"
 #import "Vector3D.h"
 #import "ObjData.h"
+#import "MaterialParam.h"
 #import "TimeLineData.h"
 #import "Display3DParticle.h"
 
@@ -47,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Vector3D*  _center;//中心点
 @property (nonatomic, assign)  float  overAllScale ;
 @property (nonatomic, assign)  NSString*  _materialUrl;
-//@property (nonatomic, assign)  BOOL  materialParam: MaterialParam;
+@property (nonatomic, strong)  MaterialParam*  materialParam ;
 @property (nonatomic, strong)  NSMutableDictionary*  materialParamData;
 @property (nonatomic, strong)  ObjData*  objData;
 @property (nonatomic, strong)  TimeLineData*  timelineData;

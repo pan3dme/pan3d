@@ -130,6 +130,8 @@
     [ctx setRenderTexture:self.shader3d name:"fs1" texture: self.textureRes.textTureLuint];
     
     [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
+    
+    [self setMaterialTexture];
 }
 -(void)resetVa;
 {

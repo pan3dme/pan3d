@@ -8,7 +8,10 @@
 #import <GLKit/GLKit.h>
 #import "TextureRes.h"
 #import "Material.h"
+#import "Scene_data.h"
 #import "MaterialLoad.h"
+#import "TextureManager.h"
+#import "ProgrmaManager.h"
 #import "MaterialManager.h"
 static MaterialManager *instance = nil;
 
@@ -93,6 +96,11 @@ static MaterialManager *instance = nil;
     }
  
 }
+//  public getMaterialByte($url: string, $fun: Function, $info: Object = null, $autoReg: boolean = false, $regName: string = null, $shader3DCls: any = null): void {
+-(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
+{
+    
+}
 -(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info;
 {
     if(_dic[url]){
@@ -111,6 +119,9 @@ static MaterialManager *instance = nil;
     
     if (_resDic[url]) {
         [self meshByteMaterialByt:self.resDic[url] info:materialLoad];
+        
+        [_resDic removeObjectForKey:url];
+        
     }else{
         
     }
@@ -141,13 +152,14 @@ static MaterialManager *instance = nil;
 {
     Material* material=[[Material alloc]init];
     [material setByteData:byte];
+    material.url = info.url;
+    [self loadMaterial:material];
+    if (info.autoReg) {
+      
+        material.shader=  [[ProgrmaManager default] getMaterialProgram:info.regName shaderCls:info.shader3D material:material paramAry:nil parmaByFragmet:true];
+    }
     /*
-     var material: Material = new Material()
-            material.setByteData(byte)
-            material.url = _info.url;
-
-
-            this.loadMaterial(material);
+  
 
             if (_info.autoReg) {
                 material.shader = ProgrmaManager.getInstance().getMaterialProgram(_info.regName, _info.shader3D, material, null, true);
@@ -175,5 +187,34 @@ static MaterialManager *instance = nil;
             this._dic[_info.url] = material;
      */
 }
+
+-(void)loadMaterial:(Material*)material;
+{
+    NSMutableArray<TexItem*>* texVec = material.texList;
+    for (int i = 0; i < texVec.count; i++) {
+        if (texVec[i].isParticleColor || texVec[i].isDynamic || texVec[i].type != 0) {
+            continue;
+        }
+          
+        [[TextureManager default] getTexture:[[Scene_data default]getWorkUrlByFilePath:texVec[i].url]  fun:^(TextureRes *textureRes) {
+      
+        }];
+    }
+}
+
+/*
+ private loadMaterial($material: Material): void {
+       var texVec: Array<TexItem> = $material.texList;
+       for (var i: number = 0; i < texVec.length; i++) {
+           if (texVec[i].isParticleColor || texVec[i].isDynamic || texVec[i].type != 0) {
+               continue;
+           }
+           TextureManager.getInstance().getTexture(Scene_data.fileRoot + texVec[i].url, ($textureVo: TextureRes, $texItem: TexItem) => {
+               $texItem.textureRes = $textureVo;
+           }, texVec[i].wrap, texVec[i], texVec[i].filter, texVec[i].mipmap);
+       }
+   }
+ */
+
                    
 @end

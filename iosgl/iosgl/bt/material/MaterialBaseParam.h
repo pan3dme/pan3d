@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Material.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+ 
 @interface MaterialBaseParam : NSObject
+@property (nonatomic, strong)  Material*  material;
+@property (nonatomic, strong)  NSMutableArray*  dynamicTexList;
+@property (nonatomic, strong)  NSMutableArray*  dynamicConstList;
 
 @end
 

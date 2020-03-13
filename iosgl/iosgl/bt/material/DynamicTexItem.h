@@ -7,10 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DynamicBaseTexItem.h"
+#import "TexItem.h"
+#import "Curve.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DynamicTexItem : NSObject
+@interface DynamicTexItem : DynamicBaseTexItem
+/*
+ public url: string;
+  //public target: TexItem;
+  //public paramName: string;
+  private _textureDynamic: WebGLTexture;
+  //public textureRes:TextureRes;
+  public isParticleColor: boolean;
+  public curve: Curve;
+  private _life: number;
+ */
+
+@property (nonatomic, strong)  NSString*  url;
+@property(nonatomic,strong) TexItem* target;
+@property(nonatomic,assign) BOOL  isParticleColor;
+@property(nonatomic,strong)   Curve* curve ;
+@property(nonatomic,assign)  float life;
+
 
 @end
 
