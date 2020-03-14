@@ -10,7 +10,7 @@
 #import "DynamicTexItem.h"
 
 @implementation MaterialParam
--(void)setMaterial:(Material*)materialTree;
+-(void)SetMaterial:(Material*)materialTree;
 {
     self.material=materialTree;
     self.materialUrl=materialTree.url;

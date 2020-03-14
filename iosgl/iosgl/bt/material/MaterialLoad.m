@@ -12,15 +12,16 @@
 
 @implementation MaterialLoad
 
-- (instancetype)init:(MaterialBlock)fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
+- (instancetype)init:(SuccessMaterial)fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
 {
     self = [super init];
     if (self) {
-         self.info=info;
-         self.url=url;
-         self.autoReg=autoReg;
-         self.regName=regName;
-         self.shader3D=shader;
+        self.fun=fun;
+        self.info=info;
+        self.url=url;
+        self.autoReg=autoReg;
+        self.regName=regName;
+        self.shader3D=shader;
     }
     return self;
 }

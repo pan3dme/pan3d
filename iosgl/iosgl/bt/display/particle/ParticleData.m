@@ -96,17 +96,19 @@
        return;
     }
     self._materialUrl = value;
- 
+// -(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
     [[MaterialManager default] getMaterialByte:value fun:^(Material * material) {
+        
         [self onMaterialLoad:material];
-    } info:[[NSDictionary alloc]init]];
+        
+    } info:nil autoReg:nil regName:nil shader3DCls:nil];
 
 }
 -(void)onMaterialLoad:(Material*)material;
 {
      ParticleData* this=self;
      this.materialParam = [[MaterialParam alloc]init] ;
-     [this.materialParam setMaterial:material];
+     [this.materialParam SetMaterial:material];
     
 }
 

@@ -13,44 +13,9 @@
 #import "TexItem.h"
 #import "ConstItem.h"
 NS_ASSUME_NONNULL_BEGIN
-/*
- public url: string;
-
-    public shaderStr:string;
-    public texList:Array<TexItem> = new Array;
-    public constList: Array<ConstItem> = new Array;
-    public hasTime: boolean;
-    public timeSpeed: number;
-    public blendMode: number;
-    public backCull: boolean;
-    public killNum: number = 0;
-    public hasVertexColor: boolean;
-    public usePbr: boolean;
-    public useNormal: boolean;
-    public roughness: number;
-    public program: WebGLProgram;
-    public shader: Shader3D;
-    public writeZbuffer: boolean = true;
-    public hasFresnel: boolean;
-    public useDynamicIBL: boolean;
-    public normalScale: number;
-    public lightProbe: boolean;
-    public useKill: boolean;
-    public directLight: boolean;
-    public noLight: boolean;
-    public scaleLightMap: boolean;
-    public fogMode: number = 0;
-    public fcNum:number = 0;
-    public fcIDAry:Array<number>;
-
-    public hasParticleColor: boolean;
-
-    public locationDic: Object;
+ 
 
 
-    public fcData: Float32Array;
-    public sceneNumId:number;
- */
 @interface Material : ResCount
 
 @property (nonatomic, strong)  NSString*  url;

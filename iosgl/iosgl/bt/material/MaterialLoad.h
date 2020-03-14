@@ -9,18 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "Shader3D.h"
 #import "Material.h"
+#import "GL_Header.h"
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void (^MaterialBlock)(Material* material);
+
 
 @interface MaterialLoad : NSObject
  
+@property (nonatomic, strong) SuccessMaterial  fun;
 @property (nonatomic, strong) NSDictionary*  info;
 @property (nonatomic, strong) NSString*  url;
 @property (nonatomic, assign) BOOL  autoReg;
 @property (nonatomic, strong) NSString*  regName;
 @property (nonatomic, strong) Shader3D*  shader3D;
-- (instancetype)init:(MaterialBlock)fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
+- (instancetype)init:(SuccessMaterial)fun info:(NSDictionary*)info url:(NSString*)url autoReg:(BOOL)autoReg regName:(NSString*)regName shader:(Shader3D*)shader;
 @end
 
 NS_ASSUME_NONNULL_END

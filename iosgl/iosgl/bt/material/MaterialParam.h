@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Shader3D*  shader;
  
 
--(void)setMaterial:(Material*)materialTree;
+-(void)SetMaterial:(Material*)materialTree;
 -(void)setLife:(float)life;
  
 @end

@@ -58,6 +58,22 @@ static ProgrmaManager *instance = nil;
             keyStr= [keyStr stringByAppendingFormat:@"false_"];
         }
     }
+    if (self.dic[keyStr]) {
+        return self.dic[keyStr];
+    }
+ 
+    if (parmaByFragmet) {
+         NSNumber* usePbr=[NSNumber numberWithFloat: material.usePbr?1:0];
+        NSNumber* useNormal=[NSNumber numberWithFloat: material.useNormal?1:0];
+        NSNumber* hasFresnel=[NSNumber numberWithFloat: material.hasFresnel?1:0];
+        NSNumber* useDynamicIBL=[NSNumber numberWithFloat: material.useDynamicIBL?1:0];
+        NSNumber* lightProbe=[NSNumber numberWithFloat: material.lightProbe?1:0];
+        NSNumber* directLight=[NSNumber numberWithFloat: material.directLight?1:0];
+        NSNumber* fogMode=[NSNumber numberWithFloat: material.fogMode?1:0];
+        paramAry = @[ usePbr, useNormal,  hasFresnel,  useDynamicIBL, lightProbe,  directLight,fogMode];
+ 
+       }
+  //  var shader: Shader3D = new shaderCls();
     
     
     return nil;

@@ -8,6 +8,7 @@
 #import <GLKit/GLKit.h>
 #import "TextureRes.h"
 #import "Material.h"
+#import "TextureLoad.h"
 #import "Scene_data.h"
 #import "MaterialLoad.h"
 #import "TextureManager.h"
@@ -97,17 +98,15 @@ static MaterialManager *instance = nil;
  
 }
 //  public getMaterialByte($url: string, $fun: Function, $info: Object = null, $autoReg: boolean = false, $regName: string = null, $shader3DCls: any = null): void {
--(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
+-(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
 {
     
-}
--(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info;
-{
+ 
     if(_dic[url]){
         fun(_dic[url]);
         return;
     }
-    MaterialLoad* materialLoad= [[MaterialLoad alloc]init:fun info:info url:url autoReg:YES regName:@"d" shader: nil];
+    MaterialLoad* materialLoad= [[MaterialLoad alloc]init:fun info:info url:url autoReg:autoReg regName:regName shader: shader3DCls];
     if ( _loadDic[url]) {
         NSMutableArray<MaterialLoad*>* ary   =  _loadDic[url];
         [ary addObject:materialLoad];
@@ -155,37 +154,19 @@ static MaterialManager *instance = nil;
     material.url = info.url;
     [self loadMaterial:material];
     if (info.autoReg) {
-      
         material.shader=  [[ProgrmaManager default] getMaterialProgram:info.regName shaderCls:info.shader3D material:material paramAry:nil parmaByFragmet:true];
     }
-    /*
-  
-
-            if (_info.autoReg) {
-                material.shader = ProgrmaManager.getInstance().getMaterialProgram(_info.regName, _info.shader3D, material, null, true);
-                material.program = material.shader.program;
-            }
-
-
-            var ary: Array<TextureLoad> = this._loadDic[_info.url];
-            for (var i: number = 0; i < ary.length; i++) {
-                if (ary[i].info) {
-                    ary[i].fun(material, ary[i].info);
-                } else {
-                    ary[i].fun(material);
-                }
-                material.useNum++;
-
-                // if (_info.url.indexOf("m_ef_ver_byte.txt") != -1) {
-                //     console.log("aaaaaaaaaaaaaaaa", material.useNum)
-                // }
-
-            }
-
-            delete this._loadDic[_info.url];
-
-            this._dic[_info.url] = material;
-     */
+    NSArray<TextureLoad*>* ary = self.loadDic[info.url];
+    for (int i = 0; i < ary.count; i++) {
+        if(ary[i].info){
+              ary[i].funinfo(material,ary[i].info);
+        }else{
+              ary[i].fun(material);
+        }
+    }
+    [self.loadDic removeObjectForKey:info.url];
+    self.dic[info.url] = material;
+    
 }
 
 -(void)loadMaterial:(Material*)material;

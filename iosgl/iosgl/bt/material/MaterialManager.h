@@ -9,6 +9,7 @@
 #import "ResGC.h"
 #import <GLKit/GLKit.h>
 #import "Material.h"
+#import "GL_Header.h"
 #import "ByteArray.h"
 #import "TextureRes.h"
 #import "MaterialLoad.h"
@@ -19,8 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
 -(void)addResByte:(NSString*)url dataByte:(ByteArray*)dataByte;
--(void)getMaterialByte:(NSString*)url fun:(void (^)(Material* ))fun info:(NSDictionary*)info;
--(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
+-(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
 @end
 
 NS_ASSUME_NONNULL_END
