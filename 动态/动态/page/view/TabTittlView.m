@@ -99,8 +99,6 @@
     [btn setTintColor:[UIColor whiteColor]];
     //titilelabel:UIlabel空间
     btn .titleLabel.font = [UIFont systemFontOfSize:18];
-    
-    
     return btn;
     
 }

@@ -7,13 +7,17 @@
 //
 
 #import "Header.h"
+#import "UIView+XBZKeyBoard.h"
 #import "DynamicMainView.h"
 #import "TabTittlView.h"
+#import "ListPage.h"
 
 
 @interface DynamicMainView ()
 
 @property(nonatomic,strong)TabTittlView* tabTittlView;
+@property(nonatomic,strong)ListPage* listPage;
+ 
 
 @end
 
@@ -25,6 +29,8 @@
  
     self.view.backgroundColor=[UIColor whiteColor];
     
+    self.listPage=[[ListPage alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.listPage];
     
     self.tabTittlView=[[TabTittlView alloc]init];
     [self.view addSubview:self.tabTittlView];
@@ -34,12 +40,14 @@
     
 }
 
-- (void)viewWillLayoutSubviews;
+- (void)viewDidLayoutSubviews;
 {
 
-    self.tabTittlView.frame=CGRectMake(0, 50*kScaleHeight, kScreenW, 50*kScaleHeight);
-    
-    
+   
+self.tabTittlView.frame=CGRectMake(0, 50*kScaleHeight, kScreenW, 50*kScaleHeight);
+self.listPage.frame=CGRectMake(0, CGRectGetMaxY(self.tabTittlView .frame) , self.view.width, self.view.height-CGRectGetMaxY(self.tabTittlView .frame));
+
+ 
     
 }
 

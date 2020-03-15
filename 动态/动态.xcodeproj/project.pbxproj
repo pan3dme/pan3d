@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8200F4F121A638918F65E1C1 /* libPods-动态.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDCAE5ED79B81D2A776AC29 /* libPods-动态.a */; };
 		FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064AC2241E915C00AD44BE /* AppDelegate.m */; };
 		FE064AC6241E915C00AD44BE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064AC5241E915C00AD44BE /* SceneDelegate.m */; };
 		FE064AC9241E915C00AD44BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064AC8241E915C00AD44BE /* ViewController.m */; };
@@ -25,9 +26,19 @@
 		FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B60241E9F7600AD44BE /* UIView+XBZKeyBoard.m */; };
 		FE064B6A241E9F7600AD44BE /* NSString+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B64241E9F7600AD44BE /* NSString+XBZKeyBoard.m */; };
 		FE064B6B241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B65241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m */; };
+		FE064B6F241EB38200AD44BE /* ListPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B6E241EB38200AD44BE /* ListPage.m */; };
+		FE064B73241EB41F00AD44BE /* RedBagRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B72241EB41F00AD44BE /* RedBagRefreshGifHeader.m */; };
+		FE064B75241EB71B00AD44BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FE064B74241EB71A00AD44BE /* Podfile */; };
+		FE064B7A241EC0DF00AD44BE /* DynamicBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B79241EC0DF00AD44BE /* DynamicBaseCell.m */; };
+		FE064B7D241EC1E600AD44BE /* DynamicBaseVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */; };
+		FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */; };
+		FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47A4CE5B530CA7A7A8871600 /* Pods-动态.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-动态.release.xcconfig"; path = "Target Support Files/Pods-动态/Pods-动态.release.xcconfig"; sourceTree = "<group>"; };
+		6BDCAE5ED79B81D2A776AC29 /* libPods-动态.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-动态.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44F84B32B5AFE3565579A40 /* Pods-动态.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-动态.debug.xcconfig"; path = "Target Support Files/Pods-动态/Pods-动态.debug.xcconfig"; sourceTree = "<group>"; };
 		FE064ABE241E915C00AD44BE /* 动态.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "动态.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE064AC1241E915C00AD44BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE064AC2241E915C00AD44BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,6 +74,19 @@
 		FE064B64241E9F7600AD44BE /* NSString+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XBZKeyBoard.m"; sourceTree = "<group>"; };
 		FE064B65241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XBZKeyBoard.m"; sourceTree = "<group>"; };
 		FE064B6C241EA0C100AD44BE /* ColorHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorHeader.h; sourceTree = "<group>"; };
+		FE064B6D241EB38200AD44BE /* ListPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListPage.h; sourceTree = "<group>"; };
+		FE064B6E241EB38200AD44BE /* ListPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListPage.m; sourceTree = "<group>"; };
+		FE064B71241EB41F00AD44BE /* RedBagRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBagRefreshGifHeader.h; sourceTree = "<group>"; };
+		FE064B72241EB41F00AD44BE /* RedBagRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedBagRefreshGifHeader.m; sourceTree = "<group>"; };
+		FE064B74241EB71A00AD44BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		FE064B78241EC0DF00AD44BE /* DynamicBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicBaseCell.h; sourceTree = "<group>"; };
+		FE064B79241EC0DF00AD44BE /* DynamicBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicBaseCell.m; sourceTree = "<group>"; };
+		FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicBaseVo.h; sourceTree = "<group>"; };
+		FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicBaseVo.m; sourceTree = "<group>"; };
+		FE064B7E241ECCB600AD44BE /* TableImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableImageViewCell.h; sourceTree = "<group>"; };
+		FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableImageViewCell.m; sourceTree = "<group>"; };
+		FE064B81241ECDA100AD44BE /* DynamicTabelVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTabelVo.h; sourceTree = "<group>"; };
+		FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTabelVo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,17 +94,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8200F4F121A638918F65E1C1 /* libPods-动态.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		344BB30E381D8BAAC1D02366 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D44F84B32B5AFE3565579A40 /* Pods-动态.debug.xcconfig */,
+				47A4CE5B530CA7A7A8871600 /* Pods-动态.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C8CEA16D3F267FCEFE808CC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BDCAE5ED79B81D2A776AC29 /* libPods-动态.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE064AB5241E915C00AD44BE = {
 			isa = PBXGroup;
 			children = (
 				FE064AC0241E915C00AD44BE /* 动态 */,
 				FE064ABF241E915C00AD44BE /* Products */,
+				344BB30E381D8BAAC1D02366 /* Pods */,
+				C8CEA16D3F267FCEFE808CC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +152,7 @@
 				FE064ACF241E915D00AD44BE /* LaunchScreen.storyboard */,
 				FE064AD2241E915D00AD44BE /* Info.plist */,
 				FE064AD3241E915D00AD44BE /* main.m */,
+				FE064B74241EB71A00AD44BE /* Podfile */,
 			);
 			path = "动态";
 			sourceTree = "<group>";
@@ -115,12 +160,15 @@
 		FE064ADF241E921B00AD44BE /* page */ = {
 			isa = PBXGroup;
 			children = (
+				FE064B77241EC09A00AD44BE /* vo */,
+				FE064B76241EC08E00AD44BE /* cell */,
+				FE064B70241EB41F00AD44BE /* gfheader */,
 				FE064B4B241E990800AD44BE /* view */,
+				FE064B46241E98A300AD44BE /* DynamicMainView.h */,
+				FE064B47241E98A300AD44BE /* DynamicMainView.m */,
 				FE064ADA241E921400AD44BE /* OnePageView.h */,
 				FE064ADB241E921400AD44BE /* OnePageView.m */,
 				FE064ADC241E921400AD44BE /* OnePageView.xib */,
-				FE064B46241E98A300AD44BE /* DynamicMainView.h */,
-				FE064B47241E98A300AD44BE /* DynamicMainView.m */,
 				FE064B4F241E99BE00AD44BE /* Header.h */,
 				FE064B6C241EA0C100AD44BE /* ColorHeader.h */,
 			);
@@ -134,6 +182,8 @@
 				FE064B54241E9BAE00AD44BE /* TabTittleBut.m */,
 				FE064B4C241E992800AD44BE /* TabTittlView.h */,
 				FE064B4D241E992800AD44BE /* TabTittlView.m */,
+				FE064B6D241EB38200AD44BE /* ListPage.h */,
+				FE064B6E241EB38200AD44BE /* ListPage.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -157,6 +207,37 @@
 			path = Catgoriy;
 			sourceTree = "<group>";
 		};
+		FE064B70241EB41F00AD44BE /* gfheader */ = {
+			isa = PBXGroup;
+			children = (
+				FE064B71241EB41F00AD44BE /* RedBagRefreshGifHeader.h */,
+				FE064B72241EB41F00AD44BE /* RedBagRefreshGifHeader.m */,
+			);
+			path = gfheader;
+			sourceTree = "<group>";
+		};
+		FE064B76241EC08E00AD44BE /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE064B78241EC0DF00AD44BE /* DynamicBaseCell.h */,
+				FE064B79241EC0DF00AD44BE /* DynamicBaseCell.m */,
+				FE064B7E241ECCB600AD44BE /* TableImageViewCell.h */,
+				FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		FE064B77241EC09A00AD44BE /* vo */ = {
+			isa = PBXGroup;
+			children = (
+				FE064B81241ECDA100AD44BE /* DynamicTabelVo.h */,
+				FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */,
+				FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */,
+				FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */,
+			);
+			path = vo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE064AD7241E915D00AD44BE /* Build configuration list for PBXNativeTarget "动态" */;
 			buildPhases = (
+				ABC10F4B2460D10EEC3A3500 /* [CP] Check Pods Manifest.lock */,
 				FE064ABA241E915C00AD44BE /* Sources */,
 				FE064ABB241E915C00AD44BE /* Frameworks */,
 				FE064ABC241E915C00AD44BE /* Resources */,
+				1A20092FEDB315351728F78D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE064B75241EB71B00AD44BE /* Podfile in Resources */,
 				FE064AD1241E915D00AD44BE /* LaunchScreen.storyboard in Resources */,
 				FE064ACE241E915D00AD44BE /* Assets.xcassets in Resources */,
 				FE064ADE241E921400AD44BE /* OnePageView.xib in Resources */,
@@ -222,6 +306,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A20092FEDB315351728F78D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-动态/Pods-动态-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-动态/Pods-动态-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-动态/Pods-动态-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABC10F4B2460D10EEC3A3500 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-动态-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FE064ABA241E915C00AD44BE /* Sources */ = {
@@ -233,11 +359,17 @@
 				FE064B4E241E992800AD44BE /* TabTittlView.m in Sources */,
 				FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */,
 				FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */,
+				FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */,
 				FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */,
+				FE064B73241EB41F00AD44BE /* RedBagRefreshGifHeader.m in Sources */,
 				FE064AD4241E915D00AD44BE /* main.m in Sources */,
 				FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */,
+				FE064B6F241EB38200AD44BE /* ListPage.m in Sources */,
+				FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */,
 				FE064B49241E98A300AD44BE /* DynamicMainView.m in Sources */,
+				FE064B7D241EC1E600AD44BE /* DynamicBaseVo.m in Sources */,
 				FE064AC6241E915C00AD44BE /* SceneDelegate.m in Sources */,
+				FE064B7A241EC0DF00AD44BE /* DynamicBaseCell.m in Sources */,
 				FE064B66241E9F7600AD44BE /* UIButton+XBZKeyBoard.m in Sources */,
 				FE064ADD241E921400AD44BE /* OnePageView.m in Sources */,
 				FE064B68241E9F7600AD44BE /* UIImage+XBZKeyBoard.m in Sources */,
@@ -379,6 +511,7 @@
 		};
 		FE064AD8241E915D00AD44BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D44F84B32B5AFE3565579A40 /* Pods-动态.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,6 +529,7 @@
 		};
 		FE064AD9241E915D00AD44BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47A4CE5B530CA7A7A8871600 /* Pods-动态.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
