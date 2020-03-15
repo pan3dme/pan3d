@@ -13,6 +13,8 @@
 #import "ThirdPageView.h"
 #import "FourPageView.h"
 #import "GlkView.h"
+ 
+ #import "FivePageView.h"
 #import "TokenSceneView.h"
 
 
@@ -45,7 +47,8 @@
     OnePageView *vc02=[[OnePageView alloc] init];
     OnePageView *vc03=[[OnePageView alloc]init];
     OnePageView *vc04=[[OnePageView alloc] init];
-    TokenSceneView *vc05=[[TokenSceneView alloc] init];
+  TokenSceneView *vc05=[[TokenSceneView alloc] init];
+   // FivePageView *vc05=[[FivePageView alloc] init];
  
     
     
