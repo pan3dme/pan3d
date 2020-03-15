@@ -18,6 +18,7 @@
 		FE064A04241E720900AD44BE /* DynamicPojectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064A03241E720900AD44BE /* DynamicPojectUITests.m */; };
 		FE064A15241E726C00AD44BE /* DynamicMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064A13241E726C00AD44BE /* DynamicMainView.m */; };
 		FE064A16241E726C00AD44BE /* DynamicMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE064A14241E726C00AD44BE /* DynamicMainView.xib */; };
+		FE064A1A241E79E000AD44BE /* DynamicUITabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064A19241E79E000AD44BE /* DynamicUITabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		FE064A13241E726C00AD44BE /* DynamicMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicMainView.m; sourceTree = "<group>"; };
 		FE064A14241E726C00AD44BE /* DynamicMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicMainView.xib; sourceTree = "<group>"; };
 		FE064A17241E74AC00AD44BE /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FE064A18241E79E000AD44BE /* DynamicUITabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicUITabBar.h; sourceTree = "<group>"; };
+		FE064A19241E79E000AD44BE /* DynamicUITabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicUITabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +115,8 @@
 			children = (
 				FE064A11241E723500AD44BE /* page */,
 				FE0649DC241E720800AD44BE /* AppDelegate.h */,
-				FE064A17241E74AC00AD44BE /* Header.h */,
 				FE0649DD241E720800AD44BE /* AppDelegate.m */,
+				FE064A17241E74AC00AD44BE /* Header.h */,
 				FE0649DF241E720800AD44BE /* SceneDelegate.h */,
 				FE0649E0241E720800AD44BE /* SceneDelegate.m */,
 				FE0649E2241E720800AD44BE /* ViewController.h */,
@@ -151,6 +154,8 @@
 				FE064A12241E726C00AD44BE /* DynamicMainView.h */,
 				FE064A13241E726C00AD44BE /* DynamicMainView.m */,
 				FE064A14241E726C00AD44BE /* DynamicMainView.xib */,
+				FE064A18241E79E000AD44BE /* DynamicUITabBar.h */,
+				FE064A19241E79E000AD44BE /* DynamicUITabBar.m */,
 			);
 			path = page;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				FE0649E4241E720800AD44BE /* ViewController.m in Sources */,
 				FE0649DE241E720800AD44BE /* AppDelegate.m in Sources */,
 				FE0649EF241E720900AD44BE /* main.m in Sources */,
+				FE064A1A241E79E000AD44BE /* DynamicUITabBar.m in Sources */,
 				FE064A15241E726C00AD44BE /* DynamicMainView.m in Sources */,
 				FE0649E1241E720800AD44BE /* SceneDelegate.m in Sources */,
 			);
