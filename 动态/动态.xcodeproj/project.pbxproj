@@ -16,6 +16,15 @@
 		FE064AD4241E915D00AD44BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064AD3241E915D00AD44BE /* main.m */; };
 		FE064ADD241E921400AD44BE /* OnePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064ADB241E921400AD44BE /* OnePageView.m */; };
 		FE064ADE241E921400AD44BE /* OnePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE064ADC241E921400AD44BE /* OnePageView.xib */; };
+		FE064B49241E98A300AD44BE /* DynamicMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B47241E98A300AD44BE /* DynamicMainView.m */; };
+		FE064B4E241E992800AD44BE /* TabTittlView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B4D241E992800AD44BE /* TabTittlView.m */; };
+		FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B54241E9BAE00AD44BE /* TabTittleBut.m */; };
+		FE064B66241E9F7600AD44BE /* UIButton+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B5A241E9F7600AD44BE /* UIButton+XBZKeyBoard.m */; };
+		FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B5C241E9F7600AD44BE /* UIColor+XBZKeyBoard.m */; };
+		FE064B68241E9F7600AD44BE /* UIImage+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B5D241E9F7600AD44BE /* UIImage+XBZKeyBoard.m */; };
+		FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B60241E9F7600AD44BE /* UIView+XBZKeyBoard.m */; };
+		FE064B6A241E9F7600AD44BE /* NSString+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B64241E9F7600AD44BE /* NSString+XBZKeyBoard.m */; };
+		FE064B6B241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B65241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +43,26 @@
 		FE064ADA241E921400AD44BE /* OnePageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePageView.h; sourceTree = "<group>"; };
 		FE064ADB241E921400AD44BE /* OnePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnePageView.m; sourceTree = "<group>"; };
 		FE064ADC241E921400AD44BE /* OnePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnePageView.xib; sourceTree = "<group>"; };
+		FE064B46241E98A300AD44BE /* DynamicMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicMainView.h; sourceTree = "<group>"; };
+		FE064B47241E98A300AD44BE /* DynamicMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicMainView.m; sourceTree = "<group>"; };
+		FE064B4C241E992800AD44BE /* TabTittlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabTittlView.h; sourceTree = "<group>"; };
+		FE064B4D241E992800AD44BE /* TabTittlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabTittlView.m; sourceTree = "<group>"; };
+		FE064B4F241E99BE00AD44BE /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FE064B53241E9BAE00AD44BE /* TabTittleBut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabTittleBut.h; sourceTree = "<group>"; };
+		FE064B54241E9BAE00AD44BE /* TabTittleBut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabTittleBut.m; sourceTree = "<group>"; };
+		FE064B5A241E9F7600AD44BE /* UIButton+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		FE064B5B241E9F7600AD44BE /* UIView+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		FE064B5C241E9F7600AD44BE /* UIColor+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		FE064B5D241E9F7600AD44BE /* UIImage+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		FE064B5E241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		FE064B5F241E9F7600AD44BE /* NSString+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		FE064B60241E9F7600AD44BE /* UIView+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		FE064B61241E9F7600AD44BE /* UIButton+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		FE064B62241E9F7600AD44BE /* UIImage+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		FE064B63241E9F7600AD44BE /* UIColor+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		FE064B64241E9F7600AD44BE /* NSString+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		FE064B65241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		FE064B6C241EA0C100AD44BE /* ColorHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +95,7 @@
 		FE064AC0241E915C00AD44BE /* 动态 */ = {
 			isa = PBXGroup;
 			children = (
+				FE064B59241E9F7600AD44BE /* Catgoriy */,
 				FE064ADF241E921B00AD44BE /* page */,
 				FE064AC1241E915C00AD44BE /* AppDelegate.h */,
 				FE064AC2241E915C00AD44BE /* AppDelegate.m */,
@@ -85,11 +115,46 @@
 		FE064ADF241E921B00AD44BE /* page */ = {
 			isa = PBXGroup;
 			children = (
+				FE064B4B241E990800AD44BE /* view */,
 				FE064ADA241E921400AD44BE /* OnePageView.h */,
 				FE064ADB241E921400AD44BE /* OnePageView.m */,
 				FE064ADC241E921400AD44BE /* OnePageView.xib */,
+				FE064B46241E98A300AD44BE /* DynamicMainView.h */,
+				FE064B47241E98A300AD44BE /* DynamicMainView.m */,
+				FE064B4F241E99BE00AD44BE /* Header.h */,
+				FE064B6C241EA0C100AD44BE /* ColorHeader.h */,
 			);
 			path = page;
+			sourceTree = "<group>";
+		};
+		FE064B4B241E990800AD44BE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FE064B53241E9BAE00AD44BE /* TabTittleBut.h */,
+				FE064B54241E9BAE00AD44BE /* TabTittleBut.m */,
+				FE064B4C241E992800AD44BE /* TabTittlView.h */,
+				FE064B4D241E992800AD44BE /* TabTittlView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		FE064B59241E9F7600AD44BE /* Catgoriy */ = {
+			isa = PBXGroup;
+			children = (
+				FE064B5A241E9F7600AD44BE /* UIButton+XBZKeyBoard.m */,
+				FE064B5B241E9F7600AD44BE /* UIView+XBZKeyBoard.h */,
+				FE064B5C241E9F7600AD44BE /* UIColor+XBZKeyBoard.m */,
+				FE064B5D241E9F7600AD44BE /* UIImage+XBZKeyBoard.m */,
+				FE064B5E241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.h */,
+				FE064B5F241E9F7600AD44BE /* NSString+XBZKeyBoard.h */,
+				FE064B60241E9F7600AD44BE /* UIView+XBZKeyBoard.m */,
+				FE064B61241E9F7600AD44BE /* UIButton+XBZKeyBoard.h */,
+				FE064B62241E9F7600AD44BE /* UIImage+XBZKeyBoard.h */,
+				FE064B63241E9F7600AD44BE /* UIColor+XBZKeyBoard.h */,
+				FE064B64241E9F7600AD44BE /* NSString+XBZKeyBoard.m */,
+				FE064B65241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m */,
+			);
+			path = Catgoriy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,10 +229,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE064AC9241E915C00AD44BE /* ViewController.m in Sources */,
+				FE064B6B241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m in Sources */,
+				FE064B4E241E992800AD44BE /* TabTittlView.m in Sources */,
 				FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */,
+				FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */,
+				FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */,
 				FE064AD4241E915D00AD44BE /* main.m in Sources */,
+				FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */,
+				FE064B49241E98A300AD44BE /* DynamicMainView.m in Sources */,
 				FE064AC6241E915C00AD44BE /* SceneDelegate.m in Sources */,
+				FE064B66241E9F7600AD44BE /* UIButton+XBZKeyBoard.m in Sources */,
 				FE064ADD241E921400AD44BE /* OnePageView.m in Sources */,
+				FE064B68241E9F7600AD44BE /* UIImage+XBZKeyBoard.m in Sources */,
+				FE064B6A241E9F7600AD44BE /* NSString+XBZKeyBoard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

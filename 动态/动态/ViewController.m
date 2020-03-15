@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DynamicMainView.h"
 
 @interface ViewController ()
 
@@ -19,7 +20,7 @@
     [self addView];
 }
 -(void)addView{
-    OnePageView *vc01=[[OnePageView alloc] init];
+    DynamicMainView *vc01=[[DynamicMainView alloc] init];
     OnePageView *vc02=[[OnePageView alloc] init];
     OnePageView *vc03=[[OnePageView alloc]init];
     OnePageView *vc04=[[OnePageView alloc] init];
