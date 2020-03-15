@@ -25,25 +25,19 @@
 @property (nonatomic, strong) ObjData* objData ;
 @property (nonatomic, strong) Shader3D* shader3d;
 @property (nonatomic, strong) TextureRes* textureRes;
-
 @property (nonatomic, assign) GLuint  textBsetGLuint;
-
-
 @end
 @implementation Display3DBallPartilce
 
 -(void)onCreated;
 {
-    [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
     self.textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
-    
+    [Scene_data default].frameTime=1;
 }
 - (void)update;
 {
-    [Scene_data default].frameTime=1;
-    if(self.shader3d&&self.textureRes&&self.textureRes.textTureLuint ){
-        glUseProgram(self.shader3d.program);
+    if(self.textureRes&&self.textureRes.textTureLuint ){
+        self.shader3d=self.data.materialParam.shader;
         [super update];
     }
     

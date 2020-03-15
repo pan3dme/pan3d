@@ -12,6 +12,7 @@
 #import "ObjData.h"
 #import "MaterialParam.h"
 #import "TimeLineData.h"
+#import "MaterialParamData.h"
 #import "Display3DParticle.h"
 
   
@@ -49,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  float  overAllScale ;
 @property (nonatomic, assign)  NSString*  _materialUrl;
 @property (nonatomic, strong)  MaterialParam*  materialParam ;
-@property (nonatomic, strong)  NSMutableDictionary*  materialParamData;
+@property (nonatomic, strong)  MaterialParamData*  materialParamData;
 @property (nonatomic, strong)  ObjData*  objData;
 @property (nonatomic, strong)  TimeLineData*  timelineData;
 @property (nonatomic, strong)  Vector3D*  rotationV3d;

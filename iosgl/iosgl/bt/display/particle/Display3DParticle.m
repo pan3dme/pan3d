@@ -34,10 +34,14 @@
 -(void)update;
 {
     if(self.visible ){
-        [self updateMatrix];
-        [self setVc];
-        [self setVa];
-        [self resetVa];
+        if ( self.data.materialParam){
+            glUseProgram(self.data.materialParam.shader.program);
+            [self updateMatrix];
+            [self setVc];
+            [self setVa];
+            [self resetVa];
+        }
+        
     }
 }
 -(void)setMaterialTexture;

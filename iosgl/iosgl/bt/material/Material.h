@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Material : ResCount
 
 @property (nonatomic, strong)  NSString*  url;
-
 @property (nonatomic, assign)  NSString*  shaderStr;
 @property (nonatomic, strong)  NSMutableArray<TexItem*>*  texList ;
 @property (nonatomic, assign)  NSMutableArray<ConstItem*>*  constList ;

@@ -13,6 +13,7 @@
 #import "ByteArray.h"
 #import "TextureRes.h"
 #import "MaterialLoad.h"
+#import "MaterialParam.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MaterialManager : ResGC
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
 -(void)addResByte:(NSString*)url dataByte:(ByteArray*)dataByte;
 -(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
+-(void)loadDynamicTexUtil:(MaterialParam*)material;
 @end
 
 NS_ASSUME_NONNULL_END

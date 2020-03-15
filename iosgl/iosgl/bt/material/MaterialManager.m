@@ -10,6 +10,7 @@
 #import "Material.h"
 #import "TextureLoad.h"
 #import "Scene_data.h"
+#import "MaterialParam.h"
 #import "MaterialLoad.h"
 #import "TextureManager.h"
 #import "ProgrmaManager.h"
@@ -169,6 +170,26 @@ static MaterialManager *instance = nil;
     
 }
 
+-(void)loadDynamicTexUtil:(MaterialParam*)material;
+{
+    
+}
+/*
+public loadDynamicTexUtil(material: MaterialParam): void {
+      var dynamicTexList: Array<DynamicTexItem> = material.dynamicTexList;
+
+      for (var i: number = 0; i < dynamicTexList.length; i++) {
+          if (dynamicTexList[i].isParticleColor) {
+              dynamicTexList[i].creatTextureByCurve();
+          } else {
+              TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
+                  $texItem.textureRes = $textureVo;
+              }, 0, dynamicTexList[i], 0, 1);
+          }
+      }
+
+  }
+*/
 -(void)loadMaterial:(Material*)material;
 {
     NSMutableArray<TexItem*>* texVec = material.texList;

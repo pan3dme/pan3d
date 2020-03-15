@@ -41,30 +41,71 @@
     }
     
 }
-/*
- public setTexList(): void {
-       var texList: Array<TexItem> = this.material.texList;
-       for (var i: number = 0; i < texList.length; i++) {
-           var dyTex: DynamicTexItem;
-           if (texList[i].isParticleColor) {
-               dyTex = new DynamicTexItem;
-               dyTex.target = texList[i];
-               dyTex.paramName = texList[i].paramName;
-               dyTex.initCurve(4);
-               this.dynamicTexList.push(dyTex);
-               dyTex.isParticleColor = true;
-           } else if (texList[i].isDynamic) {
-               dyTex = new DynamicTexItem;
-               dyTex.target = texList[i];
-               dyTex.paramName = texList[i].paramName;
-               this.dynamicTexList.push(dyTex);
-           }
-
-       }
-   }
- */
--(void)setLife:(float)life;
+ 
+-(void)SetLife:(float)life;
 {
     
+     for (int i=0; i<self.dynamicTexList.count; i++) {
+         DynamicTexItem* dynamicTexItem= self.dynamicTexList[i];
+         if(dynamicTexItem.isParticleColor){
+             dynamicTexItem.life = life;
+         }
+         
+     }
+   
 }
+
+-(void)setTextObj:(NSMutableArray *)ary
+{
+     for (int i=0; i < ary.count; i++) {
+          NSDictionary* obj = ary[i];
+         for (int j = 0; j < self.dynamicTexList.count; j++) {
+             if ([self.dynamicTexList[j].paramName isEqualToString: [obj objectForKey:@"paramName"]]) {
+                 if (self.dynamicTexList[j].isParticleColor) {
+                    // self.dynamicTexList[j].curve.setData(obj.curve);
+                 } else {
+                     self.dynamicTexList[j].url = [obj objectForKey:@"url"];
+                 }
+             }
+         }
+     }
+    /*
+     for (var i: number=0; i < ary.length; i++) {
+            var obj: any = ary[i];
+            for (var j: number = 0; j < this.dynamicTexList.length; j++) {
+                if (this.dynamicTexList[j].paramName == obj.paramName) {
+                    if (this.dynamicTexList[j].isParticleColor) {
+                        this.dynamicTexList[j].curve.setData(obj.curve);
+                    } else {
+                        this.dynamicTexList[j].url = obj.url;
+                    }
+                    break;
+                }
+            }
+        }
+     */
+}
+-(void)setConstObj:(NSMutableArray *)ary
+{
+    for (int i=0; i < ary.count; i++) {
+             NSDictionary* obj = ary[i];
+            for (int j = 0; j < self.dynamicConstList.count; j++) {
+                 
+            }
+        }
+    
+    /*
+     for (var i: number = 0; i < ary.length; i++) {
+           var obj: any = ary[i];
+           for (var j: number = 0; j < this.dynamicConstList.length; j++) {
+               if (this.dynamicConstList[j].paramName == obj.paramName) {
+                   this.dynamicConstList[j].curve.setData(obj.curve)
+                   break;
+               }
+           }
+       }
+     */
+}
+
+ 
 @end

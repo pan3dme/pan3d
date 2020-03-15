@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
  
 
 -(void)SetMaterial:(Material*)materialTree;
--(void)setLife:(float)life;
+-(void)SetLife:(float)life;
+-(void)setTextObj:(NSMutableArray *)ary;
+-(void)setConstObj:(NSMutableArray *)ary;
  
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "ProgrmaManager.h"
+#import "Display3DBallPartilceShader.h"
 #import "Shader3D.h"
 #import "Material.h"
 static ProgrmaManager *instance = nil;
@@ -74,9 +75,10 @@ static ProgrmaManager *instance = nil;
  
        }
   //  var shader: Shader3D = new shaderCls();
+    [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
+     Shader3D* shader3d=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
     
-    
-    return nil;
+    return shader3d;
 }
 
 /*

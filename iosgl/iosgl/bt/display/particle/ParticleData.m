@@ -106,9 +106,35 @@
 }
 -(void)onMaterialLoad:(Material*)material;
 {
-     ParticleData* this=self;
-     this.materialParam = [[MaterialParam alloc]init] ;
-     [this.materialParam SetMaterial:material];
+    ParticleData* this=self;
+    this.materialParam = [[MaterialParam alloc]init] ;
+    [this.materialParam SetMaterial:material];
+    [this.materialParam SetLife:self._life];
+    if (this.materialParamData) {
+        [this.materialParam setTextObj:this.materialParamData.texAry];
+        [this.materialParam setConstObj:this.materialParamData.conAry];
+    }
+    
+        // MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
+    
+    [[MaterialManager default] loadDynamicTexUtil:this.materialParam];
+    
+    [self regShader];
+    /*
+     
+     this.materialParam.setLife(this._life);
+
+
+     if (this.materialParamData) {
+         this.materialParam.setTextObj(this.materialParamData.texAry);
+         this.materialParam.setConstObj(this.materialParamData.conAry);
+     }
+
+     MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
+
+     this.regShader();
+
+     */
     
 }
 
@@ -144,13 +170,13 @@
 -(void)readMaterialPara:(ByteArray*)byte
 {
     ParticleData* this=self;
-    this.materialParamData = [[NSMutableDictionary alloc]init];
+    this.materialParamData = [[MaterialParamData alloc]init];
     NSString* materlUrl = [byte readUTF];
-    this.materialParamData[@"materialUrl"] = materlUrl;
+    this.materialParamData.materialUrl = materlUrl;
     
     
     int texAryLen =  [byte readInt];
-    this.materialParamData[@"texAry"] = [[NSMutableArray alloc]init];
+    this.materialParamData.texAry = [[NSMutableArray alloc]init];
     for (int i = 0; i < texAryLen; i++) {
         ParamDataVo* temp =[[ParamDataVo alloc]init];
         temp.isParticleColor= [byte readBoolean] ;
@@ -160,7 +186,7 @@
             temp.curve=[[CurveVo alloc]init];
             [self readTempCurve: byte   curve:temp.curve];
         }
-        [this.materialParamData[@"texAry"] addObject:temp];
+        [this.materialParamData.texAry addObject:temp];
     }
     [self readMaterialParaConAry:byte];
 }
@@ -251,7 +277,7 @@
         [self readTempCurve:byte  curve:obj[@"curve"] ];
         [arr addObject:obj];
     }
-    self.materialParamData[@"conAry"] = arr;
+    self.materialParamData.conAry = arr;
 }
 -(void)uploadGpu;
 {

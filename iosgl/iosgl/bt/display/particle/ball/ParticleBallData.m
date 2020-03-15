@@ -10,6 +10,8 @@
 #import "ByteArray.h"
 #import "Vector3D.h"
 #import "Vector2D.h"
+#import "Display3DBallPartilceShader.h"
+#import "ProgrmaManager.h"
 #import "ParticleBallGpuData.h"
 #import "Display3DBallPartilce.h"
 
@@ -419,6 +421,24 @@
 }
 -(void)regShader;
 {
+    if ( self.materialParam) {
+      [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
+      self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
+        
+    }
+    /*
+   if (!this.materialParam) {
+             return;
+         }
+
+         var shaderParameAry: Array<number> = this.getShaderParam();
+         //var shader: Display3DBallShader = new Display3DBallShader()
+
+         this.materialParam.shader = ProgrmaManager.getInstance().getMaterialProgram(Display3DBallShader.Display3D_Ball_Shader,
+             Display3DBallShader, this.materialParam.material, shaderParameAry);
+         this.materialParam.program = this.materialParam.shader.program;
+    
+    */
     
 }
 -(void)initVcData;
