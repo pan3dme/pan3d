@@ -34,6 +34,9 @@
 		FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */; };
 		FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */; };
 		FE410524241F849B0031B3D1 /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410523241F849B0031B3D1 /* MathClass.m */; };
+		FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410536241FB9360031B3D1 /* NetHttpsManager.m */; };
+		FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */; };
+		FE41053E241FBE9A0031B3D1 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,12 @@
 		FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTabelVo.m; sourceTree = "<group>"; };
 		FE410522241F849B0031B3D1 /* MathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathClass.h; sourceTree = "<group>"; };
 		FE410523241F849B0031B3D1 /* MathClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathClass.m; sourceTree = "<group>"; };
+		FE410535241FB9360031B3D1 /* NetHttpsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetHttpsManager.h; sourceTree = "<group>"; };
+		FE410536241FB9360031B3D1 /* NetHttpsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetHttpsManager.m; sourceTree = "<group>"; };
+		FE410539241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+Singlton.h"; sourceTree = "<group>"; };
+		FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+Singlton.m"; sourceTree = "<group>"; };
+		FE41053C241FBE9A0031B3D1 /* NetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
+		FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +203,8 @@
 		FE064B59241E9F7600AD44BE /* Catgoriy */ = {
 			isa = PBXGroup;
 			children = (
+				FE410538241FBAB90031B3D1 /* AFNetWorkingEx */,
+				FE410525241FB4F10031B3D1 /* NetHttpsManager */,
 				FE064B5A241E9F7600AD44BE /* UIButton+XBZKeyBoard.m */,
 				FE064B5B241E9F7600AD44BE /* UIView+XBZKeyBoard.h */,
 				FE064B5C241E9F7600AD44BE /* UIColor+XBZKeyBoard.m */,
@@ -241,6 +252,26 @@
 				FE410523241F849B0031B3D1 /* MathClass.m */,
 			);
 			path = vo;
+			sourceTree = "<group>";
+		};
+		FE410525241FB4F10031B3D1 /* NetHttpsManager */ = {
+			isa = PBXGroup;
+			children = (
+				FE410535241FB9360031B3D1 /* NetHttpsManager.h */,
+				FE410536241FB9360031B3D1 /* NetHttpsManager.m */,
+				FE41053C241FBE9A0031B3D1 /* NetWorkManager.h */,
+				FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */,
+			);
+			path = NetHttpsManager;
+			sourceTree = "<group>";
+		};
+		FE410538241FBAB90031B3D1 /* AFNetWorkingEx */ = {
+			isa = PBXGroup;
+			children = (
+				FE410539241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.h */,
+				FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */,
+			);
+			path = AFNetWorkingEx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE41053E241FBE9A0031B3D1 /* NetWorkManager.m in Sources */,
 				FE064AC9241E915C00AD44BE /* ViewController.m in Sources */,
 				FE064B6B241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m in Sources */,
 				FE064B4E241E992800AD44BE /* TabTittlView.m in Sources */,
@@ -368,6 +400,7 @@
 				FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */,
 				FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */,
 				FE064B73241EB41F00AD44BE /* RedBagRefreshGifHeader.m in Sources */,
+				FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */,
 				FE064AD4241E915D00AD44BE /* main.m in Sources */,
 				FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */,
 				FE064B6F241EB38200AD44BE /* ListPage.m in Sources */,
@@ -378,6 +411,7 @@
 				FE064B7A241EC0DF00AD44BE /* DynamicBaseCell.m in Sources */,
 				FE064B66241E9F7600AD44BE /* UIButton+XBZKeyBoard.m in Sources */,
 				FE064ADD241E921400AD44BE /* OnePageView.m in Sources */,
+				FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */,
 				FE064B68241E9F7600AD44BE /* UIImage+XBZKeyBoard.m in Sources */,
 				FE064B6A241E9F7600AD44BE /* NSString+XBZKeyBoard.m in Sources */,
 			);

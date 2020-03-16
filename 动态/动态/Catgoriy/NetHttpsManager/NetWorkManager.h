@@ -1,5 +1,5 @@
 //
-//  MathClass.h
+//  NetWorkManager.h
 //  动态
 //
 //  Created by zhao on 16/3/2020.
@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Header.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface MathClass : NSObject
-+ (instancetype)default;
-
+ 
+ 
+@interface NetWorkManager : NSObject
  
 @end
 
-NS_ASSUME_NONNULL_END
+ 

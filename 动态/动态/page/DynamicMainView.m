@@ -12,6 +12,7 @@
 #import "TabTittlView.h"
 #import "ListPage.h"
 #import "MathClass.h"
+#import "NetHttpsManager.h"
 
 
 @interface DynamicMainView ()
@@ -51,27 +52,23 @@
 -(void)aaaaaaa;
 {
      NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-     [dic setObject:@"0" forKey:@"begin_id"];
-       [dic setObject:@"10" forKey:@"count"];
+         [dic setObject:@"0" forKey:@"begin_id"];
+           [dic setObject:@"10" forKey:@"count"];
+           NSString *URL= [ NSString stringWithFormat:@"http://34.87.12.20:20080/%@",PLATFORM_GAME_BLOG_LIST_ALL ];
      
-    [[MathClass default]POSTWithUrl:PLATFORM_GAME_USER_IMPORT paramDict:dic OverTime:10 successBlock:^(NSDictionary *responseJson) {
-    
-    
-     } FailureBlock:^(NSError *error) {
-          
-     }];
+        
+        [[NetHttpsManager default] POSTWithUrl:URL paramDict:dic OverTime:100 successBlock:^(NSDictionary *responseJson) {
+            NSLog(@"-------");
+        } FailureBlock:^(NSError *error) {
+            NSLog(@"-------");
+        }];
 }
 -(void)bbbbb;
 {
      NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
      [dic setObject:@"ef53387a1af39b7fd95c00cfdae73da8#/" forKey:@"key"];
      
-    [[MathClass default]POSTWithUrl:PLATFORM_GAME_BLOG_LIST_ALL paramDict:dic OverTime:10 successBlock:^(NSDictionary *responseJson) {
-    
-    
-     } FailureBlock:^(NSError *error) {
-          
-     }];
+ 
 }
 -(void)initBaseUi;
 {
@@ -82,7 +79,7 @@
     [self addTempPage];
     
 
-    [self bbbbb];
+    [self aaaaaaa];
     
 }
 -(void)addTempPage;

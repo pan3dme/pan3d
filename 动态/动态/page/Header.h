@@ -16,7 +16,7 @@
 #include "NSString+XBZKeyBoard.h"
 #import "ColorHeader.h"
  
-typedef void (^SuccessBlock)(NSDictionary *responseJson);
+//typedef void (^SuccessBlock)(NSDictionary *responseJson);
 typedef void (^FailureBlock)(NSError *error);
 
 // 屏幕frame,bounds,size,scale
