@@ -35,23 +35,46 @@
 }
 -(NSMutableArray<NSString*>*)miniimages;
 {
-    NSString *rootUrl=@"http://34.87.12.20:20080";
+ 
     NSMutableArray<NSString*> *arr=[[NSMutableArray alloc]init];
-    [arr addObject:[ NSString stringWithFormat:@"%@/%@_mini.jpg",rootUrl,self.tabelVo.image1] ];
+ 
+    
+  if(self.tabelVo.image1.length){
+           [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+    }
+    
+    if(self.tabelVo.image2.length){
+             [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+      }
+    if(self.tabelVo.image3.length){
+             [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+      }
+    if(self.tabelVo.image4.length){
+             [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+      }
+    
     return arr;
+}
+-(NSString*)getWebUrlByurl:(NSString*)value
+{
+    NSString *rootUrl=@"http://34.87.12.20:20080";
+    if ([value rangeOfString:@"http:"].location != NSNotFound||[value rangeOfString:@"https:"].location != NSNotFound) {
+        return value;
+    }else{
+        return[NSString stringWithFormat:@"%@/%@",rootUrl,value];
+    }
 }
 -(NSMutableArray<NSString*>*)images;
 {
-    NSString *rootUrl=@"http://34.87.12.20:20080";
     NSMutableArray<NSString*> *arr=[[NSMutableArray alloc]init];
-    [arr addObject:[ NSString stringWithFormat:@"%@/%@",rootUrl,self.tabelVo.image1] ];
+    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image1] ];
     return arr;
 }
 -(NSString*)headurl;
 {
-    NSString *url=self.tabelVo.head;
+    //NSString *url=self.tabelVo.head;
     // http://oss.ipigweb.com/public/attachment/201907/26/17/5d3ac6301da46.png?x-oss-process=image/resize,m_mfit,h_260,w_260
-    return  @"http://oss.ipigweb.com/public/attachment/201907/26/17/5d3ac6301da46.png";
+    return [self getWebUrlByurl:self.tabelVo.head];
 }
 +(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
 {

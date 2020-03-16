@@ -45,10 +45,21 @@
 }
 - (void)setCellData:(DynamicBaseVo *)value
 {
+    //url001    __NSCFString *    @"http://34.87.12.20:20080//static/upload/dt/20191118/2e6664cb2a2e4d8e9e0acb10f4d94dbe.jpg "    0x000000028107f100
     [super setCellData:value];
-    NSMutableArray *miniimages= self.datavo.miniimages;
-    NSString* url001=miniimages[0];
-    [self.img00 sd_setImageWithURL:[NSURL URLWithString:url001]  placeholderImage:[UIImage imageNamed:@"redbaseusehead"]];
+  
+    if(self.datavo.miniimages.count==1){
+        self.img00.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[0]]]];
+    }
+    if(self.datavo.miniimages.count==2){
+        self.img01.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[1]]]];
+    }
+    if(self.datavo.miniimages.count==3){
+        self.img02.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[2]]]];
+    }
+    if(self.datavo.miniimages.count==4){
+        self.img03.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[3]]]];
+    }
 }
 - (void)layoutSubviews;
 {

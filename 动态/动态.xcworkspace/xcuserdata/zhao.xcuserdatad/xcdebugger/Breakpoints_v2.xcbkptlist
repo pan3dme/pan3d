@@ -94,8 +94,10 @@
             filePath = "&#x52a8;&#x6001;/page/cell/TableImageViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70">
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "+makeViewCell:dataVo:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -284,9 +286,9 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "+makeListArr:"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-images"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -316,25 +318,9 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-headurl"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E1616FB4-FEA4-44A1-B9CA-2E876BA5E6CE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x52a8;&#x6001;/page/cell/TableImageViewCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-layoutSubviews"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-getWebUrlByurl:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -348,9 +334,9 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-images"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-miniimages"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -367,6 +353,38 @@
             startingLineNumber = "140"
             endingLineNumber = "140"
             landmarkName = "-refrishUi"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0329E1CD-6579-4593-A468-0163B964B1EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-miniimages"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10F29619-47F2-4AB8-A118-B1F64F4397E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x52a8;&#x6001;/page/cell/TableImageViewCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-setCellData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
