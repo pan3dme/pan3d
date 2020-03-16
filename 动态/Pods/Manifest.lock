@@ -14,10 +14,15 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - FLAnimatedImage (1.0.12)
   - IQKeyboardManager (6.5.4)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.3.1)
+  - SDWebImage/Core (4.4.8)
+  - SDWebImage/GIF (4.4.8):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -26,25 +31,30 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - MJRefresh
+  - SDWebImage/GIF
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - FLAnimatedImage
     - IQKeyboardManager
     - Masonry
     - MBProgressHUD
     - MJRefresh
+    - SDWebImage
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 3caaa5a8a17f37d75d3fec3adb21b9dc4e0e2010
+PODFILE CHECKSUM: da341351d0f2f2313097eadc4eebcfb9c4a22076
 
 COCOAPODS: 1.8.4

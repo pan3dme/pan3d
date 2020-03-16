@@ -38,6 +38,7 @@
 		FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */; };
 		FE41053E241FBE9A0031B3D1 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */; };
 		FE410544241FFE8D0031B3D1 /* TabelBaseNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */; };
+		FE410547242008480031B3D1 /* TabelVideoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410546242008480031B3D1 /* TabelVideoViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,8 @@
 		FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
 		FE410542241FFE8D0031B3D1 /* TabelBaseNSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabelBaseNSObject.h; sourceTree = "<group>"; };
 		FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabelBaseNSObject.m; sourceTree = "<group>"; };
+		FE410545242008480031B3D1 /* TabelVideoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabelVideoViewCell.h; sourceTree = "<group>"; };
+		FE410546242008480031B3D1 /* TabelVideoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabelVideoViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,8 @@
 				FE064B79241EC0DF00AD44BE /* DynamicBaseCell.m */,
 				FE064B7E241ECCB600AD44BE /* TableImageViewCell.h */,
 				FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */,
+				FE410545242008480031B3D1 /* TabelVideoViewCell.h */,
+				FE410546242008480031B3D1 /* TabelVideoViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				FE064B73241EB41F00AD44BE /* RedBagRefreshGifHeader.m in Sources */,
 				FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */,
 				FE064AD4241E915D00AD44BE /* main.m in Sources */,
+				FE410547242008480031B3D1 /* TabelVideoViewCell.m in Sources */,
 				FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */,
 				FE064B6F241EB38200AD44BE /* ListPage.m in Sources */,
 				FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */,

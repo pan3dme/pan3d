@@ -29,21 +29,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger  comments;
 @property(nonatomic,assign)NSInteger  gift_total;
 
-@property(nonatomic,assign)NSString*  content;
-@property(nonatomic,assign)NSString*  username;
-@property(nonatomic,assign)NSString*  nick_name;
-@property(nonatomic,assign)NSString*  head;
-@property(nonatomic,assign)NSString*  vidio_url;
+@property(nonatomic,strong)NSString*  content;
+@property(nonatomic,strong)NSString*  username;
+@property(nonatomic,strong)NSString*  nick_name;
+@property(nonatomic,strong)NSString*  head;
+@property(nonatomic,strong)NSString*  vidio_url;
 
-@property(nonatomic,assign)NSString*  image1;
-@property(nonatomic,assign)NSString*  image2;
-@property(nonatomic,assign)NSString*  image3;
-@property(nonatomic,assign)NSString*  image4;
-@property(nonatomic,assign)NSString*  image5;
-@property(nonatomic,assign)NSString*  image6;
-@property(nonatomic,assign)NSString*  image7;
-@property(nonatomic,assign)NSString*  image8;
-@property(nonatomic,assign)NSString*  image9;
+@property(nonatomic,strong)NSString*  image1;
+@property(nonatomic,strong)NSString*  image2;
+@property(nonatomic,strong)NSString*  image3;
+@property(nonatomic,strong)NSString*  image4;
+@property(nonatomic,strong)NSString*  image5;
+@property(nonatomic,strong)NSString*  image6;
+@property(nonatomic,strong)NSString*  image7;
+@property(nonatomic,strong)NSString*  image8;
+@property(nonatomic,strong)NSString*  image9;
 
 
 -(void)refrishData:(NSDictionary *)value;

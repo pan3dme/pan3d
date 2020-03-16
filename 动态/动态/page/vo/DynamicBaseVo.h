@@ -14,11 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DynamicBaseVo : NSObject
 @property(nonatomic,strong)DynamicTabelVo* tabelVo;
-@property(nonatomic,strong)NSString* usename;
-@property(nonatomic,strong)NSString* headUrl;
-@property (nonatomic, assign) NSInteger id;
 @property (nonatomic, assign) CGFloat cellHeight;
-
+-(NSString*)nick_name;
+-(NSString*)content;
+-(NSString*)headurl;
+-(NSMutableArray<NSString*>*)images;
+-(NSMutableArray<NSString*>*)miniimages;
 +(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
 @end
 

@@ -7,7 +7,9 @@
 //
 
 #import "DynamicBaseCell.h"
+#import "UIImageView+WebCache.h"
 #import "Header.h"
+ 
 
 
 @interface DynamicBaseCell()
@@ -127,10 +129,13 @@
 -(void)refrishUi;
 {
     
-    self.usenameLabel.text=@"赵佳能";
+  //  DynamicTabelVo* dynamicTabelVo= self.datavo.tabelVo;
+    
+    self.usenameLabel.text=self.datavo.nick_name;
     self.timeLabel.text=@"3天前";
-    self.infoLabel.text=@"美丽得误会。就从看了我得图中发现！";
-    self.userHeadImagView.image= [UIImage imageNamed:@"redbaseusehead"];
+    self.infoLabel.text=self.datavo.content;
+ 
+    [self.userHeadImagView sd_setImageWithURL:[NSURL URLWithString:self.datavo.headurl] ];
     
     [self layoutSubviews];
     

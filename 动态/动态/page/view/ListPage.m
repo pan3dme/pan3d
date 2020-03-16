@@ -10,6 +10,7 @@
 #import "DynamicBaseCell.h"
 #import "DynamicBaseVo.h"
 #import "TableImageViewCell.h"
+#import "TabelVideoViewCell.h"
 #import "NetHttpsManager.h"
 #import "RedBagRefreshGifHeader.h"
 @interface ListPage ()
@@ -89,10 +90,15 @@ UITableViewDataSource
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DynamicBaseVo * vo=self.cellItemArr[indexPath.section];
-    DynamicBaseCell *cell= [TableImageViewCell makeViewCell:tableView dataVo:vo];
-    cell.delegate=self;
-    
+    DynamicBaseVo * vo=self.cellItemArr[indexPath.row];
+
+    DynamicBaseCell *cell;
+    if(vo.tabelVo.vidio_url.length){
+        cell= [TabelVideoViewCell makeViewCell:tableView dataVo:vo];
+    }else{
+        cell= [TableImageViewCell makeViewCell:tableView dataVo:vo];
+    }
+        cell.delegate=self;
     return cell;
     
     
@@ -107,6 +113,8 @@ UITableViewDataSource
     RedBagRefreshGifHeader *header = [RedBagRefreshGifHeader headerWithRefreshingBlock:^{
         
         [self.tabelListView.mj_header endRefreshing];
+        
+        [self.tabelListView reloadData];
         
     }];
     // 设置普通状态的动画图片

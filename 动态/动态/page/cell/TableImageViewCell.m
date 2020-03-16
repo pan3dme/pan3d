@@ -7,8 +7,10 @@
 //
 
 #import "TableImageViewCell.h"
+#import "UIImageView+WebCache.h"
+
 @interface TableImageViewCell()
-  
+
 @property(nonatomic,strong)UIImageView * img00;
 @property(nonatomic,strong)UIImageView * img01;
 @property(nonatomic,strong)UIImageView * img02;
@@ -27,12 +29,11 @@
 -(void)initBaseUi;
 {
     [super initBaseUi];
+    self.img00=[self makeImageView];
+    self.img01=[self makeImageView];
+    self.img02=[self makeImageView];
+    self.img03=[self makeImageView];
     
-     self.img00=[self makeImageView];
-     self.img01=[self makeImageView];
-     self.img02=[self makeImageView];
-     self.img03=[self makeImageView];
- 
 }
 -(UIImageView*)makeImageView;
 {
@@ -45,23 +46,20 @@
 - (void)setCellData:(DynamicBaseVo *)value
 {
     [super setCellData:value];
-    
-    
+    NSMutableArray *miniimages= self.datavo.miniimages;
+    NSString* url001=miniimages[0];
+    [self.img00 sd_setImageWithURL:[NSURL URLWithString:url001]  placeholderImage:[UIImage imageNamed:@"redbaseusehead"]];
 }
 - (void)layoutSubviews;
 {
     [super layoutSubviews];
-    
     self.img00.frame=CGRectMake(0, 0, 89, 89);
     self.img01.frame=CGRectMake(100, 0, 89, 89);
     self.img02.frame=CGRectMake(0, 100, 89, 89);
     self.img03.frame=CGRectMake(100, 100, 89, 89);
-    
-    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
- 
 }
 +(TableImageViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
 {
@@ -69,7 +67,7 @@
     if(cell==nil){
         cell=[[TableImageViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:TableImageViewCell.CELL_STR];
     }
-   [cell setCellData:dataVo];
+    [cell setCellData:dataVo];
     return cell;
 }
 
