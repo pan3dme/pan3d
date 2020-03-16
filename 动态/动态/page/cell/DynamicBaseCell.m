@@ -21,6 +21,7 @@
 @property(nonatomic,strong)UIButton * shareBut;
 @property(nonatomic,strong)UIView * bttomView;
 
+
 @end
 
 @implementation DynamicBaseCell
@@ -34,6 +35,7 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self initBaseUi];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
     
@@ -71,6 +73,11 @@
     self.bttomView=[[UIView alloc]initWithFrame:self.bounds];
     [self addSubview:self.bttomView];
     
+    self.infoBg=[[UIView alloc]initWithFrame:self.bounds];
+    [self addSubview:self.infoBg];
+    
+    
+    
     
     self.userHeadImagView=[[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 60, 60)];
     [self addSubview:self.userHeadImagView];
@@ -103,18 +110,19 @@
 
 -(void)layoutSubviews;
 {
+    self.followBut.frame=CGRectMake(self.width-90, 10, 80, 40);
+    self.bttomView.frame=CGRectMake(100, self.height-40, self.width, 30);
+    
     self.infoLabel.frame=CGRectMake(100, 55, self.width-200, 20);
-    self.bttomView.frame=CGRectMake(50, self.height-40, self.width, 30);
-    self.followBut.frame=CGRectMake(self.width-100, 10, 80, 40);
+    self.infoBg.frame=CGRectMake(100, 80, self.width-200, self.height-100);
 }
 
 -(void)refrishUi;
 {
- 
     
     self.usenameLabel.text=@"赵佳能";
     self.timeLabel.text=@"3天前";
-     self.infoLabel.text=@"美丽得误会。就从看了我得图中发现！";
+    self.infoLabel.text=@"美丽得误会。就从看了我得图中发现！";
     self.userHeadImagView.image= [UIImage imageNamed:@"redbaseusehead"];
     
     [self layoutSubviews];
@@ -124,11 +132,11 @@
 {
     if(value){
         self.datavo=value;
-      
-          [self refrishUi];
-        self.backgroundColor=[UIColor redColor];
+        
+        [self refrishUi];
+        // self.backgroundColor=[UIColor redColor];
     }
-  
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

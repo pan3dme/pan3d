@@ -34,16 +34,16 @@ UITableViewDataSource
 {
     
     self.cellItemArr=[[NSMutableArray alloc]init];
-     [self.cellItemArr addObject:[self makeTempVo]];
-//    [self.cellItemArr addObject:[self makeTempVo]];
-//    [self.cellItemArr addObject:[self makeTempVo]];
-//    [self.cellItemArr addObject:[self makeTempVo]];
+    [self.cellItemArr addObject:[self makeTempVo]];
+    [self.cellItemArr addObject:[self makeTempVo]];
+    [self.cellItemArr addObject:[self makeTempVo]];
+    [self.cellItemArr addObject:[self makeTempVo]];
     
     
     UITableView* temp=[[UITableView alloc]initWithFrame:self.bounds style:UITableViewStylePlain];
     temp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     temp.backgroundColor=[UIColor whiteColor];
- 
+    
     temp.delegate=self;
     temp.dataSource=self;
     self.tabelListView=temp;
@@ -81,7 +81,7 @@ UITableViewDataSource
     DynamicBaseVo * vo=self.cellItemArr[indexPath.section];
     DynamicBaseCell *cell= [TableImageViewCell makeViewCell:tableView dataVo:vo];
     cell.delegate=self;
-
+    
     return cell;
     
     

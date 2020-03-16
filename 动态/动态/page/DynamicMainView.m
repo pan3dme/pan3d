@@ -16,6 +16,7 @@
 @interface DynamicMainView ()
 
 @property(nonatomic,strong)TabTittlView* tabTittlView;
+@property(nonatomic,strong)UIScrollView* pageScrollView;
 @property(nonatomic,strong)ListPage* listPage;
  
 
@@ -32,8 +33,14 @@
     self.listPage=[[ListPage alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.listPage];
     
+    self.pageScrollView=[[UIScrollView alloc]initWithFrame:self.view.bounds];
+    //[self.view addSubview:self.pageScrollView];
+    
     self.tabTittlView=[[TabTittlView alloc]init];
     [self.view addSubview:self.tabTittlView];
+    
+    
+    
     
      self.navigationController.navigationBar.hidden = NO;  //显示头部
     [self.navigationController setNavigationBarHidden:NO];
