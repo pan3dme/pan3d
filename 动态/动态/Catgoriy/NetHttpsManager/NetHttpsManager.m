@@ -33,8 +33,25 @@ static NetHttpsManager *netHttpsManager = nil;
         [parmDict setObject:array[0] forKey:@"session_id"];
     }
   
+    
+    
+    NSInteger count = parmDict.count;
+    NSString *str = [NSString stringWithFormat:@"%@?",urlStr];
+    
+    for (int i = 0;i < count;i++)
+    {
+        NSString *tmpStr = [NSString stringWithFormat:@"%@=%@&",parmDict.allKeys[i],parmDict.allValues[i]];
+        if (tmpStr && ![tmpStr isEqualToString:@""])
+        {
+            str = [str stringByAppendingString:tmpStr];
+        }
+    }
+
+    NSMutableDictionary * mDic = [NSMutableDictionary dictionary];
+    [mDic setObject:str forKey:@"requestData"];
+   
      
-    return parmDict;
+    return mDic;
 }
 
 - (void)POSTWithUrl:(NSString *)urlStr paramDict:(NSMutableDictionary *)paramDict OverTime:(CGFloat )overTime successBlock:(SuccessBlock)PostSuccess FailureBlock:(FailureBlock)PostFailure;
