@@ -9,6 +9,7 @@
 #import "ListPage.h"
 #import "DynamicBaseCell.h"
 #import "DynamicBaseVo.h"
+#import "TableImageViewCell.h"
 #import "RedBagRefreshGifHeader.h"
 @interface ListPage ()
 <
@@ -78,13 +79,9 @@ UITableViewDataSource
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DynamicBaseVo * vo=self.cellItemArr[indexPath.section];
-    
-    DynamicBaseCell *cell=[tableView dequeueReusableCellWithIdentifier:DynamicBaseCell.CELL_STR];
-    if(cell==nil){
-        cell=[[DynamicBaseCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DynamicBaseCell.CELL_STR];
-    }
+    DynamicBaseCell *cell= [TableImageViewCell makeViewCell:tableView dataVo:vo];
     cell.delegate=self;
-    [cell setDatavo:vo];
+
     return cell;
     
     

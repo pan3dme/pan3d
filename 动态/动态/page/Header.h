@@ -8,7 +8,13 @@
 
 #ifndef Header_h
 #define Header_h
-
+#include "UIButton+XBZKeyBoard.h"
+#include "UIView+XBZKeyBoard.h"
+#include "UIColor+XBZKeyBoard.h"
+#include "UIImage+XBZKeyBoard.h"
+#include "UIScrollView+XBZKeyBoard.h"
+#include "NSString+XBZKeyBoard.h"
+ 
 
 
 // 屏幕frame,bounds,size,scale

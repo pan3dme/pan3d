@@ -7,11 +7,14 @@
 //
 
 #import "DynamicBaseCell.h"
+#import "DynamicBaseVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TableImageViewCell : DynamicBaseCell
++(NSString*)CELL_STR;
 
++(TableImageViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
 @end
 
 NS_ASSUME_NONNULL_END

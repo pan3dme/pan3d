@@ -16,13 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface DynamicBaseCell : UITableViewCell
-+(NSString*)CELL_STR;
+ 
 @property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
 @property(nonatomic,strong)DynamicBaseVo * datavo;
 -(void)initBaseUi;
 -(void)refrishUi;
 -(void)setCellData:(DynamicBaseVo*)value;
-
+ 
 @end
 
 NS_ASSUME_NONNULL_END
