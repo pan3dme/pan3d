@@ -9,6 +9,7 @@
 #import "DynamicBaseCell.h"
 #import "Header.h"
 
+
 @interface DynamicBaseCell()
 @property(nonatomic,strong)UIImageView* userHeadImagView;
 @property(nonatomic,strong)UILabel * usenameLabel;
@@ -20,7 +21,7 @@
 @property(nonatomic,strong)UIButton * messageBut;
 @property(nonatomic,strong)UIButton * shareBut;
 @property(nonatomic,strong)UIView * bttomView;
-
+@property(nonatomic,strong)UIView * bttomlineView;
 
 @end
 
@@ -70,6 +71,11 @@
 
 -(void)initBaseUi;
 {
+    
+    self.bttomlineView =[[UIView alloc]initWithFrame:self.bounds];
+    self.bttomlineView.backgroundColor=RGBOF(0xe4e4e4);
+    [self addSubview:self.bttomlineView];
+    
     self.bttomView=[[UIView alloc]initWithFrame:self.bounds];
     [self addSubview:self.bttomView];
     
@@ -112,6 +118,7 @@
 {
     self.followBut.frame=CGRectMake(self.width-90, 10, 80, 40);
     self.bttomView.frame=CGRectMake(100, self.height-40, self.width, 30);
+    self.bttomlineView.frame=CGRectMake(0, self.height-1, self.width, 1);
     
     self.infoLabel.frame=CGRectMake(100, 55, self.width-200, 20);
     self.infoBg.frame=CGRectMake(100, 80, self.width-200, self.height-100);

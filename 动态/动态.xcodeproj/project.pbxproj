@@ -33,6 +33,7 @@
 		FE064B7D241EC1E600AD44BE /* DynamicBaseVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */; };
 		FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */; };
 		FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */; };
+		FE410524241F849B0031B3D1 /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410523241F849B0031B3D1 /* MathClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +79,7 @@
 		FE064B6E241EB38200AD44BE /* ListPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListPage.m; sourceTree = "<group>"; };
 		FE064B71241EB41F00AD44BE /* RedBagRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBagRefreshGifHeader.h; sourceTree = "<group>"; };
 		FE064B72241EB41F00AD44BE /* RedBagRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedBagRefreshGifHeader.m; sourceTree = "<group>"; };
-		FE064B74241EB71A00AD44BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		FE064B74241EB71A00AD44BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FE064B78241EC0DF00AD44BE /* DynamicBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicBaseCell.h; sourceTree = "<group>"; };
 		FE064B79241EC0DF00AD44BE /* DynamicBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicBaseCell.m; sourceTree = "<group>"; };
 		FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicBaseVo.h; sourceTree = "<group>"; };
@@ -87,6 +88,8 @@
 		FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableImageViewCell.m; sourceTree = "<group>"; };
 		FE064B81241ECDA100AD44BE /* DynamicTabelVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTabelVo.h; sourceTree = "<group>"; };
 		FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTabelVo.m; sourceTree = "<group>"; };
+		FE410522241F849B0031B3D1 /* MathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathClass.h; sourceTree = "<group>"; };
+		FE410523241F849B0031B3D1 /* MathClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +237,8 @@
 				FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */,
 				FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */,
 				FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */,
+				FE410522241F849B0031B3D1 /* MathClass.h */,
+				FE410523241F849B0031B3D1 /* MathClass.m */,
 			);
 			path = vo;
 			sourceTree = "<group>";
@@ -249,7 +254,7 @@
 				FE064ABA241E915C00AD44BE /* Sources */,
 				FE064ABB241E915C00AD44BE /* Frameworks */,
 				FE064ABC241E915C00AD44BE /* Resources */,
-				1A20092FEDB315351728F78D /* [CP] Copy Pods Resources */,
+				1FFE491E1FDF3533AE0B711E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,7 +313,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A20092FEDB315351728F78D /* [CP] Copy Pods Resources */ = {
+		1FFE491E1FDF3533AE0B711E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,6 +362,7 @@
 				FE064AC9241E915C00AD44BE /* ViewController.m in Sources */,
 				FE064B6B241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m in Sources */,
 				FE064B4E241E992800AD44BE /* TabTittlView.m in Sources */,
+				FE410524241F849B0031B3D1 /* MathClass.m in Sources */,
 				FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */,
 				FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */,
 				FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */,
