@@ -66,7 +66,7 @@ static NetHttpsManager *netHttpsManager = nil;
            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    NSDictionary *resposeJson = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                
-               NSLog(@"ddd");
+               PostSuccess (resposeJson);
                
            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
            

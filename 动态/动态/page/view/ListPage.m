@@ -5,11 +5,12 @@
 //  Created by zhao on 16/3/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
-
+#import "Header.h"
 #import "ListPage.h"
 #import "DynamicBaseCell.h"
 #import "DynamicBaseVo.h"
 #import "TableImageViewCell.h"
+#import "NetHttpsManager.h"
 #import "RedBagRefreshGifHeader.h"
 @interface ListPage ()
 <
@@ -34,12 +35,6 @@ UITableViewDataSource
 {
     
     self.cellItemArr=[[NSMutableArray alloc]init];
-    [self.cellItemArr addObject:[self makeTempVo]];
-    [self.cellItemArr addObject:[self makeTempVo]];
-    [self.cellItemArr addObject:[self makeTempVo]];
-    [self.cellItemArr addObject:[self makeTempVo]];
-    
-    
     UITableView* temp=[[UITableView alloc]initWithFrame:self.bounds style:UITableViewStylePlain];
     temp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     temp.backgroundColor=[UIColor whiteColor];
@@ -51,6 +46,22 @@ UITableViewDataSource
     [self makeRefreshHeaderGf];
     self.backgroundColor=[UIColor clearColor];
     
+    [self loadWebData];
+}
+-(void)loadWebData;
+{
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+    [dic setObject:@"0" forKey:@"begin_id"];
+    [dic setObject:@"10" forKey:@"count"];
+    NSString *URL= [ NSString stringWithFormat:@"http://34.87.12.20:20080/%@",PLATFORM_GAME_BLOG_LIST_ALL ];
+    [[NetHttpsManager default] POSTWithUrl:URL paramDict:dic OverTime:100 successBlock:^(NSDictionary *responseJson) {
+        
+        self.cellItemArr=       [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
+        [self.tabelListView reloadData];
+        
+    } FailureBlock:^(NSError *error) {
+        
+    }];
 }
 -(DynamicBaseVo*)makeTempVo;
 {

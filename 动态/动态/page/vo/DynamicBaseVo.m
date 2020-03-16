@@ -7,6 +7,7 @@
 //
 
 #import "DynamicBaseVo.h"
+#import "DynamicTabelVo.h"
 
 @implementation DynamicBaseVo
 - (instancetype)init
@@ -17,5 +18,23 @@
         
     }
     return self;
+}
+-(void)praseData:(NSDictionary*)dic
+{
+    self.tabelVo=[[DynamicTabelVo alloc]init];
+    [self.tabelVo refrishData:dic];
+ 
+}
++(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
+{
+    NSMutableArray<DynamicBaseVo*>* bitem=[[NSMutableArray alloc]init];
+    for(int i=0;i<arr.count;i++){
+        DynamicBaseVo* vo=[[DynamicBaseVo alloc]init];
+        [vo praseData:arr[i]];
+        
+        [bitem addObject:vo];
+    }
+    
+    return bitem;
 }
 @end

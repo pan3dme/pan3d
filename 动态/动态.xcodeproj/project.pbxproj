@@ -37,6 +37,7 @@
 		FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410536241FB9360031B3D1 /* NetHttpsManager.m */; };
 		FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */; };
 		FE41053E241FBE9A0031B3D1 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */; };
+		FE410544241FFE8D0031B3D1 /* TabelBaseNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,8 @@
 		FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+Singlton.m"; sourceTree = "<group>"; };
 		FE41053C241FBE9A0031B3D1 /* NetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
 		FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
+		FE410542241FFE8D0031B3D1 /* TabelBaseNSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabelBaseNSObject.h; sourceTree = "<group>"; };
+		FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabelBaseNSObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,8 @@
 		FE064B77241EC09A00AD44BE /* vo */ = {
 			isa = PBXGroup;
 			children = (
+				FE410542241FFE8D0031B3D1 /* TabelBaseNSObject.h */,
+				FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */,
 				FE064B81241ECDA100AD44BE /* DynamicTabelVo.h */,
 				FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */,
 				FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */,
@@ -393,6 +398,7 @@
 				FE41053E241FBE9A0031B3D1 /* NetWorkManager.m in Sources */,
 				FE064AC9241E915C00AD44BE /* ViewController.m in Sources */,
 				FE064B6B241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m in Sources */,
+				FE410544241FFE8D0031B3D1 /* TabelBaseNSObject.m in Sources */,
 				FE064B4E241E992800AD44BE /* TabTittlView.m in Sources */,
 				FE410524241F849B0031B3D1 /* MathClass.m in Sources */,
 				FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */,

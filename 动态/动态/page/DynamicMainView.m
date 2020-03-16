@@ -12,6 +12,7 @@
 #import "TabTittlView.h"
 #import "ListPage.h"
 #import "MathClass.h"
+#import "DynamicBaseVo.h"
 #import "NetHttpsManager.h"
 
 
@@ -49,27 +50,8 @@
     [self initBaseUi ];
     
 }
--(void)aaaaaaa;
-{
-     NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-         [dic setObject:@"0" forKey:@"begin_id"];
-           [dic setObject:@"10" forKey:@"count"];
-           NSString *URL= [ NSString stringWithFormat:@"http://34.87.12.20:20080/%@",PLATFORM_GAME_BLOG_LIST_ALL ];
-     
-        
-        [[NetHttpsManager default] POSTWithUrl:URL paramDict:dic OverTime:100 successBlock:^(NSDictionary *responseJson) {
-            NSLog(@"-------");
-        } FailureBlock:^(NSError *error) {
-            NSLog(@"-------");
-        }];
-}
--(void)bbbbb;
-{
-     NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-     [dic setObject:@"ef53387a1af39b7fd95c00cfdae73da8#/" forKey:@"key"];
-     
  
-}
+ 
 -(void)initBaseUi;
 {
     self.pageItem= [[NSMutableArray alloc]init];
@@ -79,9 +61,10 @@
     [self addTempPage];
     
 
-    [self aaaaaaa];
+
     
 }
+ 
 -(void)addTempPage;
 {
     ListPage*   listPage=[[ListPage alloc] initWithFrame:self.view.bounds];

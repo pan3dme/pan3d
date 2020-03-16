@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DynamicTabelVo.h"
+#import "DynamicBaseVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger id;
 @property (nonatomic, assign) CGFloat cellHeight;
 
++(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
 @end
 
 NS_ASSUME_NONNULL_END
