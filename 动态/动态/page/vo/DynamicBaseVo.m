@@ -27,7 +27,7 @@
     switch (self.type) {
         case DYNAMIC_IMG_TYPE:
             if(self.images.count>2){
-                self.cellHeight+=220;
+                self.cellHeight+=200;
             }else{
                 self.cellHeight+=100;
             }
@@ -109,19 +109,18 @@
     NSMutableArray<NSString*> *arr=[[NSMutableArray alloc]init];
  
     
-  if(self.tabelVo.image1.length){
-           [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+    if(self.tabelVo.image1.length){
+        [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
     }
-    
     if(self.tabelVo.image2.length){
-             [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
-      }
+        [arr addObject:[self getWebUrlByurl:[self.tabelVo.image2 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+    }
     if(self.tabelVo.image3.length){
-             [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
-      }
+        [arr addObject:[self getWebUrlByurl:[self.tabelVo.image3 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+    }
     if(self.tabelVo.image4.length){
-             [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
-      }
+        [arr addObject:[self getWebUrlByurl:[self.tabelVo.image4 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
+    }
     
     return arr;
 }
@@ -137,25 +136,33 @@
 -(NSMutableArray<NSString*>*)images;
 {
     NSMutableArray<NSString*> *arr=[[NSMutableArray alloc]init];
+        if(self.tabelVo.image1.length){
     [arr addObject:  [self getWebUrlByurl:self.tabelVo.image1] ];
+        }
+        if(self.tabelVo.image2.length){
+    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image2] ];
+        }
+        if(self.tabelVo.image3.length){
+    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image3] ];
+        }
+        if(self.tabelVo.image4.length){
+    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image4] ];
+        }
+    
     return arr;
 }
 -(NSString*)headurl;
 {
-    //NSString *url=self.tabelVo.head;
-    // http://oss.ipigweb.com/public/attachment/201907/26/17/5d3ac6301da46.png?x-oss-process=image/resize,m_mfit,h_260,w_260
     return [self getWebUrlByurl:self.tabelVo.head];
 }
 +(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
 {
     NSMutableArray<DynamicBaseVo*>* bitem=[[NSMutableArray alloc]init];
-    for(int i=0;i<arr.count&&i<5;i++){
+    for(int i=0;i<arr.count;i++){
         DynamicBaseVo* vo=[[DynamicBaseVo alloc]init];
         [vo praseData:arr[i]];
-        
         [bitem addObject:vo];
     }
-    
     return bitem;
 }
 @end

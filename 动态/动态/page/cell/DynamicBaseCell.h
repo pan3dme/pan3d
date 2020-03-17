@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
 @property(nonatomic,strong)DynamicBaseVo * datavo;
 @property(nonatomic,strong)UIView * infoBg;
+-(void)imgLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView;
 -(void)initBaseUi;
 -(void)refrishUi;
 -(void)setCellData:(DynamicBaseVo*)value;

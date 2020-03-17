@@ -33,9 +33,8 @@
 {
   
     [super setCellData:value];
-  
-    NSString* picUrl=self.datavo.video_post;
-  self.videoport.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:picUrl]]];
+    
+    [self imgLoadByUrl:self.datavo.video_post  imgView:self.videoport];
   
 }
 -(UIImageView*)makeImageView;

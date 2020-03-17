@@ -60,13 +60,8 @@
 
 -(UIButton*)makeImagesBut:(NSString*)picStr perentUi:(UIView*)perentUi;
 {
-    UIButton *btn =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.frame = CGRectMake(0, 0, 50, 40);
-    btn.backgroundColor = [UIColor grayColor];
-    UIImage *icon01 = [UIImage imageNamed:picStr];
-    UIImage *icon02 = [UIImage imageNamed:picStr];
-    [btn setImage:icon01 forState:UIControlStateNormal];
-    [btn setImage:icon02 forState:UIControlStateHighlighted];
+    UIButton *btn =[[UIButton alloc]initWithFrame: CGRectMake(0, 0, 50, 40)] ;
+    [btn setImage:[UIImage imageNamed:picStr] forState:UIControlStateNormal];
     [perentUi addSubview:btn];
     return btn;
 }
@@ -88,42 +83,56 @@
     
     
     self.userHeadImagView=[[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 60, 60)];
+    
     [self addSubview:self.userHeadImagView];
     self.usenameLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 5, 60, 24)];
+     self.usenameLabel.font =[UIFont systemFontOfSize:16];
     [self addSubview:self.usenameLabel];
     
     self.timeLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 30, 60, 20)];
+    self.timeLabel.font =[UIFont systemFontOfSize:14];
+    self.timeLabel.textColor=RGBOF(0xbfbfbf);
     [self addSubview:self.timeLabel];
     
     self.infoLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 55, 60, 20)];
+     self.timeLabel.font =[UIFont systemFontOfSize:15];
     [self addSubview:self.infoLabel];
     
     
     self.followBut=[self makeLabelBut:@"关注" perentUi:self];
-    //self.followBut=[self makeImagesBut:@"icon_zs.4269d4be" perentUi:self];
+    self.followBut.layer.borderWidth=1.0;
+    self.followBut.frame = CGRectMake(0, 0, 100, 28);
+    self.followBut .titleLabel.font = [UIFont systemFontOfSize:16];
+    self.followBut.layer.cornerRadius = self.followBut.height/2; // 圆角的弧度
     
     
-    self.diamondBut=[self makeImagesBut:@"icon_zs.4269d4be" perentUi:self.bttomView];
-    self.heartBut=[self makeImagesBut:@"icon_zs.4269d4be" perentUi:self.bttomView];
-    self.messageBut=[self makeImagesBut:@"icon_zs.4269d4be" perentUi:self.bttomView];
-    self.shareBut=[self makeImagesBut:@"icon_zs.4269d4be" perentUi:self.bttomView];
+    self.diamondBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
+    self.heartBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
+    self.messageBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
+    self.shareBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
     
     
     self.diamondBut.frame=CGRectMake(0, 0, 30, 30);
-    self.heartBut.frame=CGRectMake(40, 0, 30, 30);
-    self.messageBut.frame=CGRectMake(80, 0, 30, 30);
-    self.shareBut.frame=CGRectMake(120, 0, 30, 30);
-    
+    self.heartBut.frame=CGRectMake(50, 0, 30, 30);
+    self.messageBut.frame=CGRectMake(100, 0, 30, 30);
+    self.shareBut.frame=CGRectMake(150, 0, 30, 30);
+ 
 }
 
 -(void)layoutSubviews;
 {
-    self.followBut.frame=CGRectMake(self.width-90, 10, 80, 40);
+    self.followBut.frame=CGRectMake(self.width-90, 10, 80, 28);
     self.bttomView.frame=CGRectMake(100, self.height-40, self.width, 30);
     self.bttomlineView.frame=CGRectMake(0, self.height-1, self.width, 1);
-    
     self.infoLabel.frame=CGRectMake(100, 55, self.width-200, 20);
     self.infoBg.frame=CGRectMake(100, 80, self.width-200, self.height-100);
+}
+
+-(void)imgLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView;
+{
+      //imgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+    
+       [imgView sd_setImageWithURL:[NSURL URLWithString:url] ];
 }
 
 -(void)refrishUi;
@@ -134,9 +143,19 @@
     self.usenameLabel.text=self.datavo.nick_name;
     self.timeLabel.text=@"3天前";
     self.infoLabel.text=self.datavo.content;
- 
-    [self.userHeadImagView sd_setImageWithURL:[NSURL URLWithString:self.datavo.headurl] ];
+    [self imgLoadByUrl:self.datavo.headurl imgView:self.userHeadImagView];
     
+    
+    BOOL DD=NO;
+    if(DD){
+        self.followBut.backgroundColor =[UIColor whiteColor];
+        self.followBut.layer.borderColor=RGBOF(0xff5549).CGColor;
+        [self.followBut setTitleColor:RGBOF(0xff5549) forState:UIControlStateNormal];
+    }else{
+        self.followBut.backgroundColor =[UIColor whiteColor];
+        self.followBut.layer.borderColor=RGBOF(0x9ccc65).CGColor;
+        [self.followBut setTitleColor:RGBOF(0x9ccc65) forState:UIControlStateNormal];
+    }
     [self layoutSubviews];
     
 }

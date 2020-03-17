@@ -45,22 +45,21 @@
 }
 - (void)setCellData:(DynamicBaseVo *)value
 {
-  
     [super setCellData:value];
-  
-    if(self.datavo.miniimages.count==1){
-        self.img00.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[0]]]];
-    }
-    if(self.datavo.miniimages.count==2){
-        self.img01.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[1]]]];
-    }
-    if(self.datavo.miniimages.count==3){
-        self.img02.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[2]]]];
-    }
-    if(self.datavo.miniimages.count==4){
-        self.img03.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[3]]]];
-    }
+    NSArray<NSString*>*  minis =  self.datavo.miniimages;
     
+    if(minis.count>=1){
+        [self imgLoadByUrl:minis[0]  imgView:self.img00];
+    }
+    if(minis.count>=2){
+        [self imgLoadByUrl:minis[1]  imgView:self.img01];
+    }
+    if(minis.count>=3){
+        [self imgLoadByUrl:minis[2]  imgView:self.img02];
+    }
+    if(minis.count>=4){
+        [self imgLoadByUrl:minis[3]  imgView:self.img03];
+    }
     
 }
 - (void)layoutSubviews;

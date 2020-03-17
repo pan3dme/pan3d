@@ -59,10 +59,7 @@
     [self addTempPage];
     [self addTempPage];
     [self addTempPage];
-    
-
-
-    
+     
 }
  
 -(void)addTempPage;
