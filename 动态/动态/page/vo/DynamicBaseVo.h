@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString*)content;
 -(NSString*)headurl;
 -(NSString*)video_post;
+-(CGPoint)videoSize;
 -(NSMutableArray<NSString*>*)images;
 -(NSMutableArray<NSString*>*)miniimages;
 +(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;

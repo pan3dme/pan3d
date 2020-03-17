@@ -49,8 +49,18 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
+  
+
+}
+
+- (void)layoutSubviews;
+{
+    [super layoutSubviews];
+    
+     self.videoport.frame=CGRectMake(0, 0,   self.datavo.videoSize.x, self.datavo.videoSize.y);
     
 }
+
 +(TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
 {
     TabelVideoViewCell *cell=[tableView dequeueReusableCellWithIdentifier:TabelVideoViewCell.CELL_STR];

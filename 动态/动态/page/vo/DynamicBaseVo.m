@@ -23,21 +23,24 @@
 {
     self.tabelVo=[[DynamicTabelVo alloc]init];
     [self.tabelVo refrishData:dic];
-    self.cellHeight=100;
+    self.cellHeight=80;
     switch (self.type) {
         case DYNAMIC_IMG_TYPE:
             if(self.images.count>2){
-                self.cellHeight+=250;
+                self.cellHeight+=220;
             }else{
-                self.cellHeight+=150;
+                self.cellHeight+=100;
             }
             break;
         case DYNAMIC_VIDE_TYPE:
-             self.cellHeight+=200;
+         
+             self.cellHeight+=self.videoSize.y;
             break;
         default:
             break;
     }
+    
+       self.cellHeight+=50;
  
 }
 -(NSInteger)type;
@@ -56,6 +59,43 @@
 {
     return  self.tabelVo.content;
 }
+-(CGPoint)videoSize;
+{
+    CGPoint tempWh=[self getResizeWh:self.video_post];
+    CGFloat tw=150;
+    CGFloat th=200;
+    CGFloat toSize=1.0;
+    if (tempWh.x/ tw > tempWh.y / th) {
+        toSize = tw / tempWh.x;
+    } else {
+        toSize = th / tempWh.y;
+    }
+    return CGPointMake(tempWh.x * toSize , tempWh.y * toSize);
+}
+-(CGPoint)getResizeWh:(NSString*)url;
+{
+    if( [url rangeOfString:@"x-oss-process"].location != NSNotFound){
+        NSArray *item = [url componentsSeparatedByString:@","];
+        NSString* h=   [ item[item.count - 2] stringByReplacingOccurrencesOfString:@"h_"withString:@""];
+        NSString* w=   [ item[item.count - 1] stringByReplacingOccurrencesOfString:@"w_"withString:@""];
+        return CGPointMake([w floatValue] , [h floatValue]);
+        
+    }else{
+        return CGPointMake(100,100);
+    }
+    
+}
+/*
+ 
+  export function getResizeWh(url: string) {
+      if (url.indexOf("x-oss-process") != -1) {
+          var item: Array<string> = url.split(",");
+          return { h: Number(item[item.length - 2].replace("h_", "")), w: Number(item[item.length - 1].replace("w_", "")) }
+      } else {
+          return null
+      }
+  }
+*/
 -(NSString*)video_post;
 {
     NSString* videoUrl=    [self getWebUrlByurl:self.tabelVo.vidio_url];
