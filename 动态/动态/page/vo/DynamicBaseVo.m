@@ -23,7 +23,30 @@
 {
     self.tabelVo=[[DynamicTabelVo alloc]init];
     [self.tabelVo refrishData:dic];
+    self.cellHeight=100;
+    switch (self.type) {
+        case DYNAMIC_IMG_TYPE:
+            if(self.images.count>2){
+                self.cellHeight+=250;
+            }else{
+                self.cellHeight+=150;
+            }
+            break;
+        case DYNAMIC_VIDE_TYPE:
+             self.cellHeight+=200;
+            break;
+        default:
+            break;
+    }
  
+}
+-(NSInteger)type;
+{
+    if(self.tabelVo.vidio_url.length){
+        return  DYNAMIC_VIDE_TYPE;
+    }else{
+        return  DYNAMIC_IMG_TYPE;
+    }
 }
 -(NSString*)nick_name;
 {
@@ -33,8 +56,15 @@
 {
     return  self.tabelVo.content;
 }
+-(NSString*)video_post;
+{
+    NSString* videoUrl=    [self getWebUrlByurl:self.tabelVo.vidio_url];
+    videoUrl=  [videoUrl stringByReplacingOccurrencesOfString:@".mp4"withString:@"_mini.jpg"];
+    return  videoUrl;
+}
 -(NSMutableArray<NSString*>*)miniimages;
 {
+
  
     NSMutableArray<NSString*> *arr=[[NSMutableArray alloc]init];
  
@@ -79,7 +109,7 @@
 +(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
 {
     NSMutableArray<DynamicBaseVo*>* bitem=[[NSMutableArray alloc]init];
-    for(int i=0;i<arr.count;i++){
+    for(int i=0;i<arr.count&&i<5;i++){
         DynamicBaseVo* vo=[[DynamicBaseVo alloc]init];
         [vo praseData:arr[i]];
         

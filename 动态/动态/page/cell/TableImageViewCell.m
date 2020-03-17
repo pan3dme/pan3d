@@ -45,7 +45,7 @@
 }
 - (void)setCellData:(DynamicBaseVo *)value
 {
-    //url001    __NSCFString *    @"http://34.87.12.20:20080//static/upload/dt/20191118/2e6664cb2a2e4d8e9e0acb10f4d94dbe.jpg "    0x000000028107f100
+  
     [super setCellData:value];
   
     if(self.datavo.miniimages.count==1){
@@ -60,6 +60,8 @@
     if(self.datavo.miniimages.count==4){
         self.img03.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.datavo.miniimages[3]]]];
     }
+    
+    
 }
 - (void)layoutSubviews;
 {
@@ -68,6 +70,36 @@
     self.img01.frame=CGRectMake(100, 0, 89, 89);
     self.img02.frame=CGRectMake(0, 100, 89, 89);
     self.img03.frame=CGRectMake(100, 100, 89, 89);
+    
+    if(self.datavo){
+        self.img00.hidden=YES;
+        self.img01.hidden=YES;
+        self.img02.hidden=YES;
+        self.img03.hidden=YES;
+        switch (self.datavo.miniimages.count) {
+            case 1:
+                self.img00.hidden=NO;
+                break;
+            case 2:
+                self.img00.hidden=NO;
+                self.img01.hidden=NO;
+                break;
+            case 3:
+                self.img00.hidden=NO;
+                self.img01.hidden=NO;
+                self.img02.hidden=NO;
+                break;
+            case 4:
+                self.img00.hidden=NO;
+                self.img01.hidden=NO;
+                self.img02.hidden=NO;
+                self.img03.hidden=NO;
+                break;
+            default:
+                break;
+        }
+    }
+ 
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

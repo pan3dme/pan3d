@@ -7,7 +7,12 @@
 //
 
 #import "TabelVideoViewCell.h"
+@interface TabelVideoViewCell()
 
+@property(nonatomic,strong)UIImageView * videoport;
+ 
+
+@end
 @implementation TabelVideoViewCell
 +(NSString*)CELL_STR;
 {
@@ -17,11 +22,34 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)initBaseUi;
+{
+    [super initBaseUi];
+    self.videoport=[self makeImageView];
+ 
+    
+}
+- (void)setCellData:(DynamicBaseVo *)value
+{
+  
+    [super setCellData:value];
+  
+    NSString* picUrl=self.datavo.video_post;
+  self.videoport.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:picUrl]]];
+  
+}
+-(UIImageView*)makeImageView;
+{
+    UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
+    temp.image=[UIImage imageNamed:@"avatar2.e90b2411"];
+    [self.infoBg addSubview:temp];
+    return temp;
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    
 }
 +(TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
 {

@@ -94,8 +94,8 @@
             filePath = "&#x52a8;&#x6001;/page/cell/TableImageViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "+makeViewCell:dataVo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +206,8 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "-praseData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,9 +286,9 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-images"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "+makeListArr:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -318,9 +318,9 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-getWebUrlByurl:"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-headurl"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -334,9 +334,9 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-miniimages"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-images"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -366,8 +366,8 @@
             filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-miniimages"
             landmarkType = "7">
          </BreakpointContent>
@@ -385,6 +385,38 @@
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "-setCellData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B887F7AB-794A-4D68-B816-F1F13F763213"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-praseData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "473954F5-2FB3-4B62-B4A7-89E6EEF7A693"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x52a8;&#x6001;/page/vo/DynamicBaseVo.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-video_post"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

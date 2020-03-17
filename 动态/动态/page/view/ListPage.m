@@ -73,7 +73,7 @@ UITableViewDataSource
 //重置CELL的高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DynamicBaseVo *vo=self.cellItemArr[indexPath.section];
+    DynamicBaseVo *vo=self.cellItemArr[indexPath.row];
     
     return   vo.cellHeight;
     
