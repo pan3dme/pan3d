@@ -6,6 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "DynamicBaseCell.h"
 #import "UIImageView+WebCache.h"
 #import "Header.h"
@@ -60,7 +61,7 @@
 
 -(UIButton*)makeImagesBut:(NSString*)picStr perentUi:(UIView*)perentUi;
 {
-    UIButton *btn =[[UIButton alloc]initWithFrame: CGRectMake(0, 0, 50, 40)] ;
+    UIButton *btn =[[UIButton alloc]initWithFrame: CGRectMake(0, 0, 40, 40)] ;
     [btn setImage:[UIImage imageNamed:picStr] forState:UIControlStateNormal];
     [perentUi addSubview:btn];
     return btn;
@@ -79,12 +80,12 @@
     self.infoBg=[[UIView alloc]initWithFrame:self.bounds];
     [self addSubview:self.infoBg];
     
-    
-    
-    
-    self.userHeadImagView=[[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 60, 60)];
-    
+ 
+    self.userHeadImagView=[[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 54, 54)];
     [self addSubview:self.userHeadImagView];
+     self.userHeadImagView.layer.cornerRadius = 27; // 圆角的弧度
+    self.userHeadImagView.clipsToBounds=YES;
+    
     self.usenameLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 5, 60, 24)];
      self.usenameLabel.font =[UIFont systemFontOfSize:16];
     [self addSubview:self.usenameLabel];
@@ -107,9 +108,9 @@
     
     
     self.diamondBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
-    self.heartBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
-    self.messageBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
-    self.shareBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
+    self.heartBut=[self makeImagesBut:@"message" perentUi:self.bttomView];
+    self.messageBut=[self makeImagesBut:@"message.circle" perentUi:self.bttomView];
+    self.shareBut=[self makeImagesBut:@"centsign.square" perentUi:self.bttomView];
     
     
     self.diamondBut.frame=CGRectMake(0, 0, 30, 30);
@@ -125,14 +126,22 @@
     self.bttomView.frame=CGRectMake(100, self.height-40, self.width, 30);
     self.bttomlineView.frame=CGRectMake(0, self.height-1, self.width, 1);
     self.infoLabel.frame=CGRectMake(100, 55, self.width-200, 20);
-    self.infoBg.frame=CGRectMake(100, 80, self.width-200, self.height-100);
+    
+    if(self.datavo.content.length){
+           self.infoBg.frame=CGRectMake(100, 80, self.width-200, self.height-100);
+    }else{
+         self.infoBg.frame=CGRectMake(100, 55, self.width-200, self.height-100);
+    }
+   
 }
 
 -(void)imgLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView;
 {
       //imgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
-    
+  
        [imgView sd_setImageWithURL:[NSURL URLWithString:url] ];
+    
+    
 }
 
 -(void)refrishUi;
@@ -143,9 +152,9 @@
     self.usenameLabel.text=self.datavo.nick_name;
     self.timeLabel.text=@"3天前";
     self.infoLabel.text=self.datavo.content;
-    [self imgLoadByUrl:self.datavo.headurl imgView:self.userHeadImagView];
-    
-    
+    [self imgLoadByUrl:@"http://34.87.12.20:20080//static/upload/dt/20191118/0aabf400d747b6955ce73bd97836fa9b_mini.jpg" imgView:self.userHeadImagView];
+     
+ 
     BOOL DD=NO;
     if(DD){
         self.followBut.backgroundColor =[UIColor whiteColor];

@@ -17,6 +17,10 @@
 
 
 @interface DynamicMainView ()
+<
+TabTittlViewDelegate,
+UIScrollViewDelegate
+>
 
 @property(nonatomic,strong)TabTittlView* tabTittlView;
 @property(nonatomic,strong)UIScrollView* pageScrollView;
@@ -36,21 +40,33 @@
     
     self.pageScrollView=[[UIScrollView alloc]initWithFrame:self.view.bounds];
      self.pageScrollView.pagingEnabled=YES;
+    self.pageScrollView.delegate=self;
      self.pageScrollView.showsHorizontalScrollIndicator = NO;//水平滚动条
      self.pageScrollView.showsVerticalScrollIndicator = NO;//
     [self.view addSubview:self.pageScrollView];
     
     self.tabTittlView=[[TabTittlView alloc]init];
+    self.tabTittlView.delegate=self;
     [self.view addSubview:self.tabTittlView];
-    
-    
+     
     self.navigationController.navigationBar.hidden = NO;  //显示头部
     [self.navigationController setNavigationBarHidden:NO];
     
     [self initBaseUi ];
     
 }
- 
+ - (void)selectTabIdx:(int)value
+{
+      [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*value, 0) animated:YES];
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    BOOL scrollToScrollStop = !scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;
+    if (scrollToScrollStop) {
+        int idx= self.pageScrollView.contentOffset.x/self.pageScrollView.width;
+        [self.tabTittlView selectTabByIndex:idx  ];
+   
+    }
+}
  
 -(void)initBaseUi;
 {

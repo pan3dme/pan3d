@@ -23,7 +23,11 @@
 {
     self.tabelVo=[[DynamicTabelVo alloc]init];
     [self.tabelVo refrishData:dic];
-    self.cellHeight=80;
+    self.cellHeight=50;
+    
+    if(self.content.length){
+          self.cellHeight+=30;
+    }
     switch (self.type) {
         case DYNAMIC_IMG_TYPE:
             if(self.images.count>2){
@@ -33,7 +37,6 @@
             }
             break;
         case DYNAMIC_VIDE_TYPE:
-         
              self.cellHeight+=self.videoSize.y;
             break;
         default:

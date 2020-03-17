@@ -10,8 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TabTittlView : UIView
+@protocol TabTittlViewDelegate<NSObject>
+-(void) selectTabIdx:(int)value;
+@end
 
+@interface TabTittlView : UIView
+@property(assign,nonatomic) id<TabTittlViewDelegate>delegate;
+-(void)selectTabByIndex:(int)value;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -85,10 +85,7 @@
     
    
     CGFloat tw=  rectSize.width+30;
-    
-   
-     
-    
+  
     self.iconImgview.frame=CGRectMake( (self.width-tw)/2, (self.height-25)/2, 25, 25);
     self.tabLabel.frame=CGRectMake(CGRectGetMaxX( self.iconImgview.frame)+5, 0,self.width- CGRectGetMaxX( self.iconImgview.frame)-5, self.height);
     

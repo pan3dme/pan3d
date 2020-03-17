@@ -32,7 +32,7 @@
         [self.tabstr addObject:@"推荐"];
         [self.tabstr addObject:@"关注"];
         [self.tabstr addObject:@"全部"];
-        
+        [self.tabstr addObject:@"我的"];
         [self initBaseUi];
     }
     return self;
@@ -67,8 +67,12 @@
 }
 - (void) pressBtn:(UIButton *) btn
 {
+    int idx= (int)btn.tag-100;
     
-    [self selectTabByIndex: (int)btn.tag-100];
+    [self selectTabByIndex: idx];
+    
+    [_delegate selectTabIdx:idx];
+    
 }
 
 -(void)selectTabByIndex:(int)value;
