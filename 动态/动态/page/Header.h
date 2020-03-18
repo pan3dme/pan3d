@@ -39,6 +39,8 @@ typedef void (^FailureBlock)(NSError *error);
 
 static NSString * const PLATFORM_GAME_USER_IMPORT                          = @"/user/import";
 static NSString * const PLATFORM_GAME_BLOG_LIST_ALL                          = @"/blog/list_all";
+static NSString * const PLATFORM_GAME_BLOG_LIST_FOLLOWS                          = @"/blog/list_follows";
+static NSString * const PLATFORM_GAME_BLOG_LIST_TUIJIAN                          = @"/blog/list_tuijian";
 /*
  static PLATFORM_GAME_USER_IMPORT = '/user/import';
  //添加动态

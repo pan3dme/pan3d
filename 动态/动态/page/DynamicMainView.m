@@ -38,80 +38,72 @@ UIScrollViewDelegate
     self.title=@"动态";
     
     self.view.backgroundColor=[UIColor whiteColor];
- 
+    
     
     self.pageScrollView=[[UIScrollView alloc]initWithFrame:self.view.bounds];
-     self.pageScrollView.pagingEnabled=YES;
+    self.pageScrollView.pagingEnabled=YES;
     self.pageScrollView.delegate=self;
-     self.pageScrollView.showsHorizontalScrollIndicator = NO;//水平滚动条
-     self.pageScrollView.showsVerticalScrollIndicator = NO;//
+    self.pageScrollView.showsHorizontalScrollIndicator = NO;//水平滚动条
+    self.pageScrollView.showsVerticalScrollIndicator = NO;//
     [self.view addSubview:self.pageScrollView];
     
     self.tabTittlView=[[TabTittlView alloc]init];
     self.tabTittlView.delegate=self;
     [self.view addSubview:self.tabTittlView];
-     
+    
     self.navigationController.navigationBar.hidden = NO;  //显示头部
     [self.navigationController setNavigationBarHidden:NO];
     
-    [self initBaseUi ];
     
-    [self userImport];
-}
--(void)userImport;
-{
- 
-    NSString* key=@"eyJleHRyYV9ibG9nIjoie1widmlwX2x2XCI6MSxcInVzZXJfbGV2ZWxcIjpcIjZcIixcImF1dGhfYW5jaG9yXCI6MCxcImRpc2Nlcm5fdHlwZVwiOlwidHVpMVwifSIsIm5pY2tuYW1lIjoiXHU1NGM4XHU1NGM4bGV2ZWwiLCJoZWFkIjoiaHR0cDpcL1wvb3NzLmlwaWd3ZWIuY29tXC9wdWJsaWNcL2F0dGFjaG1lbnRcLzIwMTkwN1wvMjZcLzE3XC81ZDNhYzYzMDFkYTQ2LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlXC9yZXNpemUsbV9tZml0LGhfMjYwLHdfMjYwIiwidXNlcm5hbWUiOiIyOTg5NDYzMSIsInRpbWUiOjE1ODQ0ODk5MTcsInNpZ24iOiJhMzJmYzkzZWQ0MWVmOWZmNTU4ZmEzMzVlNzhiNjExYiJ9";
- 
-    NSString *path= [ NSString stringWithFormat:@"http://34.87.12.20:20080/%@?key=%@",PLATFORM_GAME_USER_IMPORT,key];
-    NSURL *url = [NSURL URLWithString:path];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        //[0]    (null)    @"info" : 12 key/value pairs
-        
-        int codenum=  [[dic valueForKey:@"code"]intValue] ;
-        if(codenum==0){
-            [DynamicModel default].selfUserInfoVo=[[UserInfoVo alloc]init];
-            [[DynamicModel default].selfUserInfoVo refrishData:[dic valueForKey:@"info"]];
-        }
-        
+    
+    [[ DynamicModel default] userImport:^(NSDictionary *responseJson) {
+        NSLog(@"成功");
     }];
-    
-    [dataTask resume];
-    
-
+    [self initBaseUi ];
 }
-//PLATFORM_GAME_USER_IMPORT
- - (void)selectTabIdx:(int)value
+
+
+- (void)selectTabIdx:(int)value
 {
-      [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*value, 0) animated:YES];
+    [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*value, 0) animated:YES];
+    
+    
+    [self initFristData:value];
+ 
+}
+-(void)initFristData:(int)idx;
+{
+      [self.pageItem[idx] initFristData];
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     BOOL scrollToScrollStop = !scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;
     if (scrollToScrollStop) {
         int idx= self.pageScrollView.contentOffset.x/self.pageScrollView.width;
         [self.tabTittlView selectTabByIndex:idx  ];
-   
+        [self initFristData:idx];
+        
     }
 }
- 
+
 -(void)initBaseUi;
 {
     self.pageItem= [[NSMutableArray alloc]init];
+    [self addTempPage:1];
+    [self addTempPage:2];
+    [self addTempPage:3];
+    [self addTempPage:4];
     
-    [self addTempPage];
-    [self addTempPage];
-    [self addTempPage];
-     
+    [self initFristData:0];
+
 }
- 
--(void)addTempPage;
+
+-(void)addTempPage:(NSInteger)tabIdx;
 {
     ListPage*   listPage=[[ListPage alloc] initWithFrame:self.view.bounds];
     [self.pageScrollView addSubview: listPage];
+    listPage.tabidx=tabIdx;
     [self.pageItem addObject:listPage];
+ 
 }
 
 - (void)viewDidLayoutSubviews;

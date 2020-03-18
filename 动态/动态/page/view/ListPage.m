@@ -12,6 +12,7 @@
 #import "TableImageViewCell.h"
 #import "TabelVideoViewCell.h"
 #import "NetHttpsManager.h"
+#import "DynamicModel.h"
 #import "RedBagRefreshGifHeader.h"
 @interface ListPage ()
 <
@@ -35,7 +36,7 @@ UITableViewDataSource
 -(void)initBaseUi;
 {
     
-    self.cellItemArr=[[NSMutableArray alloc]init];
+  
     UITableView* temp=[[UITableView alloc]initWithFrame:self.bounds style:UITableViewStylePlain];
     temp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     temp.backgroundColor=[UIColor whiteColor];
@@ -46,30 +47,42 @@ UITableViewDataSource
     [self addSubview:temp];
     [self makeRefreshHeaderGf];
     self.backgroundColor=[UIColor clearColor];
-    
-    [self loadWebData];
+ 
 }
--(void)loadWebData;
+ /*
+  初始化t第一次的数据
+  */
+-(void)initFristData;
 {
-    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-    [dic setObject:@"0" forKey:@"begin_id"];
-    [dic setObject:@"10" forKey:@"count"];
-    NSString *URL= [ NSString stringWithFormat:@"http://34.87.12.20:20080/%@",PLATFORM_GAME_BLOG_LIST_ALL ];
-    [[NetHttpsManager default] POSTWithUrl:URL paramDict:dic OverTime:100 successBlock:^(NSDictionary *responseJson) {
-        
-        self.cellItemArr=       [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
-        [self.tabelListView reloadData];
-        
-    } FailureBlock:^(NSError *error) {
-        
-    }];
+    if(!self.cellItemArr){
+        self.cellItemArr =[[NSMutableArray alloc]init];
+        [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] beginId:@"0" count:@"10" PostSuccess:^(NSDictionary *responseJson) {
+             self.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
+             [self.tabelListView reloadData];
+         }];
+    }
+ 
 }
--(DynamicBaseVo*)makeTempVo;
+-(NSString*)dataLinkUrl;
 {
-    DynamicBaseVo *vo=[[DynamicBaseVo alloc]init];
     
-    return vo;
+    switch (self.tabidx) {
+        case 1:
+            return PLATFORM_GAME_BLOG_LIST_TUIJIAN;
+            break;
+        case 2:
+            return PLATFORM_GAME_BLOG_LIST_FOLLOWS;
+            break;
+        case 3:
+            return PLATFORM_GAME_BLOG_LIST_ALL;
+            break;
+        default:
+            return PLATFORM_GAME_BLOG_LIST_ALL;
+            break;
+    }
+ 
 }
+ 
 //重置CELL的高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

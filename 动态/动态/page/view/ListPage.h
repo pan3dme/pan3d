@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ListPage : UIView
-
+@property(nonatomic,assign)NSInteger tabidx;
+-(void)initFristData;
 @end
 
 NS_ASSUME_NONNULL_END
