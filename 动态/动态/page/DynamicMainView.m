@@ -14,6 +14,8 @@
 #import "MathClass.h"
 #import "DynamicBaseVo.h"
 #import "NetHttpsManager.h"
+#import "DynamicModel.h"
+#import "UserInfoVo.h"
 
 
 @interface DynamicMainView ()
@@ -54,7 +56,34 @@ UIScrollViewDelegate
     
     [self initBaseUi ];
     
+    [self userImport];
 }
+-(void)userImport;
+{
+ 
+    NSString* key=@"eyJleHRyYV9ibG9nIjoie1widmlwX2x2XCI6MSxcInVzZXJfbGV2ZWxcIjpcIjZcIixcImF1dGhfYW5jaG9yXCI6MCxcImRpc2Nlcm5fdHlwZVwiOlwidHVpMVwifSIsIm5pY2tuYW1lIjoiXHU1NGM4XHU1NGM4bGV2ZWwiLCJoZWFkIjoiaHR0cDpcL1wvb3NzLmlwaWd3ZWIuY29tXC9wdWJsaWNcL2F0dGFjaG1lbnRcLzIwMTkwN1wvMjZcLzE3XC81ZDNhYzYzMDFkYTQ2LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlXC9yZXNpemUsbV9tZml0LGhfMjYwLHdfMjYwIiwidXNlcm5hbWUiOiIyOTg5NDYzMSIsInRpbWUiOjE1ODQ0ODk5MTcsInNpZ24iOiJhMzJmYzkzZWQ0MWVmOWZmNTU4ZmEzMzVlNzhiNjExYiJ9";
+ 
+    NSString *path= [ NSString stringWithFormat:@"http://34.87.12.20:20080/%@?key=%@",PLATFORM_GAME_USER_IMPORT,key];
+    NSURL *url = [NSURL URLWithString:path];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        //[0]    (null)    @"info" : 12 key/value pairs
+        
+        int codenum=  [[dic valueForKey:@"code"]intValue] ;
+        if(codenum==0){
+            [DynamicModel default].selfUserInfoVo=[[UserInfoVo alloc]init];
+            [[DynamicModel default].selfUserInfoVo refrishData:[dic valueForKey:@"info"]];
+        }
+        
+    }];
+    
+    [dataTask resume];
+    
+
+}
+//PLATFORM_GAME_USER_IMPORT
  - (void)selectTabIdx:(int)value
 {
       [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*value, 0) animated:YES];

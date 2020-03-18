@@ -39,6 +39,8 @@
 		FE41053E241FBE9A0031B3D1 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053D241FBE9A0031B3D1 /* NetWorkManager.m */; };
 		FE410544241FFE8D0031B3D1 /* TabelBaseNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */; };
 		FE410547242008480031B3D1 /* TabelVideoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410546242008480031B3D1 /* TabelVideoViewCell.m */; };
+		FE41054A242217170031B3D1 /* UserInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410549242217170031B3D1 /* UserInfoVo.m */; };
+		FE41054D2422181B0031B3D1 /* DynamicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41054C2422181B0031B3D1 /* DynamicModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,10 @@
 		FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabelBaseNSObject.m; sourceTree = "<group>"; };
 		FE410545242008480031B3D1 /* TabelVideoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabelVideoViewCell.h; sourceTree = "<group>"; };
 		FE410546242008480031B3D1 /* TabelVideoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabelVideoViewCell.m; sourceTree = "<group>"; };
+		FE410548242217170031B3D1 /* UserInfoVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoVo.h; sourceTree = "<group>"; };
+		FE410549242217170031B3D1 /* UserInfoVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoVo.m; sourceTree = "<group>"; };
+		FE41054B2422181B0031B3D1 /* DynamicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicModel.h; sourceTree = "<group>"; };
+		FE41054C2422181B0031B3D1 /* DynamicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,8 @@
 				FE064B76241EC08E00AD44BE /* cell */,
 				FE064B70241EB41F00AD44BE /* gfheader */,
 				FE064B4B241E990800AD44BE /* view */,
+				FE41054B2422181B0031B3D1 /* DynamicModel.h */,
+				FE41054C2422181B0031B3D1 /* DynamicModel.m */,
 				FE064B46241E98A300AD44BE /* DynamicMainView.h */,
 				FE064B47241E98A300AD44BE /* DynamicMainView.m */,
 				FE064ADA241E921400AD44BE /* OnePageView.h */,
@@ -260,6 +268,8 @@
 				FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */,
 				FE410522241F849B0031B3D1 /* MathClass.h */,
 				FE410523241F849B0031B3D1 /* MathClass.m */,
+				FE410548242217170031B3D1 /* UserInfoVo.h */,
+				FE410549242217170031B3D1 /* UserInfoVo.m */,
 			);
 			path = vo;
 			sourceTree = "<group>";
@@ -400,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE41054A242217170031B3D1 /* UserInfoVo.m in Sources */,
 				FE41053E241FBE9A0031B3D1 /* NetWorkManager.m in Sources */,
 				FE064AC9241E915C00AD44BE /* ViewController.m in Sources */,
 				FE064B6B241E9F7600AD44BE /* UIScrollView+XBZKeyBoard.m in Sources */,
@@ -422,6 +433,7 @@
 				FE064AC6241E915C00AD44BE /* SceneDelegate.m in Sources */,
 				FE064B7A241EC0DF00AD44BE /* DynamicBaseCell.m in Sources */,
 				FE064B66241E9F7600AD44BE /* UIButton+XBZKeyBoard.m in Sources */,
+				FE41054D2422181B0031B3D1 /* DynamicModel.m in Sources */,
 				FE064ADD241E921400AD44BE /* OnePageView.m in Sources */,
 				FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */,
 				FE064B68241E9F7600AD44BE /* UIImage+XBZKeyBoard.m in Sources */,
