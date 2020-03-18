@@ -18,42 +18,20 @@
 
 @end
 
-@implementation SDAnimatedImageRep {
-    CGImageSourceRef _imageSource;
-}
+@interface SDAnimatedImageRep ()
 
-- (void)dealloc {
-    if (_imageSource) {
-        CFRelease(_imageSource);
-        _imageSource = NULL;
-    }
-}
+@property (nonatomic, assign, readonly, nullable) CGImageSourceRef imageSource;
 
-// `NSBitmapImageRep`'s `imageRepWithData:` is not designed initlizer
-+ (instancetype)imageRepWithData:(NSData *)data {
-    SDAnimatedImageRep *imageRep = [[SDAnimatedImageRep alloc] initWithData:data];
-    return imageRep;
-}
+@end
 
-// We should override init method for `NSBitmapImageRep` to do initlize about animated image format
-- (instancetype)initWithData:(NSData *)data {
-    self = [super initWithData:data];
-    if (self) {
-        CGImageSourceRef imageSource = CGImageSourceCreateWithData((__bridge CFDataRef) data, NULL);
-        if (!imageSource) {
-            return self;
-        }
-        _imageSource = imageSource;
-    }
-    return self;
-}
+@implementation SDAnimatedImageRep
 
 // `NSBitmapImageRep` will use `kCGImagePropertyGIFDelayTime` whenever you call `setProperty:withValue:` with `NSImageCurrentFrame` to change the current frame. We override it and use the actual `kCGImagePropertyGIFUnclampedDelayTime` if need.
 - (void)setProperty:(NSBitmapImageRepPropertyKey)property withValue:(id)value {
     [super setProperty:property withValue:value];
     if ([property isEqualToString:NSImageCurrentFrame]) {
         // Access the image source
-        CGImageSourceRef imageSource = _imageSource;
+        CGImageSourceRef imageSource = self.imageSource;
         if (!imageSource) {
             return;
         }
@@ -74,6 +52,13 @@
         // Reset super frame duration with the actual frame duration
         [super setProperty:NSImageCurrentFrameDuration withValue:@(frameDuration)];
     }
+}
+
+- (CGImageSourceRef)imageSource {
+    if (_tiffData) {
+        return (__bridge CGImageSourceRef)(_tiffData);
+    }
+    return NULL;
 }
 
 @end

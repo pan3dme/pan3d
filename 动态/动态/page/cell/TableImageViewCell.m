@@ -8,7 +8,8 @@
 
 #import "TableImageViewCell.h"
 #import "UIImageView+WebCache.h"
-
+#import "YBImageBrowser.h"
+ 
 @interface TableImageViewCell()
  
 
@@ -44,12 +45,35 @@
 }
 -(void)actionTap:(UITapGestureRecognizer *)sender;
 {
-     CGPoint loaction = [sender locationInView:self];
     
+    TableImageViewCell *cell = self;
+      NSMutableArray* browserDataArr=[[NSMutableArray alloc]init];
+      NSMutableArray*  imagesArr =cell.datavo.images;
+      for(int i=0;i<imagesArr.count;i++){
+          YBImageBrowseCellData *data = [YBImageBrowseCellData new];
+          data.url =     [NSURL URLWithString:imagesArr[i]];
+          if(i==0){
+              data.sourceObject = cell.img00;
+          }
+          if(i==1){
+              data.sourceObject = cell.img01;
+          }
+          if(i==2){
+              data.sourceObject = cell.img02;
+          }
+          if(i==3){
+              data.sourceObject = cell.img03;
+          }
+          [browserDataArr addObject:data];
+      }
+      YBImageBrowser *browser = [YBImageBrowser new];
+      browser.dataSourceArray = browserDataArr;
+      browser.currentIndex = sender.view.tag-100;
+      [browser show];
  
+    //[self.delegate imglistClik:self idx:sender.view.tag-100];
     
-    [self.delegate imglistClik:self img:sender.view pos:loaction];
-    
+   
 }
 /*
 -(UIImageView*)makeImageView;
@@ -67,7 +91,7 @@
 {
     [super setCellData:value];
     NSArray<NSString*>*  minis =  self.datavo.miniimages;
-    
+    //[0]    __NSCFString *    @"http://34.87.12.20:20080//static/upload/107762834426d05fae60b594cc2a071e.jpeg"    0x0000000283cc2100
     if(minis.count>=1){
         [self imgLoadByUrl:minis[0]  imgView:self.img00];
     }
