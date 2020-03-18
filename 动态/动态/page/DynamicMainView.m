@@ -88,10 +88,10 @@ UIScrollViewDelegate
 -(void)initBaseUi;
 {
     self.pageItem= [[NSMutableArray alloc]init];
+    [self addTempPage:0];
     [self addTempPage:1];
     [self addTempPage:2];
     [self addTempPage:3];
-    [self addTempPage:4];
     
     [self initFristData:0];
 

@@ -67,13 +67,13 @@ UITableViewDataSource
 {
     
     switch (self.tabidx) {
-        case 1:
+        case 0:
             return PLATFORM_GAME_BLOG_LIST_TUIJIAN;
             break;
-        case 2:
+        case 1:
             return PLATFORM_GAME_BLOG_LIST_FOLLOWS;
             break;
-        case 3:
+        case 2:
             return PLATFORM_GAME_BLOG_LIST_ALL;
             break;
         default:
