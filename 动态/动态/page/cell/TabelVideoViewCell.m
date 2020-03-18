@@ -7,6 +7,7 @@
 //
 
 #import "TabelVideoViewCell.h"
+#import "YBImageBrowser.h"
 @interface TabelVideoViewCell()
 
 @property(nonatomic,strong)UIImageView * videoport;
@@ -34,9 +35,22 @@
 }
 -(void)actionTap:(UITapGestureRecognizer *)sender;
 {
-   
-    NSLog(@"播放视频");
     
+   
+    NSMutableArray* browserDataArr=[[NSMutableArray alloc]init];
+     
+    YBVideoBrowseCellData *data = [YBVideoBrowseCellData new];
+    data.url =   [NSURL URLWithString:self.datavo.videourl];
+    data.sourceObject = self.videoport;
+    data.autoPlayCount=1;
+    
+    [browserDataArr addObject:data];
+  
+    YBImageBrowser *browser = [YBImageBrowser new];
+    browser.dataSourceArray = browserDataArr;
+    browser.currentIndex =0;
+    [browser show];
+ 
 }
 - (void)setCellData:(DynamicBaseVo *)value
 {

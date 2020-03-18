@@ -105,6 +105,11 @@
     videoUrl=  [videoUrl stringByReplacingOccurrencesOfString:@".mp4"withString:@"_mini.jpg"];
     return  videoUrl;
 }
+-(NSString*)videourl;
+{
+    NSString* videoUrl=    [self getWebUrlByurl:self.tabelVo.vidio_url];
+    return  videoUrl;
+}
 -(NSMutableArray<NSString*>*)miniimages;
 {
 
