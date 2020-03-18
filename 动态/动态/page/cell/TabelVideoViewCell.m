@@ -10,7 +10,8 @@
 @interface TabelVideoViewCell()
 
 @property(nonatomic,strong)UIImageView * videoport;
- 
+@property(nonatomic,strong)UIImageView * plicIcon;
+//play_48px.953e893c
 
 @end
 @implementation TabelVideoViewCell
@@ -26,7 +27,15 @@
 {
     [super initBaseUi];
     self.videoport=[self makeImageView];
- 
+    self.plicIcon=[self makeImageView];
+    self.plicIcon.image=[UIImage imageNamed:@"play_48px"];
+    
+     [self.plicIcon addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+}
+-(void)actionTap:(UITapGestureRecognizer *)sender;
+{
+   
+    NSLog(@"播放视频");
     
 }
 - (void)setCellData:(DynamicBaseVo *)value
@@ -37,14 +46,7 @@
     [self imgLoadByUrl:self.datavo.video_post  imgView:self.videoport];
   
 }
--(UIImageView*)makeImageView;
-{
-    UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
-    temp.image=[UIImage imageNamed:@"avatar2.e90b2411"];
-    [self.infoBg addSubview:temp];
-    return temp;
-    
-}
+ 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -55,9 +57,8 @@
 - (void)layoutSubviews;
 {
     [super layoutSubviews];
-    
      self.videoport.frame=CGRectMake(0, 0,   self.datavo.videoSize.x, self.datavo.videoSize.y);
-    
+     self.plicIcon.frame=CGRectMake( (self.datavo.videoSize.x-48)/2, (self.datavo.videoSize.y-48)/2,   48,48);
 }
 
 +(TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;

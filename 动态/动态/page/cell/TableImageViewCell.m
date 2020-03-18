@@ -51,6 +51,7 @@
     [self.delegate imglistClik:self img:sender.view pos:loaction];
     
 }
+/*
 -(UIImageView*)makeImageView;
 {
    
@@ -61,6 +62,7 @@
     return temp;
     
 }
+*/
 - (void)setCellData:(DynamicBaseVo *)value
 {
     [super setCellData:value];

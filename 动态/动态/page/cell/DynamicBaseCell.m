@@ -58,7 +58,14 @@
     [perentUi addSubview:btn];
     return btn;
 }
-
+-(UIImageView*)makeImageView;
+{
+    UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
+   temp.userInteractionEnabled = YES;
+    [self.infoBg addSubview:temp];
+    return temp;
+    
+}
 -(UIButton*)makeImagesBut:(NSString*)picStr perentUi:(UIView*)perentUi;
 {
     UIButton *btn =[[UIButton alloc]initWithFrame: CGRectMake(0, 0, 40, 40)] ;

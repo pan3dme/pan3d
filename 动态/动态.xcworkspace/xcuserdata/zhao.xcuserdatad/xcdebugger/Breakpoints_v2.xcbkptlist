@@ -94,9 +94,9 @@
             filePath = "&#x52a8;&#x6001;/page/cell/TableImageViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-setSelected:animated:"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -110,8 +110,8 @@
             filePath = "&#x52a8;&#x6001;/page/cell/DynamicBaseCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-refrishUi"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "&#x52a8;&#x6001;/page/cell/DynamicBaseCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-refrishUi"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,8 +334,8 @@
             filePath = "&#x52a8;&#x6001;/page/cell/DynamicBaseCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "-refrishUi"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,10 +366,10 @@
             filePath = "&#x52a8;&#x6001;/page/cell/TableImageViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-makeImageView"
-            landmarkType = "7">
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "TableImageViewCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -462,8 +462,8 @@
             filePath = "&#x52a8;&#x6001;/page/cell/DynamicBaseCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-refrishUi"
             landmarkType = "7">
          </BreakpointContent>
@@ -526,8 +526,8 @@
             filePath = "&#x52a8;&#x6001;/page/cell/DynamicBaseCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-imgLoadByUrl:imgView:"
             landmarkType = "7">
          </BreakpointContent>
