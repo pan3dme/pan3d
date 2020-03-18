@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "DynamicBaseVo.h"
+#import "DynamicBaseCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol DynamicBaseCellDelegate<NSObject>
 -(void) selectUseHead :(DynamicBaseVo*)value ;
+-(void) imglistClik :(UITableViewCell*)value img:(UIImageView*)img pos:(CGPoint)pos;
 @end
 
 @interface DynamicBaseCell : UITableViewCell
- 
 @property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
 @property(nonatomic,strong)DynamicBaseVo * datavo;
 @property(nonatomic,strong)UIView * infoBg;

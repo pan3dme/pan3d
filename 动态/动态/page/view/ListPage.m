@@ -22,6 +22,8 @@ UITableViewDataSource
 >
 @property(nonatomic,strong)UITableView *tabelListView;
 @property (nonatomic, strong)  NSMutableArray<DynamicBaseVo*>* cellItemArr;
+@property (nonatomic, assign) CGRect fristFrame; // 存储每次要展示的图片frame, 方便缩小时使用
+@property (nonatomic, strong) UIImageView *fullImageView; // 全屏展示的视图
 @end
 @implementation ListPage
 
@@ -33,6 +35,32 @@ UITableViewDataSource
     }
     return self;
 }
+
+ 
+// 懒加载全屏视图
+- (UIImageView *)fullImageView
+{
+    if (_fullImageView == nil) {
+          
+        // 视图和屏幕一样大
+        _fullImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+          
+        // 设置为可交互, 不然, 后面的手势根本不能用
+        _fullImageView.userInteractionEnabled = YES;
+          
+        // 添加点击手势 ( 缩小图片时使用 )
+        [_fullImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionTap2:)]];
+          
+        // 设置视图内容填充模式.
+        _fullImageView.contentMode = UIViewContentModeScaleAspectFit;
+          
+    }
+    return _fullImageView;
+}
+ 
+  
+
+  
 -(void)initBaseUi;
 {
     
@@ -115,6 +143,34 @@ UITableViewDataSource
     return cell;
     
     
+}
+- (void)imglistClik:(UITableViewCell *)value img:(nonnull UIImageView *)img pos:(CGPoint)pos;
+{
+
+    NSLog(@"---%f",img.frame.origin.y);
+    TableImageViewCell *cell = (TableImageViewCell *)value;
+   // UIImageView *imageView = cell.img00;
+    CGRect aFrame = [value convertRect:value.bounds toView:self];
+    CGRect bewFrame = [img convertRect:img.bounds toView:cell];
+    self.fristFrame = CGRectMake(bewFrame.origin.x+aFrame.origin.x, bewFrame.origin.y+aFrame.origin.y+80.0f, bewFrame.size.width, bewFrame.size.height);
+    
+    
+    self.fullImageView.image = img.image;
+    self.fullImageView.frame = self.fristFrame;
+    self.fullImageView.backgroundColor = [UIColor blackColor];
+    UIWindow * currentwindow = [[UIApplication sharedApplication] keyWindow];
+    [currentwindow addSubview:self.fullImageView];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.fullImageView.frame = [UIScreen mainScreen].bounds;
+    }];
+}
+-(void)actionTap2:(UITapGestureRecognizer *)sender{
+    self.fullImageView.backgroundColor = [UIColor clearColor];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.fullImageView.frame = self.fristFrame; // 动画缩小到初始位置
+    } completion:^(BOOL finished) {
+        [self.fullImageView removeFromSuperview];// 从父视图中移除全屏视图
+    }];
 }
 - (void)selectUseHead:(DynamicBaseVo *)value
 {

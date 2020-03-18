@@ -12,8 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TableImageViewCell : DynamicBaseCell
+@property(nonatomic,strong)UIImageView * img00;
+@property(nonatomic,strong)UIImageView * img01;
+@property(nonatomic,strong)UIImageView * img02;
+@property(nonatomic,strong)UIImageView * img03;
 +(NSString*)CELL_STR;
-
 +(TableImageViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
 @end
 

@@ -10,11 +10,8 @@
 #import "UIImageView+WebCache.h"
 
 @interface TableImageViewCell()
+ 
 
-@property(nonatomic,strong)UIImageView * img00;
-@property(nonatomic,strong)UIImageView * img01;
-@property(nonatomic,strong)UIImageView * img02;
-@property(nonatomic,strong)UIImageView * img03;
 
 @end
 @implementation TableImageViewCell
@@ -34,12 +31,33 @@
     self.img02=[self makeImageView];
     self.img03=[self makeImageView];
     
+  
+    self.img00.tag = 100;
+    [self.img00 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+    self.img01.tag = 101;
+    [self.img01 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+    self.img02.tag = 102;
+    [self.img02 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+    self.img03.tag = 103;
+    [self.img03 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+    
+}
+-(void)actionTap:(UITapGestureRecognizer *)sender;
+{
+     CGPoint loaction = [sender locationInView:self];
+    
+ 
+    
+    [self.delegate imglistClik:self img:sender.view pos:loaction];
+    
 }
 -(UIImageView*)makeImageView;
 {
+   
     UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
     temp.image=[UIImage imageNamed:@"avatar2.e90b2411"];
     [self.infoBg addSubview:temp];
+    temp.userInteractionEnabled = YES;
     return temp;
     
 }
