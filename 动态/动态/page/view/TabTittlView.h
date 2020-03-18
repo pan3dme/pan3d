@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol TabTittlViewDelegate<NSObject>
 -(void) selectTabIdx:(int)value;
+-(void) clikAddViewEvent;
 @end
 
 @interface TabTittlView : UIView

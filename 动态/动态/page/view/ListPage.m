@@ -21,7 +21,6 @@
 @interface ListPage ()
 <
  
-
 DynamicBaseCellDelegate,
 UITableViewDelegate,
 UITableViewDataSource
@@ -91,12 +90,16 @@ UITableViewDataSource
         case 2:
             return PLATFORM_GAME_BLOG_LIST_TUIJIAN;
             break;
+        case 3:
+            return PLATFORM_GAME_BLOG_SELF;
+            break;
         default:
             return PLATFORM_GAME_BLOG_LIST_ALL;
             break;
     }
- 
+    
 }
+ 
  
 //重置CELL的高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,6 +110,7 @@ UITableViewDataSource
     
     
 }
+ 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return _cellItemArr.count;

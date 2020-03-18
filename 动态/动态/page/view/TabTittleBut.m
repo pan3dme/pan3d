@@ -59,13 +59,7 @@
 -(void)setData:(NSString*)value;
 {
     self.tabLabel.text=value ;
-
-   
-      // NSString* img_url= [[RechargeConfigVo default]getwebUrl:value.icon];
-     NSString* img_url=@"http://cdn.hb88.tech/static/upload/img/b89e5173abe900de2e6d07798cb9cf97.png";
- //    [self.iconImgview sd_setImageWithURL:[NSURL URLWithString:img_url]  placeholderImage:[UIImage imageNamed:@"redbag_icon_zahnwei"]];
-   
-    
+ 
     [self layoutSubviews];
 
 }

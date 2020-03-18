@@ -41,6 +41,8 @@
 		FE410547242008480031B3D1 /* TabelVideoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410546242008480031B3D1 /* TabelVideoViewCell.m */; };
 		FE41054A242217170031B3D1 /* UserInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410549242217170031B3D1 /* UserInfoVo.m */; };
 		FE41054D2422181B0031B3D1 /* DynamicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41054C2422181B0031B3D1 /* DynamicModel.m */; };
+		FE4105512422962D0031B3D1 /* AddPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4105502422962D0031B3D1 /* AddPanelController.m */; };
+		FE41055424229AE20031B3D1 /* AddImgVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41055324229AE20031B3D1 /* AddImgVideoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,10 @@
 		FE410549242217170031B3D1 /* UserInfoVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoVo.m; sourceTree = "<group>"; };
 		FE41054B2422181B0031B3D1 /* DynamicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicModel.h; sourceTree = "<group>"; };
 		FE41054C2422181B0031B3D1 /* DynamicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicModel.m; sourceTree = "<group>"; };
+		FE41054F2422962D0031B3D1 /* AddPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPanelController.h; sourceTree = "<group>"; };
+		FE4105502422962D0031B3D1 /* AddPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPanelController.m; sourceTree = "<group>"; };
+		FE41055224229AE20031B3D1 /* AddImgVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddImgVideoCell.h; sourceTree = "<group>"; };
+		FE41055324229AE20031B3D1 /* AddImgVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddImgVideoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 		FE064ADF241E921B00AD44BE /* page */ = {
 			isa = PBXGroup;
 			children = (
+				FE41054E24228B990031B3D1 /* addpanel */,
 				FE064B77241EC09A00AD44BE /* vo */,
 				FE064B76241EC08E00AD44BE /* cell */,
 				FE064B70241EB41F00AD44BE /* gfheader */,
@@ -292,6 +299,17 @@
 				FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */,
 			);
 			path = AFNetWorkingEx;
+			sourceTree = "<group>";
+		};
+		FE41054E24228B990031B3D1 /* addpanel */ = {
+			isa = PBXGroup;
+			children = (
+				FE41055224229AE20031B3D1 /* AddImgVideoCell.h */,
+				FE41055324229AE20031B3D1 /* AddImgVideoCell.m */,
+				FE41054F2422962D0031B3D1 /* AddPanelController.h */,
+				FE4105502422962D0031B3D1 /* AddPanelController.m */,
+			);
+			path = addpanel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,12 +438,14 @@
 				FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */,
 				FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */,
 				FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */,
+				FE4105512422962D0031B3D1 /* AddPanelController.m in Sources */,
 				FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */,
 				FE064B73241EB41F00AD44BE /* RedBagRefreshGifHeader.m in Sources */,
 				FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */,
 				FE064AD4241E915D00AD44BE /* main.m in Sources */,
 				FE410547242008480031B3D1 /* TabelVideoViewCell.m in Sources */,
 				FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */,
+				FE41055424229AE20031B3D1 /* AddImgVideoCell.m in Sources */,
 				FE064B6F241EB38200AD44BE /* ListPage.m in Sources */,
 				FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */,
 				FE064B49241E98A300AD44BE /* DynamicMainView.m in Sources */,

@@ -16,6 +16,7 @@
 #import "NetHttpsManager.h"
 #import "DynamicModel.h"
 #import "UserInfoVo.h"
+#import "AddPanelController.h"
 
 
 @interface DynamicMainView ()
@@ -62,7 +63,12 @@ UIScrollViewDelegate
     [self initBaseUi ];
 }
 
-
+- (void)clikAddViewEvent;
+{
+    AddPanelController* vc=   [[AddPanelController alloc] init];
+ 
+    [self.navigationController pushViewController:vc animated:YES];
+}
 - (void)selectTabIdx:(int)value
 {
     [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*value, 0) animated:YES];

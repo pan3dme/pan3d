@@ -15,6 +15,7 @@
 
 @property(nonatomic,strong)NSMutableArray<NSString*>* tabstr;
 @property(nonatomic,strong)NSMutableArray<UIButton*>* tabUiItem;
+@property(nonatomic,strong)UIButton* camBut;
 @property(nonatomic,assign)CGFloat butWeiht;
 @property(nonatomic,assign)int  tabIdx;
 
@@ -34,6 +35,8 @@
         [self.tabstr addObject:@"全部"];
         [self.tabstr addObject:@"我的"];
         [self initBaseUi];
+        
+        
     }
     return self;
 }
@@ -41,9 +44,6 @@
 -(void)initBaseUi;
 {
     self.backgroundColor=[UIColor redColor];
-    
-    
-    
     for(int i=0;i<self.tabstr.count;i++)
     {
         UIButton *tab=[self makeBaseBut:self.tabstr[i]];
@@ -52,18 +52,23 @@
         [self addSubview:tab];
         [self.tabUiItem addObject:tab];
     }
-    
-    
-    //self.layer.cornerRadius = 5;
     self.layer.shadowOffset = CGSizeMake(0, 0);
     self.layer.shadowOpacity = 1.101;
     self.backgroundColor=[UIColor whiteColor];
     self.layer.shadowColor= [ RGBOF(0xbfbfbf) CGColor];
-    
-    
-    
     [self selectTabByIndex:0];
     
+
+    self.camBut =[[UIButton alloc]initWithFrame:CGRectMake(0, 5, 40, 40)];
+    [self.camBut  setImage:[UIImage imageNamed:@"camicon"] forState:UIControlStateNormal];
+    [self.camBut addTarget:self action:@selector(camButClikEvent:) forControlEvents:UIControlEventTouchUpInside] ;
+    [self addSubview:self.camBut];
+    
+}
+- (void) camButClikEvent:(UIButton *) btn
+{
+    [_delegate clikAddViewEvent];
+       
 }
 - (void) pressBtn:(UIButton *) btn
 {
@@ -113,7 +118,7 @@
     {
         self.tabUiItem[i].frame=CGRectMake(i*self.butWeiht+20,5 , self.butWeiht-1, self.height-5);
     }
-    
+    self.camBut.frame=CGRectMake(self.width-60, 20, 32, 32);
 }
 
 @end
