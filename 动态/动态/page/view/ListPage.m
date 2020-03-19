@@ -68,9 +68,20 @@ UITableViewDataSource
   */
 -(void)initFristData;
 {
+        NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+    
+        [dic setObject:@"0" forKey:@"idx_begin"];
+        [dic setObject:@"10" forKey:@"idx_end"];
+        [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
+ 
+  
+//         info.username = Dt_main_data.getInstance().userInfoVo.username //如果没有角色名字，默认为自己
+//         info.idx_begin = 1
+//         info.idx_end =     info.idx_begin+10
+    
     if(!self.cellItemArr){
         self.cellItemArr =[[NSMutableArray alloc]init];
-        [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] beginId:@"0" count:@"10" PostSuccess:^(NSDictionary *responseJson) {
+        [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
              self.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
              [self.tabelListView reloadData];
          }];
@@ -79,7 +90,7 @@ UITableViewDataSource
 }
 -(NSString*)dataLinkUrl;
 {
-    
+   
     switch (self.tabidx) {
         case 0:
             return PLATFORM_GAME_BLOG_LIST_ALL;
@@ -97,6 +108,9 @@ UITableViewDataSource
             return PLATFORM_GAME_BLOG_LIST_ALL;
             break;
     }
+   
+    
+   // return  PLATFORM_GAME_BLOG_SELF;
     
 }
  
@@ -179,7 +193,8 @@ UITableViewDataSource
         
         [self.tabelListView.mj_header endRefreshing];
         
-        [self.tabelListView reloadData];
+        self.cellItemArr=nil;
+        [self initFristData];
         
     }];
     // 设置普通状态的动画图片

@@ -78,18 +78,16 @@ static DynamicModel *dynamicModel = nil;
     }];
 }
 
--(void)GetDynamicByValue:(NSString*)url beginId:(NSString*)beginId count:(NSString*)count PostSuccess:(SuccessBlock)PostSuccess ;
+-(void)GetDynamicByValue:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 {
-    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-//    [dic setObject:@"0" forKey:@"begin_id"];
-//    [dic setObject:@"10" forKey:@"count"];
-    [dic setObject:beginId forKey:@"begin_id"];
-    [dic setObject:count forKey:@"count"];
+ 
     NSString *webURL= [ NSString stringWithFormat:self.rootUrl,url ];
-    [[NetHttpsManager default] POSTWithUrl:webURL paramDict:dic OverTime:100 successBlock:^(NSDictionary *responseJson) {
-        int codenum=  [[dic valueForKey:@"code"]intValue] ;
+    [[NetHttpsManager default] POSTWithUrl:webURL paramDict:paramDict OverTime:100 successBlock:^(NSDictionary *responseJson) {
+        int codenum=  [[responseJson valueForKey:@"code"]intValue] ;
         if(codenum==0){
             PostSuccess(responseJson);
+        }else{
+            NSLog(@"%@",[responseJson valueForKey:@"msg"]);
         }
     } FailureBlock:^(NSError *error) {
         

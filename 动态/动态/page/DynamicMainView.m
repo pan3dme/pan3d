@@ -59,10 +59,13 @@ UIScrollViewDelegate
     
     
     
-    [[ DynamicModel default] userImport:^(NSDictionary *responseJson) {
-        NSLog(@"成功");
-    }];
+ 
     [self initBaseUi ];
+    
+    [[ DynamicModel default] userImport:^(NSDictionary *responseJson) {
+         NSLog(@"成功");
+          [self initFristData:0];
+     }];
 }
 
 - (void)clikAddViewEvent;
@@ -123,7 +126,7 @@ UIScrollViewDelegate
     [self addTempPage:2];
     [self addTempPage:3];
     
-    [self initFristData:0];
+   
 
 }
 
