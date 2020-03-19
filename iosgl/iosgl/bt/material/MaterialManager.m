@@ -53,7 +53,8 @@ static MaterialManager *instance = nil;
     return textureRes;
 }
 
-- (GLuint)createTextureWithImage:(UIImage *)image {
+- (GLuint)createTextureWithImage:(UIImage *)image;
+{
     // 将 UIImage 转换为 CGImageRef
     CGImageRef cgImageRef = [image CGImage];
     GLuint width = (GLuint)CGImageGetWidth(cgImageRef);

@@ -120,18 +120,12 @@
     [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
     [ctx pushVa: self.particleBallGpuData.speedBuffer];
     [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
-    
-   // [ctx setRenderTexture:self.shader3d name:"fs0" texture: self.textureRes.textTureLuint];
-  //  [ctx setRenderTexture:self.shader3d name:"fs1" texture: self.textureRes.textTureLuint];
-    
-    // [ctx setRenderTexture:self.data.materialParam.shader name:"fs0"  texture:self.textureRes.textTureLuint];
-    
-   
-    
+ 
     [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
     
     [self setMaterialTexture];
 }
+ 
 -(void)resetVa;
 {
 }

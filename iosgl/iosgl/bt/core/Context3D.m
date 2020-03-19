@@ -71,11 +71,35 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibuff);
     glDrawElements(GL_TRIANGLES, numTril, GL_UNSIGNED_INT, 0);
 }
--(void)setRenderTexture:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture;
+-(void)setRenderTexture:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
 {
     GLuint textureSlot = glGetUniformLocation(shader.program, (char*)[name UTF8String]);
-    glActiveTexture(GL_TEXTURE0);
+    switch (level) {
+        case 0:
+            glActiveTexture(GL_TEXTURE0);
+            break;
+        case 1:
+            glActiveTexture(GL_TEXTURE1);
+            break;
+        case 2:
+            glActiveTexture(GL_TEXTURE2);
+            break;
+        case 3:
+            glActiveTexture(GL_TEXTURE3);
+            break;
+        case 4:
+            glActiveTexture(GL_TEXTURE4);
+            break;
+        case 5:
+            glActiveTexture(GL_TEXTURE5);
+            break;
+        case 6:
+            glActiveTexture(GL_TEXTURE6);
+            break;
+        default:
+            break;
+    }
     glBindTexture(GL_TEXTURE_2D, texture);
-    glUniform1i(textureSlot, 0);
+    glUniform1i(textureSlot, level);
 }
 @end

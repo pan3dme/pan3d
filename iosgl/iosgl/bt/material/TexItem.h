@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  float   mipmap;
 
 -(void)setId:(int)id;
- 
+-(int)id;
 
 @end
 

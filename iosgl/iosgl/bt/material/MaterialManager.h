@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)addResByte:(NSString*)url dataByte:(ByteArray*)dataByte;
 -(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
 -(void)loadDynamicTexUtil:(MaterialParam*)material;
+- (GLuint)createTextureWithImage:(UIImage *)image;
 @end
 
 NS_ASSUME_NONNULL_END

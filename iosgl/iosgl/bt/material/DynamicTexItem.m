@@ -57,7 +57,18 @@
 {
    // self.textureDynamic
     
-      TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
-    self.textureDynamic=textureRes.textTureLuint;
+  
+    
+    
+    CGRect rect = CGRectMake(0, 0, 100, 2);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.textureDynamic= [[MaterialManager default] createTextureWithImage:image];
+    //[self createTextureWithImage:[UIImage imageNamed:urlStr]];
 }
 @end

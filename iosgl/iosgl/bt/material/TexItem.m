@@ -8,7 +8,7 @@
 
 #import "TexItem.h"
 @interface TexItem()
-@property (nonatomic, assign)  int  id;
+@property (nonatomic, assign)  int  idx;
 @end
 @implementation TexItem
 - (instancetype)init
@@ -21,7 +21,11 @@
 }
 -(void)setId:(int)id;
 {
-    _id=id;
-    self.name =[NSString stringWithFormat:@"fs%d",id];
+    _idx=id;
+    self.name =[NSString stringWithFormat:@"fs%d",_idx];
+}
+-(int)id;
+{
+    return _idx;
 }
 @end
