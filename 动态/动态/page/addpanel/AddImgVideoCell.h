@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol AddImgVideoCellDelegate<NSObject>
+-(void) clikAddNextUrlEvet ;
+@end
 @interface AddImgVideoCell : UIView
+@property(assign,nonatomic) id<AddImgVideoCellDelegate>delegate;
 -(void)setImageUrl:(NSString*)url;
 @end
 

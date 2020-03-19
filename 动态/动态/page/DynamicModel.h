@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "UserInfoVo.h"
+#import "Header.h"
+#import "NetHttpsManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

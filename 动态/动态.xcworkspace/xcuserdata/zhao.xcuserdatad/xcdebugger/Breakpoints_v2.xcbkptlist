@@ -14,8 +14,8 @@
             filePath = "&#x52a8;&#x6001;/page/DynamicMainView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "&#x52a8;&#x6001;/page/DynamicMainView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "-addTempPage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -686,9 +686,9 @@
             filePath = "&#x52a8;&#x6001;/page/addpanel/AddPanelController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "-refrishData"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-setFristtUrl:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -702,8 +702,8 @@
             filePath = "&#x52a8;&#x6001;/page/DynamicMainView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -782,9 +782,41 @@
             filePath = "&#x52a8;&#x6001;/page/addpanel/AddPanelController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-setFristtUrl:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "AddPanelController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D300B9C-AB94-4E1A-A427-4A93714BB6B8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x52a8;&#x6001;/page/addpanel/AddImgVideoCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-addCamButEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D32AEA7-4EEB-4562-8582-56270D9AF873"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x52a8;&#x6001;/page/addpanel/AddPanelController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-clikAddNextUrlEvet"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

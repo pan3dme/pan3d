@@ -29,6 +29,26 @@
     }
     return self;
 }
+-(void)initBaseUi;
+{
+    self.picImage=[[UIImageView alloc]initWithFrame:self.bounds];
+    self.picImage.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self addSubview:self.picImage];
+    
+    
+    self.camIcamBut=[[UIImageView alloc]initWithFrame:CGRectMake(50, 50, 40, 40)];
+    self.camIcamBut.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self addSubview:self.camIcamBut];
+    self.camIcamBut.image=[UIImage imageNamed:@"camicon"];
+    
+    self.camIcamBut.userInteractionEnabled=YES;
+      [self.camIcamBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addCamButEvent:)]];
+ 
+}
+-(void)addCamButEvent:(UITapGestureRecognizer *)sender;
+{
+    [_delegate clikAddNextUrlEvet];
+}
 -(void)setImageUrl:(NSString*)url;
 {
     self.soureUrl=url;
@@ -47,19 +67,6 @@
     }else{
         return[NSString stringWithFormat:@"%@/%@",rootUrl,value];
     }
-}
--(void)initBaseUi;
-{
-    self.picImage=[[UIImageView alloc]initWithFrame:self.bounds];
-    self.picImage.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [self addSubview:self.picImage];
-    
-    
-    self.camIcamBut=[[UIImageView alloc]initWithFrame:CGRectMake(50, 50, 40, 40)];
-    self.camIcamBut.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [self addSubview:self.camIcamBut];
-    self.camIcamBut.image=[UIImage imageNamed:@"camicon"];
- 
 }
 
 @end

@@ -23,7 +23,6 @@
 <
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
-UIImagePickerControllerDelegate,
 TabTittlViewDelegate,
 UIScrollViewDelegate
 >
