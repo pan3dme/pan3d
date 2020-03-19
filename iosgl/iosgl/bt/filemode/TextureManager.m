@@ -21,4 +21,9 @@ static TextureManager *instance = nil;
     TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
     fun(textureRes);
 }
+-(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*,DynamicTexListVo*))fun texListVo:(DynamicTexListVo*)texListVo;
+{
+    TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
+    fun(textureRes,texListVo);
+}
 @end

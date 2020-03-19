@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GL_Header.h"
+#import "DynamicTexListVo.h"
 #import "TextureRes.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 
 -(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*))fun;
-//   public getTexture($url: string, $fun: Function, $wrapType: number = 0, $info: any = null, $filteType: number = 0, $mipmapType: number = 0): void {
+-(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*,DynamicTexListVo*))fun texListVo:(DynamicTexListVo*)texListVo;
 @end
 
 NS_ASSUME_NONNULL_END

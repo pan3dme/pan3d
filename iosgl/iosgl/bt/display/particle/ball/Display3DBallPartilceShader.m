@@ -173,7 +173,7 @@
         "vec4 infoUvA   =texture2D(fs0,v1.xy);\n"
      //   "vec4 infoUv  = vec4(1.0,0.0,0.0,1.0);\n"
        "vec4 infoUv  = vec4(outvec3.xyz,1.0);\n"
-        "gl_FragColor =infoUvA;\n"
+        "gl_FragColor =infoUv;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

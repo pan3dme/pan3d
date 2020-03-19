@@ -59,8 +59,11 @@
     }
     NSArray<DynamicTexItem*>* texDynamicVec  = self.data.materialParam.dynamicTexList;
     for (int i   = 0; i < texDynamicVec.count; i++) {
-          [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name texture:  texDynamicVec[i].textureRes.textTureLuint];
-        // Scene_data.context3D.setRenderTexture(this.data.materialParam.shader, texDynamicVec[i].target.name, texDynamicVec[i].texture, texDynamicVec[i].target.id,true);
+      //  [ctx setRenderTexture:self.data.materialParam.shader name:"fs0"  texture:texDynamicVec[i].textureRes.textTureLuint];
+           
+        
+       // [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name texture:  texDynamicVec[i].textureRes.textTureLuint];
+            
     }
     
     /*
