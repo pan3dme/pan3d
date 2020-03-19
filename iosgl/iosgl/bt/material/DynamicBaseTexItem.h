@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  TexItem* target;
 @property (nonatomic, strong)  TextureRes* textureRes;
  
+-(void)creatTextureByCurve;
 @end
 
 NS_ASSUME_NONNULL_END

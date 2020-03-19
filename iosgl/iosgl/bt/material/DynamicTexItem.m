@@ -8,6 +8,7 @@
 
 #import "DynamicTexItem.h"
 #import "Curve.h"
+#import "MaterialManager.h"
 
 @implementation DynamicTexItem
 
@@ -23,5 +24,40 @@
     self.curve=[[Curve alloc]init];
     self.curve.type=type;
     
+}
+
+-(GLuint)texture;
+{
+    if(self.textureDynamic){
+        return self.textureDynamic;
+    }else{
+     if(self.textureRes){
+              return self.textureRes.textTureLuint;
+          }else{
+              return nil;
+          }
+    }
+    
+}
+/*
+ public get texture(): WebGLTexture {
+     if (this._textureDynamic) {
+         return this._textureDynamic;
+     } else {
+         if (this.textureRes) {
+             return this.textureRes.texture;
+         } else {
+             return null;
+         }
+     }
+     
+ }
+ */
+-(void)creatTextureByCurve;
+{
+   // self.textureDynamic
+    
+      TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
+    self.textureDynamic=textureRes.textTureLuint;
 }
 @end

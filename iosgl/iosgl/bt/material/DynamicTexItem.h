@@ -27,12 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)  NSString*  url;
 @property(nonatomic,strong) TexItem* target;
+@property(nonatomic,assign) GLuint textureDynamic;
 @property(nonatomic,assign) BOOL  isParticleColor;
 @property(nonatomic,strong)   Curve* curve ;
 @property(nonatomic,assign)  float life;
 
 -(void)initCurve:(int)type;
-
+-(GLuint)texture;
 @end
 
 NS_ASSUME_NONNULL_END

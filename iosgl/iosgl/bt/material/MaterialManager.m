@@ -178,14 +178,13 @@ static MaterialManager *instance = nil;
     for (int i= 0; i < dynamicTexList.count; i++) {
         
         if (dynamicTexList[i].isParticleColor) {
-            // dynamicTexList[i].creatTextureByCurve();
+            NSLog(@"---");
+            [(DynamicTexItem*)dynamicTexList[i]  creatTextureByCurve];
+             
         } else {
-        
             [[ TextureManager default] getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(TextureRes * textureRes,DynamicTexListVo* texListVo) {
                 DynamicTexItem *dynamicTexItem=(DynamicTexItem*)texListVo;
                 dynamicTexItem.textureRes=textureRes;
-      
-                
             } texListVo:dynamicTexList[i]];
             /*
              TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
