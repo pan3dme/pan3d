@@ -62,48 +62,51 @@ UITableViewDataSource
      
  
 }
- 
- /*
-  初始化t第一次的数据
-  */
+
+/*
+ 初始化t第一次的数据
+ */
 -(void)initFristData;
 {
-        NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-    
-//        [dic setObject:@"0" forKey:@"idx_begin"];
-//        [dic setObject:@"10" forKey:@"idx_end"];
-//        [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
  
-  
-//         info.username = Dt_main_data.getInstance().userInfoVo.username //如果没有角色名字，默认为自己
-//         info.idx_begin = 1
-//         info.idx_end =     info.idx_begin+10
-    
-    
-    ListPage* that=self;
     if(!self.cellItemArr){
         self.cellItemArr =[[NSMutableArray alloc]init];
-        
-        if(self.tabidx==3){
-         [dic setObject:@"1" forKey:@"idx_begin"];
-         [dic setObject:@"10" forKey:@"idx_end"];
-            [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
-                                   [[ DynamicModel default] GetDynamicSelfBlog:PLATFORM_GAME_BLOG_SELF paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-                                      that.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
-                                //     [that.tabelListView reloadData];
-                                   }];
-         
-
-        }else{
-            [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-                        self.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
-                        [self.tabelListView reloadData];
-                    }];
-        }
-       
+        [self refrishNextUrl];
     }
- 
+    
 }
+-(void)refrishNextUrl;
+{
+        ListPage* that=self;
+       NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+     if(self.tabidx==3){
+               [dic setObject:@"1" forKey:@"idx_begin"];
+               [dic setObject:@"10" forKey:@"idx_end"];
+               [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
+               [[ DynamicModel default] GetDynamicSelfBlog:PLATFORM_GAME_BLOG_SELF paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+                   
+                   NSMutableArray<DynamicBaseVo*>* arr= [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
+                   [that pusDataToTabel:arr];
+                   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                       [that.tabelListView reloadData];
+                   });
+               }];
+    
+           }else{
+               [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+                   self.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
+                   [self.tabelListView reloadData];
+               }];
+           }
+}
+-(void)pusDataToTabel:(NSArray*)arr
+{
+    for(int i=0;i<arr.count;i++){
+        [self.cellItemArr addObject:arr[0]];
+    }
+            
+}
+
 -(NSString*)dataLinkUrl;
 {
    

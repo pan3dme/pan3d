@@ -26,26 +26,30 @@
     self.cellHeight=50;
     
     if(self.content.length){
-          self.cellHeight+=30;
+        self.cellHeight+=30;
     }
     switch (self.type) {
         case DYNAMIC_IMG_TYPE:
             if(self.images.count>2){
                 self.cellHeight+=200;
             }else{
-                self.cellHeight+=100;
+                if(self.images.count==1){
+                    self.cellHeight+=150;
+                }else{
+                    self.cellHeight+=100;
+                }
             }
             break;
         case DYNAMIC_VIDE_TYPE:
-             self.cellHeight+=self.videoSize.y;
+            self.cellHeight+=self.videoSize.y;
             break;
         default:
             break;
     }
+    self.cellHeight+=50;
     
-       self.cellHeight+=50;
- 
 }
+
 -(NSInteger)type;
 {
     if(self.tabelVo.vidio_url.length){
@@ -90,15 +94,15 @@
 }
 /*
  
-  export function getResizeWh(url: string) {
-      if (url.indexOf("x-oss-process") != -1) {
-          var item: Array<string> = url.split(",");
-          return { h: Number(item[item.length - 2].replace("h_", "")), w: Number(item[item.length - 1].replace("w_", "")) }
-      } else {
-          return null
-      }
-  }
-*/
+ export function getResizeWh(url: string) {
+ if (url.indexOf("x-oss-process") != -1) {
+ var item: Array<string> = url.split(",");
+ return { h: Number(item[item.length - 2].replace("h_", "")), w: Number(item[item.length - 1].replace("w_", "")) }
+ } else {
+ return null
+ }
+ }
+ */
 -(NSString*)video_post;
 {
     NSString* videoUrl=    [self getWebUrlByurl:self.tabelVo.vidio_url];
@@ -112,10 +116,10 @@
 }
 -(NSMutableArray<NSString*>*)miniimages;
 {
-
- 
+    
+    
     NSMutableArray<NSString*> *arr=[[NSMutableArray alloc]init];
- 
+    
     
     if(self.tabelVo.image1.length){
         [arr addObject:[self getWebUrlByurl:[self.tabelVo.image1 stringByReplacingOccurrencesOfString:@".jpg"withString:@"_mini.jpg"]]];
@@ -144,18 +148,18 @@
 -(NSMutableArray<NSString*>*)images;
 {
     NSMutableArray<NSString*> *arr=[[NSMutableArray alloc]init];
-        if(self.tabelVo.image1.length){
-    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image1] ];
-        }
-        if(self.tabelVo.image2.length){
-    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image2] ];
-        }
-        if(self.tabelVo.image3.length){
-    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image3] ];
-        }
-        if(self.tabelVo.image4.length){
-    [arr addObject:  [self getWebUrlByurl:self.tabelVo.image4] ];
-        }
+    if(self.tabelVo.image1.length){
+        [arr addObject:  [self getWebUrlByurl:self.tabelVo.image1] ];
+    }
+    if(self.tabelVo.image2.length){
+        [arr addObject:  [self getWebUrlByurl:self.tabelVo.image2] ];
+    }
+    if(self.tabelVo.image3.length){
+        [arr addObject:  [self getWebUrlByurl:self.tabelVo.image3] ];
+    }
+    if(self.tabelVo.image4.length){
+        [arr addObject:  [self getWebUrlByurl:self.tabelVo.image4] ];
+    }
     
     return arr;
 }

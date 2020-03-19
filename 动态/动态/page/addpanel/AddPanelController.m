@@ -25,9 +25,15 @@ UINavigationControllerDelegate
 @property(nonatomic,strong)NSMutableArray<AddImgVideoCell*>*  cellItems;
 @property(nonatomic,strong)NSMutableArray<NSString*>*  imgItems;
 @end
-
+static AddPanelController *addPanelController = nil;
 @implementation AddPanelController
-
++ (instancetype)default;
+{
+    if (addPanelController == nil) {
+        addPanelController = [[AddPanelController alloc] init];
+    }
+    return addPanelController;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
@@ -59,27 +65,33 @@ UINavigationControllerDelegate
     
     
     UIBarButtonItem *rightBar=[[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(preeNext)];
-         self.navigationItem.rightBarButtonItem=rightBar;
+    self.navigationItem.rightBarButtonItem=rightBar;
     
-//    [rightBar setBackgroundImage:[UIImage imageNamed:@"diamond_img_diamond"] forState:(UIControlStateNormal) style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
- 
-    /*
-    UIImage *rightImage = [[UIImage imageNamed:@"diamond_img_diamond"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        UIBarButtonItem *rightBar=[[UIBarButtonItem alloc] initWithImage:rightImage style:UIBarButtonItemStylePlain target:self action:@selector(preeNext)];
-  
-       self.navigationItem.rightBarButtonItem=rightBar;
-     */
-   
     
-  //  [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-
-  //  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage: [[UIImage imageNamed: @"diamond_img_diamond"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal] style: UIBarButtonItemStylePlain target: self action: @selector(preeNext)];
-
     
 }
 -(void)preeNext
 {
-    NSLog(@"----");
+    
+    
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+    self.inputTextField.text=@"333";
+    [dic setObject:self.inputTextField.text forKey:@"content"];
+    for(int i=0;i<self.imgItems.count;i++){
+        [dic setObject:self.imgItems[i]  forKey:[NSString stringWithFormat:@"image%d",i+1]];
+    }
+    [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_ADD paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+        
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(10.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //    [self.navigationController popViewControllerAnimated:YES];
+        });
+        
+    }];
+    
+    
+    
+    
 }
 -(void)makeFourImgView;
 {
@@ -154,7 +166,7 @@ UINavigationControllerDelegate
                 [self.imgItems addObject:value];
                 [self refrishData];
             } progressfun:^(float num) {
-                  NSLog(@"-num-%ld",num);
+                NSLog(@"-num-%ld",num);
                 
                 [self progressToCellLabel:num];
             }];

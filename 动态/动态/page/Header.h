@@ -42,6 +42,7 @@ static NSString * const PLATFORM_GAME_BLOG_LIST_ALL                          = @
 static NSString * const PLATFORM_GAME_BLOG_LIST_FOLLOWS                          = @"/blog/list_follows";
 static NSString * const PLATFORM_GAME_BLOG_LIST_TUIJIAN                          = @"/blog/list_tuijian";
 static NSString * const PLATFORM_GAME_BLOG_SELF                          = @"/blog/list_self";
+static NSString * const PLATFORM_GAME_BLOG_ADD                          = @"/blog/add";
 /*
  static PLATFORM_GAME_USER_IMPORT = '/user/import';
  //添加动态

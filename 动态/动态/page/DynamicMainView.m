@@ -89,9 +89,8 @@ UIScrollViewDelegate
            // [RedBagRoomModel videoPickerController:picker didFinishPickingMediaWithInfo:info redBagRoomVo:self.join_room_id];
         }else{
          [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
-               AddPanelController* vc=   [[AddPanelController alloc] init];
-               [vc setFristtUrl:value];
-               [self.navigationController pushViewController:vc animated:YES];
+               [[AddPanelController default] setFristtUrl:value];
+               [self.navigationController pushViewController:[AddPanelController default]  animated:YES];
          } progressfun:^(float num) {
              NSLog(@"dd%f",num);
          }];

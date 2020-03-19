@@ -109,6 +109,39 @@ static DynamicModel *dynamicModel = nil;
         
     }];
 }
+-(void)basePostToUrl:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
+{
+    
+    NSMutableString*    params = [[NSMutableString alloc] init];
+    for(id key in paramDict)
+    {
+        NSString *encodedkey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        CFStringRef value = (__bridge CFStringRef)[[paramDict objectForKey:key] copy];
+        CFStringRef encodedValue = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, value,NULL,(CFStringRef)@";/?:@&=+$", kCFStringEncodingUTF8);
+        [params appendFormat:@"%@=%@&", encodedkey, encodedValue];
+        CFRelease(value);
+        CFRelease(encodedValue);
+    }
+    
+    NSString *webURL= [ NSString stringWithFormat:@"%@%@?%@",@"http://34.87.12.20:20080",url,params ];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:webURL]];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        int codenum=  [[responseDic valueForKey:@"code"]intValue] ;
+        if(codenum==0){
+    
+            NSLog(@"成功--%@",webURL);
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                 PostSuccess(responseDic);
+                         });
+        }else{
+            NSLog(@"失败--%@",webURL);
+        }
+        
+    }];
+    [dataTask resume];
+}
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun progressfun:(ProgressUpLoad)progressfun ;
 {

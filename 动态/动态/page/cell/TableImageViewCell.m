@@ -123,6 +123,8 @@
         switch (self.datavo.miniimages.count) {
             case 1:
                 self.img00.hidden=NO;
+                 self.img00.frame=CGRectMake(0, 0, 139, 139);
+                
                 break;
             case 2:
                 self.img00.hidden=NO;

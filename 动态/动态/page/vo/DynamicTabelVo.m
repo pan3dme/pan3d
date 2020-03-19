@@ -13,5 +13,6 @@
 -(void)refrishData:(NSDictionary *)value;
 {
     [self setValueToSelf:value];
+
 }
 @end
