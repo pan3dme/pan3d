@@ -13,6 +13,7 @@
 #import "NetHttpsManager.h"
 #import "DynamicModel.h"
 #import "UserInfoVo.h"
+#import "UpImageVo.h"
  
  
 
@@ -95,7 +96,7 @@ static DynamicModel *dynamicModel = nil;
     }];
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun;
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun progressfun:(ProgressUpLoad)progressfun ;
 {
     CGRect croppingRect = [[info valueForKey:@"UIImagePickerControllerCropRect"] CGRectValue];
     UIImage* image=[info objectForKey:UIImagePickerControllerOriginalImage];
@@ -114,11 +115,11 @@ static DynamicModel *dynamicModel = nil;
     [self saveImage:image320 WithName:@"userAvatar" bfun:^(NSString* value) {
   
         bfun(value);
-    }];
+    } progressfun:progressfun];
   
 }
 //保存图片
--(void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName bfun:(void (^)(NSString* url ))bfun;
+-(void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName bfun:(SuccessUpLoad)bfun progressfun:(ProgressUpLoad)progressfun ;
 {
     NSData* imageData = UIImagePNGRepresentation(tempImage);
     NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -127,56 +128,11 @@ static DynamicModel *dynamicModel = nil;
     NSString * token =self.selfUserInfoVo.token  ;
     NSString *baseUrl=[NSString stringWithFormat:@"%@/%@", @"http://34.87.12.20:20080",@"upload/image"];
     baseUrl=[NSString stringWithFormat:@"%@?token=%@",baseUrl,token];
-    [self saveToServes:baseUrl img:tempImage bfun:bfun];
+    UpImageVo* upImageVo=[[UpImageVo alloc]init];
+    [upImageVo saveToServes:baseUrl img:tempImage bfun:bfun progressfun:progressfun];
+ 
 }
--(void)saveToServes:(NSString*)severUrl  img:(UIImage*)image bfun:(void (^)(NSString* url ))bfun  ;
-{
-  
-    //分界线的标识符
-    NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:severUrl]];
-    NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
-    NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
-    NSData* data = UIImagePNGRepresentation(image);
-    NSMutableString *body=[[NSMutableString alloc]init];
-    [body appendFormat:@"%@\r\n",MPboundary];
-    [body appendFormat:@"Content-Disposition: form-data; name=\"pic\"; filename=\"boris.png\"\r\n"];
-    [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
-    NSString *end=[[NSString alloc]initWithFormat:@"\r\n%@",endMPboundary];
-    NSMutableData *myRequestData=[NSMutableData data];
-    [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    [myRequestData appendData:data];
-    [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
-    NSString *content=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
-    [request setValue:content forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%lu", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody:myRequestData];
-    [request setHTTPMethod:@"POST"];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (connectionError) {
-               NSLog(@"上传失败");
-        }else{
-            NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            NSNumber* code = [responseJson objectForKey:@"code"]  ;
-            int codenum = [code intValue];
-            if(codenum==0){
-                NSDictionary* filedic = [responseJson objectForKey:@"file"]  ;
-                NSString  *avatarpath = [filedic objectForKey:@"path"]  ;
-                bfun(avatarpath);
-                
-            }else{
-                NSLog(@"判断没有进入正确的地方---%@", responseJson);
-            }
-            NSLog(@"上传成功");
-        }
-    }];
-    
-    
-     
-    
-}
-
+ 
 
 -(UIImage *)resizeImage:(UIImage *)image width:(int)wdth height:(int)hght{
     int w = image.size.width;

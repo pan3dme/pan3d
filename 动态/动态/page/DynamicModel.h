@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UserInfoVo.h"
 #import "Header.h"
+#import "UpImageVo.h"
 #import "NetHttpsManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -20,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)userImport:(SuccessBlock)PostSuccess;
 //-(void)listAll:(SuccessBlock)PostSuccess;
 -(void)GetDynamicByValue:(NSString*)url beginId:(NSString*)beginId count:(NSString*)count PostSuccess:(SuccessBlock)PostSuccess ;
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun;
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun progressfun:(ProgressUpLoad)progressfun ;
 @end
 
 NS_ASSUME_NONNULL_END

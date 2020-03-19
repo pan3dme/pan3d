@@ -117,7 +117,17 @@ UINavigationControllerDelegate
         }
     }
 }
-
+- (void)clearFileByUrl:(NSString *)url
+{
+    for(int i=0;i<self.imgItems.count;i++){
+        if([self.imgItems[i] isEqualToString:url]){
+            [self.imgItems removeObjectAtIndex:i];
+            [self refrishData];
+            return;
+        }
+    }
+    
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -143,10 +153,19 @@ UINavigationControllerDelegate
                 NSLog(@"-value-%@",value);
                 [self.imgItems addObject:value];
                 [self refrishData];
+            } progressfun:^(float num) {
+                  NSLog(@"-num-%ld",num);
+                
+                [self progressToCellLabel:num];
             }];
             [picker dismissViewControllerAnimated:YES completion:NULL];
         }
     }];
+}
+
+-(void)progressToCellLabel:(float)num;
+{
+    [self.cellItems[ self.imgItems.count] progressToCellLabel:num];
 }
 
 - (void)viewWillLayoutSubviews

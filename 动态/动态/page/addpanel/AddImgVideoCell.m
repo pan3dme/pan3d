@@ -16,6 +16,7 @@
 @property (nonatomic,strong)UIImageView* picImage;
 @property (nonatomic,strong)UIImageView* camIcamBut;
 @property (nonatomic,strong)UIButton* closeXbut;
+@property (nonatomic,strong)UILabel* progressLabel;
 @property (nonatomic,strong)NSString* soureUrl;
 @end
 @implementation AddImgVideoCell
@@ -46,15 +47,34 @@
     self.closeXbut=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
     self.closeXbut.backgroundColor=[UIColor redColor];
     [self addSubview:self.closeXbut];
+      [self.closeXbut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeXbutEvent:)]];
+    
+    
+    self.progressLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+    self.progressLabel.text=@"0/100";
+      self.progressLabel.hidden=YES;
+    [self addSubview:self.progressLabel];
+    
     
     self.camIcamBut.userInteractionEnabled=YES;
     [self.camIcamBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addCamButEvent:)]];
+    
  
 }
 - (void)layoutSubviews;
 {
     self.closeXbut.frame=CGRectMake(self.width-20, 0, 20, 20);
   
+}
+-(void)progressToCellLabel:(float)num;
+{
+    self.progressLabel.text=[NSString stringWithFormat:@"%d/100",(int)(num*100)];
+    self.progressLabel.hidden=NO;
+    self.camIcamBut.hidden=YES;
+}
+-(void)closeXbutEvent:(UITapGestureRecognizer *)sender;
+{
+    [_delegate clearFileByUrl:self.soureUrl];
 }
 -(void)addCamButEvent:(UITapGestureRecognizer *)sender;
 {
@@ -67,10 +87,13 @@
     if(self.soureUrl.length){
         self.camIcamBut.hidden=YES;
         self.closeXbut.hidden=NO;
+         self.progressLabel.hidden=YES;
     }else{
         self.camIcamBut.hidden=NO;
          self.closeXbut.hidden=YES;
     }
+    
+    
 }
 -(NSString*)getWebUrlByurl:(NSString*)value
 {

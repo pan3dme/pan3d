@@ -89,7 +89,9 @@ UIScrollViewDelegate
                AddPanelController* vc=   [[AddPanelController alloc] init];
                [vc setFristtUrl:value];
                [self.navigationController pushViewController:vc animated:YES];
-           }];
+         } progressfun:^(float num) {
+             NSLog(@"dd%f",num);
+         }];
             [picker dismissViewControllerAnimated:YES completion:NULL];
         }
     }];

@@ -12,10 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol AddImgVideoCellDelegate<NSObject>
 -(void) clikAddNextUrlEvet ;
+-(void) clearFileByUrl:(NSString*)url ;
 @end
 @interface AddImgVideoCell : UIView
 @property(assign,nonatomic) id<AddImgVideoCellDelegate>delegate;
 -(void)setImageUrl:(NSString*)url;
+-(void)progressToCellLabel:(float)num;
+
 @end
 
 NS_ASSUME_NONNULL_END
