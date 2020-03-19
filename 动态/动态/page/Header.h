@@ -43,6 +43,12 @@ static NSString * const PLATFORM_GAME_BLOG_LIST_FOLLOWS                         
 static NSString * const PLATFORM_GAME_BLOG_LIST_TUIJIAN                          = @"/blog/list_tuijian";
 static NSString * const PLATFORM_GAME_BLOG_SELF                          = @"/blog/list_self";
 static NSString * const PLATFORM_GAME_BLOG_ADD                          = @"/blog/add";
+
+static NSString * const PLATFORM_GAME_BLOG_DELETE                          = @"/blog/delete";
+static NSString * const PLATFORM_GAME_BLOG_COMMENTS                          = @"/blog/add_comments";
+static NSString * const PLATFORM_GAME_BLOG_ADD_LIKES                          = @"/blog/add_likes";
+ 
+static NSString * const PLATFORM_USER_FOLLOWS                          = @"/user/update_follows";
 /*
  static PLATFORM_GAME_USER_IMPORT = '/user/import';
  //添加动态

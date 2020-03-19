@@ -84,8 +84,9 @@ UITableViewDataSource
                [dic setObject:@"10" forKey:@"idx_end"];
                [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
                [[ DynamicModel default] GetDynamicSelfBlog:PLATFORM_GAME_BLOG_SELF paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-                   
+   
                    NSMutableArray<DynamicBaseVo*>* arr= [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
+                   [that.cellItemArr removeAllObjects];
                    [that pusDataToTabel:arr];
                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                        [that.tabelListView reloadData];
@@ -102,7 +103,7 @@ UITableViewDataSource
 -(void)pusDataToTabel:(NSArray*)arr
 {
     for(int i=0;i<arr.count;i++){
-        [self.cellItemArr addObject:arr[0]];
+        [self.cellItemArr addObject:arr[i]];
     }
             
 }
@@ -213,10 +214,9 @@ UITableViewDataSource
         
         [self.tabelListView.mj_header endRefreshing];
  
-//        self.cellItemArr=nil;
-//        [self initFristData];
+ 
+        [self refrishNextUrl];
         
-         [self.tabelListView reloadData];
       
         
     }];

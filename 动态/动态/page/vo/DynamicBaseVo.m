@@ -8,6 +8,7 @@
 
 #import "DynamicBaseVo.h"
 #import "DynamicTabelVo.h"
+#import "DynamicModel.h"
 
 @implementation DynamicBaseVo
 - (instancetype)init
@@ -50,6 +51,10 @@
     
 }
 
+-(BOOL)isSelf;
+{
+    return  [DynamicModel default].selfUserInfoVo.username== self.tabelVo.username;
+}
 -(NSInteger)type;
 {
     if(self.tabelVo.vidio_url.length){
