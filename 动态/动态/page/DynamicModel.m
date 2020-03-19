@@ -149,9 +149,10 @@ static DynamicModel *dynamicModel = nil;
     [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
     NSString *content=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
     [request setValue:content forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%d", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:[NSString stringWithFormat:@"%lu", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody:myRequestData];
     [request setHTTPMethod:@"POST"];
+    
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
                NSLog(@"上传失败");
@@ -171,6 +172,8 @@ static DynamicModel *dynamicModel = nil;
         }
     }];
     
+    
+     
     
 }
 
