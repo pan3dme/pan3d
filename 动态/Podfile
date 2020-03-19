@@ -5,6 +5,7 @@ target '动态' do
    pod 'SDWebImage/GIF'
    pod 'MBProgressHUD'
    pod 'SVProgressHUD'
+   pod 'MJExtension'
    pod 'Masonry'
    pod 'IQKeyboardManager'
    pod 'MJRefresh'

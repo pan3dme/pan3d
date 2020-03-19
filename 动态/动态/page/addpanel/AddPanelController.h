@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddPanelController : UIViewController
-
+-(void)setFristtUrl:(NSString*)url;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -228,6 +228,7 @@
             [b addObject:@"1"];
             [a addObject:@"1"];
         } else {
+           //  float   speedNum = arr[i + 1].frame - arr[i].frame;
             /*
              var $speedNum: number = arr[i + 1].frame - arr[i].frame;
              var $A = arr[i].vec3;
@@ -240,14 +241,19 @@
              b = b.concat(this.getBzData($A.z, $B.z, $a.z, $b.z, $speedNum));
              a = a.concat(this.getBzData($A.w, $B.w, $a.w, $b.w, $speedNum));
              */
+            
+            [r addObject:@"1"];
+            [g addObject:@"1"];
+            [b addObject:@"1"];
+            [a addObject:@"1"];
         }
     }
     curve.values =[[NSMutableArray alloc]init];
-    [curve.values addObject:@"1"];
-    [curve.values addObject:@"1"];
-    [curve.values addObject:@"1"];
-    [curve.values addObject:@"1"];
-    
+    [curve.values addObject:r];
+    [curve.values addObject:g];
+    [curve.values addObject:b];
+    [curve.values addObject:a];
+ 
     
 }
 -(NSMutableArray*)readItems:(ByteArray*)byte;

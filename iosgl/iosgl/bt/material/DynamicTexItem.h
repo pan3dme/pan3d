@@ -12,7 +12,7 @@
 #import "Curve.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class TexItem;
 @interface DynamicTexItem : DynamicBaseTexItem
 /*
  public url: string;
@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)   Curve* curve ;
 @property(nonatomic,assign)  float life;
 
+-(void)initCurve:(int)type;
 
 @end
 

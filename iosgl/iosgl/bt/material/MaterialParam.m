@@ -8,6 +8,7 @@
 
 #import "MaterialParam.h"
 #import "DynamicTexItem.h"
+#import "ParamDataVo.h"
 
 @implementation MaterialParam
 -(void)SetMaterial:(Material*)materialTree;
@@ -24,21 +25,33 @@
 {
     NSArray<TexItem*>* texList = self.material.texList;
     for(int i=0;i<texList.count;i++){
-        DynamicTexItem* dyTex;
+        DynamicTexItem*    dyTex = [[DynamicTexItem alloc]init];
+        dyTex.target = texList[i];
+        dyTex.paramName = texList[i].paramName;
         if (texList[i].isParticleColor) {
-            
-            dyTex = [[DynamicTexItem alloc]init];
-                         dyTex.target = texList[i];
-                         dyTex.paramName = texList[i].paramName;
-//                         dyTex.initCurve(4);
-//                         this.dynamicTexList.push(dyTex);
-//                         dyTex.isParticleColor = true;
-            
-        } else if (texList[i].isDynamic) {
-            
+            [dyTex initCurve:4];
+            dyTex.isParticleColor = YES;
         }
+        [self.dynamicTexList addObject:dyTex];
         
     }
+    
+    /*
+     
+     if (texList[i].isParticleColor) {
+         dyTex = new DynamicTexItem;
+         dyTex.target = texList[i];
+         dyTex.paramName = texList[i].paramName;
+         dyTex.initCurve(4);
+         this.dynamicTexList.push(dyTex);
+         dyTex.isParticleColor = true;
+     } else if (texList[i].isDynamic) {
+         dyTex = new DynamicTexItem;
+         dyTex.target = texList[i];
+         dyTex.paramName = texList[i].paramName;
+         this.dynamicTexList.push(dyTex);
+     }
+     */
     
 }
  
@@ -57,14 +70,16 @@
 
 -(void)setTextObj:(NSMutableArray *)ary
 {
+    //[0]    ParamDataVo *    0x283655890    0x0000000283655890
      for (int i=0; i < ary.count; i++) {
-          NSDictionary* obj = ary[i];
+          ParamDataVo* paramDataVo = ary[i];
          for (int j = 0; j < self.dynamicTexList.count; j++) {
-             if ([self.dynamicTexList[j].paramName isEqualToString: [obj objectForKey:@"paramName"]]) {
+             if ([self.dynamicTexList[j].paramName isEqualToString: paramDataVo.paramName]) {
                  if (self.dynamicTexList[j].isParticleColor) {
-                    // self.dynamicTexList[j].curve.setData(obj.curve);
+                     
+                     [self.dynamicTexList[j].curve setData:paramDataVo.curve] ;
                  } else {
-                     self.dynamicTexList[j].url = [obj objectForKey:@"url"];
+                     self.dynamicTexList[j].url =paramDataVo.url;
                  }
              }
          }

@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property(nonatomic,strong)NSString*   reg_ip;
 //@property(nonatomic,strong)NSString*   last_login;
 //@property(nonatomic,strong)NSString*  avatar;
-//@property(nonatomic,strong)NSString*   token;
+@property(nonatomic,strong)NSString*   token;
 @property(nonatomic,strong)NSString*   username;
 @property(nonatomic,strong)NSString*   nickname;
 //@property(nonatomic,assign)NSInteger  create_time;

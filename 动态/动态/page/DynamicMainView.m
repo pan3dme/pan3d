@@ -21,6 +21,9 @@
 
 @interface DynamicMainView ()
 <
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate,
+UIImagePickerControllerDelegate,
 TabTittlViewDelegate,
 UIScrollViewDelegate
 >
@@ -65,17 +68,37 @@ UIScrollViewDelegate
 
 - (void)clikAddViewEvent;
 {
-    AddPanelController* vc=   [[AddPanelController alloc] init];
- 
-    [self.navigationController pushViewController:vc animated:YES];
+
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+      imagePicker.delegate = self;
+      imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+      imagePicker.allowsEditing = YES;
+      [self presentViewController:imagePicker animated:YES completion:NULL];
+    
+    
+  
+}
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+        if([mediaType isEqualToString:@"public.movie"]) {
+           // [RedBagRoomModel videoPickerController:picker didFinishPickingMediaWithInfo:info redBagRoomVo:self.join_room_id];
+        }else{
+         [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
+               AddPanelController* vc=   [[AddPanelController alloc] init];
+               [vc setFristtUrl:value];
+               [self.navigationController pushViewController:vc animated:YES];
+           }];
+            [picker dismissViewControllerAnimated:YES completion:NULL];
+        }
+    }];
 }
 - (void)selectTabIdx:(int)value
 {
     [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*value, 0) animated:YES];
-    
-    
     [self initFristData:value];
- 
 }
 -(void)initFristData:(int)idx;
 {

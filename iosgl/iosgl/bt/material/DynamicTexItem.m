@@ -7,7 +7,21 @@
 //
 
 #import "DynamicTexItem.h"
+#import "Curve.h"
 
 @implementation DynamicTexItem
 
+/*
+ public initCurve($type: number): void {
+        this.curve = new Curve
+        this.curve.type = $type;
+    }
+ */
+
+-(void)initCurve:(int)type;
+{
+    self.curve=[[Curve alloc]init];
+    self.curve.type=type;
+    
+}
 @end

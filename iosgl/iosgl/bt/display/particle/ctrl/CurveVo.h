@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL speedType;
 @property (nonatomic, assign)  BOOL useColorType;
 
-@property (nonatomic, strong)  NSMutableArray* values;
+@property (nonatomic, strong)  NSMutableArray<NSMutableArray*>* values;
 @property (nonatomic, strong)  NSMutableArray* items;
  
 @end

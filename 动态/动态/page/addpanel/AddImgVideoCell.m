@@ -32,12 +32,20 @@
 -(void)setImageUrl:(NSString*)url;
 {
     self.soureUrl=url;
-    [self.picImage sd_setImageWithURL:[NSURL URLWithString:self.soureUrl] ];
-    
+    [self.picImage sd_setImageWithURL:[NSURL URLWithString:[self getWebUrlByurl:self.soureUrl]] ];
     if(self.soureUrl.length){
         self.camIcamBut.hidden=YES;
     }else{
         self.camIcamBut.hidden=NO;
+    }
+}
+-(NSString*)getWebUrlByurl:(NSString*)value
+{
+    NSString *rootUrl=@"http://34.87.12.20:20080";
+    if ([value rangeOfString:@"http:"].location != NSNotFound||[value rangeOfString:@"https:"].location != NSNotFound) {
+        return value;
+    }else{
+        return[NSString stringWithFormat:@"%@/%@",rootUrl,value];
     }
 }
 -(void)initBaseUi;

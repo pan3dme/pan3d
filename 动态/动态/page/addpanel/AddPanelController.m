@@ -15,6 +15,7 @@
 @property(nonatomic,strong)UITextField*  inputTextField;
 @property(nonatomic,strong)UILabel*  totalNumLabel;
 @property(nonatomic,strong)UIView*  picListView;
+@property(nonatomic,strong)NSString*  oneUrl;
 @property(nonatomic,strong)NSMutableArray<AddImgVideoCell*>*  cellItems;
 @property(nonatomic,strong)NSMutableArray<NSString*>*  imgItems;
 @end
@@ -25,8 +26,7 @@
     [super viewDidLoad];
      self.view.backgroundColor=[UIColor whiteColor];
     
-    self.imgItems=[[NSMutableArray alloc]init];
-    [self.imgItems addObject:@"http://34.87.12.20:20080//static/upload/107762834426d05fae60b594cc2a071e.jpeg"];
+  
     
     self.cellItems=[[NSMutableArray alloc]init];
     
@@ -62,12 +62,15 @@
         [self.cellItems addObject:cell];
     }
 }
-
-- (void)viewDidAppear:(BOOL)animated
+ 
+-(void)setFristtUrl:(NSString*)url;
 {
-    [self refrishData];
+    self.oneUrl=url;
+    self.imgItems=[[NSMutableArray alloc]init];
+      //[self.imgItems addObject:@"http://34.87.12.20:20080//static/upload/107762834426d05fae60b594cc2a071e.jpeg"];
+    [self.imgItems addObject:self.oneUrl];
+  
 }
-
 -(void)refrishData;
 {
     for (int i=0; i<self.cellItems.count; i++) {
@@ -90,7 +93,7 @@
     [super viewWillAppear:animated];
     
     self.title=@"发布动态";
-    
+        [self refrishData];
     
 }
  
