@@ -16,11 +16,13 @@
 #import "NetHttpsManager.h"
 #import "DynamicModel.h"
 #import "UserInfoVo.h"
+#import "MsgPanelController.h"
 #import "AddPanelController.h"
 
 
 @interface DynamicMainView ()
 <
+ListPageDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 TabTittlViewDelegate,
@@ -67,20 +69,25 @@ UIScrollViewDelegate
           [self initFristData:0];
      }];
 }
+- (void)clikOpenMsgPanel:(DynamicBaseVo *)value
+{
+    [MsgPanelController default].dynamicBaseVo=value;
+    [self.navigationController pushViewController:[MsgPanelController default]  animated:YES];
+}
+
 
 - (void)clikAddViewEvent;
 {
-
-    
+ 
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
       imagePicker.delegate = self;
       imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
       imagePicker.allowsEditing = YES;
       [self presentViewController:imagePicker animated:YES completion:NULL];
     
-    
-  
+ 
 }
+ 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:^{
@@ -134,6 +141,7 @@ UIScrollViewDelegate
     ListPage*   listPage=[[ListPage alloc] initWithFrame:self.view.bounds];
     [self.pageScrollView addSubview: listPage];
     listPage.tabidx=tabIdx;
+    listPage.delegate=self;
     [self.pageItem addObject:listPage];
  
 }

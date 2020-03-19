@@ -12,7 +12,7 @@ target '动态' do
    pod 'SDWebImage'
    pod 'FLAnimatedImage'
    pod 'YBImageBrowser' 
-
+   pod 'Reveal-SDK', '~>21', :configurations => ['Debug']
   
  
 

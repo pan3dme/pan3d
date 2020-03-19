@@ -66,8 +66,9 @@ UITableViewDataSource
     
     self.listBgimgView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blank_img"]];
     self.listBgimgView.frame=CGRectMake(0, 0, 200, 200);
-    [self.tabelListView addSubview:  self.listBgimgView];
-        self.listBgimgView.hidden=YES;
+    self.listBgimgView.userInteractionEnabled=NO;
+   // [self.tabelListView addSubview:  self.listBgimgView];
+    self.listBgimgView.hidden=YES;
     
 }
 - (void)layoutSubviews
@@ -129,6 +130,10 @@ UITableViewDataSource
     
 }
 
+- (void)clikOpenMsgPanel:(DynamicBaseVo *)value
+{
+    [_delegate clikOpenMsgPanel:value];
+}
 -(NSString*)dataLinkUrl;
 {
     

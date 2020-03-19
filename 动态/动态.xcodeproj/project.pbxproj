@@ -44,6 +44,7 @@
 		FE4105512422962D0031B3D1 /* AddPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4105502422962D0031B3D1 /* AddPanelController.m */; };
 		FE41055424229AE20031B3D1 /* AddImgVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41055324229AE20031B3D1 /* AddImgVideoCell.m */; };
 		FE608EE924237390004C1E34 /* UpImageVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE608EE824237390004C1E34 /* UpImageVo.m */; };
+		FE608EED2423E41F004C1E34 /* MsgPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE608EEC2423E41F004C1E34 /* MsgPanelController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,8 @@
 		FE41055324229AE20031B3D1 /* AddImgVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddImgVideoCell.m; sourceTree = "<group>"; };
 		FE608EE724237390004C1E34 /* UpImageVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpImageVo.h; sourceTree = "<group>"; };
 		FE608EE824237390004C1E34 /* UpImageVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpImageVo.m; sourceTree = "<group>"; };
+		FE608EEB2423E41F004C1E34 /* MsgPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgPanelController.h; sourceTree = "<group>"; };
+		FE608EEC2423E41F004C1E34 /* MsgPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgPanelController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,7 @@
 		FE064ADF241E921B00AD44BE /* page */ = {
 			isa = PBXGroup;
 			children = (
+				FE608EEA2423E3C2004C1E34 /* msgpanel */,
 				FE41054E24228B990031B3D1 /* addpanel */,
 				FE064B77241EC09A00AD44BE /* vo */,
 				FE064B76241EC08E00AD44BE /* cell */,
@@ -317,6 +321,15 @@
 			path = addpanel;
 			sourceTree = "<group>";
 		};
+		FE608EEA2423E3C2004C1E34 /* msgpanel */ = {
+			isa = PBXGroup;
+			children = (
+				FE608EEB2423E41F004C1E34 /* MsgPanelController.h */,
+				FE608EEC2423E41F004C1E34 /* MsgPanelController.m */,
+			);
+			path = msgpanel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,6 +342,7 @@
 				FE064ABB241E915C00AD44BE /* Frameworks */,
 				FE064ABC241E915C00AD44BE /* Resources */,
 				007A9A2CE70769D3103DB101 /* [CP] Copy Pods Resources */,
+				1D69309495EAC253FC1F7B6B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,6 +418,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-动态/Pods-动态-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1D69309495EAC253FC1F7B6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-动态/Pods-动态-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-动态/Pods-动态-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-动态/Pods-动态-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ABC10F4B2460D10EEC3A3500 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -443,6 +474,7 @@
 				FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */,
 				FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */,
 				FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */,
+				FE608EED2423E41F004C1E34 /* MsgPanelController.m in Sources */,
 				FE4105512422962D0031B3D1 /* AddPanelController.m in Sources */,
 				FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */,
 				FE064B73241EB41F00AD44BE /* RedBagRefreshGifHeader.m in Sources */,

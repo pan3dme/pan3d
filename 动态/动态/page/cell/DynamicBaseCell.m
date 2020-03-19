@@ -114,12 +114,12 @@
     self.followBut.frame = CGRectMake(0, 0, 100, 28);
     self.followBut .titleLabel.font = [UIFont systemFontOfSize:16];
     self.followBut.layer.cornerRadius = self.followBut.height/2; // 圆角的弧度
-    [self.followBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(followButClikEvent:)]];
+  
     
     
     self.diamondBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
     self.heartBut=[self makeImagesBut:@"message" perentUi:self.bttomView];
-    self.messageBut=[self makeImagesBut:@"message.circle" perentUi:self.bttomView];
+    self.messageBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
     self.shareBut=[self makeImagesBut:@"centsign.square" perentUi:self.bttomView];
     self.deleBut=[self makeLabelBut:@"删除" perentUi:self.bttomView];
     
@@ -130,7 +130,15 @@
     self.deleBut.frame=CGRectMake(200, 0, 50, 25);
     
     
+    [self.followBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(followButClikEvent:)]];
     [self.deleBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(deleButClikEvent:)]];
+    [self.messageBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(messageButClikEvent:)]];
+}
+-(void)messageButClikEvent:(UITapGestureRecognizer *)sender;
+{
+ 
+    [_delegate clikOpenMsgPanel:self.datavo];
+    
 }
 -(void)followButClikEvent:(UITapGestureRecognizer *)sender;
 {
@@ -165,16 +173,16 @@
 -(void)layoutSubviews;
 {
     self.followBut.frame=CGRectMake(self.width-90, 10, 80, 28);
-    self.bttomView.frame=CGRectMake(100, self.height-40, self.width, 30);
+    self.bttomView.frame=CGRectMake(100, self.height-40, self.width-100, 30);
     self.bttomlineView.frame=CGRectMake(0, self.height-1, self.width, 1);
     self.infoLabel.frame=CGRectMake(100, 55, self.width-200, 20);
     
     if(self.datavo.content.length){
-        self.infoBg.frame=CGRectMake(100, 80, self.width-200, self.height-100);
+        self.infoBg.frame=CGRectMake(100, 80, self.width-100, self.height-100-25);
     }else{
-        self.infoBg.frame=CGRectMake(100, 55, self.width-200, self.height-100);
+        self.infoBg.frame=CGRectMake(100, 55, self.width-100, self.height-100);
     }
-    
+ 
 }
 
 
