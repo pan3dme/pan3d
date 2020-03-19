@@ -16,18 +16,19 @@
 #import "RedBagRefreshGifHeader.h"
 #import "YBImageBrowser.h"
 #import <SDWebImage/UIImageView+WebCache.h>
- 
+
 
 @interface ListPage ()
 <
- 
+
 DynamicBaseCellDelegate,
 UITableViewDelegate,
 UITableViewDataSource
 >
 @property(nonatomic,strong)UITableView *tabelListView;
+@property(nonatomic,strong)UIImageView *listBgimgView;
 @property (nonatomic, strong)  NSMutableArray<DynamicBaseVo*>* cellItemArr;
- 
+//blank_img
 @end
 @implementation ListPage
 
@@ -40,18 +41,18 @@ UITableViewDataSource
     return self;
 }
 
-  
-  
 
-  
+
+
+
 -(void)initBaseUi;
 {
+
     
-  
     UITableView* temp=[[UITableView alloc]initWithFrame:self.bounds style:UITableViewStylePlain];
     temp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     temp.backgroundColor=[UIColor whiteColor];
-    
+    temp.separatorStyle = UITableViewCellSeparatorStyleNone;
     temp.delegate=self;
     temp.dataSource=self;
     self.tabelListView=temp;
@@ -59,16 +60,26 @@ UITableViewDataSource
     [self makeRefreshHeaderGf];
     self.backgroundColor=[UIColor clearColor];
     
-     
- 
-}
+    
 
+   
+    
+    self.listBgimgView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blank_img"]];
+    self.listBgimgView.frame=CGRectMake(0, 0, 200, 200);
+    [self.tabelListView addSubview:  self.listBgimgView];
+        self.listBgimgView.hidden=YES;
+    
+}
+- (void)layoutSubviews
+{
+    self.listBgimgView.frame=CGRectMake((self.width-200)/2, (self.height-200)/2, 200, 200);
+}
 /*
  初始化t第一次的数据
  */
 -(void)initFristData;
 {
- 
+    
     if(!self.cellItemArr){
         self.cellItemArr =[[NSMutableArray alloc]init];
         [self refrishNextUrl];
@@ -77,40 +88,50 @@ UITableViewDataSource
 }
 -(void)refrishNextUrl;
 {
-        ListPage* that=self;
-       NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-     if(self.tabidx==3){
-               [dic setObject:@"1" forKey:@"idx_begin"];
-               [dic setObject:@"10" forKey:@"idx_end"];
-               [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
-               [[ DynamicModel default] GetDynamicSelfBlog:PLATFORM_GAME_BLOG_SELF paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-   
-                   NSMutableArray<DynamicBaseVo*>* arr= [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
-                   [that.cellItemArr removeAllObjects];
-                   [that pusDataToTabel:arr];
-                   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                       [that.tabelListView reloadData];
-                   });
-               }];
-    
-           }else{
-               [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-                   self.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
-                   [self.tabelListView reloadData];
-               }];
-           }
+    ListPage* that=self;
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+    if(self.tabidx==3){
+        [dic setObject:@"1" forKey:@"idx_begin"];
+        [dic setObject:@"10" forKey:@"idx_end"];
+        [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
+        [[ DynamicModel default] GetDynamicSelfBlog:PLATFORM_GAME_BLOG_SELF paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+            
+            NSMutableArray<DynamicBaseVo*>* arr= [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                
+                [that.cellItemArr removeAllObjects];
+                [that pusDataToTabel:arr];
+                [that.tabelListView reloadData];
+                
+            });
+        }];
+        
+    }else{
+        [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+            
+            [that pusDataToTabel:[DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]]];
+            [self.tabelListView reloadData];
+        }];
+    }
 }
 -(void)pusDataToTabel:(NSArray*)arr
 {
     for(int i=0;i<arr.count;i++){
         [self.cellItemArr addObject:arr[i]];
     }
-            
+    
+    if(self.cellItemArr.count){
+        self.listBgimgView.hidden=YES;
+    }else{
+        self.listBgimgView.hidden=NO;
+    }
+    
 }
 
 -(NSString*)dataLinkUrl;
 {
-   
+    
     switch (self.tabidx) {
         case 0:
             return PLATFORM_GAME_BLOG_LIST_ALL;
@@ -128,13 +149,13 @@ UITableViewDataSource
             return PLATFORM_GAME_BLOG_LIST_ALL;
             break;
     }
-   
     
-   // return  PLATFORM_GAME_BLOG_SELF;
+    
+    // return  PLATFORM_GAME_BLOG_SELF;
     
 }
- 
- 
+
+
 //重置CELL的高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -144,7 +165,7 @@ UITableViewDataSource
     
     
 }
- 
+
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -158,19 +179,19 @@ UITableViewDataSource
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DynamicBaseVo * vo=self.cellItemArr[indexPath.row];
-
+    
     DynamicBaseCell *cell;
     if(vo.tabelVo.vidio_url.length){
         cell= [TabelVideoViewCell makeViewCell:tableView dataVo:vo];
     }else{
         cell= [TableImageViewCell makeViewCell:tableView dataVo:vo];
     }
-        cell.delegate=self;
+    cell.delegate=self;
     return cell;
     
     
 }
-  
+
 /*
  点击发大图片
  */
@@ -200,9 +221,9 @@ UITableViewDataSource
     browser.dataSourceArray = browserDataArr;
     browser.currentIndex = idx;
     [browser show];
- 
+    
 }
- 
+
 - (void)selectUseHead:(DynamicBaseVo *)value
 {
     NSLog(@"selectUseHead");
@@ -213,11 +234,11 @@ UITableViewDataSource
     RedBagRefreshGifHeader *header = [RedBagRefreshGifHeader headerWithRefreshingBlock:^{
         
         [self.tabelListView.mj_header endRefreshing];
- 
- 
+        
+        
         [self refrishNextUrl];
         
-      
+        
         
     }];
     // 设置普通状态的动画图片
