@@ -14,8 +14,8 @@
 #import "DynamicModel.h"
 #import "UserInfoVo.h"
 #import "UpImageVo.h"
- 
- 
+
+
 
 static DynamicModel *dynamicModel = nil;
 @implementation DynamicModel
@@ -37,9 +37,9 @@ static DynamicModel *dynamicModel = nil;
 
 -(void)userImport:(SuccessBlock)PostSuccess;
 {
- 
+    
     NSString* key=@"eyJleHRyYV9ibG9nIjoie1widmlwX2x2XCI6MSxcInVzZXJfbGV2ZWxcIjpcIjZcIixcImF1dGhfYW5jaG9yXCI6MCxcImRpc2Nlcm5fdHlwZVwiOlwidHVpMVwifSIsIm5pY2tuYW1lIjoiXHU1NGM4XHU1NGM4bGV2ZWwiLCJoZWFkIjoiaHR0cDpcL1wvb3NzLmlwaWd3ZWIuY29tXC9wdWJsaWNcL2F0dGFjaG1lbnRcLzIwMTkwN1wvMjZcLzE3XC81ZDNhYzYzMDFkYTQ2LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlXC9yZXNpemUsbV9tZml0LGhfMjYwLHdfMjYwIiwidXNlcm5hbWUiOiIyOTg5NDYzMSIsInRpbWUiOjE1ODQ0ODk5MTcsInNpZ24iOiJhMzJmYzkzZWQ0MWVmOWZmNTU4ZmEzMzVlNzhiNjExYiJ9";
- 
+    
     NSString *path= [ NSString stringWithFormat:@"http://34.87.12.20:20080/%@?key=%@",PLATFORM_GAME_USER_IMPORT,key];
     NSURL *url = [NSURL URLWithString:path];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -59,28 +59,44 @@ static DynamicModel *dynamicModel = nil;
     
     [dataTask resume];
     
-
+    
 }
 
--(void)listAll:(SuccessBlock)PostSuccess;
+
+-(void)GetDynamicSelfBlog:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 {
-    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-    [dic setObject:@"0" forKey:@"begin_id"];
-    [dic setObject:@"10" forKey:@"count"];
-    NSString *URL= [ NSString stringWithFormat:self.rootUrl,PLATFORM_GAME_BLOG_LIST_ALL ];
-    [[NetHttpsManager default] POSTWithUrl:URL paramDict:dic OverTime:100 successBlock:^(NSDictionary *responseJson) {
-        int codenum=  [[dic valueForKey:@"code"]intValue] ;
+    
+    NSMutableString*    params = [[NSMutableString alloc] init];
+    for(id key in paramDict)
+    {
+        NSString *encodedkey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        CFStringRef value = (__bridge CFStringRef)[[paramDict objectForKey:key] copy];
+        CFStringRef encodedValue = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, value,NULL,(CFStringRef)@";/?:@&=+$", kCFStringEncodingUTF8);
+        [params appendFormat:@"%@=%@&", encodedkey, encodedValue];
+        CFRelease(value);
+        CFRelease(encodedValue);
+    }
+    
+    NSString *webURL= [ NSString stringWithFormat:@"%@%@?%@",@"http://34.87.12.20:20080",url,params ];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:webURL]];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        int codenum=  [[responseDic valueForKey:@"code"]intValue] ;
         if(codenum==0){
-            PostSuccess(responseJson);
+            PostSuccess(responseDic);
+            NSLog(@"成功--%@",webURL);
+        }else{
+            NSLog(@"失败--%@",webURL);
         }
-    } FailureBlock:^(NSError *error) {
         
     }];
+    [dataTask resume];
+    
 }
-
 -(void)GetDynamicByValue:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 {
- 
+    
     NSString *webURL= [ NSString stringWithFormat:self.rootUrl,url ];
     [[NetHttpsManager default] POSTWithUrl:webURL paramDict:paramDict OverTime:100 successBlock:^(NSDictionary *responseJson) {
         int codenum=  [[responseJson valueForKey:@"code"]intValue] ;
@@ -111,10 +127,10 @@ static DynamicModel *dynamicModel = nil;
     UIImage *  croppedImage =    [UIImage imageWithCGImage:CGImageCreateWithImageInRect(originalImage.CGImage,croppingRect)];
     UIImage *image320 = [self resizeImage:croppedImage width:320 height:320];
     [self saveImage:image320 WithName:@"userAvatar" bfun:^(NSString* value) {
-  
+        
         bfun(value);
     } progressfun:progressfun];
-  
+    
 }
 //保存图片
 -(void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName bfun:(SuccessUpLoad)bfun progressfun:(ProgressUpLoad)progressfun ;
@@ -128,9 +144,9 @@ static DynamicModel *dynamicModel = nil;
     baseUrl=[NSString stringWithFormat:@"%@?token=%@",baseUrl,token];
     UpImageVo* upImageVo=[[UpImageVo alloc]init];
     [upImageVo saveToServes:baseUrl img:tempImage bfun:bfun progressfun:progressfun];
- 
+    
 }
- 
+
 
 -(UIImage *)resizeImage:(UIImage *)image width:(int)wdth height:(int)hght{
     int w = image.size.width;
@@ -180,3 +196,4 @@ static DynamicModel *dynamicModel = nil;
     
 }
 @end
+

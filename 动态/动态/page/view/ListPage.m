@@ -70,21 +70,37 @@ UITableViewDataSource
 {
         NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
     
-        [dic setObject:@"0" forKey:@"idx_begin"];
-        [dic setObject:@"10" forKey:@"idx_end"];
-        [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
+//        [dic setObject:@"0" forKey:@"idx_begin"];
+//        [dic setObject:@"10" forKey:@"idx_end"];
+//        [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
  
   
 //         info.username = Dt_main_data.getInstance().userInfoVo.username //如果没有角色名字，默认为自己
 //         info.idx_begin = 1
 //         info.idx_end =     info.idx_begin+10
     
+    
+    ListPage* that=self;
     if(!self.cellItemArr){
         self.cellItemArr =[[NSMutableArray alloc]init];
-        [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-             self.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
-             [self.tabelListView reloadData];
-         }];
+        
+        if(self.tabidx==3){
+         [dic setObject:@"1" forKey:@"idx_begin"];
+         [dic setObject:@"10" forKey:@"idx_end"];
+            [dic setObject: [DynamicModel default].selfUserInfoVo.username forKey:@"username"];
+                                   [[ DynamicModel default] GetDynamicSelfBlog:PLATFORM_GAME_BLOG_SELF paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+                                      that.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
+                                //     [that.tabelListView reloadData];
+                                   }];
+         
+
+        }else{
+            [[ DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+                        self.cellItemArr=   [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]];
+                        [self.tabelListView reloadData];
+                    }];
+        }
+       
     }
  
 }
@@ -127,9 +143,10 @@ UITableViewDataSource
  
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return _cellItemArr.count;
+    return 1;
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     
     return self.cellItemArr.count;
 }
@@ -192,9 +209,12 @@ UITableViewDataSource
     RedBagRefreshGifHeader *header = [RedBagRefreshGifHeader headerWithRefreshingBlock:^{
         
         [self.tabelListView.mj_header endRefreshing];
+ 
+//        self.cellItemArr=nil;
+//        [self initFristData];
         
-        self.cellItemArr=nil;
-        [self initFristData];
+         [self.tabelListView reloadData];
+      
         
     }];
     // 设置普通状态的动画图片
