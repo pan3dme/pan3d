@@ -60,6 +60,7 @@ UINavigationControllerDelegate
     
     UIBarButtonItem *rightBar=[[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(preeNext)];
          self.navigationItem.rightBarButtonItem=rightBar;
+    
 //    [rightBar setBackgroundImage:[UIImage imageNamed:@"diamond_img_diamond"] forState:(UIControlStateNormal) style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
  
     /*

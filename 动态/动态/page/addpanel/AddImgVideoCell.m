@@ -15,6 +15,7 @@
 @interface AddImgVideoCell ()
 @property (nonatomic,strong)UIImageView* picImage;
 @property (nonatomic,strong)UIImageView* camIcamBut;
+@property (nonatomic,strong)UIButton* closeXbut;
 @property (nonatomic,strong)NSString* soureUrl;
 @end
 @implementation AddImgVideoCell
@@ -41,9 +42,19 @@
     [self addSubview:self.camIcamBut];
     self.camIcamBut.image=[UIImage imageNamed:@"camicon"];
     
+    
+    self.closeXbut=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
+    self.closeXbut.backgroundColor=[UIColor redColor];
+    [self addSubview:self.closeXbut];
+    
     self.camIcamBut.userInteractionEnabled=YES;
-      [self.camIcamBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addCamButEvent:)]];
+    [self.camIcamBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addCamButEvent:)]];
  
+}
+- (void)layoutSubviews;
+{
+    self.closeXbut.frame=CGRectMake(self.width-20, 0, 20, 20);
+  
 }
 -(void)addCamButEvent:(UITapGestureRecognizer *)sender;
 {
@@ -55,8 +66,10 @@
     [self.picImage sd_setImageWithURL:[NSURL URLWithString:[self getWebUrlByurl:self.soureUrl]] ];
     if(self.soureUrl.length){
         self.camIcamBut.hidden=YES;
+        self.closeXbut.hidden=NO;
     }else{
         self.camIcamBut.hidden=NO;
+         self.closeXbut.hidden=YES;
     }
 }
 -(NSString*)getWebUrlByurl:(NSString*)value

@@ -686,8 +686,8 @@
             filePath = "&#x52a8;&#x6001;/page/addpanel/AddPanelController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-setFristtUrl:"
             landmarkType = "7">
          </BreakpointContent>
@@ -734,9 +734,9 @@
             filePath = "&#x52a8;&#x6001;/page/DynamicModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "-saveToServes:bfun:"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-saveToServes:img:bfun:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -750,9 +750,9 @@
             filePath = "&#x52a8;&#x6001;/page/DynamicModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-saveToServes:bfun:"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "-saveToServes:img:bfun:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -766,9 +766,9 @@
             filePath = "&#x52a8;&#x6001;/page/DynamicModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "-saveToServes:bfun:"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-saveToServes:img:bfun:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -782,8 +782,8 @@
             filePath = "&#x52a8;&#x6001;/page/addpanel/AddPanelController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "AddPanelController"
             landmarkType = "3">
          </BreakpointContent>
@@ -798,8 +798,8 @@
             filePath = "&#x52a8;&#x6001;/page/addpanel/AddImgVideoCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-addCamButEvent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -814,8 +814,8 @@
             filePath = "&#x52a8;&#x6001;/page/addpanel/AddPanelController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-clikAddNextUrlEvet"
             landmarkType = "7">
          </BreakpointContent>

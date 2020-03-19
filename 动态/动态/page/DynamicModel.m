@@ -124,98 +124,48 @@ static DynamicModel *dynamicModel = nil;
     NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString* totalPath = [documentPath stringByAppendingPathComponent:imageName];
     [imageData writeToFile:totalPath atomically:NO];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:totalPath forKey:@"avatar"];
-    [self saveToServes :tempImage bfun:bfun];
+    NSString * token =self.selfUserInfoVo.token  ;
+    NSString *baseUrl=[NSString stringWithFormat:@"%@/%@", @"http://34.87.12.20:20080",@"upload/image"];
+    baseUrl=[NSString stringWithFormat:@"%@?token=%@",baseUrl,token];
+    [self saveToServes:baseUrl img:tempImage bfun:bfun];
 }
-// NSString *baseUrl=[NSString stringWithFormat:@"%@%@", self.rootUrl,@"/upload/image"];
--(void)saveToServes:(UIImage*)tempImage bfun:(void (^)(NSString* url ))bfun;
+-(void)saveToServes:(NSString*)severUrl  img:(UIImage*)image bfun:(void (^)(NSString* url ))bfun  ;
 {
-    
-   
+  
     //分界线的标识符
     NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
-    
-   NSString *baseUrl=[NSString stringWithFormat:@"%@/%@", @"http://34.87.12.20:20080",@"upload/image"];
-    
-    NSString * token =self.selfUserInfoVo.token  ;
-    
-    baseUrl=[NSString stringWithFormat:@"%@?token=%@",baseUrl,token];
-    NSURL *url = [NSURL URLWithString:baseUrl];
-    
-    //(1)构造Request
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
-    //分界线 --AaB03x
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:severUrl]];
     NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
-    //结束符 AaB03x--
     NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
-    //要上传的图片
-    UIImage *image= tempImage;
-    //得到图片的data
     NSData* data = UIImagePNGRepresentation(image);
-    //http body的字符串
     NSMutableString *body=[[NSMutableString alloc]init];
-    //参数的集合的所有key的集合
-    
-    
-    ////添加分界线，换行
     [body appendFormat:@"%@\r\n",MPboundary];
-    //声明pic字段，文件名为boris.png
     [body appendFormat:@"Content-Disposition: form-data; name=\"pic\"; filename=\"boris.png\"\r\n"];
-    //声明上传文件的格式
     [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
-    
-    //声明结束符：--AaB03x--
     NSString *end=[[NSString alloc]initWithFormat:@"\r\n%@",endMPboundary];
-    //声明myRequestData，用来放入http body
     NSMutableData *myRequestData=[NSMutableData data];
-    //将body字符串转化为UTF8格式的二进制
     [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    //将image的data加入
     [myRequestData appendData:data];
-    //加入结束符--AaB03x--
     [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    //设置HTTPHeader中Content-Type的值
     NSString *content=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
-    //设置HTTPHeader
     [request setValue:content forHTTPHeaderField:@"Content-Type"];
-    //设置Content-Length
     [request setValue:[NSString stringWithFormat:@"%d", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
-    //设置http body
     [request setHTTPBody:myRequestData];
-    //http method
     [request setHTTPMethod:@"POST"];
-    //建立连接，设置代理
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-          //  [FanweMessage alertHUD:  @"上传失败"];
                NSLog(@"上传失败");
         }else{
             NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSNumber* code = [responseJson objectForKey:@"code"]  ;
-            /*
-             [0]    (null)    @"file" : 5 key/value pairs
-             key    NSTaggedPointerString *    @"file"    0xc156eb099f0164bd
-             value    __NSDictionaryM *    5 key/value pairs    0x0000000280d305a0
-             [0]    (null)    @"path" : @"/static/upload/img/e76e4ea7dbdbfab5a75c9d4c3bee2110.png"
-             [1]    (null)    @"extname" : @"png"
-             [2]    (null)    @"filename" : @"e76e4ea7dbdbfab5a75c9d4c3bee2110.png"
-             [3]    (null)    @"success" : YES
-             [4]    (null)    @"origin_filename" : @"boris.png"
-             */
             int codenum = [code intValue];
             if(codenum==0){
                 NSDictionary* filedic = [responseJson objectForKey:@"file"]  ;
                 NSString  *avatarpath = [filedic objectForKey:@"path"]  ;
-                // [self changeHeadImgByPath:avatarpath];
-            
                 bfun(avatarpath);
                 
             }else{
                 NSLog(@"判断没有进入正确的地方---%@", responseJson);
-              //  [FanweMessage alertHUD:  [responseJson objectForKey:@"msg"]];
             }
             NSLog(@"上传成功");
         }
