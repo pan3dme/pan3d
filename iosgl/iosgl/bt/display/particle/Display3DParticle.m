@@ -57,31 +57,12 @@
         }
         [ctx setRenderTexture:self.data.materialParam.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint];
     }
-    NSArray<DynamicTexItem*>* texDynamicVec  = self.data.materialParam.dynamicTexList;
+    NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) self.data.materialParam.dynamicTexList;
     for (int i   = 0; i < texDynamicVec.count; i++) {
-        
-    // GLchar ket="fs0";
-        
-      [ctx setRenderTexture:self.data.materialParam.shader name:(char*)[@"fs0" UTF8String]  texture:texDynamicVec[i].texture];
-    // Scene_data.context3D.setRenderTexture(this.data.materialParam.shader, texDynamicVec[i].target.name, texDynamicVec[i].texture, texDynamicVec[i].target.id,true);
+         [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture];
     }
     
-    /*
-     var texVec: Array<TexItem> = this.data.materialParam.material.texList;
-        for (var i: number = 0; i < texVec.length; i++) {
-            if (texVec[i].isDynamic) {
-                continue;
-            }
-            //_context3D.setTextureAt(texVec[i].id, texVec[i].texture);
-            Scene_data.context3D.setRenderTexture(this.data.materialParam.shader, texVec[i].name, texVec[i].texture, texVec[i].id,true);
-        }
-
-        var texDynamicVec: Array<DynamicTexItem> = this.data.materialParam.dynamicTexList;
-        for (var i:number = 0; i < texDynamicVec.length; i++) {
-           // _context3D.setTextureAt(texDynamicVec[i].target.id, texDynamicVec[i].texture);
-            Scene_data.context3D.setRenderTexture(this.data.materialParam.shader, texDynamicVec[i].target.name, texDynamicVec[i].texture, texDynamicVec[i].target.id,true);
-        }
-     */
+     
 }
 -(void)setVc;
 {

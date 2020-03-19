@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TexItem : NSObject
  
-@property (nonatomic, assign)  int   id;
+ 
 @property (nonatomic, strong)  NSString*   url;
 @property (nonatomic, assign)  TextureRes*   textureRes;
 @property (nonatomic, assign)  BOOL   isDynamic;
@@ -20,10 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL   isParticleColor;
 @property (nonatomic, assign)  BOOL   isMain;
 @property (nonatomic, assign)  float   type;
-@property (nonatomic, assign)  GLchar    name;
+@property (nonatomic, strong)  NSString*    name;
 @property (nonatomic, assign)  float   wrap;
 @property (nonatomic, assign)  float   filter;
 @property (nonatomic, assign)  float   mipmap;
+
+-(void)setId:(int)id;
+ 
 
 @end
 
