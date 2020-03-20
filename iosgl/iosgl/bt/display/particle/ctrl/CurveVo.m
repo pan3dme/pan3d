@@ -9,5 +9,12 @@
 #import "CurveVo.h"
 
 @implementation CurveVo
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 @end

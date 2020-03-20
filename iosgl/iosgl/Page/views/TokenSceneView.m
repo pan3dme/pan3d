@@ -108,7 +108,7 @@
 //    #import "DisplayBaseTriSprite.h"
     //GridLineSprite
      [self.sceneView makeEemptyScene];
-    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+   // [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     
 //    [[LoadManager default]load:@"fff" type:1 fun:^(int value) {
 //

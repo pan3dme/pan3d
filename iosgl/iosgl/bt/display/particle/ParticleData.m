@@ -202,7 +202,7 @@
         int rgbLen = [byte   readInt ];
         NSMutableArray* valuesArr=[[NSMutableArray alloc]init];
         for (int k = 0; k < rgbLen; k++) {
-            [valuesArr addObject:[NSString stringWithFormat:@"%f",[byte readFloatOneByte]*1-127] ];
+            [valuesArr addObject:[NSString stringWithFormat:@"%f",[byte readByte]/127.0f *scaleNum] ];
         }
         [curve.values addObject:valuesArr];
     }
@@ -212,50 +212,9 @@
     curve.speedType = [byte readBoolean]  ;
     curve.useColorType =  [byte readBoolean]  ;
     curve.items = [self readItems:byte];
-    [self makeCurveData:curve];
+   
 }
--(void)makeCurveData:(CurveVo*)curve
-{
-    NSMutableArray* arr  = curve.items;
-    NSMutableArray* r  = [[NSMutableArray alloc]init];
-    NSMutableArray* g  = [[NSMutableArray alloc]init];
-    NSMutableArray* b  = [[NSMutableArray alloc]init];
-    NSMutableArray* a  = [[NSMutableArray alloc]init];
-    for (int i = 0; i < arr.count; i++) {
-        if (i == (arr.count - 1)) { //最后一个
-            [r addObject:@"1"];
-            [g addObject:@"1"];
-            [b addObject:@"1"];
-            [a addObject:@"1"];
-        } else {
-           //  float   speedNum = arr[i + 1].frame - arr[i].frame;
-            /*
-             var $speedNum: number = arr[i + 1].frame - arr[i].frame;
-             var $A = arr[i].vec3;
-             var $B = arr[i + 1].vec3;
-             var $a = $curve.items[i].rotation;
-             var $b = $curve.items[i + 1].rotationLeft;
-             
-             r = r.concat(this.getBzData($A.x, $B.x, $a.x, $b.x, $speedNum));
-             g = g.concat(this.getBzData($A.y, $B.y, $a.y, $b.y, $speedNum));
-             b = b.concat(this.getBzData($A.z, $B.z, $a.z, $b.z, $speedNum));
-             a = a.concat(this.getBzData($A.w, $B.w, $a.w, $b.w, $speedNum));
-             */
-            
-            [r addObject:@"1"];
-            [g addObject:@"1"];
-            [b addObject:@"1"];
-            [a addObject:@"1"];
-        }
-    }
-    curve.values =[[NSMutableArray alloc]init];
-    [curve.values addObject:r];
-    [curve.values addObject:g];
-    [curve.values addObject:b];
-    [curve.values addObject:a];
- 
-    
-}
+  
 -(NSMutableArray*)readItems:(ByteArray*)byte;
 {
     NSMutableArray* items  = [[NSMutableArray alloc]init];

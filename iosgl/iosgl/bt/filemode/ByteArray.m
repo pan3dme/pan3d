@@ -162,8 +162,9 @@
        [data1 getBytes:buffer length:intSize];
     self.position+=intSize;
     
-    return   buffer[0] /256;
+    return   buffer[0] /256.0f;
 }
+ 
 -(Boolean)readBoolean;
 {
      int intSize = sizeof(Boolean); // change it to fixe length
