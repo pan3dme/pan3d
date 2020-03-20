@@ -71,6 +71,64 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibuff);
     glDrawElements(GL_TRIANGLES, numTril, GL_UNSIGNED_INT, 0);
 }
+
+-(void)setDepthTest:(BOOL)tf;
+{
+    if (tf) {
+         glEnable(GL_DEPTH_TEST);
+    }else{
+         glDisable(GL_DEPTH_TEST);
+    }
+   
+}
+/*
+public cullFaceBack(tf: boolean): void {
+      if (this._contextSetTest.testCull(tf)) {
+          return;
+      }
+      if (tf) {
+          this.renderContext.enable(this.renderContext.CULL_FACE);
+          this.renderContext.cullFace(this.renderContext.BACK);
+      } else {
+          this.renderContext.disable(this.renderContext.CULL_FACE);
+      }
+  }
+*/
+-(void)cullFaceBack:(BOOL)tf;
+{
+    if (tf) {
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_BACK);
+    } else {
+        glDisable(GL_CULL_FACE);
+    }
+}
+
+-(void)setBlendParticleFactors:(int)type;
+{
+    glEnable(GL_BLEND);
+    switch (type) {
+           case 0:
+               glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+               break;
+           case 1:
+               glBlendFunc(GL_ONE, GL_ONE);
+               break;
+           case 2:
+              glBlendFunc(GL_DST_COLOR, GL_ZERO);
+               break;
+           case 3:
+                glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_COLOR);
+               break;
+           case 4:
+              glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+               break;
+           case -1:
+               glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+               break;
+       }
+}
+ 
 -(void)setRenderTexture:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
 {
     GLuint textureSlot = glGetUniformLocation(shader.program, (char*)[name UTF8String]);

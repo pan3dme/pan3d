@@ -35,7 +35,10 @@
 {
     if(self.visible ){
         if ( self.data.materialParam){
-            glUseProgram(self.data.materialParam.shader.program);
+             Context3D *ctx=self.scene3d.context3D;
+             glUseProgram(self.data.materialParam.shader.program);
+            [ctx setBlendParticleFactors:self.data._alphaMode];
+            [ctx cullFaceBack:self.data.materialParam.material.backCull];
             [self updateMatrix];
             [self setVc];
             [self setVa];
@@ -61,10 +64,6 @@
     for (int i   = 0; i < texDynamicVec.count; i++) {
         TexItem* texItem=texDynamicVec[i].target;
          [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
-        
-        
-        //  Scene_data.context3D.setRenderTexture(this.data.materialParam.shader, texDynamicVec[i].target.name, texDynamicVec[i].texture, texDynamicVec[i].target.id,true);
-           
     }
     
      
