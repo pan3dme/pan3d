@@ -58,82 +58,48 @@
     DynamicTexItem* this=self;
     NSInteger endVecIndex = self.curve.valueVec.count - 1;
     NSMutableArray* imgNumVec=[[NSMutableArray alloc]init];
-     
+    
     
     for(int i=0;i<this.life;i++){
         if (i < this.curve.begintFrame) {
-          
-//            imgNumVec.push(this.curve.valueVec[0][0] * 0xff, this.curve.valueVec[0][1] * 0xff, this.curve.valueVec[0][2] * 0xff, this.curve.valueVec[0][3] * 0xff);
-            
+            [imgNumVec addObject:this.curve.valueVec[0]];
         } else if (i > this.curve.maxFrame) {
             if (this.curve.maxFrame == 0 && this.curve.begintFrame < 0) {
-                
+                [imgNumVec addObject:[[NSArray alloc] initWithObjects:@0, @1, @1,@1, nil]];
             } else {
-                
+                [imgNumVec addObject:this.curve.valueVec[endVecIndex]];
             }
             
         } else {
             if (this.curve.begintFrame < 0) {
-                
+               [imgNumVec addObject:[[NSArray alloc] initWithObjects:@0, @1, @1,@1, nil]];
             } else {
                 NSInteger index = i - this.curve.begintFrame;
+                [imgNumVec addObject:this.curve.valueVec[index]];
             }
             
         }
     }
-      
-    /*
-     
-     for (var i: number = 0; i < this.life; i++) {
-                if (i < this.curve.begintFrame) {
-                   
-                    imgNumVec.push(this.curve.valueVec[0][0] * 0xff, this.curve.valueVec[0][1] * 0xff, this.curve.valueVec[0][2] * 0xff, this.curve.valueVec[0][3] * 0xff);
-                } else if (i > this.curve.maxFrame) {
-                    if (this.curve.maxFrame == 0 && this.curve.begintFrame < 0) {
-                        imgNumVec.push(0xff, 0xff, 0xff, 0xff);
-                    } else {
-                        imgNumVec.push(this.curve.valueVec[endVecIndex][0] * 0xff, this.curve.valueVec[endVecIndex][1] * 0xff, this.curve.valueVec[endVecIndex][2] * 0xff, this.curve.valueVec[endVecIndex][3] * 0xff);
-                    }
-                    
-                } else {
-                    if (this.curve.begintFrame < 0) {
-                        imgNumVec.push(0xff, 0xff, 0xff, 0xff);
-                    } else {
-                        var index: number = i - this.curve.begintFrame;
-                       
-                        imgNumVec.push(this.curve.valueVec[index][0] * 0xff, this.curve.valueVec[index][1] * 0xff, this.curve.valueVec[index][2] * 0xff, this.curve.valueVec[index][3] * 0xff);
-                    }
-                    
-                }
-            }
-     */
-  
+ 
     
-    
-    CGRect rect = CGRectMake(0, 0, 100, 2);
+    CGRect rect = CGRectMake(0, 0, 128, 1);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
     CGContextFillRect(context, rect);
-    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    image=  [self imageBlackToTransparent:image withRed:0.0 andGreen:0.0 andBlue:255.0];
+    image=  [self imageBlackToTransparent:image withArr:imgNumVec];
     
     self.textureDynamic= [[MaterialManager default] createTextureWithImage:image];
-  
-    
-  
-    
-    NSLog(@"--a");
+   
     
     
 }
 void ProviderReleaseData (void *info, const void *data, size_t size){
     free((void*)data);
 }
-- (UIImage*)imageBlackToTransparent:(UIImage*)image withRed:(CGFloat)red andGreen:(CGFloat)green andBlue:(CGFloat)blue{
+- (UIImage*)imageBlackToTransparent:(UIImage*)image withArr:(NSArray*)withArr{
     const int imageWidth = image.size.width;
     const int imageHeight = image.size.height;
     size_t      bytesPerRow = imageWidth * 4;
@@ -145,15 +111,26 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     // 遍历像素
     int pixelNum = imageWidth * imageHeight;
     uint32_t* pCurPtr = rgbImageBuf;
+    
+    NSInteger baseindex;
     for (int i = 0; i < pixelNum; i++, pCurPtr++){
 
          
             // 改成下面的代码，会将图片转成想要的颜色
             uint8_t* ptr = (uint8_t*)pCurPtr;
-            ptr[3] = red; //0~255
-            ptr[2] = green;
-            ptr[1] = blue;
- 
+            ptr[3] = 0.0; //0~255
+            ptr[2] = 0.0;
+            ptr[1] = 255.0;
+            ptr[0] = 128.0f;
+        
+           baseindex= floor(((float)i)/pixelNum*withArr.count);
+
+            ptr[3] = [ withArr[baseindex][2] floatValue]*0xff;
+            ptr[2] =  [ withArr[baseindex][1] floatValue]*0xff;
+            ptr[1] =  [ withArr[baseindex][0] floatValue]*0xff;
+            ptr[0] =  [ withArr[baseindex][3] floatValue]*0xff;;
+        
+      //  NSLog(@"--%d",baseindex);
 
     }
        
