@@ -133,7 +133,10 @@
         "pos = rotMatrix* pos;\n"
         "pos.xyz = pos.xyz + basePos.xyz + addPos.xyz;\n"
         "gl_Position =pos * camMatrix* viewMatrix;\n"
-         "v1=vec2(texcoord.xy);\n"
+         "v0=vec2(texcoord.xy);\n"
+         "v1=vec2(ctime/vcmat50.z,0.0);\n"
+ 
+//    v1 = vec2(ctime/vcmat[5][0].z,1.0);
     
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
@@ -170,7 +173,7 @@
 
     "void main()"
     "{"
-        "vec4 infoUvf0   =texture2D(fs0,v1.xy);\n"
+        "vec4 infoUvf0   =texture2D(fs0,v0.xy);\n"
         "vec4 infoUvf1   =texture2D(fs1,v1.xy);\n"
         // "vec4 infoUv  = vec4(outvec3.xyz,1.0);\n"
         "gl_FragColor =infoUvf1;\n"
