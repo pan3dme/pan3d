@@ -105,11 +105,11 @@ var ProgrmaManager = /** @class */ (function (_super) {
             console.log(shader.vertex);
             console.log(shader.fragment);
         }
-        //if (keyStr.search("staticstandtrans") != -1 && true) {
-        //this.outShader(shader.vertex)
-        //console.log(shader.vertex);
-        //console.log(shader.fragment);
-        //}
+        if (keyStr.search("res/content/particleresources/materials/m_ef_par_by") != -1 && true) {
+            this.outShader(shader.vertex);
+            console.log(shader.vertex);
+            console.log(shader.fragment);
+        }
         this._dic[keyStr] = shader;
         return shader;
     };

@@ -30,6 +30,39 @@
 -(void)updateTime:(float)t;
 {
     self._time=t;
+
+    
+    /*
+     if (this.cantUseEffectsLev) {
+               return;
+           }
+           this._time = t - this._beginTime;
+           this._time += this.data._delayedTime; //加上延时
+           this.timeline.updateTime(t);
+           this.visible = this.timeline.visible;
+           this.posMatrix.identity();
+           this.posMatrix.prependScale(this._scaleX * 0.1 * this.bindScale.x,
+               this._scaleY * 0.1 * this.bindScale.y,
+               this._scaleZ * 0.1 * this.bindScale.z);
+           this.timeline.updateMatrix(this.posMatrix, this);
+     */
+}
+-(void)updateMatrix;
+{
+ 
+    [self.posMatrix3d identity];
+    [self.posMatrix3d prependScale:self.scaleX*0.2 y:self.scaleY*0.2 z:_scaleZ*0.2];
+    
+    [self.modeMatrix identity];
+    [self.modeMatrix append:self.posMatrix3d];
+ 
+    
+    [self.rotationMatrix3D identity];
+    [self.rotationMatrix3D appendRotation:_rotationX axis:Vector3D.X_AXIS];
+    [self.rotationMatrix3D appendRotation:_rotationY axis:Vector3D.Y_AXIS];
+    [self.rotationMatrix3D appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
+ 
+
 }
 -(void)update;
 {

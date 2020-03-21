@@ -50,7 +50,7 @@
     
     [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
     [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
-    [ctx setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
     
     
     [self updateWatchCaramMatrix];
@@ -65,7 +65,7 @@
     //this._time / Scene_data.frameTime * this.balldata._playSpeed;
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
-    timeVec.x=self._time/2.0f;
+    timeVec.x=self._time/1.0f;
     // timeVec.x=50.0f;
     /*timeVec
      _x    float    1020.5

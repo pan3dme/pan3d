@@ -33,7 +33,7 @@
         var keyStr: string = key + "_" + $material.url;
 
         //if (keyStr.search("/standard_byte1111") != -1 &&true) { //FIXME
- 
+
         //    console.log(keyStr)
         //    this.outShader($material.shaderStr)
 
@@ -57,15 +57,15 @@
         //    "ft2.xyz = ft1.xyz;\n" +
         //    "ft2.w = 1.0;\n" +
 
-             
-    
-   
+
+
+
         //   "ft1.x = distance(v1.xyz*0.01, fc2.xyz)*100.0;\n" +
         //   "ft1.x = ft1.x - fogdata.x;\n"+
         //   "ft1.x = fogdata.y * ft1.x;\n" +
         //   "ft1.x = clamp(ft1.x,0.0,1.0);\n"+
         //   "ft2.xyz = mix(ft2.xyz,fogcolor.xyz,ft1.x);\n" +
-    
+
 
 
         //    "gl_FragColor = ft2;\n"+
@@ -73,7 +73,7 @@
         //     "}"
 
 
-        
+
         //}
         if (paramAry) {
             for (var i: number=0; i < paramAry.length; i++) {
@@ -109,12 +109,12 @@
             console.log(shader.vertex);
             console.log(shader.fragment);
         }
-        //if (keyStr.search("staticstandtrans") != -1 && true) {
+        if (keyStr.search("res/content/particleresources/materials/m_ef_par_by") != -1 && true) {
 
-            //this.outShader(shader.vertex)
-            //console.log(shader.vertex);
-            //console.log(shader.fragment);
-        //}
+            this.outShader(shader.vertex)
+            console.log(shader.vertex);
+            console.log(shader.fragment);
+        }
 
         this._dic[keyStr] = shader;
         

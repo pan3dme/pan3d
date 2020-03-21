@@ -77,7 +77,7 @@
     "attribute vec3 speed;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 camMatrix;\n"
-    "uniform mat4 posMatrix;\n"
+    "uniform mat4 modeMatrix;\n"
     "uniform mat4 rotMatrix;\n"
     
     "uniform vec4 vcmat50;\n"
@@ -132,7 +132,7 @@
         "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;\n"
         "pos = rotMatrix* pos;\n"
         "pos.xyz = pos.xyz + basePos.xyz + addPos.xyz;\n"
-        "gl_Position =pos * camMatrix* viewMatrix;\n"
+        "gl_Position =pos *modeMatrix* camMatrix* viewMatrix;\n"
          "v0=vec2(texcoord.xy);\n"
          "v1=vec2(ctime/vcmat50.z,0.0);\n"
  
