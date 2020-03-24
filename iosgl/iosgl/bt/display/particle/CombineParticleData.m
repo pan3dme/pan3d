@@ -9,6 +9,7 @@
 #import "CombineParticleData.h"
 #import "ParticleData.h"
 #import "ParticleFacetData.h"
+#import "ParticleLocusData.h"
 #import "ParticleBallData.h"
 #import "CombineParticle.h"
 #import "Display3DParticle.h"
@@ -20,7 +21,7 @@
     int len=[byte readInt];
     self.maxTime=0;
     self.dataAry=[[NSMutableArray alloc]init];
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < 2; i++) {
         int particleType=[byte readInt];
         ParticleData *pdata= [self getParticleDataType:particleType];
         pdata.version=version;
@@ -29,7 +30,7 @@
         if (pdata.timelineData.maxFrameNum > self.maxTime) {
                self.maxTime = pdata.timelineData.maxFrameNum;
           }
-        i=len;
+       //  i=len;
       
     }
     
@@ -40,6 +41,9 @@
     switch (type) {
         case 1:
             pdata = [[ParticleFacetData alloc]init];
+            break;
+        case 3:
+            pdata = [[ParticleLocusData alloc]init];
             break;
         case 18:
             pdata = [[ParticleBallData alloc]init];

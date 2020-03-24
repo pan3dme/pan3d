@@ -306,10 +306,14 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
-          
+                    break;
+                case 4:
+                    tempNum=  [srcByte readFloat];
+                    [vItem addObject:[NSNumber numberWithFloat:tempNum]];
+                    [nsdata replaceBytesInRange:NSMakeRange(pos+j*4, 4) withBytes: &tempNum length:4];
                     break;
                 default:
-                    
+                    NSLog(@"没有没有");
                     break;
             }
         }

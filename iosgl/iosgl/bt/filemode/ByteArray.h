@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(Vector3D*)readVector3D:(BOOL)w;
 - (int) readByte;
 - (int) readInt;
+- (int) getInt;
 - (int) readShort;
 - (float) readFloat;
 - (float) readFloatOneByte  ;

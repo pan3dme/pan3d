@@ -109,6 +109,14 @@
     self.position+=intSize;
     return num;
 }
+- (int) getInt;
+{
+    int num=[self readInt];
+      int intSize = sizeof(int);
+     self.position-=intSize;
+    return num;
+}
+ 
 - (float) readFloat;
 {
     int floatSize = sizeof(float); // change it to fixe length

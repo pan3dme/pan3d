@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  int trinum  ;
 @property (nonatomic, assign) GLuint verticesBuffer ;
 @property (nonatomic, assign) GLuint uvBuffer ;
+@property (nonatomic, assign) GLuint nrmsBuffer ;
 @property (nonatomic, assign) GLuint indexBuffer ;
 @property (nonatomic, strong) NSMutableData *dataView ;
 @property (nonatomic, assign) GLuint dataViewBuffer ;

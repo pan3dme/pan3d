@@ -8,7 +8,9 @@
 #import "Material.h"
 #ifndef GL_Header_h
 #define GL_Header_h
-
+typedef struct {
+    float data[3];
+} numDATA;
 typedef void (^SuccessBlock)(NSString* localPath);
 typedef void (^FinishBlock)(NSDictionary* dic);
 typedef void (^FailureBlock)(NSError *error);
