@@ -66,43 +66,15 @@
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
     timeVec.x=self._time/1.0f;
-    // timeVec.x=50.0f;
-    /*timeVec
-     _x    float    1020.5
-     _y    float    -0.0900000035
-     _z    float    78
-     _w    float    -1
-     */
+   
     [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
-    
     Vector3D*  scaleVec =   self.ballData._scaleVec;
-    /*
-     _x    float    0.00449999981
-     _y    float    0.5
-     _z    float    0.300000012
-     _w    float    0
-     */
     [ctx setVcUniform4f:self.shader3d name:"vcmat51" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
-    
     Vector3D*  scaleCtrl =   self.ballData._scaleCtrlVec;
-    /*scaleCtrl
-     _x    float    1
-     _y    float    1
-     _z    float    99
-     _w    float    -1
-     */
     [ctx setVcUniform4f:self.shader3d name:"vcmat52" x:scaleCtrl.x y:scaleCtrl.y z:scaleCtrl.z w:scaleCtrl.w];
-    
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
-    /*addSpeedVec
-     _x    float    0
-     _y    float    -0.0250000004
-     _z    float    0
-     _w    float    1
-     */
     [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
-    
-    
+
     
     if(this.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
