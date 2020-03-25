@@ -167,8 +167,7 @@ UITableViewDataSource
     DynamicBaseVo *vo=self.cellItemArr[indexPath.row];
     
     return   vo.cellHeight;
-    
-    
+ 
 }
 
 

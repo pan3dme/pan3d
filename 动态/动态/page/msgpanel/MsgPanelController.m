@@ -26,6 +26,7 @@ UIScrollViewDelegate
 @property(nonatomic,strong)UIView *inputViewBg;
 @property(nonatomic,strong)UITextField *inputTextField;
 @property(nonatomic,strong)UIButton *sendMsgBut;
+@property(nonatomic,strong)NSMutableArray *cellItem;
 
 @end
 static MsgPanelController *msgPanelController = nil;
@@ -44,7 +45,7 @@ static MsgPanelController *msgPanelController = nil;
 }
 -(void)initBaseUi;
 {
-    
+    self.cellItem=[[NSMutableArray alloc] init];
     UITableView* temp=[[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     temp.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     temp.backgroundColor=[UIColor whiteColor];
@@ -95,7 +96,6 @@ static MsgPanelController *msgPanelController = nil;
                 NSLog(@"发送成功");
             }else{
                 NSLog(@"发送失败");
-              
             }
         }];
        
@@ -107,9 +107,10 @@ static MsgPanelController *msgPanelController = nil;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self.cellItem removeAllObjects];
+    [self.cellItem  addObject: self.dynamicBaseVo];
+    [self.cellItem  addObject:@"评论"];
     [self.tabelListView reloadData];
-    
     self.hidesBottomBarWhenPushed=YES;
 }
 -(void) selectUseHead :(DynamicBaseVo*)value ;
@@ -127,29 +128,59 @@ static MsgPanelController *msgPanelController = nil;
 //重置CELL的高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return   self.dynamicBaseVo.cellHeight;
+    if( [self.cellItem[indexPath.row] isKindOfClass:[DynamicBaseVo class]] )
+    {
+        DynamicBaseVo* dynamicBaseVo=(DynamicBaseVo*)self.cellItem[indexPath.row];
+        return  dynamicBaseVo.cellHeight;
+    }
+    if( [self.cellItem[indexPath.row] isKindOfClass:[NSString class]] )
+    {
+        return 40;
+      }
+    return   100;
 }
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1; //数量
+    return self.cellItem.count; //数量
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DynamicBaseVo * vo=self.dynamicBaseVo;
-    DynamicBaseCell *cell;
-    if(vo.tabelVo.vidio_url.length){
-        cell= [TabelVideoViewCell makeViewCell:tableView dataVo:vo];
-    }else{
-        cell= [TableImageViewCell makeViewCell:tableView dataVo:vo];
+    UITableViewCell *cell;
+    if( [self.cellItem[indexPath.row] isKindOfClass:[DynamicBaseVo class]] )
+    {
+        DynamicBaseVo* dynamicBaseVo=(DynamicBaseVo*)self.cellItem[indexPath.row];
+        DynamicBaseCell* dynamicBaseCell;
+        if(dynamicBaseVo.tabelVo.vidio_url.length){
+            dynamicBaseCell= [TabelVideoViewCell makeViewCell:tableView dataVo:dynamicBaseVo];
+        }else{
+            dynamicBaseCell= [TableImageViewCell makeViewCell:tableView dataVo:dynamicBaseVo];
+        }
+        dynamicBaseCell.delegate=self;
+        
+        cell=dynamicBaseCell;
+        
     }
-    cell.delegate=self;
+    if( [self.cellItem[indexPath.row] isKindOfClass:[NSString class]] )
+   {
+       cell=[[UITableViewCell alloc]init];
+       cell.backgroundColor=RGBOF(0xf1f1f1);
+       cell.textLabel.text=@"评论";
+       
+       
+       
+     }
+ 
+
     return cell;
-    
-    
+  
 }
+
+
+
+
 //使用红圈加载
 -(void)makeRefreshHeaderGf;
 {
