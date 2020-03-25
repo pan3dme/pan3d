@@ -9,6 +9,7 @@
 #import "ParticleLocusData.h"
 #import "BaseRes.h"
 #import "Vector3D.h"
+#import "Display3DLocusPartilce.h"
 
 @interface ParticleLocusData ()
  
@@ -25,17 +26,7 @@
 @end
 
 @implementation ParticleLocusData
-/*
- public _speed: number = 1;   //粒子运动数字
-    public _isLoop: boolean = false;  //是否循环
-    public _density: number;
-    public _isEnd: boolean;
-
-    public _resultUvVec: Array<number>;
-    public _caramPosVec: Array<number>;
-    public _changUv: boolean;
-    public _uvVec: Array<number>;
- */
+ 
 - (void)setAllByteInfo:(ByteArray *)byte
 {
     ParticleLocusData *this=self;
@@ -133,6 +124,8 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     self.objData.indexBuffer=indexBuffer;
+    
+    self.objData.trinum=(int)self.objData.indexs.count;
 }
 
 -(void)initUV;
@@ -167,5 +160,9 @@
     this._resultUvVec=fcVector;
  
     
+}
+-(Display3DParticle*)getParticle;
+{
+    return [[Display3DLocusPartilce alloc]init];
 }
 @end

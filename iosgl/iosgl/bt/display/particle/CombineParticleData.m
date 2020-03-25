@@ -21,7 +21,7 @@
     int len=[byte readInt];
     self.maxTime=0;
     self.dataAry=[[NSMutableArray alloc]init];
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
         int particleType=[byte readInt];
         ParticleData *pdata= [self getParticleDataType:particleType];
         pdata.version=version;
