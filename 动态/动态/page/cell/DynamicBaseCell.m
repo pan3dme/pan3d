@@ -117,16 +117,16 @@
   
     
     
-    self.diamondBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
-    self.heartBut=[self makeImagesBut:@"message" perentUi:self.bttomView];
+    self.diamondBut=[self makeImagesBut:@"dt_xihuan_bai" perentUi:self.bttomView];
+    self.heartBut=[self makeImagesBut:@"dt_liaotian" perentUi:self.bttomView];
     self.messageBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
-    self.shareBut=[self makeImagesBut:@"centsign.square" perentUi:self.bttomView];
+    self.shareBut=[self makeImagesBut:@"dt_zhuanfa" perentUi:self.bttomView];
     self.deleBut=[self makeLabelBut:@"删除" perentUi:self.bttomView];
     
-    self.diamondBut.frame=CGRectMake(0, 0, 30, 30);
-    self.heartBut.frame=CGRectMake(50, 0, 30, 30);
-    self.messageBut.frame=CGRectMake(100, 0, 30, 30);
-    self.shareBut.frame=CGRectMake(150, 0, 30, 30);
+    self.diamondBut.frame=CGRectMake(0, 0, 25, 20);
+    self.heartBut.frame=CGRectMake(50, 0, 25, 20);
+    self.messageBut.frame=CGRectMake(100, 0,  25, 20);
+    self.shareBut.frame=CGRectMake(150, 0,  25, 20);
     self.deleBut.frame=CGRectMake(200, 0, 50, 25);
     
     
