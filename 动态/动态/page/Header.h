@@ -49,6 +49,7 @@ static NSString * const PLATFORM_GAME_BLOG_COMMENTS                          = @
 static NSString * const PLATFORM_GAME_BLOG_ADD_LIKES                          = @"/blog/add_likes";
  
 static NSString * const PLATFORM_USER_FOLLOWS                          = @"/user/update_follows";
+static NSString * const PLATFORM_GAME_BLOG_GET_COMMENTS                          = @"/blog/get_comments";
 /*
  static PLATFORM_GAME_USER_IMPORT = '/user/import';
  //添加动态

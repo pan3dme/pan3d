@@ -33,6 +33,8 @@
 		FE064B7D241EC1E600AD44BE /* DynamicBaseVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */; };
 		FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */; };
 		FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */; };
+		FE34C577242BD40A000424BC /* CommentsTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE34C576242BD40A000424BC /* CommentsTabelVo.m */; };
+		FE34C57A242BD5B4000424BC /* CommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE34C579242BD5B4000424BC /* CommentsCell.m */; };
 		FE410524241F849B0031B3D1 /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410523241F849B0031B3D1 /* MathClass.m */; };
 		FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410536241FB9360031B3D1 /* NetHttpsManager.m */; };
 		FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41053A241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m */; };
@@ -99,6 +101,10 @@
 		FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableImageViewCell.m; sourceTree = "<group>"; };
 		FE064B81241ECDA100AD44BE /* DynamicTabelVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTabelVo.h; sourceTree = "<group>"; };
 		FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTabelVo.m; sourceTree = "<group>"; };
+		FE34C575242BD40A000424BC /* CommentsTabelVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentsTabelVo.h; sourceTree = "<group>"; };
+		FE34C576242BD40A000424BC /* CommentsTabelVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentsTabelVo.m; sourceTree = "<group>"; };
+		FE34C578242BD5B4000424BC /* CommentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentsCell.h; sourceTree = "<group>"; };
+		FE34C579242BD5B4000424BC /* CommentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentsCell.m; sourceTree = "<group>"; };
 		FE410522241F849B0031B3D1 /* MathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathClass.h; sourceTree = "<group>"; };
 		FE410523241F849B0031B3D1 /* MathClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathClass.m; sourceTree = "<group>"; };
 		FE410535241FB9360031B3D1 /* NetHttpsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetHttpsManager.h; sourceTree = "<group>"; };
@@ -276,6 +282,8 @@
 			children = (
 				FE410542241FFE8D0031B3D1 /* TabelBaseNSObject.h */,
 				FE410543241FFE8D0031B3D1 /* TabelBaseNSObject.m */,
+				FE34C575242BD40A000424BC /* CommentsTabelVo.h */,
+				FE34C576242BD40A000424BC /* CommentsTabelVo.m */,
 				FE064B81241ECDA100AD44BE /* DynamicTabelVo.h */,
 				FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */,
 				FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */,
@@ -324,6 +332,8 @@
 		FE608EEA2423E3C2004C1E34 /* msgpanel */ = {
 			isa = PBXGroup;
 			children = (
+				FE34C578242BD5B4000424BC /* CommentsCell.h */,
+				FE34C579242BD5B4000424BC /* CommentsCell.m */,
 				FE608EEB2423E41F004C1E34 /* MsgPanelController.h */,
 				FE608EEC2423E41F004C1E34 /* MsgPanelController.m */,
 			);
@@ -473,6 +483,7 @@
 				FE410524241F849B0031B3D1 /* MathClass.m in Sources */,
 				FE064AC3241E915C00AD44BE /* AppDelegate.m in Sources */,
 				FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */,
+				FE34C577242BD40A000424BC /* CommentsTabelVo.m in Sources */,
 				FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */,
 				FE608EED2423E41F004C1E34 /* MsgPanelController.m in Sources */,
 				FE4105512422962D0031B3D1 /* AddPanelController.m in Sources */,
@@ -494,6 +505,7 @@
 				FE41054D2422181B0031B3D1 /* DynamicModel.m in Sources */,
 				FE064ADD241E921400AD44BE /* OnePageView.m in Sources */,
 				FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */,
+				FE34C57A242BD5B4000424BC /* CommentsCell.m in Sources */,
 				FE064B68241E9F7600AD44BE /* UIImage+XBZKeyBoard.m in Sources */,
 				FE064B6A241E9F7600AD44BE /* NSString+XBZKeyBoard.m in Sources */,
 			);

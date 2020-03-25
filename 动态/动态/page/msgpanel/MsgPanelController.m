@@ -12,6 +12,8 @@
 #import "TabelVideoViewCell.h"
 #import "TableImageViewCell.h"
 #import "DynamicBaseCell.h"
+#import "CommentsCell.h"
+#import "CommentsTabelVo.h"
 #import "RedBagRefreshGifHeader.h"
 
 @interface MsgPanelController ()
@@ -107,11 +109,38 @@ static MsgPanelController *msgPanelController = nil;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+       self.hidesBottomBarWhenPushed=YES;
+    
     [self.cellItem removeAllObjects];
     [self.cellItem  addObject: self.dynamicBaseVo];
     [self.cellItem  addObject:@"评论"];
+   
     [self.tabelListView reloadData];
-    self.hidesBottomBarWhenPushed=YES;
+ 
+    
+     [self getAllComments];
+}
+-(void)getAllComments;
+{
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+       [dic setObject: [NSString stringWithFormat:@"%d",(int)self.dynamicBaseVo.tabelVo.id] forKey:@"id"];
+       [dic setObject:@"1" forKey:@"idx_begin"];
+       [dic setObject:@"250" forKey:@"idx_end"];
+ 
+    
+       [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_GET_COMMENTS paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+           int codeNum=   [[responseJson valueForKey:@"code"]intValue];
+           if(codeNum==0){
+               NSMutableArray<CommentsTabelVo*>* bitem= [CommentsTabelVo makeListArr:[responseJson valueForKey:@"comments"]];
+               for (int i=0; i<bitem.count; i++) {
+                   [self.cellItem addObject:bitem[i]];
+               }
+               [self.tabelListView reloadData];
+           }else{
+               NSLog(@"发送失败");
+           }
+       }];
+   
 }
 -(void) selectUseHead :(DynamicBaseVo*)value ;
 {
@@ -137,7 +166,7 @@ static MsgPanelController *msgPanelController = nil;
     {
         return 40;
       }
-    return   100;
+    return   200;
 }
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -146,6 +175,10 @@ static MsgPanelController *msgPanelController = nil;
     return self.cellItem.count; //数量
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.inputTextField resignFirstResponder];
+}
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
@@ -163,19 +196,22 @@ static MsgPanelController *msgPanelController = nil;
         cell=dynamicBaseCell;
         
     }
+    if( [self.cellItem[indexPath.row] isKindOfClass:[CommentsTabelVo class]] )
+    {
+        CommentsCell*   commentsCell= [CommentsCell makeViewCell:tableView dataVo:self.cellItem[indexPath.row]];
+        cell=commentsCell;
+        
+    }
     if( [self.cellItem[indexPath.row] isKindOfClass:[NSString class]] )
-   {
-       cell=[[UITableViewCell alloc]init];
-       cell.backgroundColor=RGBOF(0xf1f1f1);
-       cell.textLabel.text=@"评论";
-       
-       
-       
-     }
- 
-
+    {
+        cell=[[UITableViewCell alloc]init];
+        cell.backgroundColor=RGBOF(0xf1f1f1);
+        cell.textLabel.text=@"评论";
+        
+    }
+    
     return cell;
-  
+    
 }
 
 
