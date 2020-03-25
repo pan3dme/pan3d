@@ -52,6 +52,11 @@
         //    [ctx setBlendParticleFactors:self.data._alphaMode];
          //   [ctx cullFaceBack:self.data.materialParam.material.backCull];
             [self updateMatrix];
+        
+            self.scaleX=1.1;
+            self.scaleY=1.1;
+            self.scaleZ=1.1;
+        
             [self setVc];
             [self setVa];
             [self resetVa];
@@ -75,19 +80,19 @@
     Context3D *ctx=self.scene3d.context3D;
  
     ObjData* temp=self.display3DSprite.objData;
-    
-   // temp=self.locusdata.objData;
+  //  ObjData*  temp=self.locusdata.objData;
     [ctx pushVa: temp.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
-     
-    
-    
+     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
+  
     //      [ctx pushVa:self.particleGpuObjData.uvBuffer];
     //      [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:3 stride:0 offset:0];
     //      [ctx pushVa: self.particleGpuObjData.nrmsBuffer];
     //      [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
     
-    [ctx drawCall:self.particleGpuObjData.indexBuffer  numTril:temp.trinum];
+ 
+    
+    NSLog(@"->%d",temp.trinum);
 }
 - (void)resetVa;
 {
