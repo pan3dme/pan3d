@@ -6,6 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 #import "Header.h"
+#import "DynamicModel.h"
 #import "MsgPanelController.h"
 #import "DynamicBaseCell.h"
 #import "TabelVideoViewCell.h"
@@ -21,7 +22,6 @@ UITableViewDataSource,
 DynamicBaseCellDelegate,
 UIScrollViewDelegate
 >
-
 @property(nonatomic,strong)UITableView *tabelListView;
 @property(nonatomic,strong)UIView *inputViewBg;
 @property(nonatomic,strong)UITextField *inputTextField;
@@ -82,7 +82,26 @@ static MsgPanelController *msgPanelController = nil;
 }
 -(void)sendMsgButClikEvent:(UITapGestureRecognizer *)sender;
 {
-   [self.inputTextField resignFirstResponder];
+  
+    if( self.inputTextField.text.length){
+        NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+        [dic setObject: [NSString stringWithFormat:@"%d",(int)self.dynamicBaseVo.tabelVo.id] forKey:@"id"];
+        [dic setObject:self.inputTextField.text forKey:@"content"];
+        [dic setObject:@"0" forKey:@"quote"];
+     
+        [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_COMMENTS paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+            int codeNum=   [[responseJson valueForKey:@"code"]intValue];
+            if(codeNum==0){
+                NSLog(@"发送成功");
+            }else{
+                NSLog(@"发送失败");
+              
+            }
+        }];
+       
+  
+    }
+   
     
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -120,7 +139,6 @@ static MsgPanelController *msgPanelController = nil;
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DynamicBaseVo * vo=self.dynamicBaseVo;
-    
     DynamicBaseCell *cell;
     if(vo.tabelVo.vidio_url.length){
         cell= [TabelVideoViewCell makeViewCell:tableView dataVo:vo];
