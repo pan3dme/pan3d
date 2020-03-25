@@ -35,8 +35,7 @@
         "mulPos = normalize(mulPos);\n"
         "mulPos *= v3Normal.w;\n"
    
-    
-         "tempPos.xyz = v3Normal.xyz*v3Normal.w*20.0  + v3Position.xyz;\n"
+        "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
     
         "gl_Position = tempPos*modeMatrix* camMatrix* viewMatrix;\n"
     
