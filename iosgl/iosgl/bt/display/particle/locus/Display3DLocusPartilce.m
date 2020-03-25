@@ -74,23 +74,23 @@
     [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
     [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
     [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
+    
+    Vector3D*  scaleVec =   self.locusdata._resultUvVec;
+    [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
 }
 - (void)setVa;
 {
     Context3D *ctx=self.scene3d.context3D;
  
-    //ObjData* temp=self.display3DSprite.objData;
-   ObjData*  temp=self.locusdata.objData;
+   ObjData* temp=self.particleGpuObjData;
+   
     [ctx pushVa: temp.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
-     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
-  
-    //      [ctx pushVa:self.particleGpuObjData.uvBuffer];
-    //      [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:3 stride:0 offset:0];
-    //      [ctx pushVa: self.particleGpuObjData.nrmsBuffer];
-    //      [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
-    
- 
+    [ctx pushVa:temp.uvBuffer];
+    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
+    [ctx pushVa: temp.nrmsBuffer];
+    [ctx setVaOffset:self.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
+    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
     
     //NSLog(@"->%d",temp.trinum);
 }

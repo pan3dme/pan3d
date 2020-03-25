@@ -39,7 +39,7 @@
 {
     if(self.textureRes&&self.textureRes.textTureLuint ){
         self.shader3d=self.data.materialParam.shader;
-        [super update];
+         [super update];
     }
     
 }
@@ -93,7 +93,7 @@
     [ctx pushVa: self.particleBallGpuData.speedBuffer];
     [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
  
-  //  [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
+   [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
     
     [self setMaterialTexture];
 }

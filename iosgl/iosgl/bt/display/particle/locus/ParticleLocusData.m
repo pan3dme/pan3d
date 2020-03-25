@@ -18,9 +18,7 @@
 @property (nonatomic, assign)  BOOL  _isEnd;
 @property (nonatomic, assign)  BOOL  _changUv;
 @property (nonatomic, assign)  BOOL  _isLoop;  //是否循环
-@property (nonatomic, strong)  Vector3D*  _resultUvVec;
-@property (nonatomic, strong)  Vector3D*   _caramPosVec;
-@property (nonatomic, strong)  Vector3D*  _uvVec;
+
  
 
 @end
