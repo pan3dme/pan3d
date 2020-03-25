@@ -9,6 +9,8 @@
 #import "ParticleLocusData.h"
 #import "BaseRes.h"
 #import "Vector3D.h"
+#import "Display3DLocusShader.h"
+#import "ProgrmaManager.h"
 #import "Display3DLocusPartilce.h"
 
 @interface ParticleLocusData ()
@@ -180,6 +182,16 @@
         }
     }
     this._resultUvVec=fcVector;
+ 
+    
+}
+-(void)regShader;
+{
+    if ( self.materialParam) {
+       [[ProgrmaManager default] registe:Display3DLocusShader.shaderStr shader3d: [[Display3DLocusShader alloc]init]];
+       self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DLocusShader.shaderStr];
+        
+    }
  
     
 }

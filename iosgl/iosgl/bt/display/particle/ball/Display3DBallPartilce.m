@@ -39,7 +39,7 @@
 {
     if(self.textureRes&&self.textureRes.textTureLuint ){
         self.shader3d=self.data.materialParam.shader;
-      //   [super update];
+        [super update];
     }
     
 }
