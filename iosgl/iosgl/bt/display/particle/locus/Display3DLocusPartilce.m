@@ -79,8 +79,8 @@
 {
     Context3D *ctx=self.scene3d.context3D;
  
-    ObjData* temp=self.display3DSprite.objData;
-  //  ObjData*  temp=self.locusdata.objData;
+    //ObjData* temp=self.display3DSprite.objData;
+   ObjData*  temp=self.locusdata.objData;
     [ctx pushVa: temp.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
      [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
@@ -92,7 +92,7 @@
     
  
     
-    NSLog(@"->%d",temp.trinum);
+    //NSLog(@"->%d",temp.trinum);
 }
 - (void)resetVa;
 {

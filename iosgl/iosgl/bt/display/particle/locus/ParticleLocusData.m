@@ -78,14 +78,37 @@
 }
 -(void)upGpuvertexBuffer;
 {
-    GLfloat vers[self.objData.vertices.count];
+ 
+    GLfloat attrArr[self.objData.vertices.count];
     for (int i=0; i<self.objData.vertices.count; i++) {
-        vers[i]=[self.objData.vertices[i] floatValue];
+        attrArr[i]=[self.objData.vertices[i] floatValue]*1.0;
     }
+ 
+ 
+     attrArr[0]=-200.0f;
+     attrArr[1]=0.0f;
+     attrArr[2]=0.0f;
+     
+     attrArr[3]=0.0f;
+     attrArr[4]=0.0f;
+     attrArr[5]=-100.0f;
+
+     attrArr[6]=100.0f;
+     attrArr[7]=0.0f;
+     attrArr[8]=100.0f;
+
+     attrArr[9]=-100.0f;
+     attrArr[10]=0.0f;
+     attrArr[11]=-100.0f;
+    
+ 
+     
+ 
+    
     GLuint verticesBuffer;
     glGenBuffers(1, &verticesBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vers), vers, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
     self.objData.verticesBuffer=verticesBuffer;
 }
 -(void)upGpuNrmBuffer;

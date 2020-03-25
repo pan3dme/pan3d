@@ -5587,8 +5587,8 @@
             filePath = "iosgl/bt/display/particle/locus/ParticleLocusData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-initUV"
             landmarkType = "7">
          </BreakpointContent>
@@ -5603,8 +5603,8 @@
             filePath = "iosgl/bt/display/particle/locus/ParticleLocusData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-upGpuvertexBuffer"
             landmarkType = "7">
          </BreakpointContent>
@@ -5731,8 +5731,8 @@
             filePath = "iosgl/bt/display/particle/locus/ParticleLocusData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-upGpuIndexBuffer"
             landmarkType = "7">
          </BreakpointContent>
@@ -5747,9 +5747,25 @@
             filePath = "iosgl/bt/display/particle/locus/ParticleLocusData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-upGpuIndexBuffer"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E995BED2-AE58-4E94-924C-8AE3FC2F8DAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/particle/locus/ParticleLocusData.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-upGpuvertexBuffer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
