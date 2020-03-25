@@ -49,20 +49,20 @@
         if ( self.data.materialParam){
  
              glUseProgram( self.shader3d.program);
-        //    [ctx setBlendParticleFactors:self.data._alphaMode];
-         //   [ctx cullFaceBack:self.data.materialParam.material.backCull];
+        
+//            self.scaleX=1.1;
+//             self.scaleY=1.1;
+//             self.scaleZ=1.1;
+            
             [self updateMatrix];
         
-            self.scaleX=1.1;
-            self.scaleY=1.1;
-            self.scaleZ=1.1;
         
             [self setVc];
             [self setVa];
             [self resetVa];
             
-         //   self.display3DSprite.scene3d=self.scene3d;
-           // [self.display3DSprite upFrame];
+              self.display3DSprite.scene3d=self.scene3d;
+        //     [self.display3DSprite upFrame];
         }
         
     }
@@ -85,7 +85,7 @@
    ObjData* temp=self.particleGpuObjData;
    
     [ctx pushVa: temp.verticesBuffer];
-    [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
+    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:temp.uvBuffer];
     [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
     [ctx pushVa: temp.nrmsBuffer];

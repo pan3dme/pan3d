@@ -79,10 +79,11 @@
  
     GLfloat attrArr[self.objData.vertices.count];
     for (int i=0; i<self.objData.vertices.count; i++) {
-        attrArr[i]=[self.objData.vertices[i] floatValue]*1.0;
+        attrArr[i]=[self.objData.vertices[i] floatValue];
     }
  
  
+    /*
      attrArr[0]=-200.0f;
      attrArr[1]=0.0f;
      attrArr[2]=0.0f;
@@ -98,7 +99,7 @@
      attrArr[9]=-100.0f;
      attrArr[10]=0.0f;
      attrArr[11]=-100.0f;
-    
+  */
  
      
  
