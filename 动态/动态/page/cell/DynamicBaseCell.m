@@ -117,9 +117,9 @@
   
     
     
-    self.diamondBut=[self makeImagesBut:@"dt_xihuan_bai" perentUi:self.bttomView];
-    self.heartBut=[self makeImagesBut:@"dt_liaotian" perentUi:self.bttomView];
-    self.messageBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
+    self.diamondBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
+    self.heartBut=[self makeImagesBut:@"dt_xihuan_bai" perentUi:self.bttomView];
+    self.messageBut=[self makeImagesBut:@"dt_liaotian" perentUi:self.bttomView];
     self.shareBut=[self makeImagesBut:@"dt_zhuanfa" perentUi:self.bttomView];
     self.deleBut=[self makeLabelBut:@"删除" perentUi:self.bttomView];
     
@@ -149,11 +149,7 @@
     [followItem addObject:self.datavo.tabelVo.username];
     [dic setObject:followItem  forKey:@"following"];
     
-    /*
-     [[ DynamicModel default] basePostToUrl:PLATFORM_USER_FOLLOWS paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-     NSLog(@"更新关注");
-     }];
-     */
+ 
     
     [[ DynamicModel default] GetDynamicByValue:PLATFORM_USER_FOLLOWS paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
         NSLog(@"更新关注");

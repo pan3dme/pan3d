@@ -60,7 +60,7 @@ UIScrollViewDelegate
     [self.navigationController setNavigationBarHidden:NO];
     
     
-    
+     self.hidesBottomBarWhenPushed=YES;
  
     [self initBaseUi ];
     
@@ -72,7 +72,10 @@ UIScrollViewDelegate
 - (void)clikOpenMsgPanel:(DynamicBaseVo *)value
 {
     [MsgPanelController default].dynamicBaseVo=value;
+    [MsgPanelController default].hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:[MsgPanelController default]  animated:YES];
+    
+   
 }
 
 

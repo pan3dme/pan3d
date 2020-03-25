@@ -11,7 +11,9 @@
 #import "YBImageBrowser.h"
  
 @interface TableImageViewCell()
- 
+ <
+UITextFieldDelegate
+>
 
 
 @end
@@ -91,8 +93,7 @@
 {
     [super setCellData:value];
     NSArray<NSString*>*  minis =  self.datavo.miniimages;
-    //[0]    __NSCFString *    @"http://34.87.12.20:20080//static/upload/107762834426d05fae60b594cc2a071e.jpeg"    0x0000000283cc2100
-
+ 
     if(minis.count>=1){
         [self imgLoadByUrl:minis[0]  imgView:self.img00];
     }
