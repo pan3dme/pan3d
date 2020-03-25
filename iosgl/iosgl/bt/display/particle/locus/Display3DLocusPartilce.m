@@ -14,10 +14,7 @@
 #import "ProgrmaManager.h"
 #import "Display3DSprite.h"
 @interface Display3DLocusPartilce ()
-
 @property (nonatomic, strong) Shader3D* shader3d;
-@property (nonatomic, strong) Display3DSprite* display3DSprite;
-
 @end
 @implementation Display3DLocusPartilce
 
@@ -34,37 +31,20 @@
 {
     self = [super init];
     if (self) {
-        [[ProgrmaManager default] registe:Display3DLocusShader.shaderStr shader3d: [[Display3DLocusShader alloc]init]];
-        self.shader3d=  [[ProgrmaManager default] getProgram:Display3DLocusShader.shaderStr];
-        
-        self.display3DSprite=[[Display3DSprite  alloc]init];
-        
     }
     return self;
 }
 - (void)update;
 {
-   
     if(self.visible ){
         if ( self.data.materialParam){
- 
-             glUseProgram( self.shader3d.program);
-        
-//            self.scaleX=1.1;
-//             self.scaleY=1.1;
-//             self.scaleZ=1.1;
-            
+            self.shader3d=self.data.materialParam.shader;
+            glUseProgram( self.shader3d.program);
             [self updateMatrix];
-        
-        
             [self setVc];
             [self setVa];
             [self resetVa];
-            
-              self.display3DSprite.scene3d=self.scene3d;
-        //     [self.display3DSprite upFrame];
         }
-        
     }
 }
 - (void)setVc;
@@ -81,9 +61,8 @@
 - (void)setVa;
 {
     Context3D *ctx=self.scene3d.context3D;
- 
-   ObjData* temp=self.particleGpuObjData;
-   
+    ObjData* temp=self.particleGpuObjData;
+    
     [ctx pushVa: temp.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:temp.uvBuffer];
