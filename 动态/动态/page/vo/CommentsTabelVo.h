@@ -25,7 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString* head;
 @property(nonatomic,strong)NSNumber* likes;
 @property(nonatomic,strong)NSNumber* quote;
+
+
+@property (nonatomic, strong) NSString* replyContent;
 @property (nonatomic, assign) CGFloat cellHeight;
+@property(nonatomic,strong)NSMutableArray<CommentsTabelVo*>* sonitem;
+
+-(void)resetreplyContent;
 
 +(NSMutableArray<CommentsTabelVo*>*)makeListArr:(NSMutableArray*)arr;
 @end

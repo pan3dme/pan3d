@@ -15,12 +15,31 @@
 {
     [self setValueToSelf:value];
     
-      CGSize rectSize = [self.content boundingRectWithSize:CGSizeMake(kScreenW-200, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}  context:nil].size;
+ 
+    self.cellHeight=100;
+ 
+}
+-(void)resetreplyContent;
+{
+       CGFloat tw150=130;
+    self.replyContent=@"";
+    for (int i=0; i<self.sonitem.count; i++) {
+        self.replyContent = [self.replyContent stringByAppendingString:self.sonitem[i].nick_name];
+        self.replyContent = [self.replyContent stringByAppendingString:@":"];
+        self.replyContent = [self.replyContent stringByAppendingString:self.sonitem[i].content];
+        if(i<self.sonitem.count-1){
+            self.replyContent = [self.replyContent stringByAppendingString:@"\n"];
+        }
+    }
+    CGSize contentSize = [self.content boundingRectWithSize:CGSizeMake(kScreenW-tw150, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}  context:nil].size;
+    self.cellHeight=100+contentSize.height;
     
-    self.cellHeight=100+rectSize.height;
+    if(self.replyContent.length){
+        CGSize replySize = [self.replyContent boundingRectWithSize:CGSizeMake(kScreenW-tw150-10, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}  context:nil].size;
+        self.cellHeight +=replySize.height;
+    }
     
     
-
 }
 +(NSMutableArray<CommentsTabelVo*>*)makeListArr:(NSMutableArray*)arr;
 {

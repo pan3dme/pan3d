@@ -18,6 +18,7 @@
 
 @interface MsgPanelController ()
 <
+CommentsCellDelegate,
 UITextFieldDelegate,
 UITableViewDelegate,
 UITableViewDataSource,
@@ -83,6 +84,14 @@ static MsgPanelController *msgPanelController = nil;
     
   
 }
+-(void) clikCellHear:(CommentsTabelVo*)value ;
+{
+    NSLog(@"clikHear");
+}
+-(void) clikCellMessage:(CommentsTabelVo*)value ;
+{
+     NSLog(@"clikMessage");
+}
 -(void)sendMsgButClikEvent:(UITapGestureRecognizer *)sender;
 {
   
@@ -133,14 +142,30 @@ static MsgPanelController *msgPanelController = nil;
            if(codeNum==0){
                NSMutableArray<CommentsTabelVo*>* bitem= [CommentsTabelVo makeListArr:[responseJson valueForKey:@"comments"]];
                for (int i=0; i<bitem.count; i++) {
-                   [self.cellItem addObject:bitem[i]];
+                   if([bitem[i].quote intValue]==0){
+                        [self.cellItem addObject:bitem[i]];
+                        [self makeCommentSonList:bitem  temp:bitem[i]];
+                   }
                }
+               
                [self.tabelListView reloadData];
+          
            }else{
                NSLog(@"发送失败");
            }
        }];
    
+}
+-( void)makeCommentSonList:(NSMutableArray<CommentsTabelVo*>*)items temp:(CommentsTabelVo*)temp
+{
+    temp.sonitem=[[NSMutableArray alloc]init];
+    for (int i=0; i<items.count; i++) {
+        if(items[i].quote==temp.id){
+            [temp.sonitem addObject:items[i]];
+        }
+    }
+    [temp resetreplyContent];
+    
 }
 -(void) selectUseHead :(DynamicBaseVo*)value ;
 {
@@ -205,6 +230,8 @@ static MsgPanelController *msgPanelController = nil;
     if( [self.cellItem[indexPath.row] isKindOfClass:[CommentsTabelVo class]] )
     {
         CommentsCell*   commentsCell= [CommentsCell makeViewCell:tableView dataVo:self.cellItem[indexPath.row]];
+        
+        commentsCell.delegate=self;
         cell=commentsCell;
         
     }

@@ -11,9 +11,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol CommentsCellDelegate<NSObject>
+-(void) clikCellHear:(CommentsTabelVo*)value ;
+-(void) clikCellMessage:(CommentsTabelVo*)value ;
+@end
+ 
+
 @interface CommentsCell : UITableViewCell
 +(NSString*)CELL_STR;
 +(CommentsCell *)makeViewCell:(UITableView*)tableView    dataVo:(CommentsTabelVo*)dataVo;
+@property(assign,nonatomic) id<CommentsCellDelegate>delegate;
 @end
 
 NS_ASSUME_NONNULL_END
