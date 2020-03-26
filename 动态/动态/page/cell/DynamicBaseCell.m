@@ -10,6 +10,7 @@
 #import "DynamicBaseCell.h"
 #import "UIImageView+WebCache.h"
 #import "Header.h"
+#import "UIView+XBZKeyBoard.h"
 #import "DynamicModel.h"
 
 
@@ -23,6 +24,11 @@
 @property(nonatomic,strong)UIButton * heartBut;
 @property(nonatomic,strong)UIButton * diamondBut;
 @property(nonatomic,strong)UIButton * messageBut;
+
+@property(nonatomic,strong)UILabel * heartLabel;
+@property(nonatomic,strong)UILabel * diamondLabel;
+@property(nonatomic,strong)UILabel * messageLabel;
+
 @property(nonatomic,strong)UIButton * shareBut;
 @property(nonatomic,strong)UIButton * deleBut;
 @property(nonatomic,strong)UIView * bttomView;
@@ -72,6 +78,8 @@
 {
     UIButton *btn =[[UIButton alloc]initWithFrame: CGRectMake(0, 0, 40, 40)] ;
     [btn setImage:[UIImage imageNamed:picStr] forState:UIControlStateNormal];
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [perentUi addSubview:btn];
     return btn;
 }
@@ -127,6 +135,16 @@
     self.heartBut.frame=CGRectMake(50, 0, 25, 20);
     self.messageBut.frame=CGRectMake(100, 0,  25, 20);
     self.shareBut.frame=CGRectMake(150, 0,  25, 20);
+    
+    
+    self.diamondLabel=[[UILabel alloc]initWithFrame:CGRectMake(self.diamondBut.frame.origin.x+40, 0, 50, 20)];
+    [self.bttomView addSubview:self.diamondLabel];
+    self.heartLabel=[[UILabel alloc]initWithFrame:CGRectMake(self.heartBut.frame.origin.x+40, 0, 50, 20)];
+    [self.bttomView addSubview:self.heartLabel];
+    self.messageLabel=[[UILabel alloc]initWithFrame:CGRectMake(self.messageBut.frame.origin.x+40, 0, 50, 20)];
+    [self.bttomView addSubview:self.messageLabel];
+    
+    
     self.deleBut.frame=CGRectMake(200, 0, 50, 25);
     
     
@@ -203,6 +221,23 @@
         self.infoBg.frame=CGRectMake(100, 55, self.width-100, self.height-100);
     }
  
+    if(self.datavo.tabelVo.is_lock>0){
+        self.diamondBut.frame=CGRectMake(0, 0, 25, 20);
+        self.heartBut.frame=CGRectMake(60, 0, 25, 20);
+        self.messageBut.frame=CGRectMake(120, 0,  25, 20);
+        self.shareBut.frame=CGRectMake(180, 0,  25, 20);
+    }else{
+        self.heartBut.frame=CGRectMake(0, 0, 25, 20);
+        self.messageBut.frame=CGRectMake(60, 0,  25, 20);
+        self.shareBut.frame=CGRectMake(129, 0,  25, 20);
+    }
+
+    self.diamondLabel.frame=CGRectMake(self.diamondBut.frame.origin.x+40, 0, 50, 20);
+    self.heartLabel.frame=CGRectMake(self.heartBut.frame.origin.x+40, 0, 50, 20);
+    self.messageLabel.frame=CGRectMake(self.messageBut.frame.origin.x+40, 0, 50, 20);
+    
+
+ 
 }
 
 
@@ -244,6 +279,19 @@
     }else{
         [self.heartBut setImage:[UIImage imageNamed:@"dt_xihuan_bai"] forState:UIControlStateNormal];
     }
+    if(self.datavo.tabelVo.is_lock>0){
+        self.diamondBut.hidden=NO;
+        self.diamondLabel.hidden=NO;
+    }else{
+         self.diamondBut.hidden=YES;
+         self.diamondLabel.hidden=YES;
+    }
+    
+    self.diamondLabel.text=@"0";
+     self.heartLabel.text=@"0";
+     self.messageLabel.text=@"0";
+    
+    
  
     [self layoutSubviews];
     
