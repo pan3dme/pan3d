@@ -75,7 +75,7 @@ UITextFieldDelegate
  
     //[self.delegate imglistClik:self idx:sender.view.tag-100];
     
-   
+    [SDImageCache sharedImageCache].config;
 }
 /*
 -(UIImageView*)makeImageView;
