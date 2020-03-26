@@ -60,9 +60,7 @@ UITableViewDataSource
     [self makeRefreshHeaderGf];
     self.backgroundColor=[UIColor clearColor];
     
-    
-
-   
+      
     
     self.listBgimgView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blank_img"]];
     self.listBgimgView.frame=CGRectMake(0, 0, 200, 200);

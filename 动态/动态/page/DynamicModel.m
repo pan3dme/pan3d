@@ -179,6 +179,26 @@ static DynamicModel *dynamicModel = nil;
     [upImageVo saveToServes:baseUrl img:tempImage bfun:bfun progressfun:progressfun];
     
 }
+-(BOOL)heartByKey:(NSString*)key ;
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* heartDic=   [defaults objectForKey:@"heartpoint1"];
+    return   [[heartDic objectForKey:key] intValue]>0;
+}
+-(void)setHdeartByKey:(NSString*)key num:(NSNumber*)num ;
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* heartDic=  [defaults objectForKey:@"heartpoint1"];
+    NSMutableDictionary *newdic;
+    if(heartDic){
+       newdic = [NSMutableDictionary dictionaryWithDictionary:heartDic];
+    }else{
+       newdic=[[NSMutableDictionary alloc]init];
+    }
+    [newdic setObject:num forKey:key];
+    [defaults setObject:newdic forKey:@"heartpoint1"];
+ 
+}
 
 
 -(UIImage *)resizeImage:(UIImage *)image width:(int)wdth height:(int)hght{

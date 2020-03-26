@@ -91,6 +91,7 @@ static MsgPanelController *msgPanelController = nil;
 -(void) clikCellMessage:(CommentsTabelVo*)value ;
 {
      NSLog(@"clikMessage");
+     self.inputTextField.text=[NSString stringWithFormat:@"@%@ ",value.nick_name];
 }
 -(void)sendMsgButClikEvent:(UITapGestureRecognizer *)sender;
 {
@@ -169,7 +170,7 @@ static MsgPanelController *msgPanelController = nil;
 }
 -(void) selectUseHead :(DynamicBaseVo*)value ;
 {
-    
+   
 }
 -(void) clikOpenMsgPanel :(DynamicBaseVo*)value ;
 {

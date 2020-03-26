@@ -130,9 +130,33 @@
     self.deleBut.frame=CGRectMake(200, 0, 50, 25);
     
     
+    [self.heartBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(heartButClikEvent:)]];
     [self.followBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(followButClikEvent:)]];
     [self.deleBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(deleButClikEvent:)]];
     [self.messageBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(messageButClikEvent:)]];
+}
+/*
+ NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int lastGetTm=   [[defaults objectForKey:@"saveLastGetRainBagTm"]intValue];
+ */
+-(void)heartButClikEvent:(UITapGestureRecognizer *)sender;
+{
+ 
+   
+    if([[ DynamicModel default] heartByKey:self.heartKey]){
+        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@0];
+    }else{
+        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@1];
+    }
+    
+    [self refrishUi];
+ 
+}
+-(NSString*)heartKey;
+{
+     NSString* key=[NSString stringWithFormat:@"%@_%d",@"blog",(int)self.datavo.tabelVo.id ];
+    
+    return key;
 }
 -(void)messageButClikEvent:(UITapGestureRecognizer *)sender;
 {
@@ -215,6 +239,12 @@
     
     self.deleBut.hidden=!self.datavo.isSelf;
     
+    if([[ DynamicModel default] heartByKey:self.heartKey]){
+        [self.heartBut setImage:[UIImage imageNamed:@"dt_xihuan_hong"] forState:UIControlStateNormal];
+    }else{
+        [self.heartBut setImage:[UIImage imageNamed:@"dt_xihuan_bai"] forState:UIControlStateNormal];
+    }
+ 
     [self layoutSubviews];
     
 }

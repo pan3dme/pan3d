@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)GetDynamicByValue:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 -(void)basePostToUrl:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun progressfun:(ProgressUpLoad)progressfun ;
+-(BOOL)heartByKey:(NSString*)key ;
+-(void)setHdeartByKey:(NSString*)key num:(NSNumber*)num ;
+
 @end
 
 NS_ASSUME_NONNULL_END

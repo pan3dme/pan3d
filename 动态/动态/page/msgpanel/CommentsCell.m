@@ -9,6 +9,7 @@
 #import "CommentsCell.h"
 #import <UIKit/UIKit.h>
 #import "Header.h"
+#import "DynamicModel.h"
 #import "CommentsTabelVo.h"
 #import "UIImageView+WebCache.h"
 
@@ -105,8 +106,19 @@
 }
 -(void)heartButClikEvent:(UITapGestureRecognizer *)sender;
 {
-     [_delegate clikCellHear:self.datavo];
+    if([[ DynamicModel default] heartByKey:self.heartKey]){
+        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@0];
+    }else{
+        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@1];
+    }
     
+    [self refrishUi];
+    
+}
+-(NSString*)heartKey;
+{
+    NSString* key=[NSString stringWithFormat:@"%@_%d",@"comment",(int)self.datavo.id ];
+    return key;
 }
 -(void)messageButClikEvent:(UITapGestureRecognizer *)sender;
 {
@@ -151,28 +163,33 @@
     
     if(self.datavo.sonitem.count){
         self.replyTxtBg.hidden=NO;
-        
+        NSMutableAttributedString *butedStr = [[NSMutableAttributedString alloc] initWithString:self.datavo.replyContent];
         NSString* tempStr=@"";
         for (int i=0; i<self.datavo.sonitem.count; i++) {
-              tempStr = [ tempStr stringByAppendingString: self.datavo.sonitem[i].nick_name];
+            [butedStr addAttribute:NSForegroundColorAttributeName value:RGBOF(0x29b6f6) range:NSMakeRange(tempStr.length, self.datavo.sonitem[i].nick_name.length )];
+            tempStr = [ tempStr stringByAppendingString: self.datavo.sonitem[i].nick_name];
             tempStr = [ tempStr stringByAppendingString:@":"];
             tempStr = [ tempStr stringByAppendingString: self.datavo.sonitem[i].content];
             if(i< self.datavo.sonitem.count-1){
-              tempStr = [ tempStr stringByAppendingString:@"\n"];
+                tempStr = [ tempStr stringByAppendingString:@"\n"];
             }
         }
-        
-        self.replyLabel.text=tempStr;
+        self.replyLabel.attributedText = butedStr;
         CGSize replySize = [tempStr boundingRectWithSize:CGSizeMake(kScreenW-tw150-10, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}  context:nil].size;
-     
+        
         self.replyTxtBg.frame=CGRectMake(100, 60, kScreenW-tw150, replySize.height+10);
         self.replyLabel.frame=CGRectMake(5, 5, self.replyTxtBg.width-5, replySize.height);
         
-        
     }else{
-         self.replyTxtBg.hidden=YES;
-          self.replyTxtBg.frame=CGRectMake(100, 40, kScreenW-tw150, 20);
+        self.replyTxtBg.hidden=YES;
+        self.replyTxtBg.frame=CGRectMake(100, 40, kScreenW-tw150, 20);
     }
+    
+    if([[ DynamicModel default] heartByKey:self.heartKey]){
+         [self.heartBut setImage:[UIImage imageNamed:@"dt_xihuan_hong"] forState:UIControlStateNormal];
+     }else{
+         [self.heartBut setImage:[UIImage imageNamed:@"dt_xihuan_bai"] forState:UIControlStateNormal];
+     }
 }
 - (void)setCellData:(CommentsTabelVo *)value
 {
