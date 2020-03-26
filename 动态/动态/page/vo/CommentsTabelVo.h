@@ -7,6 +7,7 @@
 //
 
 #import "TabelBaseNSObject.h"
+#import "Header.h"
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -24,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString* head;
 @property(nonatomic,strong)NSNumber* likes;
 @property(nonatomic,strong)NSNumber* quote;
- 
+@property (nonatomic, assign) CGFloat cellHeight;
 
 +(NSMutableArray<CommentsTabelVo*>*)makeListArr:(NSMutableArray*)arr;
 @end

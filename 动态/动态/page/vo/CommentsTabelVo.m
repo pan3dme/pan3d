@@ -7,12 +7,19 @@
 //
 
 #import "CommentsTabelVo.h"
+#import "Header.h"
 
 @implementation CommentsTabelVo
 
 -(void)praseData:(NSDictionary *)value;
 {
     [self setValueToSelf:value];
+    
+      CGSize rectSize = [self.content boundingRectWithSize:CGSizeMake(kScreenW-200, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}  context:nil].size;
+    
+    self.cellHeight=100+rectSize.height;
+    
+    
 
 }
 +(NSMutableArray<CommentsTabelVo*>*)makeListArr:(NSMutableArray*)arr;

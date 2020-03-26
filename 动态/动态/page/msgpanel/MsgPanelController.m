@@ -162,10 +162,16 @@ static MsgPanelController *msgPanelController = nil;
         DynamicBaseVo* dynamicBaseVo=(DynamicBaseVo*)self.cellItem[indexPath.row];
         return  dynamicBaseVo.cellHeight;
     }
+    if( [self.cellItem[indexPath.row] isKindOfClass:[CommentsTabelVo class]] )
+      {
+           CommentsTabelVo* commentsTabelVo=(CommentsTabelVo*)self.cellItem[indexPath.row];
+            return  commentsTabelVo.cellHeight;
+      }
     if( [self.cellItem[indexPath.row] isKindOfClass:[NSString class]] )
     {
         return 40;
       }
+    
     return   200;
 }
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
