@@ -11,6 +11,7 @@
 #import "Display3DLocusShader.h"
 #import "Context3D.h"
 #import "Scene3D.h"
+#import "Scene_data.h"
 #import "ProgrmaManager.h"
 #import "Display3DSprite.h"
 @interface Display3DLocusPartilce ()
@@ -55,8 +56,35 @@
     [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
     [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
     
+    [self updateUV];
     Vector3D*  scaleVec =   self.locusdata._resultUvVec;
-    [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
+    [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
+    
+     NSLog(@"%f*%f*%f*%f",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
+    if (self.data._watchEye) {
+       // NSLog(@"%f-%f-%f",cam3D.x,cam3D.y,cam3D.z);
+        Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
+        [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
+    }
+ 
+}
+-(void)updateUV;
+{
+    float nowTime=self._time/[Scene_data default].frameTime;
+    float  lifeRoundNum=self.data._life / 100.0;
+    float moveUv = self.locusdata._speed * nowTime / self.locusdata._density / 10;
+    if (self.locusdata._isEnd) {
+        moveUv = MIN(1, moveUv);
+    }
+    if (self.locusdata._isLoop) {
+        if (self.locusdata._life) {
+            moveUv = moveUv- ceilf(moveUv/(lifeRoundNum+1))*(lifeRoundNum+1) ;
+        } else {
+            moveUv = moveUv- ceilf(moveUv/1)*1 ;
+        }
+    }
+    self.locusdata._resultUvVec.x = moveUv;
+ 
 }
 - (void)setVa;
 {
@@ -70,9 +98,30 @@
     [ctx pushVa: temp.nrmsBuffer];
     [ctx setVaOffset:self.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
-    
-    //NSLog(@"->%d",temp.trinum);
+ 
 }
+
+/*
+ public updateUV(): void {
+     var $nowTime: number = this._time / Scene_data.frameTime;
+     var $lifeRoundNum: number = (this.data._life / 100);
+     var $moveUv: number = this.locusdata._speed * $nowTime / this.locusdata._density / 10
+     if (this.locusdata._isEnd) {
+         $moveUv = Math.min(1, $moveUv);
+     }
+
+     if (this.locusdata._isLoop) {
+         if (this.locusdata._life) {
+             $moveUv = $moveUv % ($lifeRoundNum + 1)
+         } else {
+             $moveUv = $moveUv % 1;
+         }
+     }
+
+     this.locusdata._resultUvVec[0] = $moveUv;
+ }
+
+ */
 - (void)resetVa;
 {
     

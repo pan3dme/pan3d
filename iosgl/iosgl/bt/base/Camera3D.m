@@ -34,17 +34,20 @@
     [self.viewMatrix inputStrData:@"1.8304877281188965,0,0,0,0,1.8304877281188965,0,0,0,0,1.0016694068908691,1,0,0,-1.0016694068908691,0"];
    
     [self.camMatrix3D identity];
-    
-     
-    
     [self.camMatrix3D appendRotation: self.rotationY axis:Vector3D.Y_AXIS];
     [self.camMatrix3D appendRotation: self.rotationX axis:Vector3D.X_AXIS];
     [self.camMatrix3D appendTranslation: 0.0 y:0.0 z:self.distance];
-    
     [self.camMatrix3D appendTranslation: 0.0 y:-50.0 z:0.0];
     
+    Vector3D* p=  [self.camMatrix3D transformVector: [[Vector3D alloc]x:0 y:0 z:-self.distance] ];
+    self.x=p.x;
+    self.y=p.y;
+    self.z=p.z;
     self.modelMatrix= [self.viewMatrix  clone];
     [self.modelMatrix prepend:  self.camMatrix3D];
+    
+    
+  
  
  
 }
