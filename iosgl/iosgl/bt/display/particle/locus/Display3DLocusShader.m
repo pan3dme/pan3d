@@ -39,15 +39,14 @@
         "v2 = vec4(kill,0.0,0.0,alpha);\n"
         "v1 = v2TexCoord;\n"
         "v0 = tempv0;\n"
-    
-    
+ 
         "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);\n"
         "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"
         "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
         "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"
         "mulPos = cross(mulPos, normals);\n"
         "mulPos = normalize(mulPos);\n"
-        "mulPos *= v3Normal.w  ;\n"
+        "mulPos *= v3Normal.w*3.0  ;\n"
         "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
     
         "gl_Position = tempPos*modeMatrix* camMatrix* viewMatrix;\n"
@@ -69,16 +68,16 @@
     "void main()"
     "{"
         "vec4 ft0 = texture2D(fs0,v0);\n"
-//        "ft0.xyz *= ft0.w;\n"
-//        "vec4 ft1 = texture2D(fs1,v1);\n"
-//        "ft1.xyz = ft1.xyz * ft1.w;\n"
-//        "vec4 ft2 = ft0 * ft1;\n"
-//        "ft0 = ft2 * v2.w;\n"
-//        "ft1.xyz = ft0.xyz;\n"
-//        "ft1.w = ft0.w;\n"
-//        "if(v2.x<fc[0].x){discard;}\n"
-    
-        "gl_FragColor =vec4(1.0,1.0,1.0,1.0);\n"
+        "ft0.xyz *= ft0.w;\n"
+        "vec4 ft1 = texture2D(fs1,v1);\n"
+        "ft1.xyz = ft1.xyz * ft1.w;\n"
+        "vec4 ft2 = ft0 * ft1;\n"
+        "ft0 = ft2 * v2.w;\n"
+        "ft1.xyz = ft0.xyz;\n"
+        "ft1.w = ft0.w;\n"
+        "if(v2.x<fc[0].x){discard;}\n"
+        "gl_FragColor = ft1;\n"
+   
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

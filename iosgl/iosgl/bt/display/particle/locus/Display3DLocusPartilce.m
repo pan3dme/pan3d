@@ -40,12 +40,9 @@
     if(self.visible ){
         if ( self.data.materialParam){
             self.shader3d=self.data.materialParam.shader;
-            glUseProgram( self.shader3d.program);
-            [self updateMatrix];
-            [self setMaterialTexture];
-            [self setVc];
-            [self setVa];
-            [self resetVa];
+            
+            [super update];
+ 
         }
     }
 }
@@ -58,9 +55,12 @@
     [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
     
     [self updateUV];
+    
     Vector3D*  scaleVec =   self.locusdata._resultUvVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
-    // NSLog(@"%f*%f*%f*%f",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
+ //   NSLog(@"%f*%f*%f*%f",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
+  //  NSLog(@"%f",scaleVec.x);
+    
     if (self.data._watchEye) {
         Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
         [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
@@ -69,6 +69,7 @@
 }
 -(void)updateUV;
 {
+    [Scene_data default].frameTime=1.0;
     float nowTime=self._time/[Scene_data default].frameTime;
     float  lifeRoundNum=self.data._life / 100.0;
     float moveUv = self.locusdata._speed * nowTime / self.locusdata._density / 10;
@@ -99,28 +100,7 @@
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
  
 }
-
-/*
- public updateUV(): void {
-     var $nowTime: number = this._time / Scene_data.frameTime;
-     var $lifeRoundNum: number = (this.data._life / 100);
-     var $moveUv: number = this.locusdata._speed * $nowTime / this.locusdata._density / 10
-     if (this.locusdata._isEnd) {
-         $moveUv = Math.min(1, $moveUv);
-     }
-
-     if (this.locusdata._isLoop) {
-         if (this.locusdata._life) {
-             $moveUv = $moveUv % ($lifeRoundNum + 1)
-         } else {
-             $moveUv = $moveUv % 1;
-         }
-     }
-
-     this.locusdata._resultUvVec[0] = $moveUv;
- }
-
- */
+ 
 - (void)resetVa;
 {
     
