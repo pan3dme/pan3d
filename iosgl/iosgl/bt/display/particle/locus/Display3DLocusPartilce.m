@@ -40,9 +40,7 @@
     if(self.visible ){
         if ( self.data.materialParam){
             self.shader3d=self.data.materialParam.shader;
-            
             [super update];
- 
         }
     }
 }

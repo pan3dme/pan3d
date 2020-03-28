@@ -45,36 +45,35 @@ var ProgrmaManager = /** @class */ (function (_super) {
         if (paramAry === void 0) { paramAry = null; }
         if (parmaByFragmet === void 0) { parmaByFragmet = false; }
         var keyStr = key + "_" + $material.url;
-        //if (keyStr.search("/standard_byte1111") != -1 &&true) { //FIXME
-        //    console.log(keyStr)
-        //    this.outShader($material.shaderStr)
-        //    $material.shaderStr =
-        //    "precision mediump float;\n" +
-        //    "uniform sampler2D fs0;\n" +
-        //    "uniform sampler2D fs1;\n" +
-        //    "uniform vec4 fc2;\n" +
-        //    "uniform vec2 fogdata;\n" +
-        //    "uniform vec3 fogcolor;\n" +
-        //    "varying vec2 v0;\n" +
-        //    "varying vec2 v2;\n" +
-        //    "varying vec3 v1;\n" +
-        //    "void main(void){\n" +
-        //    "\n" +
-        //    "vec4 ft0 = texture2D(fs0,v0);\n" +
-        //    "vec4 ft1 = texture2D(fs1,v2);\n" +
-        //    "ft1.xyz = ft1.xyz * 2.0;\n" +
-        //    "ft1.xyz = ft1.xyz * ft0.xyz;\n" +
-        //    "vec4 ft2 = vec4(0,0,0,1);\n" +
-        //    "ft2.xyz = ft1.xyz;\n" +
-        //    "ft2.w = 1.0;\n" +
-        //   "ft1.x = distance(v1.xyz*0.01, fc2.xyz)*100.0;\n" +
-        //   "ft1.x = ft1.x - fogdata.x;\n"+
-        //   "ft1.x = fogdata.y * ft1.x;\n" +
-        //   "ft1.x = clamp(ft1.x,0.0,1.0);\n"+
-        //   "ft2.xyz = mix(ft2.xyz,fogcolor.xyz,ft1.x);\n" +
-        //    "gl_FragColor = ft2;\n"+
-        //     "}"
-        //}
+        if (keyStr.search("Display3DLocusShader_res") != -1 && true) { //FIXME
+            //  console.log(keyStr)
+            // this.outShader($material.shaderStr)
+            /*
+                         $material.shaderStr =
+                        "precision mediump float;\n"+
+                        "uniform sampler2D fs0;\n"+
+                        "uniform sampler2D fs1;\n"+
+                        "uniform vec4 fc[1];\n"+
+                        "varying vec2 v0;\n"+
+                        "varying vec4 v2;\n"+
+                        "varying vec2 v1;\n"+
+                        "void main(void){\n"+
+            
+                        "vec4 ft0 = texture2D(fs0,v0);\n"+
+                        "ft0.xyz *= ft0.w;\n"+
+                        "vec4 ft1 = texture2D(fs1,v1);\n"+
+                        "ft1.xyz = ft1.xyz * ft1.w;\n"+
+                        "vec4 ft2 = ft0 * ft1;\n"+
+                        "ft0 = ft2 * v2.w;\n"+
+                        "ft1.xyz = ft0.xyz;\n"+
+                        "ft1.w = ft0.w;\n"+
+            
+                        "if(v2.x<fc[0].x){discard;}\n"+
+                        "gl_FragColor = texture2D(fs0,v0);\n"+
+            
+                        "}"
+                        */
+        }
         if (paramAry) {
             for (var i = 0; i < paramAry.length; i++) {
                 keyStr += "_" + paramAry[i];
@@ -107,8 +106,8 @@ var ProgrmaManager = /** @class */ (function (_super) {
         }
         if (keyStr.search("res/content/particleresources/materials/m_ef_par_by") != -1 && true) {
             this.outShader(shader.vertex);
-            console.log(shader.vertex);
-            console.log(shader.fragment);
+            //  console.log(shader.vertex);
+            //  console.log(shader.fragment);
         }
         this._dic[keyStr] = shader;
         return shader;
