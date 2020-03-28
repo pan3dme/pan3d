@@ -68,6 +68,7 @@
 {
     if(self.visible ){
         if ( self.data.materialParam){
+             self.shader3d=self.data.materialParam.shader;
              Context3D *ctx=self.scene3d.context3D;
              glUseProgram(self.data.materialParam.shader.program);
             [ctx setBlendParticleFactors:self.data._alphaMode];

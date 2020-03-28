@@ -15,7 +15,7 @@
 #import "ProgrmaManager.h"
 #import "Display3DSprite.h"
 @interface Display3DLocusPartilce ()
-@property (nonatomic, strong) Shader3D* shader3d;
+ 
 @end
 @implementation Display3DLocusPartilce
 
@@ -35,14 +35,13 @@
     }
     return self;
 }
+-(void)onCreated;
+{
+   
+}
 - (void)update;
 {
-    if(self.visible ){
-        if ( self.data.materialParam){
-            self.shader3d=self.data.materialParam.shader;
-            [super update];
-        }
-    }
+      [super update];
 }
 - (void)setVc;
 {
@@ -69,8 +68,8 @@
 {
     [Scene_data default].frameTime=1.0;
     float nowTime=self._time/[Scene_data default].frameTime;
-    float  lifeRoundNum=self.data._life / 100.0;
-    float moveUv = self.locusdata._speed * nowTime / self.locusdata._density / 10;
+    float  lifeRoundNum=self.data._life / 100.0f;
+    float moveUv = self.locusdata._speed * nowTime / self.locusdata._density / 10.0f;
     if (self.locusdata._isEnd) {
         moveUv = MIN(1, moveUv);
     }

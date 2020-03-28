@@ -1,7 +1,6 @@
 //
 //  Display3DBallPartilce.m
 //  iosgl
-//
 //  Created by zhao on 25/2/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
@@ -24,24 +23,19 @@
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
-@property (nonatomic, strong) Shader3D* shader3d;
-@property (nonatomic, strong) TextureRes* textureRes;
+ 
+ 
 @property (nonatomic, assign) GLuint  textBsetGLuint;
 @end
 @implementation Display3DBallPartilce
 
 -(void)onCreated;
 {
-    self.textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
-    [Scene_data default].frameTime=1;
+       
 }
 - (void)update;
 {
-    if(self.textureRes&&self.textureRes.textTureLuint ){
-        self.shader3d=self.data.materialParam.shader;
-       [super update];
-    }
-    
+      [super update];
 }
 -(void)setVc;
 {
@@ -59,10 +53,10 @@
 }
 -(void)setVcmat;
 {
+     [Scene_data default].frameTime=1.0;
     Display3DBallPartilce* this=self;
-    
     Context3D *ctx=self.scene3d.context3D;
-    //this._time / Scene_data.frameTime * this.balldata._playSpeed;
+
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
     timeVec.x=self._time/1.0f;
@@ -129,3 +123,5 @@
     return self.ballData.particleGpuData;
 }
 @end
+
+

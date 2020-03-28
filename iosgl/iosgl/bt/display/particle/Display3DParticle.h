@@ -8,6 +8,7 @@
 
 #import "Display3D.h"
 #import "Matrix3D.h"
+#import "Shader3D.h"
 #import "Vector3D.h"
  
 
@@ -26,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Matrix3D*  invertBindMatrix;
 @property (nonatomic, assign)  Matrix3D*   groupMatrix;
  
- 
+@property (nonatomic, strong) Shader3D* shader3d;
+
 @property (nonatomic, assign)  BOOL   isInGroup;
 @property (nonatomic, assign)  Vector3D*   groupPos;
 @property (nonatomic, assign)  Vector3D*   groupScale;
