@@ -25,7 +25,7 @@ var CombineParticleData = /** @class */ (function (_super) {
     CombineParticleData.prototype.getCombineParticle = function () {
         var particle = new CombineParticle();
         particle.maxTime = this.maxTime;
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < this.dataAry.length; i++) {
             var display = this.dataAry[i].creatPartilce();
             particle.addPrticleItem(display);
         }
@@ -39,7 +39,7 @@ var CombineParticleData = /** @class */ (function (_super) {
         var len = byte.readInt();
         this.maxTime = 0;
         this.dataAry = new Array;
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < len; i++) {
             var $particleType = byte.readInt();
             var pdata = this.getParticleDataType($particleType);
             pdata.version = version;

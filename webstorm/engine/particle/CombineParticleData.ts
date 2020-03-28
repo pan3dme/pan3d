@@ -15,7 +15,7 @@
         var particle: CombineParticle = new CombineParticle();
         particle.maxTime = this.maxTime;
 
-        for (var i: number = 0; i < 3; i++){
+        for (var i: number = 0; i < this.dataAry.length; i++){
             var display: Display3DParticle = this.dataAry[i].creatPartilce();
             particle.addPrticleItem(display);
         }
@@ -35,20 +35,21 @@
         var len: number = byte.readInt();
         this.maxTime = 0;
         this.dataAry = new Array;
-        for (var i: number = 0; i < 3; i++) {
+        for (var i: number = 0; i < len; i++) {
 
             var $particleType: number = byte.readInt();
 
             var pdata: ParticleData = this.getParticleDataType($particleType);
             pdata.version = version;
             pdata.setAllByteInfo(byte);
-            
+
             this.dataAry.push(pdata);
 
             if (pdata.timelineData.maxFrameNum > this.maxTime) {
                 this.maxTime = pdata.timelineData.maxFrameNum;
             }
          //  i=len;
+
 
         }
 
