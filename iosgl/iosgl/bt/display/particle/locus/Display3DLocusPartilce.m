@@ -14,9 +14,7 @@
 #import "Scene_data.h"
 #import "ProgrmaManager.h"
 #import "Display3DSprite.h"
-@interface Display3DLocusPartilce ()
  
-@end
 @implementation Display3DLocusPartilce
 
 
@@ -37,32 +35,25 @@
 }
 -(void)onCreated;
 {
-   
+    
 }
 - (void)update;
 {
-      [super update];
+    [super update];
 }
 - (void)setVc;
 {
+    [self setViewCamModeMatr3d];
     Context3D *ctx=self.scene3d.context3D;
     Camera3D* cam3D=self.scene3d.camera3D;
-    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
-    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
-    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
-    
     [self updateUV];
-    
     Vector3D*  scaleVec =   self.locusdata._resultUvVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
- //   NSLog(@"%f*%f*%f*%f",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
-  //  NSLog(@"%f",scaleVec.x);
-    
     if (self.data._watchEye) {
         Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
         [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
     }
- 
+    
 }
 -(void)updateUV;
 {
@@ -81,7 +72,7 @@
         }
     }
     self.locusdata._resultUvVec.x = moveUv;
- 
+    
 }
 - (void)setVa;
 {
@@ -95,11 +86,11 @@
     [ctx pushVa: temp.nrmsBuffer];
     [ctx setVaOffset:self.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
- 
+    
 }
- 
 - (void)resetVa;
 {
     
 }
 @end
+

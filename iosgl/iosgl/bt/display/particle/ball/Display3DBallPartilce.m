@@ -39,18 +39,17 @@
 }
 -(void)setVc;
 {
+        [self setViewCamModeMatr3d];
     Context3D *ctx=self.scene3d.context3D;
-    Camera3D* cam3D=self.scene3d.camera3D;
+   
+
     
-    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
-    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
-    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
-     
     [self updateWatchCaramMatrix];
-    
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
     [self setVcmat];
 }
+
+
 -(void)setVcmat;
 {
      [Scene_data default].frameTime=1.0;

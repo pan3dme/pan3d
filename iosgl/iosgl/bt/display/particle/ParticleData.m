@@ -14,9 +14,7 @@
 #import "ParamDataVo.h"
 #import "MaterialManager.h"
 
- 
- 
-
+  
 @implementation ParticleData
 -(void)setAllByteInfo:(ByteArray*)byte;
 {
@@ -72,11 +70,11 @@
     this.center.z =  [byte readFloat];;
     this.center.w =  [byte readFloat];;
     
+    NSLog(@"%f&%f&%f",this.rotationV3d.x,this.rotationV3d.y,this.rotationV3d.z);
+    
     this.overAllScale =  [byte readFloat];;
     
-    //var materialParamStr: string = $byte.readUTF();
-    //this.materialParamData = JSON.parse(materialParamStr);
-    
+ 
     if (this._ziZhuanAngly && (this._ziZhuanAngly.x != 0 || this._ziZhuanAngly.y != 0 || this._ziZhuanAngly.z != 0)) {
         this._isZiZhuan = true;
     }
@@ -96,11 +94,8 @@
        return;
     }
     self._materialUrl = value;
-// -(void)getMaterialByte:(NSString*)url fun:(MaterialBlock)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
     [[MaterialManager default] getMaterialByte:value fun:^(Material * material) {
-        
         [self onMaterialLoad:material];
-        
     } info:nil autoReg:nil regName:nil shader3DCls:nil];
 
 }

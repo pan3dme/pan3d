@@ -44,9 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  _isV ;
 @property (nonatomic, assign)  float  _life ;//时间长度
 @property (nonatomic, assign)  BOOL  _watchEye;   //是否面向视点
-@property (nonatomic, strong)  Vector3D*  _ziZhuanAngly;
+
 @property (nonatomic, assign)  BOOL  _isZiZhuan ;
-@property (nonatomic, assign)  Vector3D*  _center;//中心点
+
 @property (nonatomic, assign)  float  overAllScale ;
 @property (nonatomic, assign)  NSString*  _materialUrl;
 @property (nonatomic, strong)  MaterialParam*  materialParam ;
@@ -54,7 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  ObjData*  objData;
 @property (nonatomic, strong)  TimeLineData*  timelineData;
 @property (nonatomic, strong)  Vector3D*  rotationV3d;
-@property (nonatomic, strong)  Vector3D*  center;
+@property (nonatomic, strong)  Vector3D*  center;//中心点
+@property (nonatomic, strong)  Vector3D*  _ziZhuanAngly;
  
 
 -(void)setAllByteInfo:(ByteArray*)fs;

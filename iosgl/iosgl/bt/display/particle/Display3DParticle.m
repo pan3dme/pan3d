@@ -30,22 +30,6 @@
 -(void)updateTime:(float)t;
 {
     self._time=t;
-
-    
-    /*
-     if (this.cantUseEffectsLev) {
-               return;
-           }
-           this._time = t - this._beginTime;
-           this._time += this.data._delayedTime; //加上延时
-           this.timeline.updateTime(t);
-           this.visible = this.timeline.visible;
-           this.posMatrix.identity();
-           this.posMatrix.prependScale(this._scaleX * 0.1 * this.bindScale.x,
-               this._scaleY * 0.1 * this.bindScale.y,
-               this._scaleZ * 0.1 * this.bindScale.z);
-           this.timeline.updateMatrix(this.posMatrix, this);
-     */
 }
 -(void)updateMatrix;
 {
@@ -68,9 +52,9 @@
 {
     if(self.visible ){
         if ( self.data.materialParam){
-             self.shader3d=self.data.materialParam.shader;
-             Context3D *ctx=self.scene3d.context3D;
-             glUseProgram(self.data.materialParam.shader.program);
+            self.shader3d=self.data.materialParam.shader;
+            Context3D *ctx=self.scene3d.context3D;
+            glUseProgram(self.data.materialParam.shader.program);
             [ctx setBlendParticleFactors:self.data._alphaMode];
             [ctx cullFaceBack:self.data.materialParam.material.backCull];
             [self updateMatrix];
@@ -82,13 +66,21 @@
         
     }
 }
-
+/*
+ 设置基础透视，镜头，模型矩阵
+ */
+-(void)setViewCamModeMatr3d;
+{
+    Context3D *ctx=self.scene3d.context3D;
+    Camera3D* cam3D=self.scene3d.camera3D;
+    
+    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
+    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
+    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
+}
 
 -(void)setMaterialTexture;
 {
-    if(!self.data.materialParam){
-        return;
-    }
     Context3D *ctx=self.scene3d.context3D;
     NSArray<TexItem*>* texVec  = self.data.materialParam.material.texList;
     for (int i   = 0; i < texVec.count; i++) {
@@ -102,8 +94,7 @@
         TexItem* texItem=texDynamicVec[i].target;
          [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
     }
-    
-     
+ 
 }
 -(void)setVc;
 {

@@ -103,7 +103,6 @@ static MaterialManager *instance = nil;
 //  public getMaterialByte($url: string, $fun: Function, $info: Object = null, $autoReg: boolean = false, $regName: string = null, $shader3DCls: any = null): void {
 -(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
 {
-    
  
     if(_dic[url]){
         fun(_dic[url]);
@@ -117,8 +116,6 @@ static MaterialManager *instance = nil;
     }
     _loadDic[url] = [[NSMutableArray alloc]init];
     [_loadDic[url] addObject:materialLoad];
-  
-    
     if (_resDic[url]) {
         [self meshByteMaterialByt:self.resDic[url] info:materialLoad];
         

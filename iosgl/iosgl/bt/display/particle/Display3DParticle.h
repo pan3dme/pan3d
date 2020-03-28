@@ -10,9 +10,8 @@
 #import "Matrix3D.h"
 #import "Shader3D.h"
 #import "Vector3D.h"
- 
 
- @class  ParticleData;
+@class  ParticleData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,15 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  visible;
 @property (nonatomic, assign)  int  timeline;
 @property (nonatomic, assign)  int  _beginTime;
-
 @property (nonatomic, assign)  Vector3D*  bindMatrix;
 @property (nonatomic, assign)  Vector3D*  bindVecter3d;
 @property (nonatomic, assign)  Vector3D*  bindScale;
 @property (nonatomic, assign)  Matrix3D*  invertBindMatrix;
 @property (nonatomic, assign)  Matrix3D*   groupMatrix;
- 
 @property (nonatomic, strong) Shader3D* shader3d;
-
 @property (nonatomic, assign)  BOOL   isInGroup;
 @property (nonatomic, assign)  Vector3D*   groupPos;
 @property (nonatomic, assign)  Vector3D*   groupScale;
@@ -42,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setVa;
 -(void)resetVa;
 -(void)setMaterialTexture;
- 
+-(void)setViewCamModeMatr3d;
 @end
 
 NS_ASSUME_NONNULL_END

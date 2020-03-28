@@ -21,7 +21,7 @@
     int len=[byte readInt];
     self.maxTime=0;
     self.dataAry=[[NSMutableArray alloc]init];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < len; i++) {
         int particleType=[byte readInt];
         ParticleData *pdata= [self getParticleDataType:particleType];
         pdata.version=version;
@@ -30,8 +30,6 @@
         if (pdata.timelineData.maxFrameNum > self.maxTime) {
                self.maxTime = pdata.timelineData.maxFrameNum;
           }
-       //  i=len;
-      
     }
     
 }
