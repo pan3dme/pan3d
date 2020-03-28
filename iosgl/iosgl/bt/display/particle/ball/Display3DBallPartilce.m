@@ -39,7 +39,7 @@
 {
     if(self.textureRes&&self.textureRes.textTureLuint ){
         self.shader3d=self.data.materialParam.shader;
-        [super update];
+    //    [super update];
     }
     
 }
@@ -83,6 +83,7 @@
 }
 -(void)setVa;
 {
+     
     Context3D *ctx=self.scene3d.context3D;
     [ctx pushVa:self.particleBallGpuData.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:4 stride:0 offset:0];
@@ -95,7 +96,7 @@
  
    [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
     
-    [self setMaterialTexture];
+
 }
  
 -(void)resetVa;

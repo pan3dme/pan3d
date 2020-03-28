@@ -111,6 +111,12 @@
     tempM.matrix4x4=Matrix4x4clone(self.matrix4x4);
     return tempM;
 }
+-(Matrix3D*)Invert;
+{
+    Matrix3D *tempM= [[Matrix3D alloc]init];
+    tempM.matrix4x4=Matrix4x4Invert(self.matrix4x4);
+    return tempM;
+}
 -(void)  appendRotation:(float)rad axis:(Vector3D*)axis;
 {
     Matrix3D *tempM=[[Matrix3D alloc]init];

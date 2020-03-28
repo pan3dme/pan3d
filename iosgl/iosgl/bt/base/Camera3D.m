@@ -37,9 +37,10 @@
     [self.camMatrix3D appendRotation: self.rotationY axis:Vector3D.Y_AXIS];
     [self.camMatrix3D appendRotation: self.rotationX axis:Vector3D.X_AXIS];
     [self.camMatrix3D appendTranslation: 0.0 y:0.0 z:self.distance];
-    [self.camMatrix3D appendTranslation: 0.0 y:-50.0 z:0.0];
+    [self.camMatrix3D appendTranslation: 0.0 y:-0.0 z:0.0];
     
-    Vector3D* p=  [self.camMatrix3D transformVector: [[Vector3D alloc]x:0 y:0 z:-self.distance] ];
+    Matrix3D* m=[self.camMatrix3D Invert];
+    Vector3D* p=  [m transformVector: [[Vector3D alloc]x:0 y:0 z:-self.distance] ];
     self.x=p.x;
     self.y=p.y;
     self.z=p.z;

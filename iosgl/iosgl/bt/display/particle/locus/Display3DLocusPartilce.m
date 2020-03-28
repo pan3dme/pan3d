@@ -42,6 +42,7 @@
             self.shader3d=self.data.materialParam.shader;
             glUseProgram( self.shader3d.program);
             [self updateMatrix];
+            [self setMaterialTexture];
             [self setVc];
             [self setVa];
             [self resetVa];
@@ -59,10 +60,8 @@
     [self updateUV];
     Vector3D*  scaleVec =   self.locusdata._resultUvVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
-    
-     NSLog(@"%f*%f*%f*%f",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
+    // NSLog(@"%f*%f*%f*%f",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
     if (self.data._watchEye) {
-       // NSLog(@"%f-%f-%f",cam3D.x,cam3D.y,cam3D.z);
         Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
         [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
     }

@@ -73,6 +73,7 @@
             [ctx setBlendParticleFactors:self.data._alphaMode];
             [ctx cullFaceBack:self.data.materialParam.material.backCull];
             [self updateMatrix];
+            [self setMaterialTexture];
             [self setVc];
             [self setVa];
             [self resetVa];
@@ -80,6 +81,8 @@
         
     }
 }
+
+
 -(void)setMaterialTexture;
 {
     if(!self.data.materialParam){
