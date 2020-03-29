@@ -20,11 +20,13 @@
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 camMatrix;\n"
     "uniform mat4 modeMatrix;\n"
+    "uniform mat4 rotMatrix;\n"
     "varying vec2 v0;\n"
     "void main()"
     "{"
+         "v0=v2TexCoord;\n"
         "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
-        "gl_Position = vPos*modeMatrix* camMatrix* viewMatrix;\n"
+        "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     
@@ -36,7 +38,8 @@
     "varying vec2 v0;\n"
     "void main()"
     "{"
-        "gl_FragColor =vec4(1.0,0.0,1.0,1.0);\n"
+        "vec4 infoUv   =texture2D(fs0,v0.xy);\n"
+        "gl_FragColor =infoUv;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)resetVa;
 -(void)setMaterialTexture;
 -(void)setViewCamModeMatr3d;
+-(void)inverBind;
 @end
 
 NS_ASSUME_NONNULL_END

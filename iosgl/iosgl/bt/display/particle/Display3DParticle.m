@@ -97,6 +97,20 @@
     }
  
 }
+//public inverBind(): void{
+//      if (!this.invertBindMatrix.isIdentity){
+//          //this.bindMatrix.invert();
+//          this._rotationMatrix.prepend(this.invertBindMatrix);
+//          //this.bindMatrix.invert();
+//      }
+//  }
+-(void)inverBind;
+{
+    if(self.invertBindMatrix){
+        
+    }
+    
+}
 -(void)setVc;
 {
 }
