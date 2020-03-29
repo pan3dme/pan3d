@@ -8,6 +8,8 @@
 
 #import "ParticleFacetData.h"
 #import "Display3DFacetParticle.h"
+#import "Display3DFacetShader.h"
+#import "ProgrmaManager.h"
 #import "ObjData.h"
 
 @implementation ParticleFacetData
@@ -97,6 +99,18 @@
       self.objData.indexBuffer=indexBuffer;
       self.objData.trinum=6;
 }
+
+-(void)regShader;
+{
+    if ( self.materialParam) {
+       [[ProgrmaManager default] registe:Display3DFacetShader.shaderStr shader3d: [[Display3DFacetShader alloc]init]];
+       self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DFacetShader.shaderStr];
+        
+    }
+ 
+    
+}
+
 -(Display3DParticle*)getParticle;
 {
     return [[Display3DFacetParticle alloc]init];

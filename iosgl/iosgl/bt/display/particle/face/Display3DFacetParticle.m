@@ -7,13 +7,12 @@
 //
 
 #import "Display3DFacetParticle.h"
-#import "ProgrmaManager.h"
+ 
 #import "Context3D.h"
 #import "Scene3D.h"
 #import "ObjData.h"
 #import "ParticleFacetData.h"
-#import "DisplayBaseTriSprite.h"
-#import "Display3DFacetShader.h"
+ 
 
 @interface Display3DFacetParticle ()
  
@@ -26,8 +25,7 @@
 {
     self = [super init];
     if (self) {
-        [[ProgrmaManager default] registe:Display3DFacetShader.shaderStr shader3d: [[Display3DFacetShader alloc]init]];
-        self.shader3d=  [[ProgrmaManager default] getProgram:Display3DFacetShader.shaderStr];
+   
          
     }
     return self;
@@ -35,20 +33,8 @@
 - (void)update;
 {
  
-       if(self.shader3d&&self.facetdata.objData){
-       
-               Context3D *ctx=self.scene3d.context3D;
-                glUseProgram(self.shader3d.program);
-                [ctx setBlendParticleFactors:self.data._alphaMode];
-                [ctx cullFaceBack:self.data.materialParam.material.backCull];
-                [self updateMatrix];
-                [self setMaterialTexture];
-                [self setVc];
-                [self setVa];
-                [self resetVa];
-    
-       }
  
+    [super update];
  
 }
 - (void)setVc;
