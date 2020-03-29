@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ResGC : NSObject
-
+@property (nonatomic, strong)  NSMutableDictionary *dic;
 @end
 
 NS_ASSUME_NONNULL_END

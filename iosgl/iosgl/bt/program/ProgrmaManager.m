@@ -22,15 +22,15 @@ static ProgrmaManager *instance = nil;
 {
     self = [super init];
     if (self) {
-        _dic = [[NSMutableDictionary alloc] init];
+        self.dic = [[NSMutableDictionary alloc] init];
   
     }
     return self;
 }
 -(Shader3D*) getProgram:(NSString*)value ;
 {
-    if([_dic objectForKey:value]){
-          return  _dic[value];
+    if([self.dic objectForKey:value]){
+          return  self.dic[value];
     }else{
         
         return  nil;
@@ -38,10 +38,10 @@ static ProgrmaManager *instance = nil;
   
 }
 -(void)registe:(NSString*)keystr shader3d:(Shader3D*)shader3d;{
-    if([_dic objectForKey:keystr]){
+    if([self.dic objectForKey:keystr]){
     
     }else{
-       [_dic setValue:shader3d forKey:keystr];
+       [self.dic setValue:shader3d forKey:keystr];
       [shader3d encodeVstr:nil encodeFstr:nil];
     }
 }

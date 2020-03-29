@@ -38,7 +38,7 @@ static MaterialManager *instance = nil;
 {
     self = [super init];
     if (self) {
-        _dic=[[NSMutableDictionary alloc]init];
+        self.dic=[[NSMutableDictionary alloc]init];
         _loadDic=[[NSMutableDictionary alloc]init];
         _resDic=[[NSMutableDictionary alloc]init];
         _regDic=[[NSMutableDictionary alloc]init];
@@ -104,8 +104,8 @@ static MaterialManager *instance = nil;
 -(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
 {
  
-    if(_dic[url]){
-        fun(_dic[url]);
+    if(self.dic[url]){
+        fun(self.dic[url]);
         return;
     }
     MaterialLoad* materialLoad= [[MaterialLoad alloc]init:fun info:info url:url autoReg:autoReg regName:regName shader: shader3DCls];
@@ -184,6 +184,16 @@ static MaterialManager *instance = nil;
                 DynamicTexItem *dynamicTexItem=(DynamicTexItem*)texListVo;
                 dynamicTexItem.textureRes=textureRes;
             } texListVo:dynamicTexList[i]];
+            
+            
+            [[ TextureManager default]getTextureCopy:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
+                
+                
+                
+            } wrapType:0 info: dynamicTexList[i] filteType:0 mipmapType:0];
+            
+            
+            
             /*
              TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
              $texItem.textureRes = $textureVo;

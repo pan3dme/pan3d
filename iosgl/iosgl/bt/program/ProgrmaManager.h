@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
  
 @interface ProgrmaManager : ResGC
 
-@property (nonatomic, strong)  NSMutableDictionary *dic;
+ 
  
 + (instancetype)default;
 -(Shader3D*) getProgram:(NSString*)value ;

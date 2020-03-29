@@ -12,7 +12,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjDataManager : ResGC
-@property (nonatomic, strong)  NSMutableDictionary *dic;
 + (instancetype)default;
  
 -(void)getObjDataByUrl:(NSString*)url Block:(void (^)(ObjData * ))block;

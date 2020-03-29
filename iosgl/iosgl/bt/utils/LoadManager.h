@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 -(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun;
 -(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun info:(NSDictionary*)info progressFun:(ProceeseBlock)progressFun;
+// public load($url: string, $type: string, $fun: Function, $info: any = null, $progressFun: Function = null): void {
+-(void)load:(NSString*)url type:(int)type fun:(void (^)(NSObject* any))fun info:(NSObject*)info progressFun:(void (^)(float  prognum))progressFun;
 -(void)loadWaitList;
 @end
 

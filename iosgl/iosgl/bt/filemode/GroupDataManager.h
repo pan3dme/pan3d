@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GroupDataManager : ResGC
 + (instancetype)default;
-@property (nonatomic, strong)  NSMutableDictionary *dic;
+
 -(void)getGroupData:(NSString*)url Block:(void (^)(GroupRes * ))block;
 @end
 

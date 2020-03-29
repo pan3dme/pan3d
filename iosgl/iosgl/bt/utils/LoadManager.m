@@ -67,6 +67,11 @@ static LoadManager *instance = nil;
         }
     }
 }
+-(void)load:(NSString*)url type:(int)type fun:(void (^)(NSObject* any))fun info:(NSObject*)info progressFun:(void (^)(float  prognum))progressFun;
+{
+    
+    //  LoadInfo* loadInfo= [[LoadInfo alloc]initUrl:url type:type  fun:fun info:info progressFun:progressFun];
+}
 
 
 @end

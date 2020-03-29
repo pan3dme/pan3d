@@ -69,12 +69,15 @@
     GLfloat uvArr[8];
       uvArr[0]=0.0f;
       uvArr[1]=0.0f;
-      uvArr[2]=0.0f;
+    
+      uvArr[2]=1.0f;
       uvArr[3]=0.0f;
-      uvArr[4]=0.0f;
-      uvArr[5]=0.0f;
+    
+      uvArr[4]=1.0f;
+      uvArr[5]=1.0f;
+    
       uvArr[6]=0.0f;
-      uvArr[7]=0.0f;
+      uvArr[7]=1.0f;
     
     
     GLuint uvBuffer;

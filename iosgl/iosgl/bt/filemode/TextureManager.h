@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "GL_Header.h"
+#import "ResGC.h"
 #import "DynamicTexListVo.h"
 #import "TextureRes.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TextureManager : NSObject
+@interface TextureManager : ResGC
 + (instancetype)default;
 
 -(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*))fun;
 -(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*,DynamicTexListVo*))fun texListVo:(DynamicTexListVo*)texListVo;
+-(void)getTextureCopy:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  int  filter;
 @property (nonatomic, assign)  int  mipmap;
 
+- (instancetype)init:(void (^)(NSObject* any))fun info:(NSObject*)info url:(NSString*)url wrap:(int)wrap filter:(int)filter mipmap:(int)mipmap;
+
 @end
 
 NS_ASSUME_NONNULL_END
