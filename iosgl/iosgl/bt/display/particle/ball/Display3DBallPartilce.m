@@ -23,26 +23,26 @@
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
- 
- 
+
+
 @property (nonatomic, assign) GLuint  textBsetGLuint;
 @end
 @implementation Display3DBallPartilce
 
 -(void)onCreated;
 {
-       
+    
 }
 - (void)update;
 {
-      [super update];
+    [super update];
 }
 -(void)setVc;
 {
-        [self setViewCamModeMatr3d];
+    [self setViewCamModeMatr3d];
     Context3D *ctx=self.scene3d.context3D;
-   
-
+    
+    
     
     [self updateWatchCaramMatrix];
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
@@ -52,14 +52,14 @@
 
 -(void)setVcmat;
 {
-     [Scene_data default].frameTime=1.0;
+    [Scene_data default].frameTime=1.0;
     Display3DBallPartilce* this=self;
     Context3D *ctx=self.scene3d.context3D;
-
+    
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
     timeVec.x=self._time/1.0f;
-   
+    
     [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
     Vector3D*  scaleVec =   self.ballData._scaleVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat51" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
@@ -67,7 +67,7 @@
     [ctx setVcUniform4f:self.shader3d name:"vcmat52" x:scaleCtrl.x y:scaleCtrl.y z:scaleCtrl.z w:scaleCtrl.w];
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
-
+    
     
     if(this.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
@@ -76,7 +76,7 @@
 }
 -(void)setVa;
 {
-     
+    
     Context3D *ctx=self.scene3d.context3D;
     [ctx pushVa:self.particleBallGpuData.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:4 stride:0 offset:0];
@@ -86,12 +86,12 @@
     [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
     [ctx pushVa: self.particleBallGpuData.speedBuffer];
     [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
- 
-   [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
     
-
+    [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
+    
+    
 }
- 
+
 -(void)resetVa;
 {
 }

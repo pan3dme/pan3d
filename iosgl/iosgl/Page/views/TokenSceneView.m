@@ -113,10 +113,12 @@
 //    [[LoadManager default]load:@"fff" type:1 fun:^(int value) {
 //
 //    } info:nil progressFun:nil];
-    
+    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
+    //
  
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
-    NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/levelup_base.txt"];
+   // NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/levelup_base.txt"];
+     NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/diamondseffect_base.txt"];
     [[GroupDataManager default] getGroupData:modeurl Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
