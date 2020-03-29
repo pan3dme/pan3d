@@ -34,19 +34,43 @@
 }
 - (void)update;
 {
+ 
        if(self.shader3d&&self.facetdata.objData){
-           GLuint progame= self.shader3d.program;
-           glUseProgram(progame);
-           [self setViewCamModeMatr3d];
-           Context3D *context3D=self.scene3d.context3D;
-           [context3D pushVa:self.facetdata.objData.verticesBuffer];
-           GLuint position = glGetAttribLocation( self.shader3d.program,"position");
-           glEnableVertexAttribArray(position);
-           glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,0, (GLfloat *)NULL+0);
+       
+               Context3D *ctx=self.scene3d.context3D;
+                glUseProgram(self.shader3d.program);
+                [ctx setBlendParticleFactors:self.data._alphaMode];
+                [ctx cullFaceBack:self.data.materialParam.material.backCull];
+                [self updateMatrix];
+                [self setMaterialTexture];
+                [self setVc];
+                [self setVa];
+                [self resetVa];
     
-           [context3D drawCall:self.facetdata.objData.indexBuffer  numTril:self.facetdata.objData.trinum ];
-            
        }
+ 
+ 
+}
+- (void)setVc;
+{
+      [self setViewCamModeMatr3d];
+}
+- (void)setVa;
+{
+    Context3D *ctx=self.scene3d.context3D;
+    ObjData* temp=self.facetdata.objData;
+    
+  
+    [ctx pushVa: temp.verticesBuffer];
+          [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
+          [ctx pushVa: temp.uvBuffer];
+          [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
+          [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
+    
+}
+-(void)updateRotaionMatrix;
+{
+    
 }
 -(ParticleFacetData*)facetdata;
 {

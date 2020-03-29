@@ -54,29 +54,34 @@
     attrArr[11]=0.0f;
     
     
-    /*
-     attrArr[0]=0.0f;
-     attrArr[1]=0.0f;
-     attrArr[2]=0.0f;
-     
-     attrArr[3]=0.0f;
-     attrArr[4]=0.0f;
-     attrArr[5]=10.0f;
-     
-     attrArr[6]=10.0f;
-     attrArr[7]=0.0f;
-     attrArr[8]=10.0f;
-     
-     attrArr[9]=10.0f;
-     attrArr[10]=0.0f;
-     attrArr[11]=0.0f;
-     */
+
+ 
       
       GLuint verticesBuffer;
       glGenBuffers(1, &verticesBuffer);
       glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
       glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
       self.objData.verticesBuffer=verticesBuffer;
+    
+    
+    GLfloat uvArr[8];
+      uvArr[0]=0.0f;
+      uvArr[1]=0.0f;
+      uvArr[2]=0.0f;
+      uvArr[3]=0.0f;
+      uvArr[4]=0.0f;
+      uvArr[5]=0.0f;
+      uvArr[6]=0.0f;
+      uvArr[7]=0.0f;
+    
+    
+    GLuint uvBuffer;
+        glGenBuffers(1, &uvBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
+        self.objData.uvBuffer=uvBuffer;
+    
+    
       
       unsigned int Indices[6];
       Indices[0]=0;
