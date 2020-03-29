@@ -69,7 +69,10 @@ static TextureManager *instance = nil;
     if (self.resDic[url]) {
         NSLog(@"有图片还没有材质");
     }else{
-        [[ LoadManager default] load:url type:@"IMG_TYPE" fun:^(NSObject * _Nonnull any) {
+        [[ LoadManager default] load:url type:1 fun:^(NSObject * _Nonnull any) {
+            NSDictionary* dic=(NSDictionary*)any;
+            [self loadTextureCom: dic[@"data"] info:dic[@"info"]];
+      
             
         } info:textureLoad progressFun:nil];
     }
@@ -96,6 +99,59 @@ static TextureManager *instance = nil;
             }
      */
     
+    
+}
+-(void)loadTextureCom:(NSString*)imgName info:(TextureLoad*)info ;
+{
+    TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:imgName];
+    NSArray<TextureLoad*>* ary  = self.loadDic[info.url];
+    for (int i = 0; i < ary.count; i++){
+        if (ary[i].info) {
+               ary[i].fun(@{@"textureRes":textureRes,@"info":ary[i].info});
+        }else{
+               ary[i].fun(textureRes);
+        }
+   
+    }
+ 
+    /*
+    var ary: Array<TextureLoad> = self.loadDic[info.url];
+             for (var i: number = 0; i < ary.length; i++){
+                 if (ary[i].info) {
+                     ary[i].fun(textres, ary[i].info);
+                 } else {
+                     ary[i].fun(textres);
+                 }
+                 textres.useNum++;
+             }
+
+             delete this._loadDic[_info.url];
+
+             this._dic[_info.url] = textres;
+    */
+    
+    
+    /*
+     var texture: WebGLTexture = Scene_data.context3D.getTexture($img, _info.wrap, _info.filter, _info.mipmap);
+
+            var textres: TextureRes = new TextureRes();
+            textres.texture = texture;
+            textres.width = $img.width;
+            textres.height = $img.height;
+            var ary: Array<TextureLoad> = this._loadDic[_info.url];
+            for (var i: number = 0; i < ary.length; i++){
+                if (ary[i].info) {
+                    ary[i].fun(textres, ary[i].info);
+                } else {
+                    ary[i].fun(textres);
+                }
+                textres.useNum++;
+            }
+
+            delete this._loadDic[_info.url];
+
+            this._dic[_info.url] = textres;
+     */
     
 }
 -(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*,DynamicTexListVo*))fun texListVo:(DynamicTexListVo*)texListVo;

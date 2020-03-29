@@ -67,10 +67,18 @@ static LoadManager *instance = nil;
         }
     }
 }
--(void)load:(NSString*)url type:(int)type fun:(void (^)(NSObject* any))fun info:(NSObject*)info progressFun:(void (^)(float  prognum))progressFun;
+-(void)load:(NSString*)url type:(int)type fun:(void (^)(NSObject* any))fun info:(NSObject*)info progressFun:(ProceeseBlock)progressFun;
 {
     
-    //  LoadInfo* loadInfo= [[LoadInfo alloc]initUrl:url type:type  fun:fun info:info progressFun:progressFun];
+   LoadInfo* loadInfo= [[LoadInfo alloc]initUrl:url type:type  fun:fun info:info progressFun:progressFun];
+       for (int i = 0; i < self.loadThreadList.count; i++) {
+           if (self.loadThreadList[i].idle) {
+              [self.loadThreadList[i] load:loadInfo] ;
+               return;
+           }
+       }
+    [self.waitLoadList addObject:loadInfo];
+    
 }
 
 

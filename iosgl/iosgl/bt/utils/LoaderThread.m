@@ -98,8 +98,10 @@
 
 -(void)loadImg;
 {
+   
     if (self.loadInfo.info) {
-        self.loadInfo.fun(  self.localPath);
+        //self.loadInfo.fun(  self.localPath);
+         self.loadInfo.fun(@{@"data":self.localPath,@"info":self.loadInfo.info});
     }else{
         self.loadInfo.fun(  self.localPath);
     }

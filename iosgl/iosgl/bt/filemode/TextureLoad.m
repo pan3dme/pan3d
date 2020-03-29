@@ -16,6 +16,14 @@
     self = [super init];
     if (self) {
          
+        self.fun = fun;
+            self.info = info;
+            self.url = url;
+            self.wrap = wrap;
+            self.filter = filter;
+            self.mipmap = mipmap;
+        
+        
     }
     return self;
 }

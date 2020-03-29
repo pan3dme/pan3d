@@ -119,7 +119,7 @@
  
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
    // NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/levelup_base.txt"];
-     NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/diamondseffect_base.txt"];
+     NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/levelup_base.txt"];
     [[GroupDataManager default] getGroupData:modeurl Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];

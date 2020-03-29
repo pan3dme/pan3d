@@ -35,8 +35,10 @@
  
     self.bfun=block;
     
-    [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
-         NSData* netNsData = [[NSData alloc] initWithContentsOfFile:value];
+    [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSObject* value) {
+        
+        NSDictionary* dic=(NSDictionary*)value;
+         NSData* netNsData = [[NSData alloc] initWithContentsOfFile:dic[@"data"]];
          self.byte=[[ByteArray alloc]init:netNsData];
          [self loadComplete:self.byte];
           self.bfun(@"");
