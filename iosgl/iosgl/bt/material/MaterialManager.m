@@ -159,7 +159,7 @@ static MaterialManager *instance = nil;
     NSArray<TextureLoad*>* ary = self.loadDic[info.url];
     for (int i = 0; i < ary.count; i++) {
         if(ary[i].info){
-              ary[i].funinfo(material,ary[i].info);
+              ary[i].fun(@{@"material":material,@"info":ary[i].info });
         }else{
               ary[i].fun(material);
         }
@@ -180,15 +180,19 @@ static MaterialManager *instance = nil;
             [(DynamicTexItem*)dynamicTexList[i]  creatTextureByCurve];
              
         } else {
+            /*
             [[ TextureManager default] getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(TextureRes * textureRes,DynamicTexListVo* texListVo) {
                 DynamicTexItem *dynamicTexItem=(DynamicTexItem*)texListVo;
                 dynamicTexItem.textureRes=textureRes;
             } texListVo:dynamicTexList[i]];
+            */
             
-            
-            [[ TextureManager default]getTextureCopy:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
-                
-                
+            [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
+          
+                NSDictionary* bdic=(NSDictionary*)any;
+                DynamicTexItem* dddd= (DynamicTexItem*)bdic[@"info"];
+                dddd.textureRes=(TextureRes*)bdic[@"data"];
+             
                 
             } wrapType:0 info: dynamicTexList[i] filteType:0 mipmapType:0];
             
@@ -227,10 +231,7 @@ public loadDynamicTexUtil(material: MaterialParam): void {
         if (texVec[i].isParticleColor || texVec[i].isDynamic || texVec[i].type != 0) {
             continue;
         }
-          
-        [[TextureManager default] getTexture:[[Scene_data default]getWorkUrlByFilePath:texVec[i].url]  fun:^(TextureRes *textureRes) {
-      
-        }];
+     
     }
 }
 

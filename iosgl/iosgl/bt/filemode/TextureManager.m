@@ -38,13 +38,8 @@ static TextureManager *instance = nil;
     }
     return self;
 }
--(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*))fun;
-{
-    TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
-    fun(textureRes);
-}
  
--(void)getTextureCopy:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
+-(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
 {
  
     if (self.dic[url]) {
@@ -55,9 +50,7 @@ static TextureManager *instance = nil;
         }
         return;
     }
-    //$fun, $info, $url, $wrapType, $filteType, $mipmapType
     TextureLoad* textureLoad= [[TextureLoad alloc]init:fun info:info url:url wrap:wrapType filter:filteType mipmap:mipmapType];
-
     if (self.loadDic[url]){
         NSMutableArray<TextureLoad*>*  ary  = self.loadDic[url];
         [ary addObject:textureLoad];
@@ -72,34 +65,8 @@ static TextureManager *instance = nil;
         [[ LoadManager default] load:url type:1 fun:^(NSObject * _Nonnull any) {
             NSDictionary* dic=(NSDictionary*)any;
             [self loadTextureCom: dic[@"data"] info:dic[@"info"]];
-      
-            
         } info:textureLoad progressFun:nil];
     }
-    
-    /*
-     
-            var textureLoad: TextureLoad = new TextureLoad($fun, $info, $url, $wrapType, $filteType, $mipmapType);
-            if (this._loadDic[$url]){
-                var ary: Array<TextureLoad> = this._loadDic[$url];
-                ary.push(textureLoad);
-                return;
-            }
-
-            this._loadDic[$url] = new Array;
-            this._loadDic[$url].push(textureLoad);
-
-            if (this._resDic[$url]) {
-                this.loadTextureCom(this._resDic[$url], textureLoad);
-                delete this._resDic[$url];
-            } else {
-                LoadManager.getInstance().load($url, LoadManager.IMG_TYPE, ($img: any, _info: TextureLoad) => {
-                    this.loadTextureCom($img, _info);
-                }, textureLoad);
-            }
-     */
-    
-    
 }
 -(void)loadTextureCom:(NSString*)imgName info:(TextureLoad*)info ;
 {
@@ -107,60 +74,14 @@ static TextureManager *instance = nil;
     NSArray<TextureLoad*>* ary  = self.loadDic[info.url];
     for (int i = 0; i < ary.count; i++){
         if (ary[i].info) {
-               ary[i].fun(@{@"textureRes":textureRes,@"info":ary[i].info});
+               ary[i].fun(@{@"data":textureRes,@"info":ary[i].info});
         }else{
                ary[i].fun(textureRes);
         }
-   
     }
+    [self.loadDic removeObjectForKey:info.url];
+    self.dic[info.url] = textureRes;
+    
+}
  
-    /*
-    var ary: Array<TextureLoad> = self.loadDic[info.url];
-             for (var i: number = 0; i < ary.length; i++){
-                 if (ary[i].info) {
-                     ary[i].fun(textres, ary[i].info);
-                 } else {
-                     ary[i].fun(textres);
-                 }
-                 textres.useNum++;
-             }
-
-             delete this._loadDic[_info.url];
-
-             this._dic[_info.url] = textres;
-    */
-    
-    
-    /*
-     var texture: WebGLTexture = Scene_data.context3D.getTexture($img, _info.wrap, _info.filter, _info.mipmap);
-
-            var textres: TextureRes = new TextureRes();
-            textres.texture = texture;
-            textres.width = $img.width;
-            textres.height = $img.height;
-            var ary: Array<TextureLoad> = this._loadDic[_info.url];
-            for (var i: number = 0; i < ary.length; i++){
-                if (ary[i].info) {
-                    ary[i].fun(textres, ary[i].info);
-                } else {
-                    ary[i].fun(textres);
-                }
-                textres.useNum++;
-            }
-
-            delete this._loadDic[_info.url];
-
-            this._dic[_info.url] = textres;
-     */
-    
-}
--(void)getTexture:(NSString*)url fun:(void (^)(TextureRes*,DynamicTexListVo*))fun texListVo:(DynamicTexListVo*)texListVo;
-{
-    TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
-    
-   
-  
-    
-    fun(textureRes,texListVo);
-}
 @end

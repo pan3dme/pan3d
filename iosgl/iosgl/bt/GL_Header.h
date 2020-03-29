@@ -16,7 +16,7 @@ typedef void (^FinishBlock)(NSDictionary* dic);
 typedef void (^FailureBlock)(NSError *error);
 typedef void (^ProceeseBlock)(int);
 
-typedef void (^SuccessMaterial)(Material* material);
-typedef void (^SuccessMaterialInfo)(Material* material,NSObject* info);
+typedef void (^SuccessMaterial)(NSObject* obj);
+//typedef void (^SuccessMaterialInfo)(Material* material,NSObject* info);
 
 #endif /* GL_Header_h */

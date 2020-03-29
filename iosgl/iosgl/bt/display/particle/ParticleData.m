@@ -94,8 +94,8 @@
        return;
     }
     self._materialUrl = value;
-    [[MaterialManager default] getMaterialByte:value fun:^(Material * material) {
-        [self onMaterialLoad:material];
+    [[MaterialManager default] getMaterialByte:value fun:^(NSObject * obj) {
+        [self onMaterialLoad:(Material*)obj];
     } info:nil autoReg:nil regName:nil shader3DCls:nil];
 
 }

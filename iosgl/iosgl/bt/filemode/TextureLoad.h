@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TextureLoad : NSObject
 @property (nonatomic, strong)  SuccessMaterial fun;
-@property (nonatomic, strong)  SuccessMaterialInfo funinfo;
+//@property (nonatomic, strong)  SuccessMaterialInfo funinfo;
 @property (nonatomic, strong)  NSObject*  info;
 @property (nonatomic, strong)  NSString*  url;
 @property (nonatomic, assign)  int  wrap;
