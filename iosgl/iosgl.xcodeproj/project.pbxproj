@@ -101,6 +101,13 @@
 		FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */; };
 		FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057132405CD16000F6D17 /* Display3DBallPartilceShader.m */; };
 		FE805728240698DD000F6D17 /* Display3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE805727240698DD000F6D17 /* Display3DShader.m */; };
+		FE8788BB24327334003E0EE7 /* BaseAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788BA24327334003E0EE7 /* BaseAnim.m */; };
+		FE8788BE24327359003E0EE7 /* ScaleChange.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788BD24327359003E0EE7 /* ScaleChange.m */; };
+		FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C024327372003E0EE7 /* ScaleAnim.m */; };
+		FE8788C4243273B9003E0EE7 /* ScaleNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C3243273B9003E0EE7 /* ScaleNoise.m */; };
+		FE8788C7243273C7003E0EE7 /* SelfRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C6243273C7003E0EE7 /* SelfRotation.m */; };
+		FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C924327429003E0EE7 /* AxisRotaion.m */; };
+		FE8788CD243274AC003E0EE7 /* AxisMove.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788CC243274AC003E0EE7 /* AxisMove.m */; };
 		FE887D502416731200025A74 /* CurveVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D4F2416731200025A74 /* CurveVo.m */; };
 		FE887D532416733900025A74 /* ParamDataVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D522416733900025A74 /* ParamDataVo.m */; };
 		FE887D562416765600025A74 /* ConstItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D552416765600025A74 /* ConstItem.m */; };
@@ -308,6 +315,20 @@
 		FE8057132405CD16000F6D17 /* Display3DBallPartilceShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DBallPartilceShader.m; sourceTree = "<group>"; };
 		FE805726240698DD000F6D17 /* Display3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DShader.h; sourceTree = "<group>"; };
 		FE805727240698DD000F6D17 /* Display3DShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DShader.m; sourceTree = "<group>"; };
+		FE8788B924327334003E0EE7 /* BaseAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAnim.h; sourceTree = "<group>"; };
+		FE8788BA24327334003E0EE7 /* BaseAnim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAnim.m; sourceTree = "<group>"; };
+		FE8788BC24327359003E0EE7 /* ScaleChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleChange.h; sourceTree = "<group>"; };
+		FE8788BD24327359003E0EE7 /* ScaleChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleChange.m; sourceTree = "<group>"; };
+		FE8788BF24327372003E0EE7 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScaleAnim.h; path = /Users/zhao/Desktop/gitios/iosgl/iosgl/bt/display/particle/ctrl/ScaleAnim.h; sourceTree = "<absolute>"; };
+		FE8788C024327372003E0EE7 /* ScaleAnim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ScaleAnim.m; path = /Users/zhao/Desktop/gitios/iosgl/iosgl/bt/display/particle/ctrl/ScaleAnim.m; sourceTree = "<absolute>"; };
+		FE8788C2243273B9003E0EE7 /* ScaleNoise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleNoise.h; sourceTree = "<group>"; };
+		FE8788C3243273B9003E0EE7 /* ScaleNoise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleNoise.m; sourceTree = "<group>"; };
+		FE8788C5243273C7003E0EE7 /* SelfRotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelfRotation.h; sourceTree = "<group>"; };
+		FE8788C6243273C7003E0EE7 /* SelfRotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfRotation.m; sourceTree = "<group>"; };
+		FE8788C824327429003E0EE7 /* AxisRotaion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AxisRotaion.h; sourceTree = "<group>"; };
+		FE8788C924327429003E0EE7 /* AxisRotaion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AxisRotaion.m; sourceTree = "<group>"; };
+		FE8788CB243274AC003E0EE7 /* AxisMove.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AxisMove.h; sourceTree = "<group>"; };
+		FE8788CC243274AC003E0EE7 /* AxisMove.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AxisMove.m; sourceTree = "<group>"; };
 		FE887D4E2416731200025A74 /* CurveVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurveVo.h; sourceTree = "<group>"; };
 		FE887D4F2416731200025A74 /* CurveVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurveVo.m; sourceTree = "<group>"; };
 		FE887D512416733900025A74 /* ParamDataVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParamDataVo.h; sourceTree = "<group>"; };
@@ -593,6 +614,20 @@
 				FE2F3015241C28480005F686 /* Curve.m */,
 				FE887D512416733900025A74 /* ParamDataVo.h */,
 				FE887D522416733900025A74 /* ParamDataVo.m */,
+				FE8788B924327334003E0EE7 /* BaseAnim.h */,
+				FE8788BA24327334003E0EE7 /* BaseAnim.m */,
+				FE8788BC24327359003E0EE7 /* ScaleChange.h */,
+				FE8788BD24327359003E0EE7 /* ScaleChange.m */,
+				FE8788BF24327372003E0EE7 /* ScaleAnim.h */,
+				FE8788C024327372003E0EE7 /* ScaleAnim.m */,
+				FE8788C2243273B9003E0EE7 /* ScaleNoise.h */,
+				FE8788C3243273B9003E0EE7 /* ScaleNoise.m */,
+				FE8788C5243273C7003E0EE7 /* SelfRotation.h */,
+				FE8788C6243273C7003E0EE7 /* SelfRotation.m */,
+				FE8788C824327429003E0EE7 /* AxisRotaion.h */,
+				FE8788C924327429003E0EE7 /* AxisRotaion.m */,
+				FE8788CB243274AC003E0EE7 /* AxisMove.h */,
+				FE8788CC243274AC003E0EE7 /* AxisMove.m */,
 			);
 			path = ctrl;
 			sourceTree = "<group>";
@@ -991,6 +1026,8 @@
 				FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */,
 				FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */,
 				FE1D8B522412903600A04FC4 /* DisplayBaseTriShader.m in Sources */,
+				FE8788C4243273B9003E0EE7 /* ScaleNoise.m in Sources */,
+				FE8788CD243274AC003E0EE7 /* AxisMove.m in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
 				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
@@ -1006,7 +1043,10 @@
 				FE805728240698DD000F6D17 /* Display3DShader.m in Sources */,
 				FE064B8A241EE63800AD44BE /* DynamicTexListVo.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
+				FE8788BE24327359003E0EE7 /* ScaleChange.m in Sources */,
 				FE887D622416769500025A74 /* DynamicTexItem.m in Sources */,
+				FE8788C7243273C7003E0EE7 /* SelfRotation.m in Sources */,
+				FE8788BB24327334003E0EE7 /* BaseAnim.m in Sources */,
 				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */,
@@ -1025,6 +1065,7 @@
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
 				FE887D71241681B300025A74 /* MaterialLoad.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
+				FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */,
 				FE678843239B980200262B53 /* SceneView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */,
@@ -1050,6 +1091,7 @@
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE887D502416731200025A74 /* CurveVo.m in Sources */,
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
+				FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */,
 				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,
 				FE1D8B552412A64E00A04FC4 /* GridLineSprite.m in Sources */,

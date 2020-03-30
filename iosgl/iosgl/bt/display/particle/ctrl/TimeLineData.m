@@ -27,7 +27,7 @@
         key.frameNum = frameNum;
         key.baseValue =[[NSMutableArray alloc]init] ;
         for (int j = 0; j < 10; j++) {
-            [key.baseValue addObject:  [NSString stringWithFormat:@"%f",[byte readFloat] ]];
+            [key.baseValue addObject:  [NSNumber numberWithFloat:[byte readFloat]]];
         }
         float animLen = [byte readFloat];
         key.animData=[[NSMutableArray alloc]init] ;

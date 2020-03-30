@@ -27,9 +27,29 @@
 -(void)onCreated;
 {
 }
+-(void)setTimeLine:(TimeLine*)value
+{
+    _timeline=value;
+    _beginTime=_timeline.beginTime;
+}
+/*
+public setTimeLine($tl:TimeLine): void {
+    this.timeline = $tl;
+    this._beginTime = $tl.beginTime;
+}
+*/
 -(void)updateTime:(float)t;
 {
     self._time=t;
+   [self.timeline updateTime:t];
+    /*
+     this.timeline.updateTime(t);
+           this.visible = this.timeline.visible;
+           this.posMatrix.identity();
+           this.posMatrix.prependScale(this._scaleX * 0.1 * this.bindScale.x,
+               this._scaleY * 0.1 * this.bindScale.y,
+               this._scaleZ * 0.1 * this.bindScale.z);
+     */
 }
 -(void)updateMatrix;
 {

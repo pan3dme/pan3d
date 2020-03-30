@@ -10,6 +10,7 @@
 #import "Matrix3D.h"
 #import "Shader3D.h"
 #import "Vector3D.h"
+#import "TimeLine.h"
 
 @class  ParticleData;
 
@@ -17,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3DParticle : Display3D
 @property (nonatomic, assign)  BOOL  visible;
-@property (nonatomic, assign)  int  timeline;
-@property (nonatomic, assign)  int  _beginTime;
+@property (nonatomic, strong)  TimeLine*  timeline;
+@property (nonatomic, assign)  int  beginTime;
 @property (nonatomic, assign)  Vector3D*  bindMatrix;
 @property (nonatomic, assign)  Vector3D*  bindVecter3d;
 @property (nonatomic, assign)  Vector3D*  bindScale;

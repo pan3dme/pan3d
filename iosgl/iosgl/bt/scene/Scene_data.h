@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Scene_data : NSObject
 + (instancetype)default;
 @property (nonatomic, assign) float frameTime;
+@property (nonatomic, assign) float MAX_NUMBER;
 
 -(NSString*)getWorkUrlByFilePath:(NSString*)value; 
 @end

@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface KeyFrame : NSObject
 @property (nonatomic, assign)  float  frameNum;//当前帧数
-@property (nonatomic, strong)  NSMutableArray*  animData ;//运动信息数据
-@property (nonatomic, strong)  NSMutableArray*  baseValue ;
+@property (nonatomic, strong)  NSMutableArray<NSDictionary*>*  animData ;//运动信息数据
+@property (nonatomic, strong)  NSMutableArray<NSNumber*>*  baseValue ;
 @end
 
 NS_ASSUME_NONNULL_END

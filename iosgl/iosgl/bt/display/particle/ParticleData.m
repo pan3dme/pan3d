@@ -140,6 +140,7 @@
      particle.data = self;
      TimeLine* tl=[[TimeLine alloc]init];
      [tl setAllDataInfo:self.timelineData];
+    particle.timeline=tl;
     [particle onCreated];
     
  /*
