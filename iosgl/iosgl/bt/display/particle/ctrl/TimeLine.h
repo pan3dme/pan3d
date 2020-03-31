@@ -14,9 +14,13 @@
 #import "AxisMove.h"
 #import "ScaleChange.h"
 #import "ScaleAnim.h"
+#import "Matrix3D.h"
 #import "ScaleNoise.h"
+#import "Display3DParticle.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class Display3DParticle;
 
 @interface TimeLine : EventDispatcher
 @property (nonatomic, strong)  NSMutableArray<KeyFrame*>*  keyFrameAry;
@@ -45,6 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setAllDataInfo:(TimeLineData*)data;
 -(void)updateTime:(float)t;
+-(void)updateMatrix:(Matrix3D*)posMatrix particle:(Display3DParticle*)particle ;
 @end
 
 NS_ASSUME_NONNULL_END

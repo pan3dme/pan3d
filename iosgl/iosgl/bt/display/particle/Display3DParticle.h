@@ -11,27 +11,32 @@
 #import "Shader3D.h"
 #import "Vector3D.h"
 #import "TimeLine.h"
+#import "Matrix3D.h"
 
 @class  ParticleData;
-
+@class TimeLine;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3DParticle : Display3D
 @property (nonatomic, assign)  BOOL  visible;
 @property (nonatomic, strong)  TimeLine*  timeline;
 @property (nonatomic, assign)  int  beginTime;
-@property (nonatomic, assign)  Vector3D*  bindMatrix;
+@property (nonatomic, assign)  BOOL   isInGroup;
+@property (nonatomic, assign)  float  _time;
+
+@property (nonatomic, strong) Shader3D* shader3d;
 @property (nonatomic, assign)  Vector3D*  bindVecter3d;
 @property (nonatomic, assign)  Vector3D*  bindScale;
-@property (nonatomic, assign)  Matrix3D*  invertBindMatrix;
-@property (nonatomic, assign)  Matrix3D*   groupMatrix;
-@property (nonatomic, strong) Shader3D* shader3d;
-@property (nonatomic, assign)  BOOL   isInGroup;
-@property (nonatomic, assign)  Vector3D*   groupPos;
-@property (nonatomic, assign)  Vector3D*   groupScale;
-@property (nonatomic, assign)  Vector3D*   groupRotation;
-@property (nonatomic, assign)  float  _time;
- @property (nonatomic, strong)  ParticleData*  data;
+
+@property (nonatomic, strong)  Matrix3D*  bindMatrix;
+@property (nonatomic, strong)  Matrix3D*  invertBindMatrix;
+@property (nonatomic, strong)  Matrix3D*   groupMatrix;
+
+@property (nonatomic, strong)  Vector3D*   groupPos;
+@property (nonatomic, strong)  Vector3D*   groupScale;
+@property (nonatomic, strong)  Vector3D*   groupRotation;
+
+@property (nonatomic, strong)  ParticleData*  data;
 -(void)onCreated;
 -(void)update;
 -(void)updateTime:(float)t;
@@ -41,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setMaterialTexture;
 -(void)setViewCamModeMatr3d;
 -(void)inverBind;
+-(void)setBind:(Vector3D*)pos rotation:(Matrix3D*)rotation scale:(Vector3D*)scale invertRotation:(Matrix3D*)invertRotation groupMatrix:(Matrix3D*)groupMatrix;
 @end
 
 NS_ASSUME_NONNULL_END

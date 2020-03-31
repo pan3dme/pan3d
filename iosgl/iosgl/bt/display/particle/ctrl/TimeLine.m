@@ -16,6 +16,9 @@
 #import "ScaleAnim.h"
 #import "ScaleNoise.h"
 #import "BaseAnim.h"
+#import "Matrix3D.h"
+#import "ParticleData.h"
+#import "Display3DParticle.h"
 
 @interface TimeLine ()
 @property (nonatomic, assign)  BOOL  isByteData;
@@ -35,7 +38,58 @@
     }
     return self;
 }
+-(void)updateMatrix:(Matrix3D*)posMatrix particle:(Display3DParticle*)particle ;
+{
+    TimeLine* this=self;
+    if (this.axisMove) {
+        [posMatrix prependTranslation:this.axisMove.axis.x * this.axisMove.num y:this.axisMove.axis.y * this.axisMove.num z:this.axisMove.axis.z * this.axisMove.num];
+    }
+    if (this.axisRotaion) {
+        [posMatrix prependRotation:this.axisRotaion.num  axis:this.axisRotaion.axis];
+    }
+    [posMatrix prependTranslation:particle.data.center.x y:particle.data.center.y z:particle.data.center.z];
+    if (this.scaleChange) {
+        [posMatrix prependScale:particle.data._widthFixed ? 1 : this.scaleChange.num y:particle.data._heightFixed ? 1 : this.scaleChange.num z:particle.data._widthFixed ? 1 : this.scaleChange.num];
+    } else if (this.scaleNosie) {
+        [ posMatrix prependScale:particle.data._widthFixed ? 1 : (1 + this.scaleNosie.num) y:particle.data._heightFixed ? 1 : (1 + this.scaleNosie.num) z:particle.data._widthFixed ? 1 : (1 + this.scaleNosie.num)];
+    } else if (this.scaleAnim) {
+        [posMatrix prependScale:particle.data._widthFixed ? 1 : this.scaleAnim.num y:particle.data._heightFixed ? 1 : this.scaleAnim.num z:particle.data._widthFixed ? 1 : this.scaleAnim.num];
+    }
+    [posMatrix prependRotation:particle.data.rotationV3d.z axis:Vector3D.Z_AXIS];
+    [posMatrix prependRotation:particle.data.rotationV3d.y axis:Vector3D.Y_AXIS];
+    [posMatrix prependRotation:particle.data.rotationV3d.x axis:Vector3D.X_AXIS];
+    
+    /*
+     
+            if (this._axisMove) {
+                posMatrix.prependTranslation(this._axisMove.axis.x * this._axisMove.num, this._axisMove.axis.y * this._axisMove.num, this._axisMove.axis.z * this._axisMove.num);
+            }
+            if (this._axisRotaion) {
+                posMatrix.prependRotation(this._axisRotaion.num, this._axisRotaion.axis);
+            }
 
+            posMatrix.prependTranslation($particle.data.center.x, $particle.data.center.y, $particle.data.center.z);
+            
+
+            if (this._scaleChange) {
+                //processScale();
+                posMatrix.prependScale($particle.data._widthFixed ? 1 : this._scaleChange.num, $particle.data._heightFixed ? 1 : this._scaleChange.num,
+                    $particle.data._widthFixed ? 1 : this._scaleChange.num);
+            } else if (this._scaleNosie) {
+                //processNosie();
+                posMatrix.prependScale($particle.data._widthFixed ? 1 : (1 + this._scaleNosie.num), $particle.data._heightFixed ? 1 : (1 + this._scaleNosie.num),
+                    $particle.data._widthFixed ? 1 : (1 + this._scaleNosie.num));
+            } else if (this._scaleAnim) {
+                //processScaleAnim();
+                posMatrix.prependScale($particle.data._widthFixed ? 1 : this._scaleAnim.num, $particle.data._heightFixed ? 1 : this._scaleAnim.num,
+                    $particle.data._widthFixed ? 1 : this._scaleAnim.num);
+                //console.log(this._scaleAnim.num);
+            }
+            posMatrix.prependRotation($particle.data.rotationV3d.z, Vector3D.Z_AXIS);
+            posMatrix.prependRotation($particle.data.rotationV3d.y, Vector3D.Y_AXIS);
+            posMatrix.prependRotation($particle.data.rotationV3d.x, Vector3D.X_AXIS);
+     */
+}
 -(void)setAllDataInfo:(TimeLineData*)data;
 {
     self.isByteData = true;
@@ -59,34 +113,31 @@
     }
     this.time = t;
     [this getTarget];
-    /*
-     if (!this._currentKeyFrame) {
+   
+     if (!this.currentKeyFrame) {
      return;
      }
-     this._time = t;
-     this.getTarget();
+     this.time = t;
+    [this getTarget];
+    if (this.axisRotaion) {
+        [this.axisRotaion update:this.time];
+    }
+    if (this.selfRotaion) {
+        [this.selfRotaion update:this.time];
+    }
+    if (this.axisMove) {
+        [this.axisMove update:this.time];
+    }
+    if (this.scaleChange)
+    {
+        [this.scaleChange update:this.time];
+    } else if (this.scaleNosie)
+    {
+        [this.scaleNosie update:this.time];
+    } else if (this.scaleAnim) {
+        [this.scaleAnim update:this.time];
+    }
      
-     
-     if (this._axisRotaion) {
-     this._axisRotaion.update(this._time);
-     }
-     
-     if (this._selfRotaion) {
-     this._selfRotaion.update(this._time);
-     }
-     
-     if (this._axisMove) {
-     this._axisMove.update(this._time);
-     }
-     
-     if (this._scaleChange) {
-     this._scaleChange.update(this._time);
-     } else if (this._scaleNosie) {
-     this._scaleNosie.update(this._time);
-     } else if (this._scaleAnim) {
-     this._scaleAnim.update(this._time);
-     }
-     */
 }
 -(void)getTarget;
 {
@@ -124,7 +175,7 @@
         return;
     }
     for (int i= 0;i < 10; i++){
-        if (!baseValueAry[i]) {
+        if ( ![baseValueAry[i]boolValue]) {
             continue;
         }
         switch (i) {

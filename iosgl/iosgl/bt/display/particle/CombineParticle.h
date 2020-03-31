@@ -17,21 +17,26 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CombineParticle : EventDispatcher
-@property (nonatomic, strong)  CombineParticleData* sourceData;
+
 @property (nonatomic, assign)  NSString*  url;
 @property (nonatomic, assign)  int  type; //类型
-@property (nonatomic, strong)  Matrix3D*  bindMatrix;
-@property (nonatomic, assign)  Vector3D*  bindVecter3d;
-@property (nonatomic, assign)  Vector3D*   bindScale;
-@property (nonatomic, strong)  Matrix3D*  invertBindMatrix;
-@property (nonatomic, strong)  Matrix3D*  groupMatrix;
-@property (nonatomic, strong)  Matrix3D*  groupRotationMatrix;
 @property (nonatomic, assign)  BOOL  hasMulItem;
 @property (nonatomic, assign)  BOOL  sceneVisible;
 @property (nonatomic, assign)  BOOL  dynamic;
 @property (nonatomic, assign)  BOOL  hasDestory;
 @property (nonatomic, assign)  float  maxTime;
+
 @property (nonatomic, strong)  Scene3D *scene3d;
+@property (nonatomic, strong)  CombineParticleData* sourceData;
+
+@property (nonatomic, strong)  Matrix3D*  bindMatrix;
+@property (nonatomic, strong)  Vector3D*  bindVecter3d;
+@property (nonatomic, strong)  Vector3D*   bindScale;
+@property (nonatomic, strong)  Matrix3D*  invertBindMatrix;
+@property (nonatomic, strong)  Matrix3D*  groupMatrix;
+@property (nonatomic, strong)  Matrix3D*  groupRotationMatrix;
+
+
 
 -(void)addPrticleItem:(Display3DParticle*)dic;
 -(void)updateTime:(float)t;

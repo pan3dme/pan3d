@@ -30,6 +30,12 @@
     if (self) {
         self._displayAry=[[NSMutableArray alloc]init];
         self._time=0;
+        self.bindVecter3d =[[Vector3D alloc]init];
+        self.bindScale = [[Vector3D alloc]x:1 y:1 z:1];
+        self.bindMatrix = [[Matrix3D alloc]init];
+        self.invertBindMatrix =  [[Matrix3D alloc]init];
+        self.groupMatrix =  [[Matrix3D alloc]init];
+        self.groupRotationMatrix = [[Matrix3D alloc]init];
     }
     return self;
 }
@@ -37,6 +43,7 @@
 -(void)addPrticleItem:(Display3DParticle*)dic
 {
     dic.visible=YES;
+    [dic setBind:self.bindVecter3d rotation:self.bindMatrix scale:self.bindScale invertRotation:self.invertBindMatrix groupMatrix:self.groupMatrix];
     [self._displayAry addObject:dic];
     
 }
@@ -44,9 +51,9 @@
 {
     self._time += t;
     for(int i=0;i<self._displayAry.count;i++)
-      {
-          [self._displayAry[i] updateTime:self._time];
-      }
+    {
+        [self._displayAry[i] updateTime:self._time];
+    }
 }
 -(void)update;
 {
@@ -60,12 +67,5 @@
 {
     
 }
-/*
- public addPrticleItem($dis: Display3DParticle): void {
-            $dis.visible = false;
-            $dis.setBind(this.bindVecter3d, this.bindMatrix, this.bindScale, this.invertBindMatrix, this.groupMatrix);
-            this._displayAry.push($dis);
-        }
- */
 
 @end
