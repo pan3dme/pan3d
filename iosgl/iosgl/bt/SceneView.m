@@ -41,6 +41,8 @@
 -(void)upFrame{
     
     if(self.scene3D){
+          [Scene_data default].frameTime=1;
+        
         glClearColor(0.18f, 0.04f, 0.14f, 1.0f);
         glFrontFace(GL_CW); //绘制方向
         glDepthFunc(GL_LESS);
@@ -55,7 +57,7 @@
         [self.scene3D upFrame];
         [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
         
-        [Scene_data default].frameTime++;
+      
     }
  
 }

@@ -29,14 +29,14 @@
 }
 -(void)coreCalculate;
 {
-       ScaleAnim*  this=self;
-       int frameNum = this.time / [Scene_data default].frameTime;
-       if (frameNum >= this.numAry.count) {
-           this.num = [this.numAry[this.numAry.count - 1] floatValue];
-       } else {
-           this.num = [this.numAry[frameNum]floatValue];
-       }
-   }
+    ScaleAnim*  this=self;
+    int frameNum = this.time / [Scene_data default].frameTime;
+    if (frameNum >= this.numAry.count) {
+        this.num = [this.numAry[this.numAry.count - 1] floatValue];
+    } else {
+        this.num = [this.numAry[frameNum]floatValue];
+    }
+}
 
 -(void)dataByte:(NSArray<NSNumber*>*)va arr:(NSArray<NSNumber*>*)arr;
 {
@@ -95,6 +95,6 @@
     }
     this.currentTarget = this.scaleAry[0];
     
-     
+    
 }
 @end

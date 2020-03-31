@@ -58,37 +58,7 @@
     [posMatrix prependRotation:particle.data.rotationV3d.z axis:Vector3D.Z_AXIS];
     [posMatrix prependRotation:particle.data.rotationV3d.y axis:Vector3D.Y_AXIS];
     [posMatrix prependRotation:particle.data.rotationV3d.x axis:Vector3D.X_AXIS];
-    
-    /*
-     
-            if (this._axisMove) {
-                posMatrix.prependTranslation(this._axisMove.axis.x * this._axisMove.num, this._axisMove.axis.y * this._axisMove.num, this._axisMove.axis.z * this._axisMove.num);
-            }
-            if (this._axisRotaion) {
-                posMatrix.prependRotation(this._axisRotaion.num, this._axisRotaion.axis);
-            }
-
-            posMatrix.prependTranslation($particle.data.center.x, $particle.data.center.y, $particle.data.center.z);
-            
-
-            if (this._scaleChange) {
-                //processScale();
-                posMatrix.prependScale($particle.data._widthFixed ? 1 : this._scaleChange.num, $particle.data._heightFixed ? 1 : this._scaleChange.num,
-                    $particle.data._widthFixed ? 1 : this._scaleChange.num);
-            } else if (this._scaleNosie) {
-                //processNosie();
-                posMatrix.prependScale($particle.data._widthFixed ? 1 : (1 + this._scaleNosie.num), $particle.data._heightFixed ? 1 : (1 + this._scaleNosie.num),
-                    $particle.data._widthFixed ? 1 : (1 + this._scaleNosie.num));
-            } else if (this._scaleAnim) {
-                //processScaleAnim();
-                posMatrix.prependScale($particle.data._widthFixed ? 1 : this._scaleAnim.num, $particle.data._heightFixed ? 1 : this._scaleAnim.num,
-                    $particle.data._widthFixed ? 1 : this._scaleAnim.num);
-                //console.log(this._scaleAnim.num);
-            }
-            posMatrix.prependRotation($particle.data.rotationV3d.z, Vector3D.Z_AXIS);
-            posMatrix.prependRotation($particle.data.rotationV3d.y, Vector3D.Y_AXIS);
-            posMatrix.prependRotation($particle.data.rotationV3d.x, Vector3D.X_AXIS);
-     */
+   
 }
 -(void)setAllDataInfo:(TimeLineData*)data;
 {
@@ -160,13 +130,12 @@
             this.currentKeyFrame = nil;
         } else {
             this.visible = true;
-     
-            
+   
             [this enterKeyFrame:this.currentKeyFrame.animData baseTime:this.currentKeyFrame.frameNum *[Scene_data default].frameTime baseValueAry:this.currentKeyFrame.baseValue];
         }
         
     }
-    
+   
 }
 -(void)enterKeyFrame:(NSArray*)ary baseTime:(float)baseTime baseValueAry:(NSArray<NSNumber*>*)baseValueAry;
 {
