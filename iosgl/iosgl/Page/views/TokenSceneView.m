@@ -97,27 +97,18 @@
 }
 
 - (IBAction)zoom_min_clik:(id)sender {
-    /*
-     [UIView beginAnimations:nil context:nil];
-     [UIView setAnimationDuration:0.5];
-     self.sceneView.frame =CGRectMake(20, 120, 300, 300);
-     [UIView commitAnimations];
-     */
-    //    #import "Display3DSprite.h"
-    //    #import "LineDisplaySprite.h"
-    //    #import "DisplayBaseTriSprite.h"
-    //GridLineSprite
+ 
     [self.sceneView makeEemptyScene];
     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     
-    //    [[LoadManager default]load:@"fff" type:1 fun:^(int value) {
-    //
-    //    } info:nil progressFun:nil];
+    
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
+    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     
-    [self playLyfByUrl:@"model/diamondseffect_base.txt"];
+   //  [self playLyfByUrl:@"model/diamondseffect_base.txt"];
     [self playLyfByUrl:@"model/levelup_base.txt"];
+   // [self playLyfByUrl:@"model/reviveeff_base.txt"];
 }
 -(void)playLyfByUrl:(NSString*)value
 {
