@@ -19,7 +19,7 @@ static Scene_data *instance = nil;
 {
     self = [super init];
     if (self) {
-        self.frameTime=0.0f;
+        self.frameTime=1000.0 / 60.0;
         self.MAX_NUMBER=10000000;
     }
     return self;

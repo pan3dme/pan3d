@@ -5471,54 +5471,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "204079D2-B88A-4FCE-B7D6-792977B6CCDD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/Page/views/TokenSceneView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-zoom_min_clik:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "204079D2-B88A-4FCE-B7D6-792977B6CCDD - 1a1161c05621ff44"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TokenSceneView zoom_min_clik:]"
-                  moduleName = "iosgl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhao/Desktop/gitios/iosgl/iosgl/Page/views/TokenSceneView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "120"
-                  endingLineNumber = "120"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "204079D2-B88A-4FCE-B7D6-792977B6CCDD - b4abaee8c177a73e"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__32-[TokenSceneView zoom_min_clik:]_block_invoke"
-                  moduleName = "iosgl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhao/Desktop/gitios/iosgl/iosgl/Page/views/TokenSceneView.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E7C16D83-B8C9-4F78-AB7B-A07FD4B7E197"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -5878,8 +5830,8 @@
             filePath = "iosgl/bt/filemode/ParticleManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-updateTime"
             landmarkType = "7">
          </BreakpointContent>
@@ -6474,6 +6426,102 @@
             endingLineNumber = "14"
             landmarkName = "-update:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E41857E5-5059-45C1-B5ED-EE94B19EBF8A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/filemode/ParticleManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-updateTime"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDFEF86A-2C28-4EAA-BEDE-B962F6FE03C4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/filemode/ParticleManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-updateTime"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "820519DD-C7CF-4104-85C4-E5A62486C7EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/utils/TimeUtil.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-getTimer"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "065D4B96-C4B3-4CAB-A5C9-77CDF6651919"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/filemode/ParticleManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-updateTime"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "065D4B96-C4B3-4CAB-A5C9-77CDF6651919 - ad83732ebd2d3698"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ParticleManager updateTime]"
+                  moduleName = "iosgl"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhao/Desktop/gitios/iosgl/iosgl/bt/filemode/ParticleManager.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "065D4B96-C4B3-4CAB-A5C9-77CDF6651919 - ad83732ebd2d3698"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ParticleManager updateTime]"
+                  moduleName = "iosgl"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhao/Desktop/gitios/iosgl/iosgl/bt/filemode/ParticleManager.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

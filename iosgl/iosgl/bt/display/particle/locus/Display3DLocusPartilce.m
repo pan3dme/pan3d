@@ -57,7 +57,7 @@
 }
 -(void)updateUV;
 {
-    [Scene_data default].frameTime=1.0;
+  
     float nowTime=self._time/[Scene_data default].frameTime;
     float  lifeRoundNum=self.data._life / 100.0f;
     float moveUv = self.locusdata._speed * nowTime / self.locusdata._density / 10.0f;

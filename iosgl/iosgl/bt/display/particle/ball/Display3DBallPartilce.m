@@ -52,13 +52,15 @@
 
 -(void)setVcmat;
 {
-    [Scene_data default].frameTime=1.0;
+ 
     Display3DBallPartilce* this=self;
     Context3D *ctx=self.scene3d.context3D;
     
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
-    timeVec.x=self._time/1.0f;
+  //  timeVec.x=self._time/1.0f;
+    
+  
     
     [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
     Vector3D*  scaleVec =   self.ballData._scaleVec;

@@ -37,7 +37,7 @@
     self.sceneView.frame=CGRectMake(5, 100, 360, 360);
     [self.view addSubview:  self.sceneView];
     [self addLisienEvent];
- 
+    
     
     NSLog(@"%@",AppName);
     
@@ -55,32 +55,32 @@
     [mDict setObject:@"cctv"  forKey:@"data"];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
     
-     [self.sceneView loadSeceneByUrl:@"5555_base.txt"];
+    [self.sceneView loadSeceneByUrl:@"5555_base.txt"];
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
-     //[self.sceneView loadSeceneByUrl:@"1001_base"];
+    //[self.sceneView loadSeceneByUrl:@"1001_base"];
     [self.sceneView makeEemptyScene];
     
-  
-     // [self.scene3D addDisplay:tempDis];
+    
+    // [self.scene3D addDisplay:tempDis];
 }
 
 - (IBAction)zoom_max_clik:(id)sender {
     
     /*
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationDelegate:self];
-    self.sceneView.frame =CGRectMake(20, 120, 300, 500);
-    [UIView commitAnimations];
-    */
+     [UIView beginAnimations:nil context:nil];
+     [UIView setAnimationDuration:0.5];
+     [UIView setAnimationDelegate:self];
+     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
+     [UIView commitAnimations];
+     */
     
- 
-       [self.sceneView makeEemptyScene];
+    
+    [self.sceneView makeEemptyScene];
     
     [[GroupDataManager default]getGroupData:[[Scene_data default]getWorkUrlByFilePath:@"model/baoxiang001_base.txt"] Block:^(GroupRes *groupRes) {
-  
+        
         for(int i=0;i<groupRes.dataAry.count;i++){
             GroupItem *groupItem= groupRes.dataAry[i];
             NSMutableDictionary *infodic=[[NSMutableDictionary alloc]init];
@@ -93,33 +93,36 @@
             [self.sceneView.scene3D addDisplay:tempDis];
         }
     }];
- 
+    
 }
 
 - (IBAction)zoom_min_clik:(id)sender {
     /*
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    self.sceneView.frame =CGRectMake(20, 120, 300, 300);
-    [UIView commitAnimations];
-    */
-//    #import "Display3DSprite.h"
-//    #import "LineDisplaySprite.h"
-//    #import "DisplayBaseTriSprite.h"
+     [UIView beginAnimations:nil context:nil];
+     [UIView setAnimationDuration:0.5];
+     self.sceneView.frame =CGRectMake(20, 120, 300, 300);
+     [UIView commitAnimations];
+     */
+    //    #import "Display3DSprite.h"
+    //    #import "LineDisplaySprite.h"
+    //    #import "DisplayBaseTriSprite.h"
     //GridLineSprite
-     [self.sceneView makeEemptyScene];
-   [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    [self.sceneView makeEemptyScene];
+    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     
-//    [[LoadManager default]load:@"fff" type:1 fun:^(int value) {
-//
-//    } info:nil progressFun:nil];
-    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
-     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
+    //    [[LoadManager default]load:@"fff" type:1 fun:^(int value) {
     //
- 
+    //    } info:nil progressFun:nil];
+    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
+    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
+    
+    [self playLyfByUrl:@"model/diamondseffect_base.txt"];
+    [self playLyfByUrl:@"model/levelup_base.txt"];
+}
+-(void)playLyfByUrl:(NSString*)value
+{
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
-   // NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/levelup_base.txt"];
-     NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:@"model/diamondseffect_base.txt"];
+    NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:value];
     [[GroupDataManager default] getGroupData:modeurl Block:^(GroupRes *groupRes) {
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
@@ -132,7 +135,6 @@
         }
         
     }];
-  
 }
- 
+
 @end

@@ -7,6 +7,7 @@
 //
 #import "CombineParticleData.h"
 #import "ParticleManager.h"
+#import "TimeUtil.h"
 static ParticleManager *instance = nil;
 @implementation ParticleManager
  
@@ -21,6 +22,7 @@ static ParticleManager *instance = nil;
 {
     self = [super init];
     if (self) {
+        self.time=0;
         self.dic=[[NSMutableDictionary alloc]init];
         self.renderDic=[[NSMutableDictionary alloc]init];
         self._particleList=[[NSMutableArray alloc]init];
@@ -77,14 +79,18 @@ static ParticleManager *instance = nil;
 }
 -(void)  updateTime ;
 {
+ 
+    int _tempTime = [[TimeUtil default]getTimer];
+    int t = _tempTime - self.time;
     for (NSString* key in self.renderDic) {
         NSArray *list= self.renderDic[key];
         for(int i=0;i<list.count;i++){
             CombineParticle* combineParticle=( (CombineParticle*)(list[i]));
             combineParticle.scene3d=self.scene3d;
-            [combineParticle updateTime:1];
+            [combineParticle updateTime:t];
         }
     }
+   self.time = _tempTime;
 }
  
 @end

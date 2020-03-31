@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TimeUtil : NSObject
 + (instancetype)default;
 @property (nonatomic, assign) float    time  ;
- 
+ -(int)getTimer;
 @end
 
 NS_ASSUME_NONNULL_END
