@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^AlertuccessBlock)(NSDictionary* responseJson);
+typedef void (^AlertuccessBlock)(int code);
  
 
 NS_ASSUME_NONNULL_BEGIN
@@ -33,8 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) AlertuccessBlock canelBlock;
 - (IBAction)canelButClik:(id)sender;
 - (IBAction)submitButClik:(id)sender;
-- (void)show;
- 
+-(void)showAlert:(DtAlertVo *)vo submitFun:(void (^)(int ))submitFun canalFun:(void (^)(int ))canalFun;
 @end
 
 NS_ASSUME_NONNULL_END

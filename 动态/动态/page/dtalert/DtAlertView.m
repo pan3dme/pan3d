@@ -84,6 +84,27 @@
     self.frame=self.window.bounds;
 }
   
+-(void)showAlert:(DtAlertVo *)vo submitFun:(void (^)(int ))submitFun canalFun:(void (^)(int ))canalFun;
+{
+    
+    self.redBagAlertVo=vo;
+    self.submitBlock=submitFun;
+    self.canelBlock=canalFun;
+    
+    
+    self.redBagAlertView.winTittle.text=vo.tittleStr;
+    self.redBagAlertView.infoTxt.text=vo.infoStr;
+    [self.redBagAlertView.submitBut setTitle:vo.submitStr forState:UIControlStateNormal];
+    [self.redBagAlertView.canelBut setTitle:vo.cacelStr forState:UIControlStateNormal];
+    
+ 
+    self.redBagAlertView.canelBut.hidden=vo.cacelStr.length==0;
+   
+    [self layoutSubviews];
+
+    [self show];
+    
+}
  
 - (void)layoutSubviews
 {
