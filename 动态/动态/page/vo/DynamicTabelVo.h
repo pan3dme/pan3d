@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger  is_ban;
 @property(nonatomic,assign)NSInteger  delete_time;
 @property(nonatomic,assign)NSInteger  read_time;
-@property(nonatomic,assign)NSInteger  add_time;
+@property(nonatomic,assign)NSNumber*  add_time;
 @property(nonatomic,assign)NSInteger  is_lock;
 @property(nonatomic,assign)NSInteger  recommend;
 @property(nonatomic,assign)NSInteger  comments;

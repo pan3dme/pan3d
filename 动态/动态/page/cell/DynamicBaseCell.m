@@ -118,16 +118,18 @@
     self.userHeadImagView.layer.cornerRadius = 27; // 圆角的弧度
     self.userHeadImagView.clipsToBounds=YES;
     
-    self.usenameLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 5, 60, 24)];
+    CGFloat tx=100;
+    
+    self.usenameLabel=[[UILabel alloc]initWithFrame:CGRectMake(tx, 5, 60, 24)];
     self.usenameLabel.font =[UIFont systemFontOfSize:16];
     [self addSubview:self.usenameLabel];
     
-    self.timeLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 30, 60, 20)];
+    self.timeLabel=[[UILabel alloc]initWithFrame:CGRectMake(tx, 30, 60, 20)];
     self.timeLabel.font =[UIFont systemFontOfSize:14];
     self.timeLabel.textColor=RGBOF(0xbfbfbf);
     [self addSubview:self.timeLabel];
     
-    self.infoLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 55, 60, 20)];
+    self.infoLabel=[[UILabel alloc]initWithFrame:CGRectMake(tx, 55, 60, 20)];
     self.timeLabel.font =[UIFont systemFontOfSize:15];
     [self addSubview:self.infoLabel];
     
@@ -148,6 +150,7 @@
     
     self.deleBut=[self makeLabelBut:@"删除" perentUi:self.bttomView];
      self.deleBut.backgroundColor = [UIColor clearColor];
+    [self.deleBut setTitleColor:RGBOF(0x666666) forState:UIControlStateNormal];
     
     self.diamondBut.frame=CGRectMake(0, 0, 25, 20);
     self.heartBut.frame=CGRectMake(50, 0, 25, 20);
@@ -221,14 +224,22 @@
 }
 -(void)layoutSubviews;
 {
+    
+    CGFloat tx=kScreenW/4.3;
+     
+     self.usenameLabel.frame=CGRectMake(tx, 5, 60, 24);
+     self.timeLabel.frame=CGRectMake(tx, 30, 60, 20);
+     self.infoLabel.frame=CGRectMake(tx, 55, 60, 20);
+    
+    
     self.followBut.frame=CGRectMake(self.width-90, 10, 80, 28);
-    self.bttomView.frame=CGRectMake(100, self.height-40, self.width-100, 30);
+    self.bttomView.frame=CGRectMake(tx, self.height-40, self.width-100, 30);
     self.bttomlineView.frame=CGRectMake(0, self.height-1, self.width, 1);
-    self.infoLabel.frame=CGRectMake(100, 55, self.width-200, 20);
+    self.infoLabel.frame=CGRectMake(tx, 55, self.width-200, 20);
     if(self.datavo.content.length){
-        self.infoBg.frame=CGRectMake(100, 80, self.width-100, self.height-100-25);
+        self.infoBg.frame=CGRectMake(tx, 80, self.width-tx, self.height-100-25);
     }else{
-        self.infoBg.frame=CGRectMake(100, 55, self.width-100, self.height-100);
+        self.infoBg.frame=CGRectMake(tx, 55, self.width-tx, self.height-100);
     }
  
  for (int i=0; i<self.showButArr.count; i++) {
@@ -316,14 +327,16 @@
     CGImageRelease(outImage);
     return blurImage;
 }
-
+ 
+ 
 -(void)refrishUi;
 {
     
     //  DynamicTabelVo* dynamicTabelVo= self.datavo.tabelVo;
     
     self.usenameLabel.text=self.datavo.nick_name;
-    self.timeLabel.text=@"3天前";
+    self.timeLabel.text=[[DynamicModel default] getTimeStr: [self.datavo.tabelVo.add_time doubleValue]];
+ 
     self.infoLabel.text=self.datavo.content;
     [self imgLoadByUrl:@"http://34.87.12.20:20080//static/upload/dt/20191118/0aabf400d747b6955ce73bd97836fa9b_mini.jpg" imgView:self.userHeadImagView];
     

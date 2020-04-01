@@ -86,6 +86,7 @@ UIScrollViewDelegate
       imagePicker.delegate = self;
       imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
       imagePicker.allowsEditing = YES;
+       imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", @"public.image", nil];
       [self presentViewController:imagePicker animated:YES completion:NULL];
     
  

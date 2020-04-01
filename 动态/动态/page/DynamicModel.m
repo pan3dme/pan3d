@@ -233,7 +233,47 @@ static DynamicModel *dynamicModel = nil;
         NSLog(@"更新关注");
     }];
 }
-
+ 
+-(NSString*)getTimeStr:(double)time;
+{
+     
+     
+    NSString* str = @"";
+    //获取本地时间戳
+    double locaTime = (double)[[NSDate date]timeIntervalSince1970];
+    
+    double countTime = locaTime - time;
+    double min = 60;
+    double h = min * 60;
+    double day = h * 24;
+    double mon = day * 30;
+    double year = 365 * day;
+ 
+    if (countTime > year) {
+        str = [NSString stringWithFormat:@"%d年前",(int)floor(countTime/year) ];
+        return str;
+    }
+    else if (countTime > mon) {
+        str = [NSString stringWithFormat:@"%d月前",  (int) floor(countTime / mon)];
+        return str;
+    }
+    else if (countTime > day) {
+         str = [NSString stringWithFormat:@"%d天前",  (int) floor(countTime / day)];
+        return str;
+    }
+    else if (countTime > h) {
+         str = [NSString stringWithFormat:@"%d小时前",  (int) floor(countTime / h)];
+        return str;
+    } else if (countTime > min) {
+          str = [NSString stringWithFormat:@"%d分钟前",  (int) floor(countTime / min)];
+        return str;
+    } else {
+        str = @"刚刚";
+        return str;
+    }
+     
+    return @"";
+}
 
 -(UIImage *)resizeImage:(UIImage *)image width:(int)wdth height:(int)hght{
     int w = image.size.width;

@@ -28,8 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setHdeartByKey:(NSString*)key num:(NSNumber*)num ;
 
 -(BOOL)isfollowByUserName:(NSString*)userName ;
- 
 -(void)addFollowByUserId:(NSString*)userName data:(BOOL)data ;
+
+-(NSString*)getTimeStr:(double)time;
  
 @end
 

@@ -154,7 +154,8 @@
 {
     CGFloat tw150=130;
     self.usenameLabel.text=self.datavo.nick_name;
-    self.timeLabel.text=@"3天前";
+     self.timeLabel.text=[[DynamicModel default] getTimeStr: [self.datavo.add_time doubleValue]];
+ 
     self.infoLabel.text=self.datavo.content;
     CGSize infoSize = [self.infoLabel.text boundingRectWithSize:CGSizeMake(kScreenW-tw150, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}  context:nil].size;
     
