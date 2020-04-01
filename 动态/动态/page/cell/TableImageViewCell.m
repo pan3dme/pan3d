@@ -58,22 +58,8 @@ UITextFieldDelegate
 }
 -(void)actionTap:(UITapGestureRecognizer *)sender;
 {
-    
-    BOOL kt=YES;
-    if(kt){
-        DtAlertView *dtAlertView=   [[DtAlertView alloc]init] ;
-        DtAlertVo* redBagAlertVo= [[DtAlertVo alloc]init];
-        redBagAlertVo.tittleStr=@"提示";
-        redBagAlertVo.infoStr=@"解锁需要20钻石！";
-        redBagAlertVo.cacelStr=@"取消";
-        redBagAlertVo.submitStr=@"确定";
-        [dtAlertView showAlert:redBagAlertVo submitFun:^(int submitCode) {
-            
-        } canalFun:^(int canelCode) {
-            
-            
-        }];
- 
+
+    if( [self showAlertLock]){
         return;
     }
     

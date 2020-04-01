@@ -12,6 +12,8 @@
 #import "Header.h"
 #import "UIView+XBZKeyBoard.h"
 #import "DynamicModel.h"
+#import "DtAlertView.h"
+#import "ButlabelIconView.h"
 
 
 
@@ -22,17 +24,17 @@
 @property(nonatomic,strong)UILabel * timeLabel;
 @property(nonatomic,strong)UILabel * infoLabel;
 @property(nonatomic,strong)UIButton * followBut;
-@property(nonatomic,strong)UIButton * heartBut;
-@property(nonatomic,strong)UIButton * diamondBut;
-@property(nonatomic,strong)UIButton * messageBut;
+@property(nonatomic,strong)ButlabelIconView * heartBut;
+@property(nonatomic,strong)ButlabelIconView * diamondBut;
+@property(nonatomic,strong)ButlabelIconView * messageBut;
+@property(nonatomic,strong)ButlabelIconView * shareBut;
 
- 
 
-@property(nonatomic,strong)UIButton * shareBut;
 @property(nonatomic,strong)UIButton * deleBut;
 @property(nonatomic,strong)UIView * bttomView;
 @property(nonatomic,strong)UIView * bttomlineView;
 
+@property(nonatomic,strong)NSMutableArray<ButlabelIconView*> * showButArr;
 @end
 
 @implementation DynamicBaseCell
@@ -90,9 +92,19 @@
     [perentUi addSubview:btn];
     return btn;
 }
+-(ButlabelIconView*)makButlabelIconView:(NSString*)picStr perentUi:(UIView*)perentUi;
+{
+    ButlabelIconView *btn =[[ButlabelIconView alloc]initWithFrame: CGRectMake(0, 0, 60, 30)] ;
+    [btn setImageName:picStr];
+    
+    btn.userInteractionEnabled=YES;
+    [perentUi addSubview:btn];
+    return btn;
+}
 
 -(void)initBaseUi;
 {
+    self.showButArr=[[NSMutableArray alloc]init];
     
     self.bttomlineView =[[UIView alloc]initWithFrame:self.bounds];
     self.bttomlineView.backgroundColor=RGBOF(0xe4e4e4);
@@ -132,20 +144,17 @@
   
     
     
-    self.diamondBut=[self makeImagesBut:@"diamond_img_diamond" perentUi:self.bttomView];
-    self.heartBut=[self makeImagesBut:@"dt_xihuan_bai" perentUi:self.bttomView];
-    self.messageBut=[self makeImagesBut:@"dt_liaotian" perentUi:self.bttomView];
-    self.shareBut=[self makeImagesBut:@"dt_zhuanfa" perentUi:self.bttomView];
+    self.diamondBut=[self makButlabelIconView:@"diamond_img_diamond" perentUi:self.bttomView];
+    self.heartBut=[self makButlabelIconView:@"dt_xihuan_bai" perentUi:self.bttomView];
+    self.messageBut=[self makButlabelIconView:@"dt_liaotian" perentUi:self.bttomView];
+    self.shareBut=[self makButlabelIconView:@"dt_zhuanfa" perentUi:self.bttomView];
+    
+    
     self.deleBut=[self makeLabelBut:@"删除" perentUi:self.bttomView];
     
     self.diamondBut.frame=CGRectMake(0, 0, 25, 20);
     self.heartBut.frame=CGRectMake(50, 0, 25, 20);
-    self.messageBut.frame=CGRectMake(100, 0,  25, 20);
     self.shareBut.frame=CGRectMake(150, 0,  25, 20);
-    
-     
-    
-    
     self.deleBut.frame=CGRectMake(200, 0, 50, 25);
     
     
@@ -161,9 +170,8 @@
 -(void)heartButClikEvent:(UITapGestureRecognizer *)sender;
 {
  
-   
-    if([[ DynamicModel default] heartByKey:self.heartKey]){
-        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@0];
+    if([[ DynamicModel default] heartByKey:self.heartKey]==1){
+        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@2];
     }else{
         [[ DynamicModel default] setHdeartByKey:self.heartKey num:@1];
     }
@@ -222,20 +230,39 @@
         self.infoBg.frame=CGRectMake(100, 55, self.width-100, self.height-100);
     }
  
-    if(self.datavo.tabelVo.is_lock>0){
-        self.diamondBut.frame=CGRectMake(0, 0, 25, 20);
-        self.heartBut.frame=CGRectMake(60, 0, 25, 20);
-        self.messageBut.frame=CGRectMake(120, 0,  25, 20);
-        self.shareBut.frame=CGRectMake(180, 0,  25, 20);
-    }else{
-        self.heartBut.frame=CGRectMake(0, 0, 25, 20);
-        self.messageBut.frame=CGRectMake(60, 0,  25, 20);
-        self.shareBut.frame=CGRectMake(129, 0,  25, 20);
+    for (int i=0; i<self.showButArr.count; i++) {
+        self.showButArr[i].frame=CGRectMake(i*60, 0, 60, 20);
     }
 
-  
-
  
+}
+-(BOOL)showAlertLock;
+{
+    if(self.datavo.tabelVo.is_lock>0){
+        DtAlertView *dtAlertView=   [[DtAlertView alloc]init] ;
+        DtAlertVo* redBagAlertVo= [[DtAlertVo alloc]init];
+        redBagAlertVo.tittleStr=@"提示";
+        NSString* tipStr=[NSString stringWithFormat:@"解锁需要%ld钻石！",self.datavo.tabelVo.is_lock];
+        NSMutableAttributedString  * butedStr = [[NSMutableAttributedString alloc] initWithString:tipStr];
+        [butedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4,  tipStr.length-7)];
+        redBagAlertVo.butedStr=butedStr;
+        redBagAlertVo.cacelStr=@"取消";
+        redBagAlertVo.submitStr=@"确定";
+        [dtAlertView showAlert:redBagAlertVo submitFun:^(int submitCode) {
+            
+            
+            [self refrishUi];
+            
+            
+            
+        } canalFun:^(int canelCode) {
+            
+        }];
+        return YES;
+    }else{
+        return NO;
+    }
+
 }
 
 
@@ -298,22 +325,35 @@
     self.deleBut.hidden=!self.datavo.isSelf;
     
     if([[ DynamicModel default] heartByKey:self.heartKey]){
-        [self.heartBut setImage:[UIImage imageNamed:@"dt_xihuan_hong"] forState:UIControlStateNormal];
+           [self.heartBut setImageName:@"dt_xihuan_hong"];
     }else{
-        [self.heartBut setImage:[UIImage imageNamed:@"dt_xihuan_bai"] forState:UIControlStateNormal];
+        [self.heartBut setImageName:@"dt_xihuan_bai"];
     }
+    
+    [self.showButArr removeAllObjects];
     if(self.datavo.tabelVo.is_lock>0){
         self.diamondBut.hidden=NO;
- 
+        [self.showButArr addObject: self.diamondBut];
     }else{
-         self.diamondBut.hidden=YES;
-  
+        self.diamondBut.hidden=YES;
+    }
+    [self.showButArr addObject: self.heartBut];
+    [self.showButArr addObject: self.messageBut];
+    [self.showButArr addObject: self.shareBut];
+    
+    
+    [self.diamondBut setNumValue:(int)self.datavo.tabelVo.gift_total];
+    
+    if([[ DynamicModel default] heartByKey:self.heartKey]==2){
+         [self.heartBut setNumValue:(int)self.datavo.tabelVo.likes-1];
+    }else{
+         [self.heartBut setNumValue:(int)self.datavo.tabelVo.likes];
     }
     
- 
+     [self.messageBut setNumValue:(int)self.datavo.tabelVo.comments];
+
+   
     
-    
- 
     [self layoutSubviews];
     
 }

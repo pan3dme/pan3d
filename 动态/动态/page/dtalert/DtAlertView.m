@@ -93,7 +93,7 @@
     
     
     self.redBagAlertView.winTittle.text=vo.tittleStr;
-    self.redBagAlertView.infoTxt.text=vo.infoStr;
+    self.redBagAlertView.infoTxt.attributedText=vo.butedStr;
     [self.redBagAlertView.submitBut setTitle:vo.submitStr forState:UIControlStateNormal];
     [self.redBagAlertView.canelBut setTitle:vo.cacelStr forState:UIControlStateNormal];
     

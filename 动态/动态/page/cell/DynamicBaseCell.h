@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)initBaseUi;
 -(void)refrishUi;
 -(void)setCellData:(DynamicBaseVo*)value;
+-(BOOL)showAlertLock;
  
 @end
 

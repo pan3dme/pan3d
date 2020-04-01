@@ -14,7 +14,7 @@ typedef void (^AlertuccessBlock)(int code);
 NS_ASSUME_NONNULL_BEGIN
 @interface DtAlertVo : NSObject
 @property (nonatomic, strong) NSString *tittleStr;
-@property (nonatomic, strong) NSString *infoStr;
+@property (nonatomic, strong) NSMutableAttributedString *butedStr;
 @property (nonatomic, strong) NSString *submitStr;
 @property (nonatomic, strong) NSString *cacelStr;
 @property (nonatomic, assign) BOOL  bgClikExit;

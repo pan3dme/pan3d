@@ -42,7 +42,9 @@
 
 -(void)actionTap:(UITapGestureRecognizer *)sender;
 {
-    
+    if( [self showAlertLock]){
+        return;
+    }
    
     NSMutableArray* browserDataArr=[[NSMutableArray alloc]init];
      

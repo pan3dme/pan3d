@@ -179,11 +179,14 @@ static DynamicModel *dynamicModel = nil;
     [upImageVo saveToServes:baseUrl img:tempImage bfun:bfun progressfun:progressfun];
     
 }
--(BOOL)heartByKey:(NSString*)key ;
+/*
+ 活动记录KEY  0还没数据 1 标记红星 2标记取消了红星
+ */
+-(int)heartByKey:(NSString*)key ;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* heartDic=   [defaults objectForKey:@"heartpoint1"];
-    return   [[heartDic objectForKey:key] intValue]>0;
+    return   [[heartDic objectForKey:key] intValue];
 }
 -(void)setHdeartByKey:(NSString*)key num:(NSNumber*)num ;
 {

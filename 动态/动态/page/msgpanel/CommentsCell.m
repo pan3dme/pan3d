@@ -106,10 +106,10 @@
 }
 -(void)heartButClikEvent:(UITapGestureRecognizer *)sender;
 {
-    if([[ DynamicModel default] heartByKey:self.heartKey]){
-        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@0];
-    }else{
+    if([[ DynamicModel default] heartByKey:self.heartKey]==1){
         [[ DynamicModel default] setHdeartByKey:self.heartKey num:@1];
+    }else{
+        [[ DynamicModel default] setHdeartByKey:self.heartKey num:@2];
     }
     
     [self refrishUi];
