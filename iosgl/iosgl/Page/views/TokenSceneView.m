@@ -106,7 +106,7 @@
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     
-   //  [self playLyfByUrl:@"model/diamondseffect_base.txt"];
+    [self playLyfByUrl:@"model/diamondseffect_base.txt"];
     [self playLyfByUrl:@"model/levelup_base.txt"];
    // [self playLyfByUrl:@"model/reviveeff_base.txt"];
 }

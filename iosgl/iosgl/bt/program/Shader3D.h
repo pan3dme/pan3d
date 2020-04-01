@@ -12,12 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Shader3D : ResCount
  
-@property (nonatomic,assign)  NSString* vertex;
-@property (nonatomic,assign)  NSString* fragment;
 @property (nonatomic,assign)  GLuint program;
+
+@property (nonatomic,strong)  NSString* vertex;
+@property (nonatomic,strong)  NSString* fragment;
+@property (nonatomic,strong)  NSArray<NSNumber*>* paramAry;
+ 
+
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 -(NSString *)getVertexShaderString;
 -(NSString *)getFragmentShaderString;
+
 @end
 
 NS_ASSUME_NONNULL_END

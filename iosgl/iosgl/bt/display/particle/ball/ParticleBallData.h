@@ -9,6 +9,7 @@
 #import "ParticleData.h"
 #import "Vector3D.h"
 #import "Matrix3D.h"
+#import "Vector2D.h"
 #import "ParticleGpuData.h"
 #import "ParticleBallGpuData.h"
 
@@ -51,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  _needRandomColor;
 @property (nonatomic, assign)  BOOL  _needScale;
 @property (nonatomic, assign)  BOOL  _needAddSpeed;
-@property (nonatomic, assign)  int  _uvType;
+@property (nonatomic, assign)  NSNumber*  _uvType;
 @property (nonatomic, strong)  Vector3D*  _timeVec;
 @property (nonatomic, strong)  Vector3D*  _addSpeedVec;
 @property (nonatomic, assign)  NSMutableArray*  _wordPosVec;
@@ -59,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Vector3D*  _scaleVec;
 @property (nonatomic, strong)  Vector3D*  _scaleCtrlVec;
 @property (nonatomic, strong)  Vector3D*  _animCtrlVec;
-@property (nonatomic, strong)  Vector3D*  _uvCtrlVec;
+@property (nonatomic, strong)  Vector2D*  _uvCtrlVec;
 @property (nonatomic, strong)  Matrix3D*  _allRotationMatrix;
  
 

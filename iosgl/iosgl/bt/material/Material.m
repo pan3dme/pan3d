@@ -14,7 +14,7 @@
     Material* this=self;
     
     self.version = [fs readInt];
-    self. shaderStr = [fs readUTF];
+    self.shaderStrRead = [fs readUTF];
     this.hasTime = [fs readBoolean];//fs.writeBoolean(_compileData.hasTime);
     this.timeSpeed = [fs readFloat];//fs.writeFloat(_compileData.timeSpeed);
     this.blendMode = [fs readFloat]; //fs.writeFloat(_compileData.blendMode);

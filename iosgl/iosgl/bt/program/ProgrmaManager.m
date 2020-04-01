@@ -39,14 +39,12 @@ static ProgrmaManager *instance = nil;
 }
 -(void)registe:(NSString*)keystr shader3d:(Shader3D*)shader3d;{
     if([self.dic objectForKey:keystr]){
-    
     }else{
        [self.dic setValue:shader3d forKey:keystr];
-      [shader3d encodeVstr:nil encodeFstr:nil];
+       [shader3d encodeVstr:nil encodeFstr:nil];
     }
 }
-// public getMaterialProgram(key: String, shaderCls: any, $material: Material, paramAry: any = null, parmaByFragmet: boolean = false): Shader3D {
--(Shader3D*)getMaterialProgram:(NSString*)key shaderCls:(NSObject*)shaderCls   material:(Material*)material paramAry:(NSArray*)paramAry parmaByFragmet:(BOOL)parmaByFragmet ;
+-(Shader3D*)getMaterialProgram:(NSString*)key shaderCls:(Shader3D*)shaderCls   material:(Material*)material paramAry:(NSArray<NSNumber*>*)paramAry parmaByFragmet:(BOOL)parmaByFragmet ;
 {
     NSString* keyStr = [key stringByAppendingFormat:@"%@",material.url];
     if (paramAry) {
@@ -74,11 +72,12 @@ static ProgrmaManager *instance = nil;
         paramAry = @[ usePbr, useNormal,  hasFresnel,  useDynamicIBL, lightProbe,  directLight,fogMode];
  
        }
-  //  var shader: Shader3D = new shaderCls();
-    [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
-     Shader3D* shader3d=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
-    
-    return shader3d;
+    Shader3D* shader = shaderCls;
+    shader.paramAry = paramAry;
+    shader.fragment = material.shaderStrRead;
+ 
+ 
+    return shader;
 }
 
 /*

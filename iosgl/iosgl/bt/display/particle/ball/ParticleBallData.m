@@ -30,7 +30,7 @@
         self._basePositon=[[Vector3D alloc]init];
         self._scaleCtrlVec=[[Vector3D alloc]init];
         self._animCtrlVec=[[Vector3D alloc]init];
-        self._uvCtrlVec=[[Vector3D alloc]init];
+        self._uvCtrlVec=[[Vector2D alloc]init];
         self._timeVec=[[Vector3D alloc]init];
 //         self._wordPosVec=[[Vector3D alloc]init];
 //         self._caramPosVec=[[Vector3D alloc]init];
@@ -421,26 +421,104 @@
 }
 -(void)regShader;
 {
-    if ( self.materialParam) {
-      [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
-      self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
-        
+    if ( !self.materialParam) {
+        return;
     }
-    /*
-   if (!this.materialParam) {
-             return;
-         }
-
-         var shaderParameAry: Array<number> = this.getShaderParam();
-         //var shader: Display3DBallShader = new Display3DBallShader()
-
-         this.materialParam.shader = ProgrmaManager.getInstance().getMaterialProgram(Display3DBallShader.Display3D_Ball_Shader,
-             Display3DBallShader, this.materialParam.material, shaderParameAry);
-         this.materialParam.program = this.materialParam.shader.program;
+   
     
-    */
+    [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
+       self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
+    
+     
+ 
+   NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
+    
+  //  [[[ProgrmaManager default] getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls:[[Display3DBallPartilceShader alloc]init]] material: self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+    Shader3D* shader= [[Display3DBallPartilceShader alloc]init];
+    [[ProgrmaManager default]getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls:shader  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+    
+    /*
+        this.materialParam.shader = ProgrmaManager.getInstance().getMaterialProgram(Display3DBallShader.Display3D_Ball_Shader,
+            Display3DBallShader, this.materialParam.material, shaderParameAry);
+        this.materialParam.program = this.materialParam.shader.program;
+ 
+ */
     
 }
+-(NSArray<NSNumber*>*)getShaderParam;
+{
+    ParticleBallData* this=self;
+    if (this._animRow != 1 || this._animLine != 1) {
+        this._uvType = @1;
+        this._animCtrlVec = [[Vector3D alloc]x:this._animLine y:this._animRow z:this._animInterval];
+    } else if (this._uSpeed != 0 || this._vSpeed != 0) {
+        this._uvType = @2;
+        this._uvCtrlVec = [[Vector2D alloc]x:this._uSpeed y:this._vSpeed];
+    } else {
+        this._uvType = @0;
+    }
+    BOOL hasParticleColor= this.materialParam.material.hasParticleColor;
+       this._needRandomColor = this.materialParam.material.hasVertexColor;
+    
+ 
+    NSNumber* hasParticle;
+    if (hasParticleColor) {
+        hasParticle = @1;
+    } else {
+        hasParticle = @0;
+    }
+    NSNumber* hasRandomClolr = this._needRandomColor ? @1 : @0;
+    NSNumber* isMul = this._is3Dlizi ? @1 : @0;
+    NSNumber* needRotation = this._needSelfRotation ? @1 : @0;
+    NSNumber* needScale = this._needScale ? @1 : @0;
+    NSNumber* needAddSpeed = this._needAddSpeed ? @1 : @0;
+    
+    NSArray<NSNumber*>* shaderParameAry = [[NSArray alloc] initWithObjects:hasParticle, hasRandomClolr, isMul, needRotation, needScale, needAddSpeed, this._uvType, nil];
+     
+    return shaderParameAry;
+}
+/*
+ public getShaderParam(): Array<number> {
+     if (this._animRow != 1 || this._animLine != 1) {
+         this._uvType = 1;
+         this._animCtrlVec = [this._animLine, this._animRow, this._animInterval];
+     } else if (this._uSpeed != 0 || this._vSpeed != 0) {
+         this._uvType = 2;
+         this._uvCtrlVec = [this._uSpeed, this._vSpeed];
+     } else {
+         this._uvType = 0;
+     }
+
+     var hasParticleColor: boolean = this.materialParam.material.hasParticleColor;
+     this._needRandomColor = this.materialParam.material.hasVertexColor;
+
+     this.uploadGpu();//椭球粒子需要判断是否包含随机色来确定va结构
+
+     var shaderParameAry: Array<number>;
+
+     var hasParticle: number;
+     if (hasParticleColor) {
+         hasParticle = 1;
+     } else {
+         hasParticle = 0;
+     }
+
+     var hasRandomClolr: number = this._needRandomColor ? 1 : 0;
+
+     var isMul: number = this._is3Dlizi ? 1 : 0;
+
+     var needRotation: number = this._needSelfRotation ? 1 : 0;
+
+     var needScale: number = this._needScale ? 1 : 0;
+
+     var needAddSpeed: number = this._needAddSpeed ? 1 : 0;
+
+     shaderParameAry = [hasParticle, hasRandomClolr, isMul, needRotation, needScale, needAddSpeed, this._uvType];
+
+     return shaderParameAry;
+ }
+
+ */
 -(void)initVcData;
 {
     
