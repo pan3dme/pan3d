@@ -159,7 +159,7 @@ static DynamicModel *dynamicModel = nil;
         typestr=@"png";
     }
     
-    [self saveNSDateToSever:fileNsData typestr:@"png" bfun:^(NSString* value) {
+    [self saveNSDateToSever:fileNsData typestr:typestr bfun:^(NSString* value) {
               bfun(value);
           } progressfun:progressfun];
     

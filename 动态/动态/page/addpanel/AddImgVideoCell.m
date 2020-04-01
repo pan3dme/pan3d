@@ -9,7 +9,8 @@
 #import "Header.h"
 #import "UIImageView+WebCache.h"
 #import "AddImgVideoCell.h"
-
+#import <AVFoundation/AVFoundation.h>
+#import "AddVideoView.h"
 
 
 @interface AddImgVideoCell ()
@@ -18,6 +19,12 @@
 @property (nonatomic,strong)UIButton* closeXbut;
 @property (nonatomic,strong)UILabel* progressLabel;
 @property (nonatomic,strong)NSString* soureUrl;
+
+@property (nonatomic,strong)AddVideoView* addVideoView;
+
+ 
+
+
 @end
 @implementation AddImgVideoCell
 
@@ -33,9 +40,18 @@
 }
 -(void)initBaseUi;
 {
+ 
+
+    
+    
     self.picImage=[[UIImageView alloc]initWithFrame:self.bounds];
     self.picImage.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self addSubview:self.picImage];
+    
+  self.addVideoView= [[AddVideoView alloc]init];
+    self.addVideoView.frame=self.picImage.bounds;
+      self.addVideoView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+      [self addSubview:self.addVideoView];
     
     
     self.camIcamBut=[[UIImageView alloc]initWithFrame:CGRectMake(50, 50, 40, 40)];
@@ -59,6 +75,8 @@
     self.camIcamBut.userInteractionEnabled=YES;
     [self.camIcamBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addCamButEvent:)]];
     
+    
+  
  
 }
 - (void)layoutSubviews;
@@ -83,7 +101,17 @@
 -(void)setImageUrl:(NSString*)url;
 {
     self.soureUrl=url;
-    [self.picImage sd_setImageWithURL:[NSURL URLWithString:[self getWebUrlByurl:self.soureUrl]] ];
+    
+    self.picImage.hidden=YES;
+    self.addVideoView.hidden=YES;
+    if ([self.soureUrl rangeOfString:@"mov"].location == NSNotFound){
+        [self.picImage sd_setImageWithURL:[NSURL URLWithString:[self getWebUrlByurl:self.soureUrl]] ];
+        self.picImage.hidden=NO;
+    }else{
+        [self playvideo:self.soureUrl];
+        self.addVideoView.hidden=NO;
+    }
+    
     if(self.soureUrl.length){
         self.camIcamBut.hidden=YES;
         self.closeXbut.hidden=NO;
@@ -91,9 +119,14 @@
     }else{
         self.camIcamBut.hidden=NO;
          self.closeXbut.hidden=YES;
+    
     }
     
     
+}
+-(void)playvideo:(NSString*)url;
+{
+    [self.addVideoView resetUrl:[self getWebUrlByurl:url]];
 }
 -(NSString*)getWebUrlByurl:(NSString*)value
 {

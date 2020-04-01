@@ -72,8 +72,6 @@ static AddPanelController *addPanelController = nil;
 }
 -(void)preeNext
 {
-    
-    
     NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
     self.inputTextField.text=@"333";
     [dic setObject:self.inputTextField.text forKey:@"content"];
@@ -81,17 +79,13 @@ static AddPanelController *addPanelController = nil;
         [dic setObject:self.imgItems[i]  forKey:[NSString stringWithFormat:@"image%d",i+1]];
     }
     [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_ADD paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-        
-        
+ 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(10.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //    [self.navigationController popViewControllerAnimated:YES];
+            //    [self.navigationController popViewControllerAnimated:YES];
         });
         
     }];
-    
-    
-    
-    
+ 
 }
 -(void)makeFourImgView;
 {
@@ -105,13 +99,11 @@ static AddPanelController *addPanelController = nil;
         [self.cellItems addObject:addImgVideoCell];
     }
 }
-
 -(void)setFristtUrl:(NSString*)url;
 {
     self.oneUrl=url;
     self.imgItems=[[NSMutableArray alloc]init];
     [self.imgItems addObject:self.oneUrl];
-    
 }
 -(void)refrishData;
 {
@@ -138,7 +130,6 @@ static AddPanelController *addPanelController = nil;
             return;
         }
     }
-    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -151,27 +142,22 @@ static AddPanelController *addPanelController = nil;
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePicker.allowsEditing = YES;
+    imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", @"public.image", nil];
     [self presentViewController:imagePicker animated:YES completion:NULL];
 }
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:^{
-        NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-        if([mediaType isEqualToString:@"public.movie"]) {
-            
-        }else{
-            [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
-                NSLog(@"-value-%@",value);
-                [self.imgItems addObject:value];
-                [self refrishData];
-            } progressfun:^(float num) {
-                NSLog(@"-num-%ld",num);
-                
-                [self progressToCellLabel:num];
-            }];
-            [picker dismissViewControllerAnimated:YES completion:NULL];
-        }
+        [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
+            NSLog(@"-value-%@",value);
+            [self.imgItems addObject:value];
+            [self refrishData];
+        } progressfun:^(float num) {
+            NSLog(@"-num-%f",num);
+            [self progressToCellLabel:num];
+        }];
+        [picker dismissViewControllerAnimated:YES completion:NULL];
+        
     }];
 }
 

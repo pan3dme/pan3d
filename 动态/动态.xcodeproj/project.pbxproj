@@ -33,6 +33,7 @@
 		FE064B7D241EC1E600AD44BE /* DynamicBaseVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */; };
 		FE064B80241ECCB600AD44BE /* TableImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */; };
 		FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */; };
+		FE15ACA324350BC60062741F /* AddVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACA224350BC60062741F /* AddVideoView.m */; };
 		FE34C577242BD40A000424BC /* CommentsTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE34C576242BD40A000424BC /* CommentsTabelVo.m */; };
 		FE34C57A242BD5B4000424BC /* CommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE34C579242BD5B4000424BC /* CommentsCell.m */; };
 		FE410524241F849B0031B3D1 /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FE410523241F849B0031B3D1 /* MathClass.m */; };
@@ -105,6 +106,8 @@
 		FE064B7F241ECCB600AD44BE /* TableImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableImageViewCell.m; sourceTree = "<group>"; };
 		FE064B81241ECDA100AD44BE /* DynamicTabelVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTabelVo.h; sourceTree = "<group>"; };
 		FE064B82241ECDA100AD44BE /* DynamicTabelVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTabelVo.m; sourceTree = "<group>"; };
+		FE15ACA124350BC60062741F /* AddVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddVideoView.h; sourceTree = "<group>"; };
+		FE15ACA224350BC60062741F /* AddVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddVideoView.m; sourceTree = "<group>"; };
 		FE34C575242BD40A000424BC /* CommentsTabelVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentsTabelVo.h; sourceTree = "<group>"; };
 		FE34C576242BD40A000424BC /* CommentsTabelVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentsTabelVo.m; sourceTree = "<group>"; };
 		FE34C578242BD5B4000424BC /* CommentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentsCell.h; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 		FE41054E24228B990031B3D1 /* addpanel */ = {
 			isa = PBXGroup;
 			children = (
+				FE15ACA124350BC60062741F /* AddVideoView.h */,
+				FE15ACA224350BC60062741F /* AddVideoView.m */,
 				FE41055224229AE20031B3D1 /* AddImgVideoCell.h */,
 				FE41055324229AE20031B3D1 /* AddImgVideoCell.m */,
 				FE41054F2422962D0031B3D1 /* AddPanelController.h */,
@@ -515,6 +520,7 @@
 				FE7263A82434988700320B9B /* DtAlertView.m in Sources */,
 				FE608EED2423E41F004C1E34 /* MsgPanelController.m in Sources */,
 				FE4105512422962D0031B3D1 /* AddPanelController.m in Sources */,
+				FE15ACA324350BC60062741F /* AddVideoView.m in Sources */,
 				FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */,
 				FE064B73241EB41F00AD44BE /* RedBagRefreshGifHeader.m in Sources */,
 				FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */,
