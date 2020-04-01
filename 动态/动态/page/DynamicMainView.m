@@ -85,7 +85,6 @@ UIScrollViewDelegate
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
       imagePicker.delegate = self;
       imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-      imagePicker.allowsEditing = YES;
        imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", @"public.image", nil];
       [self presentViewController:imagePicker animated:YES completion:NULL];
     
@@ -97,16 +96,26 @@ UIScrollViewDelegate
     [picker dismissViewControllerAnimated:YES completion:^{
         NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
         if([mediaType isEqualToString:@"public.movie"]) {
-           // [RedBagRoomModel videoPickerController:picker didFinishPickingMediaWithInfo:info redBagRoomVo:self.join_room_id];
+            
+            [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
+                             [[AddPanelController default] setFristtUrl:value];
+                             [self.navigationController pushViewController:[AddPanelController default]  animated:YES];
+                         } progressfun:^(float num) {
+                             NSLog(@"dd%f",num);
+                         }];
+                         [picker dismissViewControllerAnimated:YES completion:NULL];
+            
         }else{
-         [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
-               [[AddPanelController default] setFristtUrl:value];
-               [self.navigationController pushViewController:[AddPanelController default]  animated:YES];
-         } progressfun:^(float num) {
-             NSLog(@"dd%f",num);
-         }];
-            [picker dismissViewControllerAnimated:YES completion:NULL];
+            [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
+                    [[AddPanelController default] setFristtUrl:value];
+                    [self.navigationController pushViewController:[AddPanelController default]  animated:YES];
+                } progressfun:^(float num) {
+                    NSLog(@"dd%f",num);
+                }];
+                [picker dismissViewControllerAnimated:YES completion:NULL];
         }
+        
+    
     }];
 }
 - (void)selectTabIdx:(int)value

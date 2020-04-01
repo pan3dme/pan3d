@@ -22,6 +22,38 @@
 
 @implementation UpImageVo
  
+-(void)saveFileToSever:(NSString*)severUrl  fileNsData:(NSDate*)fileNsData typestr:(NSString*)typestr bfun:(SuccessUpLoad)bfun  progressfun:(ProgressUpLoad)progressfun ;
+{
+    self.successUpLoad=bfun;
+     self.progressUpLoad=progressfun;
+
+     //分界线的标识符
+     NSString *TWITTERFON_FORM_BOUNDARY = @"AaB03x";
+     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:severUrl]];
+     NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
+     NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
+ 
+     NSMutableString *body=[[NSMutableString alloc]init];
+     [body appendFormat:@"%@\r\n",MPboundary];
+    NSString *upfileName=[NSString  stringWithFormat:@"Content-Disposition: form-data; name=\"pic\"; filename=\"boris.%@\"\r\n",typestr];
+      [body appendFormat:upfileName];
+   //  [body appendFormat:@"Content-Disposition: form-data; name=\"pic\"; filename=\"boris.png\"\r\n"];
+    
+     [body appendFormat:@"Content-Type: image/png\r\n\r\n"];
+     NSString *end=[[NSString alloc]initWithFormat:@"\r\n%@",endMPboundary];
+     NSMutableData *myRequestData=[NSMutableData data];
+     [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
+     [myRequestData appendData:fileNsData];
+     [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
+     NSString *content=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
+     [request setValue:content forHTTPHeaderField:@"Content-Type"];
+     [request setValue:[NSString stringWithFormat:@"%lu", [myRequestData length]] forHTTPHeaderField:@"Content-Length"];
+     [request setHTTPBody:myRequestData];
+     [request setHTTPMethod:@"POST"];
+     
+    [NSURLConnection connectionWithRequest:request delegate:self];
+    
+}
 -(void)saveToServes:(NSString*)severUrl  img:(UIImage*)image bfun:(SuccessUpLoad)bfun  progressfun:(ProgressUpLoad)progressfun ;
 {
   

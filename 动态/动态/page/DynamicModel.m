@@ -145,39 +145,33 @@ static DynamicModel *dynamicModel = nil;
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun progressfun:(ProgressUpLoad)progressfun ;
 {
-    CGRect croppingRect = [[info valueForKey:@"UIImagePickerControllerCropRect"] CGRectValue];
-    UIImage* image=[info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageOrientation imageOrientation=image.imageOrientation;
-    if(imageOrientation!=UIImageOrientationUp)
-    {
-        UIGraphicsBeginImageContext(image.size);
-        [
-         image drawInRect:CGRectMake(0, 0, image.size.width,image.size.height)];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-    }
-    UIImage *originalImage= image;
-    UIImage *  croppedImage =    [UIImage imageWithCGImage:CGImageCreateWithImageInRect(originalImage.CGImage,croppingRect)];
-    UIImage *image320 = [self resizeImage:croppedImage width:320 height:320];
-    [self saveImage:image320 WithName:@"userAvatar" bfun:^(NSString* value) {
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    NSData* fileNsData;
+    if([mediaType isEqualToString:@"public.movie"]) {
+        NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+         fileNsData = [NSData dataWithContentsOfURL:videoURL];
+        [self saveNSDateToSever:fileNsData typestr:@"mov" bfun:^(NSString* value) {
+                   bfun(value);
+               } progressfun:progressfun];
         
-        bfun(value);
-    } progressfun:progressfun];
+    }else{
+        UIImage* image=[info objectForKey:UIImagePickerControllerOriginalImage];
+        fileNsData=UIImagePNGRepresentation(image);
+        [self saveNSDateToSever:fileNsData typestr:@"png" bfun:^(NSString* value) {
+            bfun(value);
+        } progressfun:progressfun];
+    }
+    
     
 }
 //保存图片
--(void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName bfun:(SuccessUpLoad)bfun progressfun:(ProgressUpLoad)progressfun ;
+-(void)saveNSDateToSever:(NSDate *)nsdate typestr:(NSString *)typestr bfun:(SuccessUpLoad)bfun progressfun:(ProgressUpLoad)progressfun ;
 {
-    NSData* imageData = UIImagePNGRepresentation(tempImage);
-    NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* totalPath = [documentPath stringByAppendingPathComponent:imageName];
-    [imageData writeToFile:totalPath atomically:NO];
     NSString * token =self.selfUserInfoVo.token  ;
     NSString *baseUrl=[NSString stringWithFormat:@"%@/%@", @"http://34.87.12.20:20080",@"upload/image"];
     baseUrl=[NSString stringWithFormat:@"%@?token=%@",baseUrl,token];
     UpImageVo* upImageVo=[[UpImageVo alloc]init];
-    [upImageVo saveToServes:baseUrl img:tempImage bfun:bfun progressfun:progressfun];
-    
+    [upImageVo saveFileToSever:baseUrl fileNsData:nsdate typestr:typestr bfun:bfun progressfun:progressfun];
 }
 /*
  活动记录KEY  0还没数据 1 标记红星 2标记取消了红星

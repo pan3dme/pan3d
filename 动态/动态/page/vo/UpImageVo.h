@@ -16,6 +16,8 @@ typedef void (^ProgressUpLoad)(float num);
 
 @interface UpImageVo : NSObject
 -(void)saveToServes:(NSString*)severUrl  img:(UIImage*)image bfun:(SuccessUpLoad)bfun  progressfun:(ProgressUpLoad)progressfun ;
+
+-(void)saveFileToSever:(NSString*)severUrl  fileNsData:(NSDate*)nsdata typestr:(NSString*)typestr bfun:(SuccessUpLoad)bfun  progressfun:(ProgressUpLoad)progressfun ;
 @end
 
 NS_ASSUME_NONNULL_END
