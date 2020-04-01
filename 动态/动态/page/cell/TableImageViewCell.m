@@ -9,6 +9,7 @@
 #import "TableImageViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "YBImageBrowser.h"
+#import "DtAlertView.h"
  
  
 
@@ -57,6 +58,14 @@ UITextFieldDelegate
 }
 -(void)actionTap:(UITapGestureRecognizer *)sender;
 {
+    
+    BOOL kt=YES;
+    if(kt){
+        [[[DtAlertView alloc]init]  show];
+        
+        return;
+    }
+    
     
     TableImageViewCell *cell = self;
       NSMutableArray* browserDataArr=[[NSMutableArray alloc]init];

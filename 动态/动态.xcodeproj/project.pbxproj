@@ -47,8 +47,8 @@
 		FE41055424229AE20031B3D1 /* AddImgVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE41055324229AE20031B3D1 /* AddImgVideoCell.m */; };
 		FE608EE924237390004C1E34 /* UpImageVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE608EE824237390004C1E34 /* UpImageVo.m */; };
 		FE608EED2423E41F004C1E34 /* MsgPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE608EEC2423E41F004C1E34 /* MsgPanelController.m */; };
-		FE7263A82434988700320B9B /* RedBagAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263A62434988700320B9B /* RedBagAlertView.m */; };
-		FE7263A92434988700320B9B /* RedBagAlertViewUi.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7263A72434988700320B9B /* RedBagAlertViewUi.xib */; };
+		FE7263A82434988700320B9B /* DtAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263A62434988700320B9B /* DtAlertView.m */; };
+		FE7263A92434988700320B9B /* DtAlertViewUi.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7263A72434988700320B9B /* DtAlertViewUi.xib */; };
 		FE7263AC243499CF00320B9B /* UIImageViewLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263AB243499CF00320B9B /* UIImageViewLock.m */; };
 /* End PBXBuildFile section */
 
@@ -132,9 +132,9 @@
 		FE608EE824237390004C1E34 /* UpImageVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpImageVo.m; sourceTree = "<group>"; };
 		FE608EEB2423E41F004C1E34 /* MsgPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgPanelController.h; sourceTree = "<group>"; };
 		FE608EEC2423E41F004C1E34 /* MsgPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgPanelController.m; sourceTree = "<group>"; };
-		FE7263A52434988700320B9B /* RedBagAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBagAlertView.h; sourceTree = "<group>"; };
-		FE7263A62434988700320B9B /* RedBagAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedBagAlertView.m; sourceTree = "<group>"; };
-		FE7263A72434988700320B9B /* RedBagAlertViewUi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedBagAlertViewUi.xib; sourceTree = "<group>"; };
+		FE7263A52434988700320B9B /* DtAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DtAlertView.h; sourceTree = "<group>"; };
+		FE7263A62434988700320B9B /* DtAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DtAlertView.m; sourceTree = "<group>"; };
+		FE7263A72434988700320B9B /* DtAlertViewUi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DtAlertViewUi.xib; sourceTree = "<group>"; };
 		FE7263AA243499CF00320B9B /* UIImageViewLock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIImageViewLock.h; sourceTree = "<group>"; };
 		FE7263AB243499CF00320B9B /* UIImageViewLock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIImageViewLock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,9 +354,9 @@
 		FE7263A42434985500320B9B /* dtalert */ = {
 			isa = PBXGroup;
 			children = (
-				FE7263A52434988700320B9B /* RedBagAlertView.h */,
-				FE7263A62434988700320B9B /* RedBagAlertView.m */,
-				FE7263A72434988700320B9B /* RedBagAlertViewUi.xib */,
+				FE7263A52434988700320B9B /* DtAlertView.h */,
+				FE7263A62434988700320B9B /* DtAlertView.m */,
+				FE7263A72434988700320B9B /* DtAlertViewUi.xib */,
 			);
 			path = dtalert;
 			sourceTree = "<group>";
@@ -421,7 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE7263A92434988700320B9B /* RedBagAlertViewUi.xib in Resources */,
+				FE7263A92434988700320B9B /* DtAlertViewUi.xib in Resources */,
 				FE064B75241EB71B00AD44BE /* Podfile in Resources */,
 				FE064AD1241E915D00AD44BE /* LaunchScreen.storyboard in Resources */,
 				FE064ACE241E915D00AD44BE /* Assets.xcassets in Resources */,
@@ -507,7 +507,7 @@
 				FE064B55241E9BAE00AD44BE /* TabTittleBut.m in Sources */,
 				FE34C577242BD40A000424BC /* CommentsTabelVo.m in Sources */,
 				FE064B83241ECDA100AD44BE /* DynamicTabelVo.m in Sources */,
-				FE7263A82434988700320B9B /* RedBagAlertView.m in Sources */,
+				FE7263A82434988700320B9B /* DtAlertView.m in Sources */,
 				FE608EED2423E41F004C1E34 /* MsgPanelController.m in Sources */,
 				FE4105512422962D0031B3D1 /* AddPanelController.m in Sources */,
 				FE064B69241E9F7600AD44BE /* UIView+XBZKeyBoard.m in Sources */,
