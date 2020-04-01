@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DynamicBaseVo.h"
+#import "UIImageViewLock.h"
 #import "DynamicBaseCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,11 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) clikOpenMsgPanel :(DynamicBaseVo*)value ;
 -(void) imglistClik :(UITableViewCell*)value idx:(NSInteger)idx;
 @end
-@interface UIImageViewLock : UIImageView
-@property(nonatomic,strong)UIImageView  * lockimg;
--(void)setLock:(BOOL)value;
--(BOOL)lock;
-@end
+
 
 @interface DynamicBaseCell : UITableViewCell
 @property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;

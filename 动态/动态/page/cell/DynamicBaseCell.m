@@ -16,35 +16,6 @@
 
 
 
-@implementation UIImageViewLock
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-         self.lockimg=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
-            self.lockimg.image=[UIImage imageNamed:@"lock_48px"];
-            [self addSubview:self.lockimg];
-        self.lockimg.hidden=YES;
-    }
-    return self;
-}
--(void)setLock:(BOOL)value;
-{
-      _lockimg.hidden=!value;
-}
--(BOOL)lock;
-{
-    return !self.lockimg.hidden;
-}
- 
-- (void)layoutSubviews;
-{
-    self.lockimg.frame=CGRectMake(self.bounds.size.width-35, self.bounds.size.height-35, 25, 25);
- 
-}
-@end
-
 @interface DynamicBaseCell()
 @property(nonatomic,strong)UIImageView* userHeadImagView;
 @property(nonatomic,strong)UILabel * usenameLabel;
