@@ -95,7 +95,7 @@ UIScrollViewDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:^{
         NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-        if([mediaType isEqualToString:@"public.movie"]) {
+     
             
             [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
                              [[AddPanelController default] setFristtUrl:value];
@@ -105,15 +105,7 @@ UIScrollViewDelegate
                          }];
                          [picker dismissViewControllerAnimated:YES completion:NULL];
             
-        }else{
-            [[DynamicModel default] imagePickerController:picker didFinishPickingMediaWithInfo:info bfun:^(NSString* value) {
-                    [[AddPanelController default] setFristtUrl:value];
-                    [self.navigationController pushViewController:[AddPanelController default]  animated:YES];
-                } progressfun:^(float num) {
-                    NSLog(@"dd%f",num);
-                }];
-                [picker dismissViewControllerAnimated:YES completion:NULL];
-        }
+        
         
     
     }];

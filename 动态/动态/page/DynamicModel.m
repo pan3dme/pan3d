@@ -145,27 +145,28 @@ static DynamicModel *dynamicModel = nil;
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info bfun:(void (^)(NSString* url ))bfun progressfun:(ProgressUpLoad)progressfun ;
 {
-    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    NSString* mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     NSData* fileNsData;
-    if([mediaType isEqualToString:@"public.movie"]) {
-        NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
-         fileNsData = [NSData dataWithContentsOfURL:videoURL];
-        [self saveNSDateToSever:fileNsData typestr:@"mov" bfun:^(NSString* value) {
-                   bfun(value);
-               } progressfun:progressfun];
+    NSString* typestr;
+    if([mediaType isEqualToString:@"public.movie"]) { //视频。
+         fileNsData = [NSData dataWithContentsOfURL: [info objectForKey:UIImagePickerControllerMediaURL]];
+         typestr=@"mov";
         
-    }else{
-        UIImage* image=[info objectForKey:UIImagePickerControllerOriginalImage];
-        fileNsData=UIImagePNGRepresentation(image);
-        [self saveNSDateToSever:fileNsData typestr:@"png" bfun:^(NSString* value) {
-            bfun(value);
-        } progressfun:progressfun];
+    }else{//图片
+        
+        UIImage* sizeImg=   [self resizeImage:[info objectForKey:UIImagePickerControllerOriginalImage] width:400 height:600];
+        fileNsData=UIImagePNGRepresentation(sizeImg);
+        typestr=@"png";
     }
+    
+    [self saveNSDateToSever:fileNsData typestr:@"png" bfun:^(NSString* value) {
+              bfun(value);
+          } progressfun:progressfun];
     
     
 }
 //保存图片
--(void)saveNSDateToSever:(NSDate *)nsdate typestr:(NSString *)typestr bfun:(SuccessUpLoad)bfun progressfun:(ProgressUpLoad)progressfun ;
+-(void)saveNSDateToSever:(NSDate*)nsdate typestr:(NSString *)typestr bfun:(SuccessUpLoad)bfun progressfun:(ProgressUpLoad)progressfun ;
 {
     NSString * token =self.selfUserInfoVo.token  ;
     NSString *baseUrl=[NSString stringWithFormat:@"%@/%@", @"http://34.87.12.20:20080",@"upload/image"];
