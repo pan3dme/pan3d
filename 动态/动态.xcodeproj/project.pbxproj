@@ -50,6 +50,7 @@
 		FE7263A82434988700320B9B /* DtAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263A62434988700320B9B /* DtAlertView.m */; };
 		FE7263A92434988700320B9B /* DtAlertViewUi.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7263A72434988700320B9B /* DtAlertViewUi.xib */; };
 		FE7263AC243499CF00320B9B /* UIImageViewLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263AB243499CF00320B9B /* UIImageViewLock.m */; };
+		FE7263AF2434A23C00320B9B /* ButlabelIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263AE2434A23C00320B9B /* ButlabelIconView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,8 @@
 		FE7263A72434988700320B9B /* DtAlertViewUi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DtAlertViewUi.xib; sourceTree = "<group>"; };
 		FE7263AA243499CF00320B9B /* UIImageViewLock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIImageViewLock.h; sourceTree = "<group>"; };
 		FE7263AB243499CF00320B9B /* UIImageViewLock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIImageViewLock.m; sourceTree = "<group>"; };
+		FE7263AD2434A23C00320B9B /* ButlabelIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButlabelIconView.h; sourceTree = "<group>"; };
+		FE7263AE2434A23C00320B9B /* ButlabelIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButlabelIconView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +281,8 @@
 			children = (
 				FE7263AA243499CF00320B9B /* UIImageViewLock.h */,
 				FE7263AB243499CF00320B9B /* UIImageViewLock.m */,
+				FE7263AD2434A23C00320B9B /* ButlabelIconView.h */,
+				FE7263AE2434A23C00320B9B /* ButlabelIconView.m */,
 				FE064B78241EC0DF00AD44BE /* DynamicBaseCell.h */,
 				FE064B79241EC0DF00AD44BE /* DynamicBaseCell.m */,
 				FE064B7E241ECCB600AD44BE /* TableImageViewCell.h */,
@@ -515,6 +520,7 @@
 				FE41053B241FBAB90031B3D1 /* AFHTTPSessionManager+Singlton.m in Sources */,
 				FE064AD4241E915D00AD44BE /* main.m in Sources */,
 				FE410547242008480031B3D1 /* TabelVideoViewCell.m in Sources */,
+				FE7263AF2434A23C00320B9B /* ButlabelIconView.m in Sources */,
 				FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */,
 				FE41055424229AE20031B3D1 /* AddImgVideoCell.m in Sources */,
 				FE064B6F241EB38200AD44BE /* ListPage.m in Sources */,

@@ -26,9 +26,7 @@
 @property(nonatomic,strong)UIButton * diamondBut;
 @property(nonatomic,strong)UIButton * messageBut;
 
-@property(nonatomic,strong)UILabel * heartLabel;
-@property(nonatomic,strong)UILabel * diamondLabel;
-@property(nonatomic,strong)UILabel * messageLabel;
+ 
 
 @property(nonatomic,strong)UIButton * shareBut;
 @property(nonatomic,strong)UIButton * deleBut;
@@ -145,13 +143,7 @@
     self.messageBut.frame=CGRectMake(100, 0,  25, 20);
     self.shareBut.frame=CGRectMake(150, 0,  25, 20);
     
-    
-    self.diamondLabel=[[UILabel alloc]initWithFrame:CGRectMake(self.diamondBut.frame.origin.x+40, 0, 50, 20)];
-    [self.bttomView addSubview:self.diamondLabel];
-    self.heartLabel=[[UILabel alloc]initWithFrame:CGRectMake(self.heartBut.frame.origin.x+40, 0, 50, 20)];
-    [self.bttomView addSubview:self.heartLabel];
-    self.messageLabel=[[UILabel alloc]initWithFrame:CGRectMake(self.messageBut.frame.origin.x+40, 0, 50, 20)];
-    [self.bttomView addSubview:self.messageLabel];
+     
     
     
     self.deleBut.frame=CGRectMake(200, 0, 50, 25);
@@ -241,10 +233,7 @@
         self.shareBut.frame=CGRectMake(129, 0,  25, 20);
     }
 
-    self.diamondLabel.frame=CGRectMake(self.diamondBut.frame.origin.x+40, 0, 50, 20);
-    self.heartLabel.frame=CGRectMake(self.heartBut.frame.origin.x+40, 0, 50, 20);
-    self.messageLabel.frame=CGRectMake(self.messageBut.frame.origin.x+40, 0, 50, 20);
-    
+  
 
  
 }
@@ -315,15 +304,13 @@
     }
     if(self.datavo.tabelVo.is_lock>0){
         self.diamondBut.hidden=NO;
-        self.diamondLabel.hidden=NO;
+ 
     }else{
          self.diamondBut.hidden=YES;
-         self.diamondLabel.hidden=YES;
+  
     }
     
-    self.diamondLabel.text=@"0";
-     self.heartLabel.text=@"0";
-     self.messageLabel.text=@"0";
+ 
     
     
  
