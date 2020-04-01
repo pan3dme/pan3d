@@ -239,22 +239,36 @@
 -(BOOL)showAlertLock;
 {
     if(self.datavo.tabelVo.is_lock>0){
+        BOOL enoughMoney=YES;
         DtAlertView *dtAlertView=   [[DtAlertView alloc]init] ;
         DtAlertVo* redBagAlertVo= [[DtAlertVo alloc]init];
         redBagAlertVo.tittleStr=@"提示";
+        redBagAlertVo.cacelStr=@"取消";
         NSString* tipStr=[NSString stringWithFormat:@"解锁需要%ld钻石！",self.datavo.tabelVo.is_lock];
         NSMutableAttributedString  * butedStr = [[NSMutableAttributedString alloc] initWithString:tipStr];
         [butedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4,  tipStr.length-7)];
+        if(enoughMoney){
+            redBagAlertVo.submitStr=@"确定";
+        }else{
+            redBagAlertVo.submitStr=@"充值";
+        }
         redBagAlertVo.butedStr=butedStr;
-        redBagAlertVo.cacelStr=@"取消";
-        redBagAlertVo.submitStr=@"确定";
         [dtAlertView showAlert:redBagAlertVo submitFun:^(int submitCode) {
-            
-            
-            [self refrishUi];
-            
-            
-            
+            if(enoughMoney){ //够钱解锁
+                NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+                [dic setObject: [NSString stringWithFormat:@"%d",(int)self.datavo.tabelVo.id] forKey:@"id"];
+                [[ DynamicModel default] basePostToUrl:PLATFORM_BLOG_UNLOCK_BLOG paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+                    int codeNum=   [[responseJson valueForKey:@"code"]intValue];
+                    if(codeNum==0){
+                        [self refrishUi];
+                    }else{
+                        NSLog(@"发送失败");
+                    }
+                }];
+            }else
+            {
+                NSLog(@"前去充值");
+            }
         } canalFun:^(int canelCode) {
             
         }];

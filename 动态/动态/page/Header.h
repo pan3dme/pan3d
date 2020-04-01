@@ -50,6 +50,10 @@ static NSString * const PLATFORM_GAME_BLOG_ADD_LIKES                          = 
  
 static NSString * const PLATFORM_USER_FOLLOWS                          = @"/user/update_follows";
 static NSString * const PLATFORM_GAME_BLOG_GET_COMMENTS                          = @"/blog/get_comments";
+
+static NSString * const PLATFORM_BLOG_UNLOCK_BLOG                          = @"/blog/unlock_blog";
+
+ 
 /*
  static PLATFORM_GAME_USER_IMPORT = '/user/import';
  //添加动态
