@@ -81,23 +81,9 @@ UITextFieldDelegate
     browser.dataSourceArray = browserDataArr;
     browser.currentIndex = sender.view.tag-100;
     [browser show];
-    
-    //[self.delegate imglistClik:self idx:sender.view.tag-100];
-    
-    
+ 
 }
-/*
- -(UIImageView*)makeImageView;
- {
  
- UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
- temp.image=[UIImage imageNamed:@"avatar2.e90b2411"];
- [self.infoBg addSubview:temp];
- temp.userInteractionEnabled = YES;
- return temp;
- 
- }
- */
 - (void)setCellData:(DynamicBaseVo *)value
 {
     [super setCellData:value];
@@ -137,9 +123,7 @@ UITextFieldDelegate
                     cellImg.frame=CGRectMake(0, 0, 139, 139);
                 }
             }
-            
-            
-            
+   
         }
     }
     

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) selectUseHead :(DynamicBaseVo*)value ;
 -(void) clikOpenMsgPanel :(DynamicBaseVo*)value ;
 -(void) deleSelectCell :(DynamicBaseVo*)value ;
+-(void) listReloadData ;
 -(void) imglistClik :(UITableViewCell*)value idx:(NSInteger)idx;
 @end
 

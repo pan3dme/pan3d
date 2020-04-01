@@ -204,6 +204,37 @@ static DynamicModel *dynamicModel = nil;
 }
 
 
+-(BOOL)isfollowByUserName:(NSString*)userName ;
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* heartDic=   [defaults objectForKey:@"fllowDic"];
+    return   [[heartDic objectForKey:userName]boolValue];
+}
+-(void)addFollowByUserId:(NSString*)userName data:(BOOL)data ;
+{
+     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* fllowDic=  [defaults objectForKey:@"fllowDic"];
+    NSMutableDictionary *newdic;
+    if(fllowDic){
+       newdic = [NSMutableDictionary dictionaryWithDictionary:fllowDic];
+    }else{
+       newdic=[[NSMutableDictionary alloc]init];
+    }
+    [newdic setObject:data?@1:@0 forKey:userName];
+    [defaults setObject:newdic forKey:@"fllowDic"];
+  
+    
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+    NSMutableArray *followItem=[[NSMutableArray alloc]init];
+    [followItem addObject:userName];
+    [dic setObject:followItem  forKey:@"following"];
+    [[ DynamicModel default] GetDynamicByValue:PLATFORM_USER_FOLLOWS paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+        NSLog(@"更新关注");
+    }];
+}
+
+
 -(UIImage *)resizeImage:(UIImage *)image width:(int)wdth height:(int)hght{
     int w = image.size.width;
     int h = image.size.height;

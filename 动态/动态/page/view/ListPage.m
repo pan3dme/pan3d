@@ -153,9 +153,7 @@ UITableViewDataSource
             break;
     }
     
-    
-    // return  PLATFORM_GAME_BLOG_SELF;
-    
+ 
 }
 
 
@@ -256,6 +254,10 @@ UITableViewDataSource
     [header setTitle:@"" forState:MJRefreshStateRefreshing];
     self.tabelListView.mj_header = header;
     
+}
+- (void)listReloadData;
+{
+        [self.tabelListView reloadData];
 }
 - (void)deleSelectCell:(DynamicBaseVo *)value
 {

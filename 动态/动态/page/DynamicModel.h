@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(int)heartByKey:(NSString*)key ;
 -(void)setHdeartByKey:(NSString*)key num:(NSNumber*)num ;
 
+-(BOOL)isfollowByUserName:(NSString*)userName ;
+ 
+-(void)addFollowByUserId:(NSString*)userName data:(BOOL)data ;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

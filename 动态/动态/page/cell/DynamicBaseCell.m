@@ -178,7 +178,7 @@
 }
 -(NSString*)heartKey;
 {
-     NSString* key=[NSString stringWithFormat:@"%@_%d",@"blog",(int)self.datavo.tabelVo.id ];
+    NSString* key=[NSString stringWithFormat:@"%@_%d",@"blog",(int)self.datavo.tabelVo.id ];
     
     return key;
 }
@@ -190,19 +190,11 @@
 }
 -(void)followButClikEvent:(UITapGestureRecognizer *)sender;
 {
-    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-    
-    
-    NSMutableArray *followItem=[[NSMutableArray alloc]init];
-    [followItem addObject:self.datavo.tabelVo.username];
-    [dic setObject:followItem  forKey:@"following"];
-    
+    BOOL isFollow=[[DynamicModel default] isfollowByUserName:self.datavo.tabelVo.username];
+  [[DynamicModel default]  addFollowByUserId:self.datavo.tabelVo.username  data:!isFollow];
+
  
-    
-    [[ DynamicModel default] GetDynamicByValue:PLATFORM_USER_FOLLOWS paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-        NSLog(@"更新关注");
-    }];
-    
+    [_delegate listReloadData];
 }
 -(void)deleButClikEvent:(UITapGestureRecognizer *)sender;
 {
@@ -336,8 +328,10 @@
     [self imgLoadByUrl:@"http://34.87.12.20:20080//static/upload/dt/20191118/0aabf400d747b6955ce73bd97836fa9b_mini.jpg" imgView:self.userHeadImagView];
     
     
-    BOOL DD=NO;
-    if(DD){
+    self.followBut.hidden=self.datavo.isSelf;
+   
+    BOOL isFollow=[[DynamicModel default] isfollowByUserName:self.datavo.tabelVo.username];
+    if(isFollow){
         self.followBut.backgroundColor =[UIColor whiteColor];
         self.followBut.layer.borderColor=RGBOF(0xff5549).CGColor;
         [self.followBut setTitleColor:RGBOF(0xff5549) forState:UIControlStateNormal];
