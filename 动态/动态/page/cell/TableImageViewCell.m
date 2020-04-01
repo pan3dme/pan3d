@@ -10,11 +10,11 @@
 #import "UIImageView+WebCache.h"
 #import "YBImageBrowser.h"
 #import "DtAlertView.h"
- 
- 
+
+
 
 @interface TableImageViewCell()
- <
+<
 UITextFieldDelegate
 >
 
@@ -37,7 +37,7 @@ UITextFieldDelegate
     self.img02=[self makeImageLockView];
     self.img03=[self makeImageLockView];
     
-  
+    
     self.img00.tag = 100;
     [self.img00 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
     self.img01.tag = 101;
@@ -58,60 +58,53 @@ UITextFieldDelegate
 }
 -(void)actionTap:(UITapGestureRecognizer *)sender;
 {
-
+    
     if( [self showAlertLock]){
         return;
     }
     
     
     TableImageViewCell *cell = self;
-      NSMutableArray* browserDataArr=[[NSMutableArray alloc]init];
-      NSMutableArray*  imagesArr =cell.datavo.images;
-      for(int i=0;i<imagesArr.count;i++){
-          YBImageBrowseCellData *data = [YBImageBrowseCellData new];
-          data.url =     [NSURL URLWithString:imagesArr[i]];
-          if(i==0){
-              data.sourceObject = cell.img00;
-          }
-          if(i==1){
-              data.sourceObject = cell.img01;
-          }
-          if(i==2){
-              data.sourceObject = cell.img02;
-          }
-          if(i==3){
-              data.sourceObject = cell.img03;
-          }
-          [browserDataArr addObject:data];
-      }
-      YBImageBrowser *browser = [YBImageBrowser new];
-      browser.dataSourceArray = browserDataArr;
-      browser.currentIndex = sender.view.tag-100;
-      [browser show];
- 
+    NSMutableArray* browserDataArr=[[NSMutableArray alloc]init];
+    NSMutableArray*  imagesArr =cell.datavo.images;
+    
+    
+    for(int i=0;i<imagesArr.count;i++){
+        YBImageBrowseCellData *data = [YBImageBrowseCellData new];
+        data.url =     [NSURL URLWithString:imagesArr[i]];
+        data.sourceObject= [cell valueForKey:[NSString stringWithFormat:@"img0%d",i]];
+        [browserDataArr addObject:data];
+    }
+    
+    
+    YBImageBrowser *browser = [YBImageBrowser new];
+    browser.dataSourceArray = browserDataArr;
+    browser.currentIndex = sender.view.tag-100;
+    [browser show];
+    
     //[self.delegate imglistClik:self idx:sender.view.tag-100];
     
- 
-}
-/*
--(UIImageView*)makeImageView;
-{
-   
-    UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
-    temp.image=[UIImage imageNamed:@"avatar2.e90b2411"];
-    [self.infoBg addSubview:temp];
-    temp.userInteractionEnabled = YES;
-    return temp;
     
 }
-*/
+/*
+ -(UIImageView*)makeImageView;
+ {
+ 
+ UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
+ temp.image=[UIImage imageNamed:@"avatar2.e90b2411"];
+ [self.infoBg addSubview:temp];
+ temp.userInteractionEnabled = YES;
+ return temp;
+ 
+ }
+ */
 - (void)setCellData:(DynamicBaseVo *)value
 {
     [super setCellData:value];
     NSArray<NSString*>*  minis =  self.datavo.miniimages;
- 
+    
     if( self.datavo.tabelVo.is_lock){
-         
+        
     }
     for (int i=0; i<minis.count; i++) {
         NSString* keystr=[NSString stringWithFormat:@"img0%d",i];
@@ -119,48 +112,37 @@ UITextFieldDelegate
         lockView.lock=YES;
         [self imgLockLoadByUrl:minis[i]  imgView:lockView blurum:3];
     }
-   
+    
     
 }
 - (void)layoutSubviews;
 {
     [super layoutSubviews];
-    self.img00.frame=CGRectMake(0, 0, 89, 89);
-    self.img01.frame=CGRectMake(100, 0, 89, 89);
-    self.img02.frame=CGRectMake(0, 100, 89, 89);
-    self.img03.frame=CGRectMake(100, 100, 89, 89);
-    
     if(self.datavo){
-        self.img00.hidden=YES;
-        self.img01.hidden=YES;
-        self.img02.hidden=YES;
-        self.img03.hidden=YES;
-        switch (self.datavo.miniimages.count) {
-            case 1:
-                self.img00.hidden=NO;
-                 self.img00.frame=CGRectMake(0, 0, 139, 139);
+        for (int i=0; i<4; i++) {
+            UIImageViewLock *cellImg=[self valueForKey:[NSString stringWithFormat:@"img0%d",i]];
+            cellImg.frame=CGRectMake(i%2*100, i/2*100, 89, 89);
+            
+            if(i>=self.datavo.miniimages.count){
+                cellImg.hidden=YES;
+            }else{
+                cellImg.hidden=NO;
+                if(self.datavo.tabelVo.is_lock>0){
+                    [cellImg setLock:YES];
+                }else{
+                    [cellImg setLock:NO];
+                }
                 
-                break;
-            case 2:
-                self.img00.hidden=NO;
-                self.img01.hidden=NO;
-                break;
-            case 3:
-                self.img00.hidden=NO;
-                self.img01.hidden=NO;
-                self.img02.hidden=NO;
-                break;
-            case 4:
-                self.img00.hidden=NO;
-                self.img01.hidden=NO;
-                self.img02.hidden=NO;
-                self.img03.hidden=NO;
-                break;
-            default:
-                break;
+                if(self.datavo.miniimages.count==1){
+                    cellImg.frame=CGRectMake(0, 0, 139, 139);
+                }
+            }
+            
+            
+            
         }
     }
- 
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

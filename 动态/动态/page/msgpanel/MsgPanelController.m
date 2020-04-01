@@ -66,7 +66,7 @@ static MsgPanelController *msgPanelController = nil;
     
     self.inputTextField=[[UITextField alloc]init];
     self.inputTextField.delegate=self;
-    self.inputTextField.placeholder=@"学评论~";
+    self.inputTextField.placeholder=@"写评论~";
     self.inputTextField.backgroundColor=[UIColor whiteColor];
     [self.inputViewBg addSubview: self.inputTextField];
     
@@ -195,7 +195,7 @@ static MsgPanelController *msgPanelController = nil;
       }
     if( [self.cellItem[indexPath.row] isKindOfClass:[NSString class]] )
     {
-        return 40;
+        return 35;
       }
     
     return   200;
@@ -241,6 +241,7 @@ static MsgPanelController *msgPanelController = nil;
         cell=[[UITableViewCell alloc]init];
         cell.backgroundColor=RGBOF(0xf1f1f1);
         cell.textLabel.text=@"评论";
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
     

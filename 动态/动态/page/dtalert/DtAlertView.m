@@ -68,12 +68,12 @@
 - (IBAction)canelButClik:(id)sender {
     NSLog(@"canelButClik");
     [self dismiss];
-    self.canelBlock([[NSDictionary alloc]init]);
+    self.canelBlock(0);
 }
 
 - (IBAction)submitButClik:(id)sender {
     NSLog(@"submitButClik");
-    self.submitBlock([[NSDictionary alloc]init]);
+    self.submitBlock(1);
     [self dismiss];
     
 }

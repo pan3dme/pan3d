@@ -56,13 +56,9 @@
 -(UIButton*)makeLabelBut:(NSString*)tittleStr perentUi:(UIView*)perentUi;
 {
     UIButton *btn =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.frame = CGRectMake(0, 0, 100, 40);
+    btn.frame = CGRectMake(0, 0, 100, 30);
     [btn setTitle:tittleStr forState:UIControlStateNormal];//正常状态
     [btn setTitle:tittleStr forState:UIControlStateHighlighted];//正常状态高亮控制
-    btn.backgroundColor = [UIColor grayColor];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-    [btn setTintColor:[UIColor whiteColor]];
     btn .titleLabel.font = [UIFont systemFontOfSize:16];
     [perentUi addSubview:btn];
     return btn;
@@ -151,11 +147,12 @@
     
     
     self.deleBut=[self makeLabelBut:@"删除" perentUi:self.bttomView];
+     self.deleBut.backgroundColor = [UIColor clearColor];
     
     self.diamondBut.frame=CGRectMake(0, 0, 25, 20);
     self.heartBut.frame=CGRectMake(50, 0, 25, 20);
     self.shareBut.frame=CGRectMake(150, 0,  25, 20);
-    self.deleBut.frame=CGRectMake(200, 0, 50, 25);
+    self.deleBut.frame=CGRectMake(200, 0, 60, 20);
     
     
     [self.heartBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(heartButClikEvent:)]];
@@ -163,12 +160,12 @@
     [self.deleBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(deleButClikEvent:)]];
     [self.messageBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(messageButClikEvent:)]];
 }
-/*
- NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int lastGetTm=   [[defaults objectForKey:@"saveLastGetRainBagTm"]intValue];
- */
+ 
 -(void)heartButClikEvent:(UITapGestureRecognizer *)sender;
 {
+    if([[ DynamicModel default] heartByKey:self.heartKey]==0){
+        self.datavo.tabelVo.likes+=1;
+    }
  
     if([[ DynamicModel default] heartByKey:self.heartKey]==1){
         [[ DynamicModel default] setHdeartByKey:self.heartKey num:@2];
@@ -209,11 +206,24 @@
 }
 -(void)deleButClikEvent:(UITapGestureRecognizer *)sender;
 {
-    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-    [dic setObject:[NSString stringWithFormat:@"%ld",self.datavo.tabelVo.id] forKey:@"id"];
-    [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_DELETE paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
-        
-        NSLog(@"删除完成");
+    
+    DynamicBaseCell* that=self;
+    DtAlertView *dtAlertView=   [[DtAlertView alloc]init] ;
+    DtAlertVo* redBagAlertVo= [[DtAlertVo alloc]init];
+    redBagAlertVo.tittleStr=@"提示";
+    redBagAlertVo.cacelStr=@"取消";
+    redBagAlertVo.submitStr=@"确定";
+    NSString* tipStr=@"确定是否删除";
+    redBagAlertVo.butedStr=[[NSMutableAttributedString alloc] initWithString:tipStr];
+    [dtAlertView showAlert:redBagAlertVo submitFun:^(int submitCode) {
+        NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+        [dic setObject:[NSString stringWithFormat:@"%ld",self.datavo.tabelVo.id] forKey:@"id"];
+        [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_DELETE paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+ 
+            [that.delegate deleSelectCell:self.datavo];
+            
+        }];
+    } canalFun:^(int canelCode) {
         
     }];
 }
@@ -223,17 +233,18 @@
     self.bttomView.frame=CGRectMake(100, self.height-40, self.width-100, 30);
     self.bttomlineView.frame=CGRectMake(0, self.height-1, self.width, 1);
     self.infoLabel.frame=CGRectMake(100, 55, self.width-200, 20);
-    
     if(self.datavo.content.length){
         self.infoBg.frame=CGRectMake(100, 80, self.width-100, self.height-100-25);
     }else{
         self.infoBg.frame=CGRectMake(100, 55, self.width-100, self.height-100);
     }
  
-    for (int i=0; i<self.showButArr.count; i++) {
-        self.showButArr[i].frame=CGRectMake(i*60, 0, 60, 20);
-    }
-
+ for (int i=0; i<self.showButArr.count; i++) {
+      self.showButArr[i].frame=CGRectMake(i*60, 0, 60, 20);
+     
+     
+  }
+    
  
 }
 -(BOOL)showAlertLock;

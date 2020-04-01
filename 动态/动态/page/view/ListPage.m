@@ -234,14 +234,9 @@ UITableViewDataSource
 -(void)makeRefreshHeaderGf;
 {
     RedBagRefreshGifHeader *header = [RedBagRefreshGifHeader headerWithRefreshingBlock:^{
-        
         [self.tabelListView.mj_header endRefreshing];
-        
-        
         [self refrishNextUrl];
-        
-        
-        
+ 
     }];
     // 设置普通状态的动画图片
     NSMutableArray *idleImages = [NSMutableArray array];
@@ -262,5 +257,10 @@ UITableViewDataSource
     self.tabelListView.mj_header = header;
     
 }
-
+- (void)deleSelectCell:(DynamicBaseVo *)value
+{
+    [self.cellItemArr removeObject:value];
+    [self.tabelListView reloadData];
+    
+}
 @end
