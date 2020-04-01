@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger  recommend_end;
 @property(nonatomic,assign)NSInteger  status;
 @property(nonatomic,assign)NSInteger  user_level;
-@property(nonatomic,assign)NSMutableArray*  lock_info;
+@property(nonatomic,assign)NSMutableArray<NSNumber*>*  lock_info;
 @property(nonatomic,assign)NSInteger  likes;
 @property(nonatomic,assign)NSInteger  recommend_begin;
 @property(nonatomic,assign)NSInteger  is_ban;

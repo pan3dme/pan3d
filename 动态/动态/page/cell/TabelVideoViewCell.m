@@ -8,11 +8,16 @@
 
 #import "TabelVideoViewCell.h"
 #import "YBImageBrowser.h"
+#import "UIImageView+WebCache.h"
+#import "UIView+XBZKeyBoard.h"
+
 @interface TabelVideoViewCell()
 
-@property(nonatomic,strong)UIImageView * videoport;
+@property(nonatomic,strong)UIImageViewLock * videoport;
 @property(nonatomic,strong)UIImageView * plicIcon;
-//play_48px.953e893c
+ 
+ 
+ 
 
 @end
 @implementation TabelVideoViewCell
@@ -27,12 +32,14 @@
 -(void)initBaseUi;
 {
     [super initBaseUi];
-    self.videoport=[self makeImageView];
+    self.videoport=[self makeImageLockView];
+ 
     self.plicIcon=[self makeImageView];
     self.plicIcon.image=[UIImage imageNamed:@"play_48px"];
-    
-     [self.plicIcon addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+    [self.plicIcon addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+      
 }
+
 -(void)actionTap:(UITapGestureRecognizer *)sender;
 {
     
@@ -57,15 +64,21 @@
   
     [super setCellData:value];
     
-    [self imgLoadByUrl:self.datavo.video_post  imgView:self.videoport];
+    if( self.datavo.tabelVo.is_lock){
+        [self imgLockLoadByUrl:self.datavo.video_post  imgView:self.videoport blurum:3];
+        self.videoport.lock=YES;
   
+    }else{
+        [self imgLockLoadByUrl:self.datavo.video_post  imgView:self.videoport blurum:-1];
+        self.videoport.lock=NO;
+ 
+    }
+ 
 }
  
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-  
-
+ 
 }
 
 - (void)layoutSubviews;
@@ -73,6 +86,7 @@
     [super layoutSubviews];
      self.videoport.frame=CGRectMake(0, 0,   self.datavo.videoSize.x, self.datavo.videoSize.y);
      self.plicIcon.frame=CGRectMake( (self.datavo.videoSize.x-48)/2, (self.datavo.videoSize.y-48)/2,   48,48);
+ 
 }
 
 +(TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;

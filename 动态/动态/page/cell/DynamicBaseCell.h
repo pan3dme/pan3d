@@ -17,13 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) clikOpenMsgPanel :(DynamicBaseVo*)value ;
 -(void) imglistClik :(UITableViewCell*)value idx:(NSInteger)idx;
 @end
+@interface UIImageViewLock : UIImageView
+@property(nonatomic,strong)UIImageView  * lockimg;
+-(void)setLock:(BOOL)value;
+-(BOOL)lock;
+@end
 
 @interface DynamicBaseCell : UITableViewCell
 @property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
 @property(nonatomic,strong)DynamicBaseVo * datavo;
 @property(nonatomic,strong)UIView * infoBg;
 -(void)imgLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView;
+-(void)imgLockLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView blurum:(CGFloat)blurum;
 -(UIImageView*)makeImageView;
+-(UIImageViewLock*)makeImageLockView;
 -(void)initBaseUi;
 -(void)refrishUi;
 -(void)setCellData:(DynamicBaseVo*)value;

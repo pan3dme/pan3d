@@ -10,6 +10,8 @@
 #import "UIImageView+WebCache.h"
 #import "YBImageBrowser.h"
  
+ 
+
 @interface TableImageViewCell()
  <
 UITextFieldDelegate
@@ -29,10 +31,10 @@ UITextFieldDelegate
 -(void)initBaseUi;
 {
     [super initBaseUi];
-    self.img00=[self makeImageView];
-    self.img01=[self makeImageView];
-    self.img02=[self makeImageView];
-    self.img03=[self makeImageView];
+    self.img00=[self makeImageLockView];
+    self.img01=[self makeImageLockView];
+    self.img02=[self makeImageLockView];
+    self.img03=[self makeImageLockView];
     
   
     self.img00.tag = 100;
@@ -43,6 +45,14 @@ UITextFieldDelegate
     [self.img02 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
     self.img03.tag = 103;
     [self.img03 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)]];
+    
+}
+-(UIImageViewLock*)makeImageLockView;
+{
+    UIImageViewLock* temp=[[UIImageViewLock alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
+    temp.userInteractionEnabled = YES;
+    [self.infoBg addSubview:temp];
+    return temp;
     
 }
 -(void)actionTap:(UITapGestureRecognizer *)sender;
@@ -75,7 +85,7 @@ UITextFieldDelegate
  
     //[self.delegate imglistClik:self idx:sender.view.tag-100];
     
-    [SDImageCache sharedImageCache].config;
+ 
 }
 /*
 -(UIImageView*)makeImageView;
@@ -94,18 +104,16 @@ UITextFieldDelegate
     [super setCellData:value];
     NSArray<NSString*>*  minis =  self.datavo.miniimages;
  
-    if(minis.count>=1){
-        [self imgLoadByUrl:minis[0]  imgView:self.img00];
+    if( self.datavo.tabelVo.is_lock){
+         
     }
-    if(minis.count>=2){
-        [self imgLoadByUrl:minis[1]  imgView:self.img01];
+    for (int i=0; i<minis.count; i++) {
+        NSString* keystr=[NSString stringWithFormat:@"img0%d",i];
+        UIImageViewLock *lockView=[self valueForKey:keystr];
+        lockView.lock=YES;
+        [self imgLockLoadByUrl:minis[i]  imgView:lockView blurum:3];
     }
-    if(minis.count>=3){
-        [self imgLoadByUrl:minis[2]  imgView:self.img02];
-    }
-    if(minis.count>=4){
-        [self imgLoadByUrl:minis[3]  imgView:self.img03];
-    }
+   
     
 }
 - (void)layoutSubviews;

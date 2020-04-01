@@ -15,6 +15,36 @@
 
 
 
+
+@implementation UIImageViewLock
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+         self.lockimg=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+            self.lockimg.image=[UIImage imageNamed:@"lock_48px"];
+            [self addSubview:self.lockimg];
+        self.lockimg.hidden=YES;
+    }
+    return self;
+}
+-(void)setLock:(BOOL)value;
+{
+      _lockimg.hidden=!value;
+}
+-(BOOL)lock;
+{
+    return !self.lockimg.hidden;
+}
+ 
+- (void)layoutSubviews;
+{
+    self.lockimg.frame=CGRectMake(self.bounds.size.width-35, self.bounds.size.height-35, 25, 25);
+ 
+}
+@end
+
 @interface DynamicBaseCell()
 @property(nonatomic,strong)UIImageView* userHeadImagView;
 @property(nonatomic,strong)UILabel * usenameLabel;
@@ -69,6 +99,14 @@
 -(UIImageView*)makeImageView;
 {
     UIImageView* temp=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
+    temp.userInteractionEnabled = YES;
+    [self.infoBg addSubview:temp];
+    return temp;
+    
+}
+-(UIImageViewLock*)makeImageLockView;
+{
+    UIImageViewLock* temp=[[UIImageViewLock alloc]initWithFrame:CGRectMake(0, 0, 89, 89)];
     temp.userInteractionEnabled = YES;
     [self.infoBg addSubview:temp];
     return temp;
@@ -248,6 +286,31 @@
     [imgView sd_setImageWithURL:[NSURL URLWithString:url] ];
     
     
+}
+-(void)imgLockLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView blurum:(CGFloat)blurum;
+{
+    [imgView sd_setImageWithURL:[NSURL URLWithString:url] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if(!error&&blurum>0){
+            imgView.image=[self coreBlurImage:image withBlurNumber:blurum];
+        }
+    }];
+    
+}
+-(UIImage *)coreBlurImage:(UIImage *)image
+           withBlurNumber:(CGFloat)blur {
+    //博客园-FlyElephant
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage  *inputImage=[CIImage imageWithCGImage:image.CGImage];
+    //设置filter
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:inputImage forKey:kCIInputImageKey];
+    [filter setValue:@(blur) forKey: @"inputRadius"];
+    //模糊图片
+    CIImage *result=[filter valueForKey:kCIOutputImageKey];
+    CGImageRef outImage=[context createCGImage:result fromRect:[result extent]];
+    UIImage *blurImage=[UIImage imageWithCGImage:outImage];
+    CGImageRelease(outImage);
+    return blurImage;
 }
 
 -(void)refrishUi;
