@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DynamicTabelVo.h"
+#import "Dt_DynamicTabelVo.h"
 #import "DynamicBaseVo.h"
 
 
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface DynamicBaseVo : NSObject
-@property(nonatomic,strong)DynamicTabelVo* tabelVo;
+@property(nonatomic,strong)Dt_DynamicTabelVo* tabelVo;
 @property (nonatomic, assign) CGFloat cellHeight;
 -(NSInteger)type;
 -(NSString*)nick_name;

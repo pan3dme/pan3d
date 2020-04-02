@@ -7,8 +7,8 @@
 //
 
 #import "DynamicBaseVo.h"
-#import "DynamicTabelVo.h"
-#import "DynamicModel.h"
+#import "Dt_DynamicTabelVo.h"
+#import "Dt_DynamicModel.h"
 
 @implementation DynamicBaseVo
 - (instancetype)init
@@ -22,7 +22,7 @@
 }
 -(void)praseData:(NSDictionary*)dic
 {
-    self.tabelVo=[[DynamicTabelVo alloc]init];
+    self.tabelVo=[[Dt_DynamicTabelVo alloc]init];
     [self.tabelVo refrishData:dic];
     self.cellHeight=50;
     
@@ -53,7 +53,7 @@
 
 -(BOOL)isSelf;
 {
-    return  [DynamicModel default].selfUserInfoVo.username== self.tabelVo.username;
+    return  [Dt_DynamicModel default].selfUserInfoVo.username== self.tabelVo.username;
 }
 -(NSInteger)type;
 {
