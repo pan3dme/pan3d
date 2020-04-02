@@ -79,9 +79,15 @@ static AddPanelController *addPanelController = nil;
     }
     [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_ADD paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
  
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(10.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            //    [self.navigationController popViewControllerAnimated:YES];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            NSLog(@"需要优化");
+              [self.navigationController popViewControllerAnimated:YES];
+            
+             [[NSNotificationCenter defaultCenter]postNotificationName:@"refrishCurrentList" object:nil];
         });
+        
+        
         
     }];
  

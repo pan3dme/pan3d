@@ -33,7 +33,7 @@ UIScrollViewDelegate
 @property(nonatomic,strong)UIScrollView* pageScrollView;
 @property(nonatomic,strong)NSMutableArray< ListPage*>* pageItem;
 
-
+@property(nonatomic,strong)ListPage* selectListPage;
 @end
 
 @implementation DynamicMainView
@@ -63,11 +63,23 @@ UIScrollViewDelegate
      self.hidesBottomBarWhenPushed=YES;
  
     [self initBaseUi ];
+    [self addEvents];
     
     [[ DynamicModel default] userImport:^(NSDictionary *responseJson) {
          NSLog(@"成功");
           [self initFristData:0];
      }];
+}
+-(void)addEvents;
+{
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refrishCurrentList:) name:@"refrishCurrentList" object:nil];
+}
+-(void)refrishCurrentList:(NSNotification *)notification
+{
+ 
+    NSLog(@"---");
+    [self.selectListPage refrishAddNewMsg];
+    
 }
 - (void)clikOpenMsgPanel:(DynamicBaseVo *)value
 {
@@ -117,7 +129,10 @@ UIScrollViewDelegate
 }
 -(void)initFristData:(int)idx;
 {
-      [self.pageItem[idx] initFristData];
+    self.selectListPage=self.pageItem[idx];
+    [self.selectListPage initFristData];
+    
+    
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     BOOL scrollToScrollStop = !scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;

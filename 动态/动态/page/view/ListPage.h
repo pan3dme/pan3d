@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign,nonatomic) id<ListPageDelegate>delegate;
 @property(nonatomic,assign)NSInteger tabidx;
 -(void)initFristData;
+-(void)refrishAddNewMsg;
 @end
 
 NS_ASSUME_NONNULL_END

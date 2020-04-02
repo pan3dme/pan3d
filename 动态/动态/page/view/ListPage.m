@@ -263,6 +263,9 @@ UITableViewDataSource
 {
     [self.cellItemArr removeObject:value];
     [self.tabelListView reloadData];
-    
+}
+-(void)refrishAddNewMsg;
+{
+    [self refrishNextUrl];
 }
 @end

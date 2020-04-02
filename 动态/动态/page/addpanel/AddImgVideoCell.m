@@ -111,7 +111,7 @@
 }
 -(void)setImageUrl:(NSString*)url;
 {
-    self.soureUrl=url;
+    self.soureUrl=[NSString stringWithFormat:@"%@",url];
     
     self.picImage.hidden=YES;
     self.addVideoView.hidden=YES;
