@@ -97,11 +97,8 @@ static AddPanelController *addPanelController = nil;
 {
     NSLog(@"%@",url);
    
-    if(!self.imgItems){
+ 
         self.imgItems=[[NSMutableArray alloc]init];
-    }else{
-        [self.imgItems removeAllObjects];
-    }
     [self.imgItems addObject:url];
 }
 -(void)refrishData;
@@ -109,9 +106,13 @@ static AddPanelController *addPanelController = nil;
      
     for (int i=0; i<self.cellItems.count; i++) {
         AddImgVideoCell* cell= self.cellItems[i];
-        BOOL isOnlyMove=[self.imgItems[0] rangeOfString:@".mov"].location != NSNotFound;
+     
         if(i<=self.imgItems.count ){
+            
+               BOOL isOnlyMove=self.imgItems.count&& [self.imgItems[0] rangeOfString:@".mov"].location != NSNotFound;
+            
              cell.hidden=isOnlyMove && i>0;
+            
             if(i<self.imgItems.count){
                 [cell setImageUrl:self.imgItems[i]];
             }else{
@@ -128,10 +129,10 @@ static AddPanelController *addPanelController = nil;
     for(int i=0;i<self.imgItems.count;i++){
         if([self.imgItems[i] isEqualToString:url]){
             [self.imgItems removeObjectAtIndex:i];
-            [self refrishData];
-            return;
+            i=(int)self.imgItems.count;
         }
     }
+    [self refrishData];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
