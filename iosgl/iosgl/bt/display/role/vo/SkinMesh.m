@@ -22,15 +22,15 @@
 @property(nonatomic,strong)NSMutableDictionary*  animDic;
 @property(nonatomic,strong)NSMutableDictionary*  allParticleDic;
  
-@property(nonatomic,strong)Vector2D* hitBox;
 
-@property(nonatomic,assign)float fileScale;
-@property(nonatomic,assign)float tittleHeight;
 @property(nonatomic,assign)BOOL  ready;
 @property(nonatomic,assign)float  type;
 
  
 @end
 @implementation SkinMesh
-
+-(void)makeHitBoxItem;
+{
+    
+}
 @end

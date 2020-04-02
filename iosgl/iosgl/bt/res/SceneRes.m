@@ -30,9 +30,9 @@
     self.byte=[[ByteArray alloc]init:reader];
     [self loadComplete:self.byte];
   
- 
+
     
-    [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
+    [[LoadManager default] loadUrl:url type: LoadManager.IMG_TYPE fun:^(NSString* value) {
         NSData* netNsData = [[NSData alloc] initWithContentsOfFile:value];
         self.byte=[[ByteArray alloc]init:reader];
         [self loadComplete:self.byte];

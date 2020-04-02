@@ -38,6 +38,9 @@
 		FE15ACA72435750A0062741F /* Display3dMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACA62435750A0062741F /* Display3dMovie.m */; };
 		FE15ACAB243576760062741F /* SkinMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACAA243576760062741F /* SkinMesh.m */; };
 		FE15ACAE243576940062741F /* MeshData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACAD243576940062741F /* MeshData.m */; };
+		FE15ACB124357BFE0062741F /* MeshDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACB024357BFE0062741F /* MeshDataManager.m */; };
+		FE15ACB424357E5B0062741F /* ResManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACB324357E5B0062741F /* ResManager.m */; };
+		FE15ACB724357F920062741F /* RoleRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACB624357F920062741F /* RoleRes.m */; };
 		FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189AD724026AF1008E2FF6 /* TimeLineData.m */; };
 		FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189ADA24026B7E008E2FF6 /* KeyFrame.m */; };
 		FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */; };
@@ -197,6 +200,12 @@
 		FE15ACAA243576760062741F /* SkinMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkinMesh.m; sourceTree = "<group>"; };
 		FE15ACAC243576940062741F /* MeshData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshData.h; sourceTree = "<group>"; };
 		FE15ACAD243576940062741F /* MeshData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeshData.m; sourceTree = "<group>"; };
+		FE15ACAF24357BFE0062741F /* MeshDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshDataManager.h; sourceTree = "<group>"; };
+		FE15ACB024357BFE0062741F /* MeshDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeshDataManager.m; sourceTree = "<group>"; };
+		FE15ACB224357E5B0062741F /* ResManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResManager.h; sourceTree = "<group>"; };
+		FE15ACB324357E5B0062741F /* ResManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResManager.m; sourceTree = "<group>"; };
+		FE15ACB524357F920062741F /* RoleRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoleRes.h; sourceTree = "<group>"; };
+		FE15ACB624357F920062741F /* RoleRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleRes.m; sourceTree = "<group>"; };
 		FE189AD624026AF1008E2FF6 /* TimeLineData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeLineData.h; sourceTree = "<group>"; };
 		FE189AD724026AF1008E2FF6 /* TimeLineData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeLineData.m; sourceTree = "<group>"; };
 		FE189AD924026B7E008E2FF6 /* KeyFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyFrame.h; sourceTree = "<group>"; };
@@ -604,6 +613,10 @@
 				FE2C6A7D241D77F100291B5D /* TextureLoad.m */,
 				FE2F3017241C2CBD0005F686 /* TextureManager.h */,
 				FE2F3018241C2CBD0005F686 /* TextureManager.m */,
+				FE15ACB224357E5B0062741F /* ResManager.h */,
+				FE15ACB324357E5B0062741F /* ResManager.m */,
+				FE15ACAF24357BFE0062741F /* MeshDataManager.h */,
+				FE15ACB024357BFE0062741F /* MeshDataManager.m */,
 			);
 			path = filemode;
 			sourceTree = "<group>";
@@ -811,6 +824,8 @@
 				FE515FB823A2803C00C49DA5 /* SceneRes.m */,
 				FED0DA4B24016395009F6575 /* GroupRes.h */,
 				FED0DA4C24016395009F6575 /* GroupRes.m */,
+				FE15ACB524357F920062741F /* RoleRes.h */,
+				FE15ACB624357F920062741F /* RoleRes.m */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -1053,7 +1068,9 @@
 				FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
+				FE15ACB124357BFE0062741F /* MeshDataManager.m in Sources */,
 				FE887D5F2416768700025A74 /* DynamicConstItem.m in Sources */,
+				FE15ACB724357F920062741F /* RoleRes.m in Sources */,
 				FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */,
 				FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */,
 				FE1D8B522412903600A04FC4 /* DisplayBaseTriShader.m in Sources */,
@@ -1135,6 +1152,7 @@
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
+				FE15ACB424357E5B0062741F /* ResManager.m in Sources */,
 				FE887D5C2416767500025A74 /* DynamicBaseTexItem.m in Sources */,
 				FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */,
 				FE3D4EEC2401C24200185FD3 /* Display3DParticle.m in Sources */,

@@ -34,7 +34,7 @@ class TpSceneProcessor extends BaseProcessor {
         // this.playLyf("model/levelup_lyf.txt")
 
 
-        var sc= new  SceneBaseChar();
+        var sc= new  Display3dMovie();
         sc.setRoleUrl(getRoleUrl("yezhuz"));
         SceneManager.getInstance().addMovieDisplay(sc);
     }

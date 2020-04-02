@@ -10,7 +10,7 @@
 #import "TextureLoad.h"
 #import "MaterialManager.h"
 #import "LoadManager.h"
-static TextureManager *instance = nil;
+
 
 @interface TextureManager()
  
@@ -18,7 +18,7 @@ static TextureManager *instance = nil;
 @property (nonatomic, strong)NSMutableDictionary* resDic;
  
 @end
-
+static TextureManager *instance = nil;
 @implementation TextureManager
 + (instancetype)default{
     if (instance == nil) {

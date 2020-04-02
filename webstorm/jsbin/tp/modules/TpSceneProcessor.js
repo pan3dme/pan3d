@@ -54,7 +54,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/diamondseffect_lyf.txt")
         // this.playLyf("model/reviveeff_lyf.txt")
         // this.playLyf("model/levelup_lyf.txt")
-        var sc = new SceneBaseChar();
+        var sc = new Display3dMovie();
         sc.setRoleUrl(getRoleUrl("yezhuz"));
         SceneManager.getInstance().addMovieDisplay(sc);
     };

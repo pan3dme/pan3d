@@ -8,6 +8,7 @@
 
 #import "Display3dMovie.h"
 #import "SkinMesh.h"
+#import "MeshDataManager.h"
 /*
 
 
@@ -39,4 +40,25 @@
 @end
 @implementation Display3dMovie
 
+-(void)setRoleUrl:(NSString*)value;
+{
+    [[MeshDataManager default]getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
+        
+    } batchNum:1];
+}
+-(void)clearMesh;
+{
+   
+    /*
+    MeshDataManager.getInstance().getMeshData(value, ($skinMesh: SkinMesh) => {
+        this._skinMesh = $skinMesh;
+        this.fileScale = $skinMesh.fileScale;
+        if (this.onStage) {
+            this.addSkinMeshParticle();
+        }
+        this._animDic = $skinMesh.animDic;
+        this.onMeshLoaded();
+    });
+    */
+}
 @end

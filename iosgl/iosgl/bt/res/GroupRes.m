@@ -35,7 +35,7 @@
  
     self.bfun=block;
     
-    [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSObject* value) {
+    [[LoadManager default] loadUrl:url type:LoadManager.BYTE_TYPE fun:^(NSObject* value) {
         
         NSDictionary* dic=(NSDictionary*)value;
          NSData* netNsData = [[NSData alloc] initWithContentsOfFile:dic[@"data"]];
