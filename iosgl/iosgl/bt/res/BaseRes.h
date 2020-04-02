@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  -(void)read ;
 +(NSMutableArray*)readIntForTwoByte:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata ;
  +(NSMutableArray*)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
-
++(NSArray<NSDictionary*>*)readMaterialParamData:(ByteArray*)byte;
 -(NSMutableArray*)readMaterialInfo;
 @end
 

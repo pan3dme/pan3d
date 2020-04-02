@@ -326,5 +326,38 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
  
     
 }
-
++(NSArray<NSDictionary*>*)readMaterialParamData:(ByteArray*)byte;
+{
+    
+    return nil;
+}
+/*
+ //读取材质参数
+ public static readMaterialParamData(byte: ByteArray): Array<any> {
+     var mpNum: number = byte.readInt();
+     if (mpNum > 0) {
+         var mpAry: Array<any> = new Array;
+         for (var j: number = 0; j < mpNum; j++) {
+             var obj: any = new Object;
+             obj.name = byte.readUTF();
+             obj.type = byte.readByte();
+             if (obj.type == 0) {
+                 obj.url = byte.readUTF();
+             } else if (obj.type == 1) {
+                 obj.x = byte.readFloat();
+             } else if (obj.type == 2) {
+                 obj.x = byte.readFloat();
+                 obj.y = byte.readFloat();
+             } else if (obj.type == 3) {
+                 obj.x = byte.readFloat();
+                 obj.y = byte.readFloat();
+                 obj.z = byte.readFloat();
+             }
+             mpAry.push(obj);
+         }
+         return mpAry
+     }
+     return null
+ }
+ */
 @end

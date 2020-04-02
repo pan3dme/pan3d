@@ -12,6 +12,7 @@
 #import "SkinMesh.h"
 #import "Vector2D.h"
 #import "MeshData.h"
+
 #import "ResManager.h"
 @interface MeshDataManager ()
 @property(nonatomic,strong)NSMutableDictionary* loadDic;
@@ -71,7 +72,29 @@ static MeshDataManager *instance = nil;
     for (int i = 0; i < meshNum; i++) {
         MeshData* meshData =[[MeshData alloc]init];
         [self readMesh2OneBuffer:byte meshData:meshData];
+        
+
+              meshData.trinum =(int) meshData.indexs.count ;
+              meshData.materialUrl = [byte readUTF];
+                meshData.materialParamData= [BaseRes readMaterialParamData:byte];
+       
+       
+        /*
+              meshData.materialParamData = BaseRes.readMaterialParamData(byte);
+
+              var particleNum: number = byte.readInt();
+              for (var j: number = 0; j < particleNum; j++) {
+
+                  var bindParticle: BindParticle = new BindParticle(byte.readUTF(), byte.readUTF());
+                  meshData.particleAry.push(bindParticle);
+                  allParticleDic[bindParticle.url] = true;
+              }
+
+              $skinMesh.addMesh(meshData);
+        */
     }
+    
+    
     
 }
 -(void)readMesh2OneBuffer:(ByteArray*)byte meshData:(MeshData*)meshData;
@@ -145,33 +168,13 @@ static MeshDataManager *instance = nil;
  
      for (var i: number = 0; i < meshNum; i++) {
         
-
-         if ($version >= 21) {
-             this.readMesh2OneBuffer(byte, meshData);
-         } else {
-             BaseRes.readFloatTwoByte(byte, meshData.vertices);
-             BaseRes.readFloatTwoByte(byte, meshData.tangents);
-             BaseRes.readFloatTwoByte(byte, meshData.bitangents);
-             BaseRes.readFloatTwoByte(byte, meshData.normals);
-             BaseRes.readFloatTwoByte(byte, meshData.uvs);
-
-             BaseRes.readIntForOneByte(byte, meshData.boneIDAry);
-             BaseRes.readFloatOneByte(byte, meshData.boneWeightAry);
-
-             BaseRes.readIntForTwoByte(byte, meshData.indexs);
-             BaseRes.readIntForTwoByte(byte, meshData.boneNewIDAry);
-
-             this.uploadMesh(meshData);
-         }
-
+ 
 
 
 
          meshData.treNum = meshData.indexs.length;
 
-         // if ($batchNum != 1) {
-         //     this.cloneMeshData(meshData, $batchNum);
-         // }
+   
 
          meshData.materialUrl = byte.readUTF();
          meshData.materialParamData = BaseRes.readMaterialParamData(byte);

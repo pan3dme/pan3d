@@ -14,10 +14,10 @@
 
 
 
-@property(nonatomic,strong)NSMutableArray<NSNumber*>* materialParamData;
+
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property(nonatomic,strong)Material* material;
-@property(nonatomic,strong)NSString* materialUrl;
+
 
 
 @property(nonatomic,assign)float  uid;

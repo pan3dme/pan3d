@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSArray  *boneWeightAry;
 @property (nonatomic, copy)  NSArray  *boneNewIDAry;
 
+@property(nonatomic,strong)NSString* materialUrl;
+@property(nonatomic,strong)NSArray<NSDictionary*>* materialParamData;
+
 @property(nonatomic,assign)GLuint boneWeightBuffer ;
 @property(nonatomic,assign)GLuint boneIdBuffer ;
 @property(nonatomic,assign)int  boneIDOffsets;
