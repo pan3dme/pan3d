@@ -168,11 +168,11 @@ static Dt_MsgPanelController *msgPanelController = nil;
     [temp resetreplyContent];
     
 }
--(void) selectUseHead :(DynamicBaseVo*)value ;
+-(void) selectUseHead :(Dt_DynamicBaseVo*)value ;
 {
    
 }
--(void) clikOpenMsgPanel :(DynamicBaseVo*)value ;
+-(void) clikOpenMsgPanel :(Dt_DynamicBaseVo*)value ;
 {
     
 }
@@ -183,9 +183,9 @@ static Dt_MsgPanelController *msgPanelController = nil;
 //重置CELL的高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if( [self.cellItem[indexPath.row] isKindOfClass:[DynamicBaseVo class]] )
+    if( [self.cellItem[indexPath.row] isKindOfClass:[Dt_DynamicBaseVo class]] )
     {
-        DynamicBaseVo* dynamicBaseVo=(DynamicBaseVo*)self.cellItem[indexPath.row];
+        Dt_DynamicBaseVo* dynamicBaseVo=(Dt_DynamicBaseVo*)self.cellItem[indexPath.row];
         return  dynamicBaseVo.cellHeight;
     }
     if( [self.cellItem[indexPath.row] isKindOfClass:[Dt_CommentsTabelVo class]] )
@@ -214,9 +214,9 @@ static Dt_MsgPanelController *msgPanelController = nil;
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    if( [self.cellItem[indexPath.row] isKindOfClass:[DynamicBaseVo class]] )
+    if( [self.cellItem[indexPath.row] isKindOfClass:[Dt_DynamicBaseVo class]] )
     {
-        DynamicBaseVo* dynamicBaseVo=(DynamicBaseVo*)self.cellItem[indexPath.row];
+        Dt_DynamicBaseVo* dynamicBaseVo=(Dt_DynamicBaseVo*)self.cellItem[indexPath.row];
         Dt_DynamicBaseCell* dynamicBaseCell;
         if(dynamicBaseVo.tabelVo.vidio_url.length){
             dynamicBaseCell= [Dt_TabelVideoViewCell makeViewCell:tableView dataVo:dynamicBaseVo];

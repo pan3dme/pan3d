@@ -389,7 +389,7 @@
     [self layoutSubviews];
     
 }
--(void)setCellData:(DynamicBaseVo*)value;
+-(void)setCellData:(Dt_DynamicBaseVo*)value;
 {
     if(value){
         self.datavo=value;

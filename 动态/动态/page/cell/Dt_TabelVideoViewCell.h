@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Dt_TabelVideoViewCell : Dt_DynamicBaseCell
 +(NSString*)CELL_STR;
-+(Dt_TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
++(Dt_TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(Dt_DynamicBaseVo*)dataVo;
 @end
 
 NS_ASSUME_NONNULL_END

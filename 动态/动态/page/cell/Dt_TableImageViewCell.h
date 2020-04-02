@@ -7,7 +7,7 @@
 //
 
 #import "Dt_DynamicBaseCell.h"
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)Dt_UIImageViewLock * img02;
 @property(nonatomic,strong)Dt_UIImageViewLock * img03;
 +(NSString*)CELL_STR;
-+(Dt_TableImageViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
++(Dt_TableImageViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(Dt_DynamicBaseVo*)dataVo;
 @end
 
 NS_ASSUME_NONNULL_END

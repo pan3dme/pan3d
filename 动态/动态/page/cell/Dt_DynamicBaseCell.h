@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 #import "Dt_UIImageViewLock.h"
 #import "Dt_DynamicBaseCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol DynamicBaseCellDelegate<NSObject>
--(void) selectUseHead :(DynamicBaseVo*)value ;
--(void) clikOpenMsgPanel :(DynamicBaseVo*)value ;
--(void) deleSelectCell :(DynamicBaseVo*)value ;
+-(void) selectUseHead :(Dt_DynamicBaseVo*)value ;
+-(void) clikOpenMsgPanel :(Dt_DynamicBaseVo*)value ;
+-(void) deleSelectCell :(Dt_DynamicBaseVo*)value ;
 -(void) listReloadData ;
 -(void) imglistClik :(UITableViewCell*)value idx:(NSInteger)idx;
 @end
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Dt_DynamicBaseCell : UITableViewCell
 @property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
-@property(nonatomic,strong)DynamicBaseVo * datavo;
+@property(nonatomic,strong)Dt_DynamicBaseVo * datavo;
 @property(nonatomic,strong)UIView * infoBg;
 -(void)imgLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView;
 -(void)imgLockLoadByUrl:(NSString*)url imgView:(UIImageView*)imgView blurum:(CGFloat)blurum;
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(Dt_UIImageViewLock*)makeImageLockView;
 -(void)initBaseUi;
 -(void)refrishUi;
--(void)setCellData:(DynamicBaseVo*)value;
+-(void)setCellData:(Dt_DynamicBaseVo*)value;
 -(BOOL)showAlertLock;
  
 @end

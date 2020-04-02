@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Dt_MsgPanelController : UIViewController
 + (instancetype)default;
-@property (nonatomic,strong)DynamicBaseVo* dynamicBaseVo;
+@property (nonatomic,strong)Dt_DynamicBaseVo* dynamicBaseVo;
 @end
 
 NS_ASSUME_NONNULL_END

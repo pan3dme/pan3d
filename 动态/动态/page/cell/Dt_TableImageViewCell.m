@@ -84,7 +84,7 @@ UITextFieldDelegate
  
 }
  
-- (void)setCellData:(DynamicBaseVo *)value
+- (void)setCellData:(Dt_DynamicBaseVo *)value
 {
     [super setCellData:value];
     NSArray<NSString*>*  minis =  self.datavo.miniimages;
@@ -131,7 +131,7 @@ UITextFieldDelegate
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-+(Dt_TableImageViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
++(Dt_TableImageViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(Dt_DynamicBaseVo*)dataVo;
 {
     Dt_TableImageViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Dt_TableImageViewCell.CELL_STR];
     if(cell==nil){

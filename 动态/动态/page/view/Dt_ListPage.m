@@ -8,7 +8,7 @@
 #import "Header.h"
 #import "Dt_ListPage.h"
 #import "Dt_DynamicBaseCell.h"
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 #import "Dt_TableImageViewCell.h"
 #import "Dt_TabelVideoViewCell.h"
 #import "NetHttpsManager.h"
@@ -27,7 +27,7 @@ UITableViewDataSource
 >
 @property(nonatomic,strong)UITableView *tabelListView;
 @property(nonatomic,strong)UIImageView *listBgimgView;
-@property (nonatomic, strong)  NSMutableArray<DynamicBaseVo*>* cellItemArr;
+@property (nonatomic, strong)  NSMutableArray<Dt_DynamicBaseVo*>* cellItemArr;
 //blank_img
 @end
 @implementation Dt_ListPage
@@ -95,7 +95,7 @@ UITableViewDataSource
         [dic setObject: [Dt_DynamicModel default].selfUserInfoVo.username forKey:@"username"];
         [[ Dt_DynamicModel default] GetDynamicSelfBlog:PLATFORM_GAME_BLOG_SELF paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
             
-            NSMutableArray<DynamicBaseVo*>* arr= [DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
+            NSMutableArray<Dt_DynamicBaseVo*>* arr= [Dt_DynamicBaseVo makeListArr:   [responseJson objectForKey:@"result"]];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 
@@ -109,7 +109,7 @@ UITableViewDataSource
     }else{
         [[ Dt_DynamicModel default] GetDynamicByValue:[self dataLinkUrl] paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
             
-            [that pusDataToTabel:[DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]]];
+            [that pusDataToTabel:[Dt_DynamicBaseVo makeListArr:   [responseJson objectForKey:@"blogs"]]];
             [self.tabelListView reloadData];
         }];
     }
@@ -128,7 +128,7 @@ UITableViewDataSource
     
 }
 
-- (void)clikOpenMsgPanel:(DynamicBaseVo *)value
+- (void)clikOpenMsgPanel:(Dt_DynamicBaseVo *)value
 {
     [_delegate clikOpenMsgPanel:value];
 }
@@ -160,7 +160,7 @@ UITableViewDataSource
 //重置CELL的高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DynamicBaseVo *vo=self.cellItemArr[indexPath.row];
+    Dt_DynamicBaseVo *vo=self.cellItemArr[indexPath.row];
     
     return   vo.cellHeight;
  
@@ -178,7 +178,7 @@ UITableViewDataSource
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DynamicBaseVo * vo=self.cellItemArr[indexPath.row];
+    Dt_DynamicBaseVo * vo=self.cellItemArr[indexPath.row];
     
     Dt_DynamicBaseCell *cell;
     if(vo.tabelVo.vidio_url.length){
@@ -224,7 +224,7 @@ UITableViewDataSource
     
 }
 
-- (void)selectUseHead:(DynamicBaseVo *)value
+- (void)selectUseHead:(Dt_DynamicBaseVo *)value
 {
     NSLog(@"selectUseHead");
 }
@@ -259,7 +259,7 @@ UITableViewDataSource
 {
         [self.tabelListView reloadData];
 }
-- (void)deleSelectCell:(DynamicBaseVo *)value
+- (void)deleSelectCell:(Dt_DynamicBaseVo *)value
 {
     [self.cellItemArr removeObject:value];
     [self.tabelListView reloadData];

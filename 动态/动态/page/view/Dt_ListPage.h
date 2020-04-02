@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
 @protocol Dt_ListPageDelegate<NSObject>
--(void) clikOpenMsgPanel :(DynamicBaseVo*)value ;
+-(void) clikOpenMsgPanel :(Dt_DynamicBaseVo*)value ;
 @end
 
 @interface Dt_ListPage : UIView

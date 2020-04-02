@@ -6,11 +6,11 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 #import "Dt_DynamicTabelVo.h"
 #import "Dt_DynamicModel.h"
 
-@implementation DynamicBaseVo
+@implementation Dt_DynamicBaseVo
 - (instancetype)init
 {
     self = [super init];
@@ -172,11 +172,11 @@
 {
     return [self getWebUrlByurl:self.tabelVo.head];
 }
-+(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
++(NSMutableArray<Dt_DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
 {
-    NSMutableArray<DynamicBaseVo*>* bitem=[[NSMutableArray alloc]init];
+    NSMutableArray<Dt_DynamicBaseVo*>* bitem=[[NSMutableArray alloc]init];
     for(int i=0;i<arr.count;i++){
-        DynamicBaseVo* vo=[[DynamicBaseVo alloc]init];
+        Dt_DynamicBaseVo* vo=[[Dt_DynamicBaseVo alloc]init];
         [vo praseData:arr[i]];
         [bitem addObject:vo];
     }

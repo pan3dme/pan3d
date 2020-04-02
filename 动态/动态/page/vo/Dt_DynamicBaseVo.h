@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Dt_DynamicTabelVo.h"
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 
 
 typedef NS_ENUM(NSInteger, DynamicType)
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@interface DynamicBaseVo : NSObject
+@interface Dt_DynamicBaseVo : NSObject
 @property(nonatomic,strong)Dt_DynamicTabelVo* tabelVo;
 @property (nonatomic, assign) CGFloat cellHeight;
 -(NSInteger)type;
@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(CGPoint)videoSize;
 -(NSMutableArray<NSString*>*)images;
 -(NSMutableArray<NSString*>*)miniimages;
-+(NSMutableArray<DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
++(NSMutableArray<Dt_DynamicBaseVo*>*)makeListArr:(NSMutableArray*)arr;
 @end
 
 NS_ASSUME_NONNULL_END

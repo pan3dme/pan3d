@@ -11,7 +11,7 @@
 #import "Dt_DynamicMainView.h"
 #import "Dt_TabTittlView.h"
 #import "Dt_ListPage.h"
-#import "DynamicBaseVo.h"
+#import "Dt_DynamicBaseVo.h"
 #import "NetHttpsManager.h"
 #import "Dt_DynamicModel.h"
 #import "Dt_UserInfoVo.h"
@@ -80,7 +80,7 @@ UIScrollViewDelegate
     [self.selectListPage refrishAddNewMsg];
     
 }
-- (void)clikOpenMsgPanel:(DynamicBaseVo *)value
+- (void)clikOpenMsgPanel:(Dt_DynamicBaseVo *)value
 {
     [Dt_MsgPanelController default].dynamicBaseVo=value;
     [Dt_MsgPanelController default].hidesBottomBarWhenPushed=YES;

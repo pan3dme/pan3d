@@ -30,7 +30,7 @@
 		FE064B73241EB41F00AD44BE /* Dt_RefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B72241EB41F00AD44BE /* Dt_RefreshGifHeader.m */; };
 		FE064B75241EB71B00AD44BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FE064B74241EB71A00AD44BE /* Podfile */; };
 		FE064B7A241EC0DF00AD44BE /* Dt_DynamicBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B79241EC0DF00AD44BE /* Dt_DynamicBaseCell.m */; };
-		FE064B7D241EC1E600AD44BE /* DynamicBaseVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */; };
+		FE064B7D241EC1E600AD44BE /* Dt_DynamicBaseVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7C241EC1E600AD44BE /* Dt_DynamicBaseVo.m */; };
 		FE064B80241ECCB600AD44BE /* Dt_TableImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B7F241ECCB600AD44BE /* Dt_TableImageViewCell.m */; };
 		FE064B83241ECDA100AD44BE /* Dt_DynamicTabelVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B82241ECDA100AD44BE /* Dt_DynamicTabelVo.m */; };
 		FE15ACA324350BC60062741F /* Dt_AddVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACA224350BC60062741F /* Dt_AddVideoView.m */; };
@@ -99,8 +99,8 @@
 		FE064B74241EB71A00AD44BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FE064B78241EC0DF00AD44BE /* Dt_DynamicBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dt_DynamicBaseCell.h; sourceTree = "<group>"; };
 		FE064B79241EC0DF00AD44BE /* Dt_DynamicBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dt_DynamicBaseCell.m; sourceTree = "<group>"; };
-		FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicBaseVo.h; sourceTree = "<group>"; };
-		FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicBaseVo.m; sourceTree = "<group>"; };
+		FE064B7B241EC1E600AD44BE /* Dt_DynamicBaseVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dt_DynamicBaseVo.h; sourceTree = "<group>"; };
+		FE064B7C241EC1E600AD44BE /* Dt_DynamicBaseVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dt_DynamicBaseVo.m; sourceTree = "<group>"; };
 		FE064B7E241ECCB600AD44BE /* Dt_TableImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dt_TableImageViewCell.h; sourceTree = "<group>"; };
 		FE064B7F241ECCB600AD44BE /* Dt_TableImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dt_TableImageViewCell.m; sourceTree = "<group>"; };
 		FE064B81241ECDA100AD44BE /* Dt_DynamicTabelVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dt_DynamicTabelVo.h; sourceTree = "<group>"; };
@@ -302,8 +302,8 @@
 				FE34C576242BD40A000424BC /* Dt_CommentsTabelVo.m */,
 				FE064B81241ECDA100AD44BE /* Dt_DynamicTabelVo.h */,
 				FE064B82241ECDA100AD44BE /* Dt_DynamicTabelVo.m */,
-				FE064B7B241EC1E600AD44BE /* DynamicBaseVo.h */,
-				FE064B7C241EC1E600AD44BE /* DynamicBaseVo.m */,
+				FE064B7B241EC1E600AD44BE /* Dt_DynamicBaseVo.h */,
+				FE064B7C241EC1E600AD44BE /* Dt_DynamicBaseVo.m */,
 				FE410548242217170031B3D1 /* Dt_UserInfoVo.h */,
 				FE410549242217170031B3D1 /* Dt_UserInfoVo.m */,
 				FE608EE724237390004C1E34 /* Dt_UpImageVo.h */,
@@ -526,7 +526,7 @@
 				FE064B6F241EB38200AD44BE /* Dt_ListPage.m in Sources */,
 				FE064B80241ECCB600AD44BE /* Dt_TableImageViewCell.m in Sources */,
 				FE064B49241E98A300AD44BE /* Dt_DynamicMainView.m in Sources */,
-				FE064B7D241EC1E600AD44BE /* DynamicBaseVo.m in Sources */,
+				FE064B7D241EC1E600AD44BE /* Dt_DynamicBaseVo.m in Sources */,
 				FE7263AC243499CF00320B9B /* Dt_UIImageViewLock.m in Sources */,
 				FE064AC6241E915C00AD44BE /* SceneDelegate.m in Sources */,
 				FE608EE924237390004C1E34 /* Dt_UpImageVo.m in Sources */,

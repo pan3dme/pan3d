@@ -61,7 +61,7 @@
     [browser show];
  
 }
-- (void)setCellData:(DynamicBaseVo *)value
+- (void)setCellData:(Dt_DynamicBaseVo *)value
 {
   
     [super setCellData:value];
@@ -91,7 +91,7 @@
  
 }
 
-+(Dt_TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(DynamicBaseVo*)dataVo;
++(Dt_TabelVideoViewCell *)makeViewCell:(UITableView*)tableView    dataVo:(Dt_DynamicBaseVo*)dataVo;
 {
     Dt_TabelVideoViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Dt_TabelVideoViewCell.CELL_STR];
     if(cell==nil){
