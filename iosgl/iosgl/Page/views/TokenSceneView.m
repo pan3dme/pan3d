@@ -100,15 +100,15 @@
 - (IBAction)zoom_min_clik:(id)sender {
  
     [self.sceneView makeEemptyScene];
-    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+   // [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     
     
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     
-    [self playLyfByUrl:@"model/diamondseffect_base.txt"];
-    [self playLyfByUrl:@"model/levelup_base.txt"];
+   // [self playLyfByUrl:@"model/diamondseffect_base.txt"];
+   // [self playLyfByUrl:@"model/levelup_base.txt"];
    // [self playLyfByUrl:@"model/reviveeff_base.txt"];
     
     Display3dMovie* sc=[[Display3dMovie alloc]init];

@@ -47,7 +47,12 @@
     self.byte=byte;
     self.version= [self.byte readInt];
     [self readMesh];
+    [self readAction];
  
+}
+-(void)readAction;
+{
+    
 }
 -(void)readMesh;
 {
