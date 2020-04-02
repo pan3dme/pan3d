@@ -51,7 +51,12 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         return "TpSceneProcessor";
     };
     TpSceneProcessor.prototype.onMouseDown = function ($evt) {
-        this.playLyf("model/levelup_lyf.txt");
+        //  this.playLyf("model/diamondseffect_lyf.txt")
+        // this.playLyf("model/reviveeff_lyf.txt")
+        // this.playLyf("model/levelup_lyf.txt")
+        var sc = new SceneBaseChar();
+        sc.setRoleUrl(getRoleUrl("yezhuz"));
+        SceneManager.getInstance().addMovieDisplay(sc);
     };
     TpSceneProcessor.prototype.playLyf = function (url) {
         GroupDataManager.getInstance().getGroupData(Scene_data.fileRoot + url, function (groupRes) {

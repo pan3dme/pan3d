@@ -42,11 +42,10 @@ static AddPanelController *addPanelController = nil;
     
     self.cellItems=[[NSMutableArray alloc]init];
     
-    self.inputTextField=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+    self.inputTextField=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, 100, 50)];
     self.inputTextField.placeholder=@"分享新鲜事~";
-    self.inputTextField.layer.borderWidth = 1.0;
-    self.inputTextField.layer.cornerRadius = 5.0;
-    self.inputTextField.layer.borderColor =[[UIColor grayColor] CGColor] ;
+   self.inputTextField.textAlignment = NSTextAlignmentLeft;
+   self.inputTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     self.inputTextField.font = [UIFont systemFontOfSize:16];
     [self.view addSubview: self.inputTextField];
     
@@ -168,7 +167,7 @@ static AddPanelController *addPanelController = nil;
 
 - (void)viewWillLayoutSubviews
 {
-    self.inputTextField.frame=CGRectMake(5, 30, self.view.width-10,180);
+    self.inputTextField.frame=CGRectMake(10, 65, self.view.width-20,180);
     self.totalNumLabel.frame=CGRectMake( self.view.width-150, CGRectGetMaxY(self.inputTextField.frame)+10, 100, 30);
     self.picListView.frame=CGRectMake( 30, CGRectGetMaxY(self.inputTextField.frame)+40, 300, 300);
     

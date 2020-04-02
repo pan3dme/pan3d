@@ -29,8 +29,17 @@ class TpSceneProcessor extends BaseProcessor {
     }
     private onMouseDown($evt: InteractiveEvent): void {
 
-        this.playLyf("model/levelup_lyf.txt")
+        //  this.playLyf("model/diamondseffect_lyf.txt")
+        // this.playLyf("model/reviveeff_lyf.txt")
+        // this.playLyf("model/levelup_lyf.txt")
+
+
+        var sc= new  SceneBaseChar();
+        sc.setRoleUrl(getRoleUrl("yezhuz"));
+        SceneManager.getInstance().addMovieDisplay(sc);
     }
+    private yezhu: SceneBaseChar;
+
     protected playLyf(url:string)
     {
         GroupDataManager.getInstance().getGroupData(  Scene_data.fileRoot +url, (groupRes: GroupRes) => {

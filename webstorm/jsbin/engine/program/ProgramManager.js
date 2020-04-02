@@ -45,7 +45,7 @@ var ProgrmaManager = /** @class */ (function (_super) {
         if (paramAry === void 0) { paramAry = null; }
         if (parmaByFragmet === void 0) { parmaByFragmet = false; }
         var keyStr = key + "_" + $material.url;
-        if (keyStr.search("Display3DLocusShader_res") != -1 && true) { //FIXME
+        if (keyStr.search("Display3DFacetShader_res") != -1 && true) { //FIXME
             //  console.log(keyStr)
             // this.outShader($material.shaderStr)
             /*
@@ -104,10 +104,10 @@ var ProgrmaManager = /** @class */ (function (_super) {
             console.log(shader.vertex);
             console.log(shader.fragment);
         }
-        if (keyStr.search("res/content/particleresources/materials/m_ef_par_by") != -1 && true) {
+        if (keyStr.search("Display3DBallShader_res") != -1 && true) {
             this.outShader(shader.vertex);
-            //  console.log(shader.vertex);
-            //  console.log(shader.fragment);
+            console.log(shader.vertex);
+            console.log(shader.fragment);
         }
         this._dic[keyStr] = shader;
         return shader;

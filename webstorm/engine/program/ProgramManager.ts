@@ -32,7 +32,7 @@
     public getMaterialProgram(key: String, shaderCls: any, $material: Material, paramAry: any = null, parmaByFragmet: boolean = false): Shader3D {
         var keyStr: string = key + "_" + $material.url;
 
-        if (keyStr.search("Display3DLocusShader_res") != -1 &&true) { //FIXME
+        if (keyStr.search("Display3DFacetShader_res") != -1 &&true) { //FIXME
 
         //  console.log(keyStr)
         // this.outShader($material.shaderStr)
@@ -101,11 +101,11 @@
             console.log(shader.vertex);
             console.log(shader.fragment);
         }
-        if (keyStr.search("res/content/particleresources/materials/m_ef_par_by") != -1 && true) {
+        if (keyStr.search("Display3DBallShader_res") != -1 && true) {
 
             this.outShader(shader.vertex)
-          //  console.log(shader.vertex);
-          //  console.log(shader.fragment);
+             console.log(shader.vertex);
+             console.log(shader.fragment);
         }
 
         this._dic[keyStr] = shader;

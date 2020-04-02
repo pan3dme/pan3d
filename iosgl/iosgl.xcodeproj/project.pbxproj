@@ -35,6 +35,7 @@
 		FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC29C2395768D00D2483A /* FivePageView.m */; };
 		FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC29D2395768D00D2483A /* FivePageView.xib */; };
 		FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1376A0239E90AE00755136 /* ObjDataManager.m */; };
+		FE15ACA72435750A0062741F /* Display3dMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACA62435750A0062741F /* Display3dMovie.m */; };
 		FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189AD724026AF1008E2FF6 /* TimeLineData.m */; };
 		FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189ADA24026B7E008E2FF6 /* KeyFrame.m */; };
 		FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE189B2124049454008E2FF6 /* Display3DBallPartilce.m */; };
@@ -188,6 +189,8 @@
 		FE0FC29D2395768D00D2483A /* FivePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePageView.xib; sourceTree = "<group>"; };
 		FE13769F239E90AE00755136 /* ObjDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjDataManager.h; sourceTree = "<group>"; };
 		FE1376A0239E90AE00755136 /* ObjDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjDataManager.m; sourceTree = "<group>"; };
+		FE15ACA52435750A0062741F /* Display3dMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3dMovie.h; sourceTree = "<group>"; };
+		FE15ACA62435750A0062741F /* Display3dMovie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3dMovie.m; sourceTree = "<group>"; };
 		FE189AD624026AF1008E2FF6 /* TimeLineData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeLineData.h; sourceTree = "<group>"; };
 		FE189AD724026AF1008E2FF6 /* TimeLineData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeLineData.m; sourceTree = "<group>"; };
 		FE189AD924026B7E008E2FF6 /* KeyFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyFrame.h; sourceTree = "<group>"; };
@@ -599,6 +602,15 @@
 			path = filemode;
 			sourceTree = "<group>";
 		};
+		FE15ACA4243574FB0062741F /* role */ = {
+			isa = PBXGroup;
+			children = (
+				FE15ACA52435750A0062741F /* Display3dMovie.h */,
+				FE15ACA62435750A0062741F /* Display3dMovie.m */,
+			);
+			path = role;
+			sourceTree = "<group>";
+		};
 		FE189AD524026AC8008E2FF6 /* ctrl */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +813,7 @@
 		FE67882E239B934C00262B53 /* display */ = {
 			isa = PBXGroup;
 			children = (
+				FE15ACA4243574FB0062741F /* role */,
 				FE1D8B4C24128FDC00A04FC4 /* basedis */,
 				FE1D8B4524128AFF00A04FC4 /* line */,
 				FE3D4EE02401C12400185FD3 /* particle */,
@@ -1041,6 +1054,7 @@
 				FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */,
 				FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */,
 				FE805728240698DD000F6D17 /* Display3DShader.m in Sources */,
+				FE15ACA72435750A0062741F /* Display3dMovie.m in Sources */,
 				FE064B8A241EE63800AD44BE /* DynamicTexListVo.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
 				FE8788BE24327359003E0EE7 /* ScaleChange.m in Sources */,

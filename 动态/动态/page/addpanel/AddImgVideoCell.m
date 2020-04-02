@@ -32,7 +32,18 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor=[UIColor yellowColor];
+        self.backgroundColor=[UIColor whiteColor];
+        
+        
+        CAShapeLayer *border = [CAShapeLayer layer];
+        border.strokeColor =  RGBOF(0xbfbfbf) .CGColor;
+        border.fillColor = [UIColor clearColor].CGColor;
+        border.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+        border.frame = self.bounds;
+        border.lineWidth = 1.f;
+        border.lineDashPattern = @[@4, @2];
+        
+        [self.layer addSublayer:border];
         
         [self initBaseUi];
     }
@@ -57,11 +68,13 @@
     self.camIcamBut=[[UIImageView alloc]initWithFrame:CGRectMake(50, 50, 40, 40)];
     self.camIcamBut.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self addSubview:self.camIcamBut];
-    self.camIcamBut.image=[UIImage imageNamed:@"camicon"];
+    self.camIcamBut.image=[UIImage imageNamed:@"dt_zhaoxiangji"];
     
     
-    self.closeXbut=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    self.closeXbut.backgroundColor=[UIColor redColor];
+    self.closeXbut=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+ 
+    [self.closeXbut setImage:[UIImage imageNamed:@"com_close_1"] forState:UIControlStateNormal];
+    //
     [self addSubview:self.closeXbut];
       [self.closeXbut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeXbutEvent:)]];
     
@@ -74,14 +87,12 @@
     
     self.camIcamBut.userInteractionEnabled=YES;
     [self.camIcamBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addCamButEvent:)]];
-    
-    
-  
  
 }
 - (void)layoutSubviews;
 {
-    self.closeXbut.frame=CGRectMake(self.width-20, 0, 20, 20);
+    self.closeXbut.frame=CGRectMake(self.width-27, 2, 25, 25);
+    self.camIcamBut.frame=CGRectMake((self.width- 30)/2, (self.width- 30)/2, 30, 30);
   
 }
 -(void)progressToCellLabel:(float)num;
