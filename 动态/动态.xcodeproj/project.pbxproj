@@ -15,8 +15,6 @@
 		FE064ACE241E915D00AD44BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE064ACD241E915D00AD44BE /* Assets.xcassets */; };
 		FE064AD1241E915D00AD44BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE064ACF241E915D00AD44BE /* LaunchScreen.storyboard */; };
 		FE064AD4241E915D00AD44BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064AD3241E915D00AD44BE /* main.m */; };
-		FE064ADD241E921400AD44BE /* OnePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064ADB241E921400AD44BE /* OnePageView.m */; };
-		FE064ADE241E921400AD44BE /* OnePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE064ADC241E921400AD44BE /* OnePageView.xib */; };
 		FE064B49241E98A300AD44BE /* Dt_DynamicMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B47241E98A300AD44BE /* Dt_DynamicMainView.m */; };
 		FE064B4E241E992800AD44BE /* Dt_TabTittlView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B4D241E992800AD44BE /* Dt_TabTittlView.m */; };
 		FE064B55241E9BAE00AD44BE /* Dt_TabTittleBut.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B54241E9BAE00AD44BE /* Dt_TabTittleBut.m */; };
@@ -69,9 +67,6 @@
 		FE064AD0241E915D00AD44BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE064AD2241E915D00AD44BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE064AD3241E915D00AD44BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FE064ADA241E921400AD44BE /* OnePageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePageView.h; sourceTree = "<group>"; };
-		FE064ADB241E921400AD44BE /* OnePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnePageView.m; sourceTree = "<group>"; };
-		FE064ADC241E921400AD44BE /* OnePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnePageView.xib; sourceTree = "<group>"; };
 		FE064B46241E98A300AD44BE /* Dt_DynamicMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dt_DynamicMainView.h; sourceTree = "<group>"; };
 		FE064B47241E98A300AD44BE /* Dt_DynamicMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dt_DynamicMainView.m; sourceTree = "<group>"; };
 		FE064B4C241E992800AD44BE /* Dt_TabTittlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dt_TabTittlView.h; sourceTree = "<group>"; };
@@ -226,9 +221,6 @@
 				FE064B47241E98A300AD44BE /* Dt_DynamicMainView.m */,
 				FE064B4F241E99BE00AD44BE /* Header.h */,
 				FE064B6C241EA0C100AD44BE /* ColorHeader.h */,
-				FE064ADA241E921400AD44BE /* OnePageView.h */,
-				FE064ADB241E921400AD44BE /* OnePageView.m */,
-				FE064ADC241E921400AD44BE /* OnePageView.xib */,
 			);
 			path = page;
 			sourceTree = "<group>";
@@ -430,7 +422,6 @@
 				FE064B75241EB71B00AD44BE /* Podfile in Resources */,
 				FE064AD1241E915D00AD44BE /* LaunchScreen.storyboard in Resources */,
 				FE064ACE241E915D00AD44BE /* Assets.xcassets in Resources */,
-				FE064ADE241E921400AD44BE /* OnePageView.xib in Resources */,
 				FE064ACC241E915C00AD44BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,7 +524,6 @@
 				FE064B7A241EC0DF00AD44BE /* Dt_DynamicBaseCell.m in Sources */,
 				FE064B66241E9F7600AD44BE /* UIButton+XBZKeyBoard.m in Sources */,
 				FE41054D2422181B0031B3D1 /* Dt_DynamicModel.m in Sources */,
-				FE064ADD241E921400AD44BE /* OnePageView.m in Sources */,
 				FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */,
 				FE34C57A242BD5B4000424BC /* Dt_CommentsCell.m in Sources */,
 				FE064B68241E9F7600AD44BE /* UIImage+XBZKeyBoard.m in Sources */,

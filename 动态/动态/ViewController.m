@@ -21,10 +21,11 @@
 }
 -(void)addView{
     Dt_DynamicMainView *vc01=[[Dt_DynamicMainView alloc] init];
-    OnePageView *vc02=[[OnePageView alloc] init];
-    OnePageView *vc03=[[OnePageView alloc]init];
-    OnePageView *vc04=[[OnePageView alloc] init];
-    OnePageView *vc05=[[OnePageView alloc] init];
+    
+    Dt_DynamicMainView *vc02=[[Dt_DynamicMainView alloc] init];
+    Dt_DynamicMainView *vc03=[[Dt_DynamicMainView alloc]init];
+    Dt_DynamicMainView *vc04=[[Dt_DynamicMainView alloc] init];
+    Dt_DynamicMainView *vc05=[[Dt_DynamicMainView alloc] init];
  
     
     
