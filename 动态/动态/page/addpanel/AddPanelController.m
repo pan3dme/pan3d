@@ -21,9 +21,9 @@ UINavigationControllerDelegate
 @property(nonatomic,strong)UITextField*  inputTextField;
 @property(nonatomic,strong)UILabel*  totalNumLabel;
 @property(nonatomic,strong)UIView*  picListView;
-@property(nonatomic,strong)NSString*  oneUrl;
+ 
 @property(nonatomic,strong)NSMutableArray<AddImgVideoCell*>*  cellItems;
-@property(nonatomic,strong)NSMutableArray<NSString*>*  imgItems;
+
 @end
 static AddPanelController *addPanelController = nil;
 @implementation AddPanelController
@@ -44,8 +44,8 @@ static AddPanelController *addPanelController = nil;
     
     self.inputTextField=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, 100, 50)];
     self.inputTextField.placeholder=@"分享新鲜事~";
-   self.inputTextField.textAlignment = NSTextAlignmentLeft;
-   self.inputTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+    self.inputTextField.textAlignment = NSTextAlignmentLeft;
+    self.inputTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     self.inputTextField.font = [UIFont systemFontOfSize:16];
     [self.view addSubview: self.inputTextField];
     
@@ -77,20 +77,15 @@ static AddPanelController *addPanelController = nil;
     for(int i=0;i<self.imgItems.count;i++){
         [dic setObject:self.imgItems[i]  forKey:[NSString stringWithFormat:@"image%d",i+1]];
     }
+    AddPanelController* that=self;
     [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_ADD paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
- 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (ino64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            NSLog(@"需要优化");
-              [self.navigationController popViewControllerAnimated:YES];
-            
-             [[NSNotificationCenter defaultCenter]postNotificationName:@"refrishCurrentList" object:nil];
-        });
-        
+         
+        [that.navigationController popViewControllerAnimated:YES];
+                   [[NSNotificationCenter defaultCenter]postNotificationName:@"refrishCurrentList" object:nil];
         
         
     }];
- 
+    
 }
 -(void)makeFourImgView;
 {
@@ -106,9 +101,14 @@ static AddPanelController *addPanelController = nil;
 }
 -(void)setFristtUrl:(NSString*)url;
 {
-    self.oneUrl=url;
-    self.imgItems=[[NSMutableArray alloc]init];
-    [self.imgItems addObject:self.oneUrl];
+    NSLog(@"%@",url);
+   
+    if(!self.imgItems){
+        self.imgItems=[[NSMutableArray alloc]init];
+    }else{
+        [self.imgItems removeAllObjects];
+    }
+    [self.imgItems addObject:url];
 }
 -(void)refrishData;
 {

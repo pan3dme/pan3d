@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AddPanelController : UIViewController
 + (instancetype)default;
+@property(nonatomic,strong)NSMutableArray<NSString*>*  imgItems;
 -(void)setFristtUrl:(NSString*)url;
 @end
 
