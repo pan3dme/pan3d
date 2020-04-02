@@ -63,7 +63,7 @@ static DynamicModel *dynamicModel = nil;
 }
 
 
--(void)GetDynamicSelfBlog:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
+-(void)GetDynamicSelfBlog:(NSString*)url paramDict:(NSDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 {
     
     NSMutableString*    params = [[NSMutableString alloc] init];
@@ -94,7 +94,7 @@ static DynamicModel *dynamicModel = nil;
     [dataTask resume];
     
 }
--(void)GetDynamicByValue:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
+-(void)GetDynamicByValue:(NSString*)url paramDict:(NSDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 {
     
     NSString *webURL= [ NSString stringWithFormat:self.rootUrl,url ];
@@ -109,7 +109,7 @@ static DynamicModel *dynamicModel = nil;
         
     }];
 }
--(void)basePostToUrl:(NSString*)url paramDict:(NSMutableDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
+-(void)basePostToUrl:(NSString*)url paramDict:(NSDictionary*)paramDict   PostSuccess:(SuccessBlock)PostSuccess ;
 {
     
     NSMutableString*    params = [[NSMutableString alloc] init];

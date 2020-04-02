@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UITextField*  inputTextField;
 @property(nonatomic,strong)UILabel*  totalNumLabel;
 @property(nonatomic,strong)UIView*  picListView;
- 
 @property(nonatomic,strong)NSMutableArray<AddImgVideoCell*>*  cellItems;
 
 @end

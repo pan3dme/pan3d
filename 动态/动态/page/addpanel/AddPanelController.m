@@ -65,20 +65,40 @@ static AddPanelController *addPanelController = nil;
 }
 -(void)preeNext
 {
-    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
-    self.inputTextField.text=@"333";
-    [dic setObject:self.inputTextField.text forKey:@"content"];
-    for(int i=0;i<self.imgItems.count;i++){
-        [dic setObject:self.imgItems[i]  forKey:[NSString stringWithFormat:@"image%d",i+1]];
+    if(self.imgItems.count==0){
+        NSLog(@"请上传图片或视频");
+        return;
     }
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];
+    [dic setObject:self.inputTextField.text forKey:@"content"];
+     BOOL isOnlyMove=self.imgItems.count&& [self.imgItems[0] rangeOfString:@".mov"].location != NSNotFound;
+    if(isOnlyMove){//上传的是视频
+         [dic setObject:self.imgItems[0]  forKey:@"vidio_url"];
+    }else{
+        for(int i=0;i<self.imgItems.count;i++){
+                [dic setObject:self.imgItems[i]  forKey:[NSString stringWithFormat:@"image%d",i+1]];
+            
+          //   NSString* tk=[NSString stringWithFormat:@"d%@",self.imgItems[i]];
+          //  NSString* tk=[NSString stringWithFormat:@"d%@",self.imgItems[i]];
+         
+            
+           // [dic setObject:tk  forKey:[NSString stringWithFormat:@"image%d",i+1]];
+         }
+    }
+ 
+ 
     AddPanelController* that=self;
-    [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_ADD paramDict:dic  PostSuccess:^(NSDictionary *responseJson) {
+    //GetDynamicByValue
+    //basePostToUrl
+  
+    [[ DynamicModel default] basePostToUrl:PLATFORM_GAME_BLOG_ADD paramDict:[NSDictionary dictionaryWithDictionary:dic]  PostSuccess:^(NSDictionary *responseJson) {
          
         [that.navigationController popViewControllerAnimated:YES];
                    [[NSNotificationCenter defaultCenter]postNotificationName:@"refrishCurrentList" object:nil];
         
         
     }];
+ 
     
 }
 -(void)makeFourImgView;
@@ -97,8 +117,8 @@ static AddPanelController *addPanelController = nil;
 {
     NSLog(@"%@",url);
    
- 
-        self.imgItems=[[NSMutableArray alloc]init];
+    self.imgItems=[[NSMutableArray alloc]init];
+    
     [self.imgItems addObject:url];
 }
 -(void)refrishData;
