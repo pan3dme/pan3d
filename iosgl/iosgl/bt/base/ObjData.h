@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSArray  *nrms;
 @property (nonatomic, copy)  NSArray  *indexs;
 
+ 
+@property (nonatomic, assign)  BOOL compressBuffer  ;
+
 @property (nonatomic, assign)  int uvsOffsets  ;
 @property (nonatomic, assign)  int lightuvsOffsets  ;
 @property (nonatomic, assign)  int normalsOffsets  ;

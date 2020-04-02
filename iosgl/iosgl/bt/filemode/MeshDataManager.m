@@ -66,7 +66,7 @@ static MeshDataManager *instance = nil;
     [skinMesh makeHitBoxItem];
     
     int meshNum = [byte readInt];
-    NSMutableDictionary* allParticleDic=[[NSMutableDictionary alloc]init];
+  //  NSMutableDictionary* allParticleDic=[[NSMutableDictionary alloc]init];
     
     for (int i = 0; i < meshNum; i++) {
         MeshData* meshData =[[MeshData alloc]init];
@@ -92,6 +92,7 @@ static MeshDataManager *instance = nil;
     }
     dataWidth += 8;
     len *= dataWidth * 4;
+    int verOffsets=0;
     int uvsOffsets = 3; // 1
     int normalsOffsets =  uvsOffsets + 2; // 2
     int tangentsOffsets = normalsOffsets + 3; //3
@@ -107,58 +108,33 @@ static MeshDataManager *instance = nil;
         boneIDOffsets = uvsOffsets + 2;
     }
     int boneWeightOffsets = boneIDOffsets + 4;
-    NSLog(@"----%d",boneWeightOffsets);
+   
+     int buffStride=dataWidth * 4;
+     NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:len];
+    
+    meshData.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:verOffsets stride:buffStride readType:0];
+    meshData.uvs=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:buffStride readType:0];
+    meshData.nrms=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:normalsOffsets stride:buffStride readType:0];
+    meshData.tangents=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:tangentsOffsets stride:buffStride readType:0];
+    meshData.bitangents=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:bitangentsOffsets stride:buffStride readType:0];
+    meshData.boneIDAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:boneIDOffsets stride:buffStride readType:2];
+    meshData.boneWeightAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:boneWeightOffsets stride:buffStride readType:1];
+    
+    NSMutableData *indexNsData = [[NSMutableData alloc]init];
+    meshData.indexs=   [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
+    meshData.boneNewIDAry=   [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
     
     
-    /*
+    meshData.compressBuffer = YES;
+    meshData.uvsOffsets = uvsOffsets * 4;
+    meshData.normalsOffsets = normalsOffsets * 4;
+    meshData.tangentsOffsets = tangentsOffsets * 4;
+    meshData.bitangentsOffsets = bitangentsOffsets * 4;
+    meshData.boneIDOffsets = boneIDOffsets * 4;
+    meshData.boneWeightOffsets = boneWeightOffsets * 4;
+    meshData.stride = dataWidth * 4;
     
-
-         
-           
-
-         
-            
-
-            var arybuff: ArrayBuffer = new ArrayBuffer(len);
-            var data: DataView = new DataView(arybuff);
-
-            BaseRes.readBytes2ArrayBuffer(byte, data, 3, 0, dataWidth);//vertices
-            BaseRes.readBytes2ArrayBuffer(byte, data, 2, uvsOffsets, dataWidth);//uvs
-            BaseRes.readBytes2ArrayBuffer(byte, data, 3, normalsOffsets, dataWidth);//normals
-            BaseRes.readBytes2ArrayBuffer(byte, data, 3, tangentsOffsets, dataWidth);//tangents
-            BaseRes.readBytes2ArrayBuffer(byte, data, 3, bitangentsOffsets, dataWidth);//bitangents
-
-            BaseRes.readBytes2ArrayBuffer(byte, data, 4, boneIDOffsets, dataWidth,2);//boneIDAry
-            BaseRes.readBytes2ArrayBuffer(byte, data, 4, boneWeightOffsets, dataWidth,1);//boneWeightAry
-
-
-            // BaseRes.readFloatTwoByte(byte, meshData.vertices);
-            // BaseRes.readFloatTwoByte(byte, meshData.uvs);
-            // BaseRes.readFloatTwoByte(byte, meshData.normals);
-            // BaseRes.readFloatTwoByte(byte, meshData.tangents);
-            // BaseRes.readFloatTwoByte(byte, meshData.bitangents);
-
-            // BaseRes.readIntForOneByte(byte, meshData.boneIDAry);
-            // BaseRes.readFloatOneByte(byte, meshData.boneWeightAry);
-
-
-            BaseRes.readIntForTwoByte(byte, meshData.indexs);
-            BaseRes.readIntForTwoByte(byte, meshData.boneNewIDAry);
-
-            meshData.compressBuffer = true;
-            meshData.uvsOffsets = uvsOffsets * 4;
-            meshData.normalsOffsets = normalsOffsets * 4;
-            meshData.tangentsOffsets = tangentsOffsets * 4;
-            meshData.bitangentsOffsets = bitangentsOffsets * 4;
-
-            meshData.boneIDOffsets = boneIDOffsets * 4;
-            meshData.boneWeightOffsets = boneWeightOffsets * 4;
-
-            meshData.stride = dataWidth * 4;
-
-            meshData.vertexBuffer = Scene_data.context3D.uploadBuff3DArrayBuffer(arybuff);
-            meshData.indexBuffer = Scene_data.context3D.uploadIndexBuff3D(meshData.indexs);
-     */
+  
 }
 /*
  
