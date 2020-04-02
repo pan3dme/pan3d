@@ -17,13 +17,7 @@ AddImgVideoCellDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate
 >
-
-@property(nonatomic,strong)UITextField*  inputTextField;
-@property(nonatomic,strong)UILabel*  totalNumLabel;
-@property(nonatomic,strong)UIView*  picListView;
  
-@property(nonatomic,strong)NSMutableArray<AddImgVideoCell*>*  cellItems;
-
 @end
 static AddPanelController *addPanelController = nil;
 @implementation AddPanelController
@@ -112,14 +106,17 @@ static AddPanelController *addPanelController = nil;
 }
 -(void)refrishData;
 {
+     
     for (int i=0; i<self.cellItems.count; i++) {
         AddImgVideoCell* cell= self.cellItems[i];
-        if(i<=self.imgItems.count){
-            cell.hidden=NO;
+        BOOL isOnlyMove=[self.imgItems[0] rangeOfString:@".mov"].location != NSNotFound;
+        if(i<=self.imgItems.count ){
+             cell.hidden=isOnlyMove && i>0;
             if(i<self.imgItems.count){
                 [cell setImageUrl:self.imgItems[i]];
             }else{
                 [cell setImageUrl:@""];
+                
             }
         }else{
             cell.hidden=YES;
@@ -147,7 +144,12 @@ static AddPanelController *addPanelController = nil;
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", @"public.image", nil];
+    if(self.imgItems.count){
+         imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.image", nil];
+    }else{
+         imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", @"public.image", nil];
+    }
+   
     [self presentViewController:imagePicker animated:YES completion:NULL];
 }
 #pragma mark - UIImagePickerControllerDelegate

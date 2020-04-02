@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddVideoView : UIView
 -(void)resetUrl:(NSString*)url;
+
+@property (nonatomic, strong) UIView *topview;
+@property (nonatomic, strong)  AVPlayer *player;
+@property (nonatomic, strong)  AVPlayerLayer *uiAVPlayerLayer;
+@property (nonatomic, strong)  AVPlayerItem * playerItem;
+@property (nonatomic, strong)  NSString * lastplayUrl;
+
 @end
 
 NS_ASSUME_NONNULL_END

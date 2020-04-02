@@ -14,15 +14,7 @@
 
 
 @interface AddImgVideoCell ()
-@property (nonatomic,strong)UIImageView* picImage;
-@property (nonatomic,strong)UIImageView* camIcamBut;
-@property (nonatomic,strong)UIButton* closeXbut;
-@property (nonatomic,strong)UILabel* progressLabel;
-@property (nonatomic,strong)NSString* soureUrl;
 
-@property (nonatomic,strong)AddVideoView* addVideoView;
-
- 
 
 
 @end

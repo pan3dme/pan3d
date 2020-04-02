@@ -10,11 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface AddVideoView()
-@property (nonatomic, strong) UIView *topview;
-@property (nonatomic, strong)  AVPlayer *player;
-@property (nonatomic, strong)  AVPlayerLayer *uiAVPlayerLayer;
-@property (nonatomic, strong)  AVPlayerItem * playerItem;
-@property (nonatomic, strong)  NSString * lastplayUrl;
+
 @end
 @implementation AddVideoView
 
@@ -23,7 +19,7 @@
     self = [super init];
     if (self) {
         [self initConfig];
-        self.backgroundColor=[UIColor redColor];
+        self.backgroundColor=[UIColor clearColor];
         
     }
     return self;
