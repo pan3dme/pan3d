@@ -14,7 +14,7 @@
     protected _byte: ByteArray;
     protected imgNum: number;
     protected imgLoadNum: number;
-    protected _imgComplete: boolean;
+    protected _imgComplete_imgComplete: boolean;
 
     //public imgAry: Array<string>;
     //public objAry: Array<string>;

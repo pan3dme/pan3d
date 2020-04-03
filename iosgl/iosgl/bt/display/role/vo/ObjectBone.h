@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjectBone : ObjectBaseBone
-@property(nonatomic,assign)float   changtype;
-@property(nonatomic,assign)float   startIndex;
+@property(nonatomic,assign)int   changtype;
+@property(nonatomic,assign)int   startIndex;
 @end
 
 NS_ASSUME_NONNULL_END

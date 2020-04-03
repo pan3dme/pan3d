@@ -66,13 +66,18 @@
     for (int i = 0; i < actionNum; i++) {
         NSString* actionName   = [actionByte readUTF];
         [[AnimManager default] readData:actionByte url:[self.roleUrl stringByAppendingString:actionName]];
-         
-//        AnimManager.getInstance().readData($actionByte, this.roleUrl + actionName);
-//        this.actionAry.push(actionName);
+        [self.actionAry addObject:actionName];
     }
-//    this.read(() => { this.readNext() });//readimg
-
-    
+    [self read:^(NSString* code) {
+        [self readNext];
+    }];
+  
+}
+-(void) readNext;
+{
+    [self read];
+    [self read];
+    self.fun(@"1");
 }
 -(void)readMesh;
 {

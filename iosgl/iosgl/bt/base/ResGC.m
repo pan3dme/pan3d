@@ -9,5 +9,12 @@
 #import "ResGC.h"
 
 @implementation ResGC
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+           self.dic=[[NSMutableDictionary alloc]init];
+    }
+    return self;
+}
 @end

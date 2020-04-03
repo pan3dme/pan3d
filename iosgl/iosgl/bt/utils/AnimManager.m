@@ -8,12 +8,14 @@
 
 #import "AnimManager.h"
 #import "ByteArray.h"
+#import "Quaternion.h"
 #import "AnimData.h"
 #import "ObjectBone.h"
 static AnimManager *instance = nil;
 @implementation AnimManager
 + (instancetype)default{
     if (instance == nil) {
+     
         instance = [[AnimManager alloc] init];
     }
     return instance;
@@ -63,35 +65,121 @@ static AnimManager *instance = nil;
 
    
     animData.matrixAry =   [self processFrame:frameAry hierarchyList:hierarchyList];
-
-         //  this._dic[$url] = animData;
-    
-    
-    return nil;
+    self.dic[url] = animData;
+    return animData;
 }
 -(NSMutableArray<NSMutableArray<Matrix3D*>*>*)processFrame:(NSMutableArray<NSMutableArray<NSNumber*>*>*)frameAry hierarchyList:(NSMutableArray<ObjectBone*>*)hierarchyList
  
 {
-    NSMutableArray<NSMutableArray<ObjectBone*>*>* newFrameAry=[[NSMutableArray alloc]init];
+    NSMutableArray<NSMutableArray<ObjectBaseBone*>*>* newFrameAry=[[NSMutableArray alloc]init];
     
     for (int i = 0; i < frameAry.count; i++) {
-        //  newFrameAry.push(this.frameToBone(frameAry[i], hierarchyList));//
-      }
-      
-    
-    
-    return nil;
+        [newFrameAry addObject:  [self frameToBone:frameAry[i] hierarchyList:hierarchyList]];
+     }
+    return [self setFrameToMatrix:newFrameAry];
 }
-/*
-private processFrame(frameAry: Array<Array<number>>, hierarchyList: Array<ObjectBone>): Array<Array<Matrix3D>> {
-    var newFrameAry: Array<Array<ObjectBaseBone>> = new Array;
-    for (var i: number = 0; i < frameAry.length; i++) {
-        newFrameAry.push(this.frameToBone(frameAry[i], hierarchyList));
+-(float) getW:(float)x y:(float)y z:(float)z;
+{
+    float t = 1 - (x * x + y * y + z * z);
+    if(t<0) {
+        t = 0;
+    }else{
+        t = -sqrt(t);
     }
-    
-    return this.setFrameToMatrix(newFrameAry);
+    return t;
 }
-*/
+-(NSMutableArray<NSMutableArray<Matrix3D*>*>*)setFrameToMatrix:(NSMutableArray<NSMutableArray<ObjectBaseBone*>*>*)frameAry;
+{
+    NSMutableArray<NSMutableArray<Matrix3D*>*>* matrixAry  = [[NSMutableArray alloc]init];
+    for (int j = 0; j < frameAry.count; j++) {
+        NSMutableArray<ObjectBaseBone*>* boneAry = frameAry[j];
+        Quaternion* Q0;;
+        Matrix3D* newM  = [[Matrix3D alloc]init];
+        NSMutableArray<Matrix3D*>* frameMatrixAry=[[NSMutableArray alloc]init];
+        [matrixAry addObject:frameMatrixAry];
+        for (int i = 0; i < boneAry.count; i++) {
+            ObjectBaseBone* xyzfarme0  = boneAry[i];
+            Q0 = [[Quaternion alloc]x:xyzfarme0.qx y:xyzfarme0.qy z:xyzfarme0.qz];
+            Q0.w = [self getW:Q0.x y:Q0.y z:Q0.z];
+           
+            if (xyzfarme0.father == -1) {
+                newM = [Q0 toMatrix3D];
+                [newM appendTranslation:xyzfarme0.tx y:xyzfarme0.ty z:xyzfarme0.tz];
+                [newM appendRotation:-90 axis:Vector3D.X_AXIS];
+                [frameMatrixAry addObject:newM];
+            } else {
+               // ObjectBaseBone* fatherBone   = boneAry[xyzfarme0.father];
+                newM = [Q0 toMatrix3D];
+                [newM appendTranslation:xyzfarme0.tx y:xyzfarme0.ty z:xyzfarme0.tz];
+                [newM append:frameMatrixAry[xyzfarme0.father]];
+                [frameMatrixAry addObject:newM];
+            }
+        }
+        for (int i = 0; i < frameMatrixAry.count; i++) {
+            [frameMatrixAry[i] appendScale:-1 y:1 z:1]; //特别标记，因为四元数和矩阵运算结果不一  先存正确的矩阵
+        }
+    }
+
+    return matrixAry;
+ 
+}
+ 
+-(NSMutableArray<ObjectBaseBone*>*)frameToBone:(NSMutableArray<NSNumber*>*)frameData hierarchyList:(NSMutableArray<ObjectBone*>*)hierarchyList ;
+{
+    NSMutableArray<ObjectBaseBone*>* _arr= [[NSMutableArray alloc]init];
+ 
+    for (int i = 0; i < hierarchyList.count; i++) {
+        ObjectBaseBone* _temp = [[ObjectBaseBone alloc]init];
+        _temp.father = hierarchyList[i].father;
+        int k = 0;
+        if (hierarchyList[i].changtype & 1) {
+            _temp.tx = [frameData[hierarchyList[i].startIndex + k] floatValue];
+            ++k;
+        } else {
+            _temp.tx = hierarchyList[i].tx;
+        }
+
+        if (hierarchyList[i].changtype & 2) {
+            _temp.ty = [frameData[hierarchyList[i].startIndex + k]floatValue];
+            ++k;
+        } else {
+            _temp.ty = hierarchyList[i].ty;
+        }
+
+        if (hierarchyList[i].changtype & 4) {
+            _temp.tz = [frameData[hierarchyList[i].startIndex + k]floatValue];
+            ++k;
+        } else {
+            _temp.tz = hierarchyList[i].tz;
+        }
+
+        if (hierarchyList[i].changtype & 8) {
+            _temp.qx = [frameData[hierarchyList[i].startIndex + k]floatValue];
+            ++k;
+        } else {
+            _temp.qx = hierarchyList[i].qx;
+        }
+
+        if (hierarchyList[i].changtype & 16) {
+            _temp.qy = [frameData[hierarchyList[i].startIndex + k]floatValue];
+            ++k;
+        } else {
+            _temp.qy = hierarchyList[i].qy;
+        }
+
+        if (hierarchyList[i].changtype & 32) {
+            _temp.qz = [frameData[hierarchyList[i].startIndex + k]floatValue];
+            ++k;
+        } else {
+            _temp.qz = hierarchyList[i].qz;
+        }
+ 
+        [_arr addObject:_temp];
+    }
+ 
+    return _arr;
+}
+ 
 -(NSMutableArray<NSNumber*>*)readFrameTypeData:(ByteArray*)byte;
 {
     NSMutableArray<NSNumber*>* arr=[[NSMutableArray alloc]init];
@@ -119,7 +207,7 @@ private processFrame(frameAry: Array<Array<number>>, hierarchyList: Array<Object
                 if (isStand) {  //注意这里的特殊，针对站立时的旋转精度用浮点
                     [frameItemAry addObject:[NSNumber numberWithFloat:[byte readFloat] ]];
                 } else {
-                    [frameItemAry addObject:[NSNumber numberWithFloat:[byte readShort]/32767 ]];
+                    [frameItemAry addObject:[NSNumber numberWithFloat:[byte readShort]/32767.0]];
                 }
              
             }
@@ -129,79 +217,7 @@ private processFrame(frameAry: Array<Array<number>>, hierarchyList: Array<Object
     
     
     
-    
-    
- /*
- 
-        for (var i: number = 0; i < numLength; i++) {
-            var frameItemAryLength: number = byte.readInt();
-            var frameItemAry: Array<number> = new Array;
-            frameAry.push(frameItemAry);
-            for (var j: number = 0; j < frameItemAryLength; j++) {
-                if ($frameTyeArr[j]) {
-                    frameItemAry.push(byte.readFloatTwoByte($scaleNum))
-                } else {
-                    if ($isStand) {  //注意这里的特殊，针对站立时的旋转精度用浮点
-                        frameItemAry.push(byte.readFloat())
-                    } else {
-                        frameItemAry.push(byte.readShort() / 32767)
-                    }
-                 
-                }
-              
-            }
-        }
-  */
-    
-
 }
-/*
- private readFrameData(byte: ByteArray, frameAry: Array<Array<number>>): void
-   {
-       var $frameTyeArr: Array<boolean> = this.readFrameTypeData(byte)
-       var $isStand:boolean = byte.readBoolean() //是否为站立，这里特殊给站立的旋转设置其权重值不压缩
-       var $scaleNum: number = byte.readFloat();
-       var numLength: number = byte.readInt();
-       for (var i: number = 0; i < numLength; i++) {
-           var frameItemAryLength: number = byte.readInt();
-           var frameItemAry: Array<number> = new Array;
-           frameAry.push(frameItemAry);
-           for (var j: number = 0; j < frameItemAryLength; j++) {
-               if ($frameTyeArr[j]) {
-                   frameItemAry.push(byte.readFloatTwoByte($scaleNum))
-               } else {
-                   if ($isStand) {  //注意这里的特殊，针对站立时的旋转精度用浮点
-                       frameItemAry.push(byte.readFloat())
-                   } else {
-                       frameItemAry.push(byte.readShort() / 32767)
-                   }
-                
-               }
-             
-           }
-       }
-
-   }
- */
-
-/*
- 
-    
-
-     this.readFrameData(byte, frameAry);
-
-     numLength = byte.readInt();
-     for (var i: number = 0; i < numLength; i++) {
-         animData.posAry.push(byte.readVector3D());
-     }
-
-     animData.matrixAry = this.processFrame(frameAry, hierarchyList);
-
-    
-
-     this._dic[$url] = animData;
-     return animData;
- }
- */
 
 @end
+

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjectBaseBone : NSObject
-@property(nonatomic,assign)float father;
+@property(nonatomic,assign)int father;
 @property(nonatomic,assign)float  tx;
 @property(nonatomic,assign)float  ty;
 @property(nonatomic,assign)float  tz;

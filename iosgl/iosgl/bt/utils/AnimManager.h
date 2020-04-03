@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "ByteArray.h"
 #import "AnimData.h"
+#import "ResGC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AnimManager : NSObject
+@interface AnimManager :ResGC
 + (instancetype)default;
 -(AnimData*)readData:(ByteArray*)byte url:(NSString*)url;
 @end
