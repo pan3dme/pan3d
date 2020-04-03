@@ -12,19 +12,21 @@
 
 @interface MeshData()
 
-
-
-
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
-@property(nonatomic,strong)Material* material;
 
-
-
-@property(nonatomic,assign)float  uid;
-
+ 
  
 @end
 
 @implementation MeshData
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.particleAry=[[NSMutableArray alloc]init];
+    }
+    return self;
+}
 
 @end

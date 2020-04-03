@@ -23,6 +23,14 @@
     }
     return self;
 }
+- (instancetype)x:(float)x y:(float)y z:(float)z;
+{
+    _x=x;
+       _y=y;
+       _z=z;
+       _w=1;
+       return self;
+}
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
 {
     _x=x;
@@ -130,6 +138,16 @@
     
     outm.matrix4x4=tempM4x4;
     return outm;
+}
+-(void)setMd5W;
+{
+    Quaternion* this=self;
+    this.w = 1 - (this.x * this.x + this.y * this.y + this.z * this.z);
+    if (this.w < 0) {
+        this.w = 0;
+    } else {
+        this.w = - sqrt( this.w);
+    }
 }
 /*
  

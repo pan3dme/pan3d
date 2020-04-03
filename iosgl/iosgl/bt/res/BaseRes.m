@@ -326,9 +326,33 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
  
     
 }
+  //读取材质参数
 +(NSArray<NSDictionary*>*)readMaterialParamData:(ByteArray*)byte;
 {
-    
+    int mpNum=[byte readInt];
+    if (mpNum > 0) {
+           NSMutableArray<NSMutableDictionary*>* mpAry  =[[NSMutableArray alloc]init];
+           for (int j = 0; j < mpNum; j++) {
+               NSMutableDictionary* obj =[[NSMutableDictionary alloc]init];
+               obj[@"name"] = [byte readUTF];
+               obj[@"type"] = [NSNumber numberWithInt:[byte readByte]];
+               if ([obj[@"type"]intValue] == 0) {
+                   obj[@"url"] = [byte readUTF];
+               } else if ([obj[@"type"] intValue]== 1) {
+                   obj[@"x"]  =  [NSNumber numberWithInt:[byte readFloat]];
+               } else if ([obj[@"type"]intValue] == 2) {
+                   obj[@"x"] =  [NSNumber numberWithInt:[byte readFloat]];
+                   obj[@"y"] =  [NSNumber numberWithInt:[byte readFloat]];
+               } else if ([obj[@"type"]intValue] == 3) {
+                   obj[@"x"]=  [NSNumber numberWithInt:[byte readFloat]];
+                   obj[@"y"]=  [NSNumber numberWithInt:[byte readFloat]];
+                   obj[@"z"] =  [NSNumber numberWithInt:[byte readFloat]];
+               }
+               [mpAry addObject:obj];
+           }
+        return mpAry;
+    }
+     
     return nil;
 }
 /*

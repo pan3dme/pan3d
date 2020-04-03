@@ -10,6 +10,7 @@
 #import "Vector3D.h"
 #import "GL_Header.h"
 #import "ByteArray.h"
+#import "AnimManager.h"
 #import "LoadManager.h"
 #import "MeshDataManager.h"
 
@@ -52,6 +53,25 @@
 }
 -(void)readAction;
 {
+    int zipLen = [self.byte readInt];
+       NSData *zipNsData=  [self.byte getNsDataByLen:zipLen];
+       NSData *outputData =[self gzipInflate:zipNsData] ;
+       NSLog(@"len-%d-解压后长度>%ld",zipLen,outputData.length);
+       
+       ByteArray *actionByte=  [[ByteArray alloc]init:outputData];
+    
+    
+    self.actionAry=[[NSMutableArray alloc]init];
+    int actionNum = [actionByte readInt];
+    for (int i = 0; i < actionNum; i++) {
+        NSString* actionName   = [actionByte readUTF];
+        [[AnimManager default] readData:actionByte url:[self.roleUrl stringByAppendingString:actionName]];
+         
+//        AnimManager.getInstance().readData($actionByte, this.roleUrl + actionName);
+//        this.actionAry.push(actionName);
+    }
+//    this.read(() => { this.readNext() });//readimg
+
     
 }
 -(void)readMesh;

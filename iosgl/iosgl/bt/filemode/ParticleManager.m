@@ -7,6 +7,7 @@
 //
 #import "CombineParticleData.h"
 #import "ParticleManager.h"
+#import "CombineParticleData.h"
 #import "TimeUtil.h"
 static ParticleManager *instance = nil;
 @implementation ParticleManager
@@ -65,6 +66,23 @@ static ParticleManager *instance = nil;
     [self updateTime];
     [self updateRenderDic];
 }
+
+-(void)registerUrl:(NSString*)url;
+{
+    if (self.dic[url]) {
+            CombineParticleData* baseData  =self.dic[url];
+        }
+}
+/*
+public registerUrl($url: string): void {
+      $url = $url.replace("_byte.txt", ".txt")
+      $url = $url.replace(".txt", "_byte.txt")
+      if (this._dic[$url]) {
+          var baseData: CombineParticleData = this._dic[$url];
+          baseData.useNum++;
+      }
+  }
+*/
 -(void)updateRenderDic;
 {
     for (NSString* key in self.renderDic) {

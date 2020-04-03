@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  +(NSMutableArray*)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
 +(NSArray<NSDictionary*>*)readMaterialParamData:(ByteArray*)byte;
 -(NSMutableArray*)readMaterialInfo;
+- (NSData *)gzipInflate:(NSData*)data;
 @end
 
 NS_ASSUME_NONNULL_END

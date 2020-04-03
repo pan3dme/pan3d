@@ -7,6 +7,8 @@
 //
 
 #import "ObjData.h"
+#import "Material.h"
+#import "BindParticle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,13 +20,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSArray  *boneNewIDAry;
 
 @property(nonatomic,strong)NSString* materialUrl;
+@property(nonatomic,strong)Material* material;
 @property(nonatomic,strong)NSArray<NSDictionary*>* materialParamData;
 
 @property(nonatomic,assign)GLuint boneWeightBuffer ;
 @property(nonatomic,assign)GLuint boneIdBuffer ;
 @property(nonatomic,assign)int  boneIDOffsets;
 @property(nonatomic,assign)int  boneWeightOffsets;
-  
+@property(nonatomic,assign)int  uid;
+
+@property(nonatomic,strong)NSMutableArray<BindParticle*>*  particleAry;
  
 @end
 

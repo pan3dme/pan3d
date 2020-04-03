@@ -11,9 +11,12 @@
 #import "ByteArray.h"
 #import "SkinMesh.h"
 #import "Vector2D.h"
+#import "Quaternion.h"
 #import "MeshData.h"
-
+#import "BindParticle.h"
 #import "ResManager.h"
+#import "BoneSocketData.h"
+#import "ParticleManager.h"
 @interface MeshDataManager ()
 @property(nonatomic,strong)NSMutableDictionary* loadDic;
 @end
@@ -30,7 +33,9 @@ static MeshDataManager *instance = nil;
 {
     self = [super init];
     if (self) {
+        self.dic=[[NSMutableDictionary alloc]init];
         self.loadDic=[[NSMutableDictionary alloc]init];
+        
     }
     return self;
 }
@@ -67,7 +72,7 @@ static MeshDataManager *instance = nil;
     [skinMesh makeHitBoxItem];
     
     int meshNum = [byte readInt];
-  //  NSMutableDictionary* allParticleDic=[[NSMutableDictionary alloc]init];
+   NSMutableDictionary* allParticleDic=[[NSMutableDictionary alloc]init];
     
     for (int i = 0; i < meshNum; i++) {
         MeshData* meshData =[[MeshData alloc]init];
@@ -78,25 +83,76 @@ static MeshDataManager *instance = nil;
               meshData.materialUrl = [byte readUTF];
                 meshData.materialParamData= [BaseRes readMaterialParamData:byte];
        
-       
-        /*
-              meshData.materialParamData = BaseRes.readMaterialParamData(byte);
-
-              var particleNum: number = byte.readInt();
-              for (var j: number = 0; j < particleNum; j++) {
-
-                  var bindParticle: BindParticle = new BindParticle(byte.readUTF(), byte.readUTF());
-                  meshData.particleAry.push(bindParticle);
-                  allParticleDic[bindParticle.url] = true;
+        int particleNum = [byte readInt];
+              for (int j = 0; j < particleNum; j++) {
+                  BindParticle* bindParticle=[[BindParticle alloc]init:[byte readUTF] socketName:[byte readUTF]];
+                  [meshData.particleAry  addObject:bindParticle];
+                  allParticleDic[bindParticle.url] = [NSNumber numberWithInt:1];
+ 
               }
 
-              $skinMesh.addMesh(meshData);
-        */
+        [skinMesh addMesh:meshData];
+         
     }
+    for (NSString* key in allParticleDic) {
+        [[ParticleManager default] registerUrl: allParticleDic[key]];
+    }
+    skinMesh.allParticleDic = allParticleDic;
     
+    int bindPosLength = [byte readInt];
+
+    NSMutableArray<NSArray<NSNumber*>*>* bindPosAry=[[NSMutableArray alloc]init];
+    for (int j = 0; j < bindPosLength; j++) {
+        NSArray * ary = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]], nil];
+        [bindPosAry addObject:ary];
+    }
+    [self getBindPosMatrix:bindPosAry skinMesh:skinMesh];
+ 
+     int sokcetLenght = [byte readInt];
     
+    skinMesh.boneSocketDic = [[NSMutableDictionary alloc]init];
+    for (int j = 0; j < sokcetLenght; j++) {
+        BoneSocketData* boneData=[[BoneSocketData alloc]init];
+        boneData.name = [byte readUTF];
+        boneData.boneName =[byte readUTF];
+        boneData.index =[byte readInt];
+        boneData.x = [byte readFloat];
+        boneData.y =[byte readFloat];
+        boneData.z = [byte readFloat];
+        boneData.rotationX = [byte readFloat];
+        boneData.rotationY = [byte readFloat];
+        boneData.rotationZ = [byte readFloat];
+        skinMesh.boneSocketDic[boneData.name] = boneData;
+    }
+     self.dic[url] = skinMesh;
+  
     
+ 
 }
+-(void)getBindPosMatrix:(NSArray<NSArray<NSNumber*>*>*)bindPosAry skinMesh:(SkinMesh*)skinMesh;
+{
+    NSMutableArray<Matrix3D*>* ary = [[NSMutableArray alloc]init];
+    NSMutableArray<Matrix3D*>* invertAry= [[NSMutableArray alloc]init];
+
+    for (int i = 0; i < bindPosAry.count; i++) {
+        NSArray<NSNumber*>* objbone= bindPosAry[i];
+      
+        Quaternion* OldQ=[[Quaternion alloc]x:objbone[0].floatValue y:objbone[1].floatValue z:objbone[2].floatValue];
+        [OldQ setMd5W];
+        Matrix3D* newM   = [OldQ  toMatrix3D];
+        [newM appendTranslation:objbone[3].floatValue y:objbone[4].floatValue z:objbone[5].floatValue];
+        
+        [invertAry addObject:[newM clone]];
+        [newM Invert];
+        [ary addObject:[newM clone]];
+   
+    }
+     skinMesh.bindPosMatrixAry = ary;
+     skinMesh.bindPosInvertMatrixAry = invertAry;
+
+
+}
+ 
 -(void)readMesh2OneBuffer:(ByteArray*)byte meshData:(MeshData*)meshData;
 {
     int len    = [byte  readInt];
@@ -159,78 +215,5 @@ static MeshDataManager *instance = nil;
     
   
 }
-/*
  
- 
-  
-     
-
- 
-     for (var i: number = 0; i < meshNum; i++) {
-        
- 
-
-
-
-         meshData.treNum = meshData.indexs.length;
-
-   
-
-         meshData.materialUrl = byte.readUTF();
-         meshData.materialParamData = BaseRes.readMaterialParamData(byte);
-
-         var particleNum: number = byte.readInt();
-         for (var j: number = 0; j < particleNum; j++) {
-
-             var bindParticle: BindParticle = new BindParticle(byte.readUTF(), byte.readUTF());
-             meshData.particleAry.push(bindParticle);
-             allParticleDic[bindParticle.url] = true;
-         }
-
-         $skinMesh.addMesh(meshData);
-
-
-     }
-
-     for(var key in allParticleDic){
-         ParticleManager.getInstance().registerUrl(key);
-     }
-
-     $skinMesh.allParticleDic = allParticleDic;
-
-     var bindPosLength: number = byte.readInt();
-
-     var bindPosAry: Array<Array<number>> = new Array;
-     for (var j: number = 0; j < bindPosLength; j++) {
-         var ary: Array<number> = new Array(byte.readFloat(), byte.readFloat(), byte.readFloat(),
-             byte.readFloat(), byte.readFloat(), byte.readFloat());
-         bindPosAry.push(ary);
-     }
-
-     this.getBindPosMatrix(bindPosAry, $skinMesh);
-
-     var sokcetLenght: number = byte.readInt();
-
-     $skinMesh.boneSocketDic = new Object();
-
-     for (var j: number = 0; j < sokcetLenght; j++) {
-         var boneData: BoneSocketData = new BoneSocketData();
-         boneData.name = byte.readUTF();
-         boneData.boneName = byte.readUTF();
-         boneData.index = byte.readInt();
-         boneData.x = byte.readFloat();
-         boneData.y = byte.readFloat();
-         boneData.z = byte.readFloat();
-         boneData.rotationX = byte.readFloat();
-         boneData.rotationY = byte.readFloat();
-         boneData.rotationZ = byte.readFloat();
-
-         $skinMesh.boneSocketDic[boneData.name] = boneData;
-     }
-
-     this._dic[$url] = $skinMesh;
-
-     return $skinMesh;
- }
- */
 @end

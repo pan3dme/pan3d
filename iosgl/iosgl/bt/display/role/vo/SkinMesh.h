@@ -8,6 +8,8 @@
 
 #import "ResCount.h"
 #import "Vector2D.h"
+#import "MeshData.h"
+#import "Matrix3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,8 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)Vector2D* hitBox;
 @property(nonatomic,assign)float fileScale;
 @property(nonatomic,assign)float tittleHeight;
-
+@property(nonatomic,strong)NSMutableDictionary*  allParticleDic;
+@property(nonatomic,strong)NSMutableDictionary* boneSocketDic ;
+@property(nonatomic,strong)NSMutableArray<Matrix3D*>*  bindPosInvertMatrixAry;
+@property(nonatomic,strong)NSMutableArray<Matrix3D*>*  bindPosMatrixAry;
 -(void)makeHitBoxItem;
+-(void)addMesh:(MeshData*)mesh;
 @end
 typedef void (^SkinMeshBfun)(SkinMesh* skinMesh);
 NS_ASSUME_NONNULL_END

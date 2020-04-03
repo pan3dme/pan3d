@@ -12,15 +12,14 @@
 #import "Vector2D.h"
 @interface SkinMesh()
 @property(nonatomic,strong)NSMutableArray<MeshData*>*  meshAry ;
-@property(nonatomic,strong)NSMutableArray<Matrix3D*>*  bindPosMatrixAry;
-@property(nonatomic,strong)NSMutableArray<Matrix3D*>*  bindPosInvertMatrixAry;
+
 @property(nonatomic,strong)NSMutableArray<NSString*>*   animUrlAry;
 @property(nonatomic,strong)NSMutableArray<NSNumber*>*   lightData;
 @property(nonatomic,strong)NSMutableArray<Vector3D*>*   hitPosItem;
 
-@property(nonatomic,strong)NSMutableDictionary* boneSocketDic ;
+
 @property(nonatomic,strong)NSMutableDictionary*  animDic;
-@property(nonatomic,strong)NSMutableDictionary*  allParticleDic;
+
  
 
 @property(nonatomic,assign)BOOL  ready;
@@ -33,4 +32,10 @@
 {
     
 }
+-(void)addMesh:(MeshData*)mesh;
+{
+    mesh.uid=(int)self.meshAry.count;
+    [self.meshAry addObject:mesh];
+}
+ 
 @end
