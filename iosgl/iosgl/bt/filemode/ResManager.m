@@ -26,13 +26,9 @@ static ResManager *instance = nil;
     RoleRes* roleRes = [[RoleRes alloc]init];
      roleRes.meshBatchNum = meshBatchNum;
     [roleRes load:url fun:^(NSString *localPath) {
-        
+        fun(roleRes);
     }];
-        
-//        roleRes.load(url, () => {
-//            $fun(roleRes);
-// 
-//        });
+         
 }
  
 @end

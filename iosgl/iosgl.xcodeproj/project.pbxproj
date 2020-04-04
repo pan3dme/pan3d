@@ -101,6 +101,7 @@
 		FE678839239B948D00262B53 /* ObjData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678838239B948D00262B53 /* ObjData.m */; };
 		FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE67883B239B973C00262B53 /* Display3DSprite.m */; };
 		FE678843239B980200262B53 /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678842239B980200262B53 /* SceneView.m */; };
+		FE6ECE682437FCA800EF805A /* MaterialAnimShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
 		FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */; };
 		FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE80570D2405BE15000F6D17 /* ParticleGpuData.m */; };
@@ -328,6 +329,8 @@
 		FE67883B239B973C00262B53 /* Display3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DSprite.m; sourceTree = "<group>"; };
 		FE678841239B980200262B53 /* SceneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneView.h; sourceTree = "<group>"; };
 		FE678842239B980200262B53 /* SceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneView.m; sourceTree = "<group>"; };
+		FE6ECE662437FCA800EF805A /* MaterialAnimShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialAnimShader.h; sourceTree = "<group>"; };
+		FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialAnimShader.m; sourceTree = "<group>"; };
 		FE74C8862396C85D0069A551 /* Base3dView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
 		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
 		FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DShader.h; sourceTree = "<group>"; };
@@ -646,6 +649,8 @@
 			isa = PBXGroup;
 			children = (
 				FE15ACA82435765E0062741F /* vo */,
+				FE6ECE662437FCA800EF805A /* MaterialAnimShader.h */,
+				FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */,
 				FE15ACA52435750A0062741F /* Display3dMovie.h */,
 				FE15ACA62435750A0062741F /* Display3dMovie.m */,
 			);
@@ -1197,6 +1202,7 @@
 				FE3D4EEC2401C24200185FD3 /* Display3DParticle.m in Sources */,
 				FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */,
 				FE189B2524049C2E008E2FF6 /* TimeLine.m in Sources */,
+				FE6ECE682437FCA800EF805A /* MaterialAnimShader.m in Sources */,
 				FE887D65241676A200025A74 /* Material.m in Sources */,
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
 				FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */,

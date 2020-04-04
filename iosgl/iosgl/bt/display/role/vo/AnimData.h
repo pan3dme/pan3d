@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Vector3D.h"
 #import "Matrix3D.h"
+#import "SkinMesh.h"
 #import "DualQuatFloat32Array.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -23,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableArray<NSMutableArray<Matrix3D*>*>*    matrixAry;
 @property(nonatomic,strong)NSMutableArray<NSMutableArray<DualQuatFloat32Array*>*>*    boneQPAry;
 
+-(void)processMesh:(SkinMesh*)skinMesh;
 @end
 
 NS_ASSUME_NONNULL_END

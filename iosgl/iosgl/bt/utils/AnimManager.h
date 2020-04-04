@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AnimManager :ResGC
 + (instancetype)default;
 -(AnimData*)readData:(ByteArray*)byte url:(NSString*)url;
+-(AnimData*)getAnimDataImmediate:(NSString*)url;
 @end
 
 NS_ASSUME_NONNULL_END

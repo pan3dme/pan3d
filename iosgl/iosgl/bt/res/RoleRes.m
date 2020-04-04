@@ -16,8 +16,8 @@
 
  
 @interface RoleRes()
-@property(nonatomic,strong)NSString* roleUrl;
-@property(nonatomic,strong)NSMutableArray<NSString*>* actionAry;
+
+
 @property(nonatomic,strong)SuccessBlock fun;
 @property(nonatomic,strong)Vector3D* ambientLightColor;
 @property(nonatomic,strong)Vector3D* sunLigthColor;

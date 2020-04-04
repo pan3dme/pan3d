@@ -10,8 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DualQuatFloat32Array : NSObject
+@interface Float32Array : NSMutableArray
+ 
+@end
 
+@interface DualQuatFloat32Array : NSObject
+@property(nonatomic,strong) Float32Array* quat;
+@property(nonatomic,strong) Float32Array* pos;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -238,7 +238,10 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         NSLog(@"imgurl-->%@",imgurl);
         int imgSize=  [self.byte readInt];
         NSLog(@"len-->%d",imgSize);
-        NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
+        if(imgSize){
+            // NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
+        }
+ 
       
         
         [self countImg];

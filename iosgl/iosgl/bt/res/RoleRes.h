@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RoleRes : BaseRes
 @property(nonatomic,assign)int meshBatchNum;
 -(void)load:(NSString*)url  fun:(SuccessBlock)fun;
+@property(nonatomic,strong)NSString* roleUrl;
+@property(nonatomic,strong)NSMutableArray<NSString*>* actionAry;
 @end
 typedef void (^RoleResBfun)(RoleRes* roleRes);
 

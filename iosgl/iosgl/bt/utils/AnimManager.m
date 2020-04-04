@@ -68,6 +68,10 @@ static AnimManager *instance = nil;
     self.dic[url] = animData;
     return animData;
 }
+-(AnimData*)getAnimDataImmediate:(NSString*)url;
+{
+     return self.dic[url];
+}
 -(NSMutableArray<NSMutableArray<Matrix3D*>*>*)processFrame:(NSMutableArray<NSMutableArray<NSNumber*>*>*)frameAry hierarchyList:(NSMutableArray<ObjectBone*>*)hierarchyList
  
 {

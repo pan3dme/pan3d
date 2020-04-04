@@ -8,6 +8,11 @@
 
 #import "DualQuatFloat32Array.h"
 
+ 
+@implementation Float32Array
+
+@end
+
 @implementation DualQuatFloat32Array
 
 @end
