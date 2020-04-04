@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableArray<Matrix3D*>*  bindPosInvertMatrixAry;
 @property(nonatomic,strong)NSMutableArray<Matrix3D*>*  bindPosMatrixAry;
 @property(nonatomic,strong)NSMutableArray<MeshData*>*  meshAry ;
+@property(nonatomic,strong)NSMutableDictionary*  animDic;
 -(void)makeHitBoxItem;
 -(void)addMesh:(MeshData*)mesh;
 -(void)loadMaterial;

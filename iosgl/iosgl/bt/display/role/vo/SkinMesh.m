@@ -21,11 +21,20 @@
 @property(nonatomic,strong)NSMutableArray<NSString*>*   animUrlAry;
 @property(nonatomic,strong)NSMutableArray<NSNumber*>*   lightData;
 @property(nonatomic,strong)NSMutableArray<Vector3D*>*   hitPosItem;
-@property(nonatomic,strong)NSMutableDictionary*  animDic;
+
 @property(nonatomic,assign)float  type;
 
 @end
 @implementation SkinMesh
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.animDic=[[NSMutableDictionary alloc]init];
+          self.meshAry=[[NSMutableArray alloc]init];
+    }
+    return self;
+}
 -(void)makeHitBoxItem;
 {
     
@@ -57,26 +66,7 @@
         
         
     } info:nil autoReg:YES regName:MaterialAnimShader.shaderStr shader3DCls:[[MaterialAnimShader alloc]init]];
-
-    /*
-    MaterialManager.getInstance().getMaterialByte(url, ($material: Material) => {
-        $meshData.material = $material;
-        if ($material.usePbr) {
-            MeshDataManager.getInstance().uploadPbrMesh($meshData, $material.useNormal);
-        } else if ($material.lightProbe || $material.directLight) {
-            MeshDataManager.getInstance().uploadPbrMesh($meshData, false);
-        }
-
-        if ($meshData.materialParamData){
-            $meshData.materialParam = new MaterialBaseParam();
-            $meshData.materialParam.setData($meshData.material, $meshData.materialParamData);
-        }
-
-        if ($fun) {
-            $fun($material);
-        }
-    }, null, true, MaterialAnimShader.MATERIAL_ANIM_SHADER, MaterialAnimShader);
-    */
+ 
 }
 
 -(void)setAction:(NSMutableArray<NSString*>*)actionAry roleUrl:(NSString*)roleUrl;

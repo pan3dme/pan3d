@@ -10,6 +10,7 @@
 #import "GL_Header.h"
 #import "ByteArray.h"
 #import "SkinMesh.h"
+#import "Scene_data.h"
 #import "Vector2D.h"
 #import "Quaternion.h"
 #import "MeshData.h"
@@ -52,8 +53,7 @@ static MeshDataManager *instance = nil;
     }
     this.loadDic[url] =[[NSMutableArray alloc]init];
     [this.loadDic[url] addObject:fun];
-    
-    [[ResManager default]loadRoleRes:url fun:^(RoleRes * _Nonnull roleRes) {
+    [[ResManager default]loadRoleRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(RoleRes * _Nonnull roleRes) {
          
         [self roleResCom:roleRes fun:^(NSString *localPath) {
             
@@ -63,63 +63,22 @@ static MeshDataManager *instance = nil;
 }
 -(void)roleResCom:(RoleRes*)roleRes fun:(SuccessBlock)fun;
 {
-
-    MeshDataManager* this=self;
-           NSString* url = roleRes.roleUrl;
-           SkinMesh* skinMesh = this.dic[url];
-            [skinMesh loadMaterial];
     
+    MeshDataManager* this=self;
+    NSString* url = roleRes.roleUrl;
+    SkinMesh* skinMesh = this.dic[url];
+    [skinMesh loadMaterial];
     [skinMesh setAction:roleRes.actionAry roleUrl:url];
     
- /*
-           if (roleRes.ambientLightColor) {
-               skinMesh.lightData = [[$roleRes.ambientLightColor.x, $roleRes.ambientLightColor.y, $roleRes.ambientLightColor.z],
-               [$roleRes.nrmDircet.x, $roleRes.nrmDircet.y, $roleRes.nrmDircet.z],
-               [$roleRes.sunLigthColor.x, $roleRes.sunLigthColor.y, $roleRes.sunLigthColor.z]];
-           }
-
-
-
-           for (var i: number = 0; i < this._loadDic[url].length; i++) {
-               this._loadDic[url][i](skinMesh);
-               skinMesh.useNum++;
-           }
-           delete this._loadDic[url];
-    */
-
-           skinMesh.ready = YES;
-
+    NSArray* arr=  this.loadDic[url];
+    for (int i = 0; i <arr.count ; i++) {
+        SkinMeshBfun temp=  arr[i];
+        temp(skinMesh);
+   }
+    skinMesh.ready = YES;
+    [this.loadDic removeObjectForKey:url];
 }
-/*
- private roleResCom($roleRes: RoleRes, $fun: Function): void {
-
-        var url: string = $roleRes.roleUrl;
-
-        var skinMesh: SkinMesh = this._dic[url];
-        skinMesh.loadMaterial();
  
-        skinMesh.setAction($roleRes.actionAry, url);
-
-        if ($roleRes.ambientLightColor) {
-            skinMesh.lightData = [[$roleRes.ambientLightColor.x, $roleRes.ambientLightColor.y, $roleRes.ambientLightColor.z],
-            [$roleRes.nrmDircet.x, $roleRes.nrmDircet.y, $roleRes.nrmDircet.z],
-            [$roleRes.sunLigthColor.x, $roleRes.sunLigthColor.y, $roleRes.sunLigthColor.z]];
-        }
-
-
-
-        for (var i: number = 0; i < this._loadDic[url].length; i++) {
-            this._loadDic[url][i](skinMesh);
-            skinMesh.useNum++;
-        }
-        delete this._loadDic[url];
-
-        skinMesh.ready = true;
-
-     
-
-    }
- */
  
 -(void)readData:(ByteArray*)byte batchNum:(int)batchNum url:(NSString*)url version:(int)version;
 {

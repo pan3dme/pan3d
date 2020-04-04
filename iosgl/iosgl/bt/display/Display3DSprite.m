@@ -108,4 +108,8 @@
     glEnableVertexAttribArray(position);
     glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,0, (GLfloat *)NULL+0);
 }
+-(void)updateBind;
+{
+    
+}
 @end

@@ -24,5 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)onCreated;
 -(void)setVc;
 -(void)setVa;
+-(void)updateBind;
 @end
 NS_ASSUME_NONNULL_END
