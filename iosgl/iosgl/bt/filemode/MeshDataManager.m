@@ -54,7 +54,7 @@ static MeshDataManager *instance = nil;
     this.loadDic[url] =[[NSMutableArray alloc]init];
     [this.loadDic[url] addObject:fun];
     [[ResManager default]loadRoleRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(RoleRes * _Nonnull roleRes) {
-         
+        
         [self roleResCom:roleRes fun:^(NSString *localPath) {
             
         }];
@@ -74,12 +74,12 @@ static MeshDataManager *instance = nil;
     for (int i = 0; i <arr.count ; i++) {
         SkinMeshBfun temp=  arr[i];
         temp(skinMesh);
-   }
+    }
     skinMesh.ready = YES;
     [this.loadDic removeObjectForKey:url];
 }
- 
- 
+
+
 -(void)readData:(ByteArray*)byte batchNum:(int)batchNum url:(NSString*)url version:(int)version;
 {
     SkinMesh* skinMesh  =[[SkinMesh alloc]init];
@@ -92,27 +92,27 @@ static MeshDataManager *instance = nil;
     [skinMesh makeHitBoxItem];
     
     int meshNum = [byte readInt];
-   NSMutableDictionary* allParticleDic=[[NSMutableDictionary alloc]init];
+    NSMutableDictionary* allParticleDic=[[NSMutableDictionary alloc]init];
     
     for (int i = 0; i < meshNum; i++) {
         MeshData* meshData =[[MeshData alloc]init];
         [self readMesh2OneBuffer:byte meshData:meshData];
         
-
-              meshData.trinum =(int) meshData.indexs.count ;
-              meshData.materialUrl = [byte readUTF];
-                meshData.materialParamData= [BaseRes readMaterialParamData:byte];
-       
+        
+        meshData.trinum =(int) meshData.indexs.count ;
+        meshData.materialUrl = [byte readUTF];
+        meshData.materialParamData= [BaseRes readMaterialParamData:byte];
+        
         int particleNum = [byte readInt];
-              for (int j = 0; j < particleNum; j++) {
-                  BindParticle* bindParticle=[[BindParticle alloc]init:[byte readUTF] socketName:[byte readUTF]];
-                  [meshData.particleAry  addObject:bindParticle];
-                  allParticleDic[bindParticle.url] = [NSNumber numberWithInt:1];
- 
-              }
-
+        for (int j = 0; j < particleNum; j++) {
+            BindParticle* bindParticle=[[BindParticle alloc]init:[byte readUTF] socketName:[byte readUTF]];
+            [meshData.particleAry  addObject:bindParticle];
+            allParticleDic[bindParticle.url] = [NSNumber numberWithInt:1];
+            
+        }
+        
         [skinMesh addMesh:meshData];
-         
+        
     }
     for (NSString* key in allParticleDic) {
         [[ParticleManager default] registerUrl: allParticleDic[key]];
@@ -120,15 +120,15 @@ static MeshDataManager *instance = nil;
     skinMesh.allParticleDic = allParticleDic;
     
     int bindPosLength = [byte readInt];
-
+    
     NSMutableArray<NSArray<NSNumber*>*>* bindPosAry=[[NSMutableArray alloc]init];
     for (int j = 0; j < bindPosLength; j++) {
         NSArray * ary = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]], nil];
         [bindPosAry addObject:ary];
     }
     [self getBindPosMatrix:bindPosAry skinMesh:skinMesh];
- 
-     int sokcetLenght = [byte readInt];
+    
+    int sokcetLenght = [byte readInt];
     
     skinMesh.boneSocketDic = [[NSMutableDictionary alloc]init];
     for (int j = 0; j < sokcetLenght; j++) {
@@ -144,19 +144,19 @@ static MeshDataManager *instance = nil;
         boneData.rotationZ = [byte readFloat];
         skinMesh.boneSocketDic[boneData.name] = boneData;
     }
-     self.dic[url] = skinMesh;
-  
+    self.dic[url] = skinMesh;
     
- 
+    
+    
 }
 -(void)getBindPosMatrix:(NSArray<NSArray<NSNumber*>*>*)bindPosAry skinMesh:(SkinMesh*)skinMesh;
 {
     NSMutableArray<Matrix3D*>* ary = [[NSMutableArray alloc]init];
     NSMutableArray<Matrix3D*>* invertAry= [[NSMutableArray alloc]init];
-
+    
     for (int i = 0; i < bindPosAry.count; i++) {
         NSArray<NSNumber*>* objbone= bindPosAry[i];
-      
+        
         Quaternion* OldQ=[[Quaternion alloc]x:objbone[0].floatValue y:objbone[1].floatValue z:objbone[2].floatValue];
         [OldQ setMd5W];
         Matrix3D* newM   = [OldQ  toMatrix3D];
@@ -165,14 +165,14 @@ static MeshDataManager *instance = nil;
         [invertAry addObject:[newM clone]];
         [newM Invert];
         [ary addObject:[newM clone]];
-   
+        
     }
-     skinMesh.bindPosMatrixAry = ary;
-     skinMesh.bindPosInvertMatrixAry = invertAry;
-
-
+    skinMesh.bindPosMatrixAry = ary;
+    skinMesh.bindPosInvertMatrixAry = invertAry;
+    
+    
 }
- 
+
 -(void)readMesh2OneBuffer:(ByteArray*)byte meshData:(MeshData*)meshData;
 {
     int len    = [byte  readInt];
@@ -207,9 +207,9 @@ static MeshDataManager *instance = nil;
         boneIDOffsets = uvsOffsets + 2;
     }
     int boneWeightOffsets = boneIDOffsets + 4;
-   
-     int buffStride=dataWidth * 4;
-     NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:len];
+    
+    int buffStride=dataWidth * 4;
+    NSMutableData *dataBase = [[NSMutableData alloc] initWithLength:len];
     
     meshData.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:verOffsets stride:buffStride readType:0];
     meshData.uvs=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:buffStride readType:0];
@@ -233,7 +233,7 @@ static MeshDataManager *instance = nil;
     meshData.boneWeightOffsets = boneWeightOffsets * 4;
     meshData.stride = dataWidth * 4;
     
-  
+    
 }
- 
+
 @end

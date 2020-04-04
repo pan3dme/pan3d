@@ -10,6 +10,7 @@
 #import "Material.h"
 #import "TextureLoad.h"
 #import "Scene_data.h"
+#import "LoadManager.h"
 #import "MaterialParam.h"
 #import "MaterialLoad.h"
 #import "TextureManager.h"
@@ -118,35 +119,24 @@ static MaterialManager *instance = nil;
     [_loadDic[url] addObject:materialLoad];
     if (_resDic[url]) {
         [self meshByteMaterialByt:self.resDic[url] info:materialLoad];
-        
         [_resDic removeObjectForKey:url];
         
     }else{
-        
-    }
-    /*
-     
+        [[LoadManager default] load:url type:LoadManager.BYTE_TYPE fun:^(NSObject * _Nonnull value) {
 
-     this._loadDic[$url] = new Array;
-     this._loadDic[$url].push(materialLoad);
-
-     if (this._resDic[$url]) {
-
-         this.meshByteMaterialByt(this._resDic[$url], materialLoad);
-
-         if(this._regDic[$url]){
-             this._dic[$url].useNum += this._regDic[$url];
-             delete this._regDic[$url];
-         }
-
-         delete this._resDic[$url];
-     } else {
-         LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($data: ArrayBuffer, _info: MaterialLoad) => { this.loadMaterialByteCom($data, _info) }, materialLoad);
-     }
-     */
-  
+             ByteArray* byte=[[ByteArray alloc]init:[[NSData alloc] initWithContentsOfFile:((NSDictionary*)value)[@"data"]]];
     
+            [self meshByteMaterialByt:byte info:(MaterialLoad*)((NSDictionary*)value)[@"info"]];
+            
+            
+          //  this.loadMaterialByteCom($data, _info)
+        } info:materialLoad progressFun:^(int pronum) {
+            
+        }];
+    }
+ 
 }
+ 
 -(void)meshByteMaterialByt:(ByteArray*)byte info:(MaterialLoad*)info;
 {
     Material* material=[[Material alloc]init];

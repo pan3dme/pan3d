@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Material*  material;
 @property (nonatomic, strong)  NSMutableArray<DynamicTexListVo*>*  dynamicTexList;
 @property (nonatomic, strong)  NSMutableArray*  dynamicConstList;
-
+ 
+-(void)setData:(Material*)material ary:(NSArray<NSDictionary*>*)ary;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -12,7 +12,7 @@
 
 @interface MeshData()
 
-@property(nonatomic,strong)MaterialBaseParam* materialParam;
+
 
  
  

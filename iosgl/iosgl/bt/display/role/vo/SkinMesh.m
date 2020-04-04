@@ -11,6 +11,7 @@
 #import "GL_Header.h"
 #import "MeshData.h"
 #import "Vector2D.h"
+#import "MaterialBaseParam.h"
 #import "MaterialAnimShader.h"
 #import "MaterialManager.h"
 #import "AnimManager.h"
@@ -46,7 +47,10 @@
 }
 -(void)loadMaterial;
 {
-    [self loadMaterial:^(NSString *localPath) {  }];
+    [self loadMaterial:^(NSString *localPath) {
+        
+        
+    }];
 }
 -(void)loadMaterial:(SuccessBlock)fun;
 {
@@ -58,14 +62,44 @@
 -(void)loadByteMeshDataMaterial:(MeshData*)meshData fun:(SuccessBlock)fun;
 {
  
-    NSString* url =[[Scene_data default] getWorkUrlByFilePath:meshData.materialUrl];
+    NSString* url =meshData.materialUrl;
         url= [url stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
         url= [url stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     
     [[MaterialManager default] getMaterialByte:url fun:^(NSObject *obj) {
         
         
+        meshData.material=(Material*)obj;
+        
+        if (meshData.materialParamData){
+            meshData.materialParam =[[MaterialBaseParam alloc]init];
+            [meshData.materialParam setData:meshData.material ary:meshData.materialParamData];
+                             //  meshData.materialParam.setData($meshData.material, $meshData.materialParamData);
+       }
+        
+        /*
+         $meshData.material = $material;
+                    if ($material.usePbr) {
+                        MeshDataManager.getInstance().uploadPbrMesh($meshData, $material.useNormal);
+                    } else if ($material.lightProbe || $material.directLight) {
+                        MeshDataManager.getInstance().uploadPbrMesh($meshData, false);
+                    }
+
+                    if ($meshData.materialParamData){
+                        $meshData.materialParam = new MaterialBaseParam();
+                        $meshData.materialParam.setData($meshData.material, $meshData.materialParamData);
+                    }
+
+                    if ($fun) {
+                        $fun($material);
+                    }
+         */
+        
     } info:nil autoReg:YES regName:MaterialAnimShader.shaderStr shader3DCls:[[MaterialAnimShader alloc]init]];
+    
+    
+     
+    
  
 }
 

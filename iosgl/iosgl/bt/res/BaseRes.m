@@ -12,6 +12,7 @@
 #import "ParticleManager.h"
 #import "MaterialManager.h"
 #import "NSData+GZIP.h"
+#import "Scene_data.h"
 #import <zlib.h>
 
 @interface BaseRes()
@@ -238,8 +239,8 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         NSLog(@"imgurl-->%@",imgurl);
         int imgSize=  [self.byte readInt];
         NSLog(@"len-->%d",imgSize);
-        if(imgSize){
-            // NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
+        if(imgSize&&[Scene_data default].supportBlob){
+              NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
         }
  
       

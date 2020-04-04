@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 @property (nonatomic, assign) float frameTime;
 @property (nonatomic, assign) float MAX_NUMBER;
-
+@property (nonatomic, assign) BOOL supportBlob;
 -(NSString*)getWorkUrlByFilePath:(NSString*)value; 
 @end
 
