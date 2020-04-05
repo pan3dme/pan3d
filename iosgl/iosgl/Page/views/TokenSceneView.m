@@ -109,7 +109,7 @@
     
  
     
-    BOOL isTrue=YES;
+    BOOL isTrue=NO;
     
     if(isTrue){
         [Scene_data default].supportBlob=NO;

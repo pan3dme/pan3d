@@ -15,6 +15,7 @@
 #import "ProgrmaManager.h"
 #import "MaterialAnimShader.h"
 #import "MeshDataManager.h"
+#import "Display3DSprite.h"
  
 @interface Display3dMovie()
 @property(nonatomic,strong)NSString*  meshUrl;
@@ -31,6 +32,9 @@
 @property(nonatomic,assign)float actionTime;
 @property(nonatomic,assign)float fileScale;
 @property(nonatomic,assign)BOOL meshVisible;
+
+
+@property(nonatomic,strong)Display3DSprite* tempDis;
  
 
 @end
@@ -49,6 +53,8 @@
         
         [[ProgrmaManager default] registe:MaterialAnimShader.shaderStr shader3d: [[MaterialAnimShader alloc]init]];
         self.shader3d=  [[ProgrmaManager default] getProgram:MaterialAnimShader.shaderStr];
+        
+        self.tempDis=[[Display3DSprite alloc]init];
         
     }
     return self;
@@ -101,18 +107,23 @@
 -(void)setVaCompress:(MeshData*)mesh;
 {
     [mesh upToGpu];
-     Context3D *ctx=self.scene3d.context3D;
-    [ctx pushVa: mesh.verticesBuffer];
+     
+  // self.tempDis.objData.indexBuffer
+    
+    Context3D *ctx=self.scene3d.context3D;
+    [ctx pushVa:mesh.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa: mesh.uvBuffer];
-    [ctx setVaOffset:self.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
-    [ctx pushVa: mesh.boneIdBuffer];
-    [ctx setVaOffset:self.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
-    [ctx pushVa: mesh.boneWeightBuffer];
-    [ctx setVaOffset:self.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
+    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+ 
     
-    
-   //  [ctx drawCall:mesh.indexBuffer  numTril:mesh.trinum ];
+    /*
+     [ctx pushVa:    self.tempDis.objData.uvBuffer];
+     [ctx setVaOffset:self.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+     [ctx pushVa: mesh.boneIdBuffer];
+     [ctx setVaOffset:self.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
+     [ctx pushVa: mesh.boneWeightBuffer];
+     [ctx setVaOffset:self.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
+     */
     
   
 }
