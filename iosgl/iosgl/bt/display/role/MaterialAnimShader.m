@@ -17,20 +17,18 @@
     char* relplayChat =
  
     "attribute vec3 pos;\n"
-    
-        /*
     "attribute vec2 v2Uv;\n"
     "attribute vec4 boneID;\n"
     "attribute vec4 boneWeight;\n"
     "uniform vec4 boneQ[54];\n"
     "uniform vec3 boneD[54];\n"
-    */
+
     
-      "varying vec2 v0;\n"
+    "varying vec2 v0;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
     
-    /*
+ 
     "vec4 qdv(vec4 q,vec3 d, vec3 v ){\n"
         "vec3 t = 2.0 * cross(q.xyz, v);\n"
         "vec3 f = v + q.w * t + cross(q.xyz, t);\n"
@@ -58,8 +56,7 @@
         "tempnum.xyz = normalize(tempnum.xyz);\n"
         "return  tempnum;\n"
     "}\n"
-    
-    */
+  
     "void main()"
     "{"
         " v0 = pos.xy;\n"
