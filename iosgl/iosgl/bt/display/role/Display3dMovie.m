@@ -117,41 +117,9 @@
     [ctx pushVa: mesh.boneWeightBuffer];
     [ctx setVaOffset:self.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
     [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
- 
- 
-    
   
 }
-/*
-
- public setVaCompress($mesh: MeshData): void {
-     var tf: boolean = Scene_data.context3D.pushVa($mesh.vertexBuffer);
-     if (tf) {
-         //console.log('cccccc')
-         return;
-     }
-
-     Scene_data.context3D.setVaOffset(0, 3, $mesh.stride, 0);
-     Scene_data.context3D.setVaOffset(1, 2, $mesh.stride, $mesh.uvsOffsets);
-     Scene_data.context3D.setVaOffset(2, 4, $mesh.stride, $mesh.boneIDOffsets);
-     Scene_data.context3D.setVaOffset(3, 4, $mesh.stride, $mesh.boneWeightOffsets);
-
-
-     if ($mesh.material.usePbr) {
-         Scene_data.context3D.setVaOffset(4, 3, $mesh.stride, $mesh.normalsOffsets);
-         Scene_data.context3D.setVcMatrix4fv($mesh.material.shader, "rotationMatrix3D", this._rotationMatrix.m);
-         if ($mesh.material.useNormal) {
-             Scene_data.context3D.setVaOffset(5, 3, $mesh.stride, $mesh.tangentsOffsets);
-             Scene_data.context3D.setVaOffset(6, 3, $mesh.stride, $mesh.bitangentsOffsets);
-         }
-     } else {
-         if ($mesh.material.lightProbe || $mesh.material.directLight) {
-             Scene_data.context3D.setVaOffset(4, 3, $mesh.stride, $mesh.normalsOffsets);
-             Scene_data.context3D.setVcMatrix4fv($mesh.material.shader, "rotationMatrix3D", this._rotationMatrix.m);
-         }
-     }
- }
- */
+ 
 - (void)setVc;
 {
     Context3D *context3D=self.scene3d.context3D;

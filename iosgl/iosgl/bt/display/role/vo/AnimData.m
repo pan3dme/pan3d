@@ -8,6 +8,7 @@
 
 #import "AnimData.h"
 #import "SkinMesh.h"
+#import "Quaternion.h"
 #import "DualQuatFloat32Array.h"
 
 @implementation AnimData
@@ -40,32 +41,40 @@
             for (int j = 0; j < this.matrixAry.count; j++) {
                 NSArray<Matrix3D*>* baseBone  = this.matrixAry[j];
                 DualQuatFloat32Array* dualQuatFloat32Array = [[DualQuatFloat32Array alloc]init];
-                
-              //  dualQuatFloat32Array.quat =[Float32Array arrayWithObjects:@0,@0,@0,@0, nil];
-               // dualQuatFloat32Array.pos =[Float32Array arrayWithObjects:@0,@0,@0, nil];
-                
-                
+   
+                GLfloat quat[newIDBoneArr.count * 4];
+                GLfloat pos[newIDBoneArr.count * 3];
+      
                 for (int k = 0; k < newIDBoneArr.count; k++)
                 {
-                    /*
-                    var $m: Matrix3D = baseBone[newIDBoneArr[k]].clone(tempMatrix);
-                    $m.appendScale(-1,1,1)  //特别标记，因为四元数和矩阵运算结果不一
-                    var $q: Quaternion = new Quaternion();
-                    $q.fromMatrix($m)
-                    var $p: Vector3D = $m.position;
-                    $DualQuatFloat32Array.quat[k * 4 + 0] = $q.x
-                    $DualQuatFloat32Array.quat[k * 4 + 1] = $q.y
-                    $DualQuatFloat32Array.quat[k * 4 + 2] = $q.z
-                    $DualQuatFloat32Array.quat[k * 4 + 3] = $q.w
-
-                    $DualQuatFloat32Array.pos[k * 3 + 0] = $p.x;
-                    $DualQuatFloat32Array.pos[k * 3 + 1] = $p.y;
-                    $DualQuatFloat32Array.pos[k * 3 + 2] = $p.z;
-
-                 */
-
+                    Matrix3D* m=  [baseBone[newIDBoneArr[k].intValue] clone:tempMatrix];
+                    [m appendScale:-1 y:1 z:1];
+                    Quaternion* q=[[Quaternion alloc]init];
+                    [q fromMatrix:m];
+                    Vector3D* p=[[Vector3D alloc]x:m.matrix4x4.data[3] y:m.matrix4x4.data[7] z:m.matrix4x4.data[11]];
+                    
+                    quat[k * 4 + 0] = q.x;
+                    quat[k * 4 + 1] = q.y;
+                    quat[k * 4 + 2] = q.z;
+                    quat[k * 4 + 3] = q.w;
+                    pos[k * 3 + 0] = p.x;
+                    pos[k * 3 + 1] = p.y;
+                    pos[k * 3 + 2] = p.z;
                 }
+                NSMutableArray<NSNumber*>* quatArr=[[NSMutableArray alloc]init];
+                for(int m=0;m<newIDBoneArr.count * 4;m++){
+                    [quatArr addObject:[NSNumber numberWithFloat:quat[m]]];
+                }
+                dualQuatFloat32Array.quatArr=[[NSArray alloc]initWithArray:quatArr];
+                
+                NSMutableArray<NSNumber*>* posArr=[[NSMutableArray alloc]init];
+                for(int n=0;n<newIDBoneArr.count * 3;n++){
+                    [posArr addObject:[NSNumber numberWithFloat:pos[n]]];
+                }
+                dualQuatFloat32Array.posArr=[[NSArray alloc]initWithArray:posArr];
+                
                 [frameDualQuat addObject:dualQuatFloat32Array];
+           
 
             }
               [this.boneQPAry addObject:frameDualQuat];
@@ -74,3 +83,4 @@
 }
  
 @end
+

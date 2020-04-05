@@ -139,6 +139,64 @@
     outm.matrix4x4=tempM4x4;
     return outm;
 }
+-(void)fromMatrix:(Matrix3D*)value;
+{
+        Quaternion* this=self;
+    Matrix4x4 tempM4x4=value.matrix4x4;
+ 
+    float m[9];
+    m[0] = tempM4x4.data[0];
+    m[1] = tempM4x4.data[1];
+    m[2] = tempM4x4.data[2];
+
+    m[3] = tempM4x4.data[4];
+    m[4] = tempM4x4.data[5];
+    m[5] = tempM4x4.data[6];
+
+
+    m[6] = tempM4x4.data[8];
+    m[7] = tempM4x4.data[9];
+    m[8] = tempM4x4.data[10];
+
+
+
+    float fTrace = m[0] + m[4] + m[8];
+    float fRoot;
+ 
+    float out[9];
+
+    if (fTrace > 0.0) {
+        // |w| > 1/2, may as well choose w > 1/2
+        fRoot = sqrt(fTrace + 1.0);  // 2w
+        out[3] = 0.5 * fRoot;
+        fRoot = 0.5 / fRoot;  // 1/(4w)
+        out[0] = (m[5] - m[7]) * fRoot;
+        out[1] = (m[6] - m[2]) * fRoot;
+        out[2] = (m[1] - m[3]) * fRoot;
+    } else {
+        // |w| <= 1/2
+        int i = 0;
+        if (m[4] > m[0])
+            i = 1;
+        if (m[8] > m[i * 3 + i])
+            i = 2;
+        int j = (i + 1) % 3;
+        int k = (i + 2) % 3;
+
+        fRoot =  sqrt(m[i * 3 + i] - m[j * 3 + j] - m[k * 3 + k] + 1.0);
+        out[i] = 0.5 * fRoot;
+        fRoot = 0.5 / fRoot;
+        out[3] = (m[j * 3 + k] - m[k * 3 + j]) * fRoot;
+        out[j] = (m[j * 3 + i] + m[i * 3 + j]) * fRoot;
+        out[k] = (m[k * 3 + i] + m[i * 3 + k]) * fRoot;
+    }
+
+    this.x = out[0];
+    this.y = out[1];
+    this.z = out[2];
+    this.w = out[3];
+    
+}
 -(void)setMd5W;
 {
     Quaternion* this=self;

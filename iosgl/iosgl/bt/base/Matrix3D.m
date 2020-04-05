@@ -111,6 +111,19 @@
     tempM.matrix4x4=Matrix4x4clone(self.matrix4x4);
     return tempM;
 }
+-(Matrix3D *)clone:(Matrix3D*)value;
+{
+    Matrix3D *tempM= [[Matrix3D alloc]init];
+    tempM.matrix4x4=Matrix4x4clone(self.matrix4x4);
+    value.matrix4x4=Matrix4x4clone(self.matrix4x4);
+    return tempM;
+}
+-(void)poste;
+{
+    self.matrix4x4.data[3];
+    self.matrix4x4.data[7];
+    self.matrix4x4.data[11];
+}
 -(Matrix3D*)Invert;
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];
