@@ -10,6 +10,10 @@
 #import "SkinMesh.h"
 #import "Scene_data.h"
 #import "AnimData.h"
+#import "Context3D.h"
+#import "Scene3D.h"
+#import "ProgrmaManager.h"
+#import "MaterialAnimShader.h"
 #import "MeshDataManager.h"
  
 @interface Display3dMovie()
@@ -42,6 +46,10 @@
         self.preLoadActionDic = [[NSMutableDictionary alloc]init];
         self.waitLoadActionDic =[[NSMutableDictionary alloc]init];
         self.actionTime=0;
+        
+        [[ProgrmaManager default] registe:MaterialAnimShader.shaderStr shader3d: [[MaterialAnimShader alloc]init]];
+        self.shader3d=  [[ProgrmaManager default] getProgram:MaterialAnimShader.shaderStr];
+        
     }
     return self;
 }
@@ -53,6 +61,8 @@
         self.skinMesh=skinMesh;
         self.fileScale=skinMesh.fileScale;
         self.animDic = skinMesh.animDic;
+        
+     
         [self onMeshLoaded];
      
         
@@ -75,10 +85,76 @@
     [this updateBind];
     if(self.meshVisible){
         for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
-            [this updateMaterialMesh:this.skinMesh.meshAry[i]];
+            [this updataBase:this.skinMesh.meshAry[i]];
         }
     }
  
+}
+-(void)updataBase:(MeshData*)mesh;
+{
+    GLuint progame= self.shader3d.program;
+    glUseProgram(progame);
+    [self setVc];
+    [self setVaCompress:mesh];
+    
+}
+-(void)setVaCompress:(MeshData*)mesh;
+{
+    [mesh upToGpu];
+     Context3D *ctx=self.scene3d.context3D;
+    [ctx pushVa: mesh.verticesBuffer];
+    [ctx setVaOffset:self.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
+    [ctx pushVa: mesh.uvBuffer];
+    [ctx setVaOffset:self.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+    [ctx pushVa: mesh.boneIdBuffer];
+    [ctx setVaOffset:self.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
+    [ctx pushVa: mesh.boneWeightBuffer];
+    [ctx setVaOffset:self.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
+    
+    
+   //  [ctx drawCall:mesh.indexBuffer  numTril:mesh.trinum ];
+    
+  
+}
+/*
+
+ public setVaCompress($mesh: MeshData): void {
+     var tf: boolean = Scene_data.context3D.pushVa($mesh.vertexBuffer);
+     if (tf) {
+         //console.log('cccccc')
+         return;
+     }
+
+     Scene_data.context3D.setVaOffset(0, 3, $mesh.stride, 0);
+     Scene_data.context3D.setVaOffset(1, 2, $mesh.stride, $mesh.uvsOffsets);
+     Scene_data.context3D.setVaOffset(2, 4, $mesh.stride, $mesh.boneIDOffsets);
+     Scene_data.context3D.setVaOffset(3, 4, $mesh.stride, $mesh.boneWeightOffsets);
+
+
+     if ($mesh.material.usePbr) {
+         Scene_data.context3D.setVaOffset(4, 3, $mesh.stride, $mesh.normalsOffsets);
+         Scene_data.context3D.setVcMatrix4fv($mesh.material.shader, "rotationMatrix3D", this._rotationMatrix.m);
+         if ($mesh.material.useNormal) {
+             Scene_data.context3D.setVaOffset(5, 3, $mesh.stride, $mesh.tangentsOffsets);
+             Scene_data.context3D.setVaOffset(6, 3, $mesh.stride, $mesh.bitangentsOffsets);
+         }
+     } else {
+         if ($mesh.material.lightProbe || $mesh.material.directLight) {
+             Scene_data.context3D.setVaOffset(4, 3, $mesh.stride, $mesh.normalsOffsets);
+             Scene_data.context3D.setVcMatrix4fv($mesh.material.shader, "rotationMatrix3D", this._rotationMatrix.m);
+         }
+     }
+ }
+ */
+- (void)setVc;
+{
+    Context3D *context3D=self.scene3d.context3D;
+      [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
+      [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+}
+- (void)setVa;
+{
+    
 }
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {

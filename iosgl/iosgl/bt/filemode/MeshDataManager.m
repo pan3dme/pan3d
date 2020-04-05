@@ -233,6 +233,7 @@ static MeshDataManager *instance = nil;
     meshData.boneWeightOffsets = boneWeightOffsets * 4;
     meshData.stride = dataWidth * 4;
     
+  //  [meshData upToGpu];
     
 }
 

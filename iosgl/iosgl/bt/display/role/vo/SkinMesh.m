@@ -74,26 +74,10 @@
         if (meshData.materialParamData){
             meshData.materialParam =[[MaterialBaseParam alloc]init];
             [meshData.materialParam setData:meshData.material ary:meshData.materialParamData];
-                             //  meshData.materialParam.setData($meshData.material, $meshData.materialParamData);
+                           
        }
         
-        /*
-         $meshData.material = $material;
-                    if ($material.usePbr) {
-                        MeshDataManager.getInstance().uploadPbrMesh($meshData, $material.useNormal);
-                    } else if ($material.lightProbe || $material.directLight) {
-                        MeshDataManager.getInstance().uploadPbrMesh($meshData, false);
-                    }
-
-                    if ($meshData.materialParamData){
-                        $meshData.materialParam = new MaterialBaseParam();
-                        $meshData.materialParam.setData($meshData.material, $meshData.materialParamData);
-                    }
-
-                    if ($fun) {
-                        $fun($material);
-                    }
-         */
+        
         
     } info:nil autoReg:YES regName:MaterialAnimShader.shaderStr shader3DCls:[[MaterialAnimShader alloc]init]];
     

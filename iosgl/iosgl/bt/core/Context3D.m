@@ -81,6 +81,32 @@
     }
    
 }
+
+-(GLuint)upGpuIndexBuffer:(NSArray*)arr;
+{
+    unsigned int Indices[arr.count];
+    for (int i=0; i<arr.count; i++) {
+        Indices[i]=[arr[i] intValue];
+    }
+    GLuint indexBuffer;
+    glGenBuffers(1, &indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+    return indexBuffer;
+}
+
+-(GLuint)upGpuvertexBuffer:(NSArray*)arr;
+{
+    GLfloat attrArr[arr.count];
+    for (int i=0; i<arr.count; i++) {
+        attrArr[i]=[arr[i] floatValue];
+    }
+    GLuint verticesBuffer;
+    glGenBuffers(1, &verticesBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+    return verticesBuffer;
+}
 /*
 public cullFaceBack(tf: boolean): void {
       if (this._contextSetTest.testCull(tf)) {

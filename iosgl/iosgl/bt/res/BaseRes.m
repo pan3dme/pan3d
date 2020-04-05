@@ -298,9 +298,11 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
+                     [vItem addObject:[NSNumber numberWithFloat:tempNum]];
                     break;
                 case 2:
                     tempNum=  [srcByte readByte];
+                     [vItem addObject:[NSNumber numberWithFloat:tempNum]];
                     break;
                 case 4:
                     tempNum=  [srcByte readFloat];
