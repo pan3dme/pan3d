@@ -51,8 +51,8 @@
                     [m appendScale:-1 y:1 z:1];
                     Quaternion* q=[[Quaternion alloc]init];
                     [q fromMatrix:m];
-                    Vector3D* p=[[Vector3D alloc]x:m.matrix4x4.data[3] y:m.matrix4x4.data[7] z:m.matrix4x4.data[11]];
-                    
+                    Vector3D* p=m.position;
+            
                     quat[k * 4 + 0] = q.x;
                     quat[k * 4 + 1] = q.y;
                     quat[k * 4 + 2] = q.z;

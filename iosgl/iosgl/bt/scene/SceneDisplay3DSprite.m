@@ -95,9 +95,9 @@
     [rotationM appendRotation:gameAngle axis:Vector3D.Y_AXIS];
     nrmVec3=  [rotationM transformVector:nrmVec3];
     
-    [context3D setVc3fv:self.shader3d name:"sunDirect" data: (  GLfloat []) {nrmVec3.x,nrmVec3.y,nrmVec3.z}];
-    [context3D setVc3fv:self.shader3d name:"sunColor" data: ( GLfloat []) {0.8,0.8, 0.8}];
-    [context3D setVc3fv:self.shader3d name:"ambientColor" data: ( GLfloat []) {0.2,0.2, 0.2}];
+    [context3D setVc3fv:self.shader3d name:"sunDirect" data: (  GLfloat []) {nrmVec3.x,nrmVec3.y,nrmVec3.z} len:1];
+    [context3D setVc3fv:self.shader3d name:"sunColor" data: ( GLfloat []) {0.8,0.8, 0.8} len:1];
+    [context3D setVc3fv:self.shader3d name:"ambientColor" data: ( GLfloat []) {0.2,0.2, 0.2} len:1];
    
 }
 /*

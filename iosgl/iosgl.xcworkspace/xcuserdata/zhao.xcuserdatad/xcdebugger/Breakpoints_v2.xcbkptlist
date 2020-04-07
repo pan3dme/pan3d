@@ -1195,7 +1195,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "-Invert"
+            landmarkName = "-appendRotation:axis:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1211,7 +1211,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
             endingLineNumber = "128"
-            landmarkName = "-poste"
+            landmarkName = "-Invert"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1243,7 +1243,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "-setVcMatrix3fv:name:data:"
+            landmarkName = "-setVc4fv:name:data:len:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1257,10 +1257,10 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-setVaOffset:name:dataWidth:stride:offset:"
-            landmarkType = "7">
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "Context3D"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3003,7 +3003,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
             endingLineNumber = "159"
-            landmarkName = "-prependRotation:axis:"
+            landmarkName = "-prependScale:y:z:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4408,9 +4408,9 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-drawCall:numTril:"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-pushVa:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4440,8 +4440,8 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "-upGpuvertexBuffer:"
             landmarkType = "7">
          </BreakpointContent>
@@ -4776,10 +4776,10 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "Context3D"
-            landmarkType = "3">
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-upGpuvertexBuffer:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7415,8 +7415,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-setRoleUrl:"
             landmarkType = "7">
          </BreakpointContent>
@@ -7606,9 +7606,9 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-updateFrame:"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7622,9 +7622,9 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-changeAction:"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7638,9 +7638,9 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "-changeAction:"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7654,9 +7654,9 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-updateFrame:"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7686,9 +7686,9 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-changeAction:"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7702,9 +7702,9 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-updateFrame:"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7718,8 +7718,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -7734,8 +7734,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -7750,8 +7750,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -7782,8 +7782,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -7798,9 +7798,9 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-updateFrame:"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-setMeshVc:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7814,8 +7814,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -8310,8 +8310,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-updataBase:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8374,10 +8374,10 @@
             filePath = "iosgl/bt/core/Context3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "Context3D"
-            landmarkType = "3">
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-upGpuvertexBuffer:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -8406,8 +8406,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "-setVaCompress:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8422,8 +8422,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "-setVaCompress:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8454,8 +8454,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
@@ -8486,8 +8486,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-setVaCompress:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8521,6 +8521,54 @@
             startingLineNumber = "189"
             endingLineNumber = "189"
             landmarkName = "-fromMatrix:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A79DB92-A880-4EBB-A349-4E71B021C9EF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/role/vo/AnimData.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-makeFrameDualQuatFloatArray:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC0DC425-EC8B-4109-BE16-11D1A0110ADE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/role/Display3dMovie.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-setMeshVc:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB7AA79F-C0C9-47B7-A8C3-47D5DB52A33A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/role/Display3dMovie.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-setMeshVc:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

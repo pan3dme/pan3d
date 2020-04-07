@@ -118,11 +118,9 @@
     value.matrix4x4=Matrix4x4clone(self.matrix4x4);
     return tempM;
 }
--(void)poste;
+-(Vector3D*)position;
 {
-    self.matrix4x4.data[3];
-    self.matrix4x4.data[7];
-    self.matrix4x4.data[11];
+  return   [self transformVector:[[Vector3D alloc]init]];
 }
 -(Matrix3D*)Invert;
 {

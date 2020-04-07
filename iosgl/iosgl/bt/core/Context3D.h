@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) EAGLContext *gl; // OpenGL context,管理使用opengl
 -(void)setVcUniform1f:(Shader3D*)shader name:(GLchar*)name data:(CGFloat)data;
 -(void)setVcUniform4f:(Shader3D*)shader name:(GLchar*)name x:(GLfloat)x y:(GLfloat)y z:(GLfloat)z w:(GLfloat)w;
--(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
+-(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data len:(int)len;
+-(void)setVc4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data len:(int)len;
 -(void)setVcMatrix3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 -(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 -(void)pushVa:(GLuint)dataBuffer;

@@ -44,14 +44,25 @@
 {
      glUniform4f(  glGetUniformLocation( shader.program, name), x,y,z,w );
 }
--(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
+
+-(void)setVc3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data len:(int)len;
 {
-    glUniform3fv( glGetUniformLocation( shader.program, name), 1, data);
+    glUniform3fv( glGetUniformLocation( shader.program, name), len, data);
+}
+-(void)setVc4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data len:(int)len;
+{
+    glUniform4fv( glGetUniformLocation( shader.program, name), len, data);
+    
 }
 -(void)setVcMatrix3fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 {
     glUniformMatrix3fv(  glGetUniformLocation( shader.program,name), 1, GL_TRUE,  data);
 }
+ 
+
+
+ 
+
 -(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
 {
     glUniformMatrix4fv(  glGetUniformLocation( shader.program,name), 1, GL_TRUE,  data);

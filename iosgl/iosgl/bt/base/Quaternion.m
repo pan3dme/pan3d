@@ -139,6 +139,7 @@
     outm.matrix4x4=tempM4x4;
     return outm;
 }
+
 -(void)fromMatrix:(Matrix3D*)value;
 {
         Quaternion* this=self;
