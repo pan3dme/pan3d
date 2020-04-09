@@ -134,7 +134,7 @@
         return;
     }
     
-  DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][0];
+  DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][this.curentFrame];
     
     
 //    Scene_data.context3D.setVc4fv($mesh.material.shader, "boneQ", $dualQuatFrame.quat); //旋转
