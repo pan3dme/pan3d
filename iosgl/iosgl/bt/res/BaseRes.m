@@ -293,26 +293,27 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             switch (readType) {
                 case 0:
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
-                    [vItem addObject:[NSNumber numberWithFloat:tempNum]];
-                    [nsdata replaceBytesInRange:NSMakeRange(pos+j*4, 4) withBytes: &tempNum length:4];
+             
+                   
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
-                     [vItem addObject:[NSNumber numberWithFloat:tempNum]];
+                   
                     break;
                 case 2:
                     tempNum=  [srcByte readByte];
-                     [vItem addObject:[NSNumber numberWithFloat:tempNum]];
+                   
                     break;
                 case 4:
                     tempNum=  [srcByte readFloat];
-                    [vItem addObject:[NSNumber numberWithFloat:tempNum]];
-                    [nsdata replaceBytesInRange:NSMakeRange(pos+j*4, 4) withBytes: &tempNum length:4];
+                     
+                   
                     break;
                 default:
                     NSLog(@"没有没有");
                     break;
             }
+                [vItem addObject:[NSNumber numberWithFloat:tempNum]];
         }
     }
     
