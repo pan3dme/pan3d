@@ -350,11 +350,12 @@
      * 1 readFloatOneByte
      * 2 readIntForOneByte
      *  */
-    public static readBytes2ArrayBuffer($byte: ByteArray, $data: DataView, $dataWidth: number, $offset: number, $stride: number, $readType: number = 0): void {
+    public static readBytes2ArrayBuffer($byte: ByteArray, $data: DataView, $dataWidth: number, $offset: number, $stride: number, $readType: number = 0): Array<number> {
         var verLength: number = $byte.readInt();
 
+        var item:Array<number>=new Array<number>()
         if (verLength <= 0) {
-            return;
+            return item;
         }
 
         var scaleNum: number;
@@ -367,24 +368,26 @@
             var pos: number = $stride * i + $offset;
             for (var j: number = 0; j < $dataWidth; j++) {
 
+                var tempNUm:number;
                 if ($readType == 0) {
-                    $data.setFloat32((pos + j) * 4, $byte.readFloatTwoByte(scaleNum), true);
+                    tempNUm=$byte.readFloatTwoByte(scaleNum);
                 } else if ($readType == 1) {
-                    $data.setFloat32((pos + j) * 4, $byte.readFloatOneByte(), true);
+                    tempNUm= $byte.readFloatOneByte() ;
                 } else if ($readType == 2) {
-                    $data.setFloat32((pos + j) * 4, $byte.readByte(), true);
+                    tempNUm=$byte.readByte() ;
                 }else if ($readType == 3) {
-                    $data.setFloat32((pos + j) * 4, ($byte.readByte() + 128) / 255, true);
+                    tempNUm=($byte.readByte() + 128) / 255 ;
                 }else if ($readType == 4) {
-                    $data.setFloat32((pos + j) * 4, $byte.readFloat(), true);
+                    tempNUm=$byte.readFloat();
                 }
+                $data.setFloat32((pos + j) * 4, tempNUm, true);
 
-
+                item.push(tempNUm);
             }
 
         }
 
-
+return  item;
 
     }
 
