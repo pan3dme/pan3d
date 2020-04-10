@@ -137,6 +137,7 @@
   DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][this.curentFrame];
     
     
+    
 //    Scene_data.context3D.setVc4fv($mesh.material.shader, "boneQ", $dualQuatFrame.quat); //旋转
 //    Scene_data.context3D.setVc3fv($mesh.material.shader, "boneD", $dualQuatFrame.pos);  //所有的位移
     
@@ -156,15 +157,17 @@
     
     NSString* pstr=   @"-0.03905847668647766, -0.04417011886835098, -16.022830963134766, 0.03882760927081108, -0.06092384085059166, -15.961396217346191, -0.2386750727891922, -0.2866630554199219, -15.646263122558594, -0.2460947483778, -0.28677770495414734, -15.646492958068848, -0.23748886585235596, -0.2601698935031891, -15.66344165802002, -0.005347229540348053, -0.0737357810139656, -15.93178653717041, 0.02153763175010681, -0.06588122993707657, -16.034334182739258, 0.04132276773452759, 0.21877749264240265, -16.032089233398438, -0.02948245033621788, 0.3785538971424103, -16.03790283203125, 0.0366889163851738, 0.4665803015232086, -15.110249519348145, -0.033220142126083374, -0.005588551517575979, -15.379670143127441, -0.0010388292139396071, -0.041849762201309204, -16.021764755249023, -0.0362117663025856, 0.010108768939971924, -16.015214920043945, -0.030863577499985695, -0.008314167149364948, -15.99866008758545, 0.04989834129810333, 0.4575684666633606, -15.966992378234863, 0.48719310760498047, 0.3217101991176605, -15.938105583190918, 0.46897655725479126, -1.2478159666061401, -15.428751945495605, 0.01766335405409336, -0.03478686511516571, -15.978245735168457, -0.24452626705169678, -0.2869241237640381, -15.64615535736084, 0.01979413814842701, -0.019689064472913742, -16.07272720336914, 0.21457605063915253, 0.9130419492721558, -15.997469902038574, 0.02410266175866127, 0.0029243596363812685, -16.026050567626953, 0.00660416204482317, 0.0018276940099895, -15.997230529785156, -0.010745225474238396, 0.01285846158862114, -16.015295028686523";
     
+    /*
     NSArray *qItem = [qstr componentsSeparatedByString:@","]; //分段
     for (int i=0; i<qItem.count; i++) {
-    //   boneQarr[i]= [qItem[i] floatValue];
+      boneQarr[i]= [qItem[i] floatValue];
     }
     
     NSArray *pItem = [pstr componentsSeparatedByString:@","]; //分段
     for (int i=0; i<pItem.count; i++) {
-    //   boneDarr[i]= [pItem[i] floatValue];
+       boneDarr[i]= [pItem[i] floatValue];
     }
+    */
     [context3D setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
     [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
      
@@ -214,7 +217,16 @@
     if(!self.skinMesh){
         return;
     }
+    /*
+     [0]    (null)    @"attack_01" : (no summary)
+     [1]    (null)    @"stand" : (no summary)
+     [2]    (null)    @"walk" : (no summary)
+     [3]    (null)    @"death" : (no summary)
+     [4]    (null)    @"injured" : (no summary)
+     */
+
     Display3dMovie* this=self;
+    this.curentAction=@"attack_01";
     this.actionTime+=t;
     NSString* actionKey;
     if(this.curentAction&&self.animDic[this.curentAction]){
@@ -225,10 +237,12 @@
         return;
     }
     AnimData* animData=this.animDic[actionKey];
-    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*2.0) );
+    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*1.5) );
+ //   NSLog(@" this.curentFrame%d", this.curentFrame);
+    
     if (this.curentFrame >= animData.matrixAry.count) {
         if (this.completeState == 0) {
-            this.actionTime = 0;
+            this.actionTime = 0.0f;
             this.curentFrame = 0;
         } else if (this.completeState == 1) {
             this.curentFrame =(int) animData.matrixAry.count - 1;

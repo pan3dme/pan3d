@@ -62,9 +62,10 @@
 -(void)updateFrameRole;
 {
     int _tempTime = [[TimeUtil default]getTimer];
-    int t = _tempTime - self.time;
+    int delay = _tempTime - self.time;
+    self.time=_tempTime;
     for(int i=0;i<self.displayRoleList.count;i++){
-        [self.displayRoleList[i] updateFrame:t];
+        [self.displayRoleList[i] updateFrame:delay];
     }
 }
 -(void)resetViewport;
