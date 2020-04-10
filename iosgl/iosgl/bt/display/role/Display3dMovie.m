@@ -109,7 +109,7 @@
     glUseProgram(progame);
     Context3D *ctx=self.scene3d.context3D;
     [ctx setBlendParticleFactors:0];
-    [ctx cullFaceBack:YES];
+    [ctx cullFaceBack:NO];
     
     [ctx setRenderTexture:self.shader3d name:@"fs0" texture:self.textBaseTextureRes.textTureLuint level:0];
     [self setVc];
@@ -145,14 +145,7 @@
     } else {
         return;
     }
-    
     DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][this.curentFrame];
-    
-    
-    
-    //    Scene_data.context3D.setVc4fv($mesh.material.shader, "boneQ", $dualQuatFrame.quat); //旋转
-    //    Scene_data.context3D.setVc3fv($mesh.material.shader, "boneD", $dualQuatFrame.pos);  //所有的位移
-    
     GLfloat boneQarr[dualQuatFrame.quatArr.count];
     for (int i=0; i<dualQuatFrame.quatArr.count; i++) {
         boneQarr[i]=dualQuatFrame.quatArr[i].floatValue;
@@ -161,8 +154,6 @@
     for (int i=0; i<dualQuatFrame.posArr.count; i++) {
         boneDarr[i]=dualQuatFrame.posArr[i].floatValue;
     }
-    
-    
     [context3D setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
     [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
     
@@ -184,8 +175,7 @@
         return;
     }
     NSLog(@"---");
-    
-    
+ 
 }
 
 - (void)updateFrame:(float)t;
@@ -202,7 +192,7 @@
      */
     
     Display3dMovie* this=self;
-    this.curentAction=@"injured";
+    this.curentAction=@"walk";
     this.actionTime+=t;
     NSString* actionKey;
     if(this.curentAction&&self.animDic[this.curentAction]){
@@ -213,7 +203,7 @@
         return;
     }
     AnimData* animData=this.animDic[actionKey];
-    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*1.5) );
+    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*2.0) );
     //   NSLog(@" this.curentFrame%d", this.curentFrame);
     
     if (this.curentFrame >= animData.matrixAry.count) {

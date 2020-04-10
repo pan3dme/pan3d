@@ -60,24 +60,15 @@
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
-    //[self.sceneView loadSeceneByUrl:@"1001_base"];
-    [self.sceneView makeEemptyScene];
     
-    
-    // [self.scene3D addDisplay:tempDis];
+   // [self.sceneView makeEemptyScene];
+    self.sceneView.scene3D.camera3D.distance-=20;
+   
 }
 
 - (IBAction)zoom_max_clik:(id)sender {
-    
-    /*
-     [UIView beginAnimations:nil context:nil];
-     [UIView setAnimationDuration:0.5];
-     [UIView setAnimationDelegate:self];
-     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
-     [UIView commitAnimations];
-     */
-    
-    
+       self.sceneView.scene3D.camera3D.distance+=20;
+ /*
     [self.sceneView makeEemptyScene];
     
     [[GroupDataManager default]getGroupData:[[Scene_data default]getWorkUrlByFilePath:@"model/baoxiang001_base.txt"] Block:^(GroupRes *groupRes) {
@@ -94,6 +85,8 @@
             [self.sceneView.scene3D addDisplay:tempDis];
         }
     }];
+    
+    */
     
 }
 

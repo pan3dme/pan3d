@@ -8382,8 +8382,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-setMeshVc:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8398,8 +8398,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-setMeshVc:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8446,8 +8446,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-setMeshVc:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8958,8 +8958,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "-updateFrame:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8974,8 +8974,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-updateFrame:"
             landmarkType = "7">
          </BreakpointContent>
@@ -8990,8 +8990,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-updateFrame:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9006,8 +9006,8 @@
             filePath = "iosgl/bt/display/role/Display3dMovie.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-updateFrame:"
             landmarkType = "7">
          </BreakpointContent>
@@ -9106,6 +9106,22 @@
                   offsetFromSymbolStart = "48">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B220D89-445D-449A-A015-2A12029D013D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/base/Camera3D.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-upFrame"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

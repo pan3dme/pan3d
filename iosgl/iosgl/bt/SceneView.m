@@ -33,7 +33,7 @@
 {
     self = [super init];
     if (self) {
-       [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
+       [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -51,7 +51,7 @@
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_DEPTH_TEST);
    
-        self.scene3D.camera3D.distance=200;
+      
     
         
         [self.scene3D upFrame];

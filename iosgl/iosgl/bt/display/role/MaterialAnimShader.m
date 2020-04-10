@@ -61,7 +61,7 @@
     "void main()"
     "{"
         "colorvec4 =vec4(1.0,1.0,1.0,1.0);\n"
-        " v0 = v2Uv.xy;\n"
+        " v0 = vec2(v2Uv.x,1.0-v2Uv.y);\n"
          "vec4 vt0 = getQDdata(vec3(pos.x,pos.y,pos.z));\n"
          "vec4 vPos = vec4(vt0.xyz,1.0);\n"
          "gl_Position = vPos * posMatrix* viewMatrix;\n"
@@ -78,8 +78,12 @@
     "varying vec2 v0;\n"
     "void main()"
     "{"
-        "vec4 infoUvf0   =texture2D(fs0,v0.xy);\n"
-        "gl_FragColor =infoUvf0;\n"
+        "vec4 infoUvf   =texture2D(fs0,v0.xy);\n"
+        "if (infoUvf.w <= 0.5) {\n"
+            "discard;\n"
+        "};\n"
+  
+        "gl_FragColor =infoUvf;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
