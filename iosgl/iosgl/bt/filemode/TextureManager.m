@@ -61,16 +61,21 @@ static TextureManager *instance = nil;
     
     if (self.resDic[url]) {
         NSLog(@"有图片还没有材质");
+        [self loadTextureCom:self.resDic[url] info:textureLoad];
+        [self.resDic removeObjectForKey:url];
     }else{
         [[ LoadManager default] load:url type:1 fun:^(NSObject * _Nonnull any) {
             NSDictionary* dic=(NSDictionary*)any;
-            [self loadTextureCom: dic[@"data"] info:dic[@"info"]];
+            [self loadTextureCom:[UIImage imageNamed:dic[@"data"]] info:dic[@"info"]];
         } info:textureLoad progressFun:nil];
     }
 }
--(void)loadTextureCom:(NSString*)imgName info:(TextureLoad*)info ;
+-(void)loadTextureCom:(UIImage*)img info:(TextureLoad*)info ;
 {
-    TextureRes* textureRes=   [[MaterialManager default] getMaterialByUrl:imgName];
+ 
+    TextureRes *textureRes=[[TextureRes alloc]init];
+    textureRes.textTureLuint=[[MaterialManager default] createTextureWithImage:img];
+    
     NSArray<TextureLoad*>* ary  = self.loadDic[info.url];
     for (int i = 0; i < ary.count; i++){
         if (ary[i].info) {
@@ -82,6 +87,12 @@ static TextureManager *instance = nil;
     [self.loadDic removeObjectForKey:info.url];
     self.dic[info.url] = textureRes;
     
+}
+-(void)addRes:(NSString*)url img:(UIImage*)img;
+{
+    if (!self.dic[url] && !self.resDic[url]){
+        self.resDic[url] = img;
+    }
 }
  
 @end

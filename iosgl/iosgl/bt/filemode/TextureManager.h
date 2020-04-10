@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TextureManager : ResGC
 + (instancetype)default;
- 
+-(void)addRes:(NSString*)url img:(UIImage*)img;
 -(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
 @end
 

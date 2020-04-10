@@ -13,6 +13,7 @@
 #import "MaterialManager.h"
 #import "NSData+GZIP.h"
 #import "Scene_data.h"
+#import "TextureManager.h"
 #import <zlib.h>
 
 @interface BaseRes()
@@ -233,18 +234,14 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
 -(void)readImgs;
 {
     self.imgNum = [self.byte readInt];
-     self.imgLoadNum = 0;
+    self.imgLoadNum = 0;
     for(int i=0;i<self.imgNum;i++){
         NSString *imgurl =   [self.byte readUTF];
-        NSLog(@"imgurl-->%@",imgurl);
         int imgSize=  [self.byte readInt];
-        NSLog(@"len-->%d",imgSize);
         if(imgSize&&[Scene_data default].supportBlob){
               NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
+              [[TextureManager default] addRes:imgurl img: [UIImage imageWithData: imgNsdata]];
         }
- 
-      
-        
         [self countImg];
     }
 }
@@ -285,35 +282,29 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     if (readType == 0) {
         scaleNum = [srcByte readFloat];
     }
-    float tempNum;
+    float tempNum=0;
     int readNum = verLength / dataWidth;
     for (int i = 0; i < readNum; i++) {
-        int pos = stride * i + offset*4;
+        //int pos = stride * i + offset*4;
         for (int j = 0; j < dataWidth; j++) {
             switch (readType) {
                 case 0:
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
-             
-                   
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
-                   
                     break;
                 case 2:
                     tempNum=  [srcByte readByte];
-                   
                     break;
                 case 4:
                     tempNum=  [srcByte readFloat];
-                     
-                   
                     break;
                 default:
                     NSLog(@"没有没有");
                     break;
             }
-                [vItem addObject:[NSNumber numberWithFloat:tempNum]];
+            [vItem addObject:[NSNumber numberWithFloat:tempNum]];
         }
     }
     

@@ -61,7 +61,7 @@
     "void main()"
     "{"
         "colorvec4 =vec4(1.0,1.0,1.0,1.0);\n"
-        " v0 = pos.xy;\n"
+        " v0 = v2Uv.xy;\n"
          "vec4 vt0 = getQDdata(vec3(pos.x,pos.y,pos.z));\n"
          "vec4 vPos = vec4(vt0.xyz,1.0);\n"
          "gl_Position = vPos * posMatrix* viewMatrix;\n"
@@ -73,11 +73,13 @@
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
     "precision mediump float;\n"
+     "uniform sampler2D fs0;\n"
     "varying vec4 colorvec4;\n"
     "varying vec2 v0;\n"
     "void main()"
     "{"
-        "gl_FragColor =colorvec4;\n"
+        "vec4 infoUvf0   =texture2D(fs0,v0.xy);\n"
+        "gl_FragColor =infoUvf0;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
