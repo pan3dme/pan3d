@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setBlendParticleFactors:(int)type;
 -(void)setDepthTest:(BOOL)tf;
 -(void)cullFaceBack:(BOOL)tf;
+-(void)setProgram:(GLuint)progame;
 @end
 
 NS_ASSUME_NONNULL_END

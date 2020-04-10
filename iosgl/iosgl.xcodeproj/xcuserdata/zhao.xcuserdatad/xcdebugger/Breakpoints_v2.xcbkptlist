@@ -942,9 +942,9 @@
             filePath = "iosgl/bt/res/BaseRes.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "-readObj:"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "-readImgs"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

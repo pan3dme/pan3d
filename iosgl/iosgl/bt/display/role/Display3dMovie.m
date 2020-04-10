@@ -70,15 +70,18 @@
         self.animDic = skinMesh.animDic;
         [self onMeshLoaded];
         [self loadTextTexture];
+       for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
+           [skinMesh.meshAry[i] upToGpu];
+        }
     } batchNum:1];
 }
 -(void)loadTextTexture;
 {
     NSString* url=@"content/characterresource/guaiwu/duozulei/yezhu/yezhu.png";
-    [[ TextureManager default]getTexture:url fun:^(NSObject * _Nonnull any) {
+    
+    
+    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:url] fun:^(NSObject * _Nonnull any) {
         self.textBaseTextureRes=(TextureRes*)any;
-        NSLog(@"---");
-        
     } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
 -(void)onMeshLoaded;
@@ -98,28 +101,15 @@
     [this updateBind];
     if(self.meshVisible&&self.textBaseTextureRes){
         for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
-            [this updataBase:this.skinMesh.meshAry[i]];
+            [this updateMaterialMesh:this.skinMesh.meshAry[i]];
         }
     }
     
 }
--(void)updataBase:(MeshData*)mesh;
-{
-    GLuint progame= self.shader3d.program;
-    glUseProgram(progame);
-    Context3D *ctx=self.scene3d.context3D;
-    [ctx setBlendParticleFactors:0];
-    [ctx cullFaceBack:NO];
-    
-    [ctx setRenderTexture:self.shader3d name:@"fs0" texture:self.textBaseTextureRes.textTureLuint level:0];
-    [self setVc];
-    [self setMeshVc:mesh];
-    [self setVaCompress:mesh];
-    
-}
+ 
 -(void)setVaCompress:(MeshData*)mesh;
 {
-    [mesh upToGpu];
+    
     
     Context3D *ctx=self.scene3d.context3D;
     [ctx pushVa:mesh.verticesBuffer];
@@ -174,7 +164,18 @@
     if (!mesh.material) {
         return;
     }
-    NSLog(@"---");
+    Context3D *ctx=self.scene3d.context3D;
+    [ctx setProgram:self.shader3d.program];
+    [ctx setBlendParticleFactors:mesh.material.blendMode];
+    [ctx cullFaceBack:mesh.material.backCull];
+    
+ 
+    [self setMaterialTexture:mesh.material mp:mesh.materialParam];
+    
+    [ctx setRenderTexture:self.shader3d name:@"fs0" texture:self.textBaseTextureRes.textTureLuint level:0];
+    [self setVc];
+    [self setMeshVc:mesh];
+    [self setVaCompress:mesh];
  
 }
 

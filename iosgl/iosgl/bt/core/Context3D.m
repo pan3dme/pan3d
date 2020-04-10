@@ -140,7 +140,10 @@ public cullFaceBack(tf: boolean): void {
         glDisable(GL_CULL_FACE);
     }
 }
-
+-(void)setProgram:(GLuint)progame;
+{
+     glUseProgram(progame);
+}
 -(void)setBlendParticleFactors:(int)type;
 {
     glEnable(GL_BLEND);

@@ -237,10 +237,11 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     self.imgLoadNum = 0;
     for(int i=0;i<self.imgNum;i++){
         NSString *imgurl =   [self.byte readUTF];
+                            
         int imgSize=  [self.byte readInt];
         if(imgSize&&[Scene_data default].supportBlob){
               NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
-              [[TextureManager default] addRes:imgurl img: [UIImage imageWithData: imgNsdata]];
+              [[TextureManager default] addRes: [[Scene_data default]getWorkUrlByFilePath:imgurl] img: [UIImage imageWithData: imgNsdata]];
         }
         [self countImg];
     }

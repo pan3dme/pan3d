@@ -11,6 +11,7 @@
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
 #import "Scene3D.h"
+#import "DynamicTexItem.h"
 #import "Display3DShader.h"
 #import "ProgrmaManager.h"
 
@@ -94,6 +95,46 @@
     }
     
 }
+//public setMaterialTexture($material: Material, $mp: MaterialBaseParam = null): void {
+
+-(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
+{
+    Context3D *ctx=self.scene3d.context3D;
+      NSArray<TexItem*>* texVec  = mp.material.texList;
+      for (int i   = 0; i < texVec.count; i++) {
+          if (texVec[i].isDynamic) {
+              continue;
+          }
+          [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+      }
+    /*
+      NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
+      for (int i   = 0; i < texDynamicVec.count; i++) {
+          TexItem* texItem=texDynamicVec[i].target;
+           [ctx setRenderTexture:material.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
+      }
+    */
+    
+}
+/*
+-(void)setMaterialTexture;
+{
+    Context3D *ctx=self.scene3d.context3D;
+    NSArray<TexItem*>* texVec  = self.data.materialParam.material.texList;
+    for (int i   = 0; i < texVec.count; i++) {
+        if (texVec[i].isDynamic) {
+            continue;
+        }
+        [ctx setRenderTexture:self.data.materialParam.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+    }
+    NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) self.data.materialParam.dynamicTexList;
+    for (int i   = 0; i < texDynamicVec.count; i++) {
+        TexItem* texItem=texDynamicVec[i].target;
+         [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
+    }
+ 
+}
+*/
 -(void)setVc;
 {
     Context3D *context3D=self.scene3d.context3D;

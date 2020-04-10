@@ -10,6 +10,8 @@
 #import "TextureRes.h"
 #import "Shader3D.h"
 #import "ObjData.h"
+#import "Material.h"
+#import "MaterialBaseParam.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,5 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setVc;
 -(void)setVa;
 -(void)updateBind;
+-(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 @end
 NS_ASSUME_NONNULL_END
