@@ -70,6 +70,12 @@
     self.matrix4x4=Matrix4x4Identity;
 }
 -(void)outString{
+    NSString *outstr=@"\n";
+    for(int i=0;i<16;i++){
+        outstr=  [outstr stringByAppendingString:[NSString stringWithFormat:@"%d:",i]];
+        outstr=  [outstr stringByAppendingString:[NSString stringWithFormat:@"%f\n",_matrix4x4.data[i]]];
+    }
+    NSLog(@"%@",outstr);
 }
 -(void) appendTranslation:(float  )x  y:(float)y z:(float)z ;
 {
@@ -126,6 +132,7 @@
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];
     tempM.matrix4x4=Matrix4x4Invert(self.matrix4x4);
+    self.matrix4x4=Matrix4x4clone(tempM.matrix4x4);
     return tempM;
 }
 -(void)  appendRotation:(float)rad axis:(Vector3D*)axis;

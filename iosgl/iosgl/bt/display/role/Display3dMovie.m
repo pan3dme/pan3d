@@ -158,12 +158,12 @@
     
     NSArray *qItem = [qstr componentsSeparatedByString:@","]; //分段
     for (int i=0; i<qItem.count; i++) {
-       boneQarr[i]= [qItem[i] floatValue];
+    //   boneQarr[i]= [qItem[i] floatValue];
     }
     
     NSArray *pItem = [pstr componentsSeparatedByString:@","]; //分段
     for (int i=0; i<pItem.count; i++) {
-       boneDarr[i]= [pItem[i] floatValue];
+    //   boneDarr[i]= [pItem[i] floatValue];
     }
     [context3D setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
     [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];

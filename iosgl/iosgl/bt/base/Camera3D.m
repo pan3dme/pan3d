@@ -39,7 +39,8 @@
     [self.camMatrix3D appendTranslation: 0.0 y:0.0 z:self.distance];
     [self.camMatrix3D appendTranslation: 0.0 y:-0.0 z:0.0];
     
-    Matrix3D* m=[self.camMatrix3D Invert];
+    Matrix3D* m=[self.camMatrix3D clone];
+    [m Invert];
     Vector3D* p=  [m transformVector: [[Vector3D alloc]x:0 y:0 z:-self.distance] ];
     self.x=p.x;
     self.y=p.y;
