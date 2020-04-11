@@ -17,7 +17,7 @@ var Display3dMovie = /** @class */ (function (_super) {
     function Display3dMovie() {
         var _this = _super.call(this) || this;
         _this._completeState = 0;
-        _this._defaultAction = "stand";
+        _this._defaultAction = "walk";
         _this._curentFrame = 0;
         _this._actionTime = 0;
         _this._fileScale = 1;

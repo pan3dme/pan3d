@@ -40,6 +40,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
     __extends(TpSceneProcessor, _super);
     function TpSceneProcessor() {
         var _this = _super.call(this) || this;
+        _this.isFrishtClik = true;
         _this.skillFileName = "jichu_1";
         _this.charIdstr = "50001";
         _this.weaponNum = 50011;
@@ -53,10 +54,22 @@ var TpSceneProcessor = /** @class */ (function (_super) {
     TpSceneProcessor.prototype.onMouseDown = function ($evt) {
         //  this.playLyf("model/diamondseffect_lyf.txt")
         // this.playLyf("model/reviveeff_lyf.txt")
-        // this.playLyf("model/levelup_lyf.txt")
-        var sc = new Display3dMovie();
-        sc.setRoleUrl(getRoleUrl("yezhuz"));
-        SceneManager.getInstance().addMovieDisplay(sc);
+        if (!this.isFrishtClik) {
+            return;
+        }
+        this.isFrishtClik = true;
+        this.playLyf("model/levelup_lyf.txt");
+        //yingz
+        //yezhu
+        //330013
+        /*
+        if(!  this.yezhu){
+            var sc= new  Display3dMovie();
+            sc.setRoleUrl(getRoleUrl("yingz"));
+            SceneManager.getInstance().addMovieDisplay(sc);
+            this.yezhu=sc;
+        }
+        */
     };
     TpSceneProcessor.prototype.playLyf = function (url) {
         GroupDataManager.getInstance().getGroupData(Scene_data.fileRoot + url, function (groupRes) {

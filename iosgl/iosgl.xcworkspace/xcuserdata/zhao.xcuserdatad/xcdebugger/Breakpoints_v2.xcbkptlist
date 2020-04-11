@@ -6041,22 +6041,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8CF4E116-7A47-493F-BD18-BD40A5583461"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/display/particle/Display3DParticle.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-updateMatrix"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "01140B8E-265D-4685-8635-13209F631D20"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -9358,8 +9342,8 @@
             filePath = "iosgl/bt/display/particle/Display3DParticle.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-setMaterialTexture"
             landmarkType = "7">
          </BreakpointContent>

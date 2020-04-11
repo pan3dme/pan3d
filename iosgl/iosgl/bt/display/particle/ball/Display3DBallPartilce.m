@@ -23,15 +23,11 @@
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
-
-
 @property (nonatomic, assign) GLuint  textBsetGLuint;
 @end
 @implementation Display3DBallPartilce
-
 -(void)onCreated;
 {
-    
 }
 - (void)update;
 {
@@ -41,15 +37,10 @@
 {
     [self setViewCamModeMatr3d];
     Context3D *ctx=self.scene3d.context3D;
-    
-    
-    
     [self updateWatchCaramMatrix];
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
     [self setVcmat];
 }
-
-
 -(void)setVcmat;
 {
  
@@ -58,9 +49,6 @@
     
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
-  //  timeVec.x=self._time/1.0f;
-    
-  
     
     [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
     Vector3D*  scaleVec =   self.ballData._scaleVec;
@@ -113,8 +101,6 @@
     }
     
 }
-
-
 -(ParticleBallData*)ballData;
 {
     return ((ParticleBallData*)(self.data));

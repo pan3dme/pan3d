@@ -5,7 +5,7 @@
     protected _preLoadActionDic: Object;
     protected _waitLoadActionDic: Object;
     protected _completeState: number = 0;
-    protected _defaultAction: string = "stand";
+    protected _defaultAction: string = "walk";
     private _curentAction: string;
     protected _curentFrame: number = 0;
     protected _actionTime: number = 0;

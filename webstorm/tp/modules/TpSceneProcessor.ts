@@ -31,13 +31,28 @@ class TpSceneProcessor extends BaseProcessor {
 
         //  this.playLyf("model/diamondseffect_lyf.txt")
         // this.playLyf("model/reviveeff_lyf.txt")
-        // this.playLyf("model/levelup_lyf.txt")
+        if(!this.isFrishtClik){
+            return;
+        }
+        this.isFrishtClik=true;
+
+        this.playLyf("model/levelup_lyf.txt")
 
 
-        var sc= new  Display3dMovie();
-        sc.setRoleUrl(getRoleUrl("yezhuz"));
-        SceneManager.getInstance().addMovieDisplay(sc);
+//yingz
+        //yezhu
+        //330013
+        /*
+        if(!  this.yezhu){
+            var sc= new  Display3dMovie();
+            sc.setRoleUrl(getRoleUrl("yingz"));
+            SceneManager.getInstance().addMovieDisplay(sc);
+            this.yezhu=sc;
+        }
+        */
+
     }
+    private  isFrishtClik:boolean=true;
     private yezhu: SceneBaseChar;
 
     protected playLyf(url:string)
