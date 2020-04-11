@@ -37,7 +37,7 @@
 @property(nonatomic,assign)BOOL meshVisible;
 
 
-@property(nonatomic,strong)TextureRes*  textBaseTextureRes;
+//@property(nonatomic,strong)TextureRes*  textBaseTextureRes;
 
 @end
 @implementation Display3dMovie
@@ -69,21 +69,12 @@
         self.fileScale=skinMesh.fileScale;
         self.animDic = skinMesh.animDic;
         [self onMeshLoaded];
-        [self loadTextTexture];
-       for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
-           [skinMesh.meshAry[i] upToGpu];
+        for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
+            [skinMesh.meshAry[i] upToGpu];
         }
     } batchNum:1];
 }
--(void)loadTextTexture;
-{
-    NSString* url=@"content/characterresource/guaiwu/duozulei/yezhu/yezhu.png";
-    
-    
-    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:url] fun:^(NSObject * _Nonnull any) {
-        self.textBaseTextureRes=(TextureRes*)any;
-    } wrapType:0 info:nil filteType:0 mipmapType:0];
-}
+
 -(void)onMeshLoaded;
 {
     
@@ -99,14 +90,14 @@
         return;
     }
     [this updateBind];
-    if(self.meshVisible&&self.textBaseTextureRes){
+    if(self.meshVisible){
         for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
             [this updateMaterialMesh:this.skinMesh.meshAry[i]];
         }
     }
     
 }
- 
+
 -(void)setVaCompress:(MeshData*)mesh;
 {
     
@@ -160,7 +151,6 @@
 }
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {
-    
     if (!mesh.material) {
         return;
     }
@@ -168,15 +158,12 @@
     [ctx setProgram:self.shader3d.program];
     [ctx setBlendParticleFactors:mesh.material.blendMode];
     [ctx cullFaceBack:mesh.material.backCull];
-    
- 
+    mesh.material.shader=self.shader3d;
     [self setMaterialTexture:mesh.material mp:mesh.materialParam];
-    
-    [ctx setRenderTexture:self.shader3d name:@"fs0" texture:self.textBaseTextureRes.textTureLuint level:0];
     [self setVc];
     [self setMeshVc:mesh];
     [self setVaCompress:mesh];
- 
+    
 }
 
 - (void)updateFrame:(float)t;
@@ -184,14 +171,7 @@
     if(!self.skinMesh){
         return;
     }
-    /*
-     [0]    (null)    @"attack_01" : (no summary)
-     [1]    (null)    @"stand" : (no summary)
-     [2]    (null)    @"walk" : (no summary)
-     [3]    (null)    @"death" : (no summary)
-     [4]    (null)    @"injured" : (no summary)
-     */
-    
+ 
     Display3dMovie* this=self;
     this.curentAction=@"walk";
     this.actionTime+=t;
@@ -204,9 +184,8 @@
         return;
     }
     AnimData* animData=this.animDic[actionKey];
-    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*2.0) );
-    //   NSLog(@" this.curentFrame%d", this.curentFrame);
-    
+    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*4.0) );
+ 
     if (this.curentFrame >= animData.matrixAry.count) {
         if (this.completeState == 0) {
             this.actionTime = 0.0f;
@@ -218,19 +197,13 @@
             this.completeState = 0;
             [this changeAction:this.curentAction];
         } else if (this.completeState == 3) {
-            
         }
     }
-    
-    
 }
 -(void)changeAction:(NSString*)action;
 {
     self.curentAction = self.defaultAction;
 }
-
-
-
 @end
 
 

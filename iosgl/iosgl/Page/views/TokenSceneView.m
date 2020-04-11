@@ -102,18 +102,21 @@
     
  
     
-    BOOL isTrue=YES;
+    BOOL isTrue=NO;
     
     if(isTrue){
         [Scene_data default].supportBlob=NO;
-        [self playLyfByUrl:@"model/diamondseffect_base.txt"];
+     //   [self playLyfByUrl:@"model/diamondseffect_base.txt"];
+      //  [self playLyfByUrl:@"model/levelup_base.txt"];
         [self playLyfByUrl:@"model/levelup_base.txt"];
         // [self playLyfByUrl:@"model/reviveeff_base.txt"];
     }else{
         [Scene_data default].supportBlob=YES;
         Display3dMovie* sc=[[Display3dMovie alloc]init];
         [self.sceneView.scene3D addMovieDisplay:sc] ;
-        [sc setRoleUrl:@"role/yezhuz.txt"];
+        //330013
+        //yezhuz
+        [sc setRoleUrl:@"role/yingz.txt"];
     }
   
 }

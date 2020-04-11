@@ -18,8 +18,8 @@
 {
     MaterialBaseParam* this=self;
     this.material = material;
-    this.dynamicConstList =  [NSMutableArray alloc];
-    this.dynamicTexList = [NSMutableArray alloc];
+    this.dynamicConstList =  [[NSMutableArray alloc]init];
+    this.dynamicTexList = [[NSMutableArray alloc]init];
     
     NSMutableArray<ConstItem*>* constList  = material.constList;
     NSMutableArray<TexItem*>* texList  = material.texList;
@@ -48,7 +48,7 @@
                 texItem.textureRes=(TextureRes*)any;
             } wrapType:0 info:nil filteType:0 mipmapType:0];
             
-            // [this.dynamicTexList addObject:texItem];
+             [this.dynamicTexList addObject:texItem];
             
             
         } else {
