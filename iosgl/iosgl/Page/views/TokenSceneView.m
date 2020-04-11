@@ -101,25 +101,29 @@
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     
  
-    
+      [Scene_data default].supportBlob=YES;
     BOOL isTrue=NO;
     
     if(isTrue){
-        [Scene_data default].supportBlob=NO;
-     //   [self playLyfByUrl:@"model/diamondseffect_base.txt"];
-      //  [self playLyfByUrl:@"model/levelup_base.txt"];
-        [self playLyfByUrl:@"model/levelup_base.txt"];
-        // [self playLyfByUrl:@"model/reviveeff_base.txt"];
+        [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
+        [self playLyfByUrl:@"model/levelup_lyf.txt"];
+       // [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
     }else{
-        [Scene_data default].supportBlob=YES;
-        Display3dMovie* sc=[[Display3dMovie alloc]init];
-        [self.sceneView.scene3D addMovieDisplay:sc] ;
-        //330013
-        //yezhuz
-        [sc setRoleUrl:@"role/yingz.txt"];
+        
+        
+        if(!baseSc){
+            Display3dMovie* sc=[[Display3dMovie alloc]init];
+              [self.sceneView.scene3D addMovieDisplay:sc] ;
+              //330013
+              //yezhuz
+              [sc setRoleUrl:@"role/yingz.txt"];
+            baseSc=sc;
+        }
+  
     }
   
 }
+Display3dMovie* baseSc;
 -(void)playLyfByUrl:(NSString*)value
 {
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;

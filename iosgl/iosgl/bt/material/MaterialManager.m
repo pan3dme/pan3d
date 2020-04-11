@@ -176,13 +176,16 @@ static MaterialManager *instance = nil;
                 dynamicTexItem.textureRes=textureRes;
             } texListVo:dynamicTexList[i]];
             */
-            
+               NSLog(@"--url-%@",dynamicTexList[i].url);
+              NSLog(@"----");
             [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
-          
+                
+                NSLog(@"----");
                 NSDictionary* bdic=(NSDictionary*)any;
-                DynamicTexItem* dddd= (DynamicTexItem*)bdic[@"info"];
-                dddd.textureRes=(TextureRes*)bdic[@"data"];
-             
+                DynamicTexItem* tempInof= (DynamicTexItem*)bdic[@"info"];
+                TextureRes*  ddd=bdic[@"data"];
+                tempInof.textureRes=ddd;
+                
                 
             } wrapType:0 info: dynamicTexList[i] filteType:0 mipmapType:0];
             

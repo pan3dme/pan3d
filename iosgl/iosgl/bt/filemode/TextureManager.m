@@ -44,7 +44,7 @@ static TextureManager *instance = nil;
  
     if (self.dic[url]) {
         if (info) {
-            fun([[NSArray alloc] initWithObjects:self.dic[url], info, nil]);
+            fun(@{@"data":self.dic[url],@"info":info});
         } else {
             fun(self.dic[url]);
         }
