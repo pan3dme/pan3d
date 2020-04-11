@@ -28,10 +28,8 @@
         [pdata setAllByteInfo:byte];
         [self.dataAry addObject:pdata];
         if (pdata.timelineData.maxFrameNum > self.maxTime) {
-               self.maxTime = pdata.timelineData.maxFrameNum;
-          }
-        
-       //  i=len;
+            self.maxTime = pdata.timelineData.maxFrameNum;
+        }
     }
     
 }
@@ -54,14 +52,14 @@
     
     return pdata;
 }
- 
+
 
 -(CombineParticle*)getCombineParticle;
 {
     CombineParticle* particle=[[CombineParticle alloc]init];
     particle.maxTime=self.maxTime;
     for (int i = 0; i < self.dataAry.count; i++) {
-         Display3DParticle *display = [((ParticleData*)self.dataAry[i]) creatPartilce];
+        Display3DParticle *display = [((ParticleData*)self.dataAry[i]) creatPartilce];
         [particle addPrticleItem:display];
     }
     particle.sourceData = self;

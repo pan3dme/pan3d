@@ -46,7 +46,7 @@
         "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"
         "mulPos = cross(mulPos, normals);\n"
         "mulPos = normalize(mulPos);\n"
-        "mulPos *= v3Normal.w*3.0  ;\n"
+        "mulPos *= v3Normal.w*1.0  ;\n"
         "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
     
         "gl_Position = tempPos*modeMatrix* camMatrix* viewMatrix;\n"
