@@ -57,7 +57,14 @@
         return;
     }
 }
-
+-(NSString*)vertexStr;
+{
+    if(self.vertex){
+        return self.vertex;
+    }else{
+        return [self getVertexShaderString];
+    }
+}
 -(void)compileShaderStr:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
 {
     const GLchar * source = (GLchar *)[str UTF8String];

@@ -58,7 +58,7 @@
 
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
-  "precision mediump float;"
+    "precision mediump float;"
     "uniform sampler2D fs0;"
     "uniform sampler2D fs1;"
     "uniform vec4 fc[1];"

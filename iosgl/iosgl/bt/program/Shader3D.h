@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)getVertexShaderString;
 -(NSString *)getFragmentShaderString;
 
+-(NSString*)vertexStr;
+
 @end
 
 NS_ASSUME_NONNULL_END
