@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DynamicBaseConstItem.h"
+#import "Curve.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DynamicConstItem : NSObject
-
+@interface DynamicConstItem : DynamicBaseConstItem
+@property(nonatomic,strong)Curve* curve;
+-(void)update:(float)t;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -18,10 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Material : ResCount
 
+ 
 @property (nonatomic, strong)  NSString*  url;
 @property (nonatomic, strong)  NSString*  shaderStrRead;
 @property (nonatomic, strong)  NSMutableArray<TexItem*>*  texList ;
-@property (nonatomic, assign)  NSMutableArray<ConstItem*>*  constList ;
+@property (nonatomic, strong)  NSMutableArray<ConstItem*>*  constList ;
 @property (nonatomic, assign)  BOOL  hasTime;
 @property (nonatomic, assign)  float  timeSpeed;
 @property (nonatomic, assign)  int  blendMode;
@@ -48,10 +49,11 @@ NS_ASSUME_NONNULL_BEGIN
 //  public fcIDAry:Array<number>;
 @property (nonatomic, assign)  BOOL  hasParticleColor;
 @property (nonatomic, assign)  NSMutableDictionary*  locationDic;
-@property (nonatomic, assign)  GLfloat*   fcData;
+@property (nonatomic, strong)  NSMutableArray<NSNumber*>*   fcData;
 @property (nonatomic, assign)  float  sceneNumId;
 
 -(void)setByteData:(ByteArray*)byte;
+-(void)update:(float)t;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -60,7 +60,8 @@ static ProgrmaManager *instance = nil;
     if (self.dic[keyStr]) {
         return self.dic[keyStr];
     }
- 
+// material.shaderStrRead
+    
     if (parmaByFragmet) {
          NSNumber* usePbr=[NSNumber numberWithFloat: material.usePbr?1:0];
         NSNumber* useNormal=[NSNumber numberWithFloat: material.useNormal?1:0];
@@ -75,7 +76,8 @@ static ProgrmaManager *instance = nil;
     Shader3D* shader = shaderCls;
     shader.paramAry = paramAry;
     shader.fragment = material.shaderStrRead;
- 
+
+    [shader encodeVstr:nil encodeFstr:shader.fragment];
  
     return shader;
 }
