@@ -107,7 +107,7 @@
     if(isTrue){
        // [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
          [self playLyfByUrl:@"model/levelup_lyf.txt"];
-        // [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
+       //  [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
     }else{
         
         

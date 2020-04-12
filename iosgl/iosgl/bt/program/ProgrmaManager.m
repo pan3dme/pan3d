@@ -78,10 +78,10 @@ static ProgrmaManager *instance = nil;
     shader.vertex=shader.vertexStr;
     shader.fragment = material.shaderStrRead;
    
-      
+      //keyStr    __NSCFString *    @"Display3DBallPartilceShadercontent/particleresources/materials/m_ef_par_byte.txt_1_0_0_0_1_0_0false_"    0x0000000281e3ac40
    
-    if ([keyStr rangeOfString:@"Display3DLocusShader"].location != NSNotFound) {
-    
+    if ([keyStr rangeOfString:@"Display3DBallPartilceShadercontent/particleresources/materials/m_ef_par_byte.txt_1_0_0_0_1_0_0false_"].location != NSNotFound) {
+   
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
         [self changeShader:shader];
@@ -99,37 +99,35 @@ static ProgrmaManager *instance = nil;
 -(void)changeShader:(Shader3D*)shader;
 {
     shader.vertex=
-          @"attribute vec3 v3Position;"
-          "attribute vec2 v2TexCoord;"
-          "attribute vec4 v3Normal;"
+          @"attribute vec4 vPosition;"
+          "attribute vec3 texcoord;"
+          "attribute vec4 basePos;"
+          "attribute vec3 speed;"
           "uniform mat4 viewMatrix;"
           "uniform mat4 camMatrix;"
           "uniform mat4 modeMatrix;"
-          "uniform vec4 vcmat30;"
-          "uniform vec4 vcmat31;"
+          "uniform mat4 rotMatrix;"
+          "uniform vec4 vcmat50;"
+          "uniform vec4 vcmat51;"
+          "uniform vec4 vcmat52;"
+          "uniform vec4 vcmat53;"
           "varying vec2 v0;"
           "varying vec2 v1;"
-          "varying vec4 v2;"
-          "void main(){"
-              "vec2 tempv0 = v2TexCoord;"
-              "tempv0.x -= vcmat30.x;"
-              "float alpha = tempv0.x/vcmat30.y;"
-              "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);"
-              "float kill = -tempv0.x;"
-              "kill *= tempv0.x - vcmat30.z;"
-              "v2 = vec4(kill,0.0,0.0,alpha);"
-              "v1 = v2TexCoord;"
-              "v0 = tempv0;"
-              "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);"
-              "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);"
-              "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);"
-              "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);"
-              "mulPos = cross(mulPos, normals);"
-              "mulPos = normalize(mulPos);"
-              "mulPos *= v3Normal.w*1.0  ;"
-              "tempPos.xyz = mulPos.xyz + v3Position.xyz;"
-              "gl_Position = tempPos*modeMatrix* camMatrix* viewMatrix;"
-          "}";
+          "varying vec3 outvec3;"
+          "vec4 IW(vec4 v) {"
+          "return v*modeMatrix* camMatrix* viewMatrix;"
+          "}"
+          
+          "void main()"
+          "{"
+          "vec4 pos = vec4(vPosition.xyz,1.0);"
+         
+          "gl_Position =IW(vec4(vPosition.xyz,1.0));"
+          "v0=vec2(texcoord.xy);"
+          "v1=vec2(ctime/vcmat50.z,0.0);"
+    "}";
+        
+    
     
            shader.fragment=
            @"precision mediump float;"
@@ -137,20 +135,33 @@ static ProgrmaManager *instance = nil;
            "uniform sampler2D fs1;"
            "uniform vec4 fc[1];"
            "varying vec2 v0;"
-           "varying vec4 v2;"
            "varying vec2 v1;"
            "void main(void){"
-               "vec4 ft0 = texture2D(fs0,v0);"
-               "ft0.xyz *= ft0.w;"
-               "vec4 ft1 = texture2D(fs1,v1);"
-               "ft1.xyz = ft1.xyz * ft1.w;"
-               "vec4 ft2 = ft0 * ft1;"
-               "ft0 = ft2 * v2.w;"
-               "ft1.xyz = ft0.xyz;"
-               "ft1.w = ft0.w;"
-               "if(v2.x<fc[0].x){discard;}"
-               "gl_FragColor = vec4(1,0,0,1);"
+            
+               "gl_FragColor =vec4(1,0,0,1) ;"
            "}";
+    
+    /*
+     precision mediump float;
+     uniform sampler2D fs0;
+     uniform sampler2D fs1;
+     uniform vec4 fc[1];
+     varying vec2 v0;
+     varying vec2 v1;
+     void main(void){
+
+     vec4 ft0 = texture2D(fs0,v0);
+     ft0.xyz *= ft0.w;
+     vec4 ft1 = texture2D(fs1,v1);
+     ft1.xyz = ft1.xyz * ft1.w;
+     vec4 ft2 = ft0 * fc[0];
+     ft0 = ft2 * ft1;
+     ft1.xyz = ft0.xyz;
+     ft1.w = ft0.w;
+     gl_FragColor = ft1;
+
+     }
+     */
       
 }
 

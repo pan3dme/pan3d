@@ -58,7 +58,7 @@
     Vector3D*  scaleCtrl =   self.ballData._scaleCtrlVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat52" x:scaleCtrl.x y:scaleCtrl.y z:scaleCtrl.z w:scaleCtrl.w];
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
-    [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
+   [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
     
     
     if(this.ballData._is3Dlizi){
