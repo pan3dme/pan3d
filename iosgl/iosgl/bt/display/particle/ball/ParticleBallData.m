@@ -421,29 +421,13 @@
 }
 -(void)regShader;
 {
-    if ( !self.materialParam) {
+    if (!self.materialParam) {
         return;
     }
-   
-    
-    [[ProgrmaManager default] registe:Display3DBallPartilceShader.shaderStr shader3d: [[Display3DBallPartilceShader alloc]init]];
-       self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DBallPartilceShader.shaderStr];
-    
-     
+    //使用2进制着色器
+    NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
+    self.materialParam.shader=  [[ProgrmaManager default]getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls: [[Display3DBallPartilceShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
  
-   NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
-    
-  //  [[[ProgrmaManager default] getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls:[[Display3DBallPartilceShader alloc]init]] material: self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
-    Shader3D* shader= [[Display3DBallPartilceShader alloc]init];
-    [[ProgrmaManager default]getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls:shader  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
-    
-    /*
-        this.materialParam.shader = ProgrmaManager.getInstance().getMaterialProgram(Display3DBallShader.Display3D_Ball_Shader,
-            Display3DBallShader, this.materialParam.material, shaderParameAry);
-        this.materialParam.program = this.materialParam.shader.program;
- 
- */
-    
 }
 -(NSArray<NSNumber*>*)getShaderParam;
 {

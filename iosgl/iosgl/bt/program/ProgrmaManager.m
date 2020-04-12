@@ -76,9 +76,19 @@ static ProgrmaManager *instance = nil;
     Shader3D* shader = shaderCls;
     shader.paramAry = paramAry;
     shader.fragment = material.shaderStrRead;
-
+  
+  
+    if ([keyStr rangeOfString:@"Display3DBallPartilceShadercontent"].location != NSNotFound) {
+        NSLog(@"%@", shader.fragment);
+        
+        
+    }else{
+        
+    }
+    
     [shader encodeVstr:nil encodeFstr:shader.fragment];
- 
+    
+    self.dic[keyStr] = shader;
     return shader;
 }
 
