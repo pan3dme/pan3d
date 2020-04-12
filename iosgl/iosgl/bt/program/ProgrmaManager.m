@@ -77,12 +77,29 @@ static ProgrmaManager *instance = nil;
     shader.paramAry = paramAry;
     shader.fragment = material.shaderStrRead;
   
-  
-    if ([keyStr rangeOfString:@"Display3DBallPartilceShadercontent"].location != NSNotFound) {
-        NSLog(@"%@", shader.fragment);
-        
-        
-    }else{
+   
+    if ([keyStr rangeOfString:@"Display3DLocusShader"].location != NSNotFound) {
+         [self outShader:shader.fragment];
+         shader.fragment=
+         @"precision mediump float;"
+         "uniform sampler2D fs0;"
+         "uniform sampler2D fs1;"
+         "uniform vec4 fc[1];"
+         "varying vec2 v0;"
+         "varying vec4 v2;"
+         "varying vec2 v1;"
+         "void main(void){"
+             "vec4 ft0 = texture2D(fs0,v0);"
+             "ft0.xyz *= ft0.w;"
+             "vec4 ft1 = texture2D(fs1,v1);"
+             "ft1.xyz = ft1.xyz * ft1.w;"
+             "vec4 ft2 = ft0 * ft1;"
+             "ft0 = ft2 * v2.w;"
+             "ft1.xyz = ft0.xyz;"
+             "ft1.w = ft0.w;"
+             "if(v2.x<fc[0].x){discard;}"
+             "gl_FragColor = vec4(1,1,1,1);"
+         "}";
         
     }
     
@@ -92,10 +109,22 @@ static ProgrmaManager *instance = nil;
     return shader;
 }
 
-/*
-public getMaterialProgram(key: String, shaderCls: any, $material: Material, paramAry: any = null, parmaByFragmet: boolean = false): Shader3D {
-      var keyStr: string = key + "_" + $material.url;
-    */
+-(void)outShader:(NSString*)value;
+{
+ 
+    NSArray *item = [value componentsSeparatedByString:@"\n"]; //分段
+    NSString *outStr=@"\"\n";
+    for (int i=0; i<item.count; i++) {
+        NSString* tempStr=item[i];
+        if(tempStr.length){
+            outStr= [outStr stringByAppendingString:@"\""];
+            outStr= [outStr stringByAppendingString:tempStr];
+            outStr= [outStr stringByAppendingString:@"\"\n"];
+        }
+    }
+    NSLog(@"%@",outStr);
+    
+}
 @end
 
 
