@@ -30,6 +30,7 @@
         if (pdata.timelineData.maxFrameNum > self.maxTime) {
             self.maxTime = pdata.timelineData.maxFrameNum;
         }
+        i=len;
     }
     
 }

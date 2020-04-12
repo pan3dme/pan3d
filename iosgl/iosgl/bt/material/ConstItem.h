@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ConstItem : NSObject
 @property(nonatomic,assign)int id;
 @property(nonatomic,strong)NSString* name;
-@property(nonatomic,strong)Vector3D* value;
-//@property(nonatomic,assign)int vecNum: Float32Array;
+@property(nonatomic,strong)Vector3D* value3d;
+@property(nonatomic,assign)NSMutableArray<NSNumber*>* vecNum;
 
 @property(nonatomic,strong)NSString*  paramName0;
 @property(nonatomic,assign)int param0Type;
@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)int offset;
 
 -(void)setDynamicOffset:(DynamicBaseConstItem*)dynamic;
+-(void)creat:(NSMutableArray<NSNumber*>*)vc;
 @end
 
 NS_ASSUME_NONNULL_END

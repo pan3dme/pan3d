@@ -40,6 +40,8 @@
     [self updateWatchCaramMatrix];
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
     [self setVcmat];
+    
+    [self setMaterialVc];
 }
 -(void)setVcmat;
 {

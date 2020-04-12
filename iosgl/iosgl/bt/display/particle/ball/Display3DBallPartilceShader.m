@@ -184,6 +184,7 @@
     "precision mediump float;\n"
     "uniform sampler2D fs0;\n"
     "uniform sampler2D fs1;\n"
+    "uniform vec4 fc[1];\n"
     "varying vec2 v0;\n"
     "varying vec2 v1;\n"
     "varying vec3 outvec3;\n"
@@ -192,9 +193,30 @@
     "{"
         "vec4 infoUvf0   =texture2D(fs0,v0.xy);\n"
         "vec4 infoUvf1   =texture2D(fs1,v1.xy);\n"
-        // "vec4 infoUv  = vec4(outvec3.xyz,1.0);\n"
         "gl_FragColor =infoUvf1;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
 @end
+/*
+precision mediump float;\n
+uniform sampler2D fs0;\n
+uniform sampler2D fs1;\n
+uniform vec4 fc[1];\n
+varying vec2 v0;\n
+varying vec2 v1;\n
+void main(void){\n
+ 
+vec4 ft0 = texture2D(fs0,v0);\n
+ft0.xyz *= ft0.w;\n
+vec4 ft1 = texture2D(fs1,v1);\n
+ft1.xyz = ft1.xyz * ft1.w;\n
+vec4 ft2 = ft0 * fc[0];\n
+ft0 = ft2 * ft1;\n
+ft1.xyz = ft0.xyz;\n
+ft1.w = ft0.w;\n
+gl_FragColor = ft1;
+ 
+}
+*/
+

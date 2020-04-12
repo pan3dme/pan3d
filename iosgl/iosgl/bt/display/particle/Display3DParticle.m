@@ -8,10 +8,12 @@
 
 #import "Display3DParticle.h"
 #import "ParticleData.h"
+#import "DynamicConstItem.h"
 #import "DynamicTexItem.h"
 #import "Context3D.h"
 #import "Shader3D.h"
 #import "Scene3D.h"
+#import "Scene_data.h"
 #import "Vector3D.h"
 #import "Matrix3D.h"
 
@@ -128,6 +130,35 @@
 }
 -(void)setVc;
 {
+}
+-(void)setMaterialVc;
+{
+    
+    Display3DParticle* this=self;
+    if (!this.data.materialParam) {
+        return;
+    }
+    NSMutableArray<DynamicConstItem*>* dynamicConstList= this.data.materialParam.dynamicConstList;
+    float t = self._time/  floor([Scene_data default].frameTime * this.data._life);
+    
+    for (int i = 0; i < dynamicConstList.count; i++) {
+        [dynamicConstList[i] update:t];
+    }
+    if(this.data.materialParam.material.fcNum <= 0){
+        return;
+    }
+    t = t * this.data.materialParam.material.timeSpeed;
+    [this.data.materialParam.material update:t];
+    
+    Context3D *ctx=self.scene3d.context3D;
+    NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
+    GLfloat fcDataGlArr[fcData.count];
+    for (int i=0; i<fcData.count; i++) {
+        fcDataGlArr[i]=fcData[i].floatValue;
+    }
+    [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
+ 
+    
 }
 -(void)setVa;
 {
