@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)int id;
 @property(nonatomic,strong)NSString* name;
 @property(nonatomic,strong)Vector3D* value3d;
-@property(nonatomic,assign)NSMutableArray<NSNumber*>* vecNum;
+@property(nonatomic,strong)NSMutableArray<NSNumber*>* vecNum;
 
 @property(nonatomic,strong)NSString*  paramName0;
 @property(nonatomic,assign)int param0Type;
@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setDynamicOffset:(DynamicBaseConstItem*)dynamic;
 -(void)creat:(NSMutableArray<NSNumber*>*)vc;
+-(void)setDynamic:(DynamicBaseConstItem*)dynamic;
 @end
 
 NS_ASSUME_NONNULL_END

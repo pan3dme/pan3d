@@ -37,5 +37,23 @@
     this.vecNum[3 + this.offset] = [NSNumber numberWithFloat:this.value3d.w];
     
 }
+-(void)setDynamic:(DynamicBaseConstItem*)dynamic;
+{
+
+    for(int i=0;i<dynamic.currentValue.count;i++){
+        self.vecNum[dynamic.targetOffset+i]=dynamic.currentValue[i];
+    }
+    
+}
+/*
+public setDynamic($dynamic: DynamicBaseConstItem): void {
+       try {
+           this.vecNum.set($dynamic.currentValue, $dynamic.targetOffset);
+       }
+       catch (err) {
+           console.log("在此处理错误2");
+       }
+}
+*/
  
 @end

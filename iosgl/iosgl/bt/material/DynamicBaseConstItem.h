@@ -18,8 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString* paramName;
 @property(nonatomic,strong)NSMutableArray<NSNumber*>* currentValue;
 @property(nonatomic,assign)int targetOffset;
-@property(nonatomic,assign)int type;
-
+@property(nonatomic,assign)int _type;
+-(void)setType:(int)value;
+-(int)type;
+ 
 -(void)setTargetInfo:(ConstItem*)target paramName:(NSString*)paramName type:(int)type;
 -(void)setCurrentVal:(NSNumber*)x;
 -(void)setCurrentVal:(NSNumber*)x y:(NSNumber*)y;

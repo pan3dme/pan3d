@@ -158,7 +158,7 @@
     }
     [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
  
-    
+     
 }
 -(void)setVa;
 {

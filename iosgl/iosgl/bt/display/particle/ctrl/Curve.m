@@ -8,10 +8,19 @@
 
 #import "Curve.h"
 #import "CurveVo.h"
+#import "Vector3D.h"
 #import "Scene_data.h"
 
 @implementation Curve
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.valueV3d=[[[NSArray alloc]initWithObjects:@1,@1,@1,@1, nil] mutableCopy];
+    }
+    return self;
+}
 
 
 -(void)setData:(CurveVo*)obj;

@@ -20,14 +20,16 @@
 }
 -(void)update:(float)t;
 {
-    [self.curve getValue:t];
+   self. currentValue=   [self.curve getValue:t];
+   [self.target setDynamic:self];
 }
-/*
- public update(t: number=0): void {
-        this.currentValue = this.curve.getValue(t);
-        this.target.setDynamic(this);
-        //this.target.setDynamicDirect(this.curve.getValue(t),this.targetOffset);
-    }
- */
+ 
 
+-(void)setType:(int)value;
+{
+    self._type=value;
+    self.curve =[[Curve alloc]init];
+    self.curve.type = value;
+}
+ 
 @end

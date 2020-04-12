@@ -8,7 +8,7 @@
 
 #import "DynamicBaseConstItem.h"
 #import "ConstItem.h"
-
+ 
 @implementation DynamicBaseConstItem
 
 
@@ -23,6 +23,14 @@
         [self.currentValue addObject:@0];
     }
     
+}
+-(void)setType:(int)value;
+{
+  self._type=value;
+}
+-(int)type;
+{
+    return self._type;
 }
 -(void)setCurrentVal:(NSNumber*)x;
 {
