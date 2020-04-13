@@ -6,6 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
+#import "GL_Header.h"
 #import "ParticleBallData.h"
 #import "ByteArray.h"
 #import "Vector3D.h"
@@ -178,47 +179,36 @@
 }
 -(void)initBaseData
 {
-    
-        /*
+  
+    ParticleBallData* this=self;
+    float ranScale =  randomFloat() * (this._particleRandomScale.x - this._particleRandomScale.y) + this._particleRandomScale.y;
     float width=self._width;
     float height=self._height;
-    float ranScale=  drand48()*(self._particleRandomScale.x-self._particleRandomScale.y)+self._particleRandomScale.y;
-
-     var ranScale: number = Math.random() * (this._particleRandomScale.x - this._particleRandomScale.y) + this._particleRandomScale.y;
-     
-     verterList.push((-offsetX * width) * ranScale, (height - offsetY * height) * ranScale, 0);
-     verterList.push((width - offsetX * width) * ranScale, (height - offsetY * height) * ranScale, 0);
-     verterList.push((width - offsetX * width) * ranScale, (-offsetY * height) * ranScale, 0);
-     verterList.push((-offsetX * width) * ranScale, (-offsetY * height) * ranScale, 0);
-     */
+    float offsetX=self._originWidthScale;
+    float offsetY=self._originHeightScale;
     
     int lznum=self._totalNum;
-    float tw=5.0f;
-    float th=5.0f;
-    
     GLfloat attrArr[lznum*16];
-    
     unsigned int Indices[lznum*6];
-    
     for(int i=0;i<lznum;i++){
         int skipAtt=i*16;
-        attrArr[skipAtt+0]=-tw;
-        attrArr[skipAtt+1]=-th;
+        attrArr[skipAtt+0]=(-offsetX * width) * ranScale;
+        attrArr[skipAtt+1]=(height - offsetY * height) * ranScale;
         attrArr[skipAtt+2]=0.0f;
         attrArr[skipAtt+3]=i;
         
-        attrArr[skipAtt+4]=tw;
-        attrArr[skipAtt+5]=-th;
+        attrArr[skipAtt+4]=(width - offsetX * width) * ranScale;
+        attrArr[skipAtt+5]=(height - offsetY * height) * ranScale;
         attrArr[skipAtt+6]=0.0f;
         attrArr[skipAtt+7]=i;
         
-        attrArr[skipAtt+8]=tw;
-        attrArr[skipAtt+9]=th;
+        attrArr[skipAtt+8]=(width - offsetX * width) * ranScale;
+        attrArr[skipAtt+9]=(-offsetY * height) * ranScale;
         attrArr[skipAtt+10]=0.0f;
         attrArr[skipAtt+11]=i;
         
-        attrArr[skipAtt+12]=-tw;
-        attrArr[skipAtt+13]=th;
+        attrArr[skipAtt+12]=(-offsetX * width) * ranScale;
+        attrArr[skipAtt+13]=(-offsetY * height) * ranScale;
         attrArr[skipAtt+14]=0.0f;
         attrArr[skipAtt+15]=i;
         
@@ -232,20 +222,19 @@
         Indices[skipInd+5]=3+skipTri;
     }
     
-  
-     GLuint verticesBuffer;
-     glGenBuffers(1, &verticesBuffer);
-     glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-     self.objData.verticesBuffer=verticesBuffer;
-     
-     GLuint indexBuffer;
-     glGenBuffers(1, &indexBuffer);
-     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-     self.objData.indexBuffer=indexBuffer;
- 
-  
+    GLuint verticesBuffer;
+    glGenBuffers(1, &verticesBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+    self.objData.verticesBuffer=verticesBuffer;
+    
+    GLuint indexBuffer;
+    glGenBuffers(1, &indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+    self.objData.indexBuffer=indexBuffer;
+    
+    
  
 }
 -(void)initUV;
@@ -301,8 +290,8 @@
         resultv3d = [[Vector3D alloc]init];
         v3d =[[Vector3D alloc]init];
         if (this._shootAngly.x != 0 || this._shootAngly.y != 0 || this._shootAngly.z != 0) {//锥形速度
-            double r = tan(this._shootAngly.w * M_PI / 180 *  drand48());
-            double a = 360 * M_PI/ 180 * drand48();
+            double r = tan(this._shootAngly.w * M_PI / 180 *  randomFloat());
+            double a = 360 * M_PI/ 180 * randomFloat();
             v3d = [[Vector3D  alloc]x:sin(a)*r y:cos(a)*r z:1];
             [ma identity];
             [ma fromVtoV:Vector3D.Z_AXIS newPos:   [[Vector3D alloc]x:this._shootAngly.x y:this._shootAngly.y z:this._shootAngly.z]];
@@ -312,7 +301,7 @@
     
         }
         if (this._lixinForce.x != 0 || this._lixinForce.y != 0 || this._lixinForce.z != 0) {
-            v3d=[[Vector3D alloc]x:drand48()>0.5f?-this._lixinForce.x : this._lixinForce.x y:drand48()>0.5f?-this._lixinForce.y : this._lixinForce.y z:drand48()>0.5f?-this._lixinForce.z : this._lixinForce.z];
+            v3d=[[Vector3D alloc]x:randomFloat()>0.5f?-this._lixinForce.x : this._lixinForce.x y:randomFloat()>0.5f?-this._lixinForce.y : this._lixinForce.y z:randomFloat()>0.5f?-this._lixinForce.z : this._lixinForce.z];
             [v3d normalize];
             resultv3d =[resultv3d add:v3d];
         }
@@ -329,7 +318,7 @@
         [resultv3d normalize ];
         
         if (this._isSendRandom) {
-            [resultv3d scaleBy:this._speed * drand48()];
+            [resultv3d scaleBy:this._speed * randomFloat()];
         } else {
             [resultv3d scaleBy:this._speed];
         }
@@ -365,28 +354,28 @@
                 if (this._closeSurface) {//紧贴表面
                     v3d =[[Vector3D alloc]x:0  y:0 z:roundv3d.z];
                 } else {
-                    v3d =[[Vector3D alloc]x:0  y:0 z:roundv3d.z * drand48()* 2 - roundv3d.z];
+                    v3d =[[Vector3D alloc]x:0  y:0 z:roundv3d.z * randomFloat()* 2 - roundv3d.z];
                 }
                 [ma identity];
-                [ma appendRotation:drand48()*360 axis:Vector3D.Y_AXIS];
+                [ma appendRotation:randomFloat()*360 axis:Vector3D.Y_AXIS];
                 v3d=[ma transformVector:v3d];
-                v3d.y = roundv3d.y * drand48()* 2 - roundv3d.y;
+                v3d.y = roundv3d.y * randomFloat()* 2 - roundv3d.y;
             }else{
                 if (this._closeSurface) {//只有xyz相等时候才能紧贴表面
                     v3d =[[Vector3D alloc]x:0  y:0 z:roundv3d.z];
                     [ma identity];
                     if (this._halfCircle) {
-                        [ma appendRotation:drand48()*180 axis:Vector3D.X_AXIS];
+                        [ma appendRotation:randomFloat()*180 axis:Vector3D.X_AXIS];
                     } else {
-                        [ma appendRotation:drand48()*360 axis:Vector3D.X_AXIS];
+                        [ma appendRotation:randomFloat()*360 axis:Vector3D.X_AXIS];
                     }
-                    [ma appendRotation:drand48()*360 axis:Vector3D.Y_AXIS];
+                    [ma appendRotation:randomFloat()*360 axis:Vector3D.Y_AXIS];
                     v3d=[ma transformVector:v3d];
                 }else{
                     if (this._halfCircle) {
-                        v3d =[[Vector3D alloc]x:roundv3d.x *  drand48() * 2 - roundv3d.x  y: roundv3d.y *  drand48() z: roundv3d.y *  drand48()];
+                        v3d =[[Vector3D alloc]x:roundv3d.x *  randomFloat() * 2 - roundv3d.x  y: roundv3d.y *  randomFloat() z: roundv3d.y *  randomFloat()];
                     } else {
-                        v3d =[[Vector3D alloc]x:roundv3d.x * drand48() * 2 - roundv3d.x  y:roundv3d.y *drand48() * 2 - roundv3d.y z:roundv3d.z * drand48()* 2 - roundv3d.z];
+                        v3d =[[Vector3D alloc]x:roundv3d.x * randomFloat() * 2 - roundv3d.x  y:roundv3d.y *randomFloat() * 2 - roundv3d.y z:roundv3d.z * randomFloat()* 2 - roundv3d.z];
                     }
                 }
                 

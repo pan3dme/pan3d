@@ -82,9 +82,9 @@ static ProgrmaManager *instance = nil;
    
     if ([keyStr rangeOfString:@"Display3DBallPartilceShadercontent/particleresources/materials/m_ef_par_byte.txt_1_0_0_0_1_0_0false_"].location != NSNotFound) {
    
-        [self outShader:shader.vertex];
-        [self outShader:shader.fragment];
-        [self changeShader:shader];
+    //    [self outShader:shader.vertex];
+   //     [self outShader:shader.fragment];
+      //  [self changeShader:shader];
         
       
         
@@ -113,18 +113,16 @@ static ProgrmaManager *instance = nil;
           "uniform vec4 vcmat53;"
           "varying vec2 v0;"
           "varying vec2 v1;"
-          "varying vec3 outvec3;"
           "vec4 IW(vec4 v) {"
-          "return v*modeMatrix* camMatrix* viewMatrix;"
+            "return v*modeMatrix* camMatrix* viewMatrix;"
           "}"
           
           "void main()"
           "{"
-          "vec4 pos = vec4(vPosition.xyz,1.0);"
-         
+  
           "gl_Position =IW(vec4(vPosition.xyz,1.0));"
-          "v0=vec2(texcoord.xy);"
-          "v1=vec2(ctime/vcmat50.z,0.0);"
+          "v0=vec2(1.0,1.0);"
+          "v1=vec2(0.0,0.0);"
     "}";
         
     
@@ -133,7 +131,7 @@ static ProgrmaManager *instance = nil;
            @"precision mediump float;"
            "uniform sampler2D fs0;"
            "uniform sampler2D fs1;"
-           "uniform vec4 fc[1];"
+//           "uniform vec4 fc[1];"
            "varying vec2 v0;"
            "varying vec2 v1;"
            "void main(void){"
