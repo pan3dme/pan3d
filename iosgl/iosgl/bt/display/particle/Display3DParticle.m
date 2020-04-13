@@ -72,6 +72,7 @@
     [self.rotationMatrix3D appendRotation:_rotationY axis:Vector3D.Y_AXIS];
     [self.rotationMatrix3D appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
 }
+
 -(void)update;
 {
     if(self.visible ){

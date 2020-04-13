@@ -37,17 +37,9 @@
 {
     [self setViewCamModeMatr3d];
     Context3D *ctx=self.scene3d.context3D;
+    
     [self updateWatchCaramMatrix];
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
-    [self setVcmat];
-    
-    [self setMaterialVc];
-}
--(void)setVcmat;
-{
- 
-    Display3DBallPartilce* this=self;
-    Context3D *ctx=self.scene3d.context3D;
     
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
@@ -58,14 +50,15 @@
     Vector3D*  scaleCtrl =   self.ballData._scaleCtrlVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat52" x:scaleCtrl.x y:scaleCtrl.y z:scaleCtrl.z w:scaleCtrl.w];
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
-   [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
+    [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
     
-    
-    if(this.ballData._is3Dlizi){
+    if(self.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
     }
     
+    [self setMaterialVc];
 }
+ 
 -(void)setVa;
 {
     
@@ -95,7 +88,7 @@
     Camera3D* cam3d=self.scene3d.camera3D;
     [cam3d upFrame];
     if (this.ballData.facez) {
-        [this.rotationMatrix3D prependRotation:90.0f axis:Vector3D.Y_AXIS];
+        [this.rotationMatrix3D prependRotation:90.0f axis:Vector3D.X_AXIS];
     } else if (this.ballData._is3Dlizi) {
     } else if (this.ballData._watchEye) {
         [this.rotationMatrix3D prependRotation:cam3d.rotationX axis:Vector3D.X_AXIS];

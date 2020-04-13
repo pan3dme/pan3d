@@ -105,20 +105,16 @@
     BOOL isTrue=YES;
     
     if(isTrue){
-       // [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
-       [self playLyfByUrl:@"model/levelup_lyf.txt"];
-       // [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
+        //[self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
+        //[self playLyfByUrl:@"model/levelup_lyf.txt"];
+        [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
+  
     }else{
-        
-        
-        if(!baseSc){
-            Display3dMovie* sc=[[Display3dMovie alloc]init];
-              [self.sceneView.scene3D addMovieDisplay:sc] ;
-              //330013
-              //yezhuz
-              [sc setRoleUrl:@"role/yingz.txt"];
-            baseSc=sc;
-        }
+           if(!baseSc){
+                    baseSc=[[Display3dMovie alloc]init];
+                    [self.sceneView.scene3D addMovieDisplay:baseSc] ;
+                    [baseSc setRoleUrl:@"role/yingz.txt"];
+                }
   
     }
   
