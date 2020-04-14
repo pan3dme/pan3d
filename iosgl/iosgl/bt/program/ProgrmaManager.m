@@ -84,7 +84,7 @@ static ProgrmaManager *instance = nil;
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-       [self changeShader:shader];
+     //  [self changeShader:shader];
         
       
         
@@ -143,7 +143,7 @@ static ProgrmaManager *instance = nil;
            "ft0 = ft2 * ft1;"
            "ft1.xyz = ft0.xyz;"
            "ft1.w = ft0.w;"
-           "gl_FragColor =texture2D(fs1,v1);"
+           "gl_FragColor =ft1;"
            "}";
     
   

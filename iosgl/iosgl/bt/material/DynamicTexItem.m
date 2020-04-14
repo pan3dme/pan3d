@@ -73,21 +73,22 @@
             
         } else {
             if (this.curve.begintFrame < 0) {
-               tempInset=[[NSMutableArray alloc] initWithObjects:@0, @1, @1,@1, nil];
+               tempInset=[[NSMutableArray alloc] initWithObjects:@1, @1, @1,@1, nil];
             } else {
                 NSInteger index = i - this.curve.begintFrame;
                tempInset=this.curve.valueVec[index];
             }
             
         }
-        tempInset=[[NSMutableArray alloc] initWithObjects:@1, @1, @0,@1, nil];
+       // tempInset=[[NSMutableArray alloc] initWithObjects:@1, @0, @0,@1, nil];
         [imgNumVec addObject:tempInset];
     }
     
-     imgNumVec=  [self makeArrToArr:imgNumVec len:128];
+   
  
     
     CGRect rect = CGRectMake(0, 0, 128, 1);
+ //  imgNumVec=  [self makeArrToArr:imgNumVec len:rect.size.width];
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
@@ -132,19 +133,19 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
          
             // 改成下面的代码，会将图片转成想要的颜色
             uint8_t* ptr = (uint8_t*)pCurPtr;
-            ptr[3] = 0.0; //0~255
-            ptr[2] = 0.0;
-            ptr[1] = 255.0;
-            ptr[0] = 128.0f;
+            ptr[3] = 0; //0~255
+            ptr[2] = 0;
+            ptr[1] = 0;
+            ptr[0] = 255.0f;
         
            baseindex= floor(((float)i)/pixelNum*withArr.count);
 
-            ptr[3] = [ withArr[baseindex][2] floatValue]*0xff;
+            ptr[3] = [ withArr[baseindex][0] floatValue]*0xff;
             ptr[2] =  [ withArr[baseindex][1] floatValue]*0xff;
-            ptr[1] =  [ withArr[baseindex][0] floatValue]*0xff;
+            ptr[1] =  [ withArr[baseindex][2] floatValue]*0xff;
             ptr[0] =  [ withArr[baseindex][3] floatValue]*0xff;;
         
-      //  NSLog(@"--%d",baseindex);
+   
 
     }
        
