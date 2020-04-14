@@ -61,63 +61,63 @@
 
 - (IBAction)scene_but_2_clik:(id)sender {
     
-   // [self.sceneView makeEemptyScene];
+    // [self.sceneView makeEemptyScene];
     self.sceneView.scene3D.camera3D.distance-=20;
-   
+    
 }
 
 - (IBAction)zoom_max_clik:(id)sender {
-       self.sceneView.scene3D.camera3D.distance+=20;
- /*
-    [self.sceneView makeEemptyScene];
-    
-    [[GroupDataManager default]getGroupData:[[Scene_data default]getWorkUrlByFilePath:@"model/baoxiang001_base.txt"] Block:^(GroupRes *groupRes) {
-        
-        for(int i=0;i<groupRes.dataAry.count;i++){
-            GroupItem *groupItem= groupRes.dataAry[i];
-            NSMutableDictionary *infodic=[[NSMutableDictionary alloc]init];
-            [infodic setValue:  groupItem.objUrl forKey:@"objsurl"];
-            [infodic setValue:@"1" forKey:@"scaleX"];
-            [infodic setValue:@"1" forKey:@"scaleY"];
-            [infodic setValue:@"1" forKey:@"scaleZ"];
-            SceneDisplay3DSprite *tempDis=[[SceneDisplay3DSprite alloc]init];
-            [tempDis setInof:infodic];
-            [self.sceneView.scene3D addDisplay:tempDis];
-        }
-    }];
-    
-    */
+    self.sceneView.scene3D.camera3D.distance+=20;
+    /*
+     [self.sceneView makeEemptyScene];
+     
+     [[GroupDataManager default]getGroupData:[[Scene_data default]getWorkUrlByFilePath:@"model/baoxiang001_base.txt"] Block:^(GroupRes *groupRes) {
+     
+     for(int i=0;i<groupRes.dataAry.count;i++){
+     GroupItem *groupItem= groupRes.dataAry[i];
+     NSMutableDictionary *infodic=[[NSMutableDictionary alloc]init];
+     [infodic setValue:  groupItem.objUrl forKey:@"objsurl"];
+     [infodic setValue:@"1" forKey:@"scaleX"];
+     [infodic setValue:@"1" forKey:@"scaleY"];
+     [infodic setValue:@"1" forKey:@"scaleZ"];
+     SceneDisplay3DSprite *tempDis=[[SceneDisplay3DSprite alloc]init];
+     [tempDis setInof:infodic];
+     [self.sceneView.scene3D addDisplay:tempDis];
+     }
+     }];
+     
+     */
     
 }
 
 - (IBAction)zoom_min_clik:(id)sender {
- 
+    
     [self.sceneView makeEemptyScene];
-     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     
     
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     
- 
-      [Scene_data default].supportBlob=YES;
+    
+    [Scene_data default].supportBlob=YES;
     BOOL isTrue=YES;
     
     if(isTrue){
         [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
         [self playLyfByUrl:@"model/levelup_lyf.txt"];
         [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
-  
+        
     }else{
-           if(!baseSc){
-                    baseSc=[[Display3dMovie alloc]init];
-                    [self.sceneView.scene3D addMovieDisplay:baseSc] ;
-                    [baseSc setRoleUrl:@"role/yingz.txt"];
-                }
-  
+        if(!baseSc){
+            baseSc=[[Display3dMovie alloc]init];
+            [self.sceneView.scene3D addMovieDisplay:baseSc] ;
+            [baseSc setRoleUrl:@"role/yingz.txt"];
+        }
+        
     }
-  
+    
 }
 Display3dMovie* baseSc;
 -(void)playLyfByUrl:(NSString*)value
