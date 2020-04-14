@@ -57,35 +57,40 @@
 {
     DynamicTexItem* this=self;
     NSInteger endVecIndex = self.curve.valueVec.count - 1;
-    NSMutableArray* imgNumVec=[[NSMutableArray alloc]init];
+    NSMutableArray<NSMutableArray*>* imgNumVec=[[NSMutableArray alloc]init];
     
     
     for(int i=0;i<this.life;i++){
+        NSMutableArray* tempInset;
         if (i < this.curve.begintFrame) {
-            [imgNumVec addObject:this.curve.valueVec[0]];
+            tempInset=this.curve.valueVec[0];
         } else if (i > this.curve.maxFrame) {
             if (this.curve.maxFrame == 0 && this.curve.begintFrame < 0) {
-                [imgNumVec addObject:[[NSArray alloc] initWithObjects:@0, @1, @1,@1, nil]];
+               tempInset=[[NSMutableArray alloc] initWithObjects:@1, @1, @1,@1, nil];
             } else {
-                [imgNumVec addObject:this.curve.valueVec[endVecIndex]];
+               tempInset=this.curve.valueVec[endVecIndex];
             }
             
         } else {
             if (this.curve.begintFrame < 0) {
-               [imgNumVec addObject:[[NSArray alloc] initWithObjects:@0, @1, @1,@1, nil]];
+               tempInset=[[NSMutableArray alloc] initWithObjects:@0, @1, @1,@1, nil];
             } else {
                 NSInteger index = i - this.curve.begintFrame;
-                [imgNumVec addObject:this.curve.valueVec[index]];
+               tempInset=this.curve.valueVec[index];
             }
             
         }
+        tempInset=[[NSMutableArray alloc] initWithObjects:@1, @1, @0,@1, nil];
+        [imgNumVec addObject:tempInset];
     }
+    
+     imgNumVec=  [self makeArrToArr:imgNumVec len:128];
  
     
     CGRect rect = CGRectMake(0, 0, 128, 1);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
+    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
     CGContextFillRect(context, rect);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -95,6 +100,15 @@
    
     
     
+}
+-(NSMutableArray<NSMutableArray*>*)makeArrToArr:(NSMutableArray<NSMutableArray*>*)arr len:(int)len;
+{
+    NSMutableArray<NSMutableArray*>* outarr=[[NSMutableArray alloc]init];
+    for(int i=0;i<len;i++){
+        int idx=floor((float)i/(float)len *(float)arr.count);
+        [outarr addObject:arr[idx]];
+    }
+    return outarr;
 }
 void ProviderReleaseData (void *info, const void *data, size_t size){
     free((void*)data);

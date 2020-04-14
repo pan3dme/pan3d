@@ -82,9 +82,9 @@ static ProgrmaManager *instance = nil;
    
     if ([keyStr rangeOfString:@"Display3DBallPartilceShadercontent/particleresources/materials/m_ef_par_byte.txt_1_0_0_0_1_0_0false_"].location != NSNotFound) {
    
-    //    [self outShader:shader.vertex];
-   //     [self outShader:shader.fragment];
-      //  [self changeShader:shader];
+        [self outShader:shader.vertex];
+        [self outShader:shader.fragment];
+       [self changeShader:shader];
         
       
         
@@ -98,7 +98,7 @@ static ProgrmaManager *instance = nil;
 
 -(void)changeShader:(Shader3D*)shader;
 {
-    shader.vertex=
+   // shader.vertex=
           @"attribute vec4 vPosition;"
           "attribute vec3 texcoord;"
           "attribute vec4 basePos;"
@@ -131,35 +131,22 @@ static ProgrmaManager *instance = nil;
            @"precision mediump float;"
            "uniform sampler2D fs0;"
            "uniform sampler2D fs1;"
-//           "uniform vec4 fc[1];"
+           "uniform vec4 fc[1];"
            "varying vec2 v0;"
            "varying vec2 v1;"
            "void main(void){"
-            
-               "gl_FragColor =vec4(1,0,0,1) ;"
+           "vec4 ft0 = texture2D(fs0,v0);"
+           "ft0.xyz *= ft0.w;"
+           "vec4 ft1 = texture2D(fs1,v1);"
+           "ft1.xyz = ft1.xyz * ft1.w;"
+           "vec4 ft2 = ft0 * fc[0];"
+           "ft0 = ft2 * ft1;"
+           "ft1.xyz = ft0.xyz;"
+           "ft1.w = ft0.w;"
+           "gl_FragColor =texture2D(fs1,v1);"
            "}";
     
-    /*
-     precision mediump float;
-     uniform sampler2D fs0;
-     uniform sampler2D fs1;
-     uniform vec4 fc[1];
-     varying vec2 v0;
-     varying vec2 v1;
-     void main(void){
-
-     vec4 ft0 = texture2D(fs0,v0);
-     ft0.xyz *= ft0.w;
-     vec4 ft1 = texture2D(fs1,v1);
-     ft1.xyz = ft1.xyz * ft1.w;
-     vec4 ft2 = ft0 * fc[0];
-     ft0 = ft2 * ft1;
-     ft1.xyz = ft0.xyz;
-     ft1.w = ft0.w;
-     gl_FragColor = ft1;
-
-     }
-     */
+  
       
 }
 
