@@ -103,6 +103,12 @@
 		FE678843239B980200262B53 /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678842239B980200262B53 /* SceneView.m */; };
 		FE6ECE682437FCA800EF805A /* MaterialAnimShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
+		FE776AAF244731F700B8B5A4 /* ParticleFollowData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AAE244731F600B8B5A4 /* ParticleFollowData.m */; };
+		FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AB12447321000B8B5A4 /* Display3DFollowShader.m */; };
+		FE776AB52447323000B8B5A4 /* Display3DFollowPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AB42447323000B8B5A4 /* Display3DFollowPartilce.m */; };
+		FE776AB9244733D000B8B5A4 /* ParticleModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AB8244733D000B8B5A4 /* ParticleModelData.m */; };
+		FE776ABC2447340B00B8B5A4 /* Display3DModelPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776ABB2447340B00B8B5A4 /* Display3DModelPartilce.m */; };
+		FE776ABF2447346800B8B5A4 /* Display3DModelPartilceShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776ABE2447346800B8B5A4 /* Display3DModelPartilceShader.m */; };
 		FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */; };
 		FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE80570D2405BE15000F6D17 /* ParticleGpuData.m */; };
 		FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */; };
@@ -333,6 +339,18 @@
 		FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialAnimShader.m; sourceTree = "<group>"; };
 		FE74C8862396C85D0069A551 /* Base3dView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
 		FE74C8872396C85D0069A551 /* Base3dView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
+		FE776AAD244731F600B8B5A4 /* ParticleFollowData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleFollowData.h; sourceTree = "<group>"; };
+		FE776AAE244731F600B8B5A4 /* ParticleFollowData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleFollowData.m; sourceTree = "<group>"; };
+		FE776AB02447321000B8B5A4 /* Display3DFollowShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFollowShader.h; sourceTree = "<group>"; };
+		FE776AB12447321000B8B5A4 /* Display3DFollowShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DFollowShader.m; sourceTree = "<group>"; };
+		FE776AB32447323000B8B5A4 /* Display3DFollowPartilce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFollowPartilce.h; sourceTree = "<group>"; };
+		FE776AB42447323000B8B5A4 /* Display3DFollowPartilce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DFollowPartilce.m; sourceTree = "<group>"; };
+		FE776AB7244733D000B8B5A4 /* ParticleModelData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleModelData.h; sourceTree = "<group>"; };
+		FE776AB8244733D000B8B5A4 /* ParticleModelData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleModelData.m; sourceTree = "<group>"; };
+		FE776ABA2447340B00B8B5A4 /* Display3DModelPartilce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DModelPartilce.h; sourceTree = "<group>"; };
+		FE776ABB2447340B00B8B5A4 /* Display3DModelPartilce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DModelPartilce.m; sourceTree = "<group>"; };
+		FE776ABD2447346800B8B5A4 /* Display3DModelPartilceShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DModelPartilceShader.h; sourceTree = "<group>"; };
+		FE776ABE2447346800B8B5A4 /* Display3DModelPartilceShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DModelPartilceShader.m; sourceTree = "<group>"; };
 		FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DShader.h; sourceTree = "<group>"; };
 		FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DShader.m; sourceTree = "<group>"; };
 		FE80570C2405BE15000F6D17 /* ParticleGpuData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleGpuData.h; sourceTree = "<group>"; };
@@ -809,10 +827,12 @@
 		FE3D4EE02401C12400185FD3 /* particle */ = {
 			isa = PBXGroup;
 			children = (
+				FE776AB6244733B700B8B5A4 /* model */,
 				FE642AC9242AAC920047E41F /* locus */,
 				FE189AD524026AC8008E2FF6 /* ctrl */,
-				FE3D4EF42401C9B900185FD3 /* ball */,
 				FE3D4EF02401C76500185FD3 /* face */,
+				FE3D4EF42401C9B900185FD3 /* ball */,
+				FE776AAC244731A100B8B5A4 /* ballfollow */,
 				FE3D4EE42401C16C00185FD3 /* CombineParticle.h */,
 				FE3D4EE52401C16C00185FD3 /* CombineParticle.m */,
 				FE3D4EE72401C18B00185FD3 /* CombineParticleData.h */,
@@ -947,6 +967,32 @@
 				FE2F1BAB240BF2D0005E287F /* Scene_data.m */,
 			);
 			path = scene;
+			sourceTree = "<group>";
+		};
+		FE776AAC244731A100B8B5A4 /* ballfollow */ = {
+			isa = PBXGroup;
+			children = (
+				FE776AAD244731F600B8B5A4 /* ParticleFollowData.h */,
+				FE776AAE244731F600B8B5A4 /* ParticleFollowData.m */,
+				FE776AB02447321000B8B5A4 /* Display3DFollowShader.h */,
+				FE776AB12447321000B8B5A4 /* Display3DFollowShader.m */,
+				FE776AB32447323000B8B5A4 /* Display3DFollowPartilce.h */,
+				FE776AB42447323000B8B5A4 /* Display3DFollowPartilce.m */,
+			);
+			path = ballfollow;
+			sourceTree = "<group>";
+		};
+		FE776AB6244733B700B8B5A4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				FE776AB7244733D000B8B5A4 /* ParticleModelData.h */,
+				FE776AB8244733D000B8B5A4 /* ParticleModelData.m */,
+				FE776ABD2447346800B8B5A4 /* Display3DModelPartilceShader.h */,
+				FE776ABE2447346800B8B5A4 /* Display3DModelPartilceShader.m */,
+				FE776ABA2447340B00B8B5A4 /* Display3DModelPartilce.h */,
+				FE776ABB2447340B00B8B5A4 /* Display3DModelPartilce.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		FEB5AE3C23F1B10700661496 /* mathother */ = {
@@ -1105,6 +1151,7 @@
 				FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
 				FE887D532416733900025A74 /* ParamDataVo.m in Sources */,
+				FE776AB9244733D000B8B5A4 /* ParticleModelData.m in Sources */,
 				FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
@@ -1151,8 +1198,10 @@
 				FE3D4EE92401C18B00185FD3 /* CombineParticleData.m in Sources */,
 				FE887D772416963300025A74 /* LoadInfo.m in Sources */,
 				FE2088E0239BE86A007FB797 /* ResGC.m in Sources */,
+				FE776ABC2447340B00B8B5A4 /* Display3DModelPartilce.m in Sources */,
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
+				FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */,
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
@@ -1173,6 +1222,7 @@
 				FE887D6E241676CC00025A74 /* TexItem.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */,
+				FE776AAF244731F700B8B5A4 /* ParticleFollowData.m in Sources */,
 				FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */,
 				FE642ACF242AACD20047E41F /* Display3DLocusPartilce.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
@@ -1181,6 +1231,7 @@
 				FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */,
 				FED0DA4A240162F8009F6575 /* GroupDataManager.m in Sources */,
 				FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */,
+				FE776AB52447323000B8B5A4 /* Display3DFollowPartilce.m in Sources */,
 				FE2F3016241C28490005F686 /* Curve.m in Sources */,
 				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
@@ -1188,6 +1239,7 @@
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
 				FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */,
 				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
+				FE776ABF2447346800B8B5A4 /* Display3DModelPartilceShader.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,
 				FE1D8B552412A64E00A04FC4 /* GridLineSprite.m in Sources */,
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,

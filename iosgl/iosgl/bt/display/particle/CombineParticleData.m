@@ -11,7 +11,9 @@
 #import "ParticleFacetData.h"
 #import "ParticleLocusData.h"
 #import "ParticleBallData.h"
+#import "ParticleFollowData.h"
 #import "CombineParticle.h"
+#import "ParticleModelData.h"
 #import "Display3DParticle.h"
 
 @implementation CombineParticleData
@@ -24,13 +26,15 @@
     for (int i = 0; i < len; i++) {
         int particleType=[byte readInt];
         ParticleData *pdata= [self getParticleDataType:particleType];
-        pdata.version=version;
-        [pdata setAllByteInfo:byte];
-        [self.dataAry addObject:pdata];
-        if (pdata.timelineData.maxFrameNum > self.maxTime) {
-            self.maxTime = pdata.timelineData.maxFrameNum;
+        if(pdata){
+            pdata.version=version;
+            [pdata setAllByteInfo:byte];
+            [self.dataAry addObject:pdata];
+            if (pdata.timelineData.maxFrameNum > self.maxTime) {
+                self.maxTime = pdata.timelineData.maxFrameNum;
+            }
         }
-        //i=len;
+        i=len;
     }
     
 }
@@ -43,6 +47,12 @@
             break;
         case 3:
             pdata = [[ParticleLocusData alloc]init];
+            break;
+        case 8:
+            pdata = [[ParticleFollowData alloc]init];
+            break;
+        case 9:
+            pdata = [[ParticleModelData alloc]init];
             break;
         case 18:
             pdata = [[ParticleBallData alloc]init];
