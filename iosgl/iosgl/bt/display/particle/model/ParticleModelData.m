@@ -8,7 +8,7 @@
 
 #import "ParticleModelData.h"
 #import "Display3DModelPartilce.h"
-#import "Display3DModelPartilceShader.h"
+#import "Display3DFacetShader.h"
 #import "ProgrmaManager.h"
 #import "BaseRes.h"
 
@@ -37,12 +37,10 @@
     for (int k = 0; k < iLen; k++) {
         [indexs addObject:[NSNumber numberWithInt:[byte readInt]]];
     }
-    self.objData.uvs=indexs;
+    self.objData.indexs=indexs;
+    self.objData.trinum=(int)self.objData.indexs.count;
     self.objData.stride = buffStride;
-    
     [super setAllByteInfo:fs];
-    
-    
     [self upToGpu];
   
 }
@@ -84,7 +82,7 @@
     }
     //使用2进制着色器
     NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
-    self.materialParam.shader=  [[ProgrmaManager default]getMaterialProgram:Display3DModelPartilceShader.shaderStr shaderCls: [[Display3DModelPartilceShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+    self.materialParam.shader=  [[ProgrmaManager default]getMaterialProgram:Display3DFacetShader.shaderStr shaderCls: [[Display3DFacetShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
  
 }
 -(NSArray<NSNumber*>*)getShaderParam;

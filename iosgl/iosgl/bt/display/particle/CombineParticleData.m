@@ -29,10 +29,13 @@
         if(pdata){
             pdata.version=version;
             [pdata setAllByteInfo:byte];
-            [self.dataAry addObject:pdata];
-            if (pdata.timelineData.maxFrameNum > self.maxTime) {
-                self.maxTime = pdata.timelineData.maxFrameNum;
+            if(particleType==4){
+                [self.dataAry addObject:pdata];
+                           if (pdata.timelineData.maxFrameNum > self.maxTime) {
+                               self.maxTime = pdata.timelineData.maxFrameNum;
+                           }
             }
+           
         }
     
     }
@@ -51,6 +54,9 @@
         case 8:
             pdata = [[ParticleFollowData alloc]init];
             break;
+        case 4:
+            pdata = [[ParticleModelData alloc]init];
+            break;
         case 9:
             pdata = [[ParticleModelData alloc]init];
             break;
@@ -58,6 +64,7 @@
             pdata = [[ParticleBallData alloc]init];
             break;
         default:
+            NSLog(@"没有的类型  %d",type);
             break;
     }
     
