@@ -58,7 +58,6 @@
     DynamicTexItem* this=self;
     NSInteger endVecIndex = self.curve.valueVec.count - 1;
     NSMutableArray<NSMutableArray<NSNumber*>*>* imgNumVec=[[NSMutableArray alloc]init];
-    NSMutableArray<NSMutableArray<NSNumber*>*>* testVec=[[NSMutableArray alloc]init];
  
     for(int i=0;i<this.life;i++){
         NSMutableArray<NSNumber*>* tempInset;
@@ -81,14 +80,13 @@
             }
         }
  
-        Vector3D* v3d=[[Vector3D alloc]init];
-        v3d.x=[tempInset[0]floatValue]*0xff;
-        v3d.y=[tempInset[1]floatValue]*0xff;
-        v3d.z=[tempInset[2]floatValue]*0xff;
-        v3d.w=[tempInset[3]floatValue]*0xff;
+//        Vector3D* v3d=[[Vector3D alloc]init];
+//        v3d.x=[tempInset[0]floatValue]*0xff;
+//        v3d.y=[tempInset[1]floatValue]*0xff;
+//        v3d.z=[tempInset[2]floatValue]*0xff;
+//        v3d.w=[tempInset[3]floatValue]*0xff;
+       
         
-        
-        [testVec addObject:[[NSMutableArray alloc] initWithObjects:@1, @1, @1,@1, nil]];
        
         [imgNumVec addObject:tempInset];
     }
@@ -165,7 +163,7 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
         b.w=[ withArr[endindex][3] floatValue];
         
         if(endindex>baseindex){
-            bscale=  (i-baseindex)/(endindex-baseindex);
+            bscale=  (((float)i*((float)withArr.count/(float)pixelNum))-baseindex)/ (endindex-baseindex);
         }else{
             bscale=0;
         }
@@ -173,8 +171,7 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
         c.y=a.y+(b.y-a.y)*bscale;
         c.z=a.z+(b.z-a.z)*bscale;
         c.w=a.w+(b.w-a.w)*bscale;
-        
-   
+
         ptr[3] = c.x*0xff;
         ptr[2] = c.y*0xff;
         ptr[1] = c.z*0xff;
