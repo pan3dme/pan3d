@@ -99,13 +99,13 @@ public registerUrl($url: string): void {
 {
  
     int _tempTime = [[TimeUtil default]getTimer];
-    int t = _tempTime - self.time;
+    float t = _tempTime - self.time;
     for (NSString* key in self.renderDic) {
         NSArray *list= self.renderDic[key];
         for(int i=0;i<list.count;i++){
             CombineParticle* combineParticle=( (CombineParticle*)(list[i]));
             combineParticle.scene3d=self.scene3d;
-            [combineParticle updateTime:t];
+            [combineParticle updateTime:t*1.0];
         }
     }
    self.time = _tempTime;

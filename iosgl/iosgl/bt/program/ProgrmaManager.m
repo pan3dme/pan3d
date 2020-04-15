@@ -84,7 +84,7 @@ static ProgrmaManager *instance = nil;
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-     //  [self changeShader:shader];
+     [self changeShader:shader];
         
       
         
@@ -98,7 +98,7 @@ static ProgrmaManager *instance = nil;
 
 -(void)changeShader:(Shader3D*)shader;
 {
-   // shader.vertex=
+    shader.vertex=
           @"attribute vec4 vPosition;"
           "attribute vec3 texcoord;"
           "attribute vec4 basePos;"
@@ -113,17 +113,66 @@ static ProgrmaManager *instance = nil;
           "uniform vec4 vcmat53;"
           "varying vec2 v0;"
           "varying vec2 v1;"
+          "varying vec3 outvec3;"
           "vec4 IW(vec4 v) {"
-            "return v*modeMatrix* camMatrix* viewMatrix;"
+          "return v*modeMatrix* camMatrix* viewMatrix;"
           "}"
-          
+          "float CTM() {"
+          "float t = vcmat50.x- basePos.w;"
+          "if (vcmat50.w > 0.0 && t >= 0.0) {"
+          "t = fract(t /vcmat50.z) * vcmat50.z;"
+          "}"
+          "return t;"
+          "}"
+          "float STM(float ctime) {"
+          "float t = ctime - vcmat51.w;"
+          "t = max(t,0.0);"
+          "return t;"
+          "}"
+          "vec4 S_POS(vec4 pos ,float stime) {"
+          "float sf = vcmat51.x * stime;"
+          "if (vcmat51.y != 0.0 && vcmat51.z != 0.0) {"
+          "sf += sin(vcmat51.y * stime) * vcmat51.z;"
+          "}"
+          "sf=min(sf,vcmat52.z);"
+          "sf=max(sf,vcmat52.w);"
+          "vec2 sv2 = vec2(vcmat52.x * sf, vcmat52.y * sf);"
+          "sv2 = sv2 + 1.0;"
+          "pos.x *= sv2.x;"
+          "pos.y *= sv2.y;"
+          "return pos;"
+          "}vec3 ADD_POS(vec3 speed ,float ctime) {"
+          "vec3 addPos = speed * ctime;"
+          "vec3 uspeed = vec3(0,0,0);"
+          "if(vcmat50.y != 0.0 && length(speed) != 0.0) {"
+          "uspeed = vec3(speed.x, speed.y, speed.z);"
+          "uspeed = normalize(uspeed);"
+          "uspeed = uspeed * vcmat50.y;"
+          "uspeed.xyz = uspeed.xyz + vcmat53.xyz;"
+          "} else {"
+          "uspeed = vec3(vcmat53.x, vcmat53.y, vcmat53.z);"
+          "}"
+          "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;"
+          "return addPos;"
+          "}"
           "void main()"
           "{"
-  
-          "gl_Position =IW(vec4(vPosition.xyz,1.0));"
-          "v0=vec2(1.0,1.0);"
-          "v1=vec2(0.0,0.0);"
-    "}";
+          "vec4 pos = vec4(vPosition.xyz,1.0);"
+          "float ctime = CTM();"
+          "float stime = STM(ctime);"
+          "if (ctime < 0.0 || ctime > vcmat50.z) {"
+          "pos.x =0.0;"
+          "pos.y =0.0;"
+          "}else{"
+          "pos = S_POS(pos,stime);"
+          "pos = rotMatrix* pos;"
+          "vec3 addPos =ADD_POS(speed,ctime);"
+          "pos.xyz = pos.xyz + basePos.xyz + addPos.xyz;"
+          "}"
+          "gl_Position =IW(pos);"
+          "v0=vec2(texcoord.xy);"
+          "v1=vec2(ctime/vcmat50.z,0.0);"
+          "}";
         
     
     

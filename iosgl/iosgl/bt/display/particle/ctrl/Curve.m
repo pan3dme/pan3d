@@ -38,10 +38,10 @@
     NSUInteger len = values0.count;
     NSMutableArray<NSMutableArray*>* ary=[[NSMutableArray alloc]init];
     for (int i=0; i < len; i++) {
-        NSArray* values0  = obj.values[0];
-        NSArray* values1  = obj.values[1];
-        NSArray* values2  = obj.values[2];
-        NSArray* values3  = obj.values[3];
+        NSArray<NSNumber*>* values0  = obj.values[0];
+        NSArray<NSNumber*>* values1  = obj.values[1];
+        NSArray<NSNumber*>* values2  = obj.values[2];
+        NSArray<NSNumber*>* values3  = obj.values[3];
         NSMutableArray* itemAry  = [[NSMutableArray alloc]init];
         switch (this.type) {
             case 1:
@@ -57,10 +57,10 @@
                 [itemAry addObject:values2[i]];
                 break;
             case 4:
-                [itemAry addObject:values0[i]];
-                [itemAry addObject:values1[i]];
-                [itemAry addObject:values2[i]];
-                [itemAry addObject:values3[i]];
+                [itemAry addObject: [NSNumber numberWithFloat:values3[i].floatValue*values0[i].floatValue]];
+                [itemAry addObject: [NSNumber numberWithFloat:values3[i].floatValue*values1[i].floatValue]];
+                [itemAry addObject: [NSNumber numberWithFloat:values3[i].floatValue*values2[i].floatValue]];
+                [itemAry addObject: values3[i]];
                 break;
             default:
                 break;

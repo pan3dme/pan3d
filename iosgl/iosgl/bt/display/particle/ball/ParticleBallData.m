@@ -43,7 +43,7 @@
 {
     ParticleBallData *this=self;
     this._totalNum =  [byte readFloat];
- 
+    this._totalNum=1;
     this._acceleration = [byte readFloat];
     this._toscale =  [byte readFloat];
     this._shootSpeed =  [byte readFloat];
