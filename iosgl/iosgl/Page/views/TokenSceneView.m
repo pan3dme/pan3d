@@ -20,9 +20,11 @@
 #import "DisplayBaseTriSprite.h"
 #import "LoadManager.h"
 #import "Scene_data.h"
+#import "SkillManager.h"
 #import "UIImageView+WebCache.h"
 #import "Display3dMovie.h"
 #import "DisplayTestSprite.h"
+#import "GL_Header.h"
 
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
@@ -100,30 +102,52 @@
 - (IBAction)zoom_min_clik:(id)sender {
     
     [self.sceneView makeEemptyScene];
-    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+  //  [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
      // [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
     
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     [Scene_data default].supportBlob=YES;
-    BOOL isTrue=NO;
-    if(isTrue){
-        // [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
-        // [self playLyfByUrl:@"model/levelup_lyf.txt"];
-        // [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
-        // [self playLyfByUrl:@"model/skin001_lyf.txt"]
-        // [self playLyfByUrl:@"model/10017_lyf.txt"];
-        // [self playLyfByUrl:@"model/10018_lyf.txt"];
-        [self playLyfByUrl:@"model/13012_lyf.txt"];
-    }else{
-        if(!baseSc){
-            baseSc=[[Display3dMovie alloc]init];
-            [self.sceneView.scene3D addMovieDisplay:baseSc] ;
-            [baseSc setRoleUrl:@"role/yingz.txt"];
-        }
-        
+    
+    int tabId=1;
+    switch (tabId) {
+        case 1:
+            // [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
+            // [self playLyfByUrl:@"model/levelup_lyf.txt"];
+            // [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
+            // [self playLyfByUrl:@"model/skin001_lyf.txt"]
+            // [self playLyfByUrl:@"model/10017_lyf.txt"];
+            // [self playLyfByUrl:@"model/10018_lyf.txt"];
+            [self playLyfByUrl:@"model/13012_lyf.txt"];
+            break;
+        case 2:
+            if(!baseSc){
+                baseSc=[[Display3dMovie alloc]init];
+                [self.sceneView.scene3D addMovieDisplay:baseSc] ;
+                [baseSc setRoleUrl:@"role/yingz.txt"];
+            }
+            
+            break;
+        case 3:
+            [self loadSkilFile];
+            break;
+            
+        default:
+            break;
     }
+    
+     
+ 
+    
+}
+-(void)loadSkilFile;
+{
+ 
+    
+    [[SkillManager default]getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
+    
+   //   var $skill: Skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), $effectName);
     
 }
 Display3dMovie* baseSc;

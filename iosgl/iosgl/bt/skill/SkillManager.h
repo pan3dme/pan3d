@@ -7,10 +7,20 @@
 //
 
 #import "ResGC.h"
+#import "Skill.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SkillManager : ResGC
++ (instancetype)default;
+
+@property (nonatomic,strong)NSMutableDictionary* _skillDic;
+@property (nonatomic,strong)NSMutableDictionary* _loadDic;
+@property (nonatomic,strong)NSMutableDictionary* _preLoadDic;
+@property (nonatomic,strong)NSMutableArray<Skill*>* _skillAry;
+@property (nonatomic,assign)float _time;
+
+-(Skill*)getSkill:(NSString*)url name:(NSString*)name;
 
 @end
 

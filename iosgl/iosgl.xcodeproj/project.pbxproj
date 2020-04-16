@@ -161,6 +161,7 @@
 		FEEF8BD92448E7AC001AFEB2 /* SkillMulPath.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BD82448E7AC001AFEB2 /* SkillMulPath.m */; };
 		FEEF8BDD2448E7CD001AFEB2 /* SkillKeyVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BDC2448E7CD001AFEB2 /* SkillKeyVo.m */; };
 		FEEF8BE02448E7DF001AFEB2 /* SkillVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */; };
+		FEEF8BE32448F537001AFEB2 /* SkillRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BE22448F537001AFEB2 /* SkillRes.m */; };
 		FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4B82436A61D0055AB31 /* BindParticle.m */; };
 		FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BB2436B11A0055AB31 /* BoneSocketData.m */; };
 		FEF3D4BF2436B4290055AB31 /* AnimManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BE2436B4290055AB31 /* AnimManager.m */; };
@@ -469,6 +470,8 @@
 		FEEF8BDC2448E7CD001AFEB2 /* SkillKeyVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillKeyVo.m; sourceTree = "<group>"; };
 		FEEF8BDE2448E7DF001AFEB2 /* SkillVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillVo.h; sourceTree = "<group>"; };
 		FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillVo.m; sourceTree = "<group>"; };
+		FEEF8BE12448F537001AFEB2 /* SkillRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillRes.h; sourceTree = "<group>"; };
+		FEEF8BE22448F537001AFEB2 /* SkillRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillRes.m; sourceTree = "<group>"; };
 		FEF3D4B72436A61D0055AB31 /* BindParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindParticle.h; sourceTree = "<group>"; };
 		FEF3D4B82436A61D0055AB31 /* BindParticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindParticle.m; sourceTree = "<group>"; };
 		FEF3D4BA2436B11A0055AB31 /* BoneSocketData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoneSocketData.h; sourceTree = "<group>"; };
@@ -1067,12 +1070,14 @@
 				FEEF8BDA2448E7C0001AFEB2 /* vo */,
 				FEEF8BCD2448E769001AFEB2 /* path */,
 				FEEF8BBD2448E4E9001AFEB2 /* key */,
-				FEEF8BB42448E4A8001AFEB2 /* SkillManager.h */,
-				FEEF8BB52448E4A8001AFEB2 /* SkillManager.m */,
+				FEEF8BE12448F537001AFEB2 /* SkillRes.h */,
+				FEEF8BE22448F537001AFEB2 /* SkillRes.m */,
 				FEEF8BB72448E4C0001AFEB2 /* SkillData.h */,
 				FEEF8BB82448E4C0001AFEB2 /* SkillData.m */,
 				FEEF8BBA2448E4D4001AFEB2 /* Skill.h */,
 				FEEF8BBB2448E4D4001AFEB2 /* Skill.m */,
+				FEEF8BB42448E4A8001AFEB2 /* SkillManager.h */,
+				FEEF8BB52448E4A8001AFEB2 /* SkillManager.m */,
 			);
 			path = skill;
 			sourceTree = "<group>";
@@ -1260,6 +1265,7 @@
 				FEEF8BB62448E4A8001AFEB2 /* SkillManager.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
 				FE887D532416733900025A74 /* ParamDataVo.m in Sources */,
+				FEEF8BE32448F537001AFEB2 /* SkillRes.m in Sources */,
 				FE776AB9244733D000B8B5A4 /* ParticleModelData.m in Sources */,
 				FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,

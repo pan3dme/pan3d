@@ -7,7 +7,42 @@
 //
 
 #import "Skill.h"
+#import "SkillData.h"
 
 @implementation Skill
+
+
+-(void)reset;
+{
+    
+}
+/*
+ public reset(): void {
+       this.time = 0;
+       this.completeNum = 0;
+       this.active = null;
+       this.completeFun = null;
+       this.targetFlag = 0;
+       this.soundPlay = false;
+       this.needSound = false;
+   }
+ */
+
+
+-(void)setData:(NSMutableDictionary*)daya skillData:(SkillData*)skillData;
+{
+    
+}
+
+/*
+ public setData($data: any, $skillData: SkillData): void {
+       this.skillVo = new SkillVo();
+       this.skillVo.setData($data);
+       this.setKeyAry();
+       this.trajectoryAry = new Array;
+       this._skillData = $skillData;
+   }
+
+ */
 
 @end
