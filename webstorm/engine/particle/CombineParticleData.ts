@@ -43,12 +43,15 @@
             pdata.version = version;
             pdata.setAllByteInfo(byte);
 
-            this.dataAry.push(pdata);
+            if($particleType==4){
+                this.dataAry.push(pdata);
+            }
+
 
             if (pdata.timelineData.maxFrameNum > this.maxTime) {
                 this.maxTime = pdata.timelineData.maxFrameNum;
             }
-         //  i=len;
+           //i=len;
 
 
         }

@@ -22,6 +22,7 @@
 #import "Scene_data.h"
 #import "UIImageView+WebCache.h"
 #import "Display3dMovie.h"
+#import "DisplayTestSprite.h"
 
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
@@ -67,7 +68,13 @@
 }
 
 - (IBAction)zoom_max_clik:(id)sender {
-    self.sceneView.scene3D.camera3D.distance+=20;
+    //self.sceneView.scene3D.camera3D.distance+=20;
+  
+    [self.sceneView makeEemptyScene];
+     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+     [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
+    
+    
     /*
      [self.sceneView makeEemptyScene];
      

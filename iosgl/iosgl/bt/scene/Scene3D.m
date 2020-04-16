@@ -50,7 +50,6 @@
  
     [self.camera3D upFrame];
     [self updateFrameRole];
-    
     [self.context3D setDepthTest:YES];
     for(int i=0;i<self.displayList.count;i++){
         [self.displayList[i] upFrame];
@@ -59,7 +58,7 @@
         [self.displayRoleList[i] upFrame];
     }
     self.particleManager.scene3d=self;
-      [self.context3D setDepthTest:NO];
+    [self.context3D setDepthTest:NO];
     [self.particleManager update];
 }
 -(void)updateFrameRole;

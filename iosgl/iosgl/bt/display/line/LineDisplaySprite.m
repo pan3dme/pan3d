@@ -52,8 +52,6 @@
 }
 -(void)onCreated;
 {
-    [[ProgrmaManager default] registe:LineDisplayShader.shaderStr shader3d: [[LineDisplayShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:LineDisplayShader.shaderStr];
     self.objData=[[ObjData alloc]init];
     [self clearLine];
     
@@ -61,6 +59,11 @@
     [self addLineA2B:[[Vector3D alloc]x:0 y:0 z:0]   b:[[Vector3D alloc]x:100.0f y:0 z:0]];
     self.colorV3d=[[Vector3D alloc]x:0 y:0 z:1];
     [self addLineA2B:[[Vector3D alloc]x:0 y:0 z:0]   b:[[Vector3D alloc]x:0 y:0 z:100.0f]];
+}
+-(void)registetProgame;
+{
+     [[ProgrmaManager default] registe:LineDisplayShader.shaderStr shader3d: [[LineDisplayShader alloc]init]];
+      self.shader3d=  [[ProgrmaManager default] getProgram:LineDisplayShader.shaderStr];
 }
 -(void)refrishLineDataToGpu;
 {

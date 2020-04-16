@@ -2,6 +2,9 @@
 
     public curve: Curve;
 
+    constructor() {
+        super();
+    }
 
     public update(t: number=0): void {
         this.currentValue = this.curve.getValue(t);

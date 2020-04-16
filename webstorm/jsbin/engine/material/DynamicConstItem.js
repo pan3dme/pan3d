@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 var DynamicConstItem = /** @class */ (function (_super) {
     __extends(DynamicConstItem, _super);
     function DynamicConstItem() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        return _super.call(this) || this;
     }
     DynamicConstItem.prototype.update = function (t) {
         if (t === void 0) { t = 0; }

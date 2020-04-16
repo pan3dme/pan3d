@@ -77,6 +77,7 @@
         this.balldata.vcmatData.set(this.modelMatrix.m, 32);
         //Scene_data.context3D.setVcMatrix4fv(this.data.materialParam.shader, "watheye", this._rotationMatrix.m);
         //this.balldata.setFloat32Mat("watheye", this._rotationMatrix.m);//48
+
         this.balldata.vcmatData.set(this._rotationMatrix.m, 48);
 
         this.balldata._timeVec[0] = this._time / Scene_data.frameTime * this.balldata._playSpeed;

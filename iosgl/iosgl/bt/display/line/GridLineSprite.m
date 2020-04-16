@@ -50,9 +50,13 @@
         b=[[Vector3D alloc]x:-w y:0 z:-i * skeep];
         [self addLineA2B:a b:b];
     }
-    [[ProgrmaManager default] registe:GridLineShader.shaderStr shader3d: [[GridLineShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:GridLineShader.shaderStr];
  
+ 
+}
+-(void)registetProgame;
+{
+    [[ProgrmaManager default] registe:GridLineShader.shaderStr shader3d: [[GridLineShader alloc]init]];
+     self.shader3d=  [[ProgrmaManager default] getProgram:GridLineShader.shaderStr];
 }
 -(void)setVc;
 {

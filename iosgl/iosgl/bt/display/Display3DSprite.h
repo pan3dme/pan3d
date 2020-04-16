@@ -20,13 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Shader3D *shader3d;
 @property (nonatomic, strong) ObjData *objData;
  
- 
 -(void)loadTextureResByUrl:(NSString*)value;
 -(void)loadObjDataByUrl:(NSString*)url;
 -(void)onCreated;
 -(void)setVc;
 -(void)setVa;
 -(void)updateBind;
+-(void)registetProgame;
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 @end
 NS_ASSUME_NONNULL_END

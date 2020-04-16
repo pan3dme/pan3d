@@ -108,6 +108,8 @@
 		FE776AB52447323000B8B5A4 /* Display3DFollowPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AB42447323000B8B5A4 /* Display3DFollowPartilce.m */; };
 		FE776AB9244733D000B8B5A4 /* ParticleModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AB8244733D000B8B5A4 /* ParticleModelData.m */; };
 		FE776ABC2447340B00B8B5A4 /* Display3DModelPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776ABB2447340B00B8B5A4 /* Display3DModelPartilce.m */; };
+		FE776AC52448481B00B8B5A4 /* DisplayTestSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AC42448481B00B8B5A4 /* DisplayTestSprite.m */; };
+		FE776AC82448483A00B8B5A4 /* DisplayTestShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AC72448483A00B8B5A4 /* DisplayTestShader.m */; };
 		FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */; };
 		FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE80570D2405BE15000F6D17 /* ParticleGpuData.m */; };
 		FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */; };
@@ -348,6 +350,10 @@
 		FE776AB8244733D000B8B5A4 /* ParticleModelData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleModelData.m; sourceTree = "<group>"; };
 		FE776ABA2447340B00B8B5A4 /* Display3DModelPartilce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DModelPartilce.h; sourceTree = "<group>"; };
 		FE776ABB2447340B00B8B5A4 /* Display3DModelPartilce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DModelPartilce.m; sourceTree = "<group>"; };
+		FE776AC32448481B00B8B5A4 /* DisplayTestSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayTestSprite.h; sourceTree = "<group>"; };
+		FE776AC42448481B00B8B5A4 /* DisplayTestSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayTestSprite.m; sourceTree = "<group>"; };
+		FE776AC62448483A00B8B5A4 /* DisplayTestShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayTestShader.h; sourceTree = "<group>"; };
+		FE776AC72448483A00B8B5A4 /* DisplayTestShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayTestShader.m; sourceTree = "<group>"; };
 		FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DShader.h; sourceTree = "<group>"; };
 		FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DShader.m; sourceTree = "<group>"; };
 		FE80570C2405BE15000F6D17 /* ParticleGpuData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleGpuData.h; sourceTree = "<group>"; };
@@ -769,6 +775,10 @@
 				FE1D8B512412903600A04FC4 /* DisplayBaseTriShader.m */,
 				FE1D8B4D2412902200A04FC4 /* DisplayBaseTriSprite.h */,
 				FE1D8B4E2412902200A04FC4 /* DisplayBaseTriSprite.m */,
+				FE776AC62448483A00B8B5A4 /* DisplayTestShader.h */,
+				FE776AC72448483A00B8B5A4 /* DisplayTestShader.m */,
+				FE776AC32448481B00B8B5A4 /* DisplayTestSprite.h */,
+				FE776AC42448481B00B8B5A4 /* DisplayTestSprite.m */,
 			);
 			path = basedis;
 			sourceTree = "<group>";
@@ -1242,6 +1252,7 @@
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
+				FE776AC52448481B00B8B5A4 /* DisplayTestSprite.m in Sources */,
 				FE15ACB424357E5B0062741F /* ResManager.m in Sources */,
 				FE887D5C2416767500025A74 /* DynamicBaseTexItem.m in Sources */,
 				FE2088F4239C183B007FB797 /* MaterialManager.m in Sources */,
@@ -1262,6 +1273,7 @@
 				FEF3D4C92436B7090055AB31 /* ObjectBaseBone.m in Sources */,
 				FE887D7424168FDE00025A74 /* LoadManager.m in Sources */,
 				FE2F3019241C2CBD0005F686 /* TextureManager.m in Sources */,
+				FE776AC82448483A00B8B5A4 /* DisplayTestShader.m in Sources */,
 				FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */,
 				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
 				FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */,

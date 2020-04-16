@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         [self onCreated];
+        [self registetProgame];
     }
     return self;
 }
@@ -66,10 +67,12 @@
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     self.objData.indexBuffer=indexBuffer;
     self.objData.trinum=6;
-    
+   
+}
+-(void)registetProgame;
+{
     [[ProgrmaManager default] registe:Display3DShader.shaderStr shader3d: [[Display3DShader alloc]init]];
     self.shader3d=  [[ProgrmaManager default] getProgram:Display3DShader.shaderStr];
-    
 }
 -(void)loadObjDataByUrl:(NSString*)url
 {

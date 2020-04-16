@@ -30,13 +30,17 @@ class TpSceneProcessor extends BaseProcessor {
     private onMouseDown($evt: InteractiveEvent): void {
 
         //  this.playLyf("model/diamondseffect_lyf.txt")
-        // this.playLyf("model/reviveeff_lyf.txt")
+        //  this.playLyf("model/reviveeff_lyf.txt")
+       //  this.playLyf("model/levelup_lyf.txt")
+       // this.playLyf("model/skin001_lyf.txt")
+        this.playLyf("model/10018_lyf.txt")
         if(!this.isFrishtClik){
             return;
         }
         this.isFrishtClik=true;
 
-        this.playLyf("model/levelup_lyf.txt")
+
+      //  this.playLyf("model/reviveeff_lyf.txt")
 
 
 //yingz

@@ -283,7 +283,7 @@ var SceneManager = /** @class */ (function () {
             ParticleManager.getInstance().updateTime();
             SkillManager.getInstance().update();
             if (this.render) {
-                this.updateStaticDiplay();
+                //   this.updateStaticDiplay();
                 this.updateSpriteDisplay();
                 Scene_data.context3D.setWriteDepth(true);
                 this.updateMovieDisplay();

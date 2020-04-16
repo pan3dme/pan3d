@@ -32,36 +32,34 @@
     public getMaterialProgram(key: String, shaderCls: any, $material: Material, paramAry: any = null, parmaByFragmet: boolean = false): Shader3D {
         var keyStr: string = key + "_" + $material.url;
 
-        if (keyStr.search("Display3DFacetShader_res") != -1 &&true) { //FIXME
+        if (keyStr.search("Display3DBallShader_res") != -1 &&true) { //FIXME
 
         //  console.log(keyStr)
-        // this.outShader($material.shaderStr)
+        this.outShader($material.shaderStr)
 
-/*
+
              $material.shaderStr =
+            "precision mediump float;\n"+
             "precision mediump float;\n"+
             "uniform sampler2D fs0;\n"+
             "uniform sampler2D fs1;\n"+
             "uniform vec4 fc[1];\n"+
             "varying vec2 v0;\n"+
-            "varying vec4 v2;\n"+
             "varying vec2 v1;\n"+
             "void main(void){\n"+
 
-            "vec4 ft0 = texture2D(fs0,v0);\n"+
-            "ft0.xyz *= ft0.w;\n"+
-            "vec4 ft1 = texture2D(fs1,v1);\n"+
-            "ft1.xyz = ft1.xyz * ft1.w;\n"+
-            "vec4 ft2 = ft0 * ft1;\n"+
-            "ft0 = ft2 * v2.w;\n"+
-            "ft1.xyz = ft0.xyz;\n"+
-            "ft1.w = ft0.w;\n"+
+                "vec4 ft0 = texture2D(fs0,v0);\n"+
+                "ft0.xyz *= ft0.w;\n"+
+                "vec4 ft1 = texture2D(fs1,v1);\n"+
+                "ft1.xyz = ft1.xyz * ft1.w;\n"+
+                "vec4 ft2 = ft0 * fc[0];\n"+
+                "ft0 = ft2 * ft1;\n"+
+                "ft1.xyz = ft0.xyz;\n"+
+                "ft1.w = ft0.w;\n"+
+                "gl_FragColor = ft1;\n"+
 
-            "if(v2.x<fc[0].x){discard;}\n"+
-            "gl_FragColor = texture2D(fs0,v0);\n"+
+            "}";
 
-            "}"
-            */
 
 
 
@@ -101,7 +99,7 @@
             console.log(shader.vertex);
             console.log(shader.fragment);
         }
-        if (keyStr.search("Material_Anim_shader_res") != -1 && true) {
+        if (keyStr.search("Display3DBallShader_33res") != -1 && true) {
 
             this.outShader(shader.vertex)
              console.log(shader.vertex);
@@ -118,6 +116,8 @@
 
         console.log("----")
 
+
+
         for (var i: number = 0; i < $item.length; i++)
         {
             var str: string = "\"";
@@ -132,7 +132,9 @@
             }
   
             console.log(str)
+
         }
+
         console.log("----")
     }
 
