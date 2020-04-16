@@ -147,6 +147,20 @@
 		FED0DA5624016C44009F6575 /* baoxiang001.txt in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA5424016C43009F6575 /* baoxiang001.txt */; };
 		FED0DA5724016C44009F6575 /* baoxiang001_base.txt in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA5524016C44009F6575 /* baoxiang001_base.txt */; };
 		FED0DA5A24017531009F6575 /* GroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA5924017531009F6575 /* GroupItem.m */; };
+		FEEF8BB62448E4A8001AFEB2 /* SkillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BB52448E4A8001AFEB2 /* SkillManager.m */; };
+		FEEF8BB92448E4C0001AFEB2 /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BB82448E4C0001AFEB2 /* SkillData.m */; };
+		FEEF8BBC2448E4D4001AFEB2 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BBB2448E4D4001AFEB2 /* Skill.m */; };
+		FEEF8BC02448E4FF001AFEB2 /* SkillKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BBF2448E4FF001AFEB2 /* SkillKey.m */; };
+		FEEF8BC32448E6DC001AFEB2 /* SkillEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BC22448E6DC001AFEB2 /* SkillEffect.m */; };
+		FEEF8BC62448E702001AFEB2 /* SkillFixEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BC52448E702001AFEB2 /* SkillFixEffect.m */; };
+		FEEF8BC92448E71D001AFEB2 /* SkillTrajectory.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BC82448E71D001AFEB2 /* SkillTrajectory.m */; };
+		FEEF8BCC2448E743001AFEB2 /* SkillMulTrajectory.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BCB2448E743001AFEB2 /* SkillMulTrajectory.m */; };
+		FEEF8BD02448E777001AFEB2 /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BCF2448E777001AFEB2 /* PathManager.m */; };
+		FEEF8BD32448E78A001AFEB2 /* SkillPath.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BD22448E78A001AFEB2 /* SkillPath.m */; };
+		FEEF8BD62448E79E001AFEB2 /* SkillSinPath.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BD52448E79E001AFEB2 /* SkillSinPath.m */; };
+		FEEF8BD92448E7AC001AFEB2 /* SkillMulPath.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BD82448E7AC001AFEB2 /* SkillMulPath.m */; };
+		FEEF8BDD2448E7CD001AFEB2 /* SkillKeyVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BDC2448E7CD001AFEB2 /* SkillKeyVo.m */; };
+		FEEF8BE02448E7DF001AFEB2 /* SkillVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */; };
 		FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4B82436A61D0055AB31 /* BindParticle.m */; };
 		FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BB2436B11A0055AB31 /* BoneSocketData.m */; };
 		FEF3D4BF2436B4290055AB31 /* AnimManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BE2436B4290055AB31 /* AnimManager.m */; };
@@ -427,6 +441,34 @@
 		FED0DA5824017531009F6575 /* GroupItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupItem.h; sourceTree = "<group>"; };
 		FED0DA5924017531009F6575 /* GroupItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupItem.m; sourceTree = "<group>"; };
 		FED0DA5C24017D02009F6575 /* AppWorldHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppWorldHeader.h; sourceTree = "<group>"; };
+		FEEF8BB42448E4A8001AFEB2 /* SkillManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillManager.h; sourceTree = "<group>"; };
+		FEEF8BB52448E4A8001AFEB2 /* SkillManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillManager.m; sourceTree = "<group>"; };
+		FEEF8BB72448E4C0001AFEB2 /* SkillData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillData.h; sourceTree = "<group>"; };
+		FEEF8BB82448E4C0001AFEB2 /* SkillData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillData.m; sourceTree = "<group>"; };
+		FEEF8BBA2448E4D4001AFEB2 /* Skill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		FEEF8BBB2448E4D4001AFEB2 /* Skill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		FEEF8BBE2448E4FF001AFEB2 /* SkillKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillKey.h; sourceTree = "<group>"; };
+		FEEF8BBF2448E4FF001AFEB2 /* SkillKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillKey.m; sourceTree = "<group>"; };
+		FEEF8BC12448E6DC001AFEB2 /* SkillEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillEffect.h; sourceTree = "<group>"; };
+		FEEF8BC22448E6DC001AFEB2 /* SkillEffect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillEffect.m; sourceTree = "<group>"; };
+		FEEF8BC42448E702001AFEB2 /* SkillFixEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillFixEffect.h; sourceTree = "<group>"; };
+		FEEF8BC52448E702001AFEB2 /* SkillFixEffect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillFixEffect.m; sourceTree = "<group>"; };
+		FEEF8BC72448E71D001AFEB2 /* SkillTrajectory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillTrajectory.h; sourceTree = "<group>"; };
+		FEEF8BC82448E71D001AFEB2 /* SkillTrajectory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillTrajectory.m; sourceTree = "<group>"; };
+		FEEF8BCA2448E743001AFEB2 /* SkillMulTrajectory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillMulTrajectory.h; sourceTree = "<group>"; };
+		FEEF8BCB2448E743001AFEB2 /* SkillMulTrajectory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillMulTrajectory.m; sourceTree = "<group>"; };
+		FEEF8BCE2448E777001AFEB2 /* PathManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PathManager.h; sourceTree = "<group>"; };
+		FEEF8BCF2448E777001AFEB2 /* PathManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PathManager.m; sourceTree = "<group>"; };
+		FEEF8BD12448E78A001AFEB2 /* SkillPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillPath.h; sourceTree = "<group>"; };
+		FEEF8BD22448E78A001AFEB2 /* SkillPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillPath.m; sourceTree = "<group>"; };
+		FEEF8BD42448E79E001AFEB2 /* SkillSinPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillSinPath.h; sourceTree = "<group>"; };
+		FEEF8BD52448E79E001AFEB2 /* SkillSinPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillSinPath.m; sourceTree = "<group>"; };
+		FEEF8BD72448E7AC001AFEB2 /* SkillMulPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillMulPath.h; sourceTree = "<group>"; };
+		FEEF8BD82448E7AC001AFEB2 /* SkillMulPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillMulPath.m; sourceTree = "<group>"; };
+		FEEF8BDB2448E7CD001AFEB2 /* SkillKeyVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillKeyVo.h; sourceTree = "<group>"; };
+		FEEF8BDC2448E7CD001AFEB2 /* SkillKeyVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillKeyVo.m; sourceTree = "<group>"; };
+		FEEF8BDE2448E7DF001AFEB2 /* SkillVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillVo.h; sourceTree = "<group>"; };
+		FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillVo.m; sourceTree = "<group>"; };
 		FEF3D4B72436A61D0055AB31 /* BindParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindParticle.h; sourceTree = "<group>"; };
 		FEF3D4B82436A61D0055AB31 /* BindParticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindParticle.m; sourceTree = "<group>"; };
 		FEF3D4BA2436B11A0055AB31 /* BoneSocketData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoneSocketData.h; sourceTree = "<group>"; };
@@ -557,6 +599,7 @@
 		FE0FC254239511AC00D2483A /* bt */ = {
 			isa = PBXGroup;
 			children = (
+				FEEF8BB32448E485001AFEB2 /* skill */,
 				FE064B87241EE59F00AD44BE /* Catgoriy */,
 				FE1D8B4024118B2700A04FC4 /* utils */,
 				FE515FB323A2800500C49DA5 /* res */,
@@ -1018,6 +1061,65 @@
 			path = AppBase;
 			sourceTree = "<group>";
 		};
+		FEEF8BB32448E485001AFEB2 /* skill */ = {
+			isa = PBXGroup;
+			children = (
+				FEEF8BDA2448E7C0001AFEB2 /* vo */,
+				FEEF8BCD2448E769001AFEB2 /* path */,
+				FEEF8BBD2448E4E9001AFEB2 /* key */,
+				FEEF8BB42448E4A8001AFEB2 /* SkillManager.h */,
+				FEEF8BB52448E4A8001AFEB2 /* SkillManager.m */,
+				FEEF8BB72448E4C0001AFEB2 /* SkillData.h */,
+				FEEF8BB82448E4C0001AFEB2 /* SkillData.m */,
+				FEEF8BBA2448E4D4001AFEB2 /* Skill.h */,
+				FEEF8BBB2448E4D4001AFEB2 /* Skill.m */,
+			);
+			path = skill;
+			sourceTree = "<group>";
+		};
+		FEEF8BBD2448E4E9001AFEB2 /* key */ = {
+			isa = PBXGroup;
+			children = (
+				FEEF8BBE2448E4FF001AFEB2 /* SkillKey.h */,
+				FEEF8BBF2448E4FF001AFEB2 /* SkillKey.m */,
+				FEEF8BC12448E6DC001AFEB2 /* SkillEffect.h */,
+				FEEF8BC22448E6DC001AFEB2 /* SkillEffect.m */,
+				FEEF8BC42448E702001AFEB2 /* SkillFixEffect.h */,
+				FEEF8BC52448E702001AFEB2 /* SkillFixEffect.m */,
+				FEEF8BC72448E71D001AFEB2 /* SkillTrajectory.h */,
+				FEEF8BC82448E71D001AFEB2 /* SkillTrajectory.m */,
+				FEEF8BCA2448E743001AFEB2 /* SkillMulTrajectory.h */,
+				FEEF8BCB2448E743001AFEB2 /* SkillMulTrajectory.m */,
+			);
+			path = key;
+			sourceTree = "<group>";
+		};
+		FEEF8BCD2448E769001AFEB2 /* path */ = {
+			isa = PBXGroup;
+			children = (
+				FEEF8BCE2448E777001AFEB2 /* PathManager.h */,
+				FEEF8BCF2448E777001AFEB2 /* PathManager.m */,
+				FEEF8BD12448E78A001AFEB2 /* SkillPath.h */,
+				FEEF8BD22448E78A001AFEB2 /* SkillPath.m */,
+				FEEF8BD42448E79E001AFEB2 /* SkillSinPath.h */,
+				FEEF8BD52448E79E001AFEB2 /* SkillSinPath.m */,
+				FEEF8BD72448E7AC001AFEB2 /* SkillMulPath.h */,
+				FEEF8BD82448E7AC001AFEB2 /* SkillMulPath.m */,
+			);
+			path = path;
+			sourceTree = "<group>";
+		};
+		FEEF8BDA2448E7C0001AFEB2 /* vo */ = {
+			isa = PBXGroup;
+			children = (
+				FEEF8BDB2448E7CD001AFEB2 /* SkillKeyVo.h */,
+				FEEF8BDC2448E7CD001AFEB2 /* SkillKeyVo.m */,
+				FEEF8BDE2448E7DF001AFEB2 /* SkillVo.h */,
+				FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */,
+			);
+			path = vo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1152,8 +1254,10 @@
 			files = (
 				FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
+				FEEF8BC32448E6DC001AFEB2 /* SkillEffect.m in Sources */,
 				FE2F2FD12418BE7A0005F686 /* LoaderThread.m in Sources */,
 				FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */,
+				FEEF8BB62448E4A8001AFEB2 /* SkillManager.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
 				FE887D532416733900025A74 /* ParamDataVo.m in Sources */,
 				FE776AB9244733D000B8B5A4 /* ParticleModelData.m in Sources */,
@@ -1170,6 +1274,7 @@
 				FE8788CD243274AC003E0EE7 /* AxisMove.m in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
 				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
+				FEEF8BB92448E4C0001AFEB2 /* SkillData.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,
@@ -1181,8 +1286,10 @@
 				FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */,
 				FEF3D4BF2436B4290055AB31 /* AnimManager.m in Sources */,
 				FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */,
+				FEEF8BC92448E71D001AFEB2 /* SkillTrajectory.m in Sources */,
 				FE805728240698DD000F6D17 /* Display3DShader.m in Sources */,
 				FE15ACA72435750A0062741F /* Display3dMovie.m in Sources */,
+				FEEF8BD62448E79E001AFEB2 /* SkillSinPath.m in Sources */,
 				FE15ACAB243576760062741F /* SkinMesh.m in Sources */,
 				FE064B8A241EE63800AD44BE /* DynamicTexListVo.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
@@ -1204,6 +1311,7 @@
 				FE887D772416963300025A74 /* LoadInfo.m in Sources */,
 				FE2088E0239BE86A007FB797 /* ResGC.m in Sources */,
 				FE776ABC2447340B00B8B5A4 /* Display3DModelPartilce.m in Sources */,
+				FEEF8BBC2448E4D4001AFEB2 /* Skill.m in Sources */,
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
 				FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */,
@@ -1212,6 +1320,8 @@
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
 				FE887D71241681B300025A74 /* MaterialLoad.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
+				FEEF8BE02448E7DF001AFEB2 /* SkillVo.m in Sources */,
+				FEEF8BCC2448E743001AFEB2 /* SkillMulTrajectory.m in Sources */,
 				FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */,
 				FE678843239B980200262B53 /* SceneView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
@@ -1224,10 +1334,12 @@
 				FE3D4EDF2401BF5A00185FD3 /* ParticleManager.m in Sources */,
 				FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
+				FEEF8BC62448E702001AFEB2 /* SkillFixEffect.m in Sources */,
 				FE887D6E241676CC00025A74 /* TexItem.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */,
 				FE776AAF244731F700B8B5A4 /* ParticleFollowData.m in Sources */,
+				FEEF8BC02448E4FF001AFEB2 /* SkillKey.m in Sources */,
 				FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */,
 				FE642ACF242AACD20047E41F /* Display3DLocusPartilce.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
@@ -1244,6 +1356,7 @@
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
 				FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */,
 				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
+				FEEF8BD32448E78A001AFEB2 /* SkillPath.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,
 				FE1D8B552412A64E00A04FC4 /* GridLineSprite.m in Sources */,
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,
@@ -1251,6 +1364,7 @@
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
+				FEEF8BD92448E7AC001AFEB2 /* SkillMulPath.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
 				FE776AC52448481B00B8B5A4 /* DisplayTestSprite.m in Sources */,
 				FE15ACB424357E5B0062741F /* ResManager.m in Sources */,
@@ -1262,6 +1376,8 @@
 				FE6ECE682437FCA800EF805A /* MaterialAnimShader.m in Sources */,
 				FE887D65241676A200025A74 /* Material.m in Sources */,
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
+				FEEF8BDD2448E7CD001AFEB2 /* SkillKeyVo.m in Sources */,
+				FEEF8BD02448E777001AFEB2 /* PathManager.m in Sources */,
 				FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */,
 				FEF3D4CC2436B7630055AB31 /* ObjectBone.m in Sources */,
 				FE2C6A7E241D77F100291B5D /* TextureLoad.m in Sources */,

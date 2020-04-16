@@ -21,7 +21,8 @@ typedef void (^SuccessMaterial)(NSObject* obj);
 
 
  
- 
+#define getSkillUrl(url)(NSString*) [NSString stringWithFormat:@"19999.HTTOM%",url]
+
  #define randomFloat() drand48()
  #define randomInt(x) (int)floor(randomFloat()*x)
  
