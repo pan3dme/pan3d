@@ -106,7 +106,8 @@ static ProgrmaManager *instance = nil;
           "uniform mat4 modeMatrix;"
           "uniform mat4 rotMatrix;"
           "varying vec2 v0;"
-          "void main(){v0=v2TexCoord;"
+          "void main(){"
+          "v0=v2TexCoord;"
           "vec4 vPos = vec4(v3Position.xyz,1.0);"
           "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;"
           "}";
@@ -120,8 +121,8 @@ static ProgrmaManager *instance = nil;
            "varying vec2 v0;"
            "void main(void){"
            "vec4 ft0 = texture2D(fs0,v0);"
-      
-           "gl_FragColor =vec4(1,0,0,1) ;"
+        //"gl_FragColor =vec4(1,0,0,1) ;"
+           "gl_FragColor =ft0;"
            "}";
     
   

@@ -8,9 +8,20 @@
 
 #import "Display3DModelPartilce.h"
 #import "Context3D.h"
+#import "TextureManager.h"
+#import "DynamicTexItem.h"
 #import "Scene3D.h"
+#import "TextureRes.h"
+#import "MaterialManager.h"
 #import "ObjData.h"
+#import "Scene_data.h"
 #import "ParticleModelData.h"
+
+@interface Display3DModelPartilce ()
+@property (nonatomic, strong)  TextureRes* testTextureRes;
+@property (nonatomic, assign)  BOOL  isTrue;
+@end
+
 
 @implementation Display3DModelPartilce
 
@@ -18,6 +29,7 @@
 {
     [super update];
 }
+ 
  
 - (void)setVc;
 {
@@ -35,6 +47,19 @@
     [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
     [ctx pushVa: temp.uvBuffer];
     [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
+    
+ 
+    /*
+    if(!self.isTrue){
+        self.isTrue=YES;
+        [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:@"ui/textlist/dt_xiangji.png"] fun:^(NSObject * _Nonnull any) {
+             self.testTextureRes=(TextureRes*)any;
+        } wrapType:0 info:nil filteType:0 mipmapType:0];
+    }
+     
+    */
+   
+ 
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
     
 }

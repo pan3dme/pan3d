@@ -71,6 +71,13 @@ static MaterialManager *instance = nil;
     CGColorSpaceRelease(colorSpace);
     CGContextClearRect(context, rect);
     CGContextDrawImage(context, rect, cgImageRef);
+    
+    
+    CGContextSetRGBStrokeColor(context,1.0,1.0,1.0,1.0);
+    CGContextStrokeRect(context,CGRectMake(0,0,width,height));
+
+    
+    
 
     // 生成纹理
     GLuint textureID;

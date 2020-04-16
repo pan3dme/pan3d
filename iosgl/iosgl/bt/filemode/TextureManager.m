@@ -41,14 +41,17 @@ static TextureManager *instance = nil;
  
 -(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
 {
- 
+
     if (self.dic[url]) {
+           NSLog(@"资源图片   %@",url);
         if (info) {
             fun(@{@"data":self.dic[url],@"info":info});
         } else {
             fun(self.dic[url]);
         }
         return;
+    }else{
+         NSLog(@"网络图片   %@",url);
     }
     TextureLoad* textureLoad= [[TextureLoad alloc]init:fun info:info url:url wrap:wrapType filter:filteType mipmap:mipmapType];
     if (self.loadDic[url]){
@@ -60,7 +63,7 @@ static TextureManager *instance = nil;
     [self.loadDic[url] addObject:textureLoad];
     
     if (self.resDic[url]) {
-        NSLog(@"有图片还没有材质");
+        NSLog(@"资源   %@",url);
         [self loadTextureCom:self.resDic[url] info:textureLoad];
         [self.resDic removeObjectForKey:url];
     }else{
@@ -75,7 +78,7 @@ static TextureManager *instance = nil;
  
     TextureRes *textureRes=[[TextureRes alloc]init];
     textureRes.textTureLuint=[[MaterialManager default] createTextureWithImage:img];
-    
+  //  textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
     NSArray<TextureLoad*>* ary  = self.loadDic[info.url];
     for (int i = 0; i < ary.count; i++){
         if (ary[i].info) {
@@ -96,3 +99,4 @@ static TextureManager *instance = nil;
 }
  
 @end
+

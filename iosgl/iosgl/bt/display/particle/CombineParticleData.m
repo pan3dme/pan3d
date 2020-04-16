@@ -30,14 +30,13 @@
             pdata.version=version;
             [pdata setAllByteInfo:byte];
             if(particleType==4){
-                [self.dataAry addObject:pdata];
-                           if (pdata.timelineData.maxFrameNum > self.maxTime) {
-                               self.maxTime = pdata.timelineData.maxFrameNum;
-                           }
             }
-           
+            [self.dataAry addObject:pdata];
+            if (pdata.timelineData.maxFrameNum > self.maxTime) {
+                self.maxTime = pdata.timelineData.maxFrameNum;
+            }
         }
-    
+        
     }
     
 }
