@@ -68,11 +68,11 @@
 }
 
 - (IBAction)zoom_max_clik:(id)sender {
-    //self.sceneView.scene3D.camera3D.distance+=20;
+     self.sceneView.scene3D.camera3D.distance+=20;
   
-    [self.sceneView makeEemptyScene];
-     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
-     [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
+//    [self.sceneView makeEemptyScene];
+//     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    
     
     
     /*
@@ -119,6 +119,8 @@
    // [self playLyfByUrl:@"model/10017_lyf.txt"];
          // [self playLyfByUrl:@"model/10018_lyf.txt"];
       [self playLyfByUrl:@"model/10017_lyf.txt"];
+        
+        
  
     }else{
         if(!baseSc){
@@ -128,7 +130,7 @@
         }
         
     }
-    
+   
 }
 Display3dMovie* baseSc;
 -(void)playLyfByUrl:(NSString*)value
@@ -140,11 +142,13 @@ Display3dMovie* baseSc;
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {
                 CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
-                [particleManager addParticle:particle];
+              //  [particleManager addParticle:particle];
             } else {
                 NSLog(@"播放的不是单纯特效");
             }
         }
+        
+          [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
         
     }];
 }

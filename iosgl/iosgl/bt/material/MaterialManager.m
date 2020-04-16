@@ -73,8 +73,8 @@ static MaterialManager *instance = nil;
     CGContextDrawImage(context, rect, cgImageRef);
     
     
-    CGContextSetRGBStrokeColor(context,1.0,1.0,1.0,1.0);
-    CGContextStrokeRect(context,CGRectMake(0,0,width,height));
+//    CGContextSetRGBStrokeColor(context,1.0,1.0,1.0,1.0);
+//    CGContextStrokeRect(context,CGRectMake(0,0,width,height));
 
     
     
@@ -171,38 +171,16 @@ static MaterialManager *instance = nil;
     
     NSMutableArray<DynamicTexListVo*>* dynamicTexList  = material.dynamicTexList;
     for (int i= 0; i < dynamicTexList.count; i++) {
-        
         if (dynamicTexList[i].isParticleColor) {
-            NSLog(@"---");
             [(DynamicTexItem*)dynamicTexList[i]  creatTextureByCurve];
-             
         } else {
-            /*
-            [[ TextureManager default] getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(TextureRes * textureRes,DynamicTexListVo* texListVo) {
-                DynamicTexItem *dynamicTexItem=(DynamicTexItem*)texListVo;
-                dynamicTexItem.textureRes=textureRes;
-            } texListVo:dynamicTexList[i]];
-            */
-               NSLog(@"--url-%@",dynamicTexList[i].url);
-              NSLog(@"----");
             [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
-                
-                NSLog(@"----");
                 NSDictionary* bdic=(NSDictionary*)any;
                 DynamicTexItem* tempInof= (DynamicTexItem*)bdic[@"info"];
                 TextureRes*  ddd=bdic[@"data"];
                 tempInof.textureRes=ddd;
-                
-                
             } wrapType:0 info: dynamicTexList[i] filteType:0 mipmapType:0];
-            
-            
-            
-            /*
-             TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
-             $texItem.textureRes = $textureVo;
-             }, 0, dynamicTexList[i], 0, 1);
-             */
+       
         }
         
     }

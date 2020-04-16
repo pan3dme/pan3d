@@ -25,7 +25,12 @@
 {
     [super initData];
     
-    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:@"ui/textlist/dt_xiangji.png"] fun:^(NSObject * _Nonnull any) {
+    NSString* picurl=@"content/particleresources/textures/halo/hl_yxqy_01.png";
+    picurl=@"content/particleresources/textures/pattern/pa_fazhen_06.jpg";
+    picurl=@"content/particleresources/textures/smoke/sm_yawu_00.jpg";
+    picurl=@"content/particleresources/textures/halo/hl__ptc_001.jpg";
+    
+    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:picurl] fun:^(NSObject * _Nonnull any) {
         self.textureRes=(TextureRes*)any;
     } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
