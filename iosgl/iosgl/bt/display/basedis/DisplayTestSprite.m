@@ -7,13 +7,13 @@
 //
 
 #import "DisplayTestSprite.h"
-#import "DisplayTestShader.h"
+#import "Display3DShader.h"
 #import "ProgrmaManager.h"
 
 @implementation DisplayTestSprite
 -(void)registetProgame;
 {
-    [[ProgrmaManager default] registe:DisplayTestShader.shaderStr shader3d: [[DisplayTestShader alloc]init]];
-     self.shader3d=  [[ProgrmaManager default] getProgram:DisplayTestShader.shaderStr];
+    [[ProgrmaManager default] registe:Display3DShader.shaderStr shader3d: [[Display3DShader alloc]init]];
+     self.shader3d=  [[ProgrmaManager default] getProgram:Display3DShader.shaderStr];
 }
 @end
