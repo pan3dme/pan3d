@@ -27,7 +27,7 @@
     }
     return self;
 }
-
+ 
 -(void)onCreated;
 {
     self.objData=[[ObjData alloc]init];
@@ -50,6 +50,23 @@
     glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
     self.objData.verticesBuffer=verticesBuffer;
+    
+    
+    GLfloat uiArr[8];
+    uiArr[0]=0.0f;
+    uiArr[1]=0.0f;
+    uiArr[2]=1.0f;
+    uiArr[3]=0.0f;
+    uiArr[4]=1.0f;
+    uiArr[5]=1.0f;
+    uiArr[6]=0.0f;
+    uiArr[7]=1.0f;
+    
+    GLuint uvBuffer;
+    glGenBuffers(1, &uvBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(uiArr), uiArr, GL_DYNAMIC_DRAW);
+    self.objData.uvBuffer=uvBuffer;
     
     unsigned int Indices[6];
     Indices[0]=0;
@@ -127,11 +144,17 @@
 }
 -(void)setVa;
 {
-    Context3D *context3D=self.scene3d.context3D;
-    [context3D pushVa:self.objData.verticesBuffer];
-    GLuint position = glGetAttribLocation( self.shader3d.program,"position");
-    glEnableVertexAttribArray(position);
-    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE,0, (GLfloat *)NULL+0);
+ 
+    
+   Context3D *ctx=self.scene3d.context3D;
+      [ctx pushVa:self.objData.verticesBuffer];
+      [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
+    
+ 
+       [ctx pushVa:self.objData.uvBuffer];
+       [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
+    
+    
 }
 -(void)updateBind;
 {
