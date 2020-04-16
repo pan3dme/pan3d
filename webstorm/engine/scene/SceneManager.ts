@@ -339,7 +339,6 @@
             }
         }
 
-        Engine.resetViewMatrx3D()
         Scene_data.context3D.update();
         Scene_data.context3D.setDepthTest(false);
         UIManager.getInstance().upLeyerZero();
@@ -354,7 +353,7 @@
             SkillManager.getInstance().update();
 
             if (this.render) {
-             //   this.updateStaticDiplay();
+                this.updateStaticDiplay();
                 this.updateSpriteDisplay();
                 Scene_data.context3D.setWriteDepth(true);
                 this.updateMovieDisplay();

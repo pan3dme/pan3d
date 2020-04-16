@@ -24,16 +24,6 @@ var Material = /** @class */ (function (_super) {
         _this.fcNum = 0;
         return _this;
     }
-    Object.defineProperty(Material.prototype, "fcData", {
-        get: function () {
-            return this._fcData;
-        },
-        set: function (value) {
-            this._fcData = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Material.prototype.update = function (t) {
         this.updateTime(t);
         //this.updateCam();

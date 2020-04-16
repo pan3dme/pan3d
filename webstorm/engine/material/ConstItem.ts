@@ -29,9 +29,6 @@ class ConstItem {
 
     public offset: number = 0;
 
-    constructor() {
-
-    }
     public set id(value: number) {
         this._id = value;
         this.name = "fc" + value;

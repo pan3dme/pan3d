@@ -56,7 +56,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/reviveeff_lyf.txt")
         //  this.playLyf("model/levelup_lyf.txt")
         // this.playLyf("model/skin001_lyf.txt")
-        this.playLyf("model/10018_lyf.txt");
+        //  this.playLyf("model/10018_lyf.txt")
         if (!this.isFrishtClik) {
             return;
         }
@@ -65,14 +65,12 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //yingz
         //yezhu
         //330013
-        /*
-        if(!  this.yezhu){
-            var sc= new  Display3dMovie();
+        if (!this.yezhu) {
+            var sc = new Display3dMovie();
             sc.setRoleUrl(getRoleUrl("yingz"));
             SceneManager.getInstance().addMovieDisplay(sc);
-            this.yezhu=sc;
+            this.yezhu = sc;
         }
-        */
     };
     TpSceneProcessor.prototype.playLyf = function (url) {
         GroupDataManager.getInstance().getGroupData(Scene_data.fileRoot + url, function (groupRes) {

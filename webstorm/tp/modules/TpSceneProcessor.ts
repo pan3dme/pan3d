@@ -33,7 +33,7 @@ class TpSceneProcessor extends BaseProcessor {
         //  this.playLyf("model/reviveeff_lyf.txt")
        //  this.playLyf("model/levelup_lyf.txt")
        // this.playLyf("model/skin001_lyf.txt")
-        this.playLyf("model/10018_lyf.txt")
+      //  this.playLyf("model/10018_lyf.txt")
         if(!this.isFrishtClik){
             return;
         }
@@ -46,14 +46,14 @@ class TpSceneProcessor extends BaseProcessor {
 //yingz
         //yezhu
         //330013
-        /*
+
         if(!  this.yezhu){
             var sc= new  Display3dMovie();
             sc.setRoleUrl(getRoleUrl("yingz"));
             SceneManager.getInstance().addMovieDisplay(sc);
             this.yezhu=sc;
         }
-        */
+
 
     }
     private  isFrishtClik:boolean=true;

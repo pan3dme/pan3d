@@ -46,7 +46,6 @@
                 $particle.data._widthFixed ? 1 : (1 + this._scaleNosie.num));
         } else if (this._scaleAnim) {
             //processScaleAnim();
-
             posMatrix.prependScale($particle.data._widthFixed ? 1 : this._scaleAnim.num, $particle.data._heightFixed ? 1 : this._scaleAnim.num,
                 $particle.data._widthFixed ? 1 : this._scaleAnim.num);
             //console.log(this._scaleAnim.num);

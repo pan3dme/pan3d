@@ -284,9 +284,8 @@ var BaseRes = /** @class */ (function (_super) {
     BaseRes.readBytes2ArrayBuffer = function ($byte, $data, $dataWidth, $offset, $stride, $readType) {
         if ($readType === void 0) { $readType = 0; }
         var verLength = $byte.readInt();
-        var item = new Array();
         if (verLength <= 0) {
-            return item;
+            return;
         }
         var scaleNum;
         if ($readType == 0) {
@@ -296,27 +295,23 @@ var BaseRes = /** @class */ (function (_super) {
         for (var i = 0; i < readNum; i++) {
             var pos = $stride * i + $offset;
             for (var j = 0; j < $dataWidth; j++) {
-                var tempNUm;
                 if ($readType == 0) {
-                    tempNUm = $byte.readFloatTwoByte(scaleNum);
+                    $data.setFloat32((pos + j) * 4, $byte.readFloatTwoByte(scaleNum), true);
                 }
                 else if ($readType == 1) {
-                    tempNUm = $byte.readFloatOneByte();
+                    $data.setFloat32((pos + j) * 4, $byte.readFloatOneByte(), true);
                 }
                 else if ($readType == 2) {
-                    tempNUm = $byte.readByte();
+                    $data.setFloat32((pos + j) * 4, $byte.readByte(), true);
                 }
                 else if ($readType == 3) {
-                    tempNUm = ($byte.readByte() + 128) / 255;
+                    $data.setFloat32((pos + j) * 4, ($byte.readByte() + 128) / 255, true);
                 }
                 else if ($readType == 4) {
-                    tempNUm = $byte.readFloat();
+                    $data.setFloat32((pos + j) * 4, $byte.readFloat(), true);
                 }
-                $data.setFloat32((pos + j) * 4, tempNUm, true);
-                item.push(tempNUm);
             }
         }
-        return item;
     };
     //读取材质参数
     BaseRes.readMaterialParamData = function (byte) {

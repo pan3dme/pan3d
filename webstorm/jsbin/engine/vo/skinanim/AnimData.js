@@ -21,13 +21,7 @@ var AnimData = /** @class */ (function () {
         for (var i = 0; i < this.matrixAry.length; i++) {
             var frameAry = this.matrixAry[i];
             for (var j = 0; j < frameAry.length; j++) {
-                var a = frameAry[j];
-                var b = $skinMesh.bindPosMatrixAry[j];
-                console.log(a.m);
-                console.log("----");
-                console.log(b.m);
-                a.prepend(b);
-                frameAry[j] = a;
+                frameAry[j].prepend($skinMesh.bindPosMatrixAry[j]);
             }
         }
         this.makeFrameDualQuatFloatArray($skinMesh);

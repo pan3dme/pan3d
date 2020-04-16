@@ -63,15 +63,6 @@
         $target.m[14] = this.m[14];
         $target.m[15] = this.m[15];
     }
-public  outPopStr():void
-{
-    var str:string="";
-    for(var i:number=0;i<16;i++){
-        str+=this.m[i]+",";
-    }
-    console.log(str);
-}
-
 
     public identity(): void {
         this.m[0] = 1;

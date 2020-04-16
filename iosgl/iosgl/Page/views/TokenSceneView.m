@@ -107,7 +107,7 @@
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     [Scene_data default].supportBlob=YES;
-    BOOL isTrue=YES;
+    BOOL isTrue=NO;
     if(isTrue){
         // [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
         // [self playLyfByUrl:@"model/levelup_lyf.txt"];
@@ -115,7 +115,7 @@
         // [self playLyfByUrl:@"model/skin001_lyf.txt"]
         // [self playLyfByUrl:@"model/10017_lyf.txt"];
         // [self playLyfByUrl:@"model/10018_lyf.txt"];
-        [self playLyfByUrl:@"model/10018_lyf.txt"];
+        [self playLyfByUrl:@"model/13012_lyf.txt"];
     }else{
         if(!baseSc){
             baseSc=[[Display3dMovie alloc]init];

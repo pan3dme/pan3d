@@ -33,15 +33,8 @@
     public locationDic: Object;
 
 
-    private _fcData: Float32Array;
+    public fcData: Float32Array;
     public sceneNumId:number;
-
-    public get fcData(): Float32Array {
-        return  this._fcData;
-    }
-    public set fcData(value:Float32Array) {
-        this._fcData=value;
-    }
 
     public update(t:number):void{
         this.updateTime(t);

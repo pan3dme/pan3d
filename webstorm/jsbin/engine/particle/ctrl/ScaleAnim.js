@@ -20,7 +20,6 @@ var ScaleAnim = /** @class */ (function (_super) {
         return _this;
     }
     ScaleAnim.prototype.update = function (t) {
-        console.log(Scene_data.frameTime);
         if (this._isDeath) {
             return;
         }

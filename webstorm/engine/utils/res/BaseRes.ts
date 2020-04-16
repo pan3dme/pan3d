@@ -14,7 +14,7 @@
     protected _byte: ByteArray;
     protected imgNum: number;
     protected imgLoadNum: number;
-    protected _imgComplete_imgComplete: boolean;
+    protected _imgComplete: boolean;
 
     //public imgAry: Array<string>;
     //public objAry: Array<string>;
@@ -350,12 +350,11 @@
      * 1 readFloatOneByte
      * 2 readIntForOneByte
      *  */
-    public static readBytes2ArrayBuffer($byte: ByteArray, $data: DataView, $dataWidth: number, $offset: number, $stride: number, $readType: number = 0): Array<number> {
+    public static readBytes2ArrayBuffer($byte: ByteArray, $data: DataView, $dataWidth: number, $offset: number, $stride: number, $readType: number = 0): void {
         var verLength: number = $byte.readInt();
 
-        var item:Array<number>=new Array<number>()
         if (verLength <= 0) {
-            return item;
+            return;
         }
 
         var scaleNum: number;
@@ -368,26 +367,24 @@
             var pos: number = $stride * i + $offset;
             for (var j: number = 0; j < $dataWidth; j++) {
 
-                var tempNUm:number;
                 if ($readType == 0) {
-                    tempNUm=$byte.readFloatTwoByte(scaleNum);
+                    $data.setFloat32((pos + j) * 4, $byte.readFloatTwoByte(scaleNum), true);
                 } else if ($readType == 1) {
-                    tempNUm= $byte.readFloatOneByte() ;
+                    $data.setFloat32((pos + j) * 4, $byte.readFloatOneByte(), true);
                 } else if ($readType == 2) {
-                    tempNUm=$byte.readByte() ;
+                    $data.setFloat32((pos + j) * 4, $byte.readByte(), true);
                 }else if ($readType == 3) {
-                    tempNUm=($byte.readByte() + 128) / 255 ;
+                    $data.setFloat32((pos + j) * 4, ($byte.readByte() + 128) / 255, true);
                 }else if ($readType == 4) {
-                    tempNUm=$byte.readFloat();
+                    $data.setFloat32((pos + j) * 4, $byte.readFloat(), true);
                 }
-                $data.setFloat32((pos + j) * 4, tempNUm, true);
 
-                item.push(tempNUm);
+
             }
 
         }
 
-return  item;
+
 
     }
 
