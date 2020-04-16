@@ -95,8 +95,7 @@
     }
     
 }
-//public setMaterialTexture($material: Material, $mp: MaterialBaseParam = null): void {
-
+ 
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     Context3D *ctx=self.scene3d.context3D;
@@ -111,12 +110,9 @@
       NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
       for (int i   = 0; i < texDynamicVec.count; i++) {
           TexItem* texItem=texDynamicVec[i].target;
-//
           if(texItem ){
                [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
-             //  [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:0];
           }
-     
       }
  
 }

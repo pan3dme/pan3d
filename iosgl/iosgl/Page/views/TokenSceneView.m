@@ -111,7 +111,7 @@
     // [self playLyfByUrl:@"model/skin001_lyf.txt"]
    // [self playLyfByUrl:@"model/10017_lyf.txt"];
          // [self playLyfByUrl:@"model/10018_lyf.txt"];
-      [self playLyfByUrl:@"model/10018_lyf.txt"];
+      [self playLyfByUrl:@"model/10017_lyf.txt"];
  
     }else{
         if(!baseSc){
