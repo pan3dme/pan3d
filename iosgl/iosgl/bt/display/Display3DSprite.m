@@ -22,12 +22,16 @@
 {
     self = [super init];
     if (self) {
-        [self onCreated];
-        [self registetProgame];
+        [self initData];
     }
     return self;
 }
- 
+-(void)initData;
+{
+    [self onCreated];
+    [self registetProgame];
+}
+
 -(void)onCreated;
 {
     self.objData=[[ObjData alloc]init];
@@ -83,7 +87,7 @@
     self.objData.trinum=6;
     
     [self.posMatrix3d appendScale:0.5 y:0.5 z:0.5];
-   
+    
 }
 -(void)registetProgame;
 {
@@ -112,30 +116,29 @@
         [self setVc];
         [context3D drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
     }
-    
 }
- 
+
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     Context3D *ctx=self.scene3d.context3D;
-      NSArray<TexItem*>* texVec  = mp.material.texList;
-      for (int i   = 0; i < texVec.count; i++) {
-          if (texVec[i].isDynamic) {
-              continue;
-          }
-          [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
-      }
- 
-      NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
-      for (int i   = 0; i < texDynamicVec.count; i++) {
-          TexItem* texItem=texDynamicVec[i].target;
-          if(texItem ){
-               [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
-          }
-      }
- 
+    NSArray<TexItem*>* texVec  = mp.material.texList;
+    for (int i   = 0; i < texVec.count; i++) {
+        if (texVec[i].isDynamic) {
+            continue;
+        }
+        [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+    }
+    
+    NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
+    for (int i   = 0; i < texDynamicVec.count; i++) {
+        TexItem* texItem=texDynamicVec[i].target;
+        if(texItem ){
+            [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
+        }
+    }
+    
 }
- 
+
 -(void)setVc;
 {
     Context3D *context3D=self.scene3d.context3D;
@@ -144,16 +147,12 @@
 }
 -(void)setVa;
 {
- 
     
-   Context3D *ctx=self.scene3d.context3D;
-      [ctx pushVa:self.objData.verticesBuffer];
-      [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
-    
- 
-       [ctx pushVa:self.objData.uvBuffer];
-       [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
-    
+    Context3D *ctx=self.scene3d.context3D;
+    [ctx pushVa:self.objData.verticesBuffer];
+    [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
+    [ctx pushVa:self.objData.uvBuffer];
+    [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
     
 }
 -(void)updateBind;

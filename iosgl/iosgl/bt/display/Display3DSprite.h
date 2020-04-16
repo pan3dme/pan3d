@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) TextureRes *textureRes;
 @property (nonatomic, strong) Shader3D *shader3d;
 @property (nonatomic, strong) ObjData *objData;
- 
+ -(void)initData;
 -(void)loadTextureResByUrl:(NSString*)value;
 -(void)loadObjDataByUrl:(NSString*)url;
 -(void)onCreated;
