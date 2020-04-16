@@ -34,19 +34,16 @@
     GLfloat attrArr[12];
     attrArr[0]=-100.0f;
     attrArr[1]=0.0f;
-    attrArr[2]=0.0f;
-    
-    attrArr[3]=0.0f;
+    attrArr[2]=-100.0f;
+    attrArr[3]=-100.0f;
     attrArr[4]=0.0f;
     attrArr[5]=100.0f;
-    
     attrArr[6]=100.0f;
     attrArr[7]=0.0f;
     attrArr[8]=100.0f;
-    
-    attrArr[9]=-100.0f;
+    attrArr[9]=100.0f;
     attrArr[10]=0.0f;
-    attrArr[11]=100.0f;
+    attrArr[11]=-100.0f;
     
     GLuint verticesBuffer;
     glGenBuffers(1, &verticesBuffer);
@@ -67,6 +64,8 @@
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     self.objData.indexBuffer=indexBuffer;
     self.objData.trinum=6;
+    
+    [self.posMatrix3d appendScale:0.5 y:0.5 z:0.5];
    
 }
 -(void)registetProgame;
