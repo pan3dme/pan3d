@@ -34,25 +34,21 @@ class TpSceneProcessor extends BaseProcessor {
        //  this.playLyf("model/levelup_lyf.txt")
        // this.playLyf("model/skin001_lyf.txt")
       //  this.playLyf("model/10018_lyf.txt")
-        if(!this.isFrishtClik){
+
+
+        if(this.mainChar){
+
+            var $skill: Skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
+            $skill.configFixEffect(this.mainChar);
+            this.mainChar.playSkill($skill);
+            console.log("jiiii");
             return;
         }
-        this.isFrishtClik=true;
 
-
-      //  this.playLyf("model/reviveeff_lyf.txt")
-
-
-//yingz
-        //yezhu
-        //330013
-
-        if(!  this.yezhu){
-            var sc= new  Display3dMovie();
-            sc.setRoleUrl(getRoleUrl("yingz"));
-            SceneManager.getInstance().addMovieDisplay(sc);
-            this.yezhu=sc;
-        }
+        SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
+        this.mainChar= new SkillSceneChar();
+        this.mainChar.setRoleUrl(getRoleUrl("50001"));
+        SceneManager.getInstance().addMovieDisplay(  this.mainChar);
 
 
     }
