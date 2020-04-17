@@ -7,7 +7,22 @@
 //
 
 #import "SkillFixEffect.h"
+#import "SkillFixEffectKeyVo.h"
 
 @implementation SkillFixEffect
+
+- (void)setInfo:(SkillKeyVo *)obj
+{
+    [super setInfo:obj];
+    SkillFixEffect* this=self;
+    SkillFixEffectKeyVo* data = (SkillFixEffectKeyVo*)obj;
+    this.pos = data.pos;
+    this.rotation = data.rotation;
+    this.hasSocket = data.hasSocket;
+    this.socket = data.socket;
+    
+}
+
+ 
 
 @end

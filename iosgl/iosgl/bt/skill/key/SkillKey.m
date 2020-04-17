@@ -7,7 +7,11 @@
 //
 
 #import "SkillKey.h"
+#import "SkillKeyVo.h"
 
 @implementation SkillKey
-
+-(void)setInfo:(SkillKeyVo*)obj;
+{
+    
+}
 @end

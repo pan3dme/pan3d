@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableArray<SkillKey*>* keyAry;
 @property(nonatomic,assign)int completeNum;
 
-@property(nonatomic,strong)NSMutableDictionary* active;
+@property(nonatomic,strong)Object3D* active;
 //@property(nonatomic,strong)NSMutableDictionary* completeFun: Function;
 @property(nonatomic,assign)float* time ;
 
