@@ -173,7 +173,7 @@
     }
  
     Display3dMovie* this=self;
-    this.curentAction=@"walk";
+     //this.curentAction=@"walk";
     this.actionTime+=t;
     NSString* actionKey;
     if(this.curentAction&&self.animDic[this.curentAction]){
@@ -184,7 +184,7 @@
         return;
     }
     AnimData* animData=this.animDic[actionKey];
-    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*4.0) );
+    this.curentFrame=(int)(this.actionTime/([Scene_data default].frameTime*1.5) );
  
     if (this.curentFrame >= animData.matrixAry.count) {
         if (this.completeState == 0) {
