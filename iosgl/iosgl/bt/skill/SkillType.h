@@ -1,5 +1,5 @@
 //
-//  SkillKeyVo.h
+//  SkillType.h
 //  iosgl
 //
 //  Created by zhao on 17/4/2020.
@@ -9,14 +9,11 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface SkillKeyVo : NSObject
-
  
-@property(nonatomic,assign)int frame ;
-@property(nonatomic,strong)NSString* url;
--(void)setData:(NSDictionary*)data;
- 
+@interface SkillType : NSObject
++ (int)TrajectoryDynamicTarget;
++ (int)FixEffect;
++ (int)TrajectoryDynamicPoint;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -79,76 +79,32 @@ static SkillManager *instance = nil;
     obj[@"name"] = name;
     obj[@"skill"] = skill;
     [this._loadDic[url] addObject:obj];
-    
-    
-      [[ResManager default]loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
-          
-        //  [self roleResCom:roleRes fun:^(NSString *localPath) {
-              
-          }];
-    
-//    ResManager.getInstance().loadSkillRes(Scene_data.fileRoot + $url, ($skillRes: SkillRes) => {
-//
-//            this.loadSkillCom($url, $skillRes);
-//
-//        });
+    [[ResManager default]loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
+        [self loadSkillCom:url skillRes:skillRes];
+    }];
+     
     return skill;
 }
-/*
- public getSkill($url:string,$name:string): Skill {
-        var skill: Skill;
-        var key: string = $url + $name;
-
-        var ary: Array<Skill> = this._skillDic[key];
-        if (ary){
-            for (var i: number = 0; i < ary.length; i++){
-                skill = ary[i];
-                if (skill.isDeath && skill.useNum ==0){
-                    skill.reset();
-                    skill.isDeath = false;
-                    return skill;
-                }
-            }
-        }
-
-        skill = new Skill();
-        skill.name = $name;
-        skill.isDeath = false;
-
-        if (!this._skillDic[key]) {
-            this._skillDic[key] = new Array;
-        }
-        this._skillDic[key].push(skill);
-
-        if (this._dic[$url]) {
-            skill.setData(this._dic[$url].data[skill.name], this._dic[$url]);
-            this._dic[$url].useNum++;
-            return skill;
-        }
-
-        if (this._loadDic[$url]) {
-            var obj: any = new Object;
-            obj.name = $name;
-            obj.skill = skill;
-            this._loadDic[$url].push(obj);
-            return skill;
-        }
-
-        this._loadDic[$url] = new Array;
-        var obj: any = new Object;
-        obj.name = $name;
-        obj.skill = skill;
-        this._loadDic[$url].push(obj);
-
-
-        ResManager.getInstance().loadSkillRes(Scene_data.fileRoot + $url, ($skillRes: SkillRes) => {
-
-            this.loadSkillCom($url, $skillRes);
-
-        });
-        return skill;
+//  private loadSkillCom($url: string, $skillRes: SkillRes): void {
+-(void)loadSkillCom:(NSString*)url  skillRes:(SkillRes*)skillRes;
+{
+    SkillManager* this=self;
+    SkillData* skillData=[[SkillData alloc]init];
+    skillData.data=skillRes.data;
+    NSMutableArray* urlArr=  (NSMutableArray*)this._loadDic[url];
+    for (int i = 0; i < urlArr.count; i++) {
+           NSDictionary* obj = urlArr[i];
+            Skill* vo= obj[@"skill"];
+            [vo setData:skillData.data[obj[@"name"]] skillData:skillData];
+            skillData.useNum++;
     }
- */
+    [this._loadDic removeObjectForKey: url];
+     this.dic[url] = skillData;
+  
+    
+  
+}
+ 
 @end
 
 

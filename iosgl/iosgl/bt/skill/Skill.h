@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL needSound;
 
 -(void)reset;
--(void)setData:(NSMutableDictionary*)daya skillData:(SkillData*)skillData;
+-(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
 @end
 
 NS_ASSUME_NONNULL_END

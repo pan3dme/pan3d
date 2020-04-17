@@ -29,8 +29,11 @@
  */
 
 
--(void)setData:(NSMutableDictionary*)daya skillData:(SkillData*)skillData;
+-(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
 {
+    Skill* this=self;
+    this.skillVo=[[SkillVo alloc]init];
+    [this.skillVo setData:data];
     
 }
 

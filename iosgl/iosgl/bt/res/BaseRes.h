@@ -22,13 +22,15 @@ static NSInteger const SCENE_PARTICLE_TYPE                          = 11;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseRes : ResCount
--(void)read:(SuccessBlock)fun;
- -(void)read ;
 
   
 +(NSMutableArray*)readIntForTwoByte:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata ;
  +(NSMutableArray*)readBytes2ArrayBuffer:(ByteArray*)srcByte nsdata:(NSMutableData*)nsdata  dataWidth:(int)dataWidth   offset:(int)offset   stride:(int)stride   readType:(int)readType  ;
 +(NSArray<NSDictionary*>*)readMaterialParamData:(ByteArray*)byte;
+
+-(void)read:(SuccessBlock)fun;
+ -(void)read ;
+-(Vector3D*)readV3d:(ByteArray*)fs;
 -(NSMutableArray*)readMaterialInfo;
 - (NSData *)gzipInflate:(NSData*)data;
 @end

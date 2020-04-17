@@ -13,6 +13,8 @@
 #import "MaterialManager.h"
 #import "NSData+GZIP.h"
 #import "Scene_data.h"
+#import "ByteArray.h"
+#import "Vector3D.h"
 #import "TextureManager.h"
 #import <zlib.h>
 
@@ -312,6 +314,15 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     return vItem;
  
     
+}
+-(Vector3D*)readV3d:(ByteArray*)fs;
+{
+    Vector3D* v3d=[[Vector3D alloc]init];
+    v3d.x = [fs readFloat];
+    v3d.y =  [fs readFloat];
+    v3d.z =  [fs readFloat];
+    v3d.w =  [fs readFloat];
+    return v3d;
 }
   //读取材质参数
 +(NSArray<NSDictionary*>*)readMaterialParamData:(ByteArray*)byte;

@@ -7,11 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SkillKeyVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SkillVo : NSObject
+@property(nonatomic,strong)NSString* action;
+@property(nonatomic,strong)NSString* skillname;
+@property(nonatomic,strong)NSMutableArray<SkillKeyVo*>* keyAry ;
+@property(nonatomic,assign)int types;
+@property(nonatomic,assign)float bloodTime;
+@property(nonatomic,strong)SkillKeyVo* sound;
 
+-(void)setData:(NSMutableDictionary*)info;
 @end
 
 NS_ASSUME_NONNULL_END

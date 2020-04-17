@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SkillRes : BaseRes
 @property(nonatomic,strong)NSString* skillUrl;
+@property(nonatomic,strong)NSMutableDictionary* data;
 -(void)load:(NSString*)url  fun:(SuccessBlock)fun;
 @end
 typedef void (^SkillResBfun)(SkillRes* skillRes);

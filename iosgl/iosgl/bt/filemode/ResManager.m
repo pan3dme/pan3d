@@ -33,16 +33,7 @@ static ResManager *instance = nil;
 }
 -(void)loadSkillRes:(NSString*)url fun:(SkillResBfun)fun;
 {
-    /*
-   var skillRes: SkillRes = new SkillRes();
-
-       skillRes.load(url, () => {
-           $fun(skillRes);
-         
-       });
-    
-    */
-    
+   
     SkillRes* skillRes = [[SkillRes alloc]init];
        [skillRes load:url fun:^(NSString *localPath) {
            fun(skillRes);
