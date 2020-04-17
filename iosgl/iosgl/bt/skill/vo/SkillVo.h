@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)SkillKeyVo* sound;
 
 -(void)setData:(NSMutableDictionary*)info;
++(float)defaultBloodTime;
+
 @end
 
 NS_ASSUME_NONNULL_END

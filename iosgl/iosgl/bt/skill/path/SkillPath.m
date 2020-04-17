@@ -9,5 +9,8 @@
 #import "SkillPath.h"
 
 @implementation SkillPath
-
+-(void)update:(float)t;
+{
+    
+}
 @end

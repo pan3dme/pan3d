@@ -9,5 +9,8 @@
 #import "SkillTrajectory.h"
 
 @implementation SkillTrajectory
-
+-(void)update:(float)t;
+{
+    [self.path update:t];
+}
 @end

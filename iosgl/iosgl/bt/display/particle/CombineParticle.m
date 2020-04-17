@@ -9,17 +9,20 @@
 #import "CombineParticle.h"
 #import "Display3DParticle.h"
 
+ 
+
 @interface CombineParticle ()
-@property (nonatomic, strong)  NSMutableArray<Display3DParticle*>*  _displayAry ;
-@property (nonatomic, assign)  NSString*  _bindSocket;
-@property (nonatomic, assign)  float  _rotationX;
-@property (nonatomic, assign)  float  _rotationY;
-@property (nonatomic, assign)  float  _rotationZ;
-@property (nonatomic, assign)  float  _time;
-@property (nonatomic, assign)  BOOL  _isInGroup;
-@property (nonatomic, assign)  Vector3D*  _groupPos;
-@property (nonatomic, assign)  Vector3D*  _groupRotation;
-@property (nonatomic, assign)  Vector3D*  _groupScale;
+
+@property (nonatomic, assign)NSString*  _bindSocket;
+@property (nonatomic, assign)float  _rotationX;
+@property (nonatomic, assign)float  _rotationY;
+@property (nonatomic, assign)float  _rotationZ;
+@property (nonatomic, assign)float  _time;
+@property (nonatomic, assign)BOOL  _isInGroup;
+@property (nonatomic, assign)Vector3D*  _groupPos;
+@property (nonatomic, assign)Vector3D*  _groupRotation;
+@property (nonatomic, assign)Vector3D*  _groupScale;
+ 
 @end
 
 @implementation CombineParticle
@@ -55,6 +58,20 @@
         [self._displayAry[i] updateTime:self._time];
     }
 }
+-(void)reset;
+{
+    self._time=0;
+        for (int i = 0; i < self._displayAry.count; i++) {
+            [self._displayAry[i] reset];
+        }
+    
+}
+//public reset(): void {
+//    this._time = 0;
+//    for (var i: number = 0; i < this._displayAry.length; i++) {
+//        this._displayAry[i].reset();
+//    }
+//}
 -(void)update;
 {
     for(int i=0;i<self._displayAry.count;i++)

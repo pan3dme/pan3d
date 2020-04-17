@@ -47,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setMaterialTexture;
 -(void)setViewCamModeMatr3d;
 -(void)inverBind;
+-(void)reset;
 -(void)setBind:(Vector3D*)pos rotation:(Matrix3D*)rotation scale:(Vector3D*)scale invertRotation:(Matrix3D*)invertRotation groupMatrix:(Matrix3D*)groupMatrix;
 @end
 

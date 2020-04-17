@@ -23,9 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class Display3DParticle;
 
 @interface TimeLine : EventDispatcher
+ 
 @property (nonatomic, strong)  NSMutableArray<KeyFrame*>*  keyFrameAry;
 @property (nonatomic, assign)  float  maxFrameNum;
-@property (nonatomic, assign)  KeyFrame*  currentKeyFrame;//当前操作的关键帧
+@property (nonatomic, strong)  KeyFrame*  currentKeyFrame;//当前操作的关键帧
 @property (nonatomic, assign)  float  _currentFrameNum;//当前帧数
 @property (nonatomic, assign)  float  time;//播放时间
 @property (nonatomic, assign)  int  targetFlag;
@@ -49,6 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setAllDataInfo:(TimeLineData*)data;
 -(void)updateTime:(float)t;
+-(void)reset;
 -(void)updateMatrix:(Matrix3D*)posMatrix particle:(Display3DParticle*)particle ;
 @end
 

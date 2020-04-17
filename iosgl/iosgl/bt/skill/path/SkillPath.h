@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SkillPath : NSObject
 
+-(void)update:(float)t;
 @end
 
 NS_ASSUME_NONNULL_END

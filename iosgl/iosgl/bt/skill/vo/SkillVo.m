@@ -12,7 +12,10 @@
 #import "SkillTrajectoryTargetKeyVo.h"
 
 @implementation SkillVo
-
++(float)defaultBloodTime;
+{
+    return 250;
+}
 -(void)setData:(NSMutableDictionary*)info;
 {
     SkillVo* this=self;

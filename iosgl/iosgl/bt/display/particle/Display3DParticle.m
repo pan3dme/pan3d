@@ -122,6 +122,15 @@
     }
     
 }
+-(void)reset;
+{
+    [self.timeline reset];
+    [self updateTime:0];
+}
+//public reset(): void {
+//       this.timeline.reset();
+//       this.updateTime(0);
+//   }
 -(void)inverBind;
 {
     if(self.invertBindMatrix){

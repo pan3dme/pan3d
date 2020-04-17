@@ -15,7 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Skill : ResCount
-
++(float)MaxTime;
 @property(nonatomic,strong)SkillVo* skillVo ;
 @property(nonatomic,strong)NSString* name;
 @property(nonatomic,assign)BOOL isDeath ;
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)Object3D* active;
 //@property(nonatomic,strong)NSMutableDictionary* completeFun: Function;
-@property(nonatomic,assign)float* time ;
+@property(nonatomic,assign)float time ;
 
 @property(nonatomic,assign)int targetFlag ;
 @property(nonatomic,strong)NSMutableArray<SkillTrajectory*>* trajectoryAry ;
