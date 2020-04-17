@@ -129,7 +129,7 @@
             }
             break;
         case 3:
-            [self loadSkilFile];
+          [[SkillManager default]getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
             break;
             
         case 4:
@@ -137,10 +137,15 @@
                 mainChar=[[Display3dMovie alloc]init];
                 [self.sceneView.scene3D addMovieDisplay:mainChar] ;
                 [mainChar setRoleUrl:@"role/50001.txt"];
+                [[SkillManager default] preLoadSkill:getSkillUrl(@"jichu_1")];
+            }else{
+          
+               Skill* skill= [[SkillManager default]getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+                [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
+                   //   this.mainChar.playSkill($skill);
+                   NSLog(@"播放技能");
             }
-            
             break;
-            
         default:
             break;
     }
@@ -149,15 +154,7 @@
     
     
 }
--(void)loadSkilFile;
-{
  
-    
-    [[SkillManager default]getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
-    
-   //   var $skill: Skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), $effectName);
-    
-}
 Display3dMovie* mainChar;
 -(void)playLyfByUrl:(NSString*)value
 {

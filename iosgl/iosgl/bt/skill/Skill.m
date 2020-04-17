@@ -6,6 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
+#import "GL_Header.h"
 #import "Skill.h"
 #import "SkillType.h"
 #import "SkillData.h"
@@ -101,6 +102,60 @@
     [self getSound];
     
 }
+-(void)configFixEffect:(Object3D*)active  completeFun:(SuccessBlock)completeFun posObj:(NSArray<Vector3D*>*)posObj;
+{
+    Skill* this=self;
+    this.active = active;
+    this.completeFun = completeFun;
+    if (!this.keyAry) {
+        return;
+    }
+    for (int i    = 0; i < this.keyAry.count; i++) {
+        if (this.skillVo.types != SkillType.FixEffect) {
+            continue;
+        }
+        SkillFixEffect* skillFixEffect  = (SkillFixEffect*)this.keyAry[i];
+        skillFixEffect.active = active;
+        if (posObj && posObj.count) {
+            if (i > (posObj.count - 1)) {
+                skillFixEffect.outPos = posObj[ posObj.count - 1];
+            } else {
+                skillFixEffect.outPos = posObj[i];
+            }
+        } else {
+            skillFixEffect.outPos = nil;
+        }
+    }
+    
+}
+/*
+ public configFixEffect($active: Object3D, $completeFun: Function = null, $posObj: Array<Vector3D> = null): void {
+      this.active = $active;
+      this.completeFun = $completeFun;
+
+      if (!this.keyAry) {
+          return;
+      }
+      for (var i: number = 0; i < this.keyAry.length; i++) {
+          if (this.skillVo.types != SkillType.FixEffect) {
+              continue;
+          }
+          var skillFixEffect: SkillFixEffect = <SkillFixEffect>this.keyAry[i];
+          skillFixEffect.active = $active;
+          if ($posObj && $posObj.length) {
+              if (i > ($posObj.length - 1)) {
+                  skillFixEffect.outPos = $posObj[$posObj.length - 1];
+              } else {
+                  skillFixEffect.outPos = $posObj[i];
+              }
+          } else {
+              skillFixEffect.outPos = null;
+          }
+      }
+
+  }
+ */
+
 -(void)getSound;
 {
     

@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)float _time;
 
 -(Skill*)getSkill:(NSString*)url name:(NSString*)name;
-
+-(void)preLoadSkill:(NSString*)url;
 @end
 
 NS_ASSUME_NONNULL_END

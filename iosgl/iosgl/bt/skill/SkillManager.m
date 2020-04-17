@@ -34,6 +34,36 @@ static SkillManager *instance = nil;
     }
     return self;
 }
+-(void)preLoadSkill:(NSString*)url;
+{
+    SkillManager* this=self;
+    if (this.dic[url] || this._preLoadDic[url]){
+        return;
+    }
+    [[ResManager default]loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
+        SkillData* skillData=[[SkillData alloc]init];
+        skillData.data=skillRes.data;
+        this.dic[url] = skillData;
+    }];
+}
+
+
+/*
+ public preLoadSkill($url: string): void{
+     
+  
+     ResManager.getInstance().loadSkillRes(Scene_data.fileRoot + $url, ($skillRes: SkillRes) => {
+
+         var skillData: SkillData = new SkillData();
+         skillData.data = $skillRes.data;
+         //skillData.useNum++;
+         this._dic[$url] = skillData;
+
+     });
+
+     this._preLoadDic[$url] = true;
+ }
+ */
 -(Skill*)getSkill:(NSString*)url name:(NSString*)name;
 {
     SkillManager* this=self;
@@ -59,10 +89,10 @@ static SkillManager *instance = nil;
         this._skillDic[key] =[[NSMutableArray alloc]init];
     }
     [this._skillDic[key] addObject:skill];
-    
     if (this.dic[url]) {
-        [skill setData:this.dic[url] skillData:this.dic[url]];
-        //this._dic[url].useNum++;
+        SkillData* skillData=(SkillData*)this.dic[url];
+        [skill setData:skillData.data[skill.name] skillData:skillData];
+        skillData.useNum++;
         return skill;
     }
     

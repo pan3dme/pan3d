@@ -6,6 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
+#import "GL_Header.h"
 #import "ResCount.h"
 #import "SkillVo.h"
 #import "SkillData.h"
@@ -23,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)int completeNum;
 
 @property(nonatomic,strong)Object3D* active;
-//@property(nonatomic,strong)NSMutableDictionary* completeFun: Function;
+@property(nonatomic,strong)SuccessBlock  completeFun ;
 @property(nonatomic,assign)float time ;
 
 @property(nonatomic,assign)int targetFlag ;
@@ -36,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)reset;
 -(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
+-(void)configFixEffect:(Object3D*)active  completeFun:(SuccessBlock)completeFun posObj:(NSArray<Vector3D*>*)posObj;
 @end
 
 NS_ASSUME_NONNULL_END
