@@ -33,7 +33,23 @@
 {
     self.byte=byte;
     self.version= [self.byte readInt];
-  
+    self.skillUrl = [self.byte readUTF];
+    
+    [self read:^(NSString* code) {
+        [self readNext];
+    }];
+}
+-(void)readNext;
+{
+    [self read]; //readmaterial
+    [self read]; //readparticle;
  
 }
+-(void)readData:(ByteArray*)byte;
+{
+    int len= [self.byte readInt];
+    
+        NSLog(@"----");
+}
 @end
+

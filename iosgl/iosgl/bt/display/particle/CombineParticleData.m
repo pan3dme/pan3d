@@ -13,6 +13,7 @@
 #import "ParticleBallData.h"
 #import "ParticleFollowData.h"
 #import "CombineParticle.h"
+#import "ParticleLocusballData.h"
 #import "ParticleModelData.h"
 #import "Display3DParticle.h"
 
@@ -56,8 +57,14 @@
         case 4:
             pdata = [[ParticleModelData alloc]init];
             break;
+        case 7:
+            pdata = [[ParticleModelData alloc]init];
+            break;
         case 9:
             pdata = [[ParticleModelData alloc]init];
+            break;
+        case 14:
+            pdata = [[ParticleLocusballData alloc]init];
             break;
         case 18:
             pdata = [[ParticleBallData alloc]init];

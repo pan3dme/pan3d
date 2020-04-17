@@ -162,6 +162,8 @@
 		FEEF8BDD2448E7CD001AFEB2 /* SkillKeyVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BDC2448E7CD001AFEB2 /* SkillKeyVo.m */; };
 		FEEF8BE02448E7DF001AFEB2 /* SkillVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */; };
 		FEEF8BE32448F537001AFEB2 /* SkillRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BE22448F537001AFEB2 /* SkillRes.m */; };
+		FEEF8BE72449A157001AFEB2 /* ParticleLocusballData.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BE62449A157001AFEB2 /* ParticleLocusballData.m */; };
+		FEEF8BEA2449A183001AFEB2 /* Display3DLocusBallPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BE92449A183001AFEB2 /* Display3DLocusBallPartilce.m */; };
 		FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4B82436A61D0055AB31 /* BindParticle.m */; };
 		FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BB2436B11A0055AB31 /* BoneSocketData.m */; };
 		FEF3D4BF2436B4290055AB31 /* AnimManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BE2436B4290055AB31 /* AnimManager.m */; };
@@ -472,6 +474,10 @@
 		FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillVo.m; sourceTree = "<group>"; };
 		FEEF8BE12448F537001AFEB2 /* SkillRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillRes.h; sourceTree = "<group>"; };
 		FEEF8BE22448F537001AFEB2 /* SkillRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillRes.m; sourceTree = "<group>"; };
+		FEEF8BE52449A157001AFEB2 /* ParticleLocusballData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleLocusballData.h; sourceTree = "<group>"; };
+		FEEF8BE62449A157001AFEB2 /* ParticleLocusballData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleLocusballData.m; sourceTree = "<group>"; };
+		FEEF8BE82449A183001AFEB2 /* Display3DLocusBallPartilce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DLocusBallPartilce.h; sourceTree = "<group>"; };
+		FEEF8BE92449A183001AFEB2 /* Display3DLocusBallPartilce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DLocusBallPartilce.m; sourceTree = "<group>"; };
 		FEF3D4B72436A61D0055AB31 /* BindParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindParticle.h; sourceTree = "<group>"; };
 		FEF3D4B82436A61D0055AB31 /* BindParticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindParticle.m; sourceTree = "<group>"; };
 		FEF3D4BA2436B11A0055AB31 /* BoneSocketData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoneSocketData.h; sourceTree = "<group>"; };
@@ -880,6 +886,7 @@
 		FE3D4EE02401C12400185FD3 /* particle */ = {
 			isa = PBXGroup;
 			children = (
+				FEEF8BE42449A13E001AFEB2 /* locusball */,
 				FE776AB6244733B700B8B5A4 /* model */,
 				FE642AC9242AAC920047E41F /* locus */,
 				FE189AD524026AC8008E2FF6 /* ctrl */,
@@ -1125,6 +1132,17 @@
 			path = vo;
 			sourceTree = "<group>";
 		};
+		FEEF8BE42449A13E001AFEB2 /* locusball */ = {
+			isa = PBXGroup;
+			children = (
+				FEEF8BE52449A157001AFEB2 /* ParticleLocusballData.h */,
+				FEEF8BE62449A157001AFEB2 /* ParticleLocusballData.m */,
+				FEEF8BE82449A183001AFEB2 /* Display3DLocusBallPartilce.h */,
+				FEEF8BE92449A183001AFEB2 /* Display3DLocusBallPartilce.m */,
+			);
+			path = locusball;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1321,6 +1339,7 @@
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
 				FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */,
+				FEEF8BEA2449A183001AFEB2 /* Display3DLocusBallPartilce.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */,
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
@@ -1338,6 +1357,7 @@
 				FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */,
 				FE887D592416766700025A74 /* DynamicBaseConstItem.m in Sources */,
 				FE3D4EDF2401BF5A00185FD3 /* ParticleManager.m in Sources */,
+				FEEF8BE72449A157001AFEB2 /* ParticleLocusballData.m in Sources */,
 				FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FEEF8BC62448E702001AFEB2 /* SkillFixEffect.m in Sources */,
