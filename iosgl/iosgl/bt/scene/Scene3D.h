@@ -17,7 +17,7 @@
 #import "SkillManager.h"
 #import "ParticleManager.h"
  
-@class ParticleManager;
+@class ParticleManager,SkillManager;
 
 NS_ASSUME_NONNULL_BEGIN
 

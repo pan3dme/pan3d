@@ -10,7 +10,7 @@
 #import "Skill.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class Skill;
 @interface SkillManager : ResGC
 //+ (instancetype)default;
 

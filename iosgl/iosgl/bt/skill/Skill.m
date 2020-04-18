@@ -14,6 +14,7 @@
 #import "SkillMulTrajectory.h"
 #import "SkillTrajectoryTargetKeyVo.h"
 #import "SkillFixEffect.h"
+#import "Scene3D.h"
 
 @implementation Skill
 +(float)MaxTime;
@@ -108,6 +109,7 @@
             [this.keyAry[i] addToRender];
             if (this.skillVo.types == SkillType.TrajectoryDynamicTarget || this.skillVo.types == SkillType.TrajectoryDynamicPoint) {
                 SkillKey* skillKey = this.keyAry[i];
+                
                 [this.trajectoryAry addObject:skillKey];
             }
             i++;

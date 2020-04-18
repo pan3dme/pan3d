@@ -11,10 +11,11 @@
 #import "SkillVo.h"
 #import "SkillData.h"
 #import "SkillKey.h"
+#import "Scene3D.h"
 #import "SkillTrajectory.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class Scene3D;
 @interface Skill : ResCount
 +(float)MaxTime;
 @property(nonatomic,strong)SkillVo* skillVo ;
