@@ -12,7 +12,9 @@
 #import "Display3dMovie.h"
 #import "ParticleManager.h"
 #import "TimeUtil.h"
-
+@interface Scene3D ()
+@property(nonatomic,strong)UILabel* fpsLabel;
+@end
 @implementation Scene3D
 - (instancetype)init:(UIView*)uiview;
 {
@@ -32,6 +34,13 @@
         [self.uiView setContentScaleFactor:1];
         [self resetViewport];
         self.camera3D.rotationX=-45;
+        
+        self.fpsLabel=[[UILabel alloc]init];
+        self.fpsLabel.frame=CGRectMake(0, 0, 100, 20);
+        self.fpsLabel.text=@"60fps";
+        self.fpsLabel.backgroundColor=[UIColor redColor];
+        [self.uiView addSubview:self.fpsLabel];
+        
  
     }
     return self;
@@ -64,8 +73,9 @@
 }
 -(void)updateFrameRole;
 {
-    int _tempTime = [[TimeUtil default]getTimer];
-    int delay = _tempTime - self.time;
+    double _tempTime = [[TimeUtil default]getTimerDouble];
+    double delay =  _tempTime - self.time;
+    self.fpsLabel.text=[NSString stringWithFormat:@"%d fps",(int)(1000/delay)];
     self.time=_tempTime;
     for(int i=0;i<self.displayRoleList.count;i++){
         [self.displayRoleList[i] updateFrame:delay];

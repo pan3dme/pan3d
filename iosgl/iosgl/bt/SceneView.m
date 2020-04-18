@@ -33,7 +33,7 @@
 {
     self = [super init];
     if (self) {
-       [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
+       [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(upFrame) userInfo:nil repeats:YES];
     }
     return self;
 }

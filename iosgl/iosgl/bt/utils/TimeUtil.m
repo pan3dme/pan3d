@@ -34,4 +34,10 @@ static TimeUtil *instance = nil;
    return (int)ddd;
     
 }
+-(double)getTimerDouble;
+{
+ 
+   return [[NSDate date]timeIntervalSince1970]*1000.0;
+    
+}
 @end

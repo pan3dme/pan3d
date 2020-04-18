@@ -37,7 +37,7 @@ float _sceneScale;
 @property (nonatomic, strong) Rectangle *viewRect;
 @property (nonatomic, strong) ParticleManager *particleManager;
 @property (nonatomic, strong) SkillManager *skillManager;
-@property (nonatomic, assign) float time;
+@property (nonatomic, assign) double time;
  
 -(void)setSceneScale:(float)value;
 -(float)sceneScale;

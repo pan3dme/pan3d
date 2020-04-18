@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 @property (nonatomic, assign) float    time  ;
  -(int)getTimer;
+-(double)getTimerDouble;
 @end
 
 NS_ASSUME_NONNULL_END
