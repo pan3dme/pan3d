@@ -47,23 +47,12 @@ static SkillManager *instance = nil;
     }];
 }
 
-
-/*
- public preLoadSkill($url: string): void{
-     
-  
-     ResManager.getInstance().loadSkillRes(Scene_data.fileRoot + $url, ($skillRes: SkillRes) => {
-
-         var skillData: SkillData = new SkillData();
-         skillData.data = $skillRes.data;
-         //skillData.useNum++;
-         this._dic[$url] = skillData;
-
-     });
-
-     this._preLoadDic[$url] = true;
- }
- */
+-(void)playSkill:(Skill*)skill
+{
+    [self._skillAry addObject:skill];
+    [skill play];
+ 
+}
 -(Skill*)getSkill:(NSString*)url name:(NSString*)name;
 {
     SkillManager* this=self;

@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL needSound;
 
 -(void)reset;
+-(void)play;
 -(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
 -(void)configFixEffect:(Object3D*)active  completeFun:(SuccessBlock)completeFun posObj:(NSArray<Vector3D*>*)posObj;
 @end

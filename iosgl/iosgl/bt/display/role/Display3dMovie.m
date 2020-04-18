@@ -97,6 +97,47 @@
     }
     
 }
+-(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
+{
+    Display3dMovie* this=self;
+    if (this.curentAction == action) {
+        return YES;
+    }
+    this.curentAction = action;
+    this.completeState = completeState;
+    this.actionTime = 0;
+    [this updateFrame:0];
+    if ([this.animDic valueForKey:action]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+/*
+ public play($action: string, $completeState: number = 0, needFollow: boolean = true): boolean {
+    
+        if (this.curentAction == $action) {
+            return;
+        }
+  
+        this.curentAction = $action;
+        this._completeState = $completeState;
+        this._actionTime = 0;
+        this.updateFrame(0);
+ 
+        if (this._animDic.hasOwnProperty($action)) {
+     
+            return true;
+        } else {
+      
+            if (!this._waitLoadActionDic[$action] && this._preLoadActionDic[$action]) {
+        
+                this.setAnimUrl($action, this._preLoadActionDic[$action]);
+            }
+            return false;
+        }
+    }
+ */
 
 -(void)setVaCompress:(MeshData*)mesh;
 {

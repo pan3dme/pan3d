@@ -10,6 +10,7 @@
 #import "Skill.h"
 #import "SkillType.h"
 #import "SkillData.h"
+#import "Display3dMovie.h"
 #import "SkillMulTrajectory.h"
 #import "SkillTrajectoryTargetKeyVo.h"
 #import "SkillFixEffect.h"
@@ -127,6 +128,23 @@
         }
     }
     
+}
+-(void)play;
+{
+    Skill* this=self;
+    if (!this.skillVo) {
+        [this skillComplete];
+        return;
+    }
+    if([this.active isKindOfClass:[Display3dMovie class ] ]){
+        Display3dMovie* movie3d   = (Display3dMovie*)this.active;
+        [movie3d play:this.skillVo.action completeState:2 needFollow:NO];
+        
+        
+        //movie3d.play(this.skillVo.action, 2, false);
+    }
+    
+ 
 }
 /*
  public configFixEffect($active: Object3D, $completeFun: Function = null, $posObj: Array<Vector3D> = null): void {

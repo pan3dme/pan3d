@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(Skill*)getSkill:(NSString*)url name:(NSString*)name;
 -(void)preLoadSkill:(NSString*)url;
+-(void)playSkill:(Skill*)skill;
 @end
 
 NS_ASSUME_NONNULL_END

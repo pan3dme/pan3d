@@ -167,6 +167,7 @@
 		FEEF8BED2449D2F5001AFEB2 /* SkillType.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BEC2449D2F5001AFEB2 /* SkillType.m */; };
 		FEEF8BF02449D90B001AFEB2 /* SkillFixEffectKeyVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BEF2449D90B001AFEB2 /* SkillFixEffectKeyVo.m */; };
 		FEEF8BF32449D918001AFEB2 /* SkillTrajectoryTargetKeyVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BF22449D918001AFEB2 /* SkillTrajectoryTargetKeyVo.m */; };
+		FEEF8BF6244A55BD001AFEB2 /* SceneChar.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEF8BF5244A55BD001AFEB2 /* SceneChar.m */; };
 		FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4B82436A61D0055AB31 /* BindParticle.m */; };
 		FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BB2436B11A0055AB31 /* BoneSocketData.m */; };
 		FEF3D4BF2436B4290055AB31 /* AnimManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF3D4BE2436B4290055AB31 /* AnimManager.m */; };
@@ -487,6 +488,8 @@
 		FEEF8BEF2449D90B001AFEB2 /* SkillFixEffectKeyVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillFixEffectKeyVo.m; sourceTree = "<group>"; };
 		FEEF8BF12449D918001AFEB2 /* SkillTrajectoryTargetKeyVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillTrajectoryTargetKeyVo.h; sourceTree = "<group>"; };
 		FEEF8BF22449D918001AFEB2 /* SkillTrajectoryTargetKeyVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillTrajectoryTargetKeyVo.m; sourceTree = "<group>"; };
+		FEEF8BF4244A55BD001AFEB2 /* SceneChar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneChar.h; sourceTree = "<group>"; };
+		FEEF8BF5244A55BD001AFEB2 /* SceneChar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneChar.m; sourceTree = "<group>"; };
 		FEF3D4B72436A61D0055AB31 /* BindParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindParticle.h; sourceTree = "<group>"; };
 		FEF3D4B82436A61D0055AB31 /* BindParticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindParticle.m; sourceTree = "<group>"; };
 		FEF3D4BA2436B11A0055AB31 /* BoneSocketData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoneSocketData.h; sourceTree = "<group>"; };
@@ -735,6 +738,8 @@
 				FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */,
 				FE15ACA52435750A0062741F /* Display3dMovie.h */,
 				FE15ACA62435750A0062741F /* Display3dMovie.m */,
+				FEEF8BF4244A55BD001AFEB2 /* SceneChar.h */,
+				FEEF8BF5244A55BD001AFEB2 /* SceneChar.m */,
 			);
 			path = role;
 			sourceTree = "<group>";
@@ -1358,6 +1363,7 @@
 				FEEF8BEA2449A183001AFEB2 /* Display3DLocusBallPartilce.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */,
+				FEEF8BF6244A55BD001AFEB2 /* SceneChar.m in Sources */,
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
 				FE887D71241681B300025A74 /* MaterialLoad.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,

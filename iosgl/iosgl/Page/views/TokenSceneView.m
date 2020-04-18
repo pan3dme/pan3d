@@ -20,6 +20,7 @@
 #import "DisplayBaseTriSprite.h"
 #import "LoadManager.h"
 #import "Scene_data.h"
+#import "SceneChar.h"
 #import "SkillManager.h"
 #import "UIImageView+WebCache.h"
 #import "Display3dMovie.h"
@@ -123,7 +124,7 @@
             break;
         case 2:
             if(!mainChar){
-                mainChar=[[Display3dMovie alloc]init];
+                mainChar=[[SceneChar alloc]init];
                 [self.sceneView.scene3D addMovieDisplay:mainChar] ;
                 [mainChar setRoleUrl:@"role/yingz.txt"];
             }
@@ -134,7 +135,7 @@
             
         case 4:
             if(!mainChar){
-                mainChar=[[Display3dMovie alloc]init];
+                mainChar=[[SceneChar alloc]init];
                 [self.sceneView.scene3D addMovieDisplay:mainChar] ;
                 [mainChar setRoleUrl:@"role/50001.txt"];
                 [[SkillManager default] preLoadSkill:getSkillUrl(@"jichu_1")];
@@ -142,8 +143,8 @@
           
                Skill* skill= [[SkillManager default]getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
                 [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
-                   //   this.mainChar.playSkill($skill);
-                   NSLog(@"播放技能");
+                [mainChar playSkill:skill];
+                 NSLog(@"播放技能");
             }
             break;
         default:
@@ -155,7 +156,7 @@
     
 }
  
-Display3dMovie* mainChar;
+SceneChar* mainChar;
 -(void)playLyfByUrl:(NSString*)value
 {
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;

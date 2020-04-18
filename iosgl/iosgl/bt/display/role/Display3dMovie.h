@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableDictionary*  animDic;
 -(void)setRoleUrl:(NSString*)value;
 - (void)updateFrame:(float)t;
+-(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
 @end
 
 NS_ASSUME_NONNULL_END
