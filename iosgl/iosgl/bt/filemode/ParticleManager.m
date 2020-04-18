@@ -11,14 +11,12 @@
 #import "TimeUtil.h"
 static ParticleManager *instance = nil;
 @implementation ParticleManager
- 
 + (instancetype)default{
     if (instance == nil) {
         instance = [[ParticleManager alloc] init];
     }
     return instance;
 }
- 
 - (instancetype)init
 {
     self = [super init];
@@ -35,7 +33,7 @@ static ParticleManager *instance = nil;
     if(!self.dic[url]){
         CombineParticleData *combineParticleData=[[CombineParticleData alloc]init];
         [combineParticleData setDataByte:byteArray];
-         self.dic[url]=combineParticleData;
+        self.dic[url]=combineParticleData;
     }
 }
 -(CombineParticle*)getParticleByte:(NSString*)url;
@@ -43,7 +41,7 @@ static ParticleManager *instance = nil;
     CombineParticle *combineParticle=[[CombineParticle alloc]init];
     if(self.dic[url]){
         CombineParticleData *baseData = self.dic[url];
-       combineParticle= [baseData getCombineParticle];
+        combineParticle= [baseData getCombineParticle];
     }
     combineParticle.url=url;
     return combineParticle;
@@ -70,19 +68,9 @@ static ParticleManager *instance = nil;
 -(void)registerUrl:(NSString*)url;
 {
     if (self.dic[url]) {
-            CombineParticleData* baseData  =self.dic[url];
-        }
+        CombineParticleData* baseData  =self.dic[url];
+    }
 }
-/*
-public registerUrl($url: string): void {
-      $url = $url.replace("_byte.txt", ".txt")
-      $url = $url.replace(".txt", "_byte.txt")
-      if (this._dic[$url]) {
-          var baseData: CombineParticleData = this._dic[$url];
-          baseData.useNum++;
-      }
-  }
-*/
 -(void)updateRenderDic;
 {
     for (NSString* key in self.renderDic) {
@@ -95,9 +83,9 @@ public registerUrl($url: string): void {
     }
     
 }
--(void)  updateTime ;
+-(void)updateTime ;
 {
- 
+    
     int _tempTime = [[TimeUtil default]getTimer];
     float t = _tempTime - self.time;
     for (NSString* key in self.renderDic) {
@@ -108,7 +96,7 @@ public registerUrl($url: string): void {
             [combineParticle updateTime:t*1.0];
         }
     }
-   self.time = _tempTime;
+    self.time = _tempTime;
 }
- 
+
 @end

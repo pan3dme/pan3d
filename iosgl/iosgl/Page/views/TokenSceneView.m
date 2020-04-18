@@ -112,7 +112,7 @@
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     [Scene_data default].supportBlob=YES;
     
-    int tabId=4;
+    int tabId=1;
     switch (tabId) {
         case 1:
             [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
