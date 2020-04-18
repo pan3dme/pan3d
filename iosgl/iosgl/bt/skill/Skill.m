@@ -20,9 +20,24 @@
 {
     return 5*1000;
 }
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.time=0;
+    }
+    return self;
+}
 -(void)reset;
 {
-    
+    Skill* this=self;
+    this.time = 0;
+    this.completeNum = 0;
+    this.active = nil;
+    this.completeFun = nil;
+    this.targetFlag = 0;
+    this.soundPlay = NO;
+    this.needSound = NO;
 }
 -(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
 {
@@ -69,7 +84,7 @@
     Skill* this=self;
     this.time+=t;
     if (this.time > Skill.MaxTime) {
-        NSLog(@"超时结束");
+       // NSLog(@"超时结束");
         [this skillComplete];
     }
     [this getKeyTarget];
@@ -88,11 +103,12 @@
         return;
     }
     for (int i = this.targetFlag; i < this.keyAry.count; i++) {
+        NSLog(@"%f   %f",this.keyAry[i].time ,this.time);
         if (this.keyAry[i].time < this.time) {
             [this.keyAry[i] addToRender];
             if (this.skillVo.types == SkillType.TrajectoryDynamicTarget || this.skillVo.types == SkillType.TrajectoryDynamicPoint) {
-                SkillKey* ss = this.keyAry[i];
-                [this.trajectoryAry addObject:ss];
+                SkillKey* skillKey = this.keyAry[i];
+                [this.trajectoryAry addObject:skillKey];
             }
             i++;
             this.targetFlag = i;

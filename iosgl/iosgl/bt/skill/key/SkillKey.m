@@ -8,12 +8,16 @@
 
 #import "SkillKey.h"
 #import "SkillKeyVo.h"
+#import "Scene_data.h"
 #import "ParticleManager.h"
 
 @implementation SkillKey
 -(void)setInfo:(SkillKeyVo*)obj;
 {
-    
+    SkillKey* this=self;
+    this.time=obj.frame*[Scene_data default].frameTime;
+    this.particle=  [[ParticleManager default] getParticleByte: obj.url];
+ 
 }
 -(void)addToRender;
 {
@@ -25,15 +29,6 @@
     this.particle.sceneVisible = true;
     [[ParticleManager default] addParticle:this.particle];
 }
-/*
-public addToRender(): void {
-       if (!this.particle){
-           return;
-       }
-       this.particle.reset();
-       this.particle.sceneVisible = true
+ 
 
-       ParticleManager.getInstance().addParticle(this.particle);
-   }
-*/
 @end

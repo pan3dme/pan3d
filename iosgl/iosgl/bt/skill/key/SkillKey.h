@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SkillKey : NSObject
 typedef void (^SkillKeyBfun)(SkillKey* skillKey);
 @property(nonatomic,assign)float time ;
-@property(nonatomic,assign)CombineParticle*  particle;
+@property(nonatomic,strong)CombineParticle*  particle;
 @property(nonatomic,assign)SkillKeyBfun  removeCallFun;
 -(void)addToRender;
 -(void)setInfo:(SkillKeyVo*)obj;

@@ -43,6 +43,7 @@ static SkillManager *instance = nil;
     for (int i = 0; i < this._skillAry.count; i++) {
         [this._skillAry[i] update :t];
     }
+    this._time=_tempTime;
     
 }
 /*

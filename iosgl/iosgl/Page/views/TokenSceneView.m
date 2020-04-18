@@ -145,6 +145,7 @@
             }else{
            
                  Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+                [skill reset];
                 [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
                 [mainChar playSkill:skill];
                  NSLog(@"播放技能");

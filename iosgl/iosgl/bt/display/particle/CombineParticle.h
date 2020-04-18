@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CombineParticle : EventDispatcher
 @property (nonatomic, strong)NSMutableArray<Display3DParticle*>*  _displayAry ;
-@property (nonatomic, assign)  NSString*  url;
+@property (nonatomic, strong)  NSString*  url;
 @property (nonatomic, assign)  int  type; //类型
 @property (nonatomic, assign)  BOOL  hasMulItem;
 @property (nonatomic, assign)  BOOL  sceneVisible;
