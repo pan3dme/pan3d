@@ -189,7 +189,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         int particeSize=  [self.byte readInt];
         NSData *particeNsdata=  [self.byte getNsDataByLen:particeSize];
         ByteArray *particeByte=  [[ByteArray alloc]init:particeNsdata];
-        [[ParticleManager default] addResByte:particeurl byteArray:particeByte];
+        [ ParticleManager  addResByte:particeurl byteArray:particeByte];
     }
     
 }

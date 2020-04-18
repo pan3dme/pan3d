@@ -16,7 +16,7 @@
 {
     SkillKey* this=self;
     this.time=obj.frame*[Scene_data default].frameTime;
-    this.particle=  [[ParticleManager default] getParticleByte: obj.url];
+    this.particle=  [ ParticleManager    getParticleByte: obj.url];
  
 }
 -(void)addToRender;
@@ -27,7 +27,7 @@
         }
     [this.particle reset];
     this.particle.sceneVisible = true;
-    [[ParticleManager default] addParticle:this.particle];
+   //  [ParticleManager addParticle:this.particle];
 }
  
 

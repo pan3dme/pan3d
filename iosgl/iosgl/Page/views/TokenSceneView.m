@@ -170,7 +170,7 @@ SceneChar* mainChar;
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {
-                CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
+                CombineParticle*  particle =   [ParticleManager   getParticleByte: item.particleUrl];
                 [particleManager addParticle:particle];
             } else {
                 NSLog(@"播放的不是单纯特效");

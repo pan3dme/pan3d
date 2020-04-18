@@ -115,7 +115,7 @@ static MeshDataManager *instance = nil;
         
     }
     for (NSString* key in allParticleDic) {
-        [[ParticleManager default] registerUrl: allParticleDic[key]];
+      //  [[ParticleManager default] registerUrl: allParticleDic[key]];
     }
     skinMesh.allParticleDic = allParticleDic;
     
