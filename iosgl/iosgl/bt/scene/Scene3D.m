@@ -25,13 +25,13 @@
         self.displayRoleList=[[NSMutableArray alloc]init];
         self.displayList=[[NSMutableArray alloc]init];
         self.particleManager=[[ParticleManager alloc]init];
+        self.skillManager=[[SkillManager alloc]init];
         self.viewRect=[[Rectangle alloc]x:0 y:0 width:360 height:360];
         self.time=[[TimeUtil default]getTimer];
         self.sceneScale=1.0;
         [self.uiView setContentScaleFactor:1];
         [self resetViewport];
-        
-             self.camera3D.rotationX=-45;
+        self.camera3D.rotationX=-45;
  
     }
     return self;
@@ -59,6 +59,7 @@
     }
     self.particleManager.scene3d=self;
     [self.context3D setDepthTest:NO];
+    [self.skillManager update];
     [self.particleManager update];
 }
 -(void)updateFrameRole;

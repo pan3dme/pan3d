@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SkillManager : ResGC
-+ (instancetype)default;
+//+ (instancetype)default;
 
 @property (nonatomic,strong)NSMutableDictionary* _skillDic;
 @property (nonatomic,strong)NSMutableDictionary* _loadDic;
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(Skill*)getSkill:(NSString*)url name:(NSString*)name;
 -(void)preLoadSkill:(NSString*)url;
 -(void)playSkill:(Skill*)skill;
+-(void)update;
 @end
 
 NS_ASSUME_NONNULL_END

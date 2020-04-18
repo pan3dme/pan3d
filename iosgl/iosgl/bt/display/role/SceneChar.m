@@ -8,6 +8,7 @@
 
 #import "SceneChar.h"
 #import "Skill.h"
+#import "Scene3D.h"
 #import "SkillManager.h"
 @interface SceneChar()
 @property(nonatomic,strong)Skill* skillVo;
@@ -17,7 +18,8 @@
 
 -(void)playSkill:(Skill*)skill;
 {
-    [[SkillManager default] playSkill:skill];
+    [self.scene3d.skillManager  playSkill:skill];
+
     self.skillVo=skill;
  
 }

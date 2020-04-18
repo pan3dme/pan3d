@@ -8,6 +8,7 @@
 
 #import "SkillManager.h"
 #import "Skill.h"
+#import "TimeUtil.h"
 #import "SkillRes.h"
 #import "Scene_data.h"
 #import "ResManager.h"
@@ -34,6 +35,26 @@ static SkillManager *instance = nil;
     }
     return self;
 }
+-(void)update;
+{
+    SkillManager* this=self;
+    int _tempTime = [[TimeUtil default]getTimer];
+    float t  = (float)_tempTime - this._time;
+    for (int i = 0; i < this._skillAry.count; i++) {
+        [this._skillAry[i] update :t];
+    }
+    
+}
+/*
+ public update(): void {
+      var _tempTime: number = TimeUtil.getTimer();
+      var t: number = _tempTime - this._time;
+      for (var i: number = 0; i < this._skillAry.length; i++) {
+          this._skillAry[i].update(t);
+      }
+      this._time = _tempTime;
+  }
+ */
 -(void)preLoadSkill:(NSString*)url;
 {
     SkillManager* this=self;

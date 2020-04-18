@@ -25,6 +25,7 @@
 #import "UIImageView+WebCache.h"
 #import "Display3dMovie.h"
 #import "DisplayTestSprite.h"
+#import "Scene3D.h"
 #import "GL_Header.h"
 
 @interface TokenSceneView ()
@@ -130,7 +131,8 @@
             }
             break;
         case 3:
-          [[SkillManager default]getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
+          
+         [ self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
             break;
             
         case 4:
@@ -138,13 +140,15 @@
                 mainChar=[[SceneChar alloc]init];
                 [self.sceneView.scene3D addMovieDisplay:mainChar] ;
                 [mainChar setRoleUrl:@"role/50001.txt"];
-                [[SkillManager default] preLoadSkill:getSkillUrl(@"jichu_1")];
+           
+              [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
             }else{
-          
-               Skill* skill= [[SkillManager default]getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+           
+                 Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
                 [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
                 [mainChar playSkill:skill];
                  NSLog(@"播放技能");
+            
             }
             break;
         default:

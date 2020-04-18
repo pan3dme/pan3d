@@ -14,6 +14,7 @@
 #import "Camera3D.h"
 #import "Rectangle.h"
 #import "Display3dMovie.h"
+#import "SkillManager.h"
 #import "ParticleManager.h"
  
 @class ParticleManager;
@@ -35,6 +36,7 @@ float _sceneScale;
 @property (nonatomic, strong) Camera3D *camera3D;
 @property (nonatomic, strong) Rectangle *viewRect;
 @property (nonatomic, strong) ParticleManager *particleManager;
+@property (nonatomic, strong) SkillManager *skillManager;
 @property (nonatomic, assign) float time;
  
 -(void)setSceneScale:(float)value;
