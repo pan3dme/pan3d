@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SkillKeyVo.h"
- 
+#import "ParticleManager.h"
 #import "CombineParticle.h"
 
 
@@ -19,7 +19,7 @@ typedef void (^SkillKeyBfun)(SkillKey* skillKey);
 @property(nonatomic,assign)float time ;
 @property(nonatomic,strong)CombineParticle*  particle;
 @property(nonatomic,assign)SkillKeyBfun  removeCallFun;
--(void)addToRender;
+-(void)addToRender:(ParticleManager*)particleManager;
 -(void)setInfo:(SkillKeyVo*)obj;
 @end
 

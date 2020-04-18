@@ -744,7 +744,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0355B4F6-6A14-49C7-93D1-9B261FAD7933"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/skill/key/SkillKey.m"
@@ -752,7 +752,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
-            landmarkName = "-addToRender"
+            landmarkName = "-addToRender:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -19,7 +19,7 @@
     this.particle=  [ ParticleManager    getParticleByte: obj.url];
  
 }
--(void)addToRender;
+-(void)addToRender:(ParticleManager*)particleManager;
 {
     SkillKey* this=self;
     if (!this.particle){
@@ -27,7 +27,7 @@
         }
     [this.particle reset];
     this.particle.sceneVisible = true;
-   //  [ParticleManager addParticle:this.particle];
+    [particleManager addParticle:this.particle];
 }
  
 

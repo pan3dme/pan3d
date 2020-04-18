@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)int completeNum;
 
 @property(nonatomic,strong)Object3D* active;
+@property(nonatomic,strong)Scene3D* scene3D;
 @property(nonatomic,strong)SuccessBlock  completeFun ;
 @property(nonatomic,assign)float time ;
 

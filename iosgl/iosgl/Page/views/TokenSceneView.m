@@ -112,7 +112,7 @@
     //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
     [Scene_data default].supportBlob=YES;
     
-    int tabId=1;
+    int tabId=4;
     switch (tabId) {
         case 1:
             [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
@@ -145,6 +145,7 @@
             }else{
            
                  Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+                skill.scene3D=self.sceneView.scene3D;
                 [skill reset];
                 [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
                 [mainChar playSkill:skill];
