@@ -25,6 +25,6 @@
 }
 - (void)upFrame;
 {
-    //[super upFrame];
+     [super upFrame];
 }
 @end
