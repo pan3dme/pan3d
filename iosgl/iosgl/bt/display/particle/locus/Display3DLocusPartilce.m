@@ -39,7 +39,7 @@
 }
 - (void)update;
 {
-    //[super update];
+   //  [super update];
 }
 - (void)setVc;
 {
