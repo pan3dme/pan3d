@@ -38,8 +38,8 @@ static SkillManager *instance = nil;
 -(void)update;
 {
     SkillManager* this=self;
-    int _tempTime = [[TimeUtil default]getTimer];
-    float t  = (float)_tempTime - this._time;
+    double _tempTime = [[TimeUtil default]getTimerDouble];
+    double t  = _tempTime - this._time;
     for (int i = 0; i < this._skillAry.count; i++) {
         [this._skillAry[i] update :t];
     }

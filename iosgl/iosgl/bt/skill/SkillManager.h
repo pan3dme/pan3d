@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSMutableDictionary* _loadDic;
 @property (nonatomic,strong)NSMutableDictionary* _preLoadDic;
 @property (nonatomic,strong)NSMutableArray<Skill*>* _skillAry;
-@property (nonatomic,assign)float _time;
+@property (nonatomic,assign)double _time;
 
 -(Skill*)getSkill:(NSString*)url name:(NSString*)name;
 -(void)preLoadSkill:(NSString*)url;

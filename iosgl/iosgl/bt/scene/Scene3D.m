@@ -29,7 +29,7 @@
         self.particleManager=[[ParticleManager alloc]init];
         self.skillManager=[[SkillManager alloc]init];
         self.viewRect=[[Rectangle alloc]x:0 y:0 width:360 height:360];
-        self.time=[[TimeUtil default]getTimer];
+        self.time=[[TimeUtil default]getTimerDouble];
         self.sceneScale=1.0;
         [self.uiView setContentScaleFactor:1];
         [self resetViewport];
