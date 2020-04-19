@@ -32,9 +32,7 @@
 }
 - (void)update;
 {
-  
     [super update];
- 
 }
 - (void)setVc;
 {
@@ -54,6 +52,13 @@
     [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
     
+}
+- (void)resetVa;
+{
+   Context3D *ctx=self.scene3d.context3D;
+    [ctx clearVa:0];
+    [ctx clearVa:1];
+ 
 }
 -(void)updateRotaionMatrix;
 {

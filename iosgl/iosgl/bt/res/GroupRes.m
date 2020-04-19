@@ -32,10 +32,10 @@
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
  */
- 
+ //url    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/10018_lyf.txt"    0x00000002818a0360
     self.bfun=block;
     
-    [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSObject* value) {
+    [[LoadManager default] loadUrl:url type:LoadManager.BYTE_TYPE fun:^(NSObject* value) {
         
         NSDictionary* dic=(NSDictionary*)value;
          NSData* netNsData = [[NSData alloc] initWithContentsOfFile:dic[@"data"]];
@@ -86,6 +86,7 @@
     }
     else if (types ==  SCENE_PARTICLE_TYPE ) {
         groupItem.particleUrl = [self.byte readUTF];
+        groupItem.types = SCENE_PARTICLE_TYPE;
     }
     [self.dataAry  addObject:groupItem];
 }
@@ -126,3 +127,4 @@
  */
 
 @end
+

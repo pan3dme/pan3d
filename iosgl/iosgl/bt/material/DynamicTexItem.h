@@ -12,7 +12,7 @@
 #import "Curve.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class TexItem;
+ 
 @interface DynamicTexItem : DynamicBaseTexItem
 /*
  public url: string;
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 @property (nonatomic, strong)  NSString*  url;
-@property(nonatomic,strong) TexItem* target;
+ 
 @property(nonatomic,assign) GLuint textureDynamic;
 @property(nonatomic,assign) BOOL  isParticleColor;
 @property(nonatomic,strong)   Curve* curve ;

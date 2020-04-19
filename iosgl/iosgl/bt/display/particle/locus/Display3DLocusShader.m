@@ -46,7 +46,7 @@
         "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"
         "mulPos = cross(mulPos, normals);\n"
         "mulPos = normalize(mulPos);\n"
-        "mulPos *= v3Normal.w*3.0  ;\n"
+        "mulPos *= v3Normal.w*1.0  ;\n"
         "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
     
         "gl_Position = tempPos*modeMatrix* camMatrix* viewMatrix;\n"
@@ -58,27 +58,47 @@
 
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
-    "precision mediump float;\n"
-    "uniform sampler2D fs0;\n"
-    "uniform sampler2D fs1;\n"
-    "uniform vec4 fc[1];\n"
-    "varying vec2 v0;\n"
-    "varying vec4 v2;\n"
-    "varying vec2 v1;\n"
-    "void main()"
-    "{"
-        "vec4 ft0 = texture2D(fs0,v0);\n"
-        "ft0.xyz *= ft0.w;\n"
-        "vec4 ft1 = texture2D(fs1,v1);\n"
-        "ft1.xyz = ft1.xyz * ft1.w;\n"
-        "vec4 ft2 = ft0 * ft1;\n"
-        "ft0 = ft2 * v2.w;\n"
-        "ft1.xyz = ft0.xyz;\n"
-        "ft1.w = ft0.w;\n"
-        "if(v2.x<fc[0].x){discard;}\n"
-        "gl_FragColor = ft1;\n"
-   
+    "precision mediump float;"
+    "uniform sampler2D fs0;"
+    "uniform sampler2D fs1;"
+    "uniform vec4 fc[1];"
+    "varying vec2 v0;"
+    "varying vec4 v2;"
+    "varying vec2 v1;"
+    "void main(void){"
+    "vec4 ft0 = texture2D(fs0,v0);"
+    "ft0.xyz *= ft0.w;"
+    "vec4 ft1 = texture2D(fs1,v1);"
+    "ft1.xyz = ft1.xyz * ft1.w;"
+    "vec4 ft2 = ft0 * ft1;"
+    "ft0 = ft2 * v2.w;"
+    "ft1.xyz = ft0.xyz;"
+    "ft1.w = ft0.w;"
+    "if(v2.x<fc[0].x){discard;}"
+    "gl_FragColor = ft1;"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
+ 
 @end
+
+/*
+ "uniform sampler2D fs0;"
+ "uniform sampler2D fs1;"
+ "uniform vec4 fc[1];"
+ "varying vec2 v0;"
+ "varying vec4 v2;"
+ "varying vec2 v1;"
+ "void main(void){"
+     "vec4 ft0 = texture2D(fs0,v0);"
+     "ft0.xyz *= ft0.w;"
+     "vec4 ft1 = texture2D(fs1,v1);"
+     "ft1.xyz = ft1.xyz * ft1.w;"
+     "vec4 ft2 = ft0 * ft1;"
+     "ft0 = ft2 * v2.w;"
+     "ft1.xyz = ft0.xyz;"
+     "ft1.w = ft0.w;"
+     "if(v2.x<fc[0].x){discard;}"
+     "gl_FragColor = ft1;"
+ "}";
+ */

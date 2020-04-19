@@ -340,6 +340,20 @@
     [self.keyFrameAry addObject:keyframe];
     return keyframe;
 }
-
+-(void)reset;
+{
+    self.time=0;
+    self.currentKeyFrame=self.keyFrameAry[0];
+    self.visible=NO;
+    self.targetFlag=-1;
+}
+/*
+public reset(): void {
+      this._time = 0;
+      this._currentKeyFrame = this._keyFrameAry[0];
+      this.visible = false;
+      this.targetFlag = -1;
+  }
+*/
 @end
 

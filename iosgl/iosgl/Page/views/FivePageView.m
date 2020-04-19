@@ -45,7 +45,7 @@
 -(void)one;
 {
     NSString* url=@"https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/assetfile/tu001.jpg";
-      [[LoadManager default] loadUrl:url type:IMG_TYPE fun:^(NSString* value) {
+      [[LoadManager default] loadUrl:url type:LoadManager.BYTE_TYPE fun:^(NSString* value) {
           NSLog(@"加载完成");
           UIImageView* imageView=[[UIImageView alloc]init];
            imageView.frame=CGRectMake(0, 0, 200, 200);
@@ -58,7 +58,7 @@
 -(void)two;
 {
  
-      [[LoadManager default] loadUrl: [[Scene_data default]getWorkUrlByFilePath:@"5555_base.txt"] type:IMG_TYPE fun:^(NSString* value) {
+      [[LoadManager default] loadUrl: [[Scene_data default]getWorkUrlByFilePath:@"5555_base.txt"] type:LoadManager.BYTE_TYPE fun:^(NSString* value) {
           NSLog(@"加载完成%@",value);
        //34632
            NSData* reader = [[NSData alloc] initWithContentsOfFile:value];

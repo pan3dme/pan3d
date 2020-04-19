@@ -11,25 +11,62 @@
 #import "Material.h"
 
 @interface MeshData()
-
-@property(nonatomic,strong)NSMutableArray<NSNumber*>* boneIDAry;
-@property(nonatomic,strong)NSMutableArray<NSNumber*>* boneWeightAry;
-@property(nonatomic,strong)NSMutableArray<NSNumber*>* boneNewIDAry;
-
-@property(nonatomic,strong)NSMutableArray<NSNumber*>* materialParamData;
-@property(nonatomic,strong)MaterialBaseParam* materialParam;
-@property(nonatomic,strong)Material* material;
-@property(nonatomic,strong)NSString* materialUrl;
-
-@property(nonatomic,assign)GLuint boneWeightBuffer ;
-@property(nonatomic,assign)GLuint boneIdBuffer ;
- 
-@property(nonatomic,assign)float  uid;
-@property(nonatomic,assign)float  boneIDOffsets;
-@property(nonatomic,assign)float  boneWeightOffsets;
- 
+@property(nonatomic,assign)BOOL isComple;
 @end
 
 @implementation MeshData
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.particleAry=[[NSMutableArray alloc]init];
+    }
+    return self;
+}
+-(void)upToGpu
+{
+    if(!self.isComple){
+        
+        self.verticesBuffer=[self upGpuvertexBuffer:self.vertices];
+        self.uvBuffer=[self upGpuvertexBuffer:self.uvs];
+        self.boneIdBuffer=[self upGpuvertexBuffer:self.boneIDAry];
+        
+        
+        self.boneWeightBuffer=[self upGpuvertexBuffer:self.boneWeightAry];
+        self.indexBuffer=[self upGpuIndexBuffer:self.indexs];
+        self.trinum=(int)self.indexs.count;
+        self.isComple=YES;
+        
+    }
+}
+
+-(GLuint)upGpuIndexBuffer:(NSArray*)arr;
+{
+    unsigned int Indices[arr.count];
+    for (int i=0; i<arr.count; i++) {
+        Indices[i]=[arr[i] intValue];
+    }
+    GLuint indexBuffer;
+    glGenBuffers(1, &indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+    return indexBuffer;
+}
+
+-(GLuint)upGpuvertexBuffer:(NSArray*)arr;
+{
+    GLfloat attrArr[arr.count];
+    for (int i=0; i<arr.count; i++) {
+        attrArr[i]=[arr[i] floatValue];
+    }
+    GLuint verticesBuffer;
+    glGenBuffers(1, &verticesBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+    return verticesBuffer;
+}
+
+
 
 @end

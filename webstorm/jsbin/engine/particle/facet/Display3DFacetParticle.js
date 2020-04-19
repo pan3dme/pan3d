@@ -53,7 +53,6 @@ var Display3DFacetParticle = /** @class */ (function (_super) {
         this.data.vcmatData.set(Scene_data.cam3D.cameraMatrix.m, 16);
         //Scene_data.context3D.setVcMatrix4fv(this.data.materialParam.shader, "posMatrix3D", this.modelMatrix.m);
         //this.data.setFloat32Mat("posMatrix3D", this.modelMatrix.m);//48
-        //  this.modelMatrix.identity();
         this.data.vcmatData.set(this.modelMatrix.m, 48);
         //Scene_data.context3D.setVcMatrix4fv(this.data.materialParam.shader, "rotationMatrix3D", this._rotationMatrix.m);
         //this.data.setFloat32Mat("rotationMatrix3D", this._rotationMatrix.m);//32

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  Matrix4x4  matrix4x4;
 -(void)identity;
 -(Matrix3D*)clone;
+-(Matrix3D *)clone:(Matrix3D*)value;
 -(Matrix3D*)Invert;
 -(void) outString;
 -(void) appendTranslation:(float  )x  y:(float)y z:(float)z ;
@@ -32,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(Vector3D*)transformVector:(Vector3D*)vec3d;
 -(GLfloat *)m;
 -(GLfloat *)rotationM;
-
+-(Vector3D*)position;
 -(void)inputStrData:(NSString*)str;
  
 @end

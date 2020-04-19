@@ -57,7 +57,7 @@
             Scene_data.context3D.setVcMatrix4fv(this.shader, "posMatrix3D", this.posMatrix.m);
             Scene_data.context3D.setVa(0, 3, this.objData.vertexBuffer);
             Scene_data.context3D.setVa(1, 3, this.objData.normalsBuffer);
-            Scene_data.context3D.drawLine(this.objData.indexBuffer, this.objData.treNum);
+            // Scene_data.context3D.drawLine(this.objData.indexBuffer, this.objData.treNum);
 
         }
 
@@ -114,6 +114,7 @@ class GridLineSprite extends LineDisplaySprite {
         this.makeGridData()
 
     }
+
     private makeGridData(): void {
 
         var w: number = 100;

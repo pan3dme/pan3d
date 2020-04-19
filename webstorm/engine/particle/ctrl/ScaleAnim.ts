@@ -12,7 +12,6 @@
         this.num = 1;
     }
     public update(t: number): void {
-        console.log(Scene_data.frameTime);
         if (this._isDeath) {
             return;
         }

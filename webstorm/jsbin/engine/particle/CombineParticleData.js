@@ -48,7 +48,6 @@ var CombineParticleData = /** @class */ (function (_super) {
             if (pdata.timelineData.maxFrameNum > this.maxTime) {
                 this.maxTime = pdata.timelineData.maxFrameNum;
             }
-            //  i=len;
         }
         this.maxTime *= Scene_data.frameTime;
     };

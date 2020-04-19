@@ -23,44 +23,26 @@
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
-
-
 @property (nonatomic, assign) GLuint  textBsetGLuint;
 @end
 @implementation Display3DBallPartilce
-
 -(void)onCreated;
 {
-    
 }
 - (void)update;
 {
-    [super update];
+     [super update];
 }
 -(void)setVc;
 {
     [self setViewCamModeMatr3d];
     Context3D *ctx=self.scene3d.context3D;
     
-    
-    
     [self updateWatchCaramMatrix];
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
-    [self setVcmat];
-}
-
-
--(void)setVcmat;
-{
- 
-    Display3DBallPartilce* this=self;
-    Context3D *ctx=self.scene3d.context3D;
     
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
-  //  timeVec.x=self._time/1.0f;
-    
-  
     
     [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
     Vector3D*  scaleVec =   self.ballData._scaleVec;
@@ -70,12 +52,13 @@
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
     
-    
-    if(this.ballData._is3Dlizi){
+    if(self.ballData._is3Dlizi){
         NSLog(@"_is3Dlizi");
     }
     
+    [self setMaterialVc];
 }
+ 
 -(void)setVa;
 {
     
@@ -93,11 +76,14 @@
     
     
 }
-
--(void)resetVa;
+- (void)resetVa;
 {
+   Context3D *ctx=self.scene3d.context3D;
+    [ctx clearVa:0];
+    [ctx clearVa:1];
+    [ctx clearVa:2];
+    [ctx clearVa:3];
 }
-
 -(void)updateWatchCaramMatrix;
 {
     Display3DBallPartilce* this=self;
@@ -105,7 +91,7 @@
     Camera3D* cam3d=self.scene3d.camera3D;
     [cam3d upFrame];
     if (this.ballData.facez) {
-        [this.rotationMatrix3D prependRotation:90.0f axis:Vector3D.Y_AXIS];
+        [this.rotationMatrix3D prependRotation:90.0f axis:Vector3D.X_AXIS];
     } else if (this.ballData._is3Dlizi) {
     } else if (this.ballData._watchEye) {
         [this.rotationMatrix3D prependRotation:cam3d.rotationX axis:Vector3D.X_AXIS];
@@ -113,8 +99,6 @@
     }
     
 }
-
-
 -(ParticleBallData*)ballData;
 {
     return ((ParticleBallData*)(self.data));

@@ -35,6 +35,7 @@ var SceneChar = /** @class */ (function (_super) {
         // private triIndex: Array<number> = [0, 4, 5, 0, 5, 1, 1, 5, 6, 1, 6, 2, 2, 6, 7, 2, 7, 3, 3, 7, 4, 3, 4, 0]
         _this.triIndex = [0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 0, 4, 5, 0, 5, 1, 1, 5, 6, 1, 6, 2, 2, 6, 7, 2, 7, 3, 3, 7, 4, 3, 4, 0];
         _this.shadow = true;
+        _this.unit = new Unit;
         _this.skillitem = new Array();
         return _this;
     }
@@ -597,12 +598,6 @@ var SceneChar = /** @class */ (function (_super) {
         if (this._rotationMatrix) {
             this.rotationToNew(this.toRotationY, 2);
         }
-        if (this.unit.isMain) {
-        }
-        else {
-            var pos = AstarUtil.getWorldPosByStart2D(new Vector2D(100, 100));
-            // console.log(pos)
-        }
     };
     SceneChar.prototype.refreshY = function () {
         this.py = AstarUtil.getHeightByPos(this.getCurrentPos());
@@ -876,9 +871,6 @@ var SceneChar = /** @class */ (function (_super) {
     };
     Object.defineProperty(SceneChar.prototype, "visible", {
         get: function () {
-            if (this.unit && this.unit.isInvishibel() && !this.unit.isMain) { //隐身
-                return false;
-            }
             return this._visible;
         },
         set: function (value) {

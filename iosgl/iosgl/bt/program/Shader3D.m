@@ -12,29 +12,29 @@
  
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 {
- 
-   if(!vstr){
-          vstr=[self getVertexShaderString];
-      }
+    
+    if(!vstr){
+        vstr=[self getVertexShaderString];
+    }
     if(!fstr){
-          fstr=[self getFragmentShaderString];
-       }
+        fstr=[self getFragmentShaderString];
+    }
     
     GLuint verShader,fragShader;
     _program = glCreateProgram();
-     [self compileShaderStr:&verShader type:GL_VERTEX_SHADER str:vstr];
-     [self compileShaderStr:&fragShader type:GL_FRAGMENT_SHADER str:fstr];
- 
+    [self compileShaderStr:&verShader type:GL_VERTEX_SHADER str:vstr];
+    [self compileShaderStr:&fragShader type:GL_FRAGMENT_SHADER str:fstr];
+    
     glAttachShader(_program, verShader);
     glAttachShader(_program, fragShader);
     glDeleteShader(verShader);
     glDeleteShader(fragShader);
     
     //5、链接
-     glLinkProgram(_program);
+    glLinkProgram(_program);
     
-     GLint linkStatus;
-     glGetProgramiv(_program, GL_LINK_STATUS, &linkStatus);
+    GLint linkStatus;
+    glGetProgramiv(_program, GL_LINK_STATUS, &linkStatus);
     if(linkStatus==GL_FALSE)
     {
         //获取失败信息
@@ -57,7 +57,14 @@
         return;
     }
 }
-
+-(NSString*)vertexStr;
+{
+    if(self.vertex){
+        return self.vertex;
+    }else{
+        return [self getVertexShaderString];
+    }
+}
 -(void)compileShaderStr:(GLuint *)shader type:(GLenum)type str:(NSString *)str;
 {
     const GLchar * source = (GLchar *)[str UTF8String];

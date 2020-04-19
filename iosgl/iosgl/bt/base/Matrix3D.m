@@ -70,6 +70,12 @@
     self.matrix4x4=Matrix4x4Identity;
 }
 -(void)outString{
+    NSString *outstr=@"\n";
+    for(int i=0;i<16;i++){
+        outstr=  [outstr stringByAppendingString:[NSString stringWithFormat:@"%d:",i]];
+        outstr=  [outstr stringByAppendingString:[NSString stringWithFormat:@"%f\n",_matrix4x4.data[i]]];
+    }
+    NSLog(@"%@",outstr);
 }
 -(void) appendTranslation:(float  )x  y:(float)y z:(float)z ;
 {
@@ -111,10 +117,22 @@
     tempM.matrix4x4=Matrix4x4clone(self.matrix4x4);
     return tempM;
 }
+-(Matrix3D *)clone:(Matrix3D*)value;
+{
+    Matrix3D *tempM= [[Matrix3D alloc]init];
+    tempM.matrix4x4=Matrix4x4clone(self.matrix4x4);
+    value.matrix4x4=Matrix4x4clone(self.matrix4x4);
+    return tempM;
+}
+-(Vector3D*)position;
+{
+  return   [self transformVector:[[Vector3D alloc]init]];
+}
 -(Matrix3D*)Invert;
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];
     tempM.matrix4x4=Matrix4x4Invert(self.matrix4x4);
+    self.matrix4x4=Matrix4x4clone(tempM.matrix4x4);
     return tempM;
 }
 -(void)  appendRotation:(float)rad axis:(Vector3D*)axis;

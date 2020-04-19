@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OnePageView.h"
+ 
 
 @interface ViewController : UITabBarController
 

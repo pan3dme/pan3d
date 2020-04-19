@@ -8,6 +8,7 @@
 
 #import "MaterialParam.h"
 #import "DynamicTexItem.h"
+#import "DynamicConstItem.h"
 #import "ParamDataVo.h"
 
 @implementation MaterialParam
@@ -18,12 +19,14 @@
     self.dynamicTexList=[[NSMutableArray alloc]init];
     self.dynamicConstList=[[NSMutableArray alloc]init];
     [self setTexList];
+    [self setConstList];
     
  
 }
 -(void)setTexList;
 {
-    NSArray<TexItem*>* texList = self.material.texList;
+      MaterialParam* this=self;
+    NSArray<TexItem*>* texList = this.material.texList;
     for(int i=0;i<texList.count;i++){
         DynamicTexItem*    dyTex = [[DynamicTexItem alloc]init];
         dyTex.target = texList[i];
@@ -32,27 +35,33 @@
             [dyTex initCurve:4];
             dyTex.isParticleColor = YES;
         }
-        [self.dynamicTexList addObject:dyTex];
-        
+        [this.dynamicTexList addObject:dyTex];
+         
     }
-    
-    /*
      
-     if (texList[i].isParticleColor) {
-         dyTex = new DynamicTexItem;
-         dyTex.target = texList[i];
-         dyTex.paramName = texList[i].paramName;
-         dyTex.initCurve(4);
-         this.dynamicTexList.push(dyTex);
-         dyTex.isParticleColor = true;
-     } else if (texList[i].isDynamic) {
-         dyTex = new DynamicTexItem;
-         dyTex.target = texList[i];
-         dyTex.paramName = texList[i].paramName;
-         this.dynamicTexList.push(dyTex);
-     }
-     */
-    
+     
+}
+-(void)setConstList;
+{
+    MaterialParam* this=self;
+    NSMutableArray<ConstItem*>* constList  = this.material.constList;
+    for (int i=0; i < constList.count; i++) {
+        ConstItem* constItem  = constList[i];
+        DynamicConstItem* dyCon = [[DynamicConstItem alloc]init];
+        if (constItem.param0Type != 0) {
+            [dyCon setTargetInfo:constItem paramName:constItem.paramName0 type:constItem.param0Type];
+        }
+        if (constItem.param1Type != 0) {
+            [dyCon setTargetInfo:constItem paramName:constItem.paramName1 type:constItem.param1Type];
+        }
+        if (constItem.param2Type != 0) {
+            [dyCon setTargetInfo:constItem paramName:constItem.paramName2 type:constItem.param2Type];
+        }
+        if (constItem.param3Type != 0) {
+            [dyCon setTargetInfo:constItem paramName:constItem.paramName3 type:constItem.param3Type];
+        }
+        [this.dynamicConstList  addObject:dyCon];
+    }
 }
  
 -(void)SetLife:(float)life;
@@ -84,21 +93,7 @@
              }
          }
      }
-    /*
-     for (var i: number=0; i < ary.length; i++) {
-            var obj: any = ary[i];
-            for (var j: number = 0; j < this.dynamicTexList.length; j++) {
-                if (this.dynamicTexList[j].paramName == obj.paramName) {
-                    if (this.dynamicTexList[j].isParticleColor) {
-                        this.dynamicTexList[j].curve.setData(obj.curve);
-                    } else {
-                        this.dynamicTexList[j].url = obj.url;
-                    }
-                    break;
-                }
-            }
-        }
-     */
+ 
 }
 -(void)setConstObj:(NSMutableArray *)ary
 {

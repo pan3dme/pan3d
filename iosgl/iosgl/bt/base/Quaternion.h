@@ -30,6 +30,7 @@ float _w;
 -(void)setW:(float)value;
 -(float)w;
 - (instancetype)x:(float)x y:(float)y z:(float)z w:(float)w;
+- (instancetype)x:(float)x y:(float)y z:(float)z;
 
 -(void)fromAxisAngle:(Vector3D*)axis angle:(double)angle;
 -(void) normalize:(double)val;
@@ -37,7 +38,10 @@ float _w;
 
 -(Matrix3D*)toMatrix3D;
 -(Matrix3D*)toMatrix3D:(Matrix3D*)value;
+-(void)fromMatrix:(Matrix3D*)value;
+ 
 
+-(void)setMd5W;
 
 @end
 

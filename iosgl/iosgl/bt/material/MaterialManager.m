@@ -10,6 +10,7 @@
 #import "Material.h"
 #import "TextureLoad.h"
 #import "Scene_data.h"
+#import "LoadManager.h"
 #import "MaterialParam.h"
 #import "MaterialLoad.h"
 #import "TextureManager.h"
@@ -70,6 +71,13 @@ static MaterialManager *instance = nil;
     CGColorSpaceRelease(colorSpace);
     CGContextClearRect(context, rect);
     CGContextDrawImage(context, rect, cgImageRef);
+    
+    
+//    CGContextSetRGBStrokeColor(context,1.0,1.0,1.0,1.0);
+//    CGContextStrokeRect(context,CGRectMake(0,0,width,height));
+
+    
+    
 
     // 生成纹理
     GLuint textureID;
@@ -118,35 +126,24 @@ static MaterialManager *instance = nil;
     [_loadDic[url] addObject:materialLoad];
     if (_resDic[url]) {
         [self meshByteMaterialByt:self.resDic[url] info:materialLoad];
-        
         [_resDic removeObjectForKey:url];
         
     }else{
-        
-    }
-    /*
-     
+        [[LoadManager default] load:url type:LoadManager.BYTE_TYPE fun:^(NSObject * _Nonnull value) {
 
-     this._loadDic[$url] = new Array;
-     this._loadDic[$url].push(materialLoad);
-
-     if (this._resDic[$url]) {
-
-         this.meshByteMaterialByt(this._resDic[$url], materialLoad);
-
-         if(this._regDic[$url]){
-             this._dic[$url].useNum += this._regDic[$url];
-             delete this._regDic[$url];
-         }
-
-         delete this._resDic[$url];
-     } else {
-         LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($data: ArrayBuffer, _info: MaterialLoad) => { this.loadMaterialByteCom($data, _info) }, materialLoad);
-     }
-     */
-  
+             ByteArray* byte=[[ByteArray alloc]init:[[NSData alloc] initWithContentsOfFile:((NSDictionary*)value)[@"data"]]];
     
+            [self meshByteMaterialByt:byte info:(MaterialLoad*)((NSDictionary*)value)[@"info"]];
+            
+            
+          //  this.loadMaterialByteCom($data, _info)
+        } info:materialLoad progressFun:^(int pronum) {
+            
+        }];
+    }
+ 
 }
+ 
 -(void)meshByteMaterialByt:(ByteArray*)byte info:(MaterialLoad*)info;
 {
     Material* material=[[Material alloc]init];
@@ -174,35 +171,16 @@ static MaterialManager *instance = nil;
     
     NSMutableArray<DynamicTexListVo*>* dynamicTexList  = material.dynamicTexList;
     for (int i= 0; i < dynamicTexList.count; i++) {
-        
         if (dynamicTexList[i].isParticleColor) {
-            NSLog(@"---");
             [(DynamicTexItem*)dynamicTexList[i]  creatTextureByCurve];
-             
         } else {
-            /*
-            [[ TextureManager default] getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(TextureRes * textureRes,DynamicTexListVo* texListVo) {
-                DynamicTexItem *dynamicTexItem=(DynamicTexItem*)texListVo;
-                dynamicTexItem.textureRes=textureRes;
-            } texListVo:dynamicTexList[i]];
-            */
-            
             [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
-          
                 NSDictionary* bdic=(NSDictionary*)any;
-                DynamicTexItem* dddd= (DynamicTexItem*)bdic[@"info"];
-                dddd.textureRes=(TextureRes*)bdic[@"data"];
-             
-                
+                DynamicTexItem* tempInof= (DynamicTexItem*)bdic[@"info"];
+                TextureRes*  ddd=bdic[@"data"];
+                tempInof.textureRes=ddd;
             } wrapType:0 info: dynamicTexList[i] filteType:0 mipmapType:0];
-            
-            
-            
-            /*
-             TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
-             $texItem.textureRes = $textureVo;
-             }, 0, dynamicTexList[i], 0, 1);
-             */
+       
         }
         
     }

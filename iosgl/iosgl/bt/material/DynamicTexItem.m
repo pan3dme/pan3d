@@ -57,35 +57,53 @@
 {
     DynamicTexItem* this=self;
     NSInteger endVecIndex = self.curve.valueVec.count - 1;
-    NSMutableArray* imgNumVec=[[NSMutableArray alloc]init];
-    
-    
+    NSMutableArray<NSMutableArray<NSNumber*>*>* imgNumVec=[[NSMutableArray alloc]init];
+ 
     for(int i=0;i<this.life;i++){
+        NSMutableArray<NSNumber*>* tempInset;
+        
         if (i < this.curve.begintFrame) {
-            [imgNumVec addObject:this.curve.valueVec[0]];
+            tempInset=this.curve.valueVec[0];
         } else if (i > this.curve.maxFrame) {
             if (this.curve.maxFrame == 0 && this.curve.begintFrame < 0) {
-                [imgNumVec addObject:[[NSArray alloc] initWithObjects:@0, @1, @1,@1, nil]];
+               tempInset=[[NSMutableArray alloc] initWithObjects:@1, @1, @1,@1, nil];
             } else {
-                [imgNumVec addObject:this.curve.valueVec[endVecIndex]];
+               tempInset=this.curve.valueVec[endVecIndex];
             }
             
         } else {
             if (this.curve.begintFrame < 0) {
-               [imgNumVec addObject:[[NSArray alloc] initWithObjects:@0, @1, @1,@1, nil]];
+               tempInset=[[NSMutableArray alloc] initWithObjects:@1, @1, @1,@1, nil];
             } else {
                 NSInteger index = i - this.curve.begintFrame;
-                [imgNumVec addObject:this.curve.valueVec[index]];
+               tempInset=this.curve.valueVec[index];
             }
-            
         }
+ 
+//        Vector3D* v3d=[[Vector3D alloc]init];
+//        v3d.x=[tempInset[0]floatValue]*0xff;
+//        v3d.y=[tempInset[1]floatValue]*0xff;
+//        v3d.z=[tempInset[2]floatValue]*0xff;
+//        v3d.w=[tempInset[3]floatValue]*0xff;
+       
+        
+       
+        [imgNumVec addObject:tempInset];
     }
+    
+   /*
+    [0]    __NSCFNumber *    (float)0.299213    0x000000028186b1e0
+    [1]    __NSCFNumber *    (float)0.559055    0x0000000281867680
+    [2]    __NSCFNumber *    (float)0.905512    0x0000000281845080
+    [3]    __NSCFNumber *    (float)0.543307    0x000000028187c260
+    */
  
     
     CGRect rect = CGRectMake(0, 0, 128, 1);
+ 
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
+    CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
     CGContextFillRect(context, rect);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -96,6 +114,7 @@
     
     
 }
+ 
 void ProviderReleaseData (void *info, const void *data, size_t size){
     free((void*)data);
 }
@@ -113,25 +132,53 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     uint32_t* pCurPtr = rgbImageBuf;
     
     NSInteger baseindex;
+    NSInteger endindex;
+    Vector3D* a=[[Vector3D alloc]init];
+    Vector3D* b=[[Vector3D alloc]init];
+    Vector3D* c=[[Vector3D alloc]init];
+    float bscale=0;
+    
     for (int i = 0; i < pixelNum; i++, pCurPtr++){
-
-         
-            // 改成下面的代码，会将图片转成想要的颜色
-            uint8_t* ptr = (uint8_t*)pCurPtr;
-            ptr[3] = 0.0; //0~255
-            ptr[2] = 0.0;
-            ptr[1] = 255.0;
-            ptr[0] = 128.0f;
         
-           baseindex= floor(((float)i)/pixelNum*withArr.count);
-
-            ptr[3] = [ withArr[baseindex][2] floatValue]*0xff;
-            ptr[2] =  [ withArr[baseindex][1] floatValue]*0xff;
-            ptr[1] =  [ withArr[baseindex][0] floatValue]*0xff;
-            ptr[0] =  [ withArr[baseindex][3] floatValue]*0xff;;
         
-      //  NSLog(@"--%d",baseindex);
+        // 改成下面的代码，会将图片转成想要的颜色
+        uint8_t* ptr = (uint8_t*)pCurPtr;
+        ptr[3] = 0; //0~255
+        ptr[2] = 0;
+        ptr[1] = 0;
+        ptr[0] = 255.0f;
+        
+        baseindex= floor(((float)i)/pixelNum*withArr.count);
+        endindex= ceil(((float)i)/pixelNum*withArr.count);
+        endindex=MIN(endindex, withArr.count-1);
+        
+        a.x=[ withArr[baseindex][0] floatValue];
+        a.y=[ withArr[baseindex][1] floatValue];
+        a.z=[ withArr[baseindex][2] floatValue];
+        a.w=[ withArr[baseindex][3] floatValue];
+        
+        b.x=[ withArr[endindex][0] floatValue];
+        b.y=[ withArr[endindex][1] floatValue];
+        b.z=[ withArr[endindex][2] floatValue];
+        b.w=[ withArr[endindex][3] floatValue];
+        
+        if(endindex>baseindex){
+            bscale=  (((float)i*((float)withArr.count/(float)pixelNum))-baseindex)/ (endindex-baseindex);
+        }else{
+            bscale=0;
+        }
+        c.x=a.x+(b.x-a.x)*bscale;
+        c.y=a.y+(b.y-a.y)*bscale;
+        c.z=a.z+(b.z-a.z)*bscale;
+        c.w=a.w+(b.w-a.w)*bscale;
 
+        ptr[3] = c.x*0xff;
+        ptr[2] = c.y*0xff;
+        ptr[1] = c.z*0xff;
+        ptr[0] = c.w*0xff;
+        
+        
+        
     }
        
     // 输出图片

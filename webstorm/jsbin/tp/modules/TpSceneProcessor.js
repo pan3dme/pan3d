@@ -40,6 +40,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
     __extends(TpSceneProcessor, _super);
     function TpSceneProcessor() {
         var _this = _super.call(this) || this;
+        _this.isFrishtClik = true;
         _this.skillFileName = "jichu_1";
         _this.charIdstr = "50001";
         _this.weaponNum = 50011;
@@ -52,11 +53,21 @@ var TpSceneProcessor = /** @class */ (function (_super) {
     };
     TpSceneProcessor.prototype.onMouseDown = function ($evt) {
         //  this.playLyf("model/diamondseffect_lyf.txt")
-        // this.playLyf("model/reviveeff_lyf.txt")
-        // this.playLyf("model/levelup_lyf.txt")
-        var sc = new SceneBaseChar();
-        sc.setRoleUrl(getRoleUrl("yezhuz"));
-        SceneManager.getInstance().addMovieDisplay(sc);
+        //  this.playLyf("model/reviveeff_lyf.txt")
+        //  this.playLyf("model/levelup_lyf.txt")
+        // this.playLyf("model/skin001_lyf.txt")
+        //  this.playLyf("model/10018_lyf.txt")
+        if (this.mainChar) {
+            var $skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
+            $skill.configFixEffect(this.mainChar);
+            this.mainChar.playSkill($skill);
+            console.log("jiiii");
+            return;
+        }
+        SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
+        this.mainChar = new SkillSceneChar();
+        this.mainChar.setRoleUrl(getRoleUrl("50001"));
+        SceneManager.getInstance().addMovieDisplay(this.mainChar);
     };
     TpSceneProcessor.prototype.playLyf = function (url) {
         GroupDataManager.getInstance().getGroupData(Scene_data.fileRoot + url, function (groupRes) {

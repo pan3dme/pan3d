@@ -17,8 +17,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CombineParticle : EventDispatcher
-
-@property (nonatomic, assign)  NSString*  url;
+@property (nonatomic, strong)NSMutableArray<Display3DParticle*>*  _displayAry ;
+@property (nonatomic, strong)  NSString*  url;
 @property (nonatomic, assign)  int  type; //类型
 @property (nonatomic, assign)  BOOL  hasMulItem;
 @property (nonatomic, assign)  BOOL  sceneVisible;
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)  Scene3D *scene3d;
 @property (nonatomic, strong)  CombineParticleData* sourceData;
-
+ 
 @property (nonatomic, strong)  Matrix3D*  bindMatrix;
 @property (nonatomic, strong)  Vector3D*  bindVecter3d;
 @property (nonatomic, strong)  Vector3D*   bindScale;
@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)updateTime:(float)t;
 -(void)update;
 -(void)updateItem:(int)idx;
+-(void)reset;
 
 @end
 

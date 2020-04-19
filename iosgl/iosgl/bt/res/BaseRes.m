@@ -12,11 +12,30 @@
 #import "ParticleManager.h"
 #import "MaterialManager.h"
 #import "NSData+GZIP.h"
+#import "Scene_data.h"
+#import "ByteArray.h"
+#import "Vector3D.h"
+#import "TextureManager.h"
 #import <zlib.h>
 
-
+@interface BaseRes()
+@property(nonatomic,strong)SuccessBlock imgFun;
+@property(nonatomic,assign)int imgNum;
+@property(nonatomic,assign)int imgLoadNum;
+@property(nonatomic,assign)BOOL imgComplete;
+/*
+ public static IMG_TYPE: number = 1;
+ public static OBJS_TYPE: number = 2;
+ public static MATERIAL_TYPE: number = 3;
+ public static PARTICLE_TYPE: number = 4;
+ public static SCENE_TYPE: number = 5;
+ public static ZIP_OBJS_TYPE: number = 6;
+ public static PREFAB_TYPE: number = 1;
+ public static SCENE_PARTICLE_TYPE: number = 11;
+ */
+@end
 @implementation BaseRes
-
+ 
 typedef void (^PostSuccess)(NSDictionary *responseJson);
 
 //解压缩
@@ -67,29 +86,28 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     }
     else return nil;
 }
--(void)dddd  : (PostSuccess )PostSuccess{
-    
-}
--(void)read ;
+-(void)read:(SuccessBlock)fun;
 {
+    self.imgFun=fun;
     
     int filetype = [self.byte readInt];
     NSLog(@"filetype->%d",filetype);
     NSLog(@"位置-->%d",self.byte.position);
+ 
     switch (filetype) {
-        case 1:
+        case IMG_TYPE:
             [self readImgs];
             break;
-        case 2:
+        case OBJS_TYPE:
             [self readObj];
             break;
-        case 3:
+        case MATERIAL_TYPE:
             [self readMaterial];
             break;
-        case 4:
+        case PARTICLE_TYPE:
             [self readParticle];
             break;
-        case 6:
+        case ZIP_OBJS_TYPE:
             [self readZipObj];
             break;
         default:
@@ -98,25 +116,24 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             break;
     }
 }
-/*
-        public readObj($srcByte: Pan3dByteArray): void {
-             var objNum: number = $srcByte.readInt();
  
-             for (var i: number = 0; i < objNum; i++) {
-                 var url: string = Scene_data.fileRoot + $srcByte.readUTF();
-                 var size: number = $srcByte.readInt();
-                 var newByte: Pan3dByteArray = new Pan3dByteArray();
-                 newByte.length = size;
-                 $srcByte.readBytes(newByte, 0, size);
-                 var objData: ObjData = ObjDataManager.getInstance().loadObjCom(newByte.buffer, url);
-             }
+-(void)countImg;
+{
+    self.imgLoadNum++;
+    if (self.imgLoadNum == self.imgNum) {
+        self.imgComplete = YES;
+        [self allResCom];
+    }
+}
+-(void)allResCom;
+{
+    self.imgFun(@"1");
+}
+-(void)read ;
+{
+    [self read:^(NSString* code) { }];
+}
  
-             if (this._imgFun) {
-                 this._imgFun();
-             }
- 
-         }
- */
 -(void)readObj;
 {
       int objNum = [self.byte readInt];
@@ -129,6 +146,10 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         [[ ObjDataManager default] loadObjCom:objsByte url:url];
    
      }
+    
+    if (self.imgFun) {
+        self.imgFun(@"1");
+    }
 }
 -(void)readZipObj;
 {
@@ -168,7 +189,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         int particeSize=  [self.byte readInt];
         NSData *particeNsdata=  [self.byte getNsDataByLen:particeSize];
         ByteArray *particeByte=  [[ByteArray alloc]init:particeNsdata];
-        [[ParticleManager default] addResByte:particeurl byteArray:particeByte];
+        [ ParticleManager  addResByte:particeurl byteArray:particeByte];
     }
     
 }
@@ -211,49 +232,20 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     return arr;
     
 }
- /*
- 
-          public readMaterialInfo(): Array<any> {
   
-              var len: number = this._byte.readInt();
-              if (len > 0) {
-                  var $arr: Array<any> = new Array
-                  for (var i: number = 0; i < len; i++) {
-                      var $temp: any = new Object();
-                      $temp.type = this._byte.readInt()
-                      $temp.name = this._byte.readUTF()
-                      if ($temp.type == 0) {
-                          $temp.url = this._byte.readUTF()
-                      }
-                      if ($temp.type == 1) {
-                          $temp.x = this._byte.readFloat()
-                      }
-                      if ($temp.type == 2) {
-                          $temp.x = this._byte.readFloat()
-                          $temp.y = this._byte.readFloat()
-                      }
-                      if ($temp.type == 3) {
-                          $temp.x = this._byte.readFloat()
-                          $temp.y = this._byte.readFloat()
-                          $temp.z = this._byte.readFloat()
-                      }
-  
-                      $arr.push($temp)
-                  }
-                  return $arr
-              } else {
-                  return null
-              }
-          }
-  */
 -(void)readImgs;
 {
-    int imglen = [self.byte readInt];
-    for(int i=0;i<imglen;i++){
+    self.imgNum = [self.byte readInt];
+    self.imgLoadNum = 0;
+    for(int i=0;i<self.imgNum;i++){
         NSString *imgurl =   [self.byte readUTF];
-        NSLog(@"imgurl-->%@",imgurl);
+                            
         int imgSize=  [self.byte readInt];
-        NSLog(@"len-->%d",imgSize);
+        if(imgSize&&[Scene_data default].supportBlob){
+              NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
+              [[TextureManager default] addRes: [[Scene_data default]getWorkUrlByFilePath:imgurl] img: [UIImage imageWithData: imgNsdata]];
+        }
+        [self countImg];
     }
 }
 -(void)readObj:(ByteArray *)srcByte;
@@ -293,29 +285,29 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     if (readType == 0) {
         scaleNum = [srcByte readFloat];
     }
-    float tempNum;
+    float tempNum=0;
     int readNum = verLength / dataWidth;
     for (int i = 0; i < readNum; i++) {
-        int pos = stride * i + offset*4;
+        //int pos = stride * i + offset*4;
         for (int j = 0; j < dataWidth; j++) {
             switch (readType) {
                 case 0:
                     tempNum=  [srcByte readFloatTwoByte:scaleNum];
-                    [vItem addObject:[NSNumber numberWithFloat:tempNum]];
-                    [nsdata replaceBytesInRange:NSMakeRange(pos+j*4, 4) withBytes: &tempNum length:4];
                     break;
                 case 1:
                     tempNum=  [srcByte readFloatOneByte];
                     break;
+                case 2:
+                    tempNum=  [srcByte readByte];
+                    break;
                 case 4:
                     tempNum=  [srcByte readFloat];
-                    [vItem addObject:[NSNumber numberWithFloat:tempNum]];
-                    [nsdata replaceBytesInRange:NSMakeRange(pos+j*4, 4) withBytes: &tempNum length:4];
                     break;
                 default:
                     NSLog(@"没有没有");
                     break;
             }
+            [vItem addObject:[NSNumber numberWithFloat:tempNum]];
         }
     }
     
@@ -323,5 +315,71 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
  
     
 }
-
+-(Vector3D*)readV3d:(ByteArray*)fs;
+{
+    Vector3D* v3d=[[Vector3D alloc]init];
+    v3d.x = [fs readFloat];
+    v3d.y =  [fs readFloat];
+    v3d.z =  [fs readFloat];
+    v3d.w =  [fs readFloat];
+    return v3d;
+}
+  //读取材质参数
++(NSArray<NSDictionary*>*)readMaterialParamData:(ByteArray*)byte;
+{
+    int mpNum=[byte readInt];
+    if (mpNum > 0) {
+           NSMutableArray<NSMutableDictionary*>* mpAry  =[[NSMutableArray alloc]init];
+           for (int j = 0; j < mpNum; j++) {
+               NSMutableDictionary* obj =[[NSMutableDictionary alloc]init];
+               obj[@"name"] = [byte readUTF];
+               obj[@"type"] = [NSNumber numberWithInt:[byte readByte]];
+               if ([obj[@"type"]intValue] == 0) {
+                   obj[@"url"] = [byte readUTF];
+               } else if ([obj[@"type"] intValue]== 1) {
+                   obj[@"x"]  =  [NSNumber numberWithInt:[byte readFloat]];
+               } else if ([obj[@"type"]intValue] == 2) {
+                   obj[@"x"] =  [NSNumber numberWithInt:[byte readFloat]];
+                   obj[@"y"] =  [NSNumber numberWithInt:[byte readFloat]];
+               } else if ([obj[@"type"]intValue] == 3) {
+                   obj[@"x"]=  [NSNumber numberWithInt:[byte readFloat]];
+                   obj[@"y"]=  [NSNumber numberWithInt:[byte readFloat]];
+                   obj[@"z"] =  [NSNumber numberWithInt:[byte readFloat]];
+               }
+               [mpAry addObject:obj];
+           }
+        return mpAry;
+    }
+     
+    return nil;
+}
+/*
+ //读取材质参数
+ public static readMaterialParamData(byte: ByteArray): Array<any> {
+     var mpNum: number = byte.readInt();
+     if (mpNum > 0) {
+         var mpAry: Array<any> = new Array;
+         for (var j: number = 0; j < mpNum; j++) {
+             var obj: any = new Object;
+             obj.name = byte.readUTF();
+             obj.type = byte.readByte();
+             if (obj.type == 0) {
+                 obj.url = byte.readUTF();
+             } else if (obj.type == 1) {
+                 obj.x = byte.readFloat();
+             } else if (obj.type == 2) {
+                 obj.x = byte.readFloat();
+                 obj.y = byte.readFloat();
+             } else if (obj.type == 3) {
+                 obj.x = byte.readFloat();
+                 obj.y = byte.readFloat();
+                 obj.z = byte.readFloat();
+             }
+             mpAry.push(obj);
+         }
+         return mpAry
+     }
+     return null
+ }
+ */
 @end

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ResCount : NSObject
 @property (nonatomic, assign) int        version;    //
+@property (nonatomic, assign) int        useNum;    //
 @property (nonatomic, strong) ByteArray        *byte;    //
 @end
 

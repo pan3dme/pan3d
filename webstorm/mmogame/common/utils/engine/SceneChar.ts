@@ -28,7 +28,11 @@
     public constructor() {
         super();
         this.shadow = true;
+
+        this.unit=new Unit;
         this.skillitem = new Array();
+
+
     }
     public get isDeath(): boolean {
         return this.unit.getAlivestate() != SharedDef.DEATH_STATE_ALIVE;
@@ -611,13 +615,7 @@
         if (this._rotationMatrix) {
             this.rotationToNew(this.toRotationY, 2);
         }
- 
-        if (this.unit.isMain) {
 
-        } else {
-            var pos: Vector3D = AstarUtil.getWorldPosByStart2D(new Vector2D(100, 100));
-           // console.log(pos)
-        }
   
     }
 
@@ -929,9 +927,7 @@
 
     }
     public get visible(): boolean {
-        if (this.unit && this.unit.isInvishibel() && !this.unit.isMain) {//隐身
-            return false;
-        }
+
         return this._visible
     }
     private lineSprite: LineDisplaySprite;

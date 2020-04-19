@@ -8,10 +8,12 @@
 
 #import "Display3DParticle.h"
 #import "ParticleData.h"
+#import "DynamicConstItem.h"
 #import "DynamicTexItem.h"
 #import "Context3D.h"
 #import "Shader3D.h"
 #import "Scene3D.h"
+#import "Scene_data.h"
 #import "Vector3D.h"
 #import "Matrix3D.h"
 
@@ -36,14 +38,14 @@
 }
 -(void)setBind:(Vector3D*)pos rotation:(Matrix3D*)rotation scale:(Vector3D*)scale invertRotation:(Matrix3D*)invertRotation groupMatrix:(Matrix3D*)groupMatrix;
 {
-      self.bindVecter3d = pos;
-     self.bindMatrix = rotation;
-     self.bindScale = scale;
-     self.invertBindMatrix = invertRotation;
-     self.groupMatrix = groupMatrix;
+    self.bindVecter3d = pos;
+    self.bindMatrix = rotation;
+    self.bindScale = scale;
+    self.invertBindMatrix = invertRotation;
+    self.groupMatrix = groupMatrix;
 }
- 
- 
+
+
 -(void)updateTime:(float)t;
 {
     Display3DParticle* this=self;
@@ -54,48 +56,23 @@
     [this.posMatrix3d identity];
     [this.posMatrix3d prependScale:this.scaleX*0.2* this.bindScale.x y:this.scaleY*0.2* this.bindScale.y z:_scaleZ*0.2* this.bindScale.z];
     [this.timeline updateMatrix:self.posMatrix3d particle:this];
- 
+    
 }
 -(void)updateMatrix;
 {
-    
     if (!self.bindMatrix){
         return;
     }
-    
-//    [self.posMatrix3d identity];
-//    [self.posMatrix3d prependScale:self.scaleX*0.2 y:self.scaleY*0.2 z:_scaleZ*0.2];
-    
-     [self.modeMatrix identity];
-    
+    [self.modeMatrix identity];
     [self.modeMatrix append:self.posMatrix3d];
     [self.modeMatrix append:self.bindMatrix];
- 
- 
     
     [self.rotationMatrix3D identity];
     [self.rotationMatrix3D appendRotation:_rotationX axis:Vector3D.X_AXIS];
     [self.rotationMatrix3D appendRotation:_rotationY axis:Vector3D.Y_AXIS];
     [self.rotationMatrix3D appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
-    
-    
-    /*
-     if (!this.bindMatrix){
-          return;
-      }
-      this.modelMatrix.identity();
-      if (!this.groupMatrix.isIdentity){
-          this.posMatrix.append(this.groupMatrix);
-      }
-      this.modelMatrix.append(this.posMatrix);
-      this.modelMatrix.append(this.bindMatrix);
-
-      this.modelMatrix.appendTranslation(this.bindVecter3d.x, this.bindVecter3d.y, this.bindVecter3d.z);
-
-     */
- 
-
 }
+
 -(void)update;
 {
     if(self.visible ){
@@ -141,17 +118,19 @@
     NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) self.data.materialParam.dynamicTexList;
     for (int i   = 0; i < texDynamicVec.count; i++) {
         TexItem* texItem=texDynamicVec[i].target;
-         [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
+        [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
     }
- 
+    
 }
-//public inverBind(): void{
-//      if (!this.invertBindMatrix.isIdentity){
-//          //this.bindMatrix.invert();
-//          this._rotationMatrix.prepend(this.invertBindMatrix);
-//          //this.bindMatrix.invert();
-//      }
-//  }
+-(void)reset;
+{
+    [self.timeline reset];
+    [self updateTime:0];
+}
+//public reset(): void {
+//       this.timeline.reset();
+//       this.updateTime(0);
+//   }
 -(void)inverBind;
 {
     if(self.invertBindMatrix){
@@ -161,6 +140,35 @@
 }
 -(void)setVc;
 {
+}
+-(void)setMaterialVc;
+{
+    
+    Display3DParticle* this=self;
+    if (!this.data.materialParam) {
+        return;
+    }
+    NSMutableArray<DynamicConstItem*>* dynamicConstList= this.data.materialParam.dynamicConstList;
+    float t = self._time/  floor([Scene_data default].frameTime * this.data._life);
+    
+    for (int i = 0; i < dynamicConstList.count; i++) {
+        [dynamicConstList[i] update:t];
+    }
+    if(this.data.materialParam.material.fcNum <= 0){
+        return;
+    }
+    t = t * this.data.materialParam.material.timeSpeed;
+    [this.data.materialParam.material update:t];
+    
+    Context3D *ctx=self.scene3d.context3D;
+    NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
+    GLfloat fcDataGlArr[fcData.count];
+    for (int i=0; i<fcData.count; i++) {
+        fcDataGlArr[i]=fcData[i].floatValue;
+    }
+    [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
+ 
+     
 }
 -(void)setVa;
 {

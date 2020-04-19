@@ -51,7 +51,7 @@
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_DEPTH_TEST);
    
-        self.scene3D.camera3D.distance=200;
+      
     
         
         [self.scene3D upFrame];

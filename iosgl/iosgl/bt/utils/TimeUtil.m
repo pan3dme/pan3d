@@ -28,10 +28,8 @@ static TimeUtil *instance = nil;
     }
     return self;
 }
--(int)getTimer;
+-(double)getTimer;
 {
-    NSInteger ddd=[[NSDate date]timeIntervalSince1970]*1000.0;
-   return (int)ddd;
-    
+   return [[NSDate date]timeIntervalSince1970]*1000.0;
 }
 @end

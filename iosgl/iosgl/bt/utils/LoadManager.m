@@ -19,7 +19,18 @@
 
 static LoadManager *instance = nil;
 @implementation LoadManager
- 
+ + (NSString *)BYTE_TYPE;
+{
+    return @"BYTE_TYPE";
+}
+ + (NSString *)IMG_TYPE;
+{
+    return @"IMG_TYPE";
+}
+ + (NSString *)XML_TYPE;
+{
+    return @"XML_TYPE";
+}
 + (instancetype)default{
     if (instance == nil) {
         instance = [[LoadManager alloc] init];
@@ -38,7 +49,7 @@ static LoadManager *instance = nil;
     }
     return self;
 }
--(void)loadUrl:(NSString*)url type:(int)type fun:(SuccessBlock)fun;
+-(void)loadUrl:(NSString*)url type:(NSString*)type fun:(SuccessBlock)fun;
 {
     NSDictionary* a=[[NSDictionary alloc]init];
     ProceeseBlock b=^(int num){};
@@ -69,7 +80,7 @@ static LoadManager *instance = nil;
 }
 -(void)load:(NSString*)url type:(int)type fun:(void (^)(NSObject* any))fun info:(NSObject*)info progressFun:(ProceeseBlock)progressFun;
 {
-    
+    //url    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/materialinstance/changjingjiaose/roletransstandard_byte.txt"     
    LoadInfo* loadInfo= [[LoadInfo alloc]initUrl:url type:type  fun:fun info:info progressFun:progressFun];
        for (int i = 0; i < self.loadThreadList.count; i++) {
            if (self.loadThreadList[i].idle) {

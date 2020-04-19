@@ -30,14 +30,29 @@ class TpSceneProcessor extends BaseProcessor {
     private onMouseDown($evt: InteractiveEvent): void {
 
         //  this.playLyf("model/diamondseffect_lyf.txt")
-        // this.playLyf("model/reviveeff_lyf.txt")
-        // this.playLyf("model/levelup_lyf.txt")
+        //  this.playLyf("model/reviveeff_lyf.txt")
+       //  this.playLyf("model/levelup_lyf.txt")
+       // this.playLyf("model/skin001_lyf.txt")
+      //  this.playLyf("model/10018_lyf.txt")
 
 
-        var sc= new  SceneBaseChar();
-        sc.setRoleUrl(getRoleUrl("yezhuz"));
-        SceneManager.getInstance().addMovieDisplay(sc);
+        if(this.mainChar){
+
+            var $skill: Skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
+            $skill.configFixEffect(this.mainChar);
+            this.mainChar.playSkill($skill);
+            console.log("jiiii");
+            return;
+        }
+
+        SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
+        this.mainChar= new SkillSceneChar();
+        this.mainChar.setRoleUrl(getRoleUrl("50001"));
+        SceneManager.getInstance().addMovieDisplay(  this.mainChar);
+
+
     }
+    private  isFrishtClik:boolean=true;
     private yezhu: SceneBaseChar;
 
     protected playLyf(url:string)

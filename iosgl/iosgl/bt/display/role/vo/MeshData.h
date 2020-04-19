@@ -7,11 +7,32 @@
 //
 
 #import "ObjData.h"
+#import "Material.h"
+#import "MaterialBaseParam.h"
+#import "BindParticle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MeshData : ObjData
+@property (nonatomic, copy)  NSArray  *tangents;
+@property (nonatomic, copy)  NSArray  *bitangents;
+@property (nonatomic, copy)  NSArray  *boneIDAry;
+@property (nonatomic, copy)  NSArray  *boneWeightAry;
+@property (nonatomic, copy)  NSArray<NSNumber*>* boneNewIDAry;
+@property(nonatomic,strong)MaterialBaseParam* materialParam;
+@property(nonatomic,strong)NSString* materialUrl;
+@property(nonatomic,strong)Material* material;
 
+@property(nonatomic,strong)NSArray<NSDictionary*>* materialParamData;
+
+@property(nonatomic,assign)GLuint boneWeightBuffer ;
+@property(nonatomic,assign)GLuint boneIdBuffer ;
+@property(nonatomic,assign)int  boneIDOffsets;
+@property(nonatomic,assign)int  boneWeightOffsets;
+@property(nonatomic,assign)int  uid;
+
+@property(nonatomic,strong)NSMutableArray<BindParticle*>*  particleAry;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

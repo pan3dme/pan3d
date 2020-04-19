@@ -20,7 +20,13 @@
 #import "DisplayBaseTriSprite.h"
 #import "LoadManager.h"
 #import "Scene_data.h"
+#import "SceneChar.h"
+#import "SkillManager.h"
 #import "UIImageView+WebCache.h"
+#import "Display3dMovie.h"
+#import "DisplayTestSprite.h"
+#import "Scene3D.h"
+#import "GL_Header.h"
 
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
@@ -51,65 +57,118 @@
 }
 
 - (IBAction)scene_but_1_clik:(id)sender {
+    /*
     NSMutableDictionary *mDict = [[NSMutableDictionary alloc]init];
     [mDict setObject:@"cctv"  forKey:@"data"];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
-    
     [self.sceneView loadSeceneByUrl:@"5555_base.txt"];
+    */
+     [self playTypeBut:1];
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
-    //[self.sceneView loadSeceneByUrl:@"1001_base"];
-    [self.sceneView makeEemptyScene];
     
+    // [self.sceneView makeEemptyScene];
+    self.sceneView.scene3D.camera3D.distance-=20;
     
-    // [self.scene3D addDisplay:tempDis];
 }
 
 - (IBAction)zoom_max_clik:(id)sender {
+    self.sceneView.scene3D.camera3D.distance+=20;
+    
+    //    [self.sceneView makeEemptyScene];
+    //     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    
+    
     
     /*
-     [UIView beginAnimations:nil context:nil];
-     [UIView setAnimationDuration:0.5];
-     [UIView setAnimationDelegate:self];
-     self.sceneView.frame =CGRectMake(20, 120, 300, 500);
-     [UIView commitAnimations];
+     [self.sceneView makeEemptyScene];
+     
+     [[GroupDataManager default]getGroupData:[[Scene_data default]getWorkUrlByFilePath:@"model/baoxiang001_base.txt"] Block:^(GroupRes *groupRes) {
+     
+     for(int i=0;i<groupRes.dataAry.count;i++){
+     GroupItem *groupItem= groupRes.dataAry[i];
+     NSMutableDictionary *infodic=[[NSMutableDictionary alloc]init];
+     [infodic setValue:  groupItem.objUrl forKey:@"objsurl"];
+     [infodic setValue:@"1" forKey:@"scaleX"];
+     [infodic setValue:@"1" forKey:@"scaleY"];
+     [infodic setValue:@"1" forKey:@"scaleZ"];
+     SceneDisplay3DSprite *tempDis=[[SceneDisplay3DSprite alloc]init];
+     [tempDis setInof:infodic];
+     [self.sceneView.scene3D addDisplay:tempDis];
+     }
+     }];
+     
      */
-    
-    
-    [self.sceneView makeEemptyScene];
-    
-    [[GroupDataManager default]getGroupData:[[Scene_data default]getWorkUrlByFilePath:@"model/baoxiang001_base.txt"] Block:^(GroupRes *groupRes) {
-        
-        for(int i=0;i<groupRes.dataAry.count;i++){
-            GroupItem *groupItem= groupRes.dataAry[i];
-            NSMutableDictionary *infodic=[[NSMutableDictionary alloc]init];
-            [infodic setValue:  groupItem.objUrl forKey:@"objsurl"];
-            [infodic setValue:@"1" forKey:@"scaleX"];
-            [infodic setValue:@"1" forKey:@"scaleY"];
-            [infodic setValue:@"1" forKey:@"scaleZ"];
-            SceneDisplay3DSprite *tempDis=[[SceneDisplay3DSprite alloc]init];
-            [tempDis setInof:infodic];
-            [self.sceneView.scene3D addDisplay:tempDis];
-        }
-    }];
     
 }
 
 - (IBAction)zoom_min_clik:(id)sender {
- 
-    [self.sceneView makeEemptyScene];
-    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     
-    
-    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
-    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
-    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
-    
-    [self playLyfByUrl:@"model/diamondseffect_base.txt"];
-    [self playLyfByUrl:@"model/levelup_base.txt"];
-   // [self playLyfByUrl:@"model/reviveeff_base.txt"];
+  
+    [self playTypeBut:4];
 }
+
+-(void)playTypeBut:(int)tabId;
+{
+    [self.sceneView makeEemptyScene];
+       [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+      // [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
+      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
+      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
+      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
+      [Scene_data default].supportBlob=YES;
+      
+  
+      switch (tabId) {
+          case 1:
+//              [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
+        //      [self playLyfByUrl:@"model/levelup_lyf.txt"];
+//              [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
+//              [self playLyfByUrl:@"model/skin001_lyf.txt"];
+   //            [self playLyfByUrl:@"model/10017_lyf.txt"];
+             [self playLyfByUrl:@"model/10018_lyf.txt"];
+//              [self playLyfByUrl:@"model/13012_lyf.txt"];
+              break;
+          case 2:
+              if(!mainChar){
+                  mainChar=[[SceneChar alloc]init];
+                  [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                  [mainChar setRoleUrl:@"role/yingz.txt"];
+              }
+              break;
+          case 3:
+            
+           [ self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
+              break;
+              
+          case 4:
+              if(!mainChar){
+                  mainChar=[[SceneChar alloc]init];
+                  [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                  [mainChar setRoleUrl:@"role/50001.txt"];
+             
+                [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
+              }else{
+             
+                   Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+                  skill.scene3D=self.sceneView.scene3D;
+                  [skill reset];
+                  [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
+                  [mainChar playSkill:skill];
+                   NSLog(@"播放技能");
+              
+              }
+              break;
+          default:
+              break;
+      }
+      
+      
+      
+}
+ 
+SceneChar* mainChar;
 -(void)playLyfByUrl:(NSString*)value
 {
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
@@ -118,12 +177,14 @@
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {
-                CombineParticle*  particle =  [[ParticleManager default] getParticleByte: item.particleUrl];
+                CombineParticle*  particle =   [ParticleManager   getParticleByte: item.particleUrl];
                 [particleManager addParticle:particle];
             } else {
                 NSLog(@"播放的不是单纯特效");
             }
         }
+        
+      
         
     }];
 }

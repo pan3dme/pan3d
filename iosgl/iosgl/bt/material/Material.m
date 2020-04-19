@@ -44,12 +44,43 @@
     this.hasParticleColor = false;
     [self initFcData];
     [self readTexList:fs];
-    /*
-           this.initFcData();
-           this.readTexList(fs)
-           this.readConstLis(fs)
-    */
+    [self readConstLis:fs];
+   
 }
+-(void)readConstLis:(ByteArray*)fs;
+{
+    Material* this=self;
+    
+    int constLisLen = [fs readInt];
+    this.constList =[[NSMutableArray alloc]init];
+          for (int i    = 0; i < constLisLen; i++) {
+              ConstItem* constItem = [ConstItem alloc];;
+
+              constItem.id = [fs readFloat ];
+              constItem.value3d = [[Vector3D alloc]x:[fs readFloat] y:[fs readFloat] z:[fs readFloat] w:[fs readFloat]];
+
+              constItem.paramName0 = [fs readUTF];
+              constItem.param0Type = [fs readFloat];
+              constItem.param0Index = [fs readFloat];
+
+              constItem.paramName1 = [fs readUTF];
+              constItem.param1Type = [fs readFloat];
+              constItem.param1Index = [fs readFloat];
+
+              constItem.paramName2 = [fs readUTF];
+              constItem.param2Type = [fs readFloat];
+              constItem.param2Index = [fs readFloat];
+
+              constItem.paramName3 = [fs readUTF];
+              constItem.param3Type = [fs readFloat];
+              constItem.param3Index = [fs readFloat];
+              [constItem creat:this.fcData];
+
+              [this.constList addObject:constItem];
+          }
+
+}
+ 
 -(void)readTexList:(ByteArray*)fs;
 {
     Material* this=self;
@@ -72,94 +103,47 @@
         }
         [this.texList addObject:texItem];
     }
-    /*
-     var texListLen: number = fs.readInt();
-            this.texList = new Array;
-            for (var i: number = 0; i < texListLen; i++) {
-
-
-                var texItem: TexItem = new TexItem;
-                texItem.id = fs.readFloat()
-                texItem.url = fs.readUTF()
-                texItem.isDynamic = fs.readBoolean()
-                texItem.paramName = fs.readUTF()
-                texItem.isMain = fs.readBoolean()
-                texItem.isParticleColor = fs.readBoolean()
-                texItem.type = fs.readFloat()
-                texItem.wrap = fs.readFloat()
-                texItem.filter = fs.readFloat()
-                texItem.mipmap = fs.readFloat()
-
-                if (texItem.isParticleColor) {
-                    this.hasParticleColor = true;
-                }
-
-                this.texList.push(texItem);
-
-            }
-     */
-    
+   
 }
 -(void)initFcData;
 {
      Material* this=self;
-     GLfloat fcData[this.fcNum*4];
-     this.fcData=fcData;
+    this.fcData=[[NSMutableArray alloc]init];
+    for(int i=0;i<this.fcNum*4;i++){
+        [this.fcData addObject:@0];
+    }
     if (this.fcNum <= 0) {
         return;
     }
     if (this.hasTime || this.useKill || this.fogMode != 0) {//fc0
         if (this.useKill) {
-            this.fcData[0] = this.killNum;
+            this.fcData[0] = [NSNumber numberWithFloat:this.killNum];
         }
         if (this.fogMode != 0) {
-            this.fcData[2] =0.0f;
-            this.fcData[3] = 0.0f;
+            this.fcData[2] =@0;
+            this.fcData[3] = @0;
         }
     }
  
-    /*
-    this.fcData = new Float32Array(this.fcNum*4);
-
-           if (this.fcNum <= 0) {
-               return;
-           }
-
-           
-
-           this.sceneNumId = Scene_data.sceneNumId;
-
-           if (this.hasTime || this.useKill || this.fogMode != 0) {//fc0
-
-               if (this.useKill) {
-                   this.fcData[0] = this.killNum;
-               }
-
-               if (this.fogMode != 0) {
-                   this.fcData[2] = Scene_data.fogData[0];
-                   this.fcData[3] = Scene_data.fogData[1];
-               }
-
-           }
-
-           if (this.usePbr || this.fogMode == 1) {
-               var idx: number = this.fcIDAry[0] * 4;
-               this.fcData[0 + idx] = Scene_data.cam3D.x / 100;
-               this.fcData[1 + idx] = Scene_data.cam3D.y / 100;
-               this.fcData[2 + idx] = Scene_data.cam3D.z / 100;
-           }
-
-           if (this.fogMode != 0) {
-               var idx: number = this.fcIDAry[1] * 4;
-               this.fcData[0 + idx] = Scene_data.fogColor[0];
-               this.fcData[1 + idx] = Scene_data.fogColor[1];
-               this.fcData[2 + idx] = Scene_data.fogColor[2];
-           }
-
-           if (this.scaleLightMap) {
-               var idx: number = this.fcIDAry[2] * 4;
-               this.fcData[0 + idx] = Scene_data.scaleLight[0];
-           }
-*/
 }
+-(void)update:(float)t;
+{
+    [self updateTime:t];
+    [self updateScene];
+}
+-(void)updateTime:(float)t;
+{
+    
+}
+-(void)updateScene;
+{
+    
+}
+/*
+public update(t:number):void{
+    this.updateTime(t);
+    //this.updateCam();
+    this.updateScene();
+}
+*/
 @end

@@ -185,13 +185,37 @@
 }
 -(void)regShader;
 {
+
+    /*
     if ( self.materialParam) {
        [[ProgrmaManager default] registe:Display3DLocusShader.shaderStr shader3d: [[Display3DLocusShader alloc]init]];
        self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DLocusShader.shaderStr];
         
     }
- 
+    */
+    if (!self.materialParam) {
+          return;
+      }
+     NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
+       self.materialParam.shader=  [[ProgrmaManager default]getMaterialProgram:Display3DLocusShader.shaderStr shaderCls: [[Display3DLocusShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+
+   
     
+}
+-(NSArray<NSNumber*>*)getShaderParam;
+{
+        ParticleLocusData* this=self;
+    NSNumber* isWatchEye = this._watchEye ? @1 : @0;
+    NSNumber* changeUv = @0;
+    NSNumber* hasParticleColor = this.materialParam.material.hasParticleColor ? @1 : @0;
+    if (this._isU || this._isV || this._isUV) {
+        changeUv = @1;
+        this._changUv = true;
+    } else {
+        this._changUv = false;
+    }
+    NSArray<NSNumber*>* shaderParameAry = [[NSArray alloc] initWithObjects:isWatchEye, changeUv, hasParticleColor , nil];
+    return shaderParameAry;
 }
 -(Display3DParticle*)getParticle;
 {

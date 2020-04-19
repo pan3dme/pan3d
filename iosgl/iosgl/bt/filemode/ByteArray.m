@@ -164,13 +164,10 @@
 }
 -(float)readFloatOneByte  ;
 {
-     int intSize = sizeof(Byte); // change it to fixe length
-     NSData *data1 = [self.nsData subdataWithRange:NSMakeRange(self.position,  intSize)];
-        unsigned char * buffer = malloc(intSize * sizeof(unsigned char));
-       [data1 getBytes:buffer length:intSize];
-    self.position+=intSize;
+    float a= ([self readByte]+128.0f) /256.0f;
     
-    return   buffer[0] /256.0f;
+    a=a-floorf(a);
+    return   a;
 }
  
 -(Boolean)readBoolean;

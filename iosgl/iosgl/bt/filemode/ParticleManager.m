@@ -7,42 +7,44 @@
 //
 #import "CombineParticleData.h"
 #import "ParticleManager.h"
+#import "CombineParticleData.h"
 #import "TimeUtil.h"
 static ParticleManager *instance = nil;
+static NSMutableDictionary* _dic;
 @implementation ParticleManager
- 
 + (instancetype)default{
     if (instance == nil) {
         instance = [[ParticleManager alloc] init];
     }
     return instance;
 }
- 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         self.time=0;
-        self.dic=[[NSMutableDictionary alloc]init];
-        self.renderDic=[[NSMutableDictionary alloc]init];
+        self._renderDic=[[NSMutableDictionary alloc]init];
         self._particleList=[[NSMutableArray alloc]init];
     }
     return self;
 }
--(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
++(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
 {
-    if(!self.dic[url]){
+    if(!_dic){
+        _dic=[[NSMutableDictionary alloc]init];
+    }
+    if(!_dic[url]){
         CombineParticleData *combineParticleData=[[CombineParticleData alloc]init];
         [combineParticleData setDataByte:byteArray];
-         self.dic[url]=combineParticleData;
+        _dic[url]=combineParticleData;
     }
 }
--(CombineParticle*)getParticleByte:(NSString*)url;
++(CombineParticle*)getParticleByte:(NSString*)url;
 {
     CombineParticle *combineParticle=[[CombineParticle alloc]init];
-    if(self.dic[url]){
-        CombineParticleData *baseData = self.dic[url];
-       combineParticle= [baseData getCombineParticle];
+    if(_dic[url]){
+        CombineParticleData *baseData = _dic[url];
+        combineParticle= [baseData getCombineParticle];
     }
     combineParticle.url=url;
     return combineParticle;
@@ -55,20 +57,29 @@ static ParticleManager *instance = nil;
 -(void)addRenderDic:(CombineParticle*)particle;
 {
     NSString* url = particle.url;
-    if (!self.renderDic[url]) {
-        self.renderDic[url] = [[NSMutableArray alloc]init];
+    if (!self._renderDic[url]) {
+        self._renderDic[url] = [[NSMutableArray alloc]init];
     }
-    [self .renderDic[url] addObject: particle];
+    [self ._renderDic[url] addObject: particle];
 }
 -(void) update  ;
 {
     [self updateTime];
     [self updateRenderDic];
 }
+
+-(void)registerUrl:(NSString*)url;
+{
+    /*
+    if (self.dic[url]) {
+        CombineParticleData* baseData  =self.dic[url];
+    }
+    */
+}
 -(void)updateRenderDic;
 {
-    for (NSString* key in self.renderDic) {
-        NSArray *list= self.renderDic[key];
+    for (NSString* key in self._renderDic) {
+        NSArray *list= self._renderDic[key];
         for(int i=0;i<list.count;i++){
             CombineParticle* combineParticle=( (CombineParticle*)(list[i]));
             combineParticle.scene3d=self.scene3d;
@@ -77,20 +88,25 @@ static ParticleManager *instance = nil;
     }
     
 }
--(void)  updateTime ;
+-(void)removeAll;
 {
- 
-    int _tempTime = [[TimeUtil default]getTimer];
-    int t = _tempTime - self.time;
-    for (NSString* key in self.renderDic) {
-        NSArray *list= self.renderDic[key];
+    [self._renderDic removeAllObjects];
+    [self._particleList removeAllObjects];
+}
+-(void)updateTime ;
+{
+    
+    double _tempTime = [[TimeUtil default]getTimer];
+    double t = _tempTime - self.time;
+    for (NSString* key in self._renderDic) {
+        NSArray *list= self._renderDic[key];
         for(int i=0;i<list.count;i++){
             CombineParticle* combineParticle=( (CombineParticle*)(list[i]));
             combineParticle.scene3d=self.scene3d;
-            [combineParticle updateTime:t];
+            [combineParticle updateTime:t*1.0];
         }
     }
-   self.time = _tempTime;
+    self.time = _tempTime;
 }
- 
+
 @end

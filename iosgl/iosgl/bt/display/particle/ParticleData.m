@@ -190,15 +190,16 @@
 {
     curve.values = [[NSMutableArray alloc]init];
     int valuesLen =  [byte readInt];
-    float scaleNum;
+    float scaleNum=1.0f;
     if (valuesLen > 0) {
         scaleNum =  [byte readFloat];;
     }
     for (int j = 0; j < valuesLen; j++) {
         int rgbLen = [byte   readInt ];
-        NSMutableArray* valuesArr=[[NSMutableArray alloc]init];
+        NSMutableArray<NSNumber*>* valuesArr=[[NSMutableArray alloc]init];
         for (int k = 0; k < rgbLen; k++) {
-            [valuesArr addObject:[NSString stringWithFormat:@"%f",[byte readByte]/127.0f *scaleNum] ];
+            float rdnum=(float)[byte readByte]/127.0f *scaleNum;
+            [valuesArr addObject: [NSNumber numberWithFloat:rdnum]];
         }
         [curve.values addObject:valuesArr];
     }
