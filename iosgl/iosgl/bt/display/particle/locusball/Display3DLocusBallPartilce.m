@@ -11,6 +11,6 @@
 @implementation Display3DLocusBallPartilce
 - (void)update;
 {
-    [super update];
+ //   [super update];
 }
 @end

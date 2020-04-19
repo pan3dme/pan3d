@@ -11,6 +11,6 @@
 @implementation Display3DFollowPartilce
 - (void)update;
 {
-    [super update];
+   // [super update];
 }
 @end
