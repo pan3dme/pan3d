@@ -91,7 +91,7 @@ static NSMutableDictionary* _dic;
 -(void)updateTime ;
 {
     
-    double _tempTime = [[TimeUtil default]getTimerDouble];
+    double _tempTime = [[TimeUtil default]getTimer];
     double t = _tempTime - self.time;
     for (NSString* key in self._renderDic) {
         NSArray *list= self._renderDic[key];

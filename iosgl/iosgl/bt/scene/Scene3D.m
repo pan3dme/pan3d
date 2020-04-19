@@ -73,7 +73,7 @@
 }
 -(void)updateFrameRole;
 {
-    double _tempTime = [[TimeUtil default]getTimerDouble];
+    double _tempTime = [[TimeUtil default]getTimer];
     double delay =  _tempTime - self.time;
     self.fpsLabel.text=[NSString stringWithFormat:@"%d fps",(int)(1000/delay)];
     self.time=_tempTime;
