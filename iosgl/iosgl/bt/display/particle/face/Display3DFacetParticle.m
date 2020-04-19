@@ -53,6 +53,13 @@
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
     
 }
+- (void)resetVa;
+{
+   Context3D *ctx=self.scene3d.context3D;
+    [ctx clearVa:0];
+    [ctx clearVa:1];
+ 
+}
 -(void)updateRotaionMatrix;
 {
     Camera3D *cam=self.scene3d.camera3D;

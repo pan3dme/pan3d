@@ -49,19 +49,16 @@
     [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
     
  
-    /*
-    if(!self.isTrue){
-        self.isTrue=YES;
-        [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:@"ui/textlist/dt_xiangji.png"] fun:^(NSObject * _Nonnull any) {
-             self.testTextureRes=(TextureRes*)any;
-        } wrapType:0 info:nil filteType:0 mipmapType:0];
-    }
-     
-    */
-   
+  
  
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
     
+}
+- (void)resetVa;
+{
+   Context3D *ctx=self.scene3d.context3D;
+    [ctx clearVa:0];
+    [ctx clearVa:1];
 }
 -(void)updateRotaionMatrix;
 {

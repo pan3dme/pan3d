@@ -23,4 +23,8 @@
     self.skillVo=skill;
  
 }
+- (void)upFrame;
+{
+    //[super upFrame];
+}
 @end

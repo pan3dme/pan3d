@@ -76,11 +76,14 @@
     
     
 }
-
--(void)resetVa;
+- (void)resetVa;
 {
+   Context3D *ctx=self.scene3d.context3D;
+    [ctx clearVa:0];
+    [ctx clearVa:1];
+    [ctx clearVa:2];
+    [ctx clearVa:3];
 }
-
 -(void)updateWatchCaramMatrix;
 {
     Display3DBallPartilce* this=self;

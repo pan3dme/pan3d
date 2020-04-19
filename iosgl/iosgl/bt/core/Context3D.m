@@ -59,10 +59,10 @@
     glUniformMatrix3fv(  glGetUniformLocation( shader.program,name), 1, GL_TRUE,  data);
 }
  
- 
-
-
-
+-(void)clearVa:(int)dataId;
+{
+    glDisableVertexAttribArray(dataId);
+}
  
 
 -(void)setVcMatrix4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data;
@@ -120,19 +120,7 @@
     glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
     return verticesBuffer;
 }
-/*
-public cullFaceBack(tf: boolean): void {
-      if (this._contextSetTest.testCull(tf)) {
-          return;
-      }
-      if (tf) {
-          this.renderContext.enable(this.renderContext.CULL_FACE);
-          this.renderContext.cullFace(this.renderContext.BACK);
-      } else {
-          this.renderContext.disable(this.renderContext.CULL_FACE);
-      }
-  }
-*/
+ 
 -(void)cullFaceBack:(BOOL)tf;
 {
     if (tf) {

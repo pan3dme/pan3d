@@ -39,7 +39,7 @@
 }
 - (void)update;
 {
-   //  [super update];
+      [super update];
 }
 - (void)setVc;
 {
@@ -90,7 +90,10 @@
 }
 - (void)resetVa;
 {
-    
+      Context3D *ctx=self.scene3d.context3D;
+    [ctx clearVa:0];
+    [ctx clearVa:1];
+    [ctx clearVa:2];
 }
 @end
 
