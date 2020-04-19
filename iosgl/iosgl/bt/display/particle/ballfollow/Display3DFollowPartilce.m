@@ -9,5 +9,8 @@
 #import "Display3DFollowPartilce.h"
 
 @implementation Display3DFollowPartilce
-
+- (void)update;
+{
+    [super update];
+}
 @end

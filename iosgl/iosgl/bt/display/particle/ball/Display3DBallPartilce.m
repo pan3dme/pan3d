@@ -32,7 +32,6 @@
 - (void)update;
 {
     [super update];
-   
 }
 -(void)setVc;
 {

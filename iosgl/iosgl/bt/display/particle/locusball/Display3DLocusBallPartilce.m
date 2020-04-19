@@ -9,5 +9,8 @@
 #import "Display3DLocusBallPartilce.h"
 
 @implementation Display3DLocusBallPartilce
-
+- (void)update;
+{
+    [super update];
+}
 @end
