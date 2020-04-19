@@ -88,6 +88,11 @@ static NSMutableDictionary* _dic;
     }
     
 }
+-(void)removeAll;
+{
+    [self._renderDic removeAllObjects];
+    [self._particleList removeAllObjects];
+}
 -(void)updateTime ;
 {
     

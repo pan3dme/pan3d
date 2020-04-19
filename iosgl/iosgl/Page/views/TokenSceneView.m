@@ -57,11 +57,13 @@
 }
 
 - (IBAction)scene_but_1_clik:(id)sender {
+    /*
     NSMutableDictionary *mDict = [[NSMutableDictionary alloc]init];
     [mDict setObject:@"cctv"  forKey:@"data"];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
-    
     [self.sceneView loadSeceneByUrl:@"5555_base.txt"];
+    */
+     [self playTypeBut:1];
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
@@ -103,63 +105,67 @@
 
 - (IBAction)zoom_min_clik:(id)sender {
     
+  
+    [self playTypeBut:4];
+}
+
+-(void)playTypeBut:(int)tabId;
+{
     [self.sceneView makeEemptyScene];
-     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
-    // [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
-    
-    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
-    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
-    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
-    [Scene_data default].supportBlob=YES;
-    
-    int tabId=4;
-    switch (tabId) {
-        case 1:
-            [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
-            [self playLyfByUrl:@"model/levelup_lyf.txt"];
-            [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
-            [self playLyfByUrl:@"model/skin001_lyf.txt"];
-            [self playLyfByUrl:@"model/10017_lyf.txt"];
-            [self playLyfByUrl:@"model/10018_lyf.txt"];
-            [self playLyfByUrl:@"model/13012_lyf.txt"];
-            break;
-        case 2:
-            if(!mainChar){
-                mainChar=[[SceneChar alloc]init];
-                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
-                [mainChar setRoleUrl:@"role/yingz.txt"];
-            }
-            break;
-        case 3:
-          
-         [ self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
-            break;
+       [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+      // [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
+      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
+      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
+      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
+      [Scene_data default].supportBlob=YES;
+      
+  
+      switch (tabId) {
+          case 1:
+              [self playLyfByUrl:@"model/diamondseffect_lyf.txt"];
+              [self playLyfByUrl:@"model/levelup_lyf.txt"];
+              [self playLyfByUrl:@"model/reviveeff_lyf.txt"];
+              [self playLyfByUrl:@"model/skin001_lyf.txt"];
+              [self playLyfByUrl:@"model/10017_lyf.txt"];
+              [self playLyfByUrl:@"model/10018_lyf.txt"];
+              [self playLyfByUrl:@"model/13012_lyf.txt"];
+              break;
+          case 2:
+              if(!mainChar){
+                  mainChar=[[SceneChar alloc]init];
+                  [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                  [mainChar setRoleUrl:@"role/yingz.txt"];
+              }
+              break;
+          case 3:
             
-        case 4:
-            if(!mainChar){
-                mainChar=[[SceneChar alloc]init];
-                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
-                [mainChar setRoleUrl:@"role/50001.txt"];
-           
-              [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
-            }else{
-           
-                 Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
-                skill.scene3D=self.sceneView.scene3D;
-                [skill reset];
-                [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
-                [mainChar playSkill:skill];
-                 NSLog(@"播放技能");
-            
-            }
-            break;
-        default:
-            break;
-    }
-    
-    
-    
-    
+           [ self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
+              break;
+              
+          case 4:
+              if(!mainChar){
+                  mainChar=[[SceneChar alloc]init];
+                  [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                  [mainChar setRoleUrl:@"role/50001.txt"];
+             
+                [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
+              }else{
+             
+                   Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+                  skill.scene3D=self.sceneView.scene3D;
+                  [skill reset];
+                  [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
+                  [mainChar playSkill:skill];
+                   NSLog(@"播放技能");
+              
+              }
+              break;
+          default:
+              break;
+      }
+      
+      
+      
 }
  
 SceneChar* mainChar;

@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)registerUrl:(NSString*)url;
 -(void)updateTime;
 -(void)update;
+-(void)removeAll;
 
 @end
 
