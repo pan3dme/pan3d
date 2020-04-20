@@ -91,7 +91,7 @@ var Display3DParticle = /** @class */ (function (_super) {
         this.updateMatrix();
         this.setVc();
         this.setVa();
-        // this.resetVa();
+        this.resetVa();
     };
     Display3DParticle.prototype.setVc = function () {
     };
