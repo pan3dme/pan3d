@@ -79,8 +79,8 @@ static ProgrmaManager *instance = nil;
     shader.fragment = material.shaderStrRead;
    
       //keyStr    __NSCFString *    @"Display3DBallPartilceShadercontent/particleresources/materials/m_ef_par_byte.txt_1_0_0_0_1_0_0false_"    0x0000000281e3ac40
-   //keyStr    __NSCFString *    @"Display3DFacetShadercontent/particleresources/materials/m_ef_ver_byte.txt_1_1_1_1_1false_"    0x0000000282091830
-    if ([keyStr rangeOfString:@"Display3DFacetShadercontent/particleresources/materials/m_ef_ver_byte.txt_1_1_1_1_1false"].location != NSNotFound) {
+   //keyStr    __NSCFString *    @"Display3DModelShadercontent/particleresources/materials/m_ef_ver_byte.txt_1_1_1_1_1false_"    0x00000002804754d0
+    if ([keyStr rangeOfString:@"Display3DModelShadercontent"].location != NSNotFound) {
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
@@ -121,8 +121,8 @@ static ProgrmaManager *instance = nil;
            "varying vec2 v0;"
            "void main(void){"
            "vec4 ft0 = texture2D(fs0,v0);"
-        //"gl_FragColor =vec4(1,0,0,1) ;"
-           "gl_FragColor =ft0;"
+           //"gl_FragColor =vec4(1,0,0,1) ;"
+            "gl_FragColor =ft0;"
            "}";
     
   

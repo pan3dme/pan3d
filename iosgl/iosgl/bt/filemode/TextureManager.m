@@ -10,6 +10,7 @@
 #import "TextureLoad.h"
 #import "MaterialManager.h"
 #import "LoadManager.h"
+#import "Context3D.h"
 
 
 @interface TextureManager()
@@ -76,9 +77,14 @@ static TextureManager *instance = nil;
 -(void)loadTextureCom:(UIImage*)img info:(TextureLoad*)info ;
 {
  
+    NSLog(@" info.wrap   %d", info.wrap);
     TextureRes *textureRes=[[TextureRes alloc]init];
-    textureRes.textTureLuint=[[MaterialManager default] createTextureWithImage:img];
+ 
+    textureRes.textTureLuint=  [Context3D getTexture:img wrap:info.wrap];
   //  textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
+    
+  
+    
     NSArray<TextureLoad*>* ary  = self.loadDic[info.url];
     for (int i = 0; i < ary.count; i++){
         if (ary[i].info) {

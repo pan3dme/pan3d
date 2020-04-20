@@ -61,7 +61,7 @@
     "void main()"
     "{"
         "colorvec4 =vec4(1.0,1.0,1.0,1.0);\n"
-        " v0 = vec2(v2Uv.x,1.0-v2Uv.y);\n"
+        " v0 = v2Uv;\n"
          "vec4 vt0 = getQDdata(vec3(pos.x,pos.y,pos.z));\n"
          "vec4 vPos = vec4(vt0.xyz,1.0);\n"
          "gl_Position = vPos * posMatrix* viewMatrix;\n"

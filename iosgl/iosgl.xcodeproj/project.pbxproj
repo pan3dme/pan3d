@@ -136,6 +136,7 @@
 		FE887D71241681B300025A74 /* MaterialLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D70241681B300025A74 /* MaterialLoad.m */; };
 		FE887D7424168FDE00025A74 /* LoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D7324168FDE00025A74 /* LoadManager.m */; };
 		FE887D772416963300025A74 /* LoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D762416963300025A74 /* LoadInfo.m */; };
+		FE8FA4EF244D9BC700552A94 /* Display3DModelShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4EE244D9BC600552A94 /* Display3DModelShader.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C858242FF3F500A349E8 /* Display3DFacetParticle.m */; };
 		FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */; };
@@ -427,6 +428,8 @@
 		FE887D7324168FDE00025A74 /* LoadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadManager.m; sourceTree = "<group>"; };
 		FE887D752416963300025A74 /* LoadInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadInfo.h; sourceTree = "<group>"; };
 		FE887D762416963300025A74 /* LoadInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadInfo.m; sourceTree = "<group>"; };
+		FE8FA4ED244D9BC600552A94 /* Display3DModelShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DModelShader.h; sourceTree = "<group>"; };
+		FE8FA4EE244D9BC600552A94 /* Display3DModelShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DModelShader.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEA5C857242FF3F500A349E8 /* Display3DFacetParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFacetParticle.h; sourceTree = "<group>"; };
@@ -1061,6 +1064,8 @@
 			children = (
 				FE776AB7244733D000B8B5A4 /* ParticleModelData.h */,
 				FE776AB8244733D000B8B5A4 /* ParticleModelData.m */,
+				FE8FA4ED244D9BC600552A94 /* Display3DModelShader.h */,
+				FE8FA4EE244D9BC600552A94 /* Display3DModelShader.m */,
 				FE776ABA2447340B00B8B5A4 /* Display3DModelPartilce.h */,
 				FE776ABB2447340B00B8B5A4 /* Display3DModelPartilce.m */,
 			);
@@ -1429,6 +1434,7 @@
 				FEEF8BD02448E777001AFEB2 /* PathManager.m in Sources */,
 				FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */,
 				FEF3D4CC2436B7630055AB31 /* ObjectBone.m in Sources */,
+				FE8FA4EF244D9BC700552A94 /* Display3DModelShader.m in Sources */,
 				FE2C6A7E241D77F100291B5D /* TextureLoad.m in Sources */,
 				FEF6063D23B9D20200DE6C2F /* Rectangle.m in Sources */,
 				FEEF8BF02449D90B001AFEB2 /* SkillFixEffectKeyVo.m in Sources */,
