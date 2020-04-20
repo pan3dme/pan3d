@@ -352,7 +352,7 @@
 {
     if(self.selfRotaion){
         [targetMatrix prependRotation:self.selfRotaion.num axis:axis];
-        NSLog(@"self.selfRotaion.num  %f",self.selfRotaion.num);
+  
     }
     
 }

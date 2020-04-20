@@ -12,6 +12,7 @@
 #import "TimeLine.h"
 #import "CurveVo.h"
 #import "ParamDataVo.h"
+#import "ParticleModelData.h"
 #import "MaterialManager.h"
 
   
@@ -209,7 +210,12 @@
     curve.speedType = [byte readBoolean]  ;
     curve.useColorType =  [byte readBoolean]  ;
     curve.items = [self readItems:byte];
-   
+    
+    if ([self isKindOfClass:[ParticleModelData class]]) {
+        NSLog(@"ParticleModelData  %d",valuesLen);
+        NSLog(@"---------");
+    }
+    
 }
   
 -(NSMutableArray*)readItems:(ByteArray*)byte;

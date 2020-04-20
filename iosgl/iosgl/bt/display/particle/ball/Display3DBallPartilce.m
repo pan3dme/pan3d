@@ -53,7 +53,7 @@
     [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
     
     if(self.ballData._is3Dlizi){
-        NSLog(@"_is3Dlizi");
+       // NSLog(@"_is3Dlizi");
     }
     
    

@@ -84,7 +84,7 @@ static ProgrmaManager *instance = nil;
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-         [self changeShader:shader];
+        [self changeShader:shader];
         
       
         
@@ -121,8 +121,9 @@ static ProgrmaManager *instance = nil;
            "varying vec2 v0;"
            "void main(void){"
            "vec4 ft0 = texture2D(fs0,v0);"
-           //"gl_FragColor =vec4(1,0,0,1) ;"
-            "gl_FragColor =ft0;"
+            "ft0.xyz =ft0.xyz*fc[0].xyz ;"
+            "gl_FragColor =vec4(1,0,0,1) ;"
+             "gl_FragColor =ft0;"
            "}";
     
   

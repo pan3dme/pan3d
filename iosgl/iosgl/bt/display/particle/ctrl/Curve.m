@@ -8,6 +8,7 @@
 
 #import "Curve.h"
 #import "CurveVo.h"
+#import "GL_Header.h"
 #import "Vector3D.h"
 #import "Scene_data.h"
 
@@ -75,12 +76,13 @@
     if (!this.valueVec || this.begintFrame == -1) {
         return this.valueV3d;
     }
-    int flag = floor(t / [Scene_data default].frameTime- this.begintFrame);
+    int flag =  float2int(t / [Scene_data default].frameTime- this.begintFrame);
     if (flag < 0) {
         flag = 0;
     } else if (flag > this.maxFrame - this.begintFrame) {
         flag = this.maxFrame - this.begintFrame;
     }
+    NSLog(@"flag %d    %f   %f   %d",flag,t , [Scene_data default].frameTime, this.begintFrame);
     return this.valueVec[flag];;
 }
 /*

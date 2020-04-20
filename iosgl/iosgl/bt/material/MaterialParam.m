@@ -97,12 +97,17 @@
 }
 -(void)setConstObj:(NSMutableArray *)ary
 {
+ 
     for (int i=0; i < ary.count; i++) {
              NSDictionary* obj = ary[i];
             for (int j = 0; j < self.dynamicConstList.count; j++) {
-                 
+                DynamicConstItem* dynamicConstItem=self.dynamicConstList[j];
+                 if ([dynamicConstItem.paramName isEqualToString: obj[@"paramName"]]) {
+                      [dynamicConstItem.curve setData:obj[@"curve"]] ;
+                 }
             }
         }
+  
     
     /*
      for (var i: number = 0; i < ary.length; i++) {

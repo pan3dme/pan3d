@@ -50,7 +50,8 @@
 {
     Display3DParticle* this=self;
     
-    this._time=t;
+    this._time = t - this.beginTime;
+    NSLog(@"this.beginTime%d",this.beginTime);
     [this.timeline updateTime:t];
     this.visible = this.timeline.visible;
     [this.posMatrix3d identity];
@@ -150,8 +151,12 @@
         return;
     }
     NSMutableArray<DynamicConstItem*>* dynamicConstList= this.data.materialParam.dynamicConstList;
-    float t = self._time/  floor([Scene_data default].frameTime * this.data._life);
+   // float t = self._time / floor([Scene_data default].frameTime * this.data._life);
+  //   var t: number = this._time % (Scene_data.frameTime * this.data._life);
+     float t= fmod (self._time , [Scene_data default].frameTime * this.data._life);
     
+    NSLog(@"self._time    %f     %f",self._time, [Scene_data default].frameTime * this.data._life);
+ 
     for (int i = 0; i < dynamicConstList.count; i++) {
         [dynamicConstList[i] update:t];
     }
@@ -165,11 +170,15 @@
     NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
     GLfloat fcDataGlArr[fcData.count];
     for (int i=0; i<fcData.count; i++) {
-        fcDataGlArr[i]=fcData[i].floatValue;
+        fcDataGlArr[i]=fcData[i].floatValue*10.0;
+        
+        fcDataGlArr[i]=1.0;
+  
     }
+   // NSLog(@"%@  %@   %@  %@",fcData[0],fcData[1],fcData[2],fcData[3]);
     [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
  
-     
+ 
 }
 -(void)setVa;
 {
