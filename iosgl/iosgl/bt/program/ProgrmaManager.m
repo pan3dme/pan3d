@@ -84,7 +84,7 @@ static ProgrmaManager *instance = nil;
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-        [self changeShader:shader];
+         [self changeShader:shader];
         
       
         

@@ -54,7 +54,7 @@
     [this.timeline updateTime:t];
     this.visible = this.timeline.visible;
     [this.posMatrix3d identity];
-    [this.posMatrix3d prependScale:this.scaleX*0.2* this.bindScale.x y:this.scaleY*0.2* this.bindScale.y z:_scaleZ*0.2* this.bindScale.z];
+    [this.posMatrix3d prependScale:this.scaleX*0.1* this.bindScale.x y:this.scaleY*0.1* this.bindScale.y z:_scaleZ*0.1* this.bindScale.z];
     [this.timeline updateMatrix:self.posMatrix3d particle:this];
     
 }
