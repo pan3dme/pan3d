@@ -70,7 +70,7 @@
         //        this._rotationMatrix.prependRotation(-Scene_data.cam3D.rotationX, Vector3D.X_AXIS);
     }
     if (this.data._isZiZhuan) {
-        [this.timeline applySelfRotation:this.rotationMatrix3D axis:this.data._ziZhuanAngly];
+        [this.timeLine applySelfRotation:this.rotationMatrix3D axis:this.data._ziZhuanAngly];
     }
  
      

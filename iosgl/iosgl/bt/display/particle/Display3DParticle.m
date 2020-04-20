@@ -17,6 +17,10 @@
 #import "Vector3D.h"
 #import "Matrix3D.h"
 
+@interface Display3DParticle()
+@property (nonatomic, strong)  TimeLine*  timeline;
+@end
+
 @implementation Display3DParticle
 
 - (instancetype)init
@@ -31,10 +35,16 @@
 -(void)onCreated;
 {
 }
--(void)setTimeLine:(TimeLine*)value
+ 
+-(TimeLine*)timeLine;
+{
+    return  _timeline;
+}
+-(void)setTimeLine:(TimeLine*)value;
 {
     _timeline=value;
-    _beginTime=_timeline.beginTime;
+    self.beginTime=_timeline.beginTime;
+  
 }
 -(void)setBind:(Vector3D*)pos rotation:(Matrix3D*)rotation scale:(Vector3D*)scale invertRotation:(Matrix3D*)invertRotation groupMatrix:(Matrix3D*)groupMatrix;
 {
@@ -49,9 +59,7 @@
 -(void)updateTime:(float)t;
 {
     Display3DParticle* this=self;
-    
     this._time = t - this.beginTime;
-    NSLog(@"this.beginTime%d",this.beginTime);
     [this.timeline updateTime:t];
     this.visible = this.timeline.visible;
     [this.posMatrix3d identity];
@@ -129,10 +137,7 @@
     [self.timeline reset];
     [self updateTime:0];
 }
-//public reset(): void {
-//       this.timeline.reset();
-//       this.updateTime(0);
-//   }
+ 
 -(void)inverBind;
 {
     if(self.invertBindMatrix){
@@ -155,7 +160,7 @@
   //   var t: number = this._time % (Scene_data.frameTime * this.data._life);
      float t= fmod (self._time , [Scene_data default].frameTime * this.data._life);
     
-    NSLog(@"self._time    %f     %f",self._time, [Scene_data default].frameTime * this.data._life);
+    NSLog(@"self._time    %f   ",t);
  
     for (int i = 0; i < dynamicConstList.count; i++) {
         [dynamicConstList[i] update:t];

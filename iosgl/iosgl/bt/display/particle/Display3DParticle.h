@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3DParticle : Display3D
 @property (nonatomic, assign)  BOOL  visible;
-@property (nonatomic, strong)  TimeLine*  timeline;
+
 @property (nonatomic, assign)  int  beginTime;
 @property (nonatomic, assign)  BOOL   isInGroup;
 @property (nonatomic, assign)  float  _time;
@@ -41,7 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)update;
 -(void)updateTime:(float)t;
 -(void)setVc;
-//-(void)setMaterialVc;
+-(void)setTimeLine:(TimeLine*)value;
+-(TimeLine*)timeLine;
 -(void)setVa;
 -(void)resetVa;
 -(void)setMaterialTexture;
