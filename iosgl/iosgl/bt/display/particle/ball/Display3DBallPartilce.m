@@ -56,7 +56,7 @@
         NSLog(@"_is3Dlizi");
     }
     
-    [self setMaterialVc];
+   
 }
  
 -(void)setVa;

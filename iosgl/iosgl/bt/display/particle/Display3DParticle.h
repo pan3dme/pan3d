@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)update;
 -(void)updateTime:(float)t;
 -(void)setVc;
--(void)setMaterialVc;
+//-(void)setMaterialVc;
 -(void)setVa;
 -(void)resetVa;
 -(void)setMaterialTexture;

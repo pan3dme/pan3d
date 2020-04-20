@@ -34,6 +34,7 @@
 - (void)setVc;
 {
       [self setViewCamModeMatr3d];
+   
       [self updateRotaionMatrix];
       Context3D *ctx=self.scene3d.context3D;
       [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
