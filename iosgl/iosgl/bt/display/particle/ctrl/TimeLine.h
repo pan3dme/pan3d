@@ -48,10 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  ScaleAnim*  scaleAnim;
 @property (nonatomic, strong)  ScaleNoise*  scaleNosie;
 
+
 -(void)setAllDataInfo:(TimeLineData*)data;
 -(void)updateTime:(float)t;
 -(void)reset;
 -(void)updateMatrix:(Matrix3D*)posMatrix particle:(Display3DParticle*)particle ;
+-(void)applySelfRotation:(Matrix3D*)targetMatrix axis:(Vector3D*)axis;
 @end
 
 NS_ASSUME_NONNULL_END

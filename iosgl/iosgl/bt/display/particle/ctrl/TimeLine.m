@@ -347,13 +347,15 @@
     self.visible=NO;
     self.targetFlag=-1;
 }
-/*
-public reset(): void {
-      this._time = 0;
-      this._currentKeyFrame = this._keyFrameAry[0];
-      this.visible = false;
-      this.targetFlag = -1;
-  }
-*/
+
+-(void)applySelfRotation:(Matrix3D*)targetMatrix axis:(Vector3D*)axis;
+{
+    if(self.selfRotaion){
+        [targetMatrix prependRotation:self.selfRotaion.num axis:axis];
+        NSLog(@"self.selfRotaion.num  %f",self.selfRotaion.num);
+    }
+    
+}
+ 
 @end
 
