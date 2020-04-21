@@ -11,6 +11,8 @@
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
 #import "Scene3D.h"
+#import "Material.h"
+#import "Scene_data.h"
 #import "MaterialShader.h"
 #import "GL_Header.h"
 #import "DynamicTexItem.h"
@@ -25,9 +27,12 @@
 @property (nonatomic, strong) NSString *bindSocket;
 @property (nonatomic, strong) Matrix3D *groupMatrix;
 @property (nonatomic, strong) Matrix3D *groupRotationMatrix;
- @property(nonatomic,strong)NSString* materialUrl;
+@property(nonatomic,strong)NSString* materialUrl;
+@property(nonatomic,strong)Material* material;
+@property(nonatomic,strong)MaterialBaseParam* materialParam;
+ 
 @property (nonatomic, assign) BOOL isInGroup;
-
+ 
 
 
 @end
@@ -133,9 +138,16 @@
     value= [value stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
     value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     this.materialUrl =   value;
-//    [[MaterialManager default]getMaterialByte:value fun:^(NSObject *obj) {
-//        
-//    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
+    
+    [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+        self.material=(Material*)obj;
+        if (this.material.useNormal) {
+        }
+        if (paramData) {
+            this.materialParam = [[MaterialBaseParam alloc]init];
+            [this.materialParam setData:this.material ary:paramData];
+         }
+    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 }
 /*
  public setMaterialUrl(value: string, $paramData: Array<any> = null): void {
