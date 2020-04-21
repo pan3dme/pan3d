@@ -14,7 +14,7 @@
 #import "GroupItem.h"
 #import "CombineParticle.h"
 #import "ParticleManager.h"
-#import "Display3DSprite.h"
+#import "DisplayBaseSprite.h"
 #import "LineDisplaySprite.h"
 #import "GridLineSprite.h"
 #import "DisplayBaseTriSprite.h"

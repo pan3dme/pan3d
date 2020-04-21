@@ -6,11 +6,11 @@
 //  Copyright © 2019 zhao. All rights reserved.
 //
 
-#import "Display3DSprite.h"
+#import "DisplayBaseSprite.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SceneDisplay3DSprite : Display3DSprite
+@interface SceneDisplay3DSprite : DisplayBaseSprite
 -(void) setInof:(NSDictionary*)value;
 @end
 

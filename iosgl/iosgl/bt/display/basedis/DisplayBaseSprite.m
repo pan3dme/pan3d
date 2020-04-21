@@ -1,5 +1,5 @@
 //
-//  Display3DSprite.m
+//  DisplayBaseSprite.m
 //  iosgl
 //
 //  Created by zhao on 7/12/2019.
