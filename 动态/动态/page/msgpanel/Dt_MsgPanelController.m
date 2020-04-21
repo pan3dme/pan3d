@@ -15,6 +15,16 @@
 #import "Dt_CommentsCell.h"
 #import "Dt_CommentsTabelVo.h"
 #import "Dt_RefreshGifHeader.h"
+#import <AssetsLibrary/ALAsset.h>
+#import <AssetsLibrary/ALAssetsLibrary.h>
+#import <AssetsLibrary/ALAssetsGroup.h>
+#import <AssetsLibrary/ALAssetRepresentation.h>
+#import <Photos/Photos.h>
+#import <MediaPlayer/MediaPlayer.h>
+
+
+ #import <AVKit/AVKit.h>
+ 
 
 @interface Dt_MsgPanelController ()
 <
@@ -30,6 +40,8 @@ UIScrollViewDelegate
 @property(nonatomic,strong)UITextField *inputTextField;
 @property(nonatomic,strong)UIButton *sendMsgBut;
 @property(nonatomic,strong)NSMutableArray *cellItem;
+@property (nonatomic, strong) NSString *videoUrl;
+@property (nonatomic, strong)AVPlayerViewController *playerVC;
 
 @end
 static Dt_MsgPanelController *msgPanelController = nil;
@@ -82,6 +94,18 @@ static Dt_MsgPanelController *msgPanelController = nil;
     
     [self.sendMsgBut addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(sendMsgButClikEvent:)]];
     
+    
+
+       self.videoUrl = @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+          /*
+           因为是 http 的链接，所以要去 info.plist里面设置
+           App Transport Security Settings
+           Allow Arbitrary Loads  = YES
+           */
+    
+         
+     
+    
   
 }
 -(void) clikCellHear:(Dt_CommentsTabelVo*)value ;
@@ -129,7 +153,30 @@ static Dt_MsgPanelController *msgPanelController = nil;
  
     
      [self getAllComments];
+    
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+       self.videoUrl = @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+    
+        self.playerVC = [[AVPlayerViewController alloc] init];
+            self.playerVC.player = [AVPlayer playerWithURL:[self.videoUrl hasPrefix:@"http"] ? [NSURL URLWithString:self.videoUrl]:[NSURL fileURLWithPath:self.videoUrl]];
+    self.playerVC.view.frame=CGRectMake(0, 0, 100, 100);
+     
+            self.playerVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
+            self.playerVC.showsPlaybackControls = YES;
+            self.playerVC.entersFullScreenWhenPlaybackBegins = YES;//开启这个播放的时候支持（全屏）横竖屏哦
+      
+            [self.playerVC.player play];
+            
+ 
+       [self presentViewController:self.playerVC animated:NO completion:nil];
+              
+}
+
 -(void)getAllComments;
 {
     NSMutableDictionary* dic=[[NSMutableDictionary alloc]init];

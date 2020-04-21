@@ -57,7 +57,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/levelup_lyf.txt")
         // this.playLyf("model/skin001_lyf.txt")
         //  this.playLyf("model/10018_lyf.txt")
-        var tabIdx = 3;
+        var tabIdx = 1;
         if (tabIdx == 3) {
             this.playLyf("model/10018_lyf.txt");
         }

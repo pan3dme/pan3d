@@ -22,12 +22,10 @@
     }
     return self;
 }
-
-
+ 
 -(void)setData:(CurveVo*)obj;
 {
     Curve* this=self;
-    
     this.type=obj.type;
     this.maxFrame = obj.maxFrame;
     if (obj.items.count) {
@@ -82,22 +80,7 @@
     } else if (flag > this.maxFrame - this.begintFrame) {
         flag = this.maxFrame - this.begintFrame;
     }
- //   NSLog(@"flag %d    %f   %f   %d",flag,t , [Scene_data default].frameTime, this.begintFrame);
     return this.valueVec[flag];;
 }
-/*
-public getValue($t: number): Array<number> {
-       if (!this.valueVec || this.begintFrame == -1) {
-           return this.valueV3d;
-       }
-       var flag: number = float2int($t / Scene_data.frameTime - this.begintFrame);
-
-       if (flag < 0) {
-           flag = 0;
-       } else if (flag > this.maxFrame - this.begintFrame) {
-           flag = this.maxFrame - this.begintFrame;
-       }
-
-       return this.valueVec[flag];
-*/
+ 
 @end

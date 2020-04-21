@@ -30,14 +30,11 @@
         if(pdata){
             pdata.version=version;
             [pdata setAllByteInfo:byte];
-            
             if ([pdata isKindOfClass:[ParticleModelData class]]) {
                 if(self.dataAry.count==0){
-                      
                 }
-                
             }
-          [self.dataAry addObject:pdata];
+           [self.dataAry addObject:pdata];
             if (pdata.timelineData.maxFrameNum > self.maxTime) {
                 self.maxTime = pdata.timelineData.maxFrameNum;
             }

@@ -49,6 +49,8 @@
 		FE7263A92434988700320B9B /* Dt_AlertViewUi.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7263A72434988700320B9B /* Dt_AlertViewUi.xib */; };
 		FE7263AC243499CF00320B9B /* Dt_UIImageViewLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263AB243499CF00320B9B /* Dt_UIImageViewLock.m */; };
 		FE7263AF2434A23C00320B9B /* Dt_ButlabelIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7263AE2434A23C00320B9B /* Dt_ButlabelIconView.m */; };
+		FE8FA4F5244EDCDF00552A94 /* VideoPlayerToolsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4F4244EDCDF00552A94 /* VideoPlayerToolsView.m */; };
+		FE8FA4F9244EDD8C00552A94 /* VideoPlayerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4F8244EDD8C00552A94 /* VideoPlayerContainerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +137,10 @@
 		FE7263AB243499CF00320B9B /* Dt_UIImageViewLock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dt_UIImageViewLock.m; sourceTree = "<group>"; };
 		FE7263AD2434A23C00320B9B /* Dt_ButlabelIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dt_ButlabelIconView.h; sourceTree = "<group>"; };
 		FE7263AE2434A23C00320B9B /* Dt_ButlabelIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dt_ButlabelIconView.m; sourceTree = "<group>"; };
+		FE8FA4F3244EDCDF00552A94 /* VideoPlayerToolsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerToolsView.h; sourceTree = "<group>"; };
+		FE8FA4F4244EDCDF00552A94 /* VideoPlayerToolsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerToolsView.m; sourceTree = "<group>"; };
+		FE8FA4F7244EDD8C00552A94 /* VideoPlayerContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerContainerView.h; sourceTree = "<group>"; };
+		FE8FA4F8244EDD8C00552A94 /* VideoPlayerContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerContainerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,7 @@
 		FE064B76241EC08E00AD44BE /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				FE8FA4F6244EDD7000552A94 /* video */,
 				FE7263AA243499CF00320B9B /* Dt_UIImageViewLock.h */,
 				FE7263AB243499CF00320B9B /* Dt_UIImageViewLock.m */,
 				FE7263AD2434A23C00320B9B /* Dt_ButlabelIconView.h */,
@@ -356,6 +363,17 @@
 				FE7263A72434988700320B9B /* Dt_AlertViewUi.xib */,
 			);
 			path = dtalert;
+			sourceTree = "<group>";
+		};
+		FE8FA4F6244EDD7000552A94 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				FE8FA4F3244EDCDF00552A94 /* VideoPlayerToolsView.h */,
+				FE8FA4F4244EDCDF00552A94 /* VideoPlayerToolsView.m */,
+				FE8FA4F7244EDD8C00552A94 /* VideoPlayerContainerView.h */,
+				FE8FA4F8244EDD8C00552A94 /* VideoPlayerContainerView.m */,
+			);
+			path = video;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +533,7 @@
 				FE064B67241E9F7600AD44BE /* UIColor+XBZKeyBoard.m in Sources */,
 				FE41055424229AE20031B3D1 /* Dt_AddImgVideoCell.m in Sources */,
 				FE064B6F241EB38200AD44BE /* Dt_ListPage.m in Sources */,
+				FE8FA4F9244EDD8C00552A94 /* VideoPlayerContainerView.m in Sources */,
 				FE064B80241ECCB600AD44BE /* Dt_TableImageViewCell.m in Sources */,
 				FE064B49241E98A300AD44BE /* Dt_DynamicMainView.m in Sources */,
 				FE064B7D241EC1E600AD44BE /* Dt_DynamicBaseVo.m in Sources */,
@@ -522,6 +541,7 @@
 				FE064AC6241E915C00AD44BE /* SceneDelegate.m in Sources */,
 				FE608EE924237390004C1E34 /* Dt_UpImageVo.m in Sources */,
 				FE064B7A241EC0DF00AD44BE /* Dt_DynamicBaseCell.m in Sources */,
+				FE8FA4F5244EDCDF00552A94 /* VideoPlayerToolsView.m in Sources */,
 				FE064B66241E9F7600AD44BE /* UIButton+XBZKeyBoard.m in Sources */,
 				FE41054D2422181B0031B3D1 /* Dt_DynamicModel.m in Sources */,
 				FE410537241FB9360031B3D1 /* NetHttpsManager.m in Sources */,

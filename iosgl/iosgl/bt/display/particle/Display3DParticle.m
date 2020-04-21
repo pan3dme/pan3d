@@ -36,16 +36,7 @@
 {
 }
  
--(TimeLine*)timeLine;
-{
-    return  _timeline;
-}
--(void)setTimeLine:(TimeLine*)value;
-{
-    _timeline=value;
-    self.beginTime=_timeline.beginTime;
-  
-}
+
 -(void)setBind:(Vector3D*)pos rotation:(Matrix3D*)rotation scale:(Vector3D*)scale invertRotation:(Matrix3D*)invertRotation groupMatrix:(Matrix3D*)groupMatrix;
 {
     self.bindVecter3d = pos;
@@ -148,6 +139,17 @@
 -(void)setVc;
 {
 }
+-(TimeLine*)timeLine;
+{
+    return  _timeline;
+}
+-(void)setTimeLine:(TimeLine*)value;
+{
+    _timeline=value;
+    NSLog(@"_timeline.beginTime   %f",_timeline.beginTime);
+    self.beginTime=_timeline.beginTime;
+  
+}
 -(void)setMaterialVc;
 {
     
@@ -160,7 +162,7 @@
   //   var t: number = this._time % (Scene_data.frameTime * this.data._life);
      float t= fmod (self._time , [Scene_data default].frameTime * this.data._life);
     
-    NSLog(@"self._time    %f    %f  ",t ,self._time);
+   // NSLog(@"self._time    %f    %f  ",t ,self._time);
  
     for (int i = 0; i < dynamicConstList.count; i++) {
         [dynamicConstList[i] update:t];
@@ -170,17 +172,13 @@
     }
     t = t * this.data.materialParam.material.timeSpeed;
     [this.data.materialParam.material update:t];
-    
     Context3D *ctx=self.scene3d.context3D;
     NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
     GLfloat fcDataGlArr[fcData.count];
     for (int i=0; i<fcData.count; i++) {
-        fcDataGlArr[i]=fcData[i].floatValue*10.0;
-        
-        fcDataGlArr[i]=1.0;
-  
+        fcDataGlArr[i]=fcData[i].floatValue;
     }
-   // NSLog(@"%@  %@   %@  %@",fcData[0],fcData[1],fcData[2],fcData[3]);
+ 
     [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
  
  

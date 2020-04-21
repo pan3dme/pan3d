@@ -38,7 +38,7 @@ class TpSceneProcessor extends BaseProcessor {
 
 
 
-        var tabIdx=3;
+        var tabIdx=1;
 
 
         if(tabIdx==3){
@@ -60,7 +60,6 @@ class TpSceneProcessor extends BaseProcessor {
             SceneManager.getInstance().addMovieDisplay(  this.mainChar);
 
         }
- 
 
 
 

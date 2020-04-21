@@ -8,6 +8,7 @@
 
 #import "TimeLineData.h"
 #import "Vector3D.h"
+#import "Scene_data.h"
 
 @implementation TimeLineData
 - (instancetype)init
@@ -39,7 +40,7 @@
     }
  
     self.maxFrameNum =  ((KeyFrame *)(self.dataAry[self.dataAry.count - 1]) ).frameNum;
-    self.beginTime = ((KeyFrame *)(self.dataAry[0]) ).frameNum;
+    self.beginTime = ((KeyFrame *)(self.dataAry[0]) ).frameNum *[Scene_data default].frameTime;
     
     /*
       var len: number = $byte.readFloat();
