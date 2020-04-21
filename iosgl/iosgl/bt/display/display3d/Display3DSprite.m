@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NSString *bindSocket;
 @property (nonatomic, strong) Matrix3D *groupMatrix;
 @property (nonatomic, strong) Matrix3D *groupRotationMatrix;
- 
+ @property(nonatomic,strong)NSString* materialUrl;
 @property (nonatomic, assign) BOOL isInGroup;
 
 
@@ -129,7 +129,13 @@
 }
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 {
-    
+    Display3DSprite* this=self;
+    value= [value stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
+    value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
+    this.materialUrl =   value;
+//    [[MaterialManager default]getMaterialByte:value fun:^(NSObject *obj) {
+//        
+//    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 }
 /*
  public setMaterialUrl(value: string, $paramData: Array<any> = null): void {

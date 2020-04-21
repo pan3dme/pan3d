@@ -173,7 +173,8 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
       NSData *materNsdata=  [self.byte getNsDataByLen:materSize];
       ByteArray *materByte=  [[ByteArray alloc]init:materNsdata];
     
-      [[MaterialManager default]addResByte:materurl dataByte:materByte];
+    
+      [[MaterialManager default]addResByte:[[Scene_data default]getWorkUrlByFilePath:materurl] dataByte:materByte];
       
       
   }
