@@ -79,12 +79,12 @@ static ProgrmaManager *instance = nil;
     shader.fragment = material.shaderStrRead;
    
       //keyStr    __NSCFString *    @"Display3DBallPartilceShadercontent/particleresources/materials/m_ef_par_byte.txt_1_0_0_0_1_0_0false_"    0x0000000281e3ac40
-   //keyStr    __NSCFString *    @"Display3DModelShadercontent/particleresources/materials/m_ef_ver_byte.txt_1_1_1_1_1false_"    0x00000002804754d0
-    if ([keyStr rangeOfString:@"Display3DModelShadercontent"].location != NSNotFound) {
+   //keyStr    __NSCFString *    @"MaterialShaderhttp://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/mate
+    if ([keyStr rangeOfString:@"MaterialShaderhttp"].location != NSNotFound) {
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-        [self changeShader:shader];
+       // [self changeShader:shader];
         
       
         

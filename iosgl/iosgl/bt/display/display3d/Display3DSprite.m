@@ -116,15 +116,52 @@
 }
 -(void)upFrame{
     
-    if(self.shader3d&&self.objData){
-        GLuint progame= self.shader3d.program;
-        glUseProgram(progame);
-    
-        [self updateBind];
-        [self setVc];
-        [self setVa];
-        [self resetVa];
+   
+    if (self.dynamic) {
+        if (!self.sceneVisible) {
+            return;
+        }
     }
+    
+    if(self.material){
+         [self updateMaterial];
+    }else{
+        if(self.shader3d&&self.objData){
+              GLuint progame= self.shader3d.program;
+              glUseProgram(progame);
+              
+              [self updateBind];
+              [self setVc];
+              [self setVa];
+              [self resetVa];
+          }
+    }
+ 
+   
+    
+ 
+     
+    
+}
+-(void)updateMaterial;
+{
+    Display3DSprite* this=self;
+    if (!this.material || !this.objData) {
+        return;
+    }
+    [self updateBind];
+   // self.shader3d=this.material.shader;
+    
+    
+    GLuint progame= self.shader3d.program;
+    glUseProgram(progame);
+    
+    [self updateBind];
+    [self setVc];
+    [self setVa];
+    [self resetVa];
+ 
+ 
 }
 - (void)resetVa;
 {
@@ -140,7 +177,8 @@
     this.materialUrl =   value;
     
     [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
-        self.material=(Material*)obj;
+        this.material=(Material*)obj;
+        this.material.shader=this.shader3d;
         if (this.material.useNormal) {
         }
         if (paramData) {
