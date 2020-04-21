@@ -92,7 +92,9 @@
 -(void)setObjUrl:(NSString*)value;
 {
     [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
-       // self.objData=obj;
+     self.objData=obj;
+        [self.objData upToGpu];
+ 
     }];
 }
 
@@ -120,8 +122,8 @@ public setObjUrl(value: string): void {
 -(void)loadObjDataByUrl:(NSString*)url
 {
     [[ ObjDataManager default] getObjDataByUrl: url Block:^(ObjData *objData) {
-        self.objData=objData;
-        [self.objData upToGpu];
+      //  self.objData=objData;
+      //  [self.objData upToGpu];
     }];
 }
 

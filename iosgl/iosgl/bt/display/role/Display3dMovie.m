@@ -99,6 +99,7 @@
         return;
     }
     [this updateBind];
+ 
     if(self.meshVisible){
         for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
             [this updateMaterialMesh:this.skinMesh.meshAry[i]];
