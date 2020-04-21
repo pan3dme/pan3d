@@ -6,7 +6,7 @@
 //  Copyright © 2019 zhao. All rights reserved.
 //
 
-#import "Display3DSprite.h"
+#import "DisplayBaseSprite.h"
 #import "MaterialManager.h"
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
@@ -16,7 +16,7 @@
 #import "ProgrmaManager.h"
 #import "ObjDataManager.h"
 
-@implementation Display3DSprite
+@implementation DisplayBaseSprite
 
 - (instancetype)init
 {
@@ -86,7 +86,7 @@
     self.objData.indexBuffer=indexBuffer;
     self.objData.trinum=6;
     
- 
+    [self.posMatrix3d appendScale:0.5 y:0.5 z:0.5];
     
 }
 -(void)setObjUrl:(NSString*)value;

@@ -137,6 +137,7 @@
 		FE887D7424168FDE00025A74 /* LoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D7324168FDE00025A74 /* LoadManager.m */; };
 		FE887D772416963300025A74 /* LoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE887D762416963300025A74 /* LoadInfo.m */; };
 		FE8FA4EF244D9BC700552A94 /* Display3DModelShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4EE244D9BC600552A94 /* Display3DModelShader.m */; };
+		FE8FA4FE244F315600552A94 /* DisplayBaseSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4FD244F315600552A94 /* DisplayBaseSprite.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C858242FF3F500A349E8 /* Display3DFacetParticle.m */; };
 		FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */; };
@@ -431,6 +432,8 @@
 		FE8FA4ED244D9BC600552A94 /* Display3DModelShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DModelShader.h; sourceTree = "<group>"; };
 		FE8FA4EE244D9BC600552A94 /* Display3DModelShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DModelShader.m; sourceTree = "<group>"; };
 		FE8FA4FB244F228100552A94 /* IBind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IBind.h; sourceTree = "<group>"; };
+		FE8FA4FC244F315600552A94 /* DisplayBaseSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayBaseSprite.h; sourceTree = "<group>"; };
+		FE8FA4FD244F315600552A94 /* DisplayBaseSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayBaseSprite.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEA5C857242FF3F500A349E8 /* Display3DFacetParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFacetParticle.h; sourceTree = "<group>"; };
@@ -841,6 +844,8 @@
 		FE1D8B4C24128FDC00A04FC4 /* basedis */ = {
 			isa = PBXGroup;
 			children = (
+				FE8FA4FC244F315600552A94 /* DisplayBaseSprite.h */,
+				FE8FA4FD244F315600552A94 /* DisplayBaseSprite.m */,
 				FE1D8B502412903600A04FC4 /* DisplayBaseTriShader.h */,
 				FE1D8B512412903600A04FC4 /* DisplayBaseTriShader.m */,
 				FE1D8B4D2412902200A04FC4 /* DisplayBaseTriSprite.h */,
@@ -1395,6 +1400,7 @@
 				FE887D592416766700025A74 /* DynamicBaseConstItem.m in Sources */,
 				FE3D4EDF2401BF5A00185FD3 /* ParticleManager.m in Sources */,
 				FEEF8BE72449A157001AFEB2 /* ParticleLocusballData.m in Sources */,
+				FE8FA4FE244F315600552A94 /* DisplayBaseSprite.m in Sources */,
 				FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FEEF8BC62448E702001AFEB2 /* SkillFixEffect.m in Sources */,

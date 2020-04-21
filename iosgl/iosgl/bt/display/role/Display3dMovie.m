@@ -279,10 +279,9 @@
           } else if (item.types == PREFAB_TYPE) {
               Display3DSprite *display=[[Display3DSprite alloc]init];
               [display setObjUrl:item.objUrl];
-              
+              [self.scene3d addDisplay:display];
               /*
-              var display: Display3DSprite = new Display3DSprite();
-              display.setObjUrl(item.objUrl);
+            
               display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
               display.dynamic = true;
               ary.push(display);
