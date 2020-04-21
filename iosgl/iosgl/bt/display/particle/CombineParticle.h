@@ -11,6 +11,7 @@
 #import "CombineParticleData.h"
 #import "Display3DParticle.h"
 #import "Matrix3D.h"
+#import "IBind.h"
 
 @class Display3DParticle;
 
@@ -35,8 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Matrix3D*  invertBindMatrix;
 @property (nonatomic, strong)  Matrix3D*  groupMatrix;
 @property (nonatomic, strong)  Matrix3D*  groupRotationMatrix;
+@property (nonatomic, strong)NSString*  bindSocket;
 
-
+-(id<IBind>)bindTarget;
+-(void)setBindTarget:(id<IBind>)value;
+ 
+ 
 
 -(void)addPrticleItem:(Display3DParticle*)dic;
 -(void)updateTime:(float)t;

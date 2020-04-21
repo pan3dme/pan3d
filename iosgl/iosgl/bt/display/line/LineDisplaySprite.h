@@ -7,10 +7,10 @@
 //
 
 #import "Display3D.h"
-#import "Display3DSprite.h"
+#import "DisplayBaseSprite.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LineDisplaySprite : Display3DSprite
+@interface LineDisplaySprite : DisplayBaseSprite
 @property (nonatomic, strong) Vector3D* colorV3d;
 -(void)clearLine;
 -(void)addLineA2B:(Vector3D*)a b:(Vector3D*)b;

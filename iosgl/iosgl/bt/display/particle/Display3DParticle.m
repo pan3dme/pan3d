@@ -152,18 +152,12 @@
 }
 -(void)setMaterialVc;
 {
-    
     Display3DParticle* this=self;
     if (!this.data.materialParam) {
         return;
     }
     NSMutableArray<DynamicConstItem*>* dynamicConstList= this.data.materialParam.dynamicConstList;
-   // float t = self._time / floor([Scene_data default].frameTime * this.data._life);
-  //   var t: number = this._time % (Scene_data.frameTime * this.data._life);
      float t= fmod (self._time , [Scene_data default].frameTime * this.data._life);
-    
-   // NSLog(@"self._time    %f    %f  ",t ,self._time);
- 
     for (int i = 0; i < dynamicConstList.count; i++) {
         [dynamicConstList[i] update:t];
     }
@@ -178,11 +172,9 @@
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
- 
     [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
- 
- 
 }
+
 -(void)setVa;
 {
 }

@@ -65,7 +65,7 @@ var LineDisplaySprite = /** @class */ (function (_super) {
             Scene_data.context3D.setVcMatrix4fv(this.shader, "posMatrix3D", this.posMatrix.m);
             Scene_data.context3D.setVa(0, 3, this.objData.vertexBuffer);
             Scene_data.context3D.setVa(1, 3, this.objData.normalsBuffer);
-            // Scene_data.context3D.drawLine(this.objData.indexBuffer, this.objData.treNum);
+            Scene_data.context3D.drawLine(this.objData.indexBuffer, this.objData.treNum);
         }
     };
     return LineDisplaySprite;

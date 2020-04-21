@@ -28,7 +28,7 @@ static GroupDataManager *instance = nil;
 }
 -(void)getGroupData:(NSString*)url Block:(void (^)(GroupRes * ))block;
 {
-    
+    //url    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/50011_byte.txt"    0x00000002818449c0
     if(self.dic[url]){
         block(self.dic[url]);
     }else{

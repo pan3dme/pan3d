@@ -1,12 +1,12 @@
 //
-//  Display3DSprite.m
+//  DisplayBaseSprite.m
 //  iosgl
 //
 //  Created by zhao on 7/12/2019.
 //  Copyright © 2019 zhao. All rights reserved.
 //
 
-#import "Display3DSprite.h"
+#import "DisplayBaseSprite.h"
 #import "MaterialManager.h"
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
@@ -14,9 +14,9 @@
 #import "DynamicTexItem.h"
 #import "Display3DShader.h"
 #import "ProgrmaManager.h"
+#import "ObjDataManager.h"
 
-
-@implementation Display3DSprite
+@implementation DisplayBaseSprite
 
 - (instancetype)init
 {
@@ -89,6 +89,29 @@
     [self.posMatrix3d appendScale:0.5 y:0.5 z:0.5];
     
 }
+-(void)setObjUrl:(NSString*)value;
+{
+    [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
+       // self.objData=obj;
+    }];
+}
+
+
+/*
+public setObjUrl(value: string): void {
+     this.objurl = value;
+     ObjDataManager.getInstance().getObjData(Scene_data.fileRoot + value, ($obj: ObjData) => {
+         this.objData = $obj;
+
+         if (this.material) {
+             if (!this.objData.tangentBuffer) {
+                 ObjDataManager.getInstance().creatTBNBuffer(this.objData);
+             }
+         }
+
+     });
+ }
+*/
 -(void)registetProgame;
 {
     [[ProgrmaManager default] registe:Display3DShader.shaderStr shader3d: [[Display3DShader alloc]init]];

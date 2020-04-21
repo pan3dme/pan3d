@@ -71,6 +71,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
             }
             SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
             this.mainChar = new SkillSceneChar();
+            this.mainChar.addPart(SceneChar.WEAPON_PART, SceneChar.WEAPON_DEFAULT_SLOT, getModelUrl(String(50011)));
             this.mainChar.setRoleUrl(getRoleUrl("50001"));
             SceneManager.getInstance().addMovieDisplay(this.mainChar);
         }

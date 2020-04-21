@@ -8,25 +8,37 @@
 
 #import "CombineParticle.h"
 #import "Display3DParticle.h"
-
+#import "IBind.h"
  
 
 @interface CombineParticle ()
 
-@property (nonatomic, assign)NSString*  _bindSocket;
+
 @property (nonatomic, assign)float  _rotationX;
 @property (nonatomic, assign)float  _rotationY;
 @property (nonatomic, assign)float  _rotationZ;
 @property (nonatomic, assign)float  _time;
 @property (nonatomic, assign)BOOL  _isInGroup;
-@property (nonatomic, assign)Vector3D*  _groupPos;
-@property (nonatomic, assign)Vector3D*  _groupRotation;
-@property (nonatomic, assign)Vector3D*  _groupScale;
+@property (nonatomic, strong)Vector3D*  _groupPos;
+@property (nonatomic, strong)Vector3D*  _groupRotation;
+@property (nonatomic, strong)Vector3D*  _groupScale;
+@property (nonatomic, strong)id<IBind>  _bindTarget;
+
+//@property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
  
 @end
-
+ 
 @implementation CombineParticle
 
+-(id<IBind>)bindTarget;
+{
+    return __bindTarget;
+}
+-(void)setBindTarget:(id<IBind>)value;
+{
+      __bindTarget=value;
+}
+ 
 - (instancetype)init
 {
     self = [super init];

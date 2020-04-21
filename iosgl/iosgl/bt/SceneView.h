@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Display3DSprite.h"
+ 
 #import "Matrix3D.h"
 #import "Shader3D.h"
 #import "TextureRes.h"

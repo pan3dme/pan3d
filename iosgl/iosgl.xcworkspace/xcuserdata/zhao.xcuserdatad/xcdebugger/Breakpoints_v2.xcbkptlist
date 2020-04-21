@@ -1743,7 +1743,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "269"
-            endingLineNumber = "269">
+            endingLineNumber = "269"
+            landmarkName = "-updateFrame:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1805,7 +1807,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "269"
-            endingLineNumber = "269">
+            endingLineNumber = "269"
+            landmarkName = "-updateFrame:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1835,7 +1839,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "269"
-            endingLineNumber = "269">
+            endingLineNumber = "269"
+            landmarkName = "-updateFrame:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2010,7 +2016,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "-play:completeState:needFollow:"
+            landmarkName = "-getFrameMatrix:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2026,7 +2032,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "-play:completeState:needFollow:"
+            landmarkName = "-getFrameMatrix:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
