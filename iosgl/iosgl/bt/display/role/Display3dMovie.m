@@ -321,6 +321,7 @@
           } else if (item.types == PREFAB_TYPE) {
               Display3DSprite *display=[[Display3DSprite alloc]init];
               [display setObjUrl:item.objUrl];
+              [display setMaterialUrl:item.materialUrl paramData:item.materialInfoArr];
               [ary addObject:display];
               [display setBind:self bindSocket:bindSocket];
               [self.scene3d addDisplay:display];

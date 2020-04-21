@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)updateBind;
 -(void)registetProgame;
 -(void)setObjUrl:(NSString*)value;
+-(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 -(void)setBind:(id<IBind>)bindTarget bindSocket:(NSString*)bindSocket;
 -(void)setGroup:(Vector3D*)pos rotaion:(Vector3D*)rotaion  scale:(Vector3D*)scale;

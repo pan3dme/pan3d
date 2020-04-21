@@ -11,6 +11,7 @@
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
 #import "Scene3D.h"
+#import "MaterialShader.h"
 #import "GL_Header.h"
 #import "DynamicTexItem.h"
 #import "Display3DShader.h"
@@ -48,60 +49,7 @@
 
 -(void)onCreated;
 {
-    self.objData=[[ObjData alloc]init];
-    GLfloat attrArr[12];
-    attrArr[0]=-100.0f;
-    attrArr[1]=0.0f;
-    attrArr[2]=-100.0f;
-    attrArr[3]=-100.0f;
-    attrArr[4]=0.0f;
-    attrArr[5]=100.0f;
-    attrArr[6]=100.0f;
-    attrArr[7]=0.0f;
-    attrArr[8]=100.0f;
-    attrArr[9]=100.0f;
-    attrArr[10]=0.0f;
-    attrArr[11]=-100.0f;
-    
-    GLuint verticesBuffer;
-    glGenBuffers(1, &verticesBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-    self.objData.verticesBuffer=verticesBuffer;
-    
-    
-    GLfloat uiArr[8];
-    uiArr[0]=0.0f;
-    uiArr[1]=0.0f;
-    uiArr[2]=1.0f;
-    uiArr[3]=0.0f;
-    uiArr[4]=1.0f;
-    uiArr[5]=1.0f;
-    uiArr[6]=0.0f;
-    uiArr[7]=1.0f;
-    
-    GLuint uvBuffer;
-    glGenBuffers(1, &uvBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(uiArr), uiArr, GL_DYNAMIC_DRAW);
-    self.objData.uvBuffer=uvBuffer;
-    
-    unsigned int Indices[6];
-    Indices[0]=0;
-    Indices[1]=1;
-    Indices[2]=2;
-    Indices[3]=0;
-    Indices[4]=2;
-    Indices[5]=3;
-    GLuint indexBuffer;
-    glGenBuffers(1, &indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-    self.objData.indexBuffer=indexBuffer;
-    self.objData.trinum=6;
-    
- 
-    
+  
 }
 -(void)setObjUrl:(NSString*)value;
 {
@@ -146,8 +94,8 @@
  
 -(void)registetProgame;
 {
-    [[ProgrmaManager default] registe:Display3DShader.shaderStr shader3d: [[Display3DShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:Display3DShader.shaderStr];
+    [[ProgrmaManager default] registe:MaterialShader.shaderStr shader3d: [[MaterialShader alloc]init]];
+    self.shader3d=  [[ProgrmaManager default] getProgram:MaterialShader.shaderStr];
 }
 -(void)loadObjDataByUrl:(NSString*)url
 {
@@ -179,7 +127,39 @@
     [ctx clearVa:0];
     [ctx clearVa:1];
 }
+-(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
+{
+    
+}
+/*
+ public setMaterialUrl(value: string, $paramData: Array<any> = null): void {
 
+
+     value = value.replace("_byte.txt", ".txt")
+     value = value.replace(".txt", "_byte.txt")
+
+     this.materialUrl = Scene_data.fileRoot + value;
+  
+     MaterialManager.getInstance().getMaterialByte(this.materialUrl, ($material: Material) => {
+         this.material = $material;
+         if (this.material.useNormal) {
+             if (this.objData && !this.objData.tangentBuffer) {
+                 ObjDataManager.getInstance().creatTBNBuffer(this.objData);
+             }
+         }
+         if (this.material.usePbr || this.material.directLight) {
+             this._rotationData = new Float32Array(9);
+             this.updateRotationMatrix();
+         }
+
+         if ($paramData) {
+             this.materialParam = new MaterialBaseParam();
+             this.materialParam.setData(this.material, $paramData);
+         }
+
+     }, null, true, MaterialShader.MATERIAL_SHADER, MaterialShader);
+ }
+ */
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     Context3D *ctx=self.scene3d.context3D;
