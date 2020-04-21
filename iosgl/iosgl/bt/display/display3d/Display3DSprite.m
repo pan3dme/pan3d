@@ -170,8 +170,14 @@
         [self updateBind];
         [self setVc];
         [self setVa];
-      
+        [self resetVa];
     }
+}
+- (void)resetVa;
+{
+   Context3D *ctx=self.scene3d.context3D;
+    [ctx clearVa:0];
+    [ctx clearVa:1];
 }
 
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;

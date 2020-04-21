@@ -989,17 +989,12 @@
 		FE67882E239B934C00262B53 /* display */ = {
 			isa = PBXGroup;
 			children = (
+				FE8FA4FF244F660300552A94 /* display3d */,
 				FE8FA4FA244F224000552A94 /* interface */,
 				FE15ACA4243574FB0062741F /* role */,
 				FE1D8B4C24128FDC00A04FC4 /* basedis */,
 				FE1D8B4524128AFF00A04FC4 /* line */,
 				FE3D4EE02401C12400185FD3 /* particle */,
-				FE67882F239B938200262B53 /* Display3D.h */,
-				FE678830239B938200262B53 /* Display3D.m */,
-				FE805726240698DD000F6D17 /* Display3DShader.h */,
-				FE805727240698DD000F6D17 /* Display3DShader.m */,
-				FE67883A239B973C00262B53 /* Display3DSprite.h */,
-				FE67883B239B973C00262B53 /* Display3DSprite.m */,
 			);
 			path = display;
 			sourceTree = "<group>";
@@ -1085,6 +1080,19 @@
 				FE8FA4FB244F228100552A94 /* IBind.h */,
 			);
 			path = interface;
+			sourceTree = "<group>";
+		};
+		FE8FA4FF244F660300552A94 /* display3d */ = {
+			isa = PBXGroup;
+			children = (
+				FE67882F239B938200262B53 /* Display3D.h */,
+				FE678830239B938200262B53 /* Display3D.m */,
+				FE805726240698DD000F6D17 /* Display3DShader.h */,
+				FE805727240698DD000F6D17 /* Display3DShader.m */,
+				FE67883A239B973C00262B53 /* Display3DSprite.h */,
+				FE67883B239B973C00262B53 /* Display3DSprite.m */,
+			);
+			path = display3d;
 			sourceTree = "<group>";
 		};
 		FEB5AE3C23F1B10700661496 /* mathother */ = {
