@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjDataManager : ResGC
 + (instancetype)default;
- 
+-(void)getObjData:(NSString*)url fun:(void (^)(ObjData * ))fun;
 -(void)getObjDataByUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
 -(void)loadObjCom:(ByteArray *)value  url:(NSString*)url;
 @end

@@ -10,7 +10,9 @@
 #import "ObjData.h"
 #import "ByteArray.h"
 #import "SceneRes.h"
-
+@interface ObjDataManager ()
+@property(nonatomic,strong)NSMutableDictionary* loadList;
+@end
 static ObjDataManager *instance = nil;
 @implementation ObjDataManager
 + (instancetype)default{
@@ -24,6 +26,7 @@ static ObjDataManager *instance = nil;
     self = [super init];
     if (self) {
         self.dic=[[NSMutableDictionary alloc]init];
+          self.loadList=[[NSMutableDictionary alloc]init];
     }
     return self;
 }
@@ -84,6 +87,45 @@ static ObjDataManager *instance = nil;
     free(buffer);
     return num;
 }
+-(void)getObjData:(NSString*)url fun:(void (^)(ObjData * ))fun;
+{
+    ObjDataManager* this=self;
+    if (this.dic[url]) {
+        fun(this.dic[url]);
+        return;
+    }
+    NSMutableArray* ary;
+    if (!this.loadList[url]) {
+        this.loadList[url] =[[NSMutableArray alloc]init];
+//        LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($byte: ArrayBuffer) => {
+//            this.loadObjCom($byte, $url);
+//        });
+    }
+    ary = this.loadList[url];
+    [ary addObject:fun];
+}
+/*
+ public getObjData($url: string, $fun: Function): void {
+
+        if (this._dic[$url]) {
+            $fun(this._dic[$url]);
+            this._dic[$url].useNum++;
+            return;
+        }
+        var ary: Array<Function>;
+        if (!this._loadList[$url]) {
+            this._loadList[$url] = new Array;
+
+            LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($byte: ArrayBuffer) => {
+                this.loadObjCom($byte, $url);
+            });
+
+        }
+        ary = this._loadList[$url];
+        ary.push($fun);
+
+    }
+ */
  
 -(void)getObjDataByUrl:(NSString*)url Block:(void (^)(ObjData * ))block;
 {

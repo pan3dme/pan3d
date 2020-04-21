@@ -11,8 +11,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface SceneChar : Display3dMovie
+
+
++(NSString*)WEAPON_PART;
++(NSString*)WEAPON_DEFAULT_SLOT;
++(NSString*)MOUNT_SLOT;
++(NSString*)WING_SLOT;
++(NSString*)SEL_PART;
++(NSString*)NONE_SLOT;
+
+
+
 -(void)playSkill:(Skill*)skill;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
