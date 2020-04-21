@@ -94,6 +94,22 @@
     }
    
 }
+-(void)setWriteDepth:(BOOL)tf;
+{
+    //depthMask
+    if (tf) {
+    glDepthFunc(GL_LESS);
+    }else{
+       glDepthFunc(GL_LESS);
+    }
+ 
+}
+//public setWriteDepth(tf: boolean): void {
+//      if (this._contextSetTest.testZbuffer(tf)) {
+//          return;
+//      }
+//      this.renderContext.depthMask(tf);
+//  }
 
 -(GLuint)upGpuIndexBuffer:(NSArray*)arr;
 {
