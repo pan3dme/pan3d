@@ -39,7 +39,7 @@
 }
 - (void)update;
 {
-     // [super update];
+      [super update];
 }
 - (void)setVc;
 {
@@ -85,7 +85,12 @@
     [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
     [ctx pushVa: temp.nrmsBuffer];
     [ctx setVaOffset:self.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
-    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
+    if(temp.nrms&&temp.nrms.count){
+          [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
+    }else{
+        //需要处理，
+    }
+  
     
 }
 - (void)resetVa;

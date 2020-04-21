@@ -22,10 +22,9 @@ typedef void (^SuccessMaterial)(NSObject* obj);
 
  
 #define getSkillUrl(url)(NSString*)[NSString stringWithFormat:@"skill/%@_byte.txt",url]
-
- #define randomFloat() drand48()
- #define randomInt(x) (int)floor(randomFloat()*x)
- 
+#define randomFloat() drand48()
+#define randomInt(x) (int)floor(randomFloat()*x)
+#define float2int(x)  (int)floor(x)
 
 
 #define NSLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);

@@ -57,17 +57,23 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/levelup_lyf.txt")
         // this.playLyf("model/skin001_lyf.txt")
         //  this.playLyf("model/10018_lyf.txt")
-        if (this.mainChar) {
-            var $skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
-            $skill.configFixEffect(this.mainChar);
-            this.mainChar.playSkill($skill);
-            console.log("jiiii");
-            return;
+        var tabIdx = 1;
+        if (tabIdx == 3) {
+            this.playLyf("model/10018_lyf.txt");
         }
-        SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
-        this.mainChar = new SkillSceneChar();
-        this.mainChar.setRoleUrl(getRoleUrl("50001"));
-        SceneManager.getInstance().addMovieDisplay(this.mainChar);
+        if (tabIdx == 1) {
+            if (this.mainChar) {
+                var $skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
+                $skill.configFixEffect(this.mainChar);
+                this.mainChar.playSkill($skill);
+                console.log("jiiii");
+                return;
+            }
+            SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
+            this.mainChar = new SkillSceneChar();
+            this.mainChar.setRoleUrl(getRoleUrl("50001"));
+            SceneManager.getInstance().addMovieDisplay(this.mainChar);
+        }
     };
     TpSceneProcessor.prototype.playLyf = function (url) {
         GroupDataManager.getInstance().getGroupData(Scene_data.fileRoot + url, function (groupRes) {

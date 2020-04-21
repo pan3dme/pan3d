@@ -8,6 +8,7 @@
 
 #import "DynamicTexItem.h"
 #import "Curve.h"
+#import "Context3D.h"
 #import "MaterialManager.h"
 
 @implementation DynamicTexItem
@@ -80,23 +81,13 @@
             }
         }
  
-//        Vector3D* v3d=[[Vector3D alloc]init];
-//        v3d.x=[tempInset[0]floatValue]*0xff;
-//        v3d.y=[tempInset[1]floatValue]*0xff;
-//        v3d.z=[tempInset[2]floatValue]*0xff;
-//        v3d.w=[tempInset[3]floatValue]*0xff;
+ 
        
-        
+     //      tempInset=[[NSMutableArray alloc] initWithObjects:@1, @1, @1,@1, nil];
        
         [imgNumVec addObject:tempInset];
     }
     
-   /*
-    [0]    __NSCFNumber *    (float)0.299213    0x000000028186b1e0
-    [1]    __NSCFNumber *    (float)0.559055    0x0000000281867680
-    [2]    __NSCFNumber *    (float)0.905512    0x0000000281845080
-    [3]    __NSCFNumber *    (float)0.543307    0x000000028187c260
-    */
  
     
     CGRect rect = CGRectMake(0, 0, 128, 1);
@@ -109,7 +100,7 @@
     UIGraphicsEndImageContext();
     image=  [self imageBlackToTransparent:image withArr:imgNumVec];
     
-    self.textureDynamic= [[MaterialManager default] createTextureWithImage:image];
+    self.textureDynamic= [Context3D getTexture:image wrap:0];
    
     
     

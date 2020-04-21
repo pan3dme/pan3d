@@ -36,19 +36,31 @@ class TpSceneProcessor extends BaseProcessor {
       //  this.playLyf("model/10018_lyf.txt")
 
 
-        if(this.mainChar){
 
-            var $skill: Skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
-            $skill.configFixEffect(this.mainChar);
-            this.mainChar.playSkill($skill);
-            console.log("jiiii");
-            return;
+
+        var tabIdx=1;
+
+
+        if(tabIdx==3){
+            this.playLyf("model/10018_lyf.txt");
+        }
+        if(tabIdx==1){
+            if(this.mainChar){
+
+                var $skill: Skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
+                $skill.configFixEffect(this.mainChar);
+                this.mainChar.playSkill($skill);
+                console.log("jiiii");
+                return;
+            }
+
+            SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
+            this.mainChar= new SkillSceneChar();
+            this.mainChar.setRoleUrl(getRoleUrl("50001"));
+            SceneManager.getInstance().addMovieDisplay(  this.mainChar);
+
         }
 
-        SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
-        this.mainChar= new SkillSceneChar();
-        this.mainChar.setRoleUrl(getRoleUrl("50001"));
-        SceneManager.getInstance().addMovieDisplay(  this.mainChar);
 
 
     }

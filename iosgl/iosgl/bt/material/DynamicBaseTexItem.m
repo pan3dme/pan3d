@@ -9,5 +9,8 @@
 #import "DynamicBaseTexItem.h"
 
 @implementation DynamicBaseTexItem
-
+-(void)creatTextureByCurve;
+{
+    
+}
 @end

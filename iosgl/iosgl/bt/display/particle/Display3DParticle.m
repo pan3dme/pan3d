@@ -17,6 +17,10 @@
 #import "Vector3D.h"
 #import "Matrix3D.h"
 
+@interface Display3DParticle()
+@property (nonatomic, strong)  TimeLine*  timeline;
+@end
+
 @implementation Display3DParticle
 
 - (instancetype)init
@@ -31,11 +35,8 @@
 -(void)onCreated;
 {
 }
--(void)setTimeLine:(TimeLine*)value
-{
-    _timeline=value;
-    _beginTime=_timeline.beginTime;
-}
+ 
+
 -(void)setBind:(Vector3D*)pos rotation:(Matrix3D*)rotation scale:(Vector3D*)scale invertRotation:(Matrix3D*)invertRotation groupMatrix:(Matrix3D*)groupMatrix;
 {
     self.bindVecter3d = pos;
@@ -49,12 +50,11 @@
 -(void)updateTime:(float)t;
 {
     Display3DParticle* this=self;
-    
-    this._time=t;
+    this._time = t - this.beginTime;
     [this.timeline updateTime:t];
     this.visible = this.timeline.visible;
     [this.posMatrix3d identity];
-    [this.posMatrix3d prependScale:this.scaleX*0.2* this.bindScale.x y:this.scaleY*0.2* this.bindScale.y z:_scaleZ*0.2* this.bindScale.z];
+    [this.posMatrix3d prependScale:this.scaleX*0.1* this.bindScale.x y:this.scaleY*0.1* this.bindScale.y z:_scaleZ*0.1* this.bindScale.z];
     [this.timeline updateMatrix:self.posMatrix3d particle:this];
     
 }
@@ -84,6 +84,7 @@
             [ctx setBlendParticleFactors:self.data._alphaMode];
             [ctx cullFaceBack:self.data.materialParam.material.backCull];
             [self updateMatrix];
+            [self setMaterialVc];
             [self setMaterialTexture];
             [self setVc];
             [self setVa];
@@ -127,10 +128,7 @@
     [self.timeline reset];
     [self updateTime:0];
 }
-//public reset(): void {
-//       this.timeline.reset();
-//       this.updateTime(0);
-//   }
+ 
 -(void)inverBind;
 {
     if(self.invertBindMatrix){
@@ -141,6 +139,17 @@
 -(void)setVc;
 {
 }
+-(TimeLine*)timeLine;
+{
+    return  _timeline;
+}
+-(void)setTimeLine:(TimeLine*)value;
+{
+    _timeline=value;
+    NSLog(@"_timeline.beginTime   %f",_timeline.beginTime);
+    self.beginTime=_timeline.beginTime;
+  
+}
 -(void)setMaterialVc;
 {
     
@@ -149,8 +158,12 @@
         return;
     }
     NSMutableArray<DynamicConstItem*>* dynamicConstList= this.data.materialParam.dynamicConstList;
-    float t = self._time/  floor([Scene_data default].frameTime * this.data._life);
+   // float t = self._time / floor([Scene_data default].frameTime * this.data._life);
+  //   var t: number = this._time % (Scene_data.frameTime * this.data._life);
+     float t= fmod (self._time , [Scene_data default].frameTime * this.data._life);
     
+   // NSLog(@"self._time    %f    %f  ",t ,self._time);
+ 
     for (int i = 0; i < dynamicConstList.count; i++) {
         [dynamicConstList[i] update:t];
     }
@@ -159,16 +172,16 @@
     }
     t = t * this.data.materialParam.material.timeSpeed;
     [this.data.materialParam.material update:t];
-    
     Context3D *ctx=self.scene3d.context3D;
     NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
     GLfloat fcDataGlArr[fcData.count];
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
+ 
     [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
  
-     
+ 
 }
 -(void)setVa;
 {

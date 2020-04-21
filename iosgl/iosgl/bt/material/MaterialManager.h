@@ -21,10 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
 -(void)addResByte:(NSString*)url dataByte:(ByteArray*)dataByte;
-- (GLuint)createTextureWithImage:(UIImage *)image;
+ 
 -(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
 -(void)loadDynamicTexUtil:(MaterialParam*)material;
-- (GLuint)createTextureWithImage:(UIImage *)image;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

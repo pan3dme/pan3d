@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setDepthTest:(BOOL)tf;
 -(void)cullFaceBack:(BOOL)tf;
 -(void)setProgram:(GLuint)progame;
++(GLuint)getTexture:(UIImage*)image wrap:(int)wrap;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 
 #import "Curve.h"
 #import "CurveVo.h"
+#import "GL_Header.h"
 #import "Vector3D.h"
 #import "Scene_data.h"
 
@@ -21,12 +22,10 @@
     }
     return self;
 }
-
-
+ 
 -(void)setData:(CurveVo*)obj;
 {
     Curve* this=self;
-    
     this.type=obj.type;
     this.maxFrame = obj.maxFrame;
     if (obj.items.count) {
@@ -75,7 +74,7 @@
     if (!this.valueVec || this.begintFrame == -1) {
         return this.valueV3d;
     }
-    int flag = floor(t / [Scene_data default].frameTime- this.begintFrame);
+    int flag =  float2int(t / [Scene_data default].frameTime- this.begintFrame);
     if (flag < 0) {
         flag = 0;
     } else if (flag > this.maxFrame - this.begintFrame) {
@@ -83,19 +82,5 @@
     }
     return this.valueVec[flag];;
 }
-/*
-public getValue($t: number): Array<number> {
-       if (!this.valueVec || this.begintFrame == -1) {
-           return this.valueV3d;
-       }
-       var flag: number = float2int($t / Scene_data.frameTime - this.begintFrame);
-
-       if (flag < 0) {
-           flag = 0;
-       } else if (flag > this.maxFrame - this.begintFrame) {
-           flag = this.maxFrame - this.begintFrame;
-       }
-
-       return this.valueVec[flag];
-*/
+ 
 @end
