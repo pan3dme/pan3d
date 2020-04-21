@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)identity;
 -(Matrix3D*)clone;
 -(Matrix3D *)clone:(Matrix3D*)value;
+-(void)copyTo:(Matrix3D*)target;
 -(Matrix3D*)Invert;
 -(void) outString;
 -(void) appendTranslation:(float  )x  y:(float)y z:(float)z ;
@@ -35,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(GLfloat *)rotationM;
 -(Vector3D*)position;
 -(void)inputStrData:(NSString*)str;
+-(void)identityPostion;
  
 @end
 

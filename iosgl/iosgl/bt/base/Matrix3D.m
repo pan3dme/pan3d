@@ -128,6 +128,18 @@
 {
   return   [self transformVector:[[Vector3D alloc]init]];
 }
+-(void)identityPostion;
+{
+    self.matrix4x4.data[12]=0;
+    self.matrix4x4.data[13]=0;
+    self.matrix4x4.data[14]=0;
+}
+ 
+-(void)copyTo:(Matrix3D*)target;
+{
+     target.matrix4x4=Matrix4x4clone(self.matrix4x4);
+}
+
 -(Matrix3D*)Invert;
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];

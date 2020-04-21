@@ -22,6 +22,12 @@
 @property (nonatomic, strong) Matrix3D *bindMatrix;
 @property (nonatomic, strong) id<IBind> bindTarget;
 @property (nonatomic, strong) NSString *bindSocket;
+@property (nonatomic, strong) Matrix3D *groupMatrix;
+@property (nonatomic, strong) Matrix3D *groupRotationMatrix;
+ 
+@property (nonatomic, assign) BOOL isInGroup;
+
+
 
 @end
 @implementation Display3DSprite
@@ -111,7 +117,28 @@
     self.bindSocket = bindSocket;
     self.bindMatrix = [[Matrix3D alloc]init];
 }
- 
+-(void)updateBind;
+{
+    Display3DSprite* this=self;
+    if (this.bindTarget) {
+        
+        [this.posMatrix3d identity];
+        [this.posMatrix3d  appendScale:this.scaleX y:this.scaleX z:this.scaleX];
+        if (this.isInGroup) {
+            [this.posMatrix3d append:self.groupMatrix];
+        }
+        [this.bindTarget getSocket:this.bindSocket resultMatrix:this.bindMatrix];
+        [this.posMatrix3d append:this.bindMatrix];
+        [this.posMatrix3d copyTo:this.rotationMatrix3D];
+        [this.rotationMatrix3D identityPostion ];
+        if (this.isInGroup) {
+            [this.rotationMatrix3D prepend:self.groupRotationMatrix];
+            
+        }
+        
+    }
+}
+  
 -(void)setGroup:(Vector3D*)pos rotaion:(Vector3D*)rotaion  scale:(Vector3D*)scale;
 {
     
@@ -139,10 +166,11 @@
     if(self.shader3d&&self.objData){
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
-        Context3D *context3D=self.scene3d.context3D;
-        [self setVa];
+    
+        [self updateBind];
         [self setVc];
-        [context3D drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
+        [self setVa];
+      
     }
 }
 
@@ -182,9 +210,8 @@
     [ctx pushVa:self.objData.uvBuffer];
     [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
     
-}
--(void)updateBind;
-{
+    [ctx drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
     
 }
+ 
 @end

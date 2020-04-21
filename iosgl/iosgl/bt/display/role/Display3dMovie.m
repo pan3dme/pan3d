@@ -14,6 +14,7 @@
 #import "Scene3D.h"
 #import "GroupItem.h"
 #import "TextureRes.h"
+#import "BoneSocketData.h"
 #import "DualQuatFloat32Array.h"
 #import "ProgrmaManager.h"
 #import "MaterialAnimShader.h"
@@ -46,7 +47,7 @@
     self = [super init];
     if (self) {
         self.meshVisible=YES;
-        self.defaultAction= @"stand";
+        self.defaultAction= @"walk";
         self.partDic = [[NSMutableDictionary alloc]init];
         self.partUrl =[[NSMutableDictionary alloc]init];
         self.preLoadActionDic = [[NSMutableDictionary alloc]init];
@@ -68,7 +69,48 @@
 }
 - (void)getSocket:(NSString *)socketName resultMatrix:(Matrix3D *)resultMatrix
 {
+    Display3dMovie* this =self;
     [resultMatrix identity];
+    if (!this.skinMesh) {
+        [resultMatrix append:this.posMatrix3d];
+        return;
+    } else if (!this.skinMesh.boneSocketDic[socketName]) {
+        if ( [socketName isEqualToString:@"none"]) {
+            [resultMatrix appendTranslation:this.x y:this.y z:this.z];
+        } else {
+            [resultMatrix append:this.posMatrix3d];
+        }
+        return;
+    }
+    BoneSocketData* boneSocketData   = this.skinMesh.boneSocketDic[socketName];
+    Matrix3D* testmatix  ;
+    int index    = boneSocketData.index;
+    testmatix = [this getFrameMatrix:index];
+    [resultMatrix appendScale:1/this.scaleX y:1/this.scaleY z:1/self.scaleZ];
+    [resultMatrix appendRotation:boneSocketData.rotationX axis:Vector3D.X_AXIS];
+    [resultMatrix appendRotation:boneSocketData.rotationY axis:Vector3D.Y_AXIS];
+    [resultMatrix appendRotation:boneSocketData.rotationZ axis:Vector3D.Z_AXIS];
+    [resultMatrix appendTranslation:boneSocketData.x y:boneSocketData.y z:boneSocketData.z];
+    if(testmatix){
+        [resultMatrix append:self.skinMesh.bindPosInvertMatrixAry[index]];
+        [resultMatrix append:testmatix];
+    }
+    [resultMatrix append:this.posMatrix3d];
+ 
+  
+}
+-(Matrix3D*)getFrameMatrix:(int)index;
+{
+     Display3dMovie* this =self;
+    if (this.animDic[this.curentAction]) {
+        AnimData* animData   = this.animDic[this.curentAction];
+        return animData.matrixAry[this.curentFrame][index];
+    } else if (this.animDic[this.defaultAction]) {
+        AnimData* animData  = this.animDic[this.defaultAction];
+        return animData.matrixAry[this.curentFrame][index];
+    }
+
+    return nil;
 }
 
 -(void)setRoleUrl:(NSString*)value;
