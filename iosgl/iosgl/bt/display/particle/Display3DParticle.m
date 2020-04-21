@@ -160,7 +160,7 @@
   //   var t: number = this._time % (Scene_data.frameTime * this.data._life);
      float t= fmod (self._time , [Scene_data default].frameTime * this.data._life);
     
-    NSLog(@"self._time    %f   ",t);
+    NSLog(@"self._time    %f    %f  ",t ,self._time);
  
     for (int i = 0; i < dynamicConstList.count; i++) {
         [dynamicConstList[i] update:t];

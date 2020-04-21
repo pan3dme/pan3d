@@ -82,7 +82,7 @@
     } else if (flag > this.maxFrame - this.begintFrame) {
         flag = this.maxFrame - this.begintFrame;
     }
-    NSLog(@"flag %d    %f   %f   %d",flag,t , [Scene_data default].frameTime, this.begintFrame);
+ //   NSLog(@"flag %d    %f   %f   %d",flag,t , [Scene_data default].frameTime, this.begintFrame);
     return this.valueVec[flag];;
 }
 /*
