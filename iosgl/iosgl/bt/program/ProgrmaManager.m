@@ -84,7 +84,7 @@ static ProgrmaManager *instance = nil;
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-       // [self changeShader:shader];
+        [self changeShader:shader];
         
       
         
@@ -98,6 +98,7 @@ static ProgrmaManager *instance = nil;
 
 -(void)changeShader:(Shader3D*)shader;
 {
+    /*
     shader.vertex=
           @"attribute vec3 v3Position;"
           "attribute vec2 v2TexCoord;"
@@ -112,18 +113,15 @@ static ProgrmaManager *instance = nil;
           "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;"
           "}";
         
+    */
     
     
            shader.fragment=
-           @"precision mediump float;"
-           "uniform sampler2D fs0;"
-           "uniform vec4 fc[1];"
-           "varying vec2 v0;"
-           "void main(void){"
-           "vec4 ft0 = texture2D(fs0,v0);"
-            "ft0.xyz =ft0.xyz*fc[0].xyz ;"
-            "gl_FragColor =vec4(1,0,0,1) ;"
-             "gl_FragColor =ft0;"
+           @"precision mediump float;\n"
+           "varying vec2 v0;\n"
+           "void main()"
+           "{"
+               "gl_FragColor =vec4(1.0,0.0,0.0,1.0);\n"
            "}";
     
   

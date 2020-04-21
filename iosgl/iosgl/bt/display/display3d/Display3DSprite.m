@@ -150,7 +150,7 @@
         return;
     }
     [self updateBind];
-   // self.shader3d=this.material.shader;
+    self.shader3d=this.material.shader;
     
     
     GLuint progame= self.shader3d.program;
@@ -178,7 +178,6 @@
     
     [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
         this.material=(Material*)obj;
-        this.material.shader=this.shader3d;
         if (this.material.useNormal) {
         }
         if (paramData) {
