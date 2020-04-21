@@ -10,6 +10,7 @@
 #import "TextureRes.h"
 #import "Shader3D.h"
 #import "ObjData.h"
+#import "IBind.h"
 #import "Material.h"
 #import "MaterialBaseParam.h"
 
@@ -19,7 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) TextureRes *textureRes;
 @property (nonatomic, strong) Shader3D *shader3d;
 @property (nonatomic, strong) ObjData *objData;
- -(void)initData;
+
+ 
+
+-(void)initData;
 -(void)loadTextureResByUrl:(NSString*)value;
 -(void)loadObjDataByUrl:(NSString*)url;
 -(void)onCreated;
@@ -29,5 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)registetProgame;
 -(void)setObjUrl:(NSString*)value;
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
+-(void)setBind:(id<IBind>)bindTarget bindSocket:(NSString*)bindSocket;
+-(void)setGroup:(Vector3D*)pos rotaion:(Vector3D*)rotaion  scale:(Vector3D*)scale;
 @end
 NS_ASSUME_NONNULL_END

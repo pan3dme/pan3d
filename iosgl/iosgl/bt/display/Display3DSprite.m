@@ -11,11 +11,19 @@
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
 #import "Scene3D.h"
+#import "GL_Header.h"
 #import "DynamicTexItem.h"
 #import "Display3DShader.h"
 #import "ProgrmaManager.h"
 #import "ObjDataManager.h"
 
+
+@interface Display3DSprite()
+@property (nonatomic, strong) Matrix3D *bindMatrix;
+@property (nonatomic, strong) id<IBind> bindTarget;
+@property (nonatomic, strong) NSString *bindSocket;
+
+@end
 @implementation Display3DSprite
 
 - (instancetype)init
@@ -97,23 +105,18 @@
  
     }];
 }
-
-
-/*
-public setObjUrl(value: string): void {
-     this.objurl = value;
-     ObjDataManager.getInstance().getObjData(Scene_data.fileRoot + value, ($obj: ObjData) => {
-         this.objData = $obj;
-
-         if (this.material) {
-             if (!this.objData.tangentBuffer) {
-                 ObjDataManager.getInstance().creatTBNBuffer(this.objData);
-             }
-         }
-
-     });
- }
-*/
+-(void)setBind:(id<IBind>)bindTarget bindSocket:(NSString*)bindSocket;
+{
+    self.bindTarget = bindTarget;
+    self.bindSocket = bindSocket;
+    self.bindMatrix = [[Matrix3D alloc]init];
+}
+ 
+-(void)setGroup:(Vector3D*)pos rotaion:(Vector3D*)rotaion  scale:(Vector3D*)scale;
+{
+    
+}
+ 
 -(void)registetProgame;
 {
     [[ProgrmaManager default] registe:Display3DShader.shaderStr shader3d: [[Display3DShader alloc]init]];

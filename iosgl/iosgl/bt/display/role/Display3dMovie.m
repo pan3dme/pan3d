@@ -276,65 +276,21 @@
               if (item.isGroup) {
                 //  particle.setGroup(posV3d, rotationV3d, scaleV3d);
               }
-            
           } else if (item.types == PREFAB_TYPE) {
               Display3DSprite *display=[[Display3DSprite alloc]init];
               [display setObjUrl:item.objUrl];
+              [ary addObject:display];
+              [display setBind:self bindSocket:bindSocket];
               [self.scene3d addDisplay:display];
-              /*
-            
-              display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
-              display.dynamic = true;
-              ary.push(display);
-              display.setBind(this, $bindSocket);
-              SceneManager.getInstance().addSpriteDisplay(display);
-              if (item.isGroup) {
-                  display.setGroup(posV3d, rotationV3d, scaleV3d);
+              if(item.isGroup){
+                  [display setGroup:posV3d rotaion:rotationV3d scale:scaleV3d];
               }
-              */
+           
 
           }
 
       }
-    /*
-    for (var i: number = 0; i < groupRes.dataAry.length; i++) {
-        var item: GroupItem = groupRes.dataAry[i];
-
-        var posV3d: Vector3D;
-        var rotationV3d: Vector3D;
-        var scaleV3d: Vector3D;
-        if (item.isGroup) {
-            posV3d = new Vector3D(item.x, item.y, item.z);
-            rotationV3d = new Vector3D(item.rotationX, item.rotationY, item.rotationZ);
-            scaleV3d = new Vector3D(item.scaleX, item.scaleY, item.scaleZ);
-        }
-
-        if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
-            var particle: CombineParticle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
-            ary.push(particle);
-            particle.bindTarget = this;
-            particle.bindSocket = $bindSocket;
-            particle.dynamic = true;
-            ParticleManager.getInstance().addParticle(particle);
-            if (item.isGroup) {
-                particle.setGroup(posV3d, rotationV3d, scaleV3d);
-            }
-        } else if (item.types == BaseRes.PREFAB_TYPE) {
-            var display: Display3DSprite = new Display3DSprite();
-            display.setObjUrl(item.objUrl);
-            display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
-            display.dynamic = true;
-            ary.push(display);
-            display.setBind(this, $bindSocket);
-            SceneManager.getInstance().addSpriteDisplay(display);
-            if (item.isGroup) {
-                display.setGroup(posV3d, rotationV3d, scaleV3d);
-            }
-
-        }
-
-    }
-    */
+  
 }
  
 @end
