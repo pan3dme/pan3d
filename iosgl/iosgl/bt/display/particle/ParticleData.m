@@ -10,6 +10,7 @@
 #import "TimeLineData.h"
 #import "ByteArray.h"
 #import "TimeLine.h"
+#import "Scene_data.h"
 #import "CurveVo.h"
 #import "ParamDataVo.h"
 #import "ParticleModelData.h"
@@ -95,7 +96,7 @@
        return;
     }
     self._materialUrl = value;
-    [[MaterialManager default] getMaterialByte:value fun:^(NSObject * obj) {
+    [[MaterialManager default] getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * obj) {
         [self onMaterialLoad:(Material*)obj];
     } info:nil autoReg:nil regName:nil shader3DCls:nil];
 

@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
-            landmarkName = "-loadObjDataByUrl:"
-            landmarkType = "7">
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
             endingLineNumber = "164"
-            landmarkName = "-upFrame"
-            landmarkType = "7">
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
             endingLineNumber = "163"
-            landmarkName = "-loadTextureResByUrl:"
-            landmarkType = "7">
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "319EB293-D546-4744-8907-6A8F17D33FFD - f89372931d12ea2"
@@ -128,8 +128,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
             endingLineNumber = "160"
-            landmarkName = "-loadTextureResByUrl:"
-            landmarkType = "7">
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -193,7 +193,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "-setGroup:rotaion:scale:"
+            landmarkName = "-setMaterialUrl:paramData:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -241,7 +241,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
             endingLineNumber = "144"
-            landmarkName = "-setGroup:rotaion:scale:"
+            landmarkName = "-setMaterialUrl:paramData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -257,7 +257,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
             endingLineNumber = "149"
-            landmarkName = "-registetProgame"
+            landmarkName = "-setMaterialUrl:paramData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

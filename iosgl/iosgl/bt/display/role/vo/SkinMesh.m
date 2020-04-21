@@ -65,7 +65,8 @@
     NSString* url =meshData.materialUrl;
         url= [url stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
         url= [url stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
-    [[MaterialManager default] getMaterialByte:url fun:^(NSObject *obj) {
+  
+    [[MaterialManager default] getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:url] fun:^(NSObject *obj) {
         meshData.material=(Material*)obj;
         if (meshData.materialParamData){
             meshData.materialParam =[[MaterialBaseParam alloc]init];
