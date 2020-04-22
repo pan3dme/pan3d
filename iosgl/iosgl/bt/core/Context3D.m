@@ -175,6 +175,38 @@
        }
 }
  
+
+-(void)setRenderTextureCube:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
+{
+    GLuint textureSlot = glGetUniformLocation(shader.program, (char*)[name UTF8String]);
+    switch (level) {
+        case 0:
+            glActiveTexture(GL_TEXTURE0);
+            break;
+        case 1:
+            glActiveTexture(GL_TEXTURE1);
+            break;
+        case 2:
+            glActiveTexture(GL_TEXTURE2);
+            break;
+        case 3:
+            glActiveTexture(GL_TEXTURE3);
+            break;
+        case 4:
+            glActiveTexture(GL_TEXTURE4);
+            break;
+        case 5:
+            glActiveTexture(GL_TEXTURE5);
+            break;
+        case 6:
+            glActiveTexture(GL_TEXTURE6);
+            break;
+        default:
+            break;
+    }
+    glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
+    glUniform1i(textureSlot, level);
+}
 -(void)setRenderTexture:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
 {
     GLuint textureSlot = glGetUniformLocation(shader.program, (char*)[name UTF8String]);
@@ -207,25 +239,34 @@
     glUniform1i(textureSlot, level);
 }
 //  public getTexture($img: any, $wrap: number = 0, $filter: number = 0, $mipmap: number = 0): WebGLTexture {
-
-+(GLuint)getTexture:(UIImage*)image wrap:(int)wrap;
++(GLvoid* )imageChangeToImageData:(UIImage*)image;
 {
     // 将 UIImage 转换为 CGImageRef
-      CGImageRef cgImageRef = [image CGImage];
+         CGImageRef cgImageRef = [image CGImage];
+         GLuint width = (GLuint)CGImageGetWidth(cgImageRef);
+         GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
+         CGRect rect = CGRectMake(0, 0, width, height);
+         
+         // 绘制图片
+         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+         void *imageData = malloc(width * height * 4);
+         CGContextRef context = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+         CGContextTranslateCTM(context, 0, 0);
+         CGContextScaleCTM(context, 1.0f,  1.0f);  //纹理反着
+         CGColorSpaceRelease(colorSpace);
+         CGContextClearRect(context, rect);
+         CGContextDrawImage(context, rect, cgImageRef);
+     CGContextRelease(context);
+    return imageData;
+          
+}
++(GLuint)getTexture:(UIImage*)image wrap:(int)wrap;
+{
+     
+    CGImageRef cgImageRef = [image CGImage];
       GLuint width = (GLuint)CGImageGetWidth(cgImageRef);
       GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
-      CGRect rect = CGRectMake(0, 0, width, height);
-      
-      // 绘制图片
-      CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-      void *imageData = malloc(width * height * 4);
-      CGContextRef context = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-      CGContextTranslateCTM(context, 0, 0);
-      CGContextScaleCTM(context, 1.0f,  1.0f);  //纹理反着
-      CGColorSpaceRelease(colorSpace);
-      CGContextClearRect(context, rect);
-      CGContextDrawImage(context, rect, cgImageRef);
-       
+     void *imageData = [Context3D imageChangeToImageData:image];
       // 生成纹理
       GLuint textureID;
       glGenTextures(1, &textureID);
@@ -241,16 +282,45 @@
       
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-      
-    
+   
       
       // 解绑
       glBindTexture(GL_TEXTURE_2D, 0);
       
       // 释放内存
-      CGContextRelease(context);
+     
       free(imageData);
       
       return textureID;
 }
+
+ 
++(GLuint)makeCubeText:(UIImage*)image;
+{
+    
+    CGImageRef cgImageRef = [image CGImage];
+    GLuint width = (GLuint)CGImageGetWidth(cgImageRef);
+    GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
+    
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+    
+    glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+    for(GLuint i = 0; i <6; i++)
+    {
+        void *imageData = [Context3D imageChangeToImageData:image];
+        
+        glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width/3, height/3, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+    }
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+    
+    return textureID;
+    
+}
+  
 @end

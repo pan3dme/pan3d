@@ -27,12 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setVaOffset:(Shader3D*)shader name:(GLchar*)name dataWidth:(int)dataWidth stride:(int)stride offset:(int)offset;
 -(void)clearVa:(int)dataId;
 -(void)drawCall:(GLuint)ibuff numTril:(int)numTril;
+-(void)setRenderTextureCube:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
 -(void)setRenderTexture:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
 -(void)setBlendParticleFactors:(int)type;
 -(void)setDepthTest:(BOOL)tf;
 -(void)cullFaceBack:(BOOL)tf;
 -(void)setProgram:(GLuint)progame;
++(GLvoid* )imageChangeToImageData:(UIImage*)image;
 +(GLuint)getTexture:(UIImage*)image wrap:(int)wrap;
++(GLuint)makeCubeText:(UIImage*)image;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -49,7 +49,7 @@
 -(void)initData;
 {
     [self onCreated];
-    [self registetProgame];
+//    [self registetProgame];
 }
 
 -(void)onCreated;
@@ -99,8 +99,8 @@
  
 -(void)registetProgame;
 {
-    [[ProgrmaManager default] registe:MaterialShader.shaderStr shader3d: [[MaterialShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:MaterialShader.shaderStr];
+//    [[ProgrmaManager default] registe:MaterialShader.shaderStr shader3d: [[MaterialShader alloc]init]];
+//    self.shader3d=  [[ProgrmaManager default] getProgram:MaterialShader.shaderStr];
 }
 -(void)loadObjDataByUrl:(NSString*)url
 {
@@ -169,12 +169,12 @@
     Display3DSprite* this=self;
     Context3D *ctx=this.scene3d.context3D;
     [ctx pushVa:this.objData.verticesBuffer];
-    [ctx setVaOffset:this.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:this.objData.uvBuffer];
-    [ctx setVaOffset:this.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"v2CubeTexST" dataWidth:2 stride:0 offset:0];
     if (this.material.usePbr || this.material.directLight) {
         [ctx pushVa:this.objData.nrmsBuffer];
-        [ctx setVaOffset:this.shader3d name:"vNormal" dataWidth:4 stride:0 offset:0];
+        [ctx setVaOffset:this.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
         
     }
      
@@ -204,35 +204,7 @@
          }
     } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 }
-/*
- public setMaterialUrl(value: string, $paramData: Array<any> = null): void {
-
-
-     value = value.replace("_byte.txt", ".txt")
-     value = value.replace(".txt", "_byte.txt")
-
-     this.materialUrl = Scene_data.fileRoot + value;
-  
-     MaterialManager.getInstance().getMaterialByte(this.materialUrl, ($material: Material) => {
-         this.material = $material;
-         if (this.material.useNormal) {
-             if (this.objData && !this.objData.tangentBuffer) {
-                 ObjDataManager.getInstance().creatTBNBuffer(this.objData);
-             }
-         }
-         if (this.material.usePbr || this.material.directLight) {
-             this._rotationData = new Float32Array(9);
-             this.updateRotationMatrix();
-         }
-
-         if ($paramData) {
-             this.materialParam = new MaterialBaseParam();
-             this.materialParam.setData(this.material, $paramData);
-         }
-
-     }, null, true, MaterialShader.MATERIAL_SHADER, MaterialShader);
- }
- */
+ 
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     Context3D *ctx=self.scene3d.context3D;
@@ -241,7 +213,25 @@
         if (texVec[i].isDynamic) {
             continue;
         }
-        [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+        if (texVec[i].type == TexItem.LIGHTMAP) {
+            // Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, this.lightMapTexture, texVec[i].id);
+            NSLog(@"TexItem.LIGHTMAP)");
+        }
+        else if (texVec[i].type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
+            //  Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, Scene_data.pubLut, texVec[i].id);
+             NSLog(@"TexItem.LTUMAP)");
+        }
+        else if (texVec[i].type == TexItem.CUBEMAP) {
+            if (material.useDynamicIBL) {// && _reflectionTextureVo) {
+                NSLog(@"TexItem.useDynamicIBL)");
+            } else {
+                if([Scene_data default].skyCubeTexture){
+                     [ctx setRenderTextureCube:material.shader name:texVec[i].name texture:[Scene_data default].skyCubeTexture level:0];
+                }
+            }
+        }else{
+            [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+        }
     }
     
     NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
@@ -256,9 +246,15 @@
 
 -(void)setVc;
 {
-    Context3D *context3D=self.scene3d.context3D;
-    [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
-    [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+    Display3DSprite* this=self;
+    
+    Context3D *context3D=this.scene3d.context3D;
+    [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:this.viewMatrix.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
+    
+    if (this.material.usePbr || this.material.directLight) {
+         [context3D setVcMatrix3fv:this.shader3d name:"rotationMatrix3D" data:this.rotationMatrix3D.rotationM];
+    }
 }
 -(void)setVa;
 {

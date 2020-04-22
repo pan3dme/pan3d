@@ -11,7 +11,9 @@
 #import "Scene3D.h"
 #import "Display3dMovie.h"
 #import "ParticleManager.h"
+#import "TextureManager.h"
 #import "TimeUtil.h"
+#import "Scene_data.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
 @end
@@ -40,6 +42,10 @@
         self.fpsLabel.text=@"60fps";
         self.fpsLabel.backgroundColor=[UIColor redColor];
         [self.uiView addSubview:self.fpsLabel];
+        
+        [[TextureManager default] loadCubeTexture:@"base/cube/f01.jpg" fun:^(GLuint cubeTexture) {
+            [Scene_data default].skyCubeTexture=cubeTexture;
+        }];
         
  
     }
@@ -168,6 +174,8 @@
     GLKView *dd=[[GLKView alloc]init];
      dd.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;  //颜色缓冲区格式
     [EAGLContext setCurrentContext:self.context3D.gl];
+    
+  
 }
 
 

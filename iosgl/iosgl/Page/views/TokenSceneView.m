@@ -5,6 +5,7 @@
 //  Created by zhao on 21/2/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
+#import "GL_Header.h"
 #import "AppWorldHeader.h"
 #import "TokenSceneView.h"
 #import "SceneView.h"
@@ -26,7 +27,8 @@
 #import "Display3dMovie.h"
 #import "DisplayTestSprite.h"
 #import "Scene3D.h"
-#import "GL_Header.h"
+#import "TextureManager.h"
+
 
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
@@ -112,7 +114,7 @@
 
 -(void)playTypeBut:(int)tabId;
 {
-    [self.sceneView makeEemptyScene];
+     [self.sceneView makeEemptyScene];
        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
   //     [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
       //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
@@ -149,11 +151,11 @@ NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
               }
               break;
           case 3:
-            
-           [ self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
+          
               break;
               
           case 4:
+          
               if(!mainChar){
                   mainChar=[[SceneChar alloc]init];
                   [self.sceneView.scene3D addMovieDisplay:mainChar] ;

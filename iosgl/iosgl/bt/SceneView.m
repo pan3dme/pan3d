@@ -115,7 +115,7 @@
     if(!self.scene3D){
           self.scene3D=[[Scene3D alloc]init:self];
       }
-     [self.scene3D clearAll];
+    // [self.scene3D clearAll];
 }
  
 -(void)addBuildSprite:(NSDictionary*)value
