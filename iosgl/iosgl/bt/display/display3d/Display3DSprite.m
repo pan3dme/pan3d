@@ -49,7 +49,7 @@
 -(void)initData;
 {
     [self onCreated];
-    [self registetProgame];
+//    [self registetProgame];
 }
 
 -(void)onCreated;
@@ -99,8 +99,8 @@
  
 -(void)registetProgame;
 {
-    [[ProgrmaManager default] registe:MaterialShader.shaderStr shader3d: [[MaterialShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:MaterialShader.shaderStr];
+//    [[ProgrmaManager default] registe:MaterialShader.shaderStr shader3d: [[MaterialShader alloc]init]];
+//    self.shader3d=  [[ProgrmaManager default] getProgram:MaterialShader.shaderStr];
 }
 -(void)loadObjDataByUrl:(NSString*)url
 {
@@ -204,35 +204,7 @@
          }
     } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 }
-/*
- public setMaterialUrl(value: string, $paramData: Array<any> = null): void {
-
-
-     value = value.replace("_byte.txt", ".txt")
-     value = value.replace(".txt", "_byte.txt")
-
-     this.materialUrl = Scene_data.fileRoot + value;
-  
-     MaterialManager.getInstance().getMaterialByte(this.materialUrl, ($material: Material) => {
-         this.material = $material;
-         if (this.material.useNormal) {
-             if (this.objData && !this.objData.tangentBuffer) {
-                 ObjDataManager.getInstance().creatTBNBuffer(this.objData);
-             }
-         }
-         if (this.material.usePbr || this.material.directLight) {
-             this._rotationData = new Float32Array(9);
-             this.updateRotationMatrix();
-         }
-
-         if ($paramData) {
-             this.materialParam = new MaterialBaseParam();
-             this.materialParam.setData(this.material, $paramData);
-         }
-
-     }, null, true, MaterialShader.MATERIAL_SHADER, MaterialShader);
- }
- */
+ 
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     Context3D *ctx=self.scene3d.context3D;
