@@ -158,7 +158,7 @@ static ProgrmaManager *instance = nil;
     "varying vec2 v0;\n"
     "void main()"
     "{"
-         "vec4 infouv = texture2D(fs0,v0);\n"
+         "vec4 infouv = texture2D(fs1,v0);\n"
         //"vec4infouv = vec4(1.0,0.0,0.0,1.0);\n"
         "gl_FragColor =infouv;\n"
     "}";

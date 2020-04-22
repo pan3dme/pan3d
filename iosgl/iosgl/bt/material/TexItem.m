@@ -11,6 +11,29 @@
 @property (nonatomic, assign)  int  idx;
 @end
 @implementation TexItem
+
++(int)LIGHTMAP;
+{
+    return 1;
+}
++(int)LTUMAP;
+{
+    return 2;
+}
++(int)CUBEMAP;
+{
+    return 3;
+}
++(int)HEIGHTMAP;
+{
+    return 4;
+}
++(int)REFRACTIONMAP;
+{
+    return 5;
+}
+ 
+
 - (instancetype)init
 {
     self = [super init];

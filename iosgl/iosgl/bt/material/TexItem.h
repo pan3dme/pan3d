@@ -28,6 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setId:(int)id;
 -(int)id;
 
++(int)LIGHTMAP;
++(int)LTUMAP;
++(int)CUBEMAP;
++(int)HEIGHTMAP;
++(int)REFRACTIONMAP;
+ 
 @end
 
 NS_ASSUME_NONNULL_END
