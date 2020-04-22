@@ -14,10 +14,12 @@
     
     if( self.vertices&&self.vertices.count){
         self.verticesBuffer=  [self upGpuvertexBuffer:self.vertices];
-         self.uvBuffer=  [self upGpuvertexBuffer:self.uvs];
-         self.indexBuffer=  [self upGpuIndexBuffer:self.indexs];
+        self.uvBuffer=  [self upGpuvertexBuffer:self.uvs];
+        if(self.uvs&&self.uvs.count){
+            self.nrmsBuffer=  [self upGpuvertexBuffer:self.nrms];
+        }
+        self.indexBuffer=  [self upGpuIndexBuffer:self.indexs];
         self.trinum=(int)self.indexs.count;
-        
     }  else if(self.dataView){
      
 

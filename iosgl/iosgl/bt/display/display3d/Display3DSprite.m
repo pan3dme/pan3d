@@ -149,25 +149,43 @@
     if (!this.material || !this.objData) {
         return;
     }
-    [self updateBind];
-    self.shader3d=this.material.shader;
+    [this updateBind];
+    this.shader3d=this.material.shader;
     
     
     GLuint progame= self.shader3d.program;
     glUseProgram(progame);
     
-    [self updateBind];
-    [self setVc];
-    [self setVa];
-    [self resetVa];
+    [this updateBind];
+    [this setVc];
+    [this setMaterialTexture:this.material mp:this.materialParam];
+    [this setMaterialVa];
+    [this resetVa];
  
  
+}
+-(void)setMaterialVa;
+{
+    Display3DSprite* this=self;
+    Context3D *ctx=this.scene3d.context3D;
+    [ctx pushVa:this.objData.verticesBuffer];
+    [ctx setVaOffset:this.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
+    [ctx pushVa:this.objData.uvBuffer];
+    [ctx setVaOffset:this.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
+    if (this.material.usePbr || this.material.directLight) {
+        [ctx pushVa:this.objData.nrmsBuffer];
+        [ctx setVaOffset:this.shader3d name:"vNormal" dataWidth:4 stride:0 offset:0];
+        
+    }
+     
+    [ctx drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
 }
 - (void)resetVa;
 {
    Context3D *ctx=self.scene3d.context3D;
     [ctx clearVa:0];
     [ctx clearVa:1];
+    [ctx clearVa:2];
 }
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 {
@@ -250,6 +268,8 @@
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:self.objData.uvBuffer];
     [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
+    
+    
     
     [ctx drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
     
