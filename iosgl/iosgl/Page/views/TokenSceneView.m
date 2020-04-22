@@ -109,7 +109,7 @@
 - (IBAction)zoom_min_clik:(id)sender {
     
   
-    [self playTypeBut:3];
+    [self playTypeBut:4];
 }
 
 -(void)playTypeBut:(int)tabId;

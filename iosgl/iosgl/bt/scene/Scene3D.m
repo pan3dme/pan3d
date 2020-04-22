@@ -42,6 +42,8 @@
         self.fpsLabel.backgroundColor=[UIColor redColor];
         [self.uiView addSubview:self.fpsLabel];
         
+         [[TextureManager default] loadCubeTexture:@"base/cube/f0%d.jpg" fun:^(NSObject * _Nonnull any) {  }];
+        
  
     }
     return self;
