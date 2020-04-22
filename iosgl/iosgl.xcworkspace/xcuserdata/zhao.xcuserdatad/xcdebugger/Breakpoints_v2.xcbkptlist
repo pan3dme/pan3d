@@ -351,8 +351,8 @@
             filePath = "iosgl/bt/program/ProgrmaManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-getMaterialProgram:shaderCls:material:paramAry:parmaByFragmet:"
             landmarkType = "7">
          </BreakpointContent>
@@ -367,8 +367,8 @@
             filePath = "iosgl/bt/program/ProgrmaManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-getMaterialProgram:shaderCls:material:paramAry:parmaByFragmet:"
             landmarkType = "7">
          </BreakpointContent>
@@ -399,8 +399,8 @@
             filePath = "iosgl/bt/program/ProgrmaManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-getMaterialProgram:shaderCls:material:paramAry:parmaByFragmet:"
             landmarkType = "7">
          </BreakpointContent>
@@ -415,8 +415,8 @@
             filePath = "iosgl/bt/program/ProgrmaManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-getMaterialProgram:shaderCls:material:paramAry:parmaByFragmet:"
             landmarkType = "7">
          </BreakpointContent>
@@ -479,8 +479,8 @@
             filePath = "iosgl/bt/program/ProgrmaManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-changeShader:"
             landmarkType = "7">
          </BreakpointContent>
@@ -831,8 +831,8 @@
             filePath = "iosgl/bt/program/MaterialShader.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-getVertexShaderString"
             landmarkType = "7">
          </BreakpointContent>
@@ -856,16 +856,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "38B7FD1B-4154-49B5-8B66-85D9B4AA4F9B"
+            uuid = "A24AE712-FC0D-4052-9467-F928B7F666C2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/program/MaterialShader.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-getVertexShaderString"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "006DF6CD-046B-409B-91FB-E4F931D009CD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/program/ProgrmaManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-getMaterialProgram:shaderCls:material:paramAry:parmaByFragmet:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D868005C-396B-4B2B-89B4-83746903598C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/program/ProgrmaManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-getMaterialProgram:shaderCls:material:paramAry:parmaByFragmet:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

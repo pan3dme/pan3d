@@ -69,8 +69,13 @@ static ProgrmaManager *instance = nil;
         NSNumber* useDynamicIBL=[NSNumber numberWithFloat: material.useDynamicIBL?1:0];
         NSNumber* lightProbe=[NSNumber numberWithFloat: material.lightProbe?1:0];
         NSNumber* directLight=[NSNumber numberWithFloat: material.directLight?1:0];
+        NSNumber* noLight=[NSNumber numberWithFloat: material.noLight?1:0];
         NSNumber* fogMode=[NSNumber numberWithFloat: material.fogMode?1:0];
-        paramAry = @[ usePbr, useNormal,  hasFresnel,  useDynamicIBL, lightProbe,  directLight,fogMode];
+        
+//        paramAry = [$material.usePbr, $material.useNormal, $material.hasFresnel,
+//                      $material.useDynamicIBL, $material.lightProbe, $material.directLight,
+//                      $material.noLight,$material.fogMode];
+        paramAry = @[ usePbr, useNormal,  hasFresnel,  useDynamicIBL, lightProbe,  directLight,noLight,fogMode];
  
        }
     Shader3D* shader = shaderCls;

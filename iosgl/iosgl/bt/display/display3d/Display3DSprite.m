@@ -171,10 +171,10 @@
     [ctx pushVa:this.objData.verticesBuffer];
     [ctx setVaOffset:this.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:this.objData.uvBuffer];
-    [ctx setVaOffset:this.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"v2CubeTexST" dataWidth:2 stride:0 offset:0];
     if (this.material.usePbr || this.material.directLight) {
         [ctx pushVa:this.objData.nrmsBuffer];
-        [ctx setVaOffset:this.shader3d name:"vNormal" dataWidth:4 stride:0 offset:0];
+        [ctx setVaOffset:this.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
         
     }
      

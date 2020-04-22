@@ -19,14 +19,14 @@
     
     char* relplayChat =
     "attribute vec3 vPosition;\n"
-    "attribute vec2 texcoord;\n"
-    "attribute vec3 vNormal;\n"
+    "attribute vec2 v2CubeTexST;\n"
+    "attribute vec3 v3Normal;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
     "varying vec2 v0;\n"
     "void main()"
     "{"
-         "v0= texcoord;\n"
+         "v0= v2CubeTexST;\n"
          "vec4 vPos = vec4(vPosition.xyz,1.0);\n"
          "gl_Position = vPos * posMatrix* viewMatrix;\n"
     "}";
@@ -40,21 +40,17 @@
     BOOL lightProbe = [this.paramAry[4]boolValue];
     BOOL directLight = [this.paramAry[5]boolValue];
     BOOL noLight = [this.paramAry[6]boolValue];
-//    BOOL fogMode = [this.paramAry[7]boolValue];
-    int fogMode=0;
+    BOOL fogMode = [this.paramAry[7]boolValue];
+  
     
     NSString* addstr;
     NSString* str=
-    @"attribute vec3 vPosition;\n"
-    "attribute vec2 texcoord;\n"
-    "varying vec2 v0;\n";
     
-    if(directLight){
-        addstr= @"attribute vec3 v3Position;\n"
-        "attribute vec2 v2CubeTexST;\n"
-        "varying vec2 v0;\n";
-        str=  [str stringByAppendingString:addstr];
-    }
+    
+    @"attribute vec3 vPosition;\n"
+    "attribute vec2 v2CubeTexST;\n"
+    "varying vec2 v0;\n";
+ 
     if (directLight) {
         addstr= @"varying vec3 v2;\n";
         str=  [str stringByAppendingString:addstr];
@@ -102,7 +98,7 @@
         str=  [str stringByAppendingString:addstr];
     }
     addstr=
-    @"uniform mat4 vpMatrix3D;\n"
+    @"uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix3D;\n"
     "uniform mat3 rotationMatrix3D;\n";
     str=  [str stringByAppendingString:addstr];
@@ -154,6 +150,8 @@
     }
     addstr= @"gl_Position = vt0; }";
     str=  [str stringByAppendingString:addstr];
+    
+    NSLog(@"\n%@",str);
     
     
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
