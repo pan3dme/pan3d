@@ -16,23 +16,47 @@
 -(NSString *)getVertexShaderString;{
     
     MaterialShader* this=self;
-    
+    /*
+     attribute vec3 vPosition;
+     attribute vec2 v2CubeTexST;
+     varying vec2 v0;
+     attribute vec3 v3Normal;
+     varying vec3 v1;
+     varying vec3 v4;
+     uniform mat4 viewMatrix;
+     uniform mat4 posMatrix3D;
+     uniform mat3 rotationMatrix3D;
+     void main(void){
+     v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);
+     vec4 vt0= vec4(v3Position, 1.0);
+     vt0 = posMatrix3D * vt0;
+     v1 = vec3(vt0.x,vt0.y,vt0.z);
+     vt0 = vpMatrix3D * vt0;
+     v4 = rotationMatrix3D * v3Normal;
+     gl_Position = vt0; }
+     */
     char* relplayChat =
-    "attribute vec3 vPosition;\n"
+    "attribute vec3 v3Position;\n"
     "attribute vec2 v2CubeTexST;\n"
     "attribute vec3 v3Normal;\n"
-    "uniform mat4 viewMatrix;\n"
-    "uniform mat4 posMatrix;\n"
+    "uniform mat4 vpMatrix3D;\n"
+    "uniform mat4 posMatrix3D;\n"
+    "uniform mat3 rotationMatrix3D;\n"
     "varying vec2 v0;\n"
+    "varying vec3 v1;\n"
+    "varying vec3 v4;\n"
     "void main()"
     "{"
-         "v0= v2CubeTexST;\n"
-         "vec4 vPos = vec4(vPosition.xyz,1.0);\n"
-         "gl_Position = vPos * posMatrix* viewMatrix;\n"
+        "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);\n"
+        "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
+        "vec4 vt0= vec4(v3Position, 1.0);\n"
+        "vt0 = posMatrix3D * vt0;\n"
+        "v1 = vec3(vt0.x,vt0.y,vt0.z);\n"
+        "vt0 = vpMatrix3D * vt0;"
+         "v4 = rotationMatrix3D * v3Normal;"
+        "gl_Position = vPos * posMatrix3D* vpMatrix3D;\n"
     "}";
-    
-    
-    
+  
     BOOL usePbr    = [this.paramAry[0] boolValue];
     BOOL useNormal = [this.paramAry[1]boolValue];
     BOOL hasFresnel = [this.paramAry[2] boolValue];
@@ -47,7 +71,7 @@
     NSString* str=
     
     
-    @"attribute vec3 vPosition;\n"
+    @"attribute vec3 v3Position;\n"
     "attribute vec2 v2CubeTexST;\n"
     "varying vec2 v0;\n";
  
@@ -153,6 +177,7 @@
     
     NSLog(@"\n%@",str);
     
+   // return str;
     
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     

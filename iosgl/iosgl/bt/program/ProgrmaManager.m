@@ -161,6 +161,8 @@ static ProgrmaManager *instance = nil;
     "uniform sampler2D fs1;\n"
     "uniform samplerCube fs2;\n"
     "varying vec2 v0;\n"
+    "varying vec3 v1;\n"
+    "varying vec3 v4;\n"
     "void main()"
     "{"
          "vec4 infouv = texture2D(fs1,v0);\n"

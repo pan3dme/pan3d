@@ -169,7 +169,7 @@
     Display3DSprite* this=self;
     Context3D *ctx=this.scene3d.context3D;
     [ctx pushVa:this.objData.verticesBuffer];
-    [ctx setVaOffset:this.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:this.objData.uvBuffer];
     [ctx setVaOffset:this.shader3d name:"v2CubeTexST" dataWidth:2 stride:0 offset:0];
     if (this.material.usePbr || this.material.directLight) {
@@ -246,9 +246,15 @@
 
 -(void)setVc;
 {
-    Context3D *context3D=self.scene3d.context3D;
-    [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
-    [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+    Display3DSprite* this=self;
+    
+    Context3D *context3D=this.scene3d.context3D;
+    [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:this.viewMatrix.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
+    
+    if (this.material.usePbr || this.material.directLight) {
+         [context3D setVcMatrix3fv:this.shader3d name:"rotationMatrix3D" data:this.rotationMatrix3D.rotationM];
+    }
 }
 -(void)setVa;
 {
