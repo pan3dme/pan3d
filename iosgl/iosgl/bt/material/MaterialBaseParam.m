@@ -79,4 +79,23 @@
     }
     
 }
+
+-(void)update;
+{
+     MaterialBaseParam* this=self;
+    if (this.material && this.dynamicConstList) {
+        for (int i = 0; i < this.dynamicConstList.count; i++) {
+            [this.dynamicConstList[i] update];
+        }
+    }
+}
+/*
+ public update(): void {
+        if (this.material && this.dynamicConstList) {
+            for (var i: number = 0; i < this.dynamicConstList.length; i++) {
+                this.dynamicConstList[i].update();
+            }
+        }
+    }
+ */
 @end

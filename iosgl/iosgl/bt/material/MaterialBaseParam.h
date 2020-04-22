@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  NSMutableArray*  dynamicConstList;
  
 -(void)setData:(Material*)material ary:(NSArray<NSDictionary*>*)ary;
+-(void)update;
 @end
 
 NS_ASSUME_NONNULL_END
