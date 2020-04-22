@@ -14,10 +14,10 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "-setMaterialUrl:paramData:"
-            landmarkType = "7">
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +30,10 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "-setMaterialUrl:paramData:"
-            landmarkType = "7">
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,10 +46,10 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "-setMaterialUrl:paramData:"
-            landmarkType = "7">
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "319EB293-D546-4744-8907-6A8F17D33FFD - f89372931d12ea2"
@@ -126,10 +126,10 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "-setMaterialUrl:paramData:"
-            landmarkType = "7">
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "Display3DSprite"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "DE23DED6-9FAE-4BA6-9841-9D00616B78DA - f89372931d12ea2"
@@ -223,8 +223,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "-updateMaterial"
             landmarkType = "7">
             <Locations>
@@ -264,22 +264,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C0A99997-DDFA-4131-B228-8BA0F509623F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-updateMaterial"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "16B60B92-402A-47BC-A611-855FBDED19C3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -287,9 +271,9 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-resetVa"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-setMaterialUrl:paramData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -303,8 +287,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-updateMaterial"
             landmarkType = "7">
          </BreakpointContent>
@@ -434,6 +418,70 @@
             startingLineNumber = "83"
             endingLineNumber = "83"
             landmarkName = "-getMaterialProgram:shaderCls:material:paramAry:parmaByFragmet:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F655A61D-7CB3-47C0-B087-4CF141241373"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/base/ObjData.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-upToGpu"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50D0E25F-4374-401B-A0BB-0538A00C8F27"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "-setMaterialUrl:paramData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F99203A-879B-40B8-8AAC-6181B5953226"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "-setVc"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD5C9EA9-857B-453C-B160-FFE72768CB9C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/program/ProgrmaManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-changeShader:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
