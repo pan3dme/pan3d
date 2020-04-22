@@ -109,7 +109,7 @@
 - (IBAction)zoom_min_clik:(id)sender {
     
   
-    [self playTypeBut:4];
+    [self playTypeBut:3];
 }
 
 -(void)playTypeBut:(int)tabId;
@@ -155,6 +155,7 @@ NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
               break;
               
           case 4:
+          
               if(!mainChar){
                   mainChar=[[SceneChar alloc]init];
                   [self.sceneView.scene3D addMovieDisplay:mainChar] ;
