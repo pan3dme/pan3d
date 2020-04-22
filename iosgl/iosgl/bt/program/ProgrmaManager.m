@@ -82,17 +82,13 @@ static ProgrmaManager *instance = nil;
     shader.paramAry = paramAry;
     shader.vertex=shader.vertexStr;
     shader.fragment = material.shaderStrRead;
-   
-      //keyStr    __NSCFString *    @"Display3DBallPartilceShadercontent/particleresources/materials/m_ef_par_byte.txt_1_0_0_0_1_0_0false_"    0x0000000281e3ac40
-   //keyStr    __NSCFString *    @"MaterialShaderhttp://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/mate
+    
     if ([keyStr rangeOfString:@"MaterialShaderhttp"].location != NSNotFound) {
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-      //  [self changeShader:shader];
-        
-      
-        
+        [self changeShader:shader];
+    
     }
     
     [shader encodeVstr:shader.vertex encodeFstr:shader.fragment];
@@ -164,8 +160,7 @@ static ProgrmaManager *instance = nil;
     "varying vec2 v0;"
     "varying vec3 v1;"
     "varying vec3 v4;"
-    "void main()"
-    "{"
+    "void main(void){"
     "vec4 ft0 = texture2D(fs0,v0);"
     "vec4 ft1 = vec4(ft0.xyz,1.0);"
     "vec4 ft2 = vec4(0,0,0,1);"
@@ -183,15 +178,13 @@ static ProgrmaManager *instance = nil;
     "ft4.xyz = v1.xyz - fc[0].xyz;"
     "ft4.xyz = normalize(ft4.xyz);"
     "ft4.xyz = reflect(ft4.xyz,ft2.xyz);"
-    "ft4 = textureCube(fs2,v4.xyz);"
+//    "ft4 = textureCube(fs2,ft4.xyz);"
 //    "ft3.xyz = ft3.xyz * ft4.xyz;"
 //    "ft4.xyz = ft1.xyz * (1.0-fc[1].x);"
 //    "ft4.xyz = ft4.xyz + ft3.xyz;"
-     "ft4.w = 1.0;"
-//         "vec4 infouv = texture2D(fs1,v0);\n"
-       //  "infouv = vec4(1.0,0.0,0.0,1.0);\n"
-        //"infouv = vec4(ft4.xyz,1.0);\n"
-        "gl_FragColor =ft4;\n"
+    "ft4.w = 1.0;"
+    "gl_FragColor = ft4;"
+ 
     "}";
 
   
