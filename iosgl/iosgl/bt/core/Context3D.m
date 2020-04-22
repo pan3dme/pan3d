@@ -207,25 +207,34 @@
     glUniform1i(textureSlot, level);
 }
 //  public getTexture($img: any, $wrap: number = 0, $filter: number = 0, $mipmap: number = 0): WebGLTexture {
-
-+(GLuint)getTexture:(UIImage*)image wrap:(int)wrap;
++(GLvoid* )imageChangeToImageData:(UIImage*)image;
 {
     // 将 UIImage 转换为 CGImageRef
-      CGImageRef cgImageRef = [image CGImage];
+         CGImageRef cgImageRef = [image CGImage];
+         GLuint width = (GLuint)CGImageGetWidth(cgImageRef);
+         GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
+         CGRect rect = CGRectMake(0, 0, width, height);
+         
+         // 绘制图片
+         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+         void *imageData = malloc(width * height * 4);
+         CGContextRef context = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+         CGContextTranslateCTM(context, 0, 0);
+         CGContextScaleCTM(context, 1.0f,  1.0f);  //纹理反着
+         CGColorSpaceRelease(colorSpace);
+         CGContextClearRect(context, rect);
+         CGContextDrawImage(context, rect, cgImageRef);
+     CGContextRelease(context);
+    return imageData;
+          
+}
++(GLuint)getTexture:(UIImage*)image wrap:(int)wrap;
+{
+     
+    CGImageRef cgImageRef = [image CGImage];
       GLuint width = (GLuint)CGImageGetWidth(cgImageRef);
       GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
-      CGRect rect = CGRectMake(0, 0, width, height);
-      
-      // 绘制图片
-      CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-      void *imageData = malloc(width * height * 4);
-      CGContextRef context = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-      CGContextTranslateCTM(context, 0, 0);
-      CGContextScaleCTM(context, 1.0f,  1.0f);  //纹理反着
-      CGColorSpaceRelease(colorSpace);
-      CGContextClearRect(context, rect);
-      CGContextDrawImage(context, rect, cgImageRef);
-       
+     void *imageData = [self imageChangeToImageData:image];
       // 生成纹理
       GLuint textureID;
       glGenTextures(1, &textureID);
@@ -241,14 +250,13 @@
       
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-      
-    
+   
       
       // 解绑
       glBindTexture(GL_TEXTURE_2D, 0);
       
       // 释放内存
-      CGContextRelease(context);
+     
       free(imageData);
       
       return textureID;

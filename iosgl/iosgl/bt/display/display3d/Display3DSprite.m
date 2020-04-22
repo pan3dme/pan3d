@@ -253,7 +253,7 @@
             if (material.useDynamicIBL) {// && _reflectionTextureVo) {
             } else {
             }
-             NSLog(@"TexItem.CUBEMAP)");
+            // NSLog(@"TexItem.CUBEMAP)");
         }else{
             [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
         }
