@@ -139,6 +139,7 @@
 		FE8FA4EF244D9BC700552A94 /* Display3DModelShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4EE244D9BC600552A94 /* Display3DModelShader.m */; };
 		FE8FA4FE244F315600552A94 /* DisplayBaseSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4FD244F315600552A94 /* DisplayBaseSprite.m */; };
 		FE8FA502244F6F5300552A94 /* MaterialShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA501244F6F5300552A94 /* MaterialShader.m */; };
+		FE8FFF7D24504AC000EB79CE /* CubemapLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C858242FF3F500A349E8 /* Display3DFacetParticle.m */; };
 		FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */; };
@@ -437,6 +438,8 @@
 		FE8FA4FD244F315600552A94 /* DisplayBaseSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayBaseSprite.m; sourceTree = "<group>"; };
 		FE8FA500244F6F5300552A94 /* MaterialShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShader.h; sourceTree = "<group>"; };
 		FE8FA501244F6F5300552A94 /* MaterialShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialShader.m; sourceTree = "<group>"; };
+		FE8FFF7B24504AC000EB79CE /* CubemapLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubemapLoad.h; sourceTree = "<group>"; };
+		FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubemapLoad.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEA5C857242FF3F500A349E8 /* Display3DFacetParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFacetParticle.h; sourceTree = "<group>"; };
@@ -736,6 +739,8 @@
 				FE15ACB324357E5B0062741F /* ResManager.m */,
 				FE15ACAF24357BFE0062741F /* MeshDataManager.h */,
 				FE15ACB024357BFE0062741F /* MeshDataManager.m */,
+				FE8FFF7B24504AC000EB79CE /* CubemapLoad.h */,
+				FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */,
 			);
 			path = filemode;
 			sourceTree = "<group>";
@@ -1397,6 +1402,7 @@
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */,
 				FEEF8BF6244A55BD001AFEB2 /* SceneChar.m in Sources */,
+				FE8FFF7D24504AC000EB79CE /* CubemapLoad.m in Sources */,
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
 				FE887D71241681B300025A74 /* MaterialLoad.m in Sources */,
 				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,

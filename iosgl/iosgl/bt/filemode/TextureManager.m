@@ -10,6 +10,7 @@
 #import "TextureLoad.h"
 #import "MaterialManager.h"
 #import "LoadManager.h"
+#import "CubemapLoad.h"
 #import "Context3D.h"
 
 
@@ -39,6 +40,19 @@ static TextureManager *instance = nil;
     }
     return self;
 }
+-(void)loadCubeTexture:(NSString*)url fun:(void (^)(NSObject* any))fun;
+{
+    CubemapLoad* cubemapLoad=[[CubemapLoad alloc]init];
+    [cubemapLoad loadCube:url fun:^(NSObject *obj) {
+        
+        
+    }];
+    
+}
+//public loadCubeTexture($url: string, $fun: Function): void {
+//       var cubeMapLoad: CubemapLoad = new CubemapLoad();
+//       cubeMapLoad.loadCube($url, ($cubeList: any) => { $fun($cubeList)});
+//   }
  
 -(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
 {

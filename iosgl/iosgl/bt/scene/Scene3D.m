@@ -11,6 +11,7 @@
 #import "Scene3D.h"
 #import "Display3dMovie.h"
 #import "ParticleManager.h"
+#import "TextureManager.h"
 #import "TimeUtil.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
@@ -168,6 +169,8 @@
     GLKView *dd=[[GLKView alloc]init];
      dd.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;  //颜色缓冲区格式
     [EAGLContext setCurrentContext:self.context3D.gl];
+    
+  
 }
 
 

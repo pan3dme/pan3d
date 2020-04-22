@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)default;
 -(void)addRes:(NSString*)url img:(UIImage*)img;
 -(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
+-(void)loadCubeTexture:(NSString*)url fun:(void (^)(NSObject* any))fun;
 @end
 
 NS_ASSUME_NONNULL_END

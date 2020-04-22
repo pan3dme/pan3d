@@ -241,7 +241,22 @@
         if (texVec[i].isDynamic) {
             continue;
         }
-        [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+        if (texVec[i].type == TexItem.LIGHTMAP) {
+            // Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, this.lightMapTexture, texVec[i].id);
+            NSLog(@"TexItem.LIGHTMAP)");
+        }
+        else if (texVec[i].type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
+            //  Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, Scene_data.pubLut, texVec[i].id);
+             NSLog(@"TexItem.LTUMAP)");
+        }
+        else if (texVec[i].type == TexItem.CUBEMAP) {
+            if (material.useDynamicIBL) {// && _reflectionTextureVo) {
+            } else {
+            }
+             NSLog(@"TexItem.CUBEMAP)");
+        }else{
+            [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+        }
     }
     
     NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;

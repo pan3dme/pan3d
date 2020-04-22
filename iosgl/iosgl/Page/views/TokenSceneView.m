@@ -5,6 +5,7 @@
 //  Created by zhao on 21/2/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
+#import "GL_Header.h"
 #import "AppWorldHeader.h"
 #import "TokenSceneView.h"
 #import "SceneView.h"
@@ -26,7 +27,8 @@
 #import "Display3dMovie.h"
 #import "DisplayTestSprite.h"
 #import "Scene3D.h"
-#import "GL_Header.h"
+#import "TextureManager.h"
+
 
 @interface TokenSceneView ()
 @property (nonatomic, strong) SceneView *sceneView;
@@ -149,8 +151,7 @@ NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
               }
               break;
           case 3:
-            
-           [ self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"skill_02"];
+              [[TextureManager default] loadCubeTexture:@"base/cube/e0%d.jpg" fun:^(NSObject * _Nonnull any) {  }];
               break;
               
           case 4:
