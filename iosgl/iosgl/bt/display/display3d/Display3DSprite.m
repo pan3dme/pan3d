@@ -251,9 +251,12 @@
         }
         else if (texVec[i].type == TexItem.CUBEMAP) {
             if (material.useDynamicIBL) {// && _reflectionTextureVo) {
+                NSLog(@"TexItem.useDynamicIBL)");
             } else {
+                if([Scene_data default].skyCubeTexture){
+                     [ctx setRenderTextureCube:material.shader name:texVec[i].name texture:[Scene_data default].skyCubeTexture level:0];
+                }
             }
-            // NSLog(@"TexItem.CUBEMAP)");
         }else{
             [ctx setRenderTexture:material.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
         }

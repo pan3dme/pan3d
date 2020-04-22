@@ -151,7 +151,7 @@ NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
               }
               break;
           case 3:
-              [[TextureManager default] loadCubeTexture:@"base/cube/f0%d.jpg" fun:^(NSObject * _Nonnull any) {  }];
+          
               break;
               
           case 4:

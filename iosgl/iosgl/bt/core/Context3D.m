@@ -175,6 +175,38 @@
        }
 }
  
+
+-(void)setRenderTextureCube:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
+{
+    GLuint textureSlot = glGetUniformLocation(shader.program, (char*)[name UTF8String]);
+    switch (level) {
+        case 0:
+            glActiveTexture(GL_TEXTURE0);
+            break;
+        case 1:
+            glActiveTexture(GL_TEXTURE1);
+            break;
+        case 2:
+            glActiveTexture(GL_TEXTURE2);
+            break;
+        case 3:
+            glActiveTexture(GL_TEXTURE3);
+            break;
+        case 4:
+            glActiveTexture(GL_TEXTURE4);
+            break;
+        case 5:
+            glActiveTexture(GL_TEXTURE5);
+            break;
+        case 6:
+            glActiveTexture(GL_TEXTURE6);
+            break;
+        default:
+            break;
+    }
+    glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
+    glUniform1i(textureSlot, level);
+}
 -(void)setRenderTexture:(Shader3D*)shader name:(NSString*)name  texture: (GLuint)texture level:(int)level;
 {
     GLuint textureSlot = glGetUniformLocation(shader.program, (char*)[name UTF8String]);
@@ -234,7 +266,7 @@
     CGImageRef cgImageRef = [image CGImage];
       GLuint width = (GLuint)CGImageGetWidth(cgImageRef);
       GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
-     void *imageData = [self imageChangeToImageData:image];
+     void *imageData = [Context3D imageChangeToImageData:image];
       // 生成纹理
       GLuint textureID;
       glGenTextures(1, &textureID);
@@ -261,4 +293,34 @@
       
       return textureID;
 }
+
+ 
++(GLuint)makeCubeText:(UIImage*)image;
+{
+    
+    CGImageRef cgImageRef = [image CGImage];
+    GLuint width = (GLuint)CGImageGetWidth(cgImageRef);
+    GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
+    
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+    
+    glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+    for(GLuint i = 0; i <6; i++)
+    {
+        void *imageData = [Context3D imageChangeToImageData:image];
+        
+        glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width/3, height/3, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+    }
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    //glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+    
+    return textureID;
+    
+}
+  
 @end

@@ -735,8 +735,8 @@
             filePath = "iosgl/bt/scene/Scene3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "-init:"
             landmarkType = "7">
             <Locations>
@@ -776,48 +776,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "38AB932A-513B-4237-A8FE-5D221C80F274"
+            uuid = "4FA8EE81-778F-4979-AB67-27002C074B8F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/filemode/CubemapLoad.m"
+            filePath = "iosgl/bt/scene/Scene3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-loadImgOneByOne:idx:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-init:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0E90951D-3B43-4CFF-B759-B02AB55800B6"
-            shouldBeEnabled = "No"
+            uuid = "59FB1CB1-D4A6-4E91-9879-F8778B8E5B6B"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/filemode/CubemapLoad.m"
+            filePath = "iosgl/bt/scene/Scene_data.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-makeCubeText:"
-            landmarkType = "7">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "Scene_data"
+            landmarkType = "2">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EAF953F0-22F7-43D0-86CE-F7BFAAA48BCB"
+            uuid = "4875301F-9EBF-454C-B54A-F34225115121"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/filemode/CubemapLoad.m"
+            filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-makeCubeText:"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

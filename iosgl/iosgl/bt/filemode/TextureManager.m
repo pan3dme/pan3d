@@ -40,13 +40,16 @@ static TextureManager *instance = nil;
     }
     return self;
 }
--(void)loadCubeTexture:(NSString*)url fun:(void (^)(NSObject* any))fun;
+-(void)loadCubeTexture:(NSString*)url fun:(void (^)(GLuint  any))fun;
 {
-    CubemapLoad* cubemapLoad=[[CubemapLoad alloc]init];
-    [cubemapLoad loadCube:url fun:^(NSObject *obj) {
-        
-        
-    }];
+    [[LoadManager default] load:url type:1 fun:^(NSObject * _Nonnull imgName) {
+         GLuint textUtile=   [Context3D makeCubeText:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imgName]]];
+ 
+        fun(textUtile);
+  
+     } info:nil progressFun:^(int pronum) {
+         
+     }];
     
 }
 //public loadCubeTexture($url: string, $fun: Function): void {
