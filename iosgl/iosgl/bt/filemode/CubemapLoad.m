@@ -16,20 +16,22 @@
 -(void)loadCube:(NSString*)url fun:(SuccessMaterial)fun;
 {
 // itemUrl    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/cube/e01.jpg"    0x000000028132cfc0
-    url=@"base/cube/e0%d.jpg";
+  //  url=@"base/cube/e0%d.jpg";
     for (int i=0; i<6;i++){
         NSString* itemUrl = [NSString stringWithFormat:url,i+1];
         itemUrl= [[Scene_data default]getWorkUrlByFilePath:itemUrl];
-        [[LoadManager default] load:itemUrl type:LoadManager.IMG_TYPE fun:^(NSObject * _Nonnull any) {
-            
-            NSLog(@"1");
-            
-        } info:@{@"id":[NSNumber numberWithInt:i]} progressFun:^(int pronum) {
-            
-        }];
-
-        
+        [self loadImgOneByOne:itemUrl];
     }
+}
+-(void)loadImgOneByOne:(NSString*)url;
+{
+    [[LoadManager default] load:url type:LoadManager.IMG_TYPE fun:^(NSObject * _Nonnull any) {
+        
+        NSLog(@"url%@",url);
+        
+    } info:nil progressFun:^(int pronum) {
+        
+    }];
 }
 /*
  public loadCube($url: string, $fun: Function): void {

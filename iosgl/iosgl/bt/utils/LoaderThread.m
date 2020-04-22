@@ -35,6 +35,7 @@
     self.loadInfo=loadInfo;
     self.idle=NO;
     self.url=self.loadInfo.url;
+    //_url    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/cube/e01.jpg"    0x000000028310e460
     //  @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/res/model/levelup_base.txt"    0x00000002803ad680
     
     NSURLRequest *request = [NSURLRequest requestWithURL: [NSURL URLWithString:  self.url]];
@@ -93,12 +94,19 @@
 -(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
     NSLog(@"didCompleteWithError");
-    [self loadImg];
+
+    dispatch_async(dispatch_get_main_queue(), ^{  });
+    
+       [self loadImg];
 }
 
 -(void)loadImg;
 {
    
+    LoadInfo* temp=  self.loadInfo;
+    
+    NSLog(@"loadImg   %@",temp.url)
+    
     if (self.loadInfo.info) {
         //self.loadInfo.fun(  self.localPath);
          self.loadInfo.fun(@{@"data":self.localPath,@"info":self.loadInfo.info});
