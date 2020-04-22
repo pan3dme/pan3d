@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "195"
             endingLineNumber = "195"
-            landmarkName = "Display3DSprite"
-            landmarkType = "3">
+            landmarkName = "-setMaterialUrl:paramData:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
             endingLineNumber = "200"
-            landmarkName = "Display3DSprite"
-            landmarkType = "3">
+            landmarkName = "-setMaterialUrl:paramData:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "199"
             endingLineNumber = "199"
-            landmarkName = "Display3DSprite"
-            landmarkType = "3">
+            landmarkName = "-setMaterialUrl:paramData:"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "319EB293-D546-4744-8907-6A8F17D33FFD - f89372931d12ea2"
@@ -128,8 +128,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
             endingLineNumber = "197"
-            landmarkName = "Display3DSprite"
-            landmarkType = "3">
+            landmarkName = "-setMaterialUrl:paramData:"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "DE23DED6-9FAE-4BA6-9841-9D00616B78DA - f89372931d12ea2"
@@ -273,7 +273,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "185"
             endingLineNumber = "185"
-            landmarkName = "-setMaterialUrl:paramData:"
+            landmarkName = "-resetVa"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -449,7 +449,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "-setMaterialUrl:paramData:"
+            landmarkName = "-setMaterialVa"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -465,7 +465,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "239"
             endingLineNumber = "239"
-            landmarkName = "-setVc"
+            landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

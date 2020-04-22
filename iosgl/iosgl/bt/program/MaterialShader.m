@@ -17,6 +17,7 @@
     char* relplayChat =
     "attribute vec3 vPosition;\n"
     "attribute vec2 texcoord;\n"
+    "attribute vec3 vNormal;\n"
     "uniform mat4 viewMatrix;\n"
     "uniform mat4 posMatrix;\n"
     "varying vec2 v0;\n"
