@@ -114,7 +114,7 @@
 
 -(void)playTypeBut:(int)tabId;
 {
-    [self.sceneView makeEemptyScene];
+     [self.sceneView makeEemptyScene];
        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
   //     [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
       //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
