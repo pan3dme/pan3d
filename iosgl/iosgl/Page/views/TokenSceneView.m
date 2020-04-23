@@ -114,7 +114,7 @@
 
 -(void)playTypeBut:(int)tabId;
 {
-    TokenSceneView* this=self;
+    
     
     [self.sceneView makeEemptyScene];
     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
@@ -138,17 +138,17 @@
     
     switch (tabId) {
         case 1:
-            this.lyfPlayIdx ++;
-            if(this.lyfPlayIdx>=lyfItem.count){
-                this.lyfPlayIdx=0;
+            self.lyfPlayIdx ++;
+            if(self.lyfPlayIdx>=lyfItem.count){
+                self.lyfPlayIdx=0;
             }
-            [this playLyfByUrl:lyfItem[this.lyfPlayIdx]];
+            [self playLyfByUrl:lyfItem[self.lyfPlayIdx]];
             
             break;
         case 2:
             if(!mainChar){
                 mainChar=[[SceneChar alloc]init];
-                [this.sceneView.scene3D addMovieDisplay:mainChar] ;
+                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
                 [mainChar setRoleUrl:@"role/yingz.txt"];
             }
             break;
@@ -160,13 +160,13 @@
             
             if(!mainChar){
                 mainChar=[[SceneChar alloc]init];
-                [this.sceneView.scene3D addMovieDisplay:mainChar] ;
+                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
                 //50001  5104
                 [mainChar setRoleUrl: getRoleUrl(@"50001")];
                 [mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
-                [this.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
+                [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
                 
-                [this makeRollAndMount];
+                [self makeRollAndMount];
                 [self addRoleToScene:@"50003" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
                 [self addRoleToScene:@"50004" pos:[[Vector3D alloc]x:-40 y:0 z:0]];
                 [self addRoleToScene:@"50005" pos:[[Vector3D alloc]x:-60 y:0 z:0]];
