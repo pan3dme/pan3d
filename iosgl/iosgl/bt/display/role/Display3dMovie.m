@@ -64,13 +64,15 @@
      */
     self = [super init];
     if (self) {
-        self.meshVisible=YES;
-        self.defaultAction= @"stand";
-        self.partDic = [[NSMutableDictionary alloc]init];
-        self.partUrl =[[NSMutableDictionary alloc]init];
-        self.preLoadActionDic = [[NSMutableDictionary alloc]init];
-        self.waitLoadActionDic =[[NSMutableDictionary alloc]init];
-        self.actionTime=0;
+        Display3dMovie* this=self;
+        
+        this.meshVisible=YES;
+        this.defaultAction= @"stand";
+        this.partDic = [[NSMutableDictionary alloc]init];
+        this.partUrl =[[NSMutableDictionary alloc]init];
+        this.preLoadActionDic = [[NSMutableDictionary alloc]init];
+        this.waitLoadActionDic =[[NSMutableDictionary alloc]init];
+        this.actionTime=0;
    
     }
     return self;
@@ -116,7 +118,7 @@
     [resultMatrix appendRotation:boneSocketData.rotationZ axis:Vector3D.Z_AXIS];
     [resultMatrix appendTranslation:boneSocketData.x y:boneSocketData.y z:boneSocketData.z];
     if(testmatix){
-        [resultMatrix append:self.skinMesh.bindPosInvertMatrixAry[index]];
+        [resultMatrix append:this.skinMesh.bindPosInvertMatrixAry[index]];
         [resultMatrix append:testmatix];
     }
     [resultMatrix append:this.posMatrix3d];
@@ -139,14 +141,16 @@
 
 -(void)setRoleUrl:(NSString*)value;
 {
+     Display3dMovie* this =self;
     [[MeshDataManager default]getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
-        self.skinMesh=skinMesh;
-        self.fileScale=skinMesh.fileScale;
-        self.animDic = skinMesh.animDic;
-        [self onMeshLoaded];
-        for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
+        this.skinMesh=skinMesh;
+        this.fileScale=skinMesh.fileScale;
+        this.animDic = skinMesh.animDic;
+        [this onMeshLoaded];
+        for (int i = 0; i < this.skinMesh.meshAry.count; i++) {
             [skinMesh.meshAry[i] upToGpu];
         }
+        [this updateMatrix];
     } batchNum:1];
 }
 
@@ -158,7 +162,7 @@
         return;
     }
     [this updateBind];
-    if(self.meshVisible){
+    if(this.meshVisible){
         for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
             [this updateMaterialMesh:this.skinMesh.meshAry[i]];
         }
@@ -190,17 +194,17 @@
 
 -(void)setVaCompress:(MeshData*)mesh;
 {
+    Display3dMovie* this=self;
     
-    
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=this.scene3d.context3D;
     [ctx pushVa:mesh.verticesBuffer];
-    [ctx setVaOffset:self.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:    mesh.uvBuffer];
-    [ctx setVaOffset:self.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
     [ctx pushVa: mesh.boneIdBuffer];
-    [ctx setVaOffset:self.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
     [ctx pushVa: mesh.boneWeightBuffer];
-    [ctx setVaOffset:self.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
   
     
 }
@@ -209,8 +213,8 @@
  */
 -(void)setMeshVc:(MeshData*)mesh;
 {
-    Context3D *context3D=self.scene3d.context3D;
     Display3dMovie* this=self;
+    Context3D *context3D=self.scene3d.context3D;
     AnimData* animData;
     if (this.animDic[this.curentAction]) {
         animData = this.animDic[this.curentAction];
@@ -237,9 +241,16 @@
  */
 - (void)setVc;
 {
-    Context3D *context3D=self.scene3d.context3D;
-    [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
-    [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+    Display3dMovie* this=self;
+    Context3D *context3D=this.scene3d.context3D;
+    [context3D setVcMatrix4fv:this.shader3d name:"viewMatrix" data:this.viewMatrix.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix" data:this.posMatrix3d.m];
+}
+-(void)updateMatrix;
+{
+    [super updateMatrix];
+    [self.posMatrix3d prependScale:self.fileScale y:self.fileScale z:self.fileScale];
+ 
 }
 
 /*
@@ -270,10 +281,10 @@
  */
 - (void)updateFrame:(float)t;
 {
+      Display3dMovie* this=self;
     if(!self.skinMesh){
         return;
     }
-    Display3dMovie* this=self;
     this.actionTime+=t;
     NSString* actionKey;
     if(this.curentAction&&self.animDic[this.curentAction]){
@@ -330,6 +341,7 @@
  */
 -(void)loadPartRes:(NSString*)bindSocket groupRes:(GroupRes*)groupRes ary:(NSMutableArray*)ary;
 {
+    Display3dMovie* this=self;
     for (int i = 0; i < groupRes.dataAry.count; i++) {
           GroupItem* item  = groupRes.dataAry[i];
 
@@ -345,10 +357,10 @@
           if (item.types == SCENE_PARTICLE_TYPE) {
                CombineParticle*  particle =   [ParticleManager   getParticleByte: item.particleUrl];
               [ary addObject:particle];
-              particle.bindTarget = self;
+              particle.bindTarget = this;
               particle.bindSocket = bindSocket;
               particle.dynamic = YES;
-             [self.scene3d.particleManager addParticle:particle];
+             [this.scene3d.particleManager addParticle:particle];
               if (item.isGroup) {
                 //  particle.setGroup(posV3d, rotationV3d, scaleV3d);
               }
@@ -357,8 +369,8 @@
               [display setObjUrl:item.objUrl];
               [display setMaterialUrl:item.materialUrl paramData:item.materialInfoArr];
               [ary addObject:display];
-              [display setBind:self bindSocket:bindSocket];
-              [self.scene3d addDisplay:display];
+              [display setBind:this bindSocket:bindSocket];
+              [this.scene3d addDisplay:display];
               if(item.isGroup){
                   [display setGroup:posV3d rotaion:rotationV3d scale:scaleV3d];
               }
