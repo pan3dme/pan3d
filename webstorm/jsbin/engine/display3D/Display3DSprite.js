@@ -324,6 +324,7 @@ var Display3DSprite = /** @class */ (function (_super) {
         if ($mp) {
             $mp.update();
         }
+        console.log($material.fcData);
         Scene_data.context3D.setVc4fv($material.shader, "fc", $material.fcData);
         //console.log($material.fcData);
         // var constVec:Array<ConstItem> = $material.constList;

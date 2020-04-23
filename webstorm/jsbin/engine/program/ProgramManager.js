@@ -81,7 +81,7 @@ var ProgrmaManager = /** @class */ (function (_super) {
                     // "ft4.xyz = ft1.xyz * (1.0-fc[1].x);\n"+
                     // "ft4.xyz = ft4.xyz + ft3.xyz;\n"+
                     "ft4.w = 1.0;\n" +
-                    "gl_FragColor = ft4;\n" +
+                    "gl_FragColor = fc[0];\n" +
                     "\n" +
                     "}";
         }

@@ -421,6 +421,7 @@
             $mp.update();
         }
 
+        console.log($material.fcData);
 
         Scene_data.context3D.setVc4fv($material.shader, "fc", $material.fcData);
 

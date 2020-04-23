@@ -248,9 +248,26 @@
     GLfloat fcDataGlArr[fcData.count];
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
-        fcDataGlArr[i]=1.0;
     }
+    fcDataGlArr[0]=0.0;
+    fcDataGlArr[1]=1.7677669525146484;
+    fcDataGlArr[2]=-1.7677669525146484;
+    fcDataGlArr[3]=0.0;
+    fcDataGlArr[4]=0.0;
+    fcDataGlArr[5]=0.0;
+    fcDataGlArr[6]=0.0;
+    fcDataGlArr[7]=0.0;
+    
     [ctx setVc4fv:material.shader name:"fc" data:fcDataGlArr len:material.fcNum];
+    
+//    0: 0
+//    1: 1.7677669525146484
+//    2: -1.7677669525146484
+//    3: 0
+//    4: 0
+//    5: 0
+//    6: 0
+//    7: 0
     /*
      var t: number = 0;
           if ($material.hasTime) {

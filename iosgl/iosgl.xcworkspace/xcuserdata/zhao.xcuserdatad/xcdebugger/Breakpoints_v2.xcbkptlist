@@ -321,7 +321,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
             endingLineNumber = "274"
-            landmarkName = "-setMaterialTexture:mp:"
+            landmarkName = "-setMaterialVc:mp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -753,7 +753,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "326"
             endingLineNumber = "326"
-            landmarkName = "-setVa"
+            landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -769,7 +769,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "319"
             endingLineNumber = "319"
-            landmarkName = "-setVc"
+            landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -785,7 +785,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "321"
             endingLineNumber = "321"
-            landmarkName = "-setVc"
+            landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

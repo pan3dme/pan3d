@@ -87,7 +87,7 @@ static ProgrmaManager *instance = nil;
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-        [self changeShader:shader];
+        //[self changeShader:shader];
     
     }
     
@@ -177,13 +177,13 @@ static ProgrmaManager *instance = nil;
     "ft3.xyz = ft3.xyz * fc[1].y;"
     "ft4.xyz = v1.xyz - fc[0].xyz;"
     "ft4.xyz = normalize(ft4.xyz);"
-   // "ft4.xyz = reflect(ft4.xyz,ft2.xyz);"
- //    "ft4 = textureCube(fs2,ft4.xyz);"
-//    "ft3.xyz = ft3.xyz * ft4.xyz;"
-//    "ft4.xyz = ft1.xyz * (1.0-fc[1].x);"
-//    "ft4.xyz = ft4.xyz + ft3.xyz;"
+    "ft4.xyz = reflect(ft4.xyz,ft2.xyz);"
+     "ft4 = textureCube(fs2,ft4.xyz);"
+    "ft3.xyz = ft3.xyz * ft4.xyz;"
+    "ft4.xyz = ft1.xyz * (1.0-fc[1].x);"
+    "ft4.xyz = ft4.xyz + ft3.xyz;"
     "ft4.w = 1.0;"
-    "gl_FragColor = fc[0];"
+    "gl_FragColor = ft4;"
  
     "}";
 
