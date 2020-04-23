@@ -132,9 +132,7 @@
     [lyfItem addObject:@"model/10018_lyf.txt"];
     [lyfItem addObject:@"model/13012_lyf.txt"];
     
-    
-    [Scene_data default].supportBlob=YES;
-    
+ 
     
     switch (tabId) {
         case 1:

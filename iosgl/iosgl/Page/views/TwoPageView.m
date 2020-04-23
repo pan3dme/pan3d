@@ -12,26 +12,31 @@
 #import <GLKit/GLKit.h>
 #import "Base3dView.h"
 #import "GlkView.h"
+#import "SceneChar.h"
+#import "Scene_data.h"
+#import "SceneView.h"
+#import "GroupItem.h"
+#import "GroupDataManager.h"
+#import "GridLineSprite.h"
 
 
 @interface TwoPageView ()
-@property (nonatomic, strong) EAGLContext *context; // OpenGL context,管理使用opengl es进行绘制的状态,命令及资源
-@property (nonatomic, strong) GLKBaseEffect *mEffect;
- 
- 
+
+@property (nonatomic, strong) SceneView *sceneView;
+@property (nonatomic, assign) int lyfPlayIdx;
+@property (nonatomic,strong) NSURLSession *session;
+@property (nonatomic,strong) SceneChar* mainChar;
+
+
+
 @end
 
 @implementation TwoPageView
 
- 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
-    
- 
+     
 }
- 
- 
+
 @end
