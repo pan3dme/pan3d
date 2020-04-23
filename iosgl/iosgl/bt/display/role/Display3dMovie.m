@@ -73,8 +73,8 @@
         self.waitLoadActionDic =[[NSMutableDictionary alloc]init];
         self.actionTime=0;
         
-        [[ProgrmaManager default] registe:MaterialAnimShader.shaderStr shader3d: [[MaterialAnimShader alloc]init]];
-        self.shader3d=  [[ProgrmaManager default] getProgram:MaterialAnimShader.shaderStr];
+//        [[ProgrmaManager default] registe:MaterialAnimShader.shaderStr shader3d: [[MaterialAnimShader alloc]init]];
+//        self.shader3d=  [[ProgrmaManager default] getProgram:MaterialAnimShader.shaderStr];
         
         
         
@@ -242,6 +242,7 @@
     if (!mesh.material) {
         return;
     }
+    self.shader3d=mesh.material.shader;
     Context3D *ctx=self.scene3d.context3D;
     [ctx setProgram:self.shader3d.program];
     [ctx setBlendParticleFactors:mesh.material.blendMode];
