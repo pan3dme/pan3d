@@ -167,6 +167,10 @@
                 [this.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
                 
                 [this makeRollAndMount];
+                [self addRoleToScene:@"50003" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
+                [self addRoleToScene:@"50004" pos:[[Vector3D alloc]x:-40 y:0 z:0]];
+                [self addRoleToScene:@"50005" pos:[[Vector3D alloc]x:-60 y:0 z:0]];
+                [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
             }else{
                 
                 Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
@@ -191,10 +195,20 @@
     [self.sceneView.scene3D addMovieDisplay:sc] ;
     [sc setRoleUrl: getRoleUrl(@"50002")];
     [sc setMountById:@"5104"];
-     [sc play:@"walk" completeState:0 needFollow:NO];
-     [sc addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+    [sc play:@"walk" completeState:0 needFollow:NO];
+    [sc addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
     sc.x=50;
     
+   
+}
+-(void)addRoleToScene:(NSString*)rolename pos:(Vector3D*)pos ;
+{
+    SceneChar* sc=[[SceneChar alloc]init];
+    [self.sceneView.scene3D addMovieDisplay:sc] ;
+    [sc setRoleUrl: getRoleUrl(rolename)];
+    sc.x=pos.x;
+    sc.y=pos.y;
+    sc.z=pos.z;
 }
 
 SceneChar* mainChar;
