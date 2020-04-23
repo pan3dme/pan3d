@@ -191,8 +191,8 @@
     [self.sceneView.scene3D addMovieDisplay:sc] ;
     [sc setRoleUrl: getRoleUrl(@"50002")];
     [sc setMountById:@"5104"];
-    // [sc play:@"walk" completeState:0 needFollow:NO];
-    // [sc addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+     [sc play:@"walk" completeState:0 needFollow:NO];
+     [sc addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
     sc.x=50;
     
 }

@@ -63,15 +63,15 @@
     NSString* action=this.curentAction;
     if(self.mountChar){
         action=action?action:this.defaultAction;
-        if([action isEqualToString:@"stand"]||[action isEqualToString:@"stand_mount_01"]){
-            this.curentAction=@"stand_mount_01";
-            self.mountChar.curentAction=@"stand";
+        if([action isEqualToString:CharAction_stand]||[action isEqualToString:CharAction_stand_mount_01]){
+            this.curentAction=CharAction_stand_mount_01;
+            self.mountChar.curentAction=CharAction_stand;
         }
-        else if([action isEqualToString:@"walk"]||[action isEqualToString:@"walk_mount_01"]){
-            this.curentAction=@"walk_mount_01";
-            self.mountChar.curentAction=@"walk";
+        else if([action isEqualToString:CharAction_walk]||[action isEqualToString:CharAction_walk_mount_01]){
+            this.curentAction=CharAction_walk_mount_01;
+            self.mountChar.curentAction=CharAction_walk;
         }else{
-            self.mountChar.curentAction=@"stand";
+            self.mountChar.curentAction=CharAction_stand;
         }
     }
 }
