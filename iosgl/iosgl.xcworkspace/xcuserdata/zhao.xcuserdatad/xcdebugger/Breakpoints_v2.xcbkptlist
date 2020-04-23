@@ -312,22 +312,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5F99203A-879B-40B8-8AAC-6181B5953226"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
-            landmarkName = "-setMaterialVc:mp:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AD5C9EA9-857B-453C-B160-FFE72768CB9C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -655,8 +639,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -751,8 +735,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -767,8 +751,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -783,8 +767,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -799,8 +783,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-setMaterialVc:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -815,8 +799,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-setMaterialVc:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -831,8 +815,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -847,8 +831,8 @@
             filePath = "iosgl/bt/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
@@ -994,6 +978,22 @@
             startingLineNumber = "267"
             endingLineNumber = "267"
             landmarkName = "-updateFrame:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C295E04F-9BA6-4B8D-82D1-885C838E5FAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/material/Material.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-initFcData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -124,8 +124,35 @@
             this.fcData[3] = @0;
         }
     }
+    int idx;
+    if (this.usePbr || this.fogMode == 1) {
+        [self updateCam:0  y:1.76 z:-1.70];
+    }
+    if (this.fogMode != 0) {
+        idx   = [this.fcIDAry[1]intValue] * 4;
+        this.fcData[0 + idx] = @0;
+        this.fcData[1 + idx] = @0;
+        this.fcData[2 + idx] = @0;
+    }
+    if (this.scaleLightMap) {
+        idx   = [this.fcIDAry[2]intValue] * 4;
+        this.fcData[0 + idx] =@0;
+    }
+
  
 }
+
+-(void)updateCam:(float)x y:(float)y z:(float)z;
+{
+       Material* this=self;
+    if (this.usePbr || this.fogMode == 1) {
+            int idx   = [this.fcIDAry[0]intValue] * 4;
+           this.fcData[0 + idx] =  [NSNumber numberWithFloat:x];
+           this.fcData[1 + idx] =   [NSNumber numberWithFloat:y];
+           this.fcData[2 + idx] = [NSNumber numberWithFloat:z];
+       }
+}
+ 
 -(void)update:(float)t;
 {
     [self updateTime:t];

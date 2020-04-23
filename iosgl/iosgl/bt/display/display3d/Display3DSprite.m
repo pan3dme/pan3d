@@ -241,6 +241,7 @@
         t=[[TimeUtil default]getTimer]-this.time;
     }
     [material update:t];
+    [self setCamPos:this.material];
     if (mp) {
         [mp update];
     }
@@ -249,42 +250,15 @@
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
-    fcDataGlArr[0]=0.0;
-    fcDataGlArr[1]=1.7677669525146484;
-    fcDataGlArr[2]=-1.7677669525146484;
-    fcDataGlArr[3]=0.0;
-    fcDataGlArr[4]=0.0;
-    fcDataGlArr[5]=0.0;
-    fcDataGlArr[6]=0.0;
-    fcDataGlArr[7]=0.0;
-    
     [ctx setVc4fv:material.shader name:"fc" data:fcDataGlArr len:material.fcNum];
-    
-//    0: 0
-//    1: 1.7677669525146484
-//    2: -1.7677669525146484
-//    3: 0
-//    4: 0
-//    5: 0
-//    6: 0
-//    7: 0
-    /*
-     var t: number = 0;
-          if ($material.hasTime) {
-              t = (TimeUtil.getTimer() - this.time) % 100000 * 0.001;
-          }
-
-          $material.update(t);
-
-          this.setCamPos($material);
-
-          if ($mp) {
-              $mp.update();
-          }
- 
-     */
 }
- 
+-(void)setCamPos:(Material*)material;
+{
+    Vector3D* v3d=[[Vector3D alloc]x:self.scene3d.camera3D.x y:self.scene3d.camera3D.y z:self.scene3d.camera3D.z];
+    [v3d normalize];
+    [material updateCam:v3d.x y:v3d.y z:v3d.z];
+    
+}
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     Context3D *ctx=self.scene3d.context3D;

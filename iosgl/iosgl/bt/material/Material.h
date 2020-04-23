@@ -53,6 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  float  sceneNumId;
 
 -(void)setByteData:(ByteArray*)byte;
+-(void)updateCam:(float)x y:(float)y z:(float)z;
 -(void)update:(float)t;
 @end
 
