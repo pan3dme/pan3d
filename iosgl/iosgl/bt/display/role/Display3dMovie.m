@@ -31,7 +31,7 @@
 @property(nonatomic,strong)NSMutableDictionary*  preLoadActionDic;
 @property(nonatomic,strong)NSMutableDictionary*  waitLoadActionDic;
 
-@property(nonatomic,strong)NSString*  defaultAction ;
+
 @property(nonatomic,assign)NSString*  curentAction;
 @property(nonatomic,assign)int  completeState ;
 @property(nonatomic,assign)int  curentFrame;
@@ -65,19 +65,13 @@
     self = [super init];
     if (self) {
         self.meshVisible=YES;
-        self.defaultAction= @"stand";
-       
+        self.defaultAction= @"stand_mount_01";
         self.partDic = [[NSMutableDictionary alloc]init];
         self.partUrl =[[NSMutableDictionary alloc]init];
         self.preLoadActionDic = [[NSMutableDictionary alloc]init];
         self.waitLoadActionDic =[[NSMutableDictionary alloc]init];
         self.actionTime=0;
-        
-//        [[ProgrmaManager default] registe:MaterialAnimShader.shaderStr shader3d: [[MaterialAnimShader alloc]init]];
-//        self.shader3d=  [[ProgrmaManager default] getProgram:MaterialAnimShader.shaderStr];
-        
-        
-        
+   
     }
     return self;
 }

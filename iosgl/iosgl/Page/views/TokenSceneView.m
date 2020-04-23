@@ -162,7 +162,7 @@ NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
                   //50001  5104
                   [mainChar setRoleUrl: getRoleUrl(@"50001")];
                    [mainChar setMountById:@"5104"];
-                  //[mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+                  [mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
                 [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
               }else{
              

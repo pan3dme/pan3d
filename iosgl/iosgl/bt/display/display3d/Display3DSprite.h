@@ -22,7 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ObjData *objData;
 @property (nonatomic, assign) BOOL  dynamic;
 
- 
+@property (nonatomic, strong) Matrix3D *bindMatrix;
+@property (nonatomic, strong) id<IBind> bindTarget;
+@property (nonatomic, strong) NSString *bindSocket;
+@property (nonatomic, strong) Matrix3D *groupMatrix;
+@property (nonatomic, strong) Matrix3D *groupRotationMatrix;
+@property (nonatomic, assign) BOOL isInGroup;
 
 -(void)initData;
 -(void)loadTextureResByUrl:(NSString*)value;

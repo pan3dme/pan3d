@@ -10,4 +10,14 @@
 
 @implementation MountChar
 
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+          self.defaultAction= @"stand";
+    }
+    return self;
+}
+
 @end

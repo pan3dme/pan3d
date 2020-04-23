@@ -13,6 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3dMovie : Display3DSprite <IBind>
+@property(nonatomic,strong)NSString*  defaultAction ;
 @property(nonatomic,strong)SkinMesh*  skinMesh;
 @property(nonatomic,strong)NSMutableDictionary*  animDic;
 -(void)setRoleUrl:(NSString*)value;

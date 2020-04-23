@@ -23,16 +23,12 @@
 
 
 @interface Display3DSprite()
-@property (nonatomic, strong) Matrix3D *bindMatrix;
-@property (nonatomic, strong) id<IBind> bindTarget;
-@property (nonatomic, strong) NSString *bindSocket;
-@property (nonatomic, strong) Matrix3D *groupMatrix;
-@property (nonatomic, strong) Matrix3D *groupRotationMatrix;
+
 @property(nonatomic,strong)NSString* materialUrl;
 @property(nonatomic,strong)Material* material;
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property (nonatomic, assign) float time;
-@property (nonatomic, assign) BOOL isInGroup;
+
  
 
 
