@@ -239,19 +239,21 @@
 }
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {
+     Display3dMovie* this=self;
     if (!mesh.material) {
         return;
     }
-    self.shader3d=mesh.material.shader;
-    Context3D *ctx=self.scene3d.context3D;
-    [ctx setProgram:self.shader3d.program];
+    this.shader3d=mesh.material.shader;
+    Context3D *ctx=this.scene3d.context3D;
+    [ctx setProgram:this.shader3d.program];
     [ctx setBlendParticleFactors:mesh.material.blendMode];
     [ctx cullFaceBack:mesh.material.backCull];
-    mesh.material.shader=self.shader3d;
-    [self setMaterialTexture:mesh.material mp:mesh.materialParam];
-    [self setVc];
-    [self setMeshVc:mesh];
-    [self setVaCompress:mesh];
+    mesh.material.shader=this.shader3d;
+    [this setMaterialTexture:mesh.material mp:mesh.materialParam];
+    [this setMaterialVc:mesh.material mp:mesh.materialParam];
+    [this setVc];
+    [this setMeshVc:mesh];
+    [this setVaCompress:mesh];
     
 }
 

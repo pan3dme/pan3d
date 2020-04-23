@@ -10,7 +10,14 @@
 #import "ConstItem.h"
  
 @implementation DynamicBaseConstItem
-
+ 
+-(void)update:(float)t;
+{
+    if(self.target){
+        [self.target setDynamic:self];
+    }
+    
+}
 
 -(void)setTargetInfo:(ConstItem*)target paramName:(NSString*)paramName type:(int)type;
 {

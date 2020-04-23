@@ -87,7 +87,7 @@ static ProgrmaManager *instance = nil;
    
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-        // [self changeShader:shader];
+        [self changeShader:shader];
         NSLog(@"------");
     
     }
@@ -128,8 +128,22 @@ static ProgrmaManager *instance = nil;
     "uniform vec4 fc[3];"
     "varying vec2 v0;"
     "void main(void){"
-  
-    "gl_FragColor = vec4(1,1,0,1);"
+        "vec4 ft0 = vec4(0,0,0,1);"
+        "ft0.xy = v0.xy * fc[1].xy;"
+        "ft0.zw = fc[1].zw * fc[0].y;"
+        "ft0.xy = ft0.xy + ft0.zw;"
+        "vec4 ft1 = texture2D(fs0,ft0.xy);"
+        "ft0 = texture2D(fs1,v0);"
+        "vec4 ft2 = vec4(0,0,0,1);"
+        "ft2.xyz = ft1.xyz * fc[2].xyz;"
+        "ft1 = texture2D(fs2,v0);"
+        "vec4 ft3 = vec4(0,0,0,1);"
+        "ft3.xyz = ft2.xyz * ft0.xyz;"
+        "ft0.xyz = ft1.xyz + ft3.xyz;"
+        "ft1 = vec4(ft0.xyz,1.0);"
+        "ft2.xyz = ft1.xyz;"
+        "ft2.w = 1.0;"
+        "gl_FragColor = ft2;"
     "}";
 
   

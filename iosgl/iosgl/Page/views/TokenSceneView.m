@@ -160,7 +160,7 @@ NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
                   mainChar=[[SceneChar alloc]init];
                   [self.sceneView.scene3D addMovieDisplay:mainChar] ;
                   //50001  5104
-                  [mainChar setRoleUrl: getRoleUrl(@"50001")];
+                  [mainChar setRoleUrl: getRoleUrl(@"5104")];
                   //[mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
                 [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
               }else{

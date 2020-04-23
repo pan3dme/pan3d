@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DynamicConstItem : DynamicBaseConstItem
 @property(nonatomic,strong)Curve* curve;
--(void)update:(float)t;
+
 @end
 
 NS_ASSUME_NONNULL_END
