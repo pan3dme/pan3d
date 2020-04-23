@@ -23,6 +23,7 @@ typedef void (^SuccessMaterial)(NSObject* obj);
  
 #define getSkillUrl(url)(NSString*)[NSString stringWithFormat:@"skill/%@_byte.txt",url]
 #define getModelUrl(url)(NSString*)[NSString stringWithFormat:@"model/%@.txt",url]
+#define getRoleUrl(url)(NSString*)[NSString stringWithFormat:@"role/%@.txt",url]
 #define randomFloat() drand48()
 #define randomInt(x) (int)floor(randomFloat()*x)
 #define float2int(x)  (int)floor(x)

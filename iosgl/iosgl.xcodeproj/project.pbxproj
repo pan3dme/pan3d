@@ -140,6 +140,7 @@
 		FE8FA4FE244F315600552A94 /* DisplayBaseSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4FD244F315600552A94 /* DisplayBaseSprite.m */; };
 		FE8FA502244F6F5300552A94 /* MaterialShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA501244F6F5300552A94 /* MaterialShader.m */; };
 		FE8FFF7D24504AC000EB79CE /* CubemapLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */; };
+		FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2C62451CA0700C458AC /* MountChar.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C858242FF3F500A349E8 /* Display3DFacetParticle.m */; };
 		FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */; };
@@ -440,6 +441,8 @@
 		FE8FA501244F6F5300552A94 /* MaterialShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialShader.m; sourceTree = "<group>"; };
 		FE8FFF7B24504AC000EB79CE /* CubemapLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubemapLoad.h; sourceTree = "<group>"; };
 		FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubemapLoad.m; sourceTree = "<group>"; };
+		FE9EB2C52451CA0700C458AC /* MountChar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountChar.h; sourceTree = "<group>"; };
+		FE9EB2C62451CA0700C458AC /* MountChar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MountChar.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEA5C857242FF3F500A349E8 /* Display3DFacetParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFacetParticle.h; sourceTree = "<group>"; };
@@ -753,6 +756,8 @@
 				FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */,
 				FE15ACA52435750A0062741F /* Display3dMovie.h */,
 				FE15ACA62435750A0062741F /* Display3dMovie.m */,
+				FE9EB2C52451CA0700C458AC /* MountChar.h */,
+				FE9EB2C62451CA0700C458AC /* MountChar.m */,
 				FEEF8BF4244A55BD001AFEB2 /* SceneChar.h */,
 				FEEF8BF5244A55BD001AFEB2 /* SceneChar.m */,
 			);
@@ -1358,6 +1363,7 @@
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
 				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
 				FEEF8BB92448E4C0001AFEB2 /* SkillData.m in Sources */,
+				FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,

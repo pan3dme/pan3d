@@ -51,14 +51,29 @@
 {
     
 }
-//public setWeaponByAvatar(avatar: number,$suffix:string =""): void {
-//    var so: tb.TB_item_slot = tb.TB_item_slot.getTempVo(avatar)
-//    if (so) {
-//        this.addPart(SceneChar.WEAPON_PART, so.slot, this.getSceneCharWeaponUrl(avatar,$suffix));
-//    } else {
-//        this.addPart(SceneChar.WEAPON_PART, SceneChar.WEAPON_DEFAULT_SLOT, this.getSceneCharWeaponUrl(avatar,$suffix));
-//    }
-//}
+-(void)setMountById:(int)mountId;
+{
+    SceneChar* this=self;
+    if(!this.mountChar){
+        this.mountChar=[[MountChar alloc]init];
+    }
+    [this.mountChar setRoleUrl: getRoleUrl(@"5104")];
+    
+    
+}
+ 
+/*
+public setMountById($mountId: string): void {
+          if (!this.mountChar) {
+              this.mountChar = new MountChar();
+          }
+          this.mountChar.setRoleUrl(getRoleUrl($mountId));
+          this.setBind(this.mountChar, SceneChar.MOUNT_SLOT);
+          SceneManager.getInstance().addMovieDisplay(this.mountChar);
+
+          this.isMount = true
+      }
+*/
 - (void)upFrame;
 {
      [super upFrame];
