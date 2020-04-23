@@ -11,6 +11,7 @@
 #import "MaterialManager.h"
 #import "LoadManager.h"
 #import "CubemapLoad.h"
+#import "Scene_data.h"
 #import "Context3D.h"
 
 
@@ -42,6 +43,7 @@ static TextureManager *instance = nil;
 }
 -(void)loadCubeTexture:(NSString*)url fun:(void (^)(GLuint  any))fun;
 {
+    url=[[Scene_data default]getWorkUrlByFilePath:url];
     [[LoadManager default] load:url type:1 fun:^(NSObject * _Nonnull imgName) {
          GLuint textUtile=   [Context3D makeCubeText:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imgName]]];
  
