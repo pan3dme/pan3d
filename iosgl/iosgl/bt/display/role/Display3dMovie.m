@@ -75,7 +75,18 @@
     }
     return self;
 }
-
+-(void)onMeshLoaded;
+{
+    
+}
+- (void)setVa;
+{
+    
+}
+-(void)clearMesh;
+{
+    
+}
 - (int)getSunType
 {
     return 1;
@@ -139,14 +150,7 @@
     } batchNum:1];
 }
 
--(void)onMeshLoaded;
-{
-    
-}
--(void)clearMesh;
-{
-    
-}
+
 - (void)upFrame;
 {
     Display3dMovie* this=self;
@@ -161,6 +165,9 @@
     }
     
 }
+/*
+ 播放动作  播放完状态  0c持续  1播完听 2 播放返回
+ */
 -(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
 {
     Display3dMovie* this=self;
@@ -177,7 +184,9 @@
         return NO;
     }
 }
- 
+ /*
+  设置定点Buff
+  */
 
 -(void)setVaCompress:(MeshData*)mesh;
 {
@@ -192,9 +201,12 @@
     [ctx setVaOffset:self.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
     [ctx pushVa: mesh.boneWeightBuffer];
     [ctx setVaOffset:self.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
-    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+  
     
 }
+/*
+ 设置骨骼数据
+ */
 -(void)setMeshVc:(MeshData*)mesh;
 {
     Context3D *context3D=self.scene3d.context3D;
@@ -220,16 +232,19 @@
     [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
     
 }
+/*
+ 设置镜头矩阵和模型位置矩阵
+ */
 - (void)setVc;
 {
     Context3D *context3D=self.scene3d.context3D;
     [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
     [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
 }
-- (void)setVa;
-{
-    
-}
+
+/*
+ 部分mesh对象渲染
+ */
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {
      Display3dMovie* this=self;
@@ -247,17 +262,18 @@
     [this setVc];
     [this setMeshVc:mesh];
     [this setVaCompress:mesh];
+    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
     
 }
-
+/*
+ 时间轴更新
+ */
 - (void)updateFrame:(float)t;
 {
     if(!self.skinMesh){
         return;
     }
- 
     Display3dMovie* this=self;
-     //this.curentAction=@"walk";
     this.actionTime+=t;
     NSString* actionKey;
     if(this.curentAction&&self.animDic[this.curentAction]){
@@ -309,6 +325,9 @@
         [this loadPartRes:bindSocket groupRes:groupRes ary:ary];
     }];
 }
+/*
+ 部件数据加载返回
+ */
 -(void)loadPartRes:(NSString*)bindSocket groupRes:(GroupRes*)groupRes ary:(NSMutableArray*)ary;
 {
     for (int i = 0; i < groupRes.dataAry.count; i++) {
