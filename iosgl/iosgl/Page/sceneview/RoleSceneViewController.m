@@ -6,6 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
+#import "GL_Header.h"
 #import "RoleSceneViewController.h"
 #import "SceneView.h"
 #import "SceneChar.h"
@@ -47,7 +48,10 @@
     [self addEventButBy:@"特效"];
     [self addEventButBy:@"技能"];
     [self addEventButBy:@"清理"];
- 
+    [self addEventButBy:@"拉+"];
+    [self addEventButBy:@"推-"];
+    [self addEventButBy:@"新加"];
+    
 }
 
 -(void)addEventButBy:(NSString*)tittle;
@@ -60,14 +64,17 @@
 - (void)viewDidLayoutSubviews
 {
     for (int i=0; i< self.butItems.count; i++) {
-        self.butItems[i].frame=CGRectMake(i*80+20, self.view.bounds.size.height-200, 60, 30);
+        double tx=    fmod (i, 5);
+        int ty= float2int(i/5.0f);
+     
+        self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.sceneView.frame)+55+ty*50, 60, 30);
     }
 }
 
 
 - (void) oneButClikEvent:(UIButton *) btn
 {
- 
+    
     NSString* titleStr=btn.titleLabel.text;
     if([titleStr isEqualToString:@"角色"]){
         [self makeRollAndMount];
@@ -77,9 +84,9 @@
         [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
     }
     if([titleStr isEqualToString:@"特效"]){
-         [self.sceneView.scene3D clearAll];
+        [self.sceneView.scene3D clearAll];
         [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
-     
+        
         NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
         [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
         [lyfItem addObject:@"model/levelup_lyf.txt"];
@@ -95,7 +102,7 @@
         
     }
     if([titleStr isEqualToString:@"技能"]){
-       
+        
         if(!self.mainChar){
             self.mainChar=[[SceneChar alloc]init];
             [self.sceneView.scene3D addMovieDisplay:self.mainChar] ;
@@ -120,7 +127,12 @@
         [self.sceneView.scene3D clearAll];
         [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     }
-    
+    if([titleStr isEqualToString:@"拉+"]){
+        self.sceneView.scene3D.camera3D.distance-=20;
+    }
+    if([titleStr isEqualToString:@"推-"]){
+        self.sceneView.scene3D.camera3D.distance+=20;
+    }
 }
 -(void)playLyfByUrl:(NSString*)value
 {

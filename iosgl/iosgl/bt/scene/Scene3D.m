@@ -111,7 +111,7 @@
 -(void) clearAll;
 {
     [self.displayList removeAllObjects];
-    
+    [self.displayRoleList removeAllObjects];
     [self.particleManager removeAll];
 }
 
