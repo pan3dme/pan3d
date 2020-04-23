@@ -9,14 +9,18 @@
 #import "RoleSceneViewController.h"
 #import "SceneView.h"
 #import "SceneChar.h"
+#import "GroupItem.h"
+#import "Scene_data.h"
+#import "GroupDataManager.h"
 #import "GridLineSprite.h"
 
 
 @interface RoleSceneViewController ()
 
 @property (nonatomic, strong) SceneView *sceneView;
+@property (nonatomic, strong) SceneChar *mainChar;
 @property (nonatomic, strong) NSMutableArray<UIButton*>* butItems;
-
+@property (nonatomic, assign) int lyfPlayIdx;
 
 @end
 
@@ -25,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
-    
+    self.lyfPlayIdx=0;
     self.sceneView=[[SceneView alloc]init];
     self.sceneView.frame=CGRectMake(5, 100, 360, 360);
     [self.view addSubview:  self.sceneView];
@@ -42,6 +46,7 @@
     [self addEventButBy:@"角色"];
     [self addEventButBy:@"特效"];
     [self addEventButBy:@"技能"];
+    [self addEventButBy:@"清理"];
  
 }
 
@@ -55,7 +60,7 @@
 - (void)viewDidLayoutSubviews
 {
     for (int i=0; i< self.butItems.count; i++) {
-        self.butItems[i].frame=CGRectMake(i*55+15, self.view.bounds.size.height-200, 50, 30);
+        self.butItems[i].frame=CGRectMake(i*80+20, self.view.bounds.size.height-200, 60, 30);
     }
 }
 
@@ -71,7 +76,67 @@
         [self addRoleToScene:@"50005" pos:[[Vector3D alloc]x:-60 y:0 z:0]];
         [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
     }
+    if([titleStr isEqualToString:@"特效"]){
+         [self.sceneView.scene3D clearAll];
+        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+     
+        NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
+        [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
+        [lyfItem addObject:@"model/levelup_lyf.txt"];
+        [lyfItem addObject:@"model/reviveeff_lyf.txt"];
+        [lyfItem addObject:@"model/10017_lyf.txt"];
+        [lyfItem addObject:@"model/10018_lyf.txt"];
+        [lyfItem addObject:@"model/13012_lyf.txt"];
+        self.lyfPlayIdx ++;
+        if(self.lyfPlayIdx>=lyfItem.count){
+            self.lyfPlayIdx=0;
+        }
+        [self playLyfByUrl:lyfItem[self.lyfPlayIdx]];
+        
+    }
+    if([titleStr isEqualToString:@"技能"]){
+       
+        if(!self.mainChar){
+            self.mainChar=[[SceneChar alloc]init];
+            [self.sceneView.scene3D addMovieDisplay:self.mainChar] ;
+            //50001
+            [self.mainChar setRoleUrl: getRoleUrl(@"50001")];
+            [self.mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+            [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
+            
+        }else{
+            
+            Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+            skill.scene3D=self.sceneView.scene3D;
+            [skill reset];
+            [skill configFixEffect:self.mainChar completeFun:nil posObj:nil ];
+            [self.mainChar playSkill:skill];
+            NSLog(@"播放技能");
+            
+        }
+        
+    }
+    if([titleStr isEqualToString:@"清理"]){
+        [self.sceneView.scene3D clearAll];
+        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    }
     
+}
+-(void)playLyfByUrl:(NSString*)value
+{
+    ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
+    NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:value];
+    [[GroupDataManager default] getGroupData:modeurl Block:^(GroupRes *groupRes) {
+        for (int i = 0; i < groupRes.dataAry.count; i++) {
+            GroupItem *item = groupRes.dataAry[i];
+            if (item.types ==SCENE_PARTICLE_TYPE) {
+                CombineParticle*  particle =   [ParticleManager   getParticleByte: item.particleUrl];
+                [particleManager addParticle:particle];
+            } else {
+                NSLog(@"播放的不是单纯特效");
+            }
+        }
+    }];
 }
 /*
  武器，角色，坐骑
