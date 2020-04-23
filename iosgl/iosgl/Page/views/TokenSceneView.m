@@ -114,6 +114,8 @@
 
 -(void)playTypeBut:(int)tabId;
 {
+    TokenSceneView* this=self;
+    
     [self.sceneView makeEemptyScene];
     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     //     [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
@@ -136,17 +138,17 @@
     
     switch (tabId) {
         case 1:
-            self.lyfPlayIdx ++;
-            if(self.lyfPlayIdx>=lyfItem.count){
-                self.lyfPlayIdx=0;
+            this.lyfPlayIdx ++;
+            if(this.lyfPlayIdx>=lyfItem.count){
+                this.lyfPlayIdx=0;
             }
-            [self playLyfByUrl:lyfItem[self.lyfPlayIdx]];
+            [this playLyfByUrl:lyfItem[this.lyfPlayIdx]];
             
             break;
         case 2:
             if(!mainChar){
                 mainChar=[[SceneChar alloc]init];
-                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                [this.sceneView.scene3D addMovieDisplay:mainChar] ;
                 [mainChar setRoleUrl:@"role/yingz.txt"];
             }
             break;
@@ -158,14 +160,13 @@
             
             if(!mainChar){
                 mainChar=[[SceneChar alloc]init];
-                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                [this.sceneView.scene3D addMovieDisplay:mainChar] ;
                 //50001  5104
                 [mainChar setRoleUrl: getRoleUrl(@"50001")];
-               // [mainChar setMountById:@"5104"];
-                [mainChar play:@"walk" completeState:0 needFollow:NO];
-                mainChar.x=100;
                 [mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
-                [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
+                [this.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
+                
+                [this makeRollAndMount];
             }else{
                 
                 Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
@@ -182,6 +183,17 @@
     }
     
     
+    
+}
+-(void)makeRollAndMount;
+{
+    SceneChar* sc=[[SceneChar alloc]init];
+    [self.sceneView.scene3D addMovieDisplay:sc] ;
+    [sc setRoleUrl: getRoleUrl(@"50002")];
+    [sc setMountById:@"5104"];
+    // [sc play:@"walk" completeState:0 needFollow:NO];
+    // [sc addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+    sc.x=50;
     
 }
 

@@ -53,19 +53,27 @@
 }
 -(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
 {
+    BOOL temp= [super play:action completeState:completeState needFollow:needFollow];
+    [self changeMountAction];
+    return  temp;
+}
+-(void)changeMountAction;
+{
+    SceneChar* this=self;
+    NSString* action=this.curentAction;
     if(self.mountChar){
+        action=action?action:this.defaultAction;
         if([action isEqualToString:@"stand"]||[action isEqualToString:@"stand_mount_01"]){
-            action=@"stand_mount_01";
-            [self.mountChar play:@"stand" completeState:completeState needFollow:needFollow];
+            this.curentAction=@"stand_mount_01";
+            self.mountChar.curentAction=@"stand";
         }
         else if([action isEqualToString:@"walk"]||[action isEqualToString:@"walk_mount_01"]){
-            action=@"walk_mount_01";
-            [self.mountChar play:@"walk" completeState:completeState needFollow:needFollow];
+            this.curentAction=@"walk_mount_01";
+            self.mountChar.curentAction=@"walk";
         }else{
-            [self.mountChar play:@"stand" completeState:completeState needFollow:needFollow];
+            self.mountChar.curentAction=@"stand";
         }
     }
-   return  [super play:action completeState:completeState needFollow:needFollow];
 }
 -(void)setMountById:(NSString*)mountName;
 {
@@ -74,9 +82,37 @@
         this.mountChar=[[MountChar alloc]init];
         [this.scene3d addMovieDisplay:this.mountChar];
         [this setBind:this.mountChar bindSocket:SceneChar.MOUNT_SLOT];
+ 
     }
     [this.mountChar setRoleUrl: getRoleUrl(mountName)];
+    [self changeMountAction];
+    [self refrishmountPos];
  
+}
+/*
+ 刷新坐骑位置
+ */
+- (void)refrishmountPos;
+{
+    SceneChar* this=self;
+    if(this.mountChar){
+        this.mountChar.x=this.x;
+        this.mountChar.y=this.y;
+        this.mountChar.z=this.y;
+        this.mountChar.rotationY=this.rotationY;
+    }
+}
+-(void)setX:(float)value; {
+    [super setX:value];
+    [self refrishmountPos];
+}
+-(void)setY:(float)value;{
+    [super setY:value];
+    [self refrishmountPos];
+}
+-(void)setZ:(float)value;{
+    [super setZ:value];
+    [self refrishmountPos];
 }
  
 /*

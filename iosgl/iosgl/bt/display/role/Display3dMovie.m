@@ -32,7 +32,7 @@
 @property(nonatomic,strong)NSMutableDictionary*  waitLoadActionDic;
 
 
-@property(nonatomic,assign)NSString*  curentAction;
+
 @property(nonatomic,assign)int  completeState ;
 @property(nonatomic,assign)int  curentFrame;
 @property(nonatomic,assign)float actionTime;
