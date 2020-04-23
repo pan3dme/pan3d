@@ -51,6 +51,22 @@
 {
     
 }
+-(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
+{
+    if(self.mountChar){
+        if([action isEqualToString:@"stand"]||[action isEqualToString:@"stand_mount_01"]){
+            action=@"stand_mount_01";
+            [self.mountChar play:@"stand" completeState:completeState needFollow:needFollow];
+        }
+        else if([action isEqualToString:@"walk"]||[action isEqualToString:@"walk_mount_01"]){
+            action=@"walk_mount_01";
+            [self.mountChar play:@"walk" completeState:completeState needFollow:needFollow];
+        }else{
+            [self.mountChar play:@"stand" completeState:completeState needFollow:needFollow];
+        }
+    }
+   return  [super play:action completeState:completeState needFollow:needFollow];
+}
 -(void)setMountById:(NSString*)mountName;
 {
     SceneChar* this=self;

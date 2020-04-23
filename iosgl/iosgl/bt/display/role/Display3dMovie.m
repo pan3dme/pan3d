@@ -65,7 +65,7 @@
     self = [super init];
     if (self) {
         self.meshVisible=YES;
-        self.defaultAction= @"stand_mount_01";
+        self.defaultAction= @"stand";
         self.partDic = [[NSMutableDictionary alloc]init];
         self.partUrl =[[NSMutableDictionary alloc]init];
         self.preLoadActionDic = [[NSMutableDictionary alloc]init];
@@ -154,7 +154,6 @@
         return;
     }
     [this updateBind];
- 
     if(self.meshVisible){
         for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
             [this updateMaterialMesh:this.skinMesh.meshAry[i]];
