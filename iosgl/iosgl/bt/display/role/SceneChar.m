@@ -51,15 +51,16 @@
 {
     
 }
--(void)setMountById:(int)mountId;
+-(void)setMountById:(NSString*)mountName;
 {
     SceneChar* this=self;
     if(!this.mountChar){
         this.mountChar=[[MountChar alloc]init];
+        [this.scene3d addMovieDisplay:this.mountChar];
+        [this setBind:this.mountChar bindSocket:SceneChar.MOUNT_SLOT];
     }
-    [this.mountChar setRoleUrl: getRoleUrl(@"5104")];
-    
-    
+    [this.mountChar setRoleUrl: getRoleUrl(mountName)];
+ 
 }
  
 /*

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)MountChar* mountChar;
 
 -(void)playSkill:(Skill*)skill;
-
+-(void)setMountById:(NSString*)mountName;
 
 @end
 

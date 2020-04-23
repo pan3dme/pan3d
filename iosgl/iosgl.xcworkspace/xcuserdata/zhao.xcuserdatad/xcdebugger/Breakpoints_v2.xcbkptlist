@@ -1119,8 +1119,8 @@
             filePath = "iosgl/bt/material/DynamicBaseConstItem.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "-update:"
             landmarkType = "7">
          </BreakpointContent>
