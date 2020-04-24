@@ -81,37 +81,28 @@
         [self.scene3D.camera3D upFrame];
     }
 }
-
- 
 -(void)makeEemptyScene;
 {
     if(!self.scene3D){
         self.scene3D=[[Scene3D alloc]init:self];
     }
 }
-
--(void)addBuildSprite:(NSDictionary*)value
-{
-    BuildDisplay3DSprite *tempDis=[[BuildDisplay3DSprite alloc]init];
-    [tempDis setInfo:value];
-   [self.scene3D addDisplay:tempDis];
-}
 - (void)loadSeceneByUrl:(NSString *)url
 {
      NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
        SceneRes *sceneRes=[[SceneRes alloc]init];
        [sceneRes load:webUrl  bfun:^(NSString *value) {
-     
            NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
              [self makeEemptyScene];
              for(int i=0;i<buildItem.count;i++){
-                 [self addBuildSprite:buildItem[i]];
+                  BuildDisplay3DSprite *tempDis=[[BuildDisplay3DSprite alloc]init];
+                  [tempDis setInfo:buildItem[i]];
+                 [self.scene3D addDisplay:tempDis];
              }
-           
            NSLog(@"--");
-    
        }];
 }
 
 
 @end
+
