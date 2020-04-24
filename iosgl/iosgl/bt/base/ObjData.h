@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
   //  public vertices: Array<number> = new Array;
 @property (nonatomic, copy)  NSArray  *vertices;
 @property (nonatomic, copy)  NSArray  *uvs;
+@property (nonatomic, copy)  NSArray  *lightuvs;
 @property (nonatomic, copy)  NSArray  *nrms;
 @property (nonatomic, copy)  NSArray  *indexs;
 
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  int trinum  ;
 @property (nonatomic, assign) GLuint verticesBuffer ;
 @property (nonatomic, assign) GLuint uvBuffer ;
+@property (nonatomic, assign) GLuint lightuvsBuffer ;
 @property (nonatomic, assign) GLuint nrmsBuffer ;
 @property (nonatomic, assign) GLuint indexBuffer ;
 @property (nonatomic, strong) NSMutableData *dataView ;

@@ -240,7 +240,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
     self.imgLoadNum = 0;
     for(int i=0;i<self.imgNum;i++){
         NSString *imgurl =   [self.byte readUTF];
-                            
+        NSLog(@"%@",imgurl);
         int imgSize=  [self.byte readInt];
         if(imgSize&&[Scene_data default].supportBlob){
               NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];

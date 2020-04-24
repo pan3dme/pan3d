@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString* name;
 @property(nonatomic,strong)NSString* objsurl;
 @property(nonatomic,strong)NSString* materialurl;
+@property(nonatomic,strong)NSString* lighturl;
 @property(nonatomic,assign)float rotationX;
 @property(nonatomic,assign)float rotationY;
 @property(nonatomic,assign)float rotationZ;

@@ -9,6 +9,9 @@
 #import "Display3DSprite.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@interface BuildDisplay3DLightUvShader : Shader3D
++(NSString*)shaderStr;
+@end
 
 @interface BuildDisplay3DSprite : Display3DSprite
 -(void) setInfo:(NSDictionary*)value;
