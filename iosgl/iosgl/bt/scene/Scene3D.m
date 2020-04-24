@@ -114,7 +114,9 @@
     [self.displayRoleList removeAllObjects];
     [self.particleManager removeAll];
 }
-
+/*
+ 设置渲染层Buff;
+ */
 -(void)setupRenderBuffer
 {
     GLuint buffer;
@@ -128,6 +130,9 @@
     
     
 }
+/*
+设置渲深度Buff;
+*/
 -(void)setupDephtBuffer
 {
     
@@ -144,6 +149,9 @@
     self.mydepthRenderBuffer=depthBuffer;
     
 }
+/*
+设置渲FrameBuff;
+*/
 -(void)setupFrameBuffer
 {
     GLuint buffer;
@@ -154,16 +162,11 @@
     self.myColorFrameBuffer = buffer;
     glBindFramebuffer(GL_FRAMEBUFFER, self.myColorFrameBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
-    
-    
- 
 }
-
-
 //1、设置图层
 -(void)setUpLayer
 {
-    //1、设置图层
+ 
     self.myEAGLayer = (CAEAGLLayer *) self.uiView.layer;
     [self.uiView setContentScaleFactor:1.0];
     self.myEAGLayer.opaque=YES;

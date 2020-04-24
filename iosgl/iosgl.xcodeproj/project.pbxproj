@@ -142,6 +142,8 @@
 		FE8FFF7D24504AC000EB79CE /* CubemapLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */; };
 		FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2C62451CA0700C458AC /* MountChar.m */; };
 		FE9EB2CE24522C7300C458AC /* RoleSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */; };
+		FE9EB2D12452EB5200C458AC /* BuildDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2D02452EB5200C458AC /* BuildDisplay3DSprite.m */; };
+		FE9EB2D42452ECC600C458AC /* BuildSceneVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2D32452ECC600C458AC /* BuildSceneVo.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C858242FF3F500A349E8 /* Display3DFacetParticle.m */; };
 		FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */; };
@@ -446,6 +448,10 @@
 		FE9EB2C62451CA0700C458AC /* MountChar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MountChar.m; sourceTree = "<group>"; };
 		FE9EB2CC24522C7300C458AC /* RoleSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoleSceneViewController.h; sourceTree = "<group>"; };
 		FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleSceneViewController.m; sourceTree = "<group>"; };
+		FE9EB2CF2452EB5200C458AC /* BuildDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildDisplay3DSprite.h; sourceTree = "<group>"; };
+		FE9EB2D02452EB5200C458AC /* BuildDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildDisplay3DSprite.m; sourceTree = "<group>"; };
+		FE9EB2D22452ECC600C458AC /* BuildSceneVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildSceneVo.h; sourceTree = "<group>"; };
+		FE9EB2D32452ECC600C458AC /* BuildSceneVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildSceneVo.m; sourceTree = "<group>"; };
 		FEA2A5F324152C4400EA941D /* GridLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineShader.h; sourceTree = "<group>"; };
 		FEA2A5F424152C4400EA941D /* GridLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineShader.m; sourceTree = "<group>"; };
 		FEA5C857242FF3F500A349E8 /* Display3DFacetParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFacetParticle.h; sourceTree = "<group>"; };
@@ -1059,6 +1065,10 @@
 				FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */,
 				FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */,
 				FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */,
+				FE9EB2D22452ECC600C458AC /* BuildSceneVo.h */,
+				FE9EB2D32452ECC600C458AC /* BuildSceneVo.m */,
+				FE9EB2CF2452EB5200C458AC /* BuildDisplay3DSprite.h */,
+				FE9EB2D02452EB5200C458AC /* BuildDisplay3DSprite.m */,
 				FE2A61BF239CB9DF0011BF9E /* Scene3D.h */,
 				FE2A61C0239CB9DF0011BF9E /* Scene3D.m */,
 				FE2F1BAA240BF2D0005E287F /* Scene_data.h */,
@@ -1435,6 +1445,7 @@
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
 				FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */,
 				FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */,
+				FE9EB2D42452ECC600C458AC /* BuildSceneVo.m in Sources */,
 				FE887D592416766700025A74 /* DynamicBaseConstItem.m in Sources */,
 				FE3D4EDF2401BF5A00185FD3 /* ParticleManager.m in Sources */,
 				FEEF8BE72449A157001AFEB2 /* ParticleLocusballData.m in Sources */,
@@ -1488,6 +1499,7 @@
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
 				FEEF8BDD2448E7CD001AFEB2 /* SkillKeyVo.m in Sources */,
 				FEEF8BD02448E777001AFEB2 /* PathManager.m in Sources */,
+				FE9EB2D12452EB5200C458AC /* BuildDisplay3DSprite.m in Sources */,
 				FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */,
 				FEF3D4CC2436B7630055AB31 /* ObjectBone.m in Sources */,
 				FE8FA4EF244D9BC700552A94 /* Display3DModelShader.m in Sources */,

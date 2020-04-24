@@ -140,20 +140,10 @@
     }
     
     if([titleStr isEqualToString:@"场景"]){
-        [self loaseSceneRes:@"1036"];
-      }
+        [self.sceneView loadSeceneByUrl:@"1036"];
+    }
 }
--(void)loaseSceneRes:(NSString*)url;
-{
-    
-    NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
-    SceneRes *sceneRes=[[SceneRes alloc]init];
-    [sceneRes load:webUrl  bfun:^(NSString *value) {
-        
-        NSLog(@"--");
  
-    }];
-}
 -(void)playLyfByUrl:(NSString*)value
 {
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
