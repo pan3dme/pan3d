@@ -46,6 +46,7 @@ static NSString * const CharAction_m_attack_04        =@"m_attack_04";
 #define getSkillUrl(url)(NSString*)[NSString stringWithFormat:@"skill/%@_byte.txt",url]
 #define getModelUrl(url)(NSString*)[NSString stringWithFormat:@"model/%@.txt",url]
 #define getRoleUrl(url)(NSString*)[NSString stringWithFormat:@"role/%@.txt",url]
+#define getMapUrl(url)(NSString*)[NSString stringWithFormat:@"map/%@.txt",url]
 
 /*
  随机函数

@@ -14,7 +14,7 @@
 
 @interface SceneRes ()
 
-
+@property(nonatomic,strong)SuccessBlock bfun;
 
 
 @end
@@ -22,22 +22,23 @@
 -(void)load:(NSString *)url bfun:(SuccessBlock)bfun;
 {
     
-  
+    self.bfun=bfun;
      //本地文件读取
+   /*
     NSString *path=  [[NSBundle mainBundle]pathForResource:@"5555_base" ofType:@"txt"];
     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
     NSLog(@"-----length----%lu",   reader.length);
     self.byte=[[ByteArray alloc]init:reader];
     [self loadComplete:self.byte];
-  
+  */
 
     
-    [[LoadManager default] loadUrl:url type: LoadManager.IMG_TYPE fun:^(NSString* value) {
-        NSData* netNsData = [[NSData alloc] initWithContentsOfFile:value];
-        self.byte=[[ByteArray alloc]init:reader];
+    [[LoadManager default] loadUrl:url type: LoadManager.IMG_TYPE fun:^(NSObject* value) {
+        NSDictionary* bvalue=(NSDictionary*)value;
+        NSData* netNsData = [[NSData alloc] initWithContentsOfFile:bvalue[@"data"]];
+        self.byte=[[ByteArray alloc]init:netNsData];
         [self loadComplete:self.byte];
-        bfun(nil);
-        
+   
     }];
     
 }
@@ -55,6 +56,8 @@
     [self read];//material
     [self read];//particle
     [self readScene];
+    
+    self.bfun(nil);
 }
 -(void)readScene;
 {
