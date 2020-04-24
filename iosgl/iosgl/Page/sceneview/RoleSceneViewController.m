@@ -133,6 +133,9 @@
     if([titleStr isEqualToString:@"推-"]){
         self.sceneView.scene3D.camera3D.distance+=20;
     }
+    if([titleStr isEqualToString:@"新加"]){
+              [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
+      }
 }
 -(void)playLyfByUrl:(NSString*)value
 {

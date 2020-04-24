@@ -44,7 +44,8 @@ static MeshDataManager *instance = nil;
 -(void)getMeshData:(NSString*)url fun:(SkinMeshBfun)fun batchNum:(int)batchNum;
 {
     MeshDataManager* this=self;
-    if (this.dic[url] && this.dic[url][@"ready"]) {
+    if (this.dic[url] && ((SkinMesh*)this.dic[url]).ready) {
+        fun(this.dic[url]);
         return;
     }
     if (this.loadDic[url]) {
