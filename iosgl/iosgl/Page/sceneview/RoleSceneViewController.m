@@ -12,6 +12,7 @@
 #import "SceneChar.h"
 #import "GroupItem.h"
 #import "Scene_data.h"
+#import "SceneRes.h"
 #import "GroupDataManager.h"
 #import "GridLineSprite.h"
 
@@ -51,6 +52,7 @@
     [self addEventButBy:@"拉+"];
     [self addEventButBy:@"推-"];
     [self addEventButBy:@"新加"];
+     [self addEventButBy:@"场景"];
     
 }
 
@@ -134,8 +136,22 @@
         self.sceneView.scene3D.camera3D.distance+=20;
     }
     if([titleStr isEqualToString:@"新加"]){
-              [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
+          [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
+    }
+    
+    if([titleStr isEqualToString:@"场景"]){
+        [self loaseSceneRes:@"map/5555_base.txt"];
       }
+}
+-(void)loaseSceneRes:(NSString*)url;
+{
+    NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:@"map/1036.txt"];
+    SceneRes *sceneRes=[[SceneRes alloc]init];
+    [sceneRes load:webUrl  bfun:^(NSString *value) {
+        
+        NSLog(@"--");
+        //[self initConfigScene:sceneRes];
+    }];
 }
 -(void)playLyfByUrl:(NSString*)value
 {
