@@ -29,7 +29,7 @@
 {
   
     [self.viewMatrix identity];
-    [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:10 zFar:1500];
+    [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:10 zFar:2000];
     
    
     

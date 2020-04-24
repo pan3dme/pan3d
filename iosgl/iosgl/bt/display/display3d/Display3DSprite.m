@@ -270,17 +270,18 @@
         }
         else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
             //  Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, Scene_data.pubLut, texVec[i].id);
-             NSLog(@"TexItem.LTUMAP)");
+            NSLog(@"TexItem.LTUMAP)");
         }
         else if (texItem.type == TexItem.CUBEMAP) {
             if (material.useDynamicIBL) {// && _reflectionTextureVo) {
                 NSLog(@"TexItem.useDynamicIBL)");
             } else {
                 if([Scene_data default].skyCubeTexture){
-                     [ctx setRenderTextureCube:material.shader name:texItem.name texture:[Scene_data default].skyCubeTexture level:texItem.id];
+                    [ctx setRenderTextureCube:material.shader name:texItem.name texture:[Scene_data default].skyCubeTexture level:texItem.id];
                 }
             }
-        }else{
+        }
+        else if (texItem.type == 0) {
             [ctx setRenderTexture:material.shader name:texItem.name texture:  texItem.textureRes.textTureLuint level:texItem.id];
             
         }

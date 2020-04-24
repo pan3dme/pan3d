@@ -129,10 +129,7 @@
         TexItem* texItem=texVec[i];
         if (texItem.type == TexItem.LIGHTMAP&&self.lightTextureRes) {
             [ctx setRenderTexture:material.shader name:texItem.name texture:self.lightTextureRes.textTureLuint level:texItem.id];
-         
-            
         }
-        
     }
       
     
