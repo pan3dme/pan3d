@@ -63,7 +63,9 @@
 {
     int types = [self.byte readInt];
     [self readAstat];
-    [self readTerrainIdInfoBitmapData:self.byte];
+    if (self.version >= 28) {
+        [self readTerrainIdInfoBitmapData:self.byte];
+     }
     int sceneInfosize   = [self.byte readInt];
     NSString *jsonStr= [self.byte readUTFBytes:sceneInfosize];
     NSData *data=[jsonStr dataUsingEncoding:NSUTF8StringEncoding];

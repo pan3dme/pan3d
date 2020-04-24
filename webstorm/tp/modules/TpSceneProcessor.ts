@@ -38,9 +38,12 @@ class TpSceneProcessor extends BaseProcessor {
 
 
 
-        var tabIdx=1;
+        var tabIdx=4;
 
+        if(tabIdx==4){
 
+            this.loadSceneByUrl("1001");
+        }
         if(tabIdx==3){
             this.playLyf("model/10018_lyf.txt");
         }
@@ -66,6 +69,22 @@ class TpSceneProcessor extends BaseProcessor {
             SceneManager.getInstance().addMovieDisplay(  this.mainChar);
 
         }
+
+
+
+    }
+    private loadSceneByUrl(url:string)
+    {
+
+        var sceneres:SceneRes=new SceneRes;
+        sceneres.load(url,    ( ) => {
+        },    ( num) => {
+
+        },( kk:Object) => {
+
+            console.log(kk);
+
+        })
 
 
 

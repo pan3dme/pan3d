@@ -87,20 +87,38 @@
         self.scene3D=[[Scene3D alloc]init:self];
     }
 }
+-(void)parsingBuildItem:(NSDictionary*)value;
+{
+    
+    int type=   [value[@"type"]intValue];
+    switch (type) {
+        case 1:
+            [self addBuildDisplay3DSprite:value];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+-(void)addBuildDisplay3DSprite:(NSDictionary*)value;
+{
+    BuildDisplay3DSprite *tempDis=[[BuildDisplay3DSprite alloc]init];
+    [tempDis setInfo:value];
+    [self.scene3D addDisplay:tempDis];
+}
 - (void)loadSeceneByUrl:(NSString *)url
 {
-     NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
-       SceneRes *sceneRes=[[SceneRes alloc]init];
-       [sceneRes load:webUrl  bfun:^(NSString *value) {
-           NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
-             [self makeEemptyScene];
-             for(int i=0;i<buildItem.count;i++){
-                  BuildDisplay3DSprite *tempDis=[[BuildDisplay3DSprite alloc]init];
-                  [tempDis setInfo:buildItem[i]];
-                 [self.scene3D addDisplay:tempDis];
-             }
-           NSLog(@"--");
-       }];
+    NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
+    SceneRes *sceneRes=[[SceneRes alloc]init];
+    [sceneRes load:webUrl  bfun:^(NSString *value) {
+        NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
+        [self makeEemptyScene];
+        for(int i=0;i<buildItem.count;i++){
+            [self parsingBuildItem:buildItem[i]];
+        }
+        NSLog(@"--");
+    }];
 }
 
 
