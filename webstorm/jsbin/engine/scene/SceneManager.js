@@ -86,8 +86,7 @@ var SceneManager = /** @class */ (function () {
         }
         this.clearStaticScene();
         this._ready = false;
-        var $mapId = GuidData.map.tbMapVo.id;
-        LoadManager.getInstance().load(Scene_data.fileRoot + "pan/map2d/net/" + $mapId + ".txt", LoadManager.XML_TYPE, function ($str) {
+        LoadManager.getInstance().load(Scene_data.fileRoot + "map/" + $url + ".txt", LoadManager.XML_TYPE, function ($str) {
             _this._sceneDic = new Object();
             Scene_data.sceneNumId++;
             MapConfig.getInstance().anlyData($str);

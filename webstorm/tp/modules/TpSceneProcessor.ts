@@ -42,7 +42,7 @@ class TpSceneProcessor extends BaseProcessor {
 
         if(tabIdx==4){
 
-            this.loadSceneByUrl("1001");
+            this.loadSceneByUrl("2012");
         }
         if(tabIdx==3){
             this.playLyf("model/10018_lyf.txt");
@@ -76,6 +76,16 @@ class TpSceneProcessor extends BaseProcessor {
     private loadSceneByUrl(url:string)
     {
 
+        SceneManager.getInstance().loadScene(url,  ( ) => {
+
+        },    ( num) => {
+
+        },( kk:Object) => {
+
+            console.log(kk);
+
+        })
+        /*
         var sceneres:SceneRes=new SceneRes;
         sceneres.load(url,    ( ) => {
         },    ( num) => {
@@ -85,7 +95,7 @@ class TpSceneProcessor extends BaseProcessor {
             console.log(kk);
 
         })
-
+*/
 
 
     }

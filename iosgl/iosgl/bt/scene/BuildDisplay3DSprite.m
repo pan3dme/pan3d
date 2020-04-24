@@ -17,22 +17,21 @@
 -(void) setInfo:(NSDictionary*)value;
 {
     /*
-     [0]    (null)    @"id" : (long)106
-     [1]    (null)    @"objsurl" : @"wudiqiuqiu/changjing/guankajibenmoxing/017/017_0.xml"
+     [0]    (null)    @"id" : (long)277
+     [1]    (null)    @"objsurl" : @"content/finalscens/mapscene/m1001/model/ef/m1001_sky_blue_0.xml"
      [2]    (null)    @"rotationY" : (long)0
-     [3]    (null)    @"x" : (double)113.621
-     [4]    (null)    @"y" : (long)0
+     [3]    (null)    @"x" : (double)-317.318
+     [4]    (null)    @"y" : (double)167.996
      [5]    (null)    @"rotationZ" : (long)0
      [6]    (null)    @"type" : (long)1
-     [7]    (null)    @"z" : (long)0
-     [8]    (null)    @"scaleZ" : (long)1
-     [9]    (null)    @"materialurl" : @"wudiqiuqiu/changjing/texture/wuditexture.txt"
-     [10]    (null)    @"scaleY" : (long)1
+     [7]    (null)    @"z" : (double)25.9462
+     [8]    (null)    @"scaleZ" : (double)0.585893
+     [9]    (null)    @"materialurl" : @"content/materialinstance/changjingbuhongpei/standard_no.txt"
+     [10]    (null)    @"scaleY" : (double)0.585893
      [11]    (null)    @"isPerspective" : NO
      [12]    (null)    @"rotationX" : (long)0
-     [13]    (null)    @"scaleX" : (double)1.73914
-     [14]    (null)    @"name" : @"017_0"
-     [15]    (null)    @"materialInfoArr" : @"1 element"
+     [13]    (null)    @"scaleX" : (double)0.585893
+     [14]    (null)    @"materialInfoArr" : @"1 element"
      */
     
     self.buildSceneVo=[[BuildSceneVo alloc]init];

@@ -104,9 +104,9 @@
 
         this._ready = false;
 
-        var $mapId: number = GuidData.map.tbMapVo.id
 
-        LoadManager.getInstance().load(Scene_data.fileRoot + "pan/map2d/net/" + $mapId+".txt", LoadManager.XML_TYPE,
+
+        LoadManager.getInstance().load(Scene_data.fileRoot + "map/"+$url+".txt", LoadManager.XML_TYPE,
             ($str: string) => {
                 this._sceneDic = new Object();
                 Scene_data.sceneNumId++;

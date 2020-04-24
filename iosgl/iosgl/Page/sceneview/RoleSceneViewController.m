@@ -140,7 +140,7 @@
     }
     
     if([titleStr isEqualToString:@"场景"]){
-        [self.sceneView loadSeceneByUrl:@"1001"];
+        [self.sceneView loadSeceneByUrl:@"2012"];
     }
 }
  

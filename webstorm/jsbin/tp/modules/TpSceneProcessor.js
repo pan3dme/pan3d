@@ -57,7 +57,10 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/levelup_lyf.txt")
         // this.playLyf("model/skin001_lyf.txt")
         //  this.playLyf("model/10018_lyf.txt")
-        var tabIdx = 1;
+        var tabIdx = 4;
+        if (tabIdx == 4) {
+            this.loadSceneByUrl("2012");
+        }
         if (tabIdx == 3) {
             this.playLyf("model/10018_lyf.txt");
         }
@@ -77,6 +80,24 @@ var TpSceneProcessor = /** @class */ (function (_super) {
             // this.mainChar.setMountById(5104);
             SceneManager.getInstance().addMovieDisplay(this.mainChar);
         }
+    };
+    TpSceneProcessor.prototype.loadSceneByUrl = function (url) {
+        SceneManager.getInstance().loadScene(url, function () {
+        }, function (num) {
+        }, function (kk) {
+            console.log(kk);
+        });
+        /*
+        var sceneres:SceneRes=new SceneRes;
+        sceneres.load(url,    ( ) => {
+        },    ( num) => {
+
+        },( kk:Object) => {
+
+            console.log(kk);
+
+        })
+*/
     };
     TpSceneProcessor.prototype.playLyf = function (url) {
         GroupDataManager.getInstance().getGroupData(Scene_data.fileRoot + url, function (groupRes) {
