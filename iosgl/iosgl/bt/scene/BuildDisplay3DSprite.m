@@ -128,12 +128,13 @@
     for (int i   = 0; i < texVec.count; i++) {
         TexItem* texItem=texVec[i];
         if (texItem.type == TexItem.LIGHTMAP&&self.lightTextureRes) {
-            [ctx setRenderTextureCube:material.shader name:texItem.name texture:self.lightTextureRes.textTureLuint level:texItem.id];
+            [ctx setRenderTexture:material.shader name:texItem.name texture:self.lightTextureRes.textTureLuint level:texItem.id];
+         
             
         }
         
     }
-    
+      
     
 }
 
