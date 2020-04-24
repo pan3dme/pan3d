@@ -25,7 +25,6 @@
 @interface Display3DSprite()
 
 @property(nonatomic,strong)NSString* materialUrl;
-@property(nonatomic,strong)Material* material;
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property (nonatomic, assign) float time;
 

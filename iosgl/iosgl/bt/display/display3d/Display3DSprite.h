@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *bindSocket;
 @property (nonatomic, strong) Matrix3D *groupMatrix;
 @property (nonatomic, strong) Matrix3D *groupRotationMatrix;
+@property (nonatomic, strong) Material* material;
 @property (nonatomic, assign) BOOL isInGroup;
 
 -(void)initData;
@@ -36,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setVc;
 -(void)setVa;
 -(void)updateBind;
+-(void)setMaterialVa;
 -(void)setObjUrl:(NSString*)value;
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 -(void)setMaterialVc:(Material*)material  mp:(MaterialBaseParam*)mp;
