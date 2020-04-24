@@ -8,6 +8,7 @@
 
 #import "BuildDisplay3DSprite.h"
 #import "BuildSceneVo.h"
+#import "ObjDataManager.h"
 
 @interface BuildDisplay3DSprite ()
  @property(nonatomic,strong)BuildSceneVo* buildSceneVo;
@@ -45,6 +46,10 @@
     self.rotationX=self.buildSceneVo.rotationX;
     self.rotationY=self.buildSceneVo.rotationY;
     self.rotationZ=self.buildSceneVo.rotationZ;
+    
+    [self setObjUrl:self.buildSceneVo.objsurl];
+    [self setMaterialUrl:self.buildSceneVo.materialurl paramData:self.buildSceneVo.materialInfoArr];
  
 }
+ 
 @end
