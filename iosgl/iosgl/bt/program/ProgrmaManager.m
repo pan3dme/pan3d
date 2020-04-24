@@ -83,8 +83,8 @@ static ProgrmaManager *instance = nil;
     shader.vertex=shader.vertexStr;
     shader.fragment = material.shaderStrRead;
     //keyStr    __NSCFString *    @"MaterialAnimShaderhttp://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/materialinstance/zuoqicaizhi/mount_liuguang_00_byte.txt"    0x00000002829cabb0
-    if ([keyStr rangeOfString:@"MaterialAnimShader"].location != NSNotFound) {
-   
+    if ([keyStr rangeOfString:@"MaterialShaderhttp"].location != NSNotFound) {
+  
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
         [self changeShader:shader];
@@ -100,50 +100,50 @@ static ProgrmaManager *instance = nil;
 
 -(void)changeShader:(Shader3D*)shader;
 {
-    /*
+    
     shader.vertex=
           @"attribute vec3 v3Position;"
-          "attribute vec2 v2TexCoord;"
-          "uniform mat4 viewMatrix;"
-          "uniform mat4 camMatrix;"
-          "uniform mat4 modeMatrix;"
-          "uniform mat4 rotMatrix;"
+          "attribute vec2 v2CubeTexST;"
           "varying vec2 v0;"
-          "void main(){"
-          "v0=v2TexCoord;"
-          "vec4 vPos = vec4(v3Position.xyz,1.0);"
-          "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;"
-          "}";
+          "attribute vec2 v2lightuv;"
+          "varying vec2 v2;"
+          "varying vec3 v1;"
+          "uniform mat4 vpMatrix3D;"
+          "uniform mat4 posMatrix3D;"
+          "uniform mat3 rotationMatrix3D;"
+          "void main(void){"
+          "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"
+          "vec4 vt0= vec4(v3Position, 1.0);"
+          "vt0 = vt0*posMatrix3D   ;"
+          "v2 = vec2(v2lightuv.x, v2lightuv.y);"
+          "v1 = vec3(vt0.x,vt0.y,vt0.z);"
+          "vt0 = vt0*vpMatrix3D ;"
+          "gl_Position = vt0; }";
         
-    */
-    /*
-     
-     */
+  
     
     shader.fragment=
     @"precision mediump float;"
     "uniform sampler2D fs0;"
     "uniform sampler2D fs1;"
-    "uniform sampler2D fs2;"
     "uniform vec4 fc[3];"
     "varying vec2 v0;"
+    "varying vec2 v2;"
+    "varying vec3 v1;"
     "void main(void){"
-        "vec4 ft0 = vec4(0,0,0,1);"
-        "ft0.xy = v0.xy * fc[1].xy;"
-        "ft0.zw = fc[1].zw * fc[0].y;"
-        "ft0.xy = ft0.xy + ft0.zw;"
-        "vec4 ft1 = texture2D(fs0,ft0.xy);"
-        "ft0 = texture2D(fs1,v0);"
-        "vec4 ft2 = vec4(0,0,0,1);"
-        "ft2.xyz = ft1.xyz * fc[2].xyz;"
-        "ft1 = texture2D(fs2,v0);"
-        "vec4 ft3 = vec4(0,0,0,1);"
-        "ft3.xyz = ft2.xyz * ft0.xyz;"
-        "ft0.xyz = ft1.xyz + ft3.xyz;"
-        "ft1 = vec4(ft0.xyz,1.0);"
-        "ft2.xyz = ft1.xyz;"
-        "ft2.w = 1.0;"
-        "gl_FragColor = ft2;"
+    "vec4 ft0 = texture2D(fs0,v0);"
+    "vec4 ft1 = texture2D(fs1,v2);"
+//    "ft1.xyz = ft1.xyz * 2.0;"
+//    "ft1.xyz = ft1.xyz * ft0.xyz;"
+//    "vec4 ft2 = vec4(0,0,0,1);"
+//    "ft2.xyz = ft1.xyz;"
+//    "ft2.w = 1.0;"
+//    "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;"
+//    "ft1.x = ft1.x - fc[0].z;"
+//    "ft1.x = fc[0].w * ft1.x;"
+//    "ft1.x = clamp(ft1.x,0.0,1.0);"
+//    "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"
+    "gl_FragColor = ft0;"
     "}";
 
   

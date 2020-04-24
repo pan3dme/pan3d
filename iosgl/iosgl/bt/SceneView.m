@@ -115,7 +115,13 @@
         NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
         [self makeEemptyScene];
         for(int i=0;i<buildItem.count;i++){
-            [self parsingBuildItem:buildItem[i]];
+            if(buildItem[i][@"lighturl"]){
+                [self parsingBuildItem:buildItem[i]];
+                
+                return ;
+            }
+            
+            
         }
         NSLog(@"--");
     }];
