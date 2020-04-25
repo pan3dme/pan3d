@@ -4,7 +4,6 @@ var SceneManager = /** @class */ (function () {
         //private _sceneLoader: SceneRes;
         this._ready = false;
         this.render = true;
-        this.test = false;
         this._displayList = new Array;
         this._displaySpriteList = new Array;
         this._displayRoleList = new Array;
@@ -27,13 +26,6 @@ var SceneManager = /** @class */ (function () {
         }
         return this._instance;
     };
-    Object.defineProperty(SceneManager.prototype, "displayList", {
-        get: function () {
-            return this._displayList;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(SceneManager.prototype, "displayRoleList", {
         get: function () {
             return this._displayRoleList;
@@ -72,9 +64,6 @@ var SceneManager = /** @class */ (function () {
         this._sceneParticleList.length = 0;
         AstarUtil.porcessBak(false);
     };
-    SceneManager.prototype.testUrl = function ($url) {
-        return this._currentUrl == $url;
-    };
     SceneManager.prototype.loadScene = function ($url, $completeFun, $progressFun, $analysisCompleteFun) {
         var _this = this;
         if (this._currentUrl == $url) { //原场景不加载
@@ -86,13 +75,8 @@ var SceneManager = /** @class */ (function () {
         }
         this.clearStaticScene();
         this._ready = false;
-        LoadManager.getInstance().load(Scene_data.fileRoot + "map/" + $url + ".txt", LoadManager.XML_TYPE, function ($str) {
-            _this._sceneDic = new Object();
-            Scene_data.sceneNumId++;
-            MapConfig.getInstance().anlyData($str);
-            AstarUtil.makeStarGraph(MapConfig.getInstance().astarItem);
-            _this._ready = true;
-            $completeFun();
+        ResManager.getInstance().loadSceneRes($url, $completeFun, $progressFun, function ($str) {
+            _this.loadSceneConfigCom($str);
             $analysisCompleteFun();
         });
         this._currentUrl = $url;
@@ -115,8 +99,55 @@ var SceneManager = /** @class */ (function () {
             this._displayRoleList[i].fixAstartData(pos);
         }
     };
-    SceneManager.prototype.getGroundSprite = function (itemObj, terrain) {
-        var itemDisplay = new TerrainDisplay3DSprite();
+    SceneManager.prototype.loadSceneConfigCom = function (obj) {
+        this._sceneDic = new Object();
+        var groundAry = obj.groundItem;
+        var buildAry = obj.buildItem;
+        Scene_data.fogColor = [obj.fogColor.x / 255.0, obj.fogColor.y / 255.0, obj.fogColor.z / 255.0];
+        //  console.log(obj.fogDistance)
+        var d = obj.fogDistance * 1; //1000
+        var s = obj.fogAttenuation; //0.5.
+        Scene_data.gameAngle = isNaN(obj.gameAngle) ? 0 : obj.gameAngle;
+        Scene_data.focus3D.rotationY = Scene_data.gameAngle;
+        Scene_data.fogData = [d * s, 1 / ((1 - s) * d)];
+        Scene_data.sceneNumId++;
+        for (var j = 0; groundAry && j < groundAry.length; j++) {
+            var groundDisplay = this.getGroundSprite(groundAry[j]);
+            this.addDisplay(groundDisplay);
+        }
+        for (var i = 0; i < buildAry.length; i++) {
+            var itemObj = buildAry[i];
+            if (itemObj.type == BaseRes.PREFAB_TYPE) {
+                if (itemObj.id == 58) {
+                    var itemDisplay = this.getBuildSprite(itemObj);
+                    this.addDisplay(itemDisplay);
+                }
+                //console.log("init:" + itemDisplay.materialUrl);
+            }
+            else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
+                /*
+                                var particle: CombineParticle = this.getParticleSprite(itemObj);
+                                ParticleManager.getInstance().addParticle(particle);
+                                this._sceneParticleList.push(particle);
+                                */
+            }
+        }
+        Scene_data.light.setData(obj.SunNrm, obj.SunLigth, obj.AmbientLight);
+        LightProbeManager.getInstance().setLightProbeData(obj.lightProbeItem);
+        AstarUtil.setData(obj.astar);
+        this._ready = true;
+        if (obj.quadTreeData) {
+            this._sceneQuadTree = new SceneQuadTree();
+            this._sceneQuadTree.init(obj.quadTreeData, this._sceneDic);
+        }
+        else {
+            this._sceneQuadTree = null;
+        }
+        // this.viewFrustum.setData(obj.aabb);
+        Scene_data.cam3D.astarRect = AstarUtil.areaRect;
+    };
+    SceneManager.prototype.getGroundSprite = function (itemObj) {
+        var itemDisplay = new Display3DSprite();
         itemDisplay.setObjUrl(itemObj.objsurl);
         itemDisplay.setMaterialUrl(itemObj.materialurl, itemObj.materialInfoArr);
         itemDisplay.materialInfoArr = itemObj.materialInfoArr;
@@ -130,10 +161,6 @@ var SceneManager = /** @class */ (function () {
         itemDisplay.rotationX = itemObj.rotationX;
         itemDisplay.rotationY = itemObj.rotationY;
         itemDisplay.rotationZ = itemObj.rotationZ;
-        itemDisplay.objData.lightuvsOffsets = itemDisplay.objData.uvsOffsets;
-        if (terrain) {
-            itemDisplay.setGrounDataMesh(terrain[itemObj.id]);
-        }
         this._sceneDic["ground" + itemObj.id] = itemDisplay;
         return itemDisplay;
     };
@@ -207,7 +234,7 @@ var SceneManager = /** @class */ (function () {
     };
     /**
      * 动态添加的staticMesh 物件例如武器等
-    */
+     */
     SceneManager.prototype.addSpriteDisplay = function ($display) {
         if (this._displaySpriteList.indexOf($display) != -1) {
             return;
@@ -249,16 +276,13 @@ var SceneManager = /** @class */ (function () {
     SceneManager.prototype.setParticleVisible = function () {
         var $arr = ParticleManager.getInstance().particleList;
         for (var i = 0; $arr && i < $arr.length; i++) {
-            if (!$arr[i].dynamic && $arr[i].bindVecter3d) {
+            if (!$arr[i].dynamic) {
                 var dis = Vector3D.distance(new Vector3D(Scene_data.focus3D.x, Scene_data.focus3D.y, Scene_data.focus3D.z), new Vector3D($arr[i].x, $arr[i].y, $arr[i].z));
                 $arr[i].sceneVisible = (dis < 1000);
             }
         }
     };
     SceneManager.prototype.update = function () {
-        if (this.test) {
-            return;
-        }
         if (this._sceneQuadTree) {
             this._sceneQuadTree.setCircle(Scene_data.focus3D.x, Scene_data.focus3D.z, SceneManager.mapQudaTreeDistance);
             if (this._sceneQuadTree.needUpdata) {
@@ -272,8 +296,6 @@ var SceneManager = /** @class */ (function () {
             }
         }
         Scene_data.context3D.update();
-        Scene_data.context3D.setDepthTest(false);
-        UIManager.getInstance().upLeyerZero();
         Scene_data.context3D.setDepthTest(true);
         this.updateMovieFrame();
         MathClass.getCamView(Scene_data.cam3D, Scene_data.focus3D); //一定要角色帧渲染后再重置镜头矩阵
@@ -293,6 +315,7 @@ var SceneManager = /** @class */ (function () {
         }
         Scene_data.context3D.setDepthTest(false);
         UIManager.getInstance().update();
+        // msgtip.MsgTipManager.getInstance().update()
         for (var i = 0; i < this._display2DList.length; i++) {
             this._display2DList[i].update();
         }
@@ -330,7 +353,7 @@ var SceneManager = /** @class */ (function () {
                 }
                 /*
                 if (this._displayList[i].objData) {
-                
+
                     for (var j: number = 0; j < $dis.objData.vertices.length/3; j++) {
                         $p.x = $dis.objData.vertices[j * 3 + 0]
                         $p.y = $dis.objData.vertices[j * 3 + 1]
@@ -356,7 +379,7 @@ var SceneManager = /** @class */ (function () {
             //     num++;
             // }
         }
-        // FpsMc.tipStr = "drawNum:" + (num + this._displayRoleList.length) + "/" + this._displayList.length; 
+        // FpsMc.tipStr = "drawNum:" + (num + this._displayRoleList.length) + "/" + this._displayList.length;
     };
     SceneManager.prototype.updateSpriteDisplay = function () {
         for (var i = 0; i < this._displaySpriteList.length; i++) {

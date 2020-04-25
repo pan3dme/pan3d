@@ -57,7 +57,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/levelup_lyf.txt")
         // this.playLyf("model/skin001_lyf.txt")
         //  this.playLyf("model/10018_lyf.txt")
-        var tabIdx = 1;
+        var tabIdx = 4;
         if (tabIdx == 4) {
             this.loadSceneByUrl("2012");
         }

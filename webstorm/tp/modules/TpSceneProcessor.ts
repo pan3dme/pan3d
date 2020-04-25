@@ -38,7 +38,7 @@ class TpSceneProcessor extends BaseProcessor {
 
 
 
-        var tabIdx=1;
+        var tabIdx=4;
 
         if(tabIdx==4){
 

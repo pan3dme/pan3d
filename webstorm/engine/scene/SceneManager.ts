@@ -7,9 +7,7 @@
         }
         return this._instance;
     }
-    public get displayList(): Array<Display3D> {
-        return this._displayList;
-    }
+
     private _displayList: Array<Display3D>;
     private _display2DList: Array<Display3D>;
     private _displaySpriteList: Array<Display3DSprite>;
@@ -86,14 +84,10 @@
 
     }
 
-    public testUrl($url: string):boolean{
-        return this._currentUrl == $url;
-    }
 
     public loadScene($url: string, $completeFun: Function, $progressFun: Function, $analysisCompleteFun: Function): void {
         if (this._currentUrl == $url) {//原场景不加载
             AstarUtil.porcessBak(true);
-
             this._ready = true;
             $completeFun();
             $analysisCompleteFun();
@@ -104,19 +98,11 @@
 
         this._ready = false;
 
+        ResManager.getInstance().loadSceneRes($url, $completeFun, $progressFun, ($str: any) => {
+            this.loadSceneConfigCom($str);
+            $analysisCompleteFun();
+        });
 
-
-        LoadManager.getInstance().load(Scene_data.fileRoot + "map/"+$url+".txt", LoadManager.XML_TYPE,
-            ($str: string) => {
-                this._sceneDic = new Object();
-                Scene_data.sceneNumId++;
-                MapConfig.getInstance().anlyData($str);
-                AstarUtil.makeStarGraph(MapConfig.getInstance().astarItem);
-                this._ready = true;
-                $completeFun();
-                $analysisCompleteFun();
-            });
-  
         this._currentUrl = $url;
     }
 
@@ -143,10 +129,75 @@
     }
 
 
+    public loadSceneConfigCom(obj: any): void {
+
+        this._sceneDic = new Object();
+        var groundAry: Array<any> = obj.groundItem;
+        var buildAry: Array<any> = obj.buildItem;
+
+        Scene_data.fogColor = [obj.fogColor.x / 255.0, obj.fogColor.y / 255.0, obj.fogColor.z / 255.0];
+        //  console.log(obj.fogDistance)
+        var d: number = obj.fogDistance * 1;//1000
+        var s: number = obj.fogAttenuation;  //0.5.
+        Scene_data.gameAngle = isNaN(obj.gameAngle) ? 0 : obj.gameAngle;
+        Scene_data.focus3D.rotationY = Scene_data.gameAngle;
 
 
-    private getGroundSprite(itemObj: any, terrain: Array<GroundDataMesh>): TerrainDisplay3DSprite {
-        var itemDisplay: TerrainDisplay3DSprite = new TerrainDisplay3DSprite();
+
+        Scene_data.fogData = [d * s, 1 / ((1 - s) * d)]
+        Scene_data.sceneNumId++;
+
+        for (var j: number = 0; groundAry && j < groundAry.length; j++) {
+            var groundDisplay: Display3DSprite = this.getGroundSprite(groundAry[j]);
+            this.addDisplay(groundDisplay)
+        }
+        for (var i: number = 0; i < buildAry.length; i++) {
+            var itemObj: any = buildAry[i];
+            if (itemObj.type == BaseRes.PREFAB_TYPE) {
+                if(itemObj.id==58){
+                    var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
+                    this.addDisplay(itemDisplay)
+                }
+
+                //console.log("init:" + itemDisplay.materialUrl);
+            } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
+/*
+                var particle: CombineParticle = this.getParticleSprite(itemObj);
+                ParticleManager.getInstance().addParticle(particle);
+                this._sceneParticleList.push(particle);
+                */
+            }
+        }
+
+
+        Scene_data.light.setData(obj.SunNrm, obj.SunLigth, obj.AmbientLight);
+
+        LightProbeManager.getInstance().setLightProbeData(obj.lightProbeItem);
+
+        AstarUtil.setData(obj.astar);
+
+
+        this._ready = true;
+
+        if (obj.quadTreeData) {
+            this._sceneQuadTree = new SceneQuadTree();
+            this._sceneQuadTree.init(obj.quadTreeData, this._sceneDic);
+        } else {
+            this._sceneQuadTree = null;
+        }
+
+        // this.viewFrustum.setData(obj.aabb);
+
+        Scene_data.cam3D.astarRect = AstarUtil.areaRect;
+
+
+
+
+
+    }
+
+    private getGroundSprite(itemObj: any): Display3DSprite {
+        var itemDisplay: Display3DSprite = new Display3DSprite();
         itemDisplay.setObjUrl(itemObj.objsurl);
 
 
@@ -165,12 +216,6 @@
         itemDisplay.rotationX = itemObj.rotationX;
         itemDisplay.rotationY = itemObj.rotationY;
         itemDisplay.rotationZ = itemObj.rotationZ;
-
-        itemDisplay.objData.lightuvsOffsets = itemDisplay.objData.uvsOffsets;
-
-        if (terrain) {
-            itemDisplay.setGrounDataMesh(terrain[itemObj.id])
-        }
         this._sceneDic["ground" + itemObj.id] = itemDisplay;
         return itemDisplay;
     }
@@ -179,7 +224,7 @@
     }
 
     public set ready($value: boolean) {
-        console.log("--setready--", $value);
+        console.log("--setready--",$value);
         this._ready = $value;
     }
 
@@ -266,15 +311,15 @@
     }
     /**
      * 动态添加的staticMesh 物件例如武器等
-    */
+     */
     public addSpriteDisplay($display: Display3DSprite): void {
         if (this._displaySpriteList.indexOf($display) != -1) {
             return;
         }
         $display.addStage();
         for (var i: number = 0; i < this._displaySpriteList.length; i++) {
-            if (this._displaySpriteList[i].materialUrl == $display.materialUrl) {
-                this._displaySpriteList.splice(i, 0, $display);
+            if(this._displaySpriteList[i].materialUrl == $display.materialUrl){
+                this._displaySpriteList.splice(i,0,$display);
                 return;
             }
         }
@@ -313,18 +358,15 @@
     private setParticleVisible(): void {
         var $arr: Array<CombineParticle> = ParticleManager.getInstance().particleList
         for (var i: number = 0; $arr && i < $arr.length; i++) {
-            if (!$arr[i].dynamic && $arr[i].bindVecter3d) {
+            if (!$arr[i].dynamic) {
                 var dis: number = Vector3D.distance(new Vector3D(Scene_data.focus3D.x, Scene_data.focus3D.y, Scene_data.focus3D.z), new Vector3D($arr[i].x, $arr[i].y, $arr[i].z))
                 $arr[i].sceneVisible = (dis < 1000);
             }
         }
     }
     public static mapQudaTreeDistance: number = 200;
-    public test:boolean = false;
     public update(): void {
-        if (this.test) {
-            return;
-        }
+
         if (this._sceneQuadTree) {
             this._sceneQuadTree.setCircle(Scene_data.focus3D.x, Scene_data.focus3D.z, SceneManager.mapQudaTreeDistance);
             if (this._sceneQuadTree.needUpdata) {
@@ -340,10 +382,6 @@
         }
 
         Scene_data.context3D.update();
-        Scene_data.context3D.setDepthTest(false);
-        UIManager.getInstance().upLeyerZero();
-      
-
         Scene_data.context3D.setDepthTest(true);
         this.updateMovieFrame();
         MathClass.getCamView(Scene_data.cam3D, Scene_data.focus3D); //一定要角色帧渲染后再重置镜头矩阵
@@ -360,6 +398,7 @@
                 ShadowManager.getInstance().update();
                 Scene_data.context3D.setWriteDepth(false);
                 ParticleManager.getInstance().update();
+
                 BloodManager.getInstance().update();
 
             }
@@ -367,17 +406,16 @@
         }
         Scene_data.context3D.setDepthTest(false);
         UIManager.getInstance().update();
-
+        // msgtip.MsgTipManager.getInstance().update()
 
         for (var i: number = 0; i < this._display2DList.length; i++) {
             this._display2DList[i].update()
         }
 
-
     }
 
-    public updateFBO(): void {
-        if (!Scene_data.fbo) {
+    public updateFBO():void{
+        if(!Scene_data.fbo){
             Scene_data.fbo = Scene_data.context3D.getFBO();
         }
         Scene_data.context3D.updateFBO(Scene_data.fbo);
@@ -390,7 +428,8 @@
         Engine.resetSize();
     }
 
-    public addDisplay2DList($dis: Display3D): void {
+    public addDisplay2DList($dis: Display3D): void
+    {
         this._display2DList.push($dis)
     }
     private mathCamFar(): void {
@@ -410,7 +449,7 @@
                 }
                 /*
                 if (this._displayList[i].objData) {
-                
+
                     for (var j: number = 0; j < $dis.objData.vertices.length/3; j++) {
                         $p.x = $dis.objData.vertices[j * 3 + 0]
                         $p.y = $dis.objData.vertices[j * 3 + 1]
@@ -439,12 +478,12 @@
             //     num++;
             // }
         }
-        // FpsMc.tipStr = "drawNum:" + (num + this._displayRoleList.length) + "/" + this._displayList.length; 
+        // FpsMc.tipStr = "drawNum:" + (num + this._displayRoleList.length) + "/" + this._displayList.length;
 
 
     }
 
-    private updateSpriteDisplay(): void {
+    private updateSpriteDisplay():void{
         for (var i: number = 0; i < this._displaySpriteList.length; i++) {
             this._displaySpriteList[i].update();
         }
