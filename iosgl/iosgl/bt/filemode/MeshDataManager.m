@@ -96,7 +96,15 @@ static MeshDataManager *instance = nil;
     NSMutableDictionary* allParticleDic=[[NSMutableDictionary alloc]init];
     
     for (int i = 0; i < meshNum; i++) {
-        MeshData* meshData =[[MeshData alloc]init];
+        
+       MeshData* meshData =[[MeshData alloc]init];
+                      if (version >= 35) {
+                          meshData.bindPosAry = [self readBindPosByte:byte];
+                         // meshData.getBindPosMatrix();
+                      }
+        
+        
+       
         [self readMesh2OneBuffer:byte meshData:meshData];
         
         
@@ -150,6 +158,33 @@ static MeshDataManager *instance = nil;
     
     
 }
+-( NSMutableArray<NSMutableArray<NSNumber*>*>*)readBindPosByte:(ByteArray*)byte;
+{
+    int bindPosLength  = [byte readInt];
+    NSMutableArray<NSMutableArray<NSNumber*>*>* bindPosAry=[[NSMutableArray alloc]init];
+    for (int j   = 0; j < bindPosLength; j++) {
+        NSMutableArray<NSNumber*>* ary=[[NSMutableArray alloc]init];
+        [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
+        [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
+        [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
+        [bindPosAry addObject:ary];
+    }
+    return bindPosAry;
+    
+}
+/*
+    private readBindPosByte(byte: Pan3dByteArray): Array<Array<number>>  {
+             var bindPosLength: number = byte.readInt();
+             var bindPosAry: Array<Array<number>> = new Array;
+             for (var j: number = 0; j < bindPosLength; j++) {
+                 var ary: Array<number> = new Array(byte.readFloat(), byte.readFloat(), byte.readFloat(),
+                     byte.readFloat(), byte.readFloat(), byte.readFloat());
+                 bindPosAry.push(ary);
+             }
+             return bindPosAry
+ 
+         }
+ */
 -(void)getBindPosMatrix:(NSArray<NSArray<NSNumber*>*>*)bindPosAry skinMesh:(SkinMesh*)skinMesh;
 {
     NSMutableArray<Matrix3D*>* ary = [[NSMutableArray alloc]init];

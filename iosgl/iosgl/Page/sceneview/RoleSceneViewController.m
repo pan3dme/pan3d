@@ -145,7 +145,7 @@
     }
     
     if([titleStr isEqualToString:@"特别"]){
-        [self addRoleToScene:@"7004" pos:[[Vector3D alloc]x:0 y:0 z:0]];
+        [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:0 y:0 z:0]];
     }
     
     //
