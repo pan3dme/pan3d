@@ -63,7 +63,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         }
         if (tabIdx == 2) {
             this.mainChar = new SkillSceneChar();
-            this.mainChar.setRoleUrl(getRoleUrl("7004"));
+            this.mainChar.setRoleUrl(getRoleUrl("dadaoshou"));
             SceneManager.getInstance().addMovieDisplay(this.mainChar);
         }
         if (tabIdx == 3) {
