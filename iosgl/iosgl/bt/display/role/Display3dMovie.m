@@ -31,8 +31,8 @@
 @property(nonatomic,strong)NSMutableDictionary*  preLoadActionDic;
 @property(nonatomic,strong)NSMutableDictionary*  waitLoadActionDic;
 
-@property(nonatomic,strong)NSString*  defaultAction ;
-@property(nonatomic,assign)NSString*  curentAction;
+
+
 @property(nonatomic,assign)int  completeState ;
 @property(nonatomic,assign)int  curentFrame;
 @property(nonatomic,assign)float actionTime;
@@ -64,24 +64,31 @@
      */
     self = [super init];
     if (self) {
-        self.meshVisible=YES;
-        self.defaultAction= @"stand";
-       
-        self.partDic = [[NSMutableDictionary alloc]init];
-        self.partUrl =[[NSMutableDictionary alloc]init];
-        self.preLoadActionDic = [[NSMutableDictionary alloc]init];
-        self.waitLoadActionDic =[[NSMutableDictionary alloc]init];
-        self.actionTime=0;
+        Display3dMovie* this=self;
         
-        [[ProgrmaManager default] registe:MaterialAnimShader.shaderStr shader3d: [[MaterialAnimShader alloc]init]];
-        self.shader3d=  [[ProgrmaManager default] getProgram:MaterialAnimShader.shaderStr];
-        
-        
-        
+        this.meshVisible=YES;
+        this.defaultAction= @"stand";
+        this.partDic = [[NSMutableDictionary alloc]init];
+        this.partUrl =[[NSMutableDictionary alloc]init];
+        this.preLoadActionDic = [[NSMutableDictionary alloc]init];
+        this.waitLoadActionDic =[[NSMutableDictionary alloc]init];
+        this.actionTime=0;
+   
     }
     return self;
 }
-
+-(void)onMeshLoaded;
+{
+    
+}
+- (void)setVa;
+{
+    
+}
+-(void)clearMesh;
+{
+    
+}
 - (int)getSunType
 {
     return 1;
@@ -111,7 +118,7 @@
     [resultMatrix appendRotation:boneSocketData.rotationZ axis:Vector3D.Z_AXIS];
     [resultMatrix appendTranslation:boneSocketData.x y:boneSocketData.y z:boneSocketData.z];
     if(testmatix){
-        [resultMatrix append:self.skinMesh.bindPosInvertMatrixAry[index]];
+        [resultMatrix append:this.skinMesh.bindPosInvertMatrixAry[index]];
         [resultMatrix append:testmatix];
     }
     [resultMatrix append:this.posMatrix3d];
@@ -134,25 +141,20 @@
 
 -(void)setRoleUrl:(NSString*)value;
 {
+     Display3dMovie* this =self;
     [[MeshDataManager default]getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
-        self.skinMesh=skinMesh;
-        self.fileScale=skinMesh.fileScale;
-        self.animDic = skinMesh.animDic;
-        [self onMeshLoaded];
-        for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
+        this.skinMesh=skinMesh;
+        this.fileScale=skinMesh.fileScale;
+        this.animDic = skinMesh.animDic;
+        [this onMeshLoaded];
+        for (int i = 0; i < this.skinMesh.meshAry.count; i++) {
             [skinMesh.meshAry[i] upToGpu];
         }
+        [this updateMatrix];
     } batchNum:1];
 }
 
--(void)onMeshLoaded;
-{
-    
-}
--(void)clearMesh;
-{
-    
-}
+
 - (void)upFrame;
 {
     Display3dMovie* this=self;
@@ -160,14 +162,16 @@
         return;
     }
     [this updateBind];
- 
-    if(self.meshVisible){
+    if(this.meshVisible){
         for (int i = 0; i < self.skinMesh.meshAry.count; i++) {
             [this updateMaterialMesh:this.skinMesh.meshAry[i]];
         }
     }
     
 }
+/*
+ 播放动作  播放完状态  0c持续  1播完听 2 播放返回
+ */
 -(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
 {
     Display3dMovie* this=self;
@@ -184,28 +188,33 @@
         return NO;
     }
 }
- 
+ /*
+  设置定点Buff
+  */
 
 -(void)setVaCompress:(MeshData*)mesh;
 {
+    Display3dMovie* this=self;
     
-    
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=this.scene3d.context3D;
     [ctx pushVa:mesh.verticesBuffer];
-    [ctx setVaOffset:self.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:    mesh.uvBuffer];
-    [ctx setVaOffset:self.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
     [ctx pushVa: mesh.boneIdBuffer];
-    [ctx setVaOffset:self.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
+    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
     [ctx pushVa: mesh.boneWeightBuffer];
-    [ctx setVaOffset:self.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
-    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
+  
     
 }
+/*
+ 设置骨骼数据
+ */
 -(void)setMeshVc:(MeshData*)mesh;
 {
-    Context3D *context3D=self.scene3d.context3D;
     Display3dMovie* this=self;
+    Context3D *context3D=self.scene3d.context3D;
     AnimData* animData;
     if (this.animDic[this.curentAction]) {
         animData = this.animDic[this.curentAction];
@@ -227,41 +236,55 @@
     [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
     
 }
+/*
+ 设置镜头矩阵和模型位置矩阵
+ */
 - (void)setVc;
 {
-    Context3D *context3D=self.scene3d.context3D;
-    [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
-    [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
+    Display3dMovie* this=self;
+    Context3D *context3D=this.scene3d.context3D;
+    [context3D setVcMatrix4fv:this.shader3d name:"viewMatrix" data:this.viewMatrix.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix" data:this.posMatrix3d.m];
 }
-- (void)setVa;
+-(void)updateMatrix;
 {
-    
+    [super updateMatrix];
+    [self.posMatrix3d prependScale:self.fileScale y:self.fileScale z:self.fileScale];
+ 
 }
+
+/*
+ 部分mesh对象渲染
+ */
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {
+     Display3dMovie* this=self;
     if (!mesh.material) {
         return;
     }
-    Context3D *ctx=self.scene3d.context3D;
-    [ctx setProgram:self.shader3d.program];
+    this.shader3d=mesh.material.shader;
+    Context3D *ctx=this.scene3d.context3D;
+    [ctx setProgram:this.shader3d.program];
     [ctx setBlendParticleFactors:mesh.material.blendMode];
     [ctx cullFaceBack:mesh.material.backCull];
-    mesh.material.shader=self.shader3d;
-    [self setMaterialTexture:mesh.material mp:mesh.materialParam];
-    [self setVc];
-    [self setMeshVc:mesh];
-    [self setVaCompress:mesh];
+    mesh.material.shader=this.shader3d;
+    [this setMaterialTexture:mesh.material mp:mesh.materialParam];
+    [this setMaterialVc:mesh.material mp:mesh.materialParam];
+    [this setVc];
+    [this setMeshVc:mesh];
+    [this setVaCompress:mesh];
+    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
     
 }
-
+/*
+ 时间轴更新
+ */
 - (void)updateFrame:(float)t;
 {
+      Display3dMovie* this=self;
     if(!self.skinMesh){
         return;
     }
- 
-    Display3dMovie* this=self;
-     //this.curentAction=@"walk";
     this.actionTime+=t;
     NSString* actionKey;
     if(this.curentAction&&self.animDic[this.curentAction]){
@@ -313,8 +336,12 @@
         [this loadPartRes:bindSocket groupRes:groupRes ary:ary];
     }];
 }
+/*
+ 部件数据加载返回
+ */
 -(void)loadPartRes:(NSString*)bindSocket groupRes:(GroupRes*)groupRes ary:(NSMutableArray*)ary;
 {
+    Display3dMovie* this=self;
     for (int i = 0; i < groupRes.dataAry.count; i++) {
           GroupItem* item  = groupRes.dataAry[i];
 
@@ -330,10 +357,10 @@
           if (item.types == SCENE_PARTICLE_TYPE) {
                CombineParticle*  particle =   [ParticleManager   getParticleByte: item.particleUrl];
               [ary addObject:particle];
-              particle.bindTarget = self;
+              particle.bindTarget = this;
               particle.bindSocket = bindSocket;
               particle.dynamic = YES;
-             [self.scene3d.particleManager addParticle:particle];
+             [this.scene3d.particleManager addParticle:particle];
               if (item.isGroup) {
                 //  particle.setGroup(posV3d, rotationV3d, scaleV3d);
               }
@@ -342,8 +369,8 @@
               [display setObjUrl:item.objUrl];
               [display setMaterialUrl:item.materialUrl paramData:item.materialInfoArr];
               [ary addObject:display];
-              [display setBind:self bindSocket:bindSocket];
-              [self.scene3d addDisplay:display];
+              [display setBind:this bindSocket:bindSocket];
+              [this.scene3d addDisplay:display];
               if(item.isGroup){
                   [display setGroup:posV3d rotaion:rotationV3d scale:scaleV3d];
               }

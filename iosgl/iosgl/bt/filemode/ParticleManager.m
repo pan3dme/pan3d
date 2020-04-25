@@ -41,6 +41,8 @@ static NSMutableDictionary* _dic;
 }
 +(CombineParticle*)getParticleByte:(NSString*)url;
 {
+    url= [url stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
+    url= [url stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     CombineParticle *combineParticle=[[CombineParticle alloc]init];
     if(_dic[url]){
         CombineParticleData *baseData = _dic[url];

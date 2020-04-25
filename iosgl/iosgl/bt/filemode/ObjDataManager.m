@@ -191,7 +191,7 @@ static ObjDataManager *instance = nil;
     
     objdata.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:verOffsets stride:buffStride readType:0];
     objdata.uvs=   [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:uvsOffsets stride:buffStride readType:0];
-    [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:lightuvsOffsets stride:buffStride readType:1];
+    objdata.lightuvs=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:lightuvsOffsets stride:buffStride readType:1];
     objdata.nrms= [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:normalsOffsets stride:buffStride readType:0];
     [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:tangentsOffsets stride:buffStride readType:0];
     [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:bitangentsOffsets stride:buffStride readType:0];

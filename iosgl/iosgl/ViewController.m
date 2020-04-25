@@ -16,6 +16,7 @@
  
  #import "FivePageView.h"
 #import "TokenSceneView.h"
+#import "RoleSceneViewController.h"
 
 
 @interface ViewController ()
@@ -44,7 +45,7 @@
 }
 -(void)addView{
     OnePageView *vc01=[[OnePageView alloc] init];
-    OnePageView *vc02=[[OnePageView alloc] init];
+    RoleSceneViewController *vc02=[[RoleSceneViewController alloc] init];
     OnePageView *vc03=[[OnePageView alloc]init];
     OnePageView *vc04=[[OnePageView alloc] init];
   TokenSceneView *vc05=[[TokenSceneView alloc] init];

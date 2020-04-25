@@ -82,12 +82,13 @@ static ProgrmaManager *instance = nil;
     shader.paramAry = paramAry;
     shader.vertex=shader.vertexStr;
     shader.fragment = material.shaderStrRead;
-    
-    if ([keyStr rangeOfString:@"MaterialShaderhttp"].location != NSNotFound) {
-   
+    //keyStr    __NSCFString *    @"MaterialAnimShaderhttp://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/materialinstance/zuoqicaizhi/mount_liuguang_00_byte.txt"    0x00000002829cabb0
+    if ([keyStr rangeOfString:@"/changjingbuhongpei/standardtransparent _no_byte"].location != NSNotFound) {
+  
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-        //[self changeShader:shader];
+      //  [self changeShader:shader];
+        NSLog(@"------");
     
     }
     
@@ -102,90 +103,47 @@ static ProgrmaManager *instance = nil;
     /*
     shader.vertex=
           @"attribute vec3 v3Position;"
-          "attribute vec2 v2TexCoord;"
-          "uniform mat4 viewMatrix;"
-          "uniform mat4 camMatrix;"
-          "uniform mat4 modeMatrix;"
-          "uniform mat4 rotMatrix;"
+          "attribute vec2 v2CubeTexST;"
           "varying vec2 v0;"
-          "void main(){"
-          "v0=v2TexCoord;"
-          "vec4 vPos = vec4(v3Position.xyz,1.0);"
-          "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;"
-          "}";
-        
+          "attribute vec2 v2lightuv;"
+          "varying vec2 v2;"
+          "varying vec3 v1;"
+          "uniform mat4 vpMatrix3D;"
+          "uniform mat4 posMatrix3D;"
+          "uniform mat3 rotationMatrix3D;"
+          "void main(void){"
+          "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"
+          "vec4 vt0= vec4(v3Position, 1.0);"
+          "vt0 = vt0*posMatrix3D   ;"
+          "v2 = vec2(v2lightuv.x, v2lightuv.y);"
+          "v1 = vec3(vt0.x,vt0.y,vt0.z);"
+          "vt0 = vt0*vpMatrix3D ;"
+          "gl_Position = vt0; }";
     */
-    /*
-     "precision mediump float;"
-     "uniform sampler2D fs0;"
-     "uniform sampler2D fs1;"
-     "uniform samplerCube fs2;"
-     "uniform vec4 fc[2];"
-     "varying vec2 v0;"
-     "varying vec3 v1;"
-     "varying vec3 v4;"
-     "void main(void){"
-     "vec4 ft0 = texture2D(fs0,v0);"
-     "vec4 ft1 = vec4(ft0.xyz,1.0);"
-     "vec4 ft2 = vec4(0,0,0,1);"
-     "ft2.xyz = v4.xyz;"
-     "vec4 ft3 = vec4(0,0,0,1);"
-     "ft3.xyz = mix(vec3(fc[1].y,fc[1].y,fc[1].y) * 0.08,ft1.xyz,fc[1].x);"
-     "vec4 ft4 = vec4(0,0,0,1);"
-     "ft4.xyz = fc[0].xyz - v1.xyz;"
-     "ft4.xyz = normalize(ft4.xyz);"
-     "ft4.y= dot(ft4.xyz,ft2.xyz);"
-     "ft4.x = fc[1].z;"
-     "ft4 = texture2D(fs1,ft4.xy);"
-     "ft3.xyz = ft3.xyz * ft4.x + ft4.y;"
-     "ft3.xyz = ft3.xyz * fc[1].y;"
-     "ft4.xyz = v1.xyz - fc[0].xyz;"
-     "ft4.xyz = normalize(ft4.xyz);"
-     "ft4.xyz = reflect(ft4.xyz,ft2.xyz);"
-     "ft4 = textureCube(fs2,ft4.xyz);"
-     "ft3.xyz = ft3.xyz * ft4.xyz;"
-     "ft4.xyz = ft1.xyz * (1.0-fc[1].x);"
-     "ft4.xyz = ft4.xyz + ft3.xyz;"
-     "ft4.w = 1.0;"
-     "gl_FragColor = ft4;"
-     "}"
-     */
+        
+  
     
     shader.fragment=
     @"precision mediump float;"
     "uniform sampler2D fs0;"
-    "uniform sampler2D fs1;"
-    "uniform samplerCube fs2;"
-    "uniform vec4 fc[2];"
+    "uniform vec4 fc[3];"
     "varying vec2 v0;"
     "varying vec3 v1;"
-    "varying vec3 v4;"
     "void main(void){"
     "vec4 ft0 = texture2D(fs0,v0);"
     "vec4 ft1 = vec4(ft0.xyz,1.0);"
     "vec4 ft2 = vec4(0,0,0,1);"
-    "ft2.xyz = v4.xyz;"
-    "vec4 ft3 = vec4(0,0,0,1);"
-    "ft3.xyz = mix(vec3(fc[1].y,fc[1].y,fc[1].y) * 0.08,ft1.xyz,fc[1].x);"
-    "vec4 ft4 = vec4(0,0,0,1);"
-    "ft4.xyz = fc[0].xyz - v1.xyz;"
-    "ft4.xyz = normalize(ft4.xyz);"
-    "ft4.y= dot(ft4.xyz,ft2.xyz);"
-    "ft4.x = fc[1].z;"
-    "ft4 = texture2D(fs1,ft4.xy);"
-    "ft3.xyz = ft3.xyz * ft4.x + ft4.y;"
-    "ft3.xyz = ft3.xyz * fc[1].y;"
-    "ft4.xyz = v1.xyz - fc[0].xyz;"
-    "ft4.xyz = normalize(ft4.xyz);"
-    "ft4.xyz = reflect(ft4.xyz,ft2.xyz);"
-     "ft4 = textureCube(fs2,ft4.xyz);"
-    "ft3.xyz = ft3.xyz * ft4.xyz;"
-    "ft4.xyz = ft1.xyz * (1.0-fc[1].x);"
-    "ft4.xyz = ft4.xyz + ft3.xyz;"
-    "ft4.w = 1.0;"
-    "gl_FragColor = ft4;"
- 
+    "ft2.xyz = ft1.xyz;"
+    "ft2.w = ft0.w;"
+    "if(ft0.w<fc[0].x){discard;}"
+    "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;"
+    "ft1.x = ft1.x - fc[0].z;"
+    "ft1.x = fc[0].w * ft1.x;"
+    "ft1.x = clamp(ft1.x,0.0,1.0);"
+     "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"
+    "gl_FragColor =ft2;"
     "}";
+    
 
   
       

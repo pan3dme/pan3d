@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)int _type;
 -(void)setType:(int)value;
 -(int)type;
- 
+-(void)update:(float)t;
 -(void)setTargetInfo:(ConstItem*)target paramName:(NSString*)paramName type:(int)type;
 -(void)setCurrentVal:(NSNumber*)x;
 -(void)setCurrentVal:(NSNumber*)x y:(NSNumber*)y;

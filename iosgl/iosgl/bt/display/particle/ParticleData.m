@@ -81,6 +81,11 @@
         this._isZiZhuan = true;
     }
     
+//    _position    int    397
+//    _nsData    NSSubrangeData *    0x2824e27c0    0x00000002824e27c0
+//    NSData    NSData
+//    _data    NSConcreteData *    1779345 bytes    0x0000000282ca31c0
+    
     [this readMaterialPara:byte];
     
     NSString* strMaterialUrl = [byte readUTF];
@@ -262,3 +267,4 @@
 }
   
 @end
+

@@ -9,14 +9,12 @@
 #import "CombineParticle.h"
 #import "Display3DParticle.h"
 #import "IBind.h"
- 
+
 
 @interface CombineParticle ()
 
 
-@property (nonatomic, assign)float  _rotationX;
-@property (nonatomic, assign)float  _rotationY;
-@property (nonatomic, assign)float  _rotationZ;
+
 @property (nonatomic, assign)float  _time;
 @property (nonatomic, assign)BOOL  _isInGroup;
 @property (nonatomic, strong)Vector3D*  _groupPos;
@@ -25,9 +23,9 @@
 @property (nonatomic, strong)id<IBind>  _bindTarget;
 
 //@property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
- 
+
 @end
- 
+
 @implementation CombineParticle
 
 -(id<IBind>)bindTarget;
@@ -36,9 +34,50 @@
 }
 -(void)setBindTarget:(id<IBind>)value;
 {
-      __bindTarget=value;
+    __bindTarget=value;
+}
+-(void)setX:(float)value; {
+    self.bindVecter3d.x=value;
+}
+-(float)x;{
+    return  self.bindVecter3d.x;
+}
+-(void)setY:(float)value;{
+    self.bindVecter3d.y=value;
+}
+-(float)y;{
+    return self.bindVecter3d.y;
+}
+-(void)setZ:(float)value;{
+    self.bindVecter3d.z=value;
+}
+-(float)z;{
+    return self.bindVecter3d.z;
 }
  
+-(void)setScaleX:(float)value;{
+   self.bindScale.x=value;
+  
+}
+-(float)scaleX;{
+    return self.bindScale.x;
+}
+-(void)setScaleY:(float)value;{
+   self.bindScale.y=value;
+      
+}
+-(float)scaleY;{
+    return self.bindScale.y;
+}
+-(void)setScaleZ:(float)value;{
+     self.bindScale.z=value;
+      
+}
+-(float)scaleZ;{
+    return self.bindScale.z;
+}
+
+
 - (instancetype)init
 {
     self = [super init];
@@ -73,17 +112,11 @@
 -(void)reset;
 {
     self._time=0;
-        for (int i = 0; i < self._displayAry.count; i++) {
-            [self._displayAry[i] reset];
-        }
+    for (int i = 0; i < self._displayAry.count; i++) {
+        [self._displayAry[i] reset];
+    }
     
 }
-//public reset(): void {
-//    this._time = 0;
-//    for (var i: number = 0; i < this._displayAry.length; i++) {
-//        this._displayAry[i].reset();
-//    }
-//}
 -(void)update;
 {
     for(int i=0;i<self._displayAry.count;i++)

@@ -11,11 +11,17 @@
 @implementation ObjData
 -(void)upToGpu;
 {
+    if(self.compressBuffer){
+        return;
+    }
     
     if( self.vertices&&self.vertices.count){
         self.verticesBuffer=  [self upGpuvertexBuffer:self.vertices];
         self.uvBuffer=  [self upGpuvertexBuffer:self.uvs];
-        if(self.uvs&&self.uvs.count){
+        if(self.lightuvs&&self.lightuvs.count){
+            self.lightuvsBuffer=  [self upGpuvertexBuffer:self.lightuvs];
+        }
+        if(self.nrms&&self.nrms.count){
             self.nrmsBuffer=  [self upGpuvertexBuffer:self.nrms];
         }
         self.indexBuffer=  [self upGpuIndexBuffer:self.indexs];
@@ -41,7 +47,7 @@
    
         
     }
-    
+    self.compressBuffer=YES;
 }
  -(GLuint)upGpuIndexBuffer:(NSArray*)arr;
  {

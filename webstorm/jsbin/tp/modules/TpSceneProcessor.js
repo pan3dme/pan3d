@@ -12,7 +12,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var instantiate = WebAssembly.instantiate;
 var TpSceneModule = /** @class */ (function (_super) {
     __extends(TpSceneModule, _super);
     function TpSceneModule() {
@@ -25,7 +24,7 @@ var TpSceneModule = /** @class */ (function (_super) {
         return [new TpSceneProcessor()];
     };
     return TpSceneModule;
-}(Module));
+}(Pan3d.Module));
 var TpSceneEvent = /** @class */ (function (_super) {
     __extends(TpSceneEvent, _super);
     function TpSceneEvent() {
@@ -35,12 +34,11 @@ var TpSceneEvent = /** @class */ (function (_super) {
     TpSceneEvent.SHOW_TP_SCENE_EVENT = "SHOW_TP_SCENE_EVENT";
     TpSceneEvent.ENTER_SCENE_EVENT = "ENTER_SCENE_EVENT";
     return TpSceneEvent;
-}(BaseEvent));
+}(Pan3d.BaseEvent));
 var TpSceneProcessor = /** @class */ (function (_super) {
     __extends(TpSceneProcessor, _super);
     function TpSceneProcessor() {
         var _this = _super.call(this) || this;
-        _this.isFrishtClik = true;
         _this.skillFileName = "jichu_1";
         _this.charIdstr = "50001";
         _this.weaponNum = 50011;
@@ -51,66 +49,27 @@ var TpSceneProcessor = /** @class */ (function (_super) {
     TpSceneProcessor.prototype.getName = function () {
         return "TpSceneProcessor";
     };
-    TpSceneProcessor.prototype.onMouseDown = function ($evt) {
-        //  this.playLyf("model/diamondseffect_lyf.txt")
-        //  this.playLyf("model/reviveeff_lyf.txt")
-        //  this.playLyf("model/levelup_lyf.txt")
-        // this.playLyf("model/skin001_lyf.txt")
-        //  this.playLyf("model/10018_lyf.txt")
-        var tabIdx = 1;
-        if (tabIdx == 3) {
-            this.playLyf("model/10018_lyf.txt");
-        }
-        if (tabIdx == 1) {
-            if (this.mainChar) {
-                var $skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
-                $skill.configFixEffect(this.mainChar);
-                this.mainChar.playSkill($skill);
-                console.log("jiiii");
-                return;
-            }
-            SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
-            this.mainChar = new SkillSceneChar();
-            // this.mainChar.addPart(SceneChar.WEAPON_PART, SceneChar.WEAPON_DEFAULT_SLOT,getModelUrl(String(50011)));
-            // this.mainChar.setRoleUrl(getRoleUrl("50001"));
-            this.mainChar.setRoleUrl(getRoleUrl("5104"));
-            // this.mainChar.setMountById(5104);
-            SceneManager.getInstance().addMovieDisplay(this.mainChar);
-        }
-    };
-    TpSceneProcessor.prototype.playLyf = function (url) {
-        GroupDataManager.getInstance().getGroupData(Scene_data.fileRoot + url, function (groupRes) {
-            for (var i = 0; i < groupRes.dataAry.length; i++) {
-                var item = groupRes.dataAry[i];
-                if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
-                    var $particle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
-                    ParticleManager.getInstance().addParticle($particle);
-                }
-                else {
-                    console.log("播放的3不是3单纯特效");
-                }
-            }
-        });
-    };
     TpSceneProcessor.prototype.receivedModuleEvent = function ($event) {
         if ($event instanceof TpSceneEvent) {
             var $tpMenuEvent = $event;
             if ($tpMenuEvent.type == TpSceneEvent.SHOW_TP_SCENE_EVENT) {
                 this.addGridLineSprite();
-                Scene_data.uiBlankStage.addEventListener(InteractiveEvent.Down, this.onMouseDown, this);
-                /*
                 if (!getUrlParam("id")) {
                     window.location.href = "index.html?id=" + random(10);
-                } else {
-                    this.makeUrlParam()
-                    this.makeMainChar();
-                    Scene_data.cam3D.distance = 250;
                 }
-                */
-                console.log("233");
-                Scene_data.supportBlob = true;
+                else {
+                    this.makeUrlParam();
+                    //   this.makeMainChar();
+                    this.makeTestScene();
+                    Pan3d.Scene_data.cam3D.distance = 250;
+                }
             }
         }
+    };
+    TpSceneProcessor.prototype.makeTestScene = function () {
+        var $sc = new SkillSceneChar();
+        $sc.setRoleUrl(getRoleUrl("erchiyuan001"));
+        Pan3d.SceneManager.getInstance().addMovieDisplay($sc);
     };
     TpSceneProcessor.prototype.makeUrlParam = function () {
         this.paramId = Number(getUrlParam("id"));
@@ -130,37 +89,36 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         this.weaponNum = 50010 + this.paramId;
     };
     TpSceneProcessor.prototype.makeAttackChar = function () {
-        var $sc = new SceneChar();
+        var $sc = new Pan3d.SceneChar();
         $sc.z = 100;
         $sc.setRoleUrl(getRoleUrl("7001"));
-        SceneManager.getInstance().addMovieDisplay($sc);
+        Pan3d.SceneManager.getInstance().addMovieDisplay($sc);
         this.attackTarget = $sc;
         this.attackTarget.x = random(50) + 30;
         this.attackTarget.z = random(50) + 30;
     };
     TpSceneProcessor.prototype.makeMainChar = function () {
         var _this = this;
-        SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
+        Pan3d.SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
         var $sc = new SkillSceneChar();
         $sc.setRoleUrl(getRoleUrl(this.charIdstr));
-        SceneManager.getInstance().addMovieDisplay($sc);
-        $sc.setWeaponByAvatar(this.weaponNum);
+        Pan3d.SceneManager.getInstance().addMovieDisplay($sc);
         this.mainChar = $sc;
         $sc.changeActionFun = function () { _this.playSkill(); };
         $sc.loadFinishFun = function () {
-            ResManager.getInstance().loadSkillRes(Scene_data.fileRoot + getSkillUrl(_this.skillFileName), function ($skillRes) {
-                SkillManager.getInstance().preLoadSkill(getSkillUrl(_this.skillFileName));
-                TimeUtil.addTimeOut(1000, function () { _this.playSkill(); });
-                console.log(TimeUtil.getTimer());
+            Pan3d.ResManager.getInstance().loadSkillRes(Pan3d.Scene_data.fileRoot + getSkillUrl(_this.skillFileName), function ($skillRes) {
+                Pan3d.SkillManager.getInstance().preLoadSkill(getSkillUrl(_this.skillFileName));
+                Pan3d.TimeUtil.addTimeOut(1000, function () { _this.playSkill(); });
+                console.log(Pan3d.TimeUtil.getTimer());
             });
         };
     };
     TpSceneProcessor.prototype.playSkill = function () {
         var $effectName = this.skillEffectItem[this.skipId % this.skillEffectItem.length];
-        var $skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), $effectName);
+        var $skill = Pan3d.SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), $effectName);
         if ($skill.keyAry) {
             if (this.textPlaySkillFun) {
-                TimeUtil.removeTimeTick(this.textPlaySkillFun);
+                Pan3d.TimeUtil.removeTimeTick(this.textPlaySkillFun);
                 this.textPlaySkillFun = null;
             }
         }
@@ -173,7 +131,8 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         }
         if (this.paramId == 3 || this.paramId == 4) {
             if ($effectName == "skill_01" || $effectName == "skill_02" || $effectName == "skill_03") {
-                $skill.configTrajectory(this.mainChar, this.attackTarget);
+                // $skill.configTrajectory(this.mainChar, this.attackTarget);
+                $skill.configFixEffect(this.mainChar);
             }
             else {
                 if ($effectName == "m_skill_01") {
@@ -182,7 +141,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
                 else {
                     this.attackTarget.x = random(50) + 30;
                     this.attackTarget.z = random(50) + 30;
-                    var $tempPos = new Vector3D(this.attackTarget.x, this.attackTarget.y, this.attackTarget.z);
+                    var $tempPos = new Pan3d.Vector3D(this.attackTarget.x, this.attackTarget.y, this.attackTarget.z);
                     var $hitPosItem = new Array();
                     $hitPosItem.push($tempPos);
                     $skill.configFixEffect(this.mainChar, null, $hitPosItem);
@@ -197,10 +156,10 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         this.skipId++;
     };
     TpSceneProcessor.prototype.addGridLineSprite = function () {
-        ProgrmaManager.getInstance().registe(LineDisplayShader.LineShader, new LineDisplayShader);
-        var $GridLineSprite = new GridLineSprite();
-        SceneManager.getInstance().addDisplay($GridLineSprite);
-        SceneManager.getInstance().ready = true;
+        Pan3d.ProgrmaManager.getInstance().registe(Pan3d.LineDisplayShader.LineShader, new Pan3d.LineDisplayShader);
+        var $GridLineSprite = new Pan3d.GridLineSprite();
+        Pan3d.SceneManager.getInstance().addDisplay($GridLineSprite);
+        Pan3d.SceneManager.getInstance().ready = true;
     };
     TpSceneProcessor.prototype.listenModuleEvents = function () {
         return [
@@ -208,5 +167,5 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         ];
     };
     return TpSceneProcessor;
-}(BaseProcessor));
+}(Pan3d.BaseProcessor));
 //# sourceMappingURL=TpSceneProcessor.js.map

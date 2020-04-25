@@ -37,6 +37,10 @@ float _sceneScale;
 @property (nonatomic, strong) Rectangle *viewRect;
 @property (nonatomic, strong) ParticleManager *particleManager;
 @property (nonatomic, strong) SkillManager *skillManager;
+@property (nonatomic, strong) Vector2D *fogData;
+@property (nonatomic, strong) Vector3D *fogColor;
+@property (nonatomic, assign) float gameAngle;
+
 @property (nonatomic, assign) double time;
  
 -(void)setSceneScale:(float)value;

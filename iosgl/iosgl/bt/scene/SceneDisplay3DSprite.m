@@ -65,7 +65,7 @@
         
         Context3D *context3D=self.scene3d.context3D;
         
-     //   [context3D setRenderTexture:self.textureRes.texture ];
+    
         [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
         [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
         [context3D setVcMatrix3fv:self.shader3d name:"rotationMat3x3" data:self.rotationMatrix3D.rotationM];
@@ -100,35 +100,5 @@
     [context3D setVc3fv:self.shader3d name:"ambientColor" data: ( GLfloat []) {0.2,0.2, 0.2} len:1];
    
 }
-/*
- var $numr: Vector3D = new Vector3D(0.5, 0.6, -0.7);
- $numr.normalize()
- var mGamA: Matrix3D = new Matrix3D;
- mGamA.appendRotation(-game.GameDataModel.gameAngle, Vector3D.Y_AXIS);
- $numr = mGamA.transformVector($numr)
- Scene_data.context3D.setVc3fv($shader, "sunDirect", [$numr.x, $numr.y, $numr.z]);
- Scene_data.context3D.setVc3fv($shader, "sunColor", [0.8, 0.8, 0.8]);
- Scene_data.context3D.setVc3fv($shader, "ambientColor", [0.2, 0.2, 0.2]);
  
- 
- Scene_data.context3D.setVcMatrix3fv($shader, "rotationMatrix3D", $dis._rotationData);
- Scene_data.context3D.setVcMatrix4fv($shader, "vpMatrix3D", Scene_data.vpMatrix.m);
- Scene_data.context3D.setVcMatrix4fv($shader, "posMatrix3D", this.posMatrix.m);
- 
- Scene_data.context3D.renderContext.bindBuffer(Scene_data.context3D.renderContext.ARRAY_BUFFER, $objdata.vertexBuffer);
- 
- Scene_data.context3D.setVaOffset(0, 3, $objdata.stride, 0);
- Scene_data.context3D.setVaOffset(1, 2, $objdata.stride, $objdata.uvsOffsets);
- Scene_data.context3D.setVaOffset(2, 3, $objdata.stride, $objdata.normalsOffsets);
- 
- if (this.skinTexture) {
- Scene_data.context3D.setRenderTexture($shader, "fs0", this.skinTexture.texture, 0);
- } else {
- Scene_data.context3D.setRenderTexture($shader, "fs0", this._uvTextureRes.texture, 0);
- }
- if (shadow.ShadowModel.visible) {
- Scene_data.context3D.setVcMatrix4fv($shader, "shadowViewMatx3D", ShadowModel.shadowViewMatx3D.m);
- Scene_data.context3D.setRenderTexture($shader, "fs1", (<scene3d.OverrideSceneManager>this._scene).fbo.texture, 1);
- }
- */
 @end

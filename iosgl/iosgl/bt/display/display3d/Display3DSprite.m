@@ -23,16 +23,11 @@
 
 
 @interface Display3DSprite()
-@property (nonatomic, strong) Matrix3D *bindMatrix;
-@property (nonatomic, strong) id<IBind> bindTarget;
-@property (nonatomic, strong) NSString *bindSocket;
-@property (nonatomic, strong) Matrix3D *groupMatrix;
-@property (nonatomic, strong) Matrix3D *groupRotationMatrix;
+
 @property(nonatomic,strong)NSString* materialUrl;
-@property(nonatomic,strong)Material* material;
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property (nonatomic, assign) float time;
-@property (nonatomic, assign) BOOL isInGroup;
+
  
 
 
@@ -241,7 +236,8 @@
         t=[[TimeUtil default]getTimer]-this.time;
     }
     [material update:t];
-    [self setCamPos:this.material];
+    [self setSceneFcData:this.material];
+
     if (mp) {
         [mp update];
     }
@@ -250,13 +246,54 @@
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
+    /*
+     0: 0.5
+     1: 0
+     2: 531.3599853515625
+     3: 0.0017371968133375049
+     4: 0
+     5: 1.7677669525146484
+     6: -1.7677669525146484
+     7: 0
+     8: 0.0313725508749485
+     9: 0.5803921818733215
+     10: 0.9450980424880981
+     11: 0
+
+     */
+    /*
+    [0]    GLfloat    0.5
+    [1]    GLfloat    0
+    [2]    GLfloat    531.359985
+    [3]    GLfloat    0.00173719705
+    [4]    GLfloat    -0.856720387
+    [5]    GLfloat    0.48988986
+    [6]    GLfloat    -0.161362886
+    [7]    GLfloat    0
+    [8]    GLfloat    0.0313725509
+    [9]    GLfloat    0.580392182
+    [10]    GLfloat    0.945098042
+    [11]    GLfloat    0
+    */
     [ctx setVc4fv:material.shader name:"fc" data:fcDataGlArr len:material.fcNum];
+}
+/*
+ 更新场景信息。 雾效果， 镜头
+ */
+-(void)setSceneFcData:(Material*)material;
+{
+    if(self.scene3d.fogColor&&self.scene3d.fogData){
+        [material updateFogDagtga:self.scene3d.fogColor fogData:self.scene3d.fogData];
+         [self setCamPos:material];
+    }
+ 
 }
 -(void)setCamPos:(Material*)material;
 {
     Vector3D* v3d=[[Vector3D alloc]x:self.scene3d.camera3D.x y:self.scene3d.camera3D.y z:self.scene3d.camera3D.z];
-    [v3d normalize];
-    [material updateCam:v3d.x y:v3d.y z:v3d.z];
+    //[v3d normalize];
+    [v3d scaleBy:1.0/500.0]; //需要优化
+    [material updateCam:v3d.x  y:v3d.y  z:v3d.z];
     
 }
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
@@ -270,22 +307,20 @@
             continue;
         }
         if (texItem.type == TexItem.LIGHTMAP) {
-            // Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, this.lightMapTexture, texVec[i].id);
-            NSLog(@"TexItem.LIGHTMAP)");
         }
         else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
-            //  Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, Scene_data.pubLut, texVec[i].id);
-             NSLog(@"TexItem.LTUMAP)");
+            NSLog(@"TexItem.LTUMAP)");
         }
         else if (texItem.type == TexItem.CUBEMAP) {
             if (material.useDynamicIBL) {// && _reflectionTextureVo) {
                 NSLog(@"TexItem.useDynamicIBL)");
             } else {
                 if([Scene_data default].skyCubeTexture){
-                     [ctx setRenderTextureCube:material.shader name:texItem.name texture:[Scene_data default].skyCubeTexture level:texItem.id];
+                    [ctx setRenderTextureCube:material.shader name:texItem.name texture:[Scene_data default].skyCubeTexture level:texItem.id];
                 }
             }
-        }else{
+        }
+        else if (texItem.type == 0) {
             [ctx setRenderTexture:material.shader name:texItem.name texture:  texItem.textureRes.textTureLuint level:texItem.id];
             
         }
@@ -319,3 +354,4 @@
 }
  
 @end
+

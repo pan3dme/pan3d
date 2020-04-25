@@ -30,5 +30,5 @@ var SkillSceneChar = /** @class */ (function (_super) {
         }
     };
     return SkillSceneChar;
-}(SceneChar));
+}(Pan3d.SceneChar));
 //# sourceMappingURL=SkillSceneChar.js.map

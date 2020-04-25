@@ -10,6 +10,7 @@ declare class Base64 {
 } 
 
 declare function hex_md5(value: string): string;
+declare function str_md5(value: string): string;
 
 /**录音功能是否准备好 */
 declare function getRecordReady():boolean;

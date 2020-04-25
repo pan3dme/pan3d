@@ -21,6 +21,7 @@ static Scene_data *instance = nil;
     if (self) {
         self.frameTime=1000.0 / 60.0;
         self.MAX_NUMBER=10000000;
+        self.supportBlob=YES;
     }
     return self;
 }

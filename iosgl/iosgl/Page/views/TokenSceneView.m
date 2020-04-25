@@ -61,12 +61,12 @@
 
 - (IBAction)scene_but_1_clik:(id)sender {
     /*
-    NSMutableDictionary *mDict = [[NSMutableDictionary alloc]init];
-    [mDict setObject:@"cctv"  forKey:@"data"];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
-    [self.sceneView loadSeceneByUrl:@"5555_base.txt"];
-    */
-     [self playTypeBut:1];
+     NSMutableDictionary *mDict = [[NSMutableDictionary alloc]init];
+     [mDict setObject:@"cctv"  forKey:@"data"];
+     [[NSNotificationCenter defaultCenter]postNotificationName:@"loadScneInfo" object:mDict];
+     [self.sceneView loadSeceneByUrl:@"5555_base.txt"];
+     */
+    [self playTypeBut:1];
 }
 
 - (IBAction)scene_but_2_clik:(id)sender {
@@ -108,83 +108,107 @@
 
 - (IBAction)zoom_min_clik:(id)sender {
     
-  
+    
     [self playTypeBut:4];
 }
 
 -(void)playTypeBut:(int)tabId;
 {
-     [self.sceneView makeEemptyScene];
-       [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
-  //     [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
-      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
-      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
-      //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
-    
-NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
-[lyfItem addObject:@"model/diamondseffect_lyf.txt"];
-[lyfItem addObject:@"model/levelup_lyf.txt"];
-[lyfItem addObject:@"model/reviveeff_lyf.txt"];
-//[lyfItem addObject:@"model/skin001_lyf.txt"];
-[lyfItem addObject:@"model/10017_lyf.txt"];
-[lyfItem addObject:@"model/10018_lyf.txt"];
-[lyfItem addObject:@"model/13012_lyf.txt"];
     
     
-      [Scene_data default].supportBlob=YES;
-      
-  
-      switch (tabId) {
-          case 1:
-              self.lyfPlayIdx ++;
-              if(self.lyfPlayIdx>=lyfItem.count){
-                  self.lyfPlayIdx=0;
-              }
+    [self.sceneView makeEemptyScene];
+    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    //     [self.sceneView.scene3D addDisplay:[[DisplayTestSprite alloc]init]] ;
+    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/diamondseffect_base.txt
+    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/levelup_base.txt
+    //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/model/reviveeff_base.txt
+    
+    NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
+    [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
+    [lyfItem addObject:@"model/levelup_lyf.txt"];
+    [lyfItem addObject:@"model/reviveeff_lyf.txt"];
+    //[lyfItem addObject:@"model/skin001_lyf.txt"];
+    [lyfItem addObject:@"model/10017_lyf.txt"];
+    [lyfItem addObject:@"model/10018_lyf.txt"];
+    [lyfItem addObject:@"model/13012_lyf.txt"];
+    
+ 
+    
+    switch (tabId) {
+        case 1:
+            self.lyfPlayIdx ++;
+            if(self.lyfPlayIdx>=lyfItem.count){
+                self.lyfPlayIdx=0;
+            }
             [self playLyfByUrl:lyfItem[self.lyfPlayIdx]];
- 
-              break;
-          case 2:
-              if(!mainChar){
-                  mainChar=[[SceneChar alloc]init];
-                  [self.sceneView.scene3D addMovieDisplay:mainChar] ;
-                  [mainChar setRoleUrl:@"role/yingz.txt"];
-              }
-              break;
-          case 3:
-          
-              break;
-              
-          case 4:
-          
-              if(!mainChar){
-                  mainChar=[[SceneChar alloc]init];
-                  [self.sceneView.scene3D addMovieDisplay:mainChar] ;
-                  [mainChar setRoleUrl: getRoleUrl(@"50001")];
-                 // [mainChar setRoleUrl:@"role/5104.txt"];
-                  
-                 
-                  
-                  [mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+            
+            break;
+        case 2:
+            if(!mainChar){
+                mainChar=[[SceneChar alloc]init];
+                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                [mainChar setRoleUrl:@"role/yingz.txt"];
+            }
+            break;
+        case 3:
+            
+            break;
+            
+        case 4:
+            
+            if(!mainChar){
+                mainChar=[[SceneChar alloc]init];
+                [self.sceneView.scene3D addMovieDisplay:mainChar] ;
+                //50001  5104
+                [mainChar setRoleUrl: getRoleUrl(@"50001")];
+                [mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
                 [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
-              }else{
-             
-                   Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
-                  skill.scene3D=self.sceneView.scene3D;
-                  [skill reset];
-                  [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
-                  [mainChar playSkill:skill];
-                   NSLog(@"播放技能");
-              
-              }
-              break;
-          default:
-              break;
-      }
-      
-      
-      
+                
+                [self makeRollAndMount];
+                [self addRoleToScene:@"50003" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
+                [self addRoleToScene:@"50004" pos:[[Vector3D alloc]x:-40 y:0 z:0]];
+                [self addRoleToScene:@"50005" pos:[[Vector3D alloc]x:-60 y:0 z:0]];
+                [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
+            }else{
+                
+                Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+                skill.scene3D=self.sceneView.scene3D;
+                [skill reset];
+                [skill configFixEffect:mainChar completeFun:nil posObj:nil ];
+                [mainChar playSkill:skill];
+                NSLog(@"播放技能");
+                
+            }
+            break;
+        default:
+            break;
+    }
+    
+    
+    
 }
- 
+-(void)makeRollAndMount;
+{
+    SceneChar* sc=[[SceneChar alloc]init];
+    [self.sceneView.scene3D addMovieDisplay:sc] ;
+    [sc setRoleUrl: getRoleUrl(@"50002")];
+    [sc setMountById:@"5104"];
+    [sc play:@"walk" completeState:0 needFollow:NO];
+    [sc addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+    sc.x=50;
+    
+   
+}
+-(void)addRoleToScene:(NSString*)rolename pos:(Vector3D*)pos ;
+{
+    SceneChar* sc=[[SceneChar alloc]init];
+    [self.sceneView.scene3D addMovieDisplay:sc] ;
+    [sc setRoleUrl: getRoleUrl(rolename)];
+    sc.x=pos.x;
+    sc.y=pos.y;
+    sc.z=pos.z;
+}
+
 SceneChar* mainChar;
 -(void)playLyfByUrl:(NSString*)value
 {
@@ -201,7 +225,7 @@ SceneChar* mainChar;
             }
         }
         
-      
+        
         
     }];
 }

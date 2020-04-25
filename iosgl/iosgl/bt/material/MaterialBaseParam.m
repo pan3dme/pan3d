@@ -82,10 +82,11 @@
 
 -(void)update;
 {
+    //[0]    DynamicBaseConstItem *    0x2838371e0    0x00000002838371e0
      MaterialBaseParam* this=self;
     if (this.material && this.dynamicConstList) {
         for (int i = 0; i < this.dynamicConstList.count; i++) {
-            [this.dynamicConstList[i] update];
+            [this.dynamicConstList[i] update:0];
         }
     }
 }

@@ -57,6 +57,9 @@
     [this.posMatrix3d prependScale:this.scaleX*0.1* this.bindScale.x y:this.scaleY*0.1* this.bindScale.y z:_scaleZ*0.1* this.bindScale.z];
     [this.timeline updateMatrix:self.posMatrix3d particle:this];
     
+  //  NSLog(@"%f  %f   %f",self.bindVecter3d.x,self.bindVecter3d.y,self.bindVecter3d.z);
+    
+    
 }
 -(void)updateMatrix;
 {
@@ -71,6 +74,9 @@
     [self.rotationMatrix3D appendRotation:_rotationX axis:Vector3D.X_AXIS];
     [self.rotationMatrix3D appendRotation:_rotationY axis:Vector3D.Y_AXIS];
     [self.rotationMatrix3D appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
+    
+    
+    [self.modeMatrix appendTranslation:self.bindVecter3d.x y:self.bindVecter3d.y z:self.bindVecter3d.z];
 }
 
 -(void)update;

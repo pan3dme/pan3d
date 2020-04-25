@@ -14,7 +14,7 @@ var TpModuleList = /** @class */ (function () {
     TpModuleList.startup = function () {
         var allModules = TpModuleList.getModuleList();
         for (var i = 0; i < allModules.length; i++) {
-            Module.registerModule(allModules[i]);
+            Pan3d.Module.registerModule(allModules[i]);
         }
     };
     return TpModuleList;

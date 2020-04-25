@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteArray.h"
 #import "ResCount.h"
+#import "Vector2D.h"
 #import "Shader3D.h"
 #import "TexItem.h"
 #import "ConstItem.h"
@@ -54,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setByteData:(ByteArray*)byte;
 -(void)updateCam:(float)x y:(float)y z:(float)z;
+-(void)updateFogDagtga:(Vector3D*)fogcolor fogData:(Vector2D*)fogData;
+
 -(void)update:(float)t;
 @end
 

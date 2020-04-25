@@ -51,15 +51,68 @@
 {
     
 }
--(void)setMountById:(int)mountId;
+-(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
+{
+    BOOL temp= [super play:action completeState:completeState needFollow:needFollow];
+    [self changeMountAction];
+    return  temp;
+}
+-(void)changeMountAction;
+{
+    SceneChar* this=self;
+    NSString* action=this.curentAction;
+    if(self.mountChar){
+        action=action?action:this.defaultAction;
+        if([action isEqualToString:CharAction_stand]||[action isEqualToString:CharAction_stand_mount_01]){
+            this.curentAction=CharAction_stand_mount_01;
+            self.mountChar.curentAction=CharAction_stand;
+        }
+        else if([action isEqualToString:CharAction_walk]||[action isEqualToString:CharAction_walk_mount_01]){
+            this.curentAction=CharAction_walk_mount_01;
+            self.mountChar.curentAction=CharAction_walk;
+        }else{
+            self.mountChar.curentAction=CharAction_stand;
+        }
+    }
+}
+-(void)setMountById:(NSString*)mountName;
 {
     SceneChar* this=self;
     if(!this.mountChar){
         this.mountChar=[[MountChar alloc]init];
+        [this.scene3d addMovieDisplay:this.mountChar];
+        [this setBind:this.mountChar bindSocket:SceneChar.MOUNT_SLOT];
+ 
     }
-    [this.mountChar setRoleUrl: getRoleUrl(@"5104")];
-    
-    
+    [this.mountChar setRoleUrl: getRoleUrl(mountName)];
+    [self changeMountAction];
+    [self refrishmountPos];
+ 
+}
+/*
+ 刷新坐骑位置
+ */
+- (void)refrishmountPos;
+{
+    SceneChar* this=self;
+    if(this.mountChar){
+        this.mountChar.x=this.x;
+        this.mountChar.y=this.y;
+        this.mountChar.z=this.y;
+        this.mountChar.rotationY=this.rotationY;
+    }
+}
+-(void)setX:(float)value; {
+    [super setX:value];
+    [self refrishmountPos];
+}
+-(void)setY:(float)value;{
+    [super setY:value];
+    [self refrishmountPos];
+}
+-(void)setZ:(float)value;{
+    [super setZ:value];
+    [self refrishmountPos];
 }
  
 /*
