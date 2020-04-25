@@ -1,3 +1,4 @@
+"use strict";
 var TpModuleList = /** @class */ (function () {
     function TpModuleList() {
     }

@@ -1,3 +1,4 @@
+"use strict";
 function float2int(value) {
     return value | 0;
 }

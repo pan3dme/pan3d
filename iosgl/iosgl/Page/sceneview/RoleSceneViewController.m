@@ -74,6 +74,49 @@
     }
 }
 
+-(void)showLyfItems;
+{
+ 
+    while (self.butItems.count) {
+            [self.butItems[0] removeFromSuperview];
+            [self.butItems removeObjectAtIndex:0];
+
+    }
+    [self addEventLyfButBy:@"10017"];
+       [self addEventLyfButBy:@"10018"];
+       [self addEventLyfButBy:@"13012"];
+    
+    [self addEventButBy:@"清理"];
+    [self addEventButBy:@"拉+"];
+    [self addEventButBy:@"推-"];
+    
+    [self viewDidLayoutSubviews];
+   
+}
+-(void)addEventLyfButBy:(NSString*)tittle;
+{
+    UIButton* oneBut=[self makeButtion];
+    [oneBut setTitle:tittle forState:UIControlStateNormal];
+    [oneBut addTarget:self action:@selector(oneButLyfClikEvent:) forControlEvents:UIControlEventTouchUpInside] ;
+    [self.butItems addObject:oneBut];
+}
+- (void) oneButLyfClikEvent:(UIButton *) btn;
+{
+    NSString* lyfStr=btn.titleLabel.text;
+    
+    [self.sceneView.scene3D clearAll];
+    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    
+    //            NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
+    //            [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
+    //            [lyfItem addObject:@"model/levelup_lyf.txt"];
+    //            [lyfItem addObject:@"model/reviveeff_lyf.txt"];
+    //            [lyfItem addObject:@"model/10017_lyf.txt"];
+    //            [lyfItem addObject:@"model/10018_lyf.txt"];
+    //            [lyfItem addObject:@"model/13012_lyf.txt"];
+    
+    [self playLyfByUrl:[NSString stringWithFormat:@"model/%@_lyf.txt",lyfStr]];
+}
 
 - (void) oneButClikEvent:(UIButton *) btn
 {
@@ -87,21 +130,9 @@
         [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
     }
     if([titleStr isEqualToString:@"特效"]){
-        [self.sceneView.scene3D clearAll];
-        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    
         
-        NSMutableArray<NSString*>* lyfItem=[[NSMutableArray alloc]init];
-        [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
-        [lyfItem addObject:@"model/levelup_lyf.txt"];
-        [lyfItem addObject:@"model/reviveeff_lyf.txt"];
-        [lyfItem addObject:@"model/10017_lyf.txt"];
-        [lyfItem addObject:@"model/10018_lyf.txt"];
-        [lyfItem addObject:@"model/13012_lyf.txt"];
-        self.lyfPlayIdx ++;
-        if(self.lyfPlayIdx>=lyfItem.count){
-            self.lyfPlayIdx=0;
-        }
-        [self playLyfByUrl:lyfItem[self.lyfPlayIdx]];
+        [self showLyfItems];
         
     }
     if([titleStr isEqualToString:@"技能"]){

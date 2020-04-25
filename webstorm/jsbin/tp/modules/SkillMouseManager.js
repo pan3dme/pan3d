@@ -1,3 +1,4 @@
+"use strict";
 var SkillMouseManager = /** @class */ (function () {
     function SkillMouseManager() {
     }

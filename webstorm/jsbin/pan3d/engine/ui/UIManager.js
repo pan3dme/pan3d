@@ -1,3 +1,4 @@
+"use strict";
 var Pan3d;
 (function (Pan3d) {
     var UiTweenVo = /** @class */ (function () {
@@ -232,7 +233,7 @@ var Pan3d;
         };
         UIManager.prototype.removeNoInterfaceUI = function () {
             for (var i = (this._containerList.length - 1); i >= 0; i--) {
-                if (!this._containerList[i].interfaceUI) {
+                if (!this._containerList[i].interfaceUI) { //非主界面的时候
                     this.removeUIContainer(this._containerList[i]);
                 }
             }
@@ -367,7 +368,7 @@ var Pan3d;
             if (!tf) {
                 for (var i = this._uiList.length - 1; i >= 0; i--) {
                     if (this._uiList[i]) {
-                        if (this._uiList[i].container.interfaceUI == false) {
+                        if (this._uiList[i].container.interfaceUI == false) { //非主UI
                             if (this._uiList[i] && this._uiList[i].interactiveEvent(evt)) {
                                 tf = true;
                                 break;
@@ -379,7 +380,7 @@ var Pan3d;
             if (!tf) {
                 for (var i = this._uiList.length - 1; i >= 0; i--) {
                     if (this._uiList[i]) {
-                        if (this._uiList[i].container.interfaceUI == true) {
+                        if (this._uiList[i].container.interfaceUI == true) { //是主UI
                             if (this._uiList[i] && this._uiList[i].interactiveEvent(evt)) {
                                 tf = true;
                                 break;
@@ -391,7 +392,7 @@ var Pan3d;
             if (evt.type == Pan3d.InteractiveEvent.Down) {
                 this.lastMousePos = new Pan3d.Vector2D(evt.x, evt.y);
                 var dt = Pan3d.TimeUtil.getTimer() - this.lastTime;
-                if (dt < 200) {
+                if (dt < 200) { //小于200毫秒就只认为是一次按下事件
                     return true;
                 }
                 this.lastTime = Pan3d.TimeUtil.getTimer();

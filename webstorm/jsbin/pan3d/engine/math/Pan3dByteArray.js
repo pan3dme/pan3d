@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Endian 类中包含一些值，它们表示用于表示多字节数字的字节顺序。
  * 字节顺序为 bigEndian（最高有效字节位于最前）或 littleEndian（最低有效字节位于最前）。
@@ -829,7 +830,7 @@ var Pan3d;
                 else if (this.inRange(c, 0xDC00, 0xDFFF)) {
                     cps.push(0xFFFD);
                 }
-                else {
+                else { // (inRange(c, 0xD800, 0xDBFF))
                     if (i === n - 1) {
                         cps.push(0xFFFD);
                     }

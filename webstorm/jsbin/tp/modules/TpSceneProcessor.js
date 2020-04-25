@@ -1,7 +1,11 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -55,11 +59,17 @@ var TpSceneProcessor = /** @class */ (function (_super) {
                 }
                 else {
                     this.makeUrlParam();
-                    this.makeMainChar();
+                    //   this.makeMainChar();
+                    this.makeTestScene();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
             }
         }
+    };
+    TpSceneProcessor.prototype.makeTestScene = function () {
+        var $sc = new SkillSceneChar();
+        $sc.setRoleUrl(getRoleUrl("erchiyuan001"));
+        Pan3d.SceneManager.getInstance().addMovieDisplay($sc);
     };
     TpSceneProcessor.prototype.makeUrlParam = function () {
         this.paramId = Number(getUrlParam("id"));

@@ -1,3 +1,4 @@
+"use strict";
 var Pan3d;
 (function (Pan3d) {
     var LoadManager = /** @class */ (function () {
@@ -98,10 +99,10 @@ var Pan3d;
                 this._xhr.send();
             }
             else if (this._loadInfo.type == LoadManager.IMG_TYPE) {
-                if (this._img.url == loadInfo.vurl) {
+                if (this._img.url == loadInfo.vurl) { //路径相同
                     this.loadImg();
                 }
-                else {
+                else { //执行加载
                     this._img.url = loadInfo.vurl;
                     this._img.src = loadInfo.vurl;
                 }

@@ -33,12 +33,22 @@ class TpSceneProcessor extends Pan3d.BaseProcessor {
                     window.location.href = "index.html?id=" + random(10);
                 } else {
                     this.makeUrlParam()
-                    this.makeMainChar();
+                 //   this.makeMainChar();
+                    this.makeTestScene();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
+
             }
         }
     }
+    private  makeTestScene():void
+    {
+        var $sc: SkillSceneChar = new SkillSceneChar();
+        $sc.setRoleUrl(getRoleUrl("erchiyuan001"));
+        Pan3d. SceneManager.getInstance().addMovieDisplay($sc);
+
+    }
+
     private paramId: number;
     private makeUrlParam(): void
     {

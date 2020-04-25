@@ -1,7 +1,11 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -343,7 +347,7 @@ var Pan3d;
                     //_context.setTextureAt(texVec[i].id, Scene_data.prbLutTexture.texture);
                 }
                 else if (texVec[i].type == Pan3d.TexItem.CUBEMAP) {
-                    if ($material.useDynamicIBL) {
+                    if ($material.useDynamicIBL) { // && _reflectionTextureVo) {
                         //_context.setTextureAt(texVec[i].id, _reflectionTextureVo.texture);
                     }
                     else {
@@ -354,6 +358,14 @@ var Pan3d;
                         }
                     }
                 }
+                //else if (texVec[i].type == TexItem.HEIGHTMAP) {
+                //    //_context.setTextureAt(texVec[i].id, _cubeTexture);
+                //    setHeightTexture(texVec[i].id);
+                //} else if (texVec[i].type == TexItem.REFRACTIONMAP) {
+                //    if (_reflectionTextureVo) {
+                //        _context.setTextureAt(texVec[i].id, _reflectionTextureVo.ZeTexture);
+                //    }
+                //}
                 else {
                     //_context.setTextureAt(texVec[i].id, texVec[i].texture);
                     if (texVec[i].texture) {
@@ -384,7 +396,7 @@ var Pan3d;
                     }
                 }
                 else if (texVec[i].type == Pan3d.TexItem.CUBEMAP) {
-                    if ($material.useDynamicIBL) {
+                    if ($material.useDynamicIBL) { // && _reflectionTextureVo) {
                         //_context.setTextureAt(texVec[i].id, _reflectionTextureVo.texture);
                     }
                     else {

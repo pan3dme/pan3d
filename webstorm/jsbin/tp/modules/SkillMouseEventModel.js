@@ -1,3 +1,4 @@
+"use strict";
 var SkillMouseEventModel = /** @class */ (function () {
     function SkillMouseEventModel() {
         this.lastRotationY = 0;

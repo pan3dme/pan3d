@@ -120,6 +120,10 @@
             this.makeGridData()
 
         }
+        public  update(): void {
+          //  super.update();
+        }
+
         private makeGridData(): void {
 
             var w: number = 100;

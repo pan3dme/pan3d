@@ -1,7 +1,11 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -61,7 +65,7 @@ var Pan3d;
                 var idx = xhrList.indexOf($curxhr);
                 aryBufList[idx] = arybuf;
                 comNum++;
-                if (comNum == xhrList.length) {
+                if (comNum == xhrList.length) { //加载完成
                     var bufSize = 0;
                     for (var i = 0; i < aryBufList.length; i++) {
                         bufSize += aryBufList[i].byteLength;

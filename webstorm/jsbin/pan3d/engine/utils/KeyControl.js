@@ -1,3 +1,4 @@
+"use strict";
 var Pan3d;
 (function (Pan3d) {
     var MouseType = /** @class */ (function () {
@@ -96,23 +97,23 @@ var Pan3d;
                 return;
             }
             var _keyDic = this._keyDic;
-            if (_keyDic[65]) {
+            if (_keyDic[65]) { //A
                 this.tureLeft();
             }
-            if (_keyDic[83]) {
+            if (_keyDic[83]) { //S
                 // FpsMc.tipStr = "S"
                 this.tureDown();
             }
-            if (_keyDic[68]) {
+            if (_keyDic[68]) { //D
                 this.tureRight();
             }
-            if (_keyDic[87]) {
+            if (_keyDic[87]) { //W
                 this.tureUp();
             }
-            if (_keyDic[81]) {
+            if (_keyDic[81]) { //Q
                 Pan3d.Scene_data.cam3D.y -= this.speedNum;
             }
-            if (_keyDic[69]) {
+            if (_keyDic[69]) { //E
                 Pan3d.Scene_data.cam3D.y += this.speedNum;
             }
             Pan3d.MathClass.MathCam(Pan3d.Scene_data.cam3D);

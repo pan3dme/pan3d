@@ -1,7 +1,11 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -81,9 +85,9 @@ var Pan3d;
             this.data = new Pan3d.ParticleBoneData;
         };
         Display3DBonePartilce.prototype.update = function () {
-            Pan3d.Scene_data.context3D.setWriteDepth(true);
+            // Scene_data.context3D.setWriteDepth(false);
             _super.prototype.update.call(this);
-            Pan3d.Scene_data.context3D.setWriteDepth(false);
+            //   Scene_data.context3D.setWriteDepth(false);
         };
         Display3DBonePartilce.prototype.setVc = function () {
             var currentFrame = float2int((this._time / Pan3d.Scene_data.frameTime) / 2);

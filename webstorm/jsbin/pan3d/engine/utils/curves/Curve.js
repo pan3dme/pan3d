@@ -1,3 +1,4 @@
+"use strict";
 var Pan3d;
 (function (Pan3d) {
     var Curve = /** @class */ (function () {

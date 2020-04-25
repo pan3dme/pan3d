@@ -1,3 +1,4 @@
+"use strict";
 var TpGame = /** @class */ (function () {
     function TpGame() {
         this.uiReadyNum = 0;
