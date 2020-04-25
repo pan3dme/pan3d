@@ -141,7 +141,24 @@
 
  
 }
-
+ 
+-(void)updateFogDagtga:(Vector3D*)fogcolor fogData:(Vector2D*)fogData;
+{
+    Material* this=self;
+    if (this.hasTime || this.useKill || this.fogMode != 0) {//fc0
+        if (this.fogMode != 0) {
+            this.fcData[2] =[NSNumber numberWithFloat:fogData.x];
+            this.fcData[3] =[NSNumber numberWithFloat:fogData.y];
+        }
+    }
+    if (this.fogMode != 0) {
+        int idx   = [this.fcIDAry[1]intValue] * 4;
+        this.fcData[0 + idx] = [NSNumber numberWithFloat:fogcolor.x];
+        this.fcData[1 + idx] =[NSNumber numberWithFloat:fogcolor.y];
+        this.fcData[2 + idx] = [NSNumber numberWithFloat:fogcolor.z];
+    }
+}
+ 
 -(void)updateCam:(float)x y:(float)y z:(float)z;
 {
        Material* this=self;

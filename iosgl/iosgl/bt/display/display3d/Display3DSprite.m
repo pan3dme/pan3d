@@ -236,7 +236,8 @@
         t=[[TimeUtil default]getTimer]-this.time;
     }
     [material update:t];
-    [self setCamPos:this.material];
+    [self setSceneFcData:this.material];
+
     if (mp) {
         [mp update];
     }
@@ -246,6 +247,17 @@
         fcDataGlArr[i]=fcData[i].floatValue;
     }
     [ctx setVc4fv:material.shader name:"fc" data:fcDataGlArr len:material.fcNum];
+}
+/*
+ 更新场景信息。 雾效果， 镜头
+ */
+-(void)setSceneFcData:(Material*)material;
+{
+    if(self.scene3d.fogColor&&self.scene3d.fogData){
+        [material updateFogDagtga:self.scene3d.fogColor fogData:self.scene3d.fogData];
+         [self setCamPos:material];
+    }
+ 
 }
 -(void)setCamPos:(Material*)material;
 {

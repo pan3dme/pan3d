@@ -112,7 +112,18 @@
     NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
     SceneRes *sceneRes=[[SceneRes alloc]init];
     [sceneRes load:webUrl  bfun:^(NSString *value) {
-        NSArray *buildItem=[sceneRes.sceneData objectForKey:@"buildItem"];
+        NSDictionary* obj=sceneRes.sceneData;
+        NSArray *buildItem=[obj objectForKey:@"buildItem"];
+        
+        self.scene3D.fogColor=[[Vector3D alloc]init];
+        self.scene3D.fogColor.x=[(obj[@"fogColor"])[@"x"]floatValue] /255.0;
+        self.scene3D.fogColor.y=[(obj[@"fogColor"])[@"y"]floatValue]  /255.0;
+        self.scene3D.fogColor.z=[(obj[@"fogColor"])[@"z"]floatValue]  /255.0;
+        self.scene3D.gameAngle=[obj[@"gameAngle"] floatValue] ;
+        float d = [obj[@"fogDistance"] floatValue] * 1;//1000
+        float s = [obj[@"fogAttenuation"] floatValue] ;  //0.5.
+        self.scene3D.fogData=[[Vector2D alloc]x:d * s y:1 / ((1 - s) * d)];
+ 
         [self makeEemptyScene];
         for(int i=0;i<buildItem.count;i++){
        
