@@ -291,8 +291,9 @@
 -(void)setCamPos:(Material*)material;
 {
     Vector3D* v3d=[[Vector3D alloc]x:self.scene3d.camera3D.x y:self.scene3d.camera3D.y z:self.scene3d.camera3D.z];
-   // [v3d normalize];
-    [material updateCam:v3d.x/100.0 y:v3d.y/100.0 z:v3d.z/100.0];
+    //[v3d normalize];
+    [v3d scaleBy:1.0/500.0]; //需要优化
+    [material updateCam:v3d.x  y:v3d.y  z:v3d.z];
     
 }
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
