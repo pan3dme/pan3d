@@ -57,7 +57,7 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/levelup_lyf.txt")
         // this.playLyf("model/skin001_lyf.txt")
         //  this.playLyf("model/10018_lyf.txt")
-        var tabIdx = 4;
+        var tabIdx = 1;
         if (tabIdx == 4) {
             this.loadSceneByUrl("2012");
         }
@@ -74,9 +74,9 @@ var TpSceneProcessor = /** @class */ (function (_super) {
             }
             SkillManager.getInstance().preLoadSkill(getSkillUrl(this.skillFileName));
             this.mainChar = new SkillSceneChar();
-            // this.mainChar.addPart(SceneChar.WEAPON_PART, SceneChar.WEAPON_DEFAULT_SLOT,getModelUrl(String(50011)));
-            // this.mainChar.setRoleUrl(getRoleUrl("50001"));
-            this.mainChar.setRoleUrl(getRoleUrl("5104"));
+            this.mainChar.addPart(SceneChar.WEAPON_PART, SceneChar.WEAPON_DEFAULT_SLOT, getModelUrl(String(50011)));
+            this.mainChar.setRoleUrl(getRoleUrl("50001"));
+            // this.mainChar.setRoleUrl(getRoleUrl("5104"));
             // this.mainChar.setMountById(5104);
             SceneManager.getInstance().addMovieDisplay(this.mainChar);
         }
