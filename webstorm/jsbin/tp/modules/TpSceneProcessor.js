@@ -59,8 +59,8 @@ var TpSceneProcessor = /** @class */ (function (_super) {
                 }
                 else {
                     this.makeUrlParam();
-                    //   this.makeMainChar();
-                    this.makeTestScene();
+                    this.makeMainChar();
+                    //  this.makeTestScene();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
             }

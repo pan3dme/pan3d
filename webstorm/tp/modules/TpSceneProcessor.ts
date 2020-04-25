@@ -12,7 +12,7 @@ class TpSceneEvent extends Pan3d.BaseEvent {
     public static SHOW_TP_SCENE_EVENT: string = "SHOW_TP_SCENE_EVENT";
     public static ENTER_SCENE_EVENT: string = "ENTER_SCENE_EVENT";
     
-    public mapId: number
+    public   mapId: number;
 
 }
 class TpSceneProcessor extends Pan3d.BaseProcessor {
@@ -33,8 +33,8 @@ class TpSceneProcessor extends Pan3d.BaseProcessor {
                     window.location.href = "index.html?id=" + random(10);
                 } else {
                     this.makeUrlParam()
-                 //   this.makeMainChar();
-                    this.makeTestScene();
+                   this.makeMainChar();
+                  //  this.makeTestScene();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
 
@@ -44,7 +44,7 @@ class TpSceneProcessor extends Pan3d.BaseProcessor {
     private  makeTestScene():void
     {
         var $sc: SkillSceneChar = new SkillSceneChar();
-        $sc.setRoleUrl(getRoleUrl("erchiyuan001"));
+        $sc.setRoleUrl(getRoleUrl("erchiyuan0013"));
         Pan3d. SceneManager.getInstance().addMovieDisplay($sc);
 
     }

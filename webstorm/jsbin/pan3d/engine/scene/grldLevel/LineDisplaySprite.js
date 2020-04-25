@@ -129,7 +129,7 @@ var Pan3d;
             return _this;
         }
         GridLineSprite.prototype.update = function () {
-            //  super.update();
+            _super.prototype.update.call(this);
         };
         GridLineSprite.prototype.makeGridData = function () {
             var w = 100;

@@ -121,7 +121,7 @@
 
         }
         public  update(): void {
-          //  super.update();
+           super.update();
         }
 
         private makeGridData(): void {
