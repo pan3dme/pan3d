@@ -10,15 +10,15 @@ class SkillMouseManager {
     public constructor() {
     }
     public addMouseEvent(): void {
-        if (Scene_data.isPc) {
-            document.addEventListener(MouseType.MouseDown, ($evt: MouseEvent) => { this.onMouse($evt) });
-            document.addEventListener(MouseType.MouseUp, ($evt: MouseEvent) => { this.onMouse($evt) });
-            document.addEventListener(MouseType.MouseMove, ($evt: MouseEvent) => { this.onMouse($evt) });
-            document.addEventListener(MouseType.MouseWheel, ($evt: MouseWheelEvent) => { this.onMouseWheel($evt) });
+        if (Pan3d.Scene_data.isPc) {
+            document.addEventListener(Pan3d.MouseType.MouseDown, ($evt: MouseEvent) => { this.onMouse($evt) });
+            document.addEventListener(Pan3d.MouseType.MouseUp, ($evt: MouseEvent) => { this.onMouse($evt) });
+            document.addEventListener(Pan3d.MouseType.MouseMove, ($evt: MouseEvent) => { this.onMouse($evt) });
+            document.addEventListener(Pan3d.MouseType.MouseWheel, ($evt: MouseWheelEvent) => { this.onMouseWheel($evt) });
         } else {
-            document.addEventListener(MouseType.TouchMove, ($evt: TouchEvent) => { this.mouseToEvent($evt) });
-            document.addEventListener(MouseType.TouchEnd, ($evt: TouchEvent) => { this.mouseToEvent($evt) });
-            document.addEventListener(MouseType.TouchStart, ($evt: TouchEvent) => { this.mouseToEvent($evt) });
+            document.addEventListener(Pan3d.MouseType.TouchMove, ($evt: TouchEvent) => { this.mouseToEvent($evt) });
+            document.addEventListener(Pan3d.MouseType.TouchEnd, ($evt: TouchEvent) => { this.mouseToEvent($evt) });
+            document.addEventListener(Pan3d.MouseType.TouchStart, ($evt: TouchEvent) => { this.mouseToEvent($evt) });
         }
 
     }
@@ -29,16 +29,16 @@ class SkillMouseManager {
 
     }
     private onMouse($e: MouseEvent): void {
-        var evt: InteractiveEvent;
-        var point: Vector2D = new Vector2D();
+        var evt: Pan3d.InteractiveEvent;
+        var point: Pan3d.Vector2D = new Pan3d.Vector2D();
         if ($e instanceof MouseEvent) {
-            if ($e.type == MouseType.MouseDown) {
-                evt = new InteractiveEvent(InteractiveEvent.Down);
-            } else if ($e.type == MouseType.MouseUp) {
-                evt = new InteractiveEvent(InteractiveEvent.Up);
-            } else if ($e.type == MouseType.MouseMove) {
-                evt = new InteractiveEvent(InteractiveEvent.Move);
-            } else if ($e.type == MouseType.MouseClick) {
+            if ($e.type == Pan3d.MouseType.MouseDown) {
+                evt = new Pan3d.InteractiveEvent(Pan3d.InteractiveEvent.Down);
+            } else if ($e.type == Pan3d.MouseType.MouseUp) {
+                evt = new Pan3d.InteractiveEvent(Pan3d.InteractiveEvent.Up);
+            } else if ($e.type == Pan3d.MouseType.MouseMove) {
+                evt = new Pan3d.InteractiveEvent(Pan3d.InteractiveEvent.Move);
+            } else if ($e.type == Pan3d.MouseType.MouseClick) {
 
             }
             point.x = $e.pageX;
@@ -47,16 +47,16 @@ class SkillMouseManager {
         this.makeMouseEvent(evt, point);
     }
     private mouseToEvent($touchEvent: TouchEvent): void {
-        var evt: InteractiveEvent;
-        var point: Vector2D = new Vector2D();
-        if ($touchEvent.type == MouseType.TouchStart) {
-            evt = new InteractiveEvent(InteractiveEvent.Down);
-        } else if ($touchEvent.type == MouseType.TouchEnd) {
-            evt = new InteractiveEvent(InteractiveEvent.Up);
+        var evt: Pan3d.InteractiveEvent;
+        var point: Pan3d.Vector2D = new Pan3d.Vector2D();
+        if ($touchEvent.type == Pan3d.MouseType.TouchStart) {
+            evt = new Pan3d.InteractiveEvent(Pan3d.InteractiveEvent.Down);
+        } else if ($touchEvent.type == Pan3d.MouseType.TouchEnd) {
+            evt = new Pan3d.InteractiveEvent(Pan3d.InteractiveEvent.Up);
             point.x = $touchEvent.changedTouches[0].pageX;
             point.y = $touchEvent.changedTouches[0].pageY;
-        } else if ($touchEvent.type == MouseType.TouchMove) {
-            evt = new InteractiveEvent(InteractiveEvent.Move);
+        } else if ($touchEvent.type == Pan3d.MouseType.TouchMove) {
+            evt = new Pan3d.InteractiveEvent(Pan3d.InteractiveEvent.Move);
         }
         if ($touchEvent.touches.length) {
             point.x = $touchEvent.touches[$touchEvent.touches.length - 1].clientX;
@@ -64,11 +64,11 @@ class SkillMouseManager {
         }
         this.makeMouseEvent(evt, point);
     }
-    private makeMouseEvent(evt: InteractiveEvent, point: Vector2D): void {
-        var temp: boolean = UIManager.getInstance().mouseEvetData(evt, point);
+    private makeMouseEvent(evt: Pan3d.InteractiveEvent, point: Pan3d. Vector2D): void {
+        var temp: boolean = Pan3d. UIManager.getInstance().mouseEvetData(evt, point);
 
         if (!temp) {
-            if (evt.type == InteractiveEvent.Up) {
+            if (evt.type == Pan3d. InteractiveEvent.Up) {
          
                  this.clikSceneGround(point)
           
@@ -78,7 +78,7 @@ class SkillMouseManager {
     
     }
 
-    private clikSceneGround($pos: Vector2D): void
+    private clikSceneGround($pos: Pan3d.Vector2D): void
     {
  
 

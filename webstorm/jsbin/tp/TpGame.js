@@ -1,4 +1,3 @@
-"use strict";
 var TpGame = /** @class */ (function () {
     function TpGame() {
         this.uiReadyNum = 0;
@@ -9,7 +8,7 @@ var TpGame = /** @class */ (function () {
     };
     TpGame.prototype.loadDataComplet = function () {
         TpModuleList.startup(); //启动所有模块
-        Engine.initPbr();
+        Pan3d.Engine.initPbr();
         SkillMouseManager.getInstance().addMouseEvent();
         SkillMouseEventModel.getInstance().initSceneFocueEvent();
         this.loadBaseMap();
@@ -19,7 +18,7 @@ var TpGame = /** @class */ (function () {
         $evt.mapId = 1003;
         $evt.mapId = 1005;
         $evt.mapId = 5001;
-        ModuleEventManager.dispatchEvent($evt);
+        Pan3d.ModuleEventManager.dispatchEvent($evt);
     };
     /**是否是外网 */
     TpGame.outNet = false;

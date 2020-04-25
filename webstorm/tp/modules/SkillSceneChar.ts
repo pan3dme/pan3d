@@ -1,4 +1,4 @@
-﻿class SkillSceneChar extends SceneChar{
+﻿class SkillSceneChar extends Pan3d.SceneChar{
 
     public onMeshLoaded(): void {
         super.onMeshLoaded()

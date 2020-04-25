@@ -9,40 +9,40 @@
     public constructor() {
     }
     public initSceneFocueEvent(): void {
-        Scene_data.uiBlankStage.addEventListener(InteractiveEvent.Down, this.onMouseDown, this);
-        Scene_data.uiBlankStage.addEventListener(InteractiveEvent.Up, this.onMouseUp, this);
-        Scene_data.uiBlankStage.addEventListener(InteractiveEvent.Move, this.onMouseMove, this);
-        document.addEventListener(MouseType.MouseWheel, ($evt: MouseWheelEvent) => { this.onMouseWheel($evt) });
+        Pan3d.Scene_data.uiBlankStage.addEventListener(Pan3d.InteractiveEvent.Down, this.onMouseDown, this);
+        Pan3d.Scene_data.uiBlankStage.addEventListener(Pan3d.InteractiveEvent.Up, this.onMouseUp, this);
+        Pan3d.Scene_data.uiBlankStage.addEventListener(Pan3d.InteractiveEvent.Move, this.onMouseMove, this);
+        document.addEventListener(Pan3d.MouseType.MouseWheel, ($evt: MouseWheelEvent) => { this.onMouseWheel($evt) });
     }
     public onMouseWheel($evt: MouseWheelEvent): void {
 
-        Scene_data.cam3D.distance += $evt.wheelDelta/10
+        Pan3d. Scene_data.cam3D.distance += $evt.wheelDelta/10
     }
 
     private lastRotationY: number = 0;
     private lastRotationX: number = 0;
 
 
-    private _lastMousePos: Vector2D = new Vector2D();
+    private _lastMousePos: Pan3d.Vector2D = new Pan3d.Vector2D();
     private _isMouseDown: boolean;
-    private onMouseMove($evt: InteractiveEvent): void {
+    private onMouseMove($evt: Pan3d.InteractiveEvent): void {
         if (this._isMouseDown) {
             var $addx: number = $evt.x - this._lastMousePos.x;
-            Scene_data.focus3D.rotationY = this.lastRotationY - $addx;
+            Pan3d. Scene_data.focus3D.rotationY = this.lastRotationY - $addx;
 
             var $addy: number = $evt.y- this._lastMousePos.y;
-            Scene_data.focus3D.rotationX = this.lastRotationX - $addy;
+            Pan3d. Scene_data.focus3D.rotationX = this.lastRotationX - $addy;
         }
     }
-    private onMouseDown($evt: InteractiveEvent): void {
+    private onMouseDown($evt: Pan3d. InteractiveEvent): void {
 
         this._lastMousePos.x = $evt.x;
         this._lastMousePos.y = $evt.y;
-        this.lastRotationY = Scene_data.focus3D.rotationY;
-        this.lastRotationX = Scene_data.focus3D.rotationX;
+        this.lastRotationY = Pan3d. Scene_data.focus3D.rotationY;
+        this.lastRotationX = Pan3d.Scene_data.focus3D.rotationX;
         this._isMouseDown = true;
     }
-    private onMouseUp($evt: InteractiveEvent): void {
+    private onMouseUp($evt: Pan3d. InteractiveEvent): void {
         this._isMouseDown = false;
     }
 }
