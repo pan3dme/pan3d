@@ -83,11 +83,11 @@ static ProgrmaManager *instance = nil;
     shader.vertex=shader.vertexStr;
     shader.fragment = material.shaderStrRead;
     //keyStr    __NSCFString *    @"MaterialAnimShaderhttp://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/materialinstance/zuoqicaizhi/mount_liuguang_00_byte.txt"    0x00000002829cabb0
-    if ([keyStr rangeOfString:@"MaterialShaderhttp"].location != NSNotFound) {
+    if ([keyStr rangeOfString:@"/changjingbuhongpei/standardtransparent _no_byte"].location != NSNotFound) {
   
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];
-        [self changeShader:shader];
+      //  [self changeShader:shader];
         NSLog(@"------");
     
     }
@@ -100,7 +100,7 @@ static ProgrmaManager *instance = nil;
 
 -(void)changeShader:(Shader3D*)shader;
 {
-    
+    /*
     shader.vertex=
           @"attribute vec3 v3Position;"
           "attribute vec2 v2CubeTexST;"
@@ -119,31 +119,29 @@ static ProgrmaManager *instance = nil;
           "v1 = vec3(vt0.x,vt0.y,vt0.z);"
           "vt0 = vt0*vpMatrix3D ;"
           "gl_Position = vt0; }";
+    */
         
   
     
     shader.fragment=
     @"precision mediump float;"
     "uniform sampler2D fs0;"
-    "uniform sampler2D fs1;"
     "uniform vec4 fc[3];"
     "varying vec2 v0;"
-    "varying vec2 v2;"
     "varying vec3 v1;"
     "void main(void){"
     "vec4 ft0 = texture2D(fs0,v0);"
-    "vec4 ft1 = texture2D(fs1,v2);"
-    "ft1.xyz = ft1.xyz * 2.0;"
-    "ft1.xyz = ft1.xyz * ft0.xyz;"
+    "vec4 ft1 = vec4(ft0.xyz,1.0);"
     "vec4 ft2 = vec4(0,0,0,1);"
     "ft2.xyz = ft1.xyz;"
-    "ft2.w = 1.0;"
+    "ft2.w = ft0.w;"
+    "if(ft0.w<fc[0].x){discard;}"
     "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;"
     "ft1.x = ft1.x - fc[0].z;"
     "ft1.x = fc[0].w * ft1.x;"
     "ft1.x = clamp(ft1.x,0.0,1.0);"
-    "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"
-    "gl_FragColor = ft2;"
+     "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"
+    "gl_FragColor =ft2;"
     "}";
 
   

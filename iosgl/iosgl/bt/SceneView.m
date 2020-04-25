@@ -116,7 +116,10 @@
         [self makeEemptyScene];
         for(int i=0;i<buildItem.count;i++){
        
-             [self parsingBuildItem:buildItem[i]];
+            if( [buildItem[i][@"id"]intValue]==58){
+                 [self parsingBuildItem:buildItem[i]];
+            }
+            
             
         }
         NSLog(@"--");

@@ -265,11 +265,8 @@
             continue;
         }
         if (texItem.type == TexItem.LIGHTMAP) {
-            // Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, this.lightMapTexture, texVec[i].id);
-            NSLog(@"TexItem.LIGHTMAP)");
         }
         else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
-            //  Scene_data.context3D.setRenderTexture($material.shader, texVec[i].name, Scene_data.pubLut, texVec[i].id);
             NSLog(@"TexItem.LTUMAP)");
         }
         else if (texItem.type == TexItem.CUBEMAP) {
@@ -315,3 +312,4 @@
 }
  
 @end
+
