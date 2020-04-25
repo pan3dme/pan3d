@@ -53,6 +53,7 @@
     [self addEventButBy:@"推-"];
     [self addEventButBy:@"新加"];
      [self addEventButBy:@"场景"];
+     [self addEventButBy:@"特别"];
     
 }
 
@@ -142,6 +143,12 @@
     if([titleStr isEqualToString:@"场景"]){
         [self.sceneView loadSeceneByUrl:@"2012"];
     }
+    
+    if([titleStr isEqualToString:@"特别"]){
+        [self addRoleToScene:@"7004" pos:[[Vector3D alloc]x:0 y:0 z:0]];
+    }
+    
+    //
 }
  
 -(void)playLyfByUrl:(NSString*)value

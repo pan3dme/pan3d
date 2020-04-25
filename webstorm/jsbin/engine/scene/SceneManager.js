@@ -118,23 +118,23 @@ var SceneManager = /** @class */ (function () {
         for (var i = 0; i < buildAry.length; i++) {
             var itemObj = buildAry[i];
             if (itemObj.type == BaseRes.PREFAB_TYPE) {
-                if (itemObj.id == 58) {
-                    var itemDisplay = this.getBuildSprite(itemObj);
-                    this.addDisplay(itemDisplay);
+                /*
+                if(itemObj.id==58){
+                    var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
+                    this.addDisplay(itemDisplay)
                 }
+                */
                 //console.log("init:" + itemDisplay.materialUrl);
             }
             else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
-                /*
-                                var particle: CombineParticle = this.getParticleSprite(itemObj);
-                                ParticleManager.getInstance().addParticle(particle);
-                                this._sceneParticleList.push(particle);
-                                */
+                var particle = this.getParticleSprite(itemObj);
+                ParticleManager.getInstance().addParticle(particle);
+                this._sceneParticleList.push(particle);
             }
         }
         Scene_data.light.setData(obj.SunNrm, obj.SunLigth, obj.AmbientLight);
         LightProbeManager.getInstance().setLightProbeData(obj.lightProbeItem);
-        AstarUtil.setData(obj.astar);
+        //  AstarUtil.setData(obj.astar);
         this._ready = true;
         if (obj.quadTreeData) {
             //    this._sceneQuadTree = new SceneQuadTree();

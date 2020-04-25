@@ -57,14 +57,19 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         //  this.playLyf("model/levelup_lyf.txt")
         // this.playLyf("model/skin001_lyf.txt")
         //  this.playLyf("model/10018_lyf.txt")
-        var tabIdx = 4;
-        if (tabIdx == 4) {
+        var tabIdx = 2;
+        if (tabIdx == 1) {
             this.loadSceneByUrl("2012");
+        }
+        if (tabIdx == 2) {
+            this.mainChar = new SkillSceneChar();
+            this.mainChar.setRoleUrl(getRoleUrl("7004"));
+            SceneManager.getInstance().addMovieDisplay(this.mainChar);
         }
         if (tabIdx == 3) {
             this.playLyf("model/10018_lyf.txt");
         }
-        if (tabIdx == 1) {
+        if (tabIdx == 4) {
             if (this.mainChar) {
                 var $skill = SkillManager.getInstance().getSkill(getSkillUrl(this.skillFileName), "m_skill_01");
                 $skill.configFixEffect(this.mainChar);

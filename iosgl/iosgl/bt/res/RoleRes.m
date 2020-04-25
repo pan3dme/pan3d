@@ -53,13 +53,16 @@
 }
 -(void)readAction;
 {
-    int zipLen = [self.byte readInt];
-       NSData *zipNsData=  [self.byte getNsDataByLen:zipLen];
-       NSData *outputData =[self gzipInflate:zipNsData] ;
-       NSLog(@"len-%d-解压后长度>%ld",zipLen,outputData.length);
-       
-       ByteArray *actionByte=  [[ByteArray alloc]init:outputData];
-    
+    ByteArray *actionByte;
+    if(self.version>=30){
+        int zipLen = [self.byte readInt];
+        NSData *zipNsData=  [self.byte getNsDataByLen:zipLen];
+        NSData *outputData =[self gzipInflate:zipNsData] ;
+        NSLog(@"len-%d-解压后长度>%ld",zipLen,outputData.length);
+        actionByte=  [[ByteArray alloc]init:outputData];
+    }else{
+        actionByte=self.byte;
+    }
     
     self.actionAry=[[NSMutableArray alloc]init];
     int actionNum = [actionByte readInt];

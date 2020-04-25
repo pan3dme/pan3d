@@ -154,18 +154,20 @@
         for (var i: number = 0; i < buildAry.length; i++) {
             var itemObj: any = buildAry[i];
             if (itemObj.type == BaseRes.PREFAB_TYPE) {
+                /*
                 if(itemObj.id==58){
                     var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
                     this.addDisplay(itemDisplay)
                 }
+                */
 
                 //console.log("init:" + itemDisplay.materialUrl);
             } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
-/*
+
                 var particle: CombineParticle = this.getParticleSprite(itemObj);
                 ParticleManager.getInstance().addParticle(particle);
                 this._sceneParticleList.push(particle);
-                */
+
             }
         }
 
@@ -174,7 +176,7 @@
 
         LightProbeManager.getInstance().setLightProbeData(obj.lightProbeItem);
 
-        AstarUtil.setData(obj.astar);
+      //  AstarUtil.setData(obj.astar);
 
 
         this._ready = true;

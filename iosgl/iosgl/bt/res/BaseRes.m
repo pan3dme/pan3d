@@ -89,11 +89,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
 -(void)read:(SuccessBlock)fun;
 {
     self.imgFun=fun;
-    
     int filetype = [self.byte readInt];
-    NSLog(@"filetype->%d",filetype);
-    NSLog(@"位置-->%d",self.byte.position);
- 
     switch (filetype) {
         case IMG_TYPE:
             [self readImgs];
@@ -111,8 +107,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
             [self readZipObj];
             break;
         default:
-            NSLog(@"需要补充");
-            
+            NSLog(@"需要补充  %d",filetype);
             break;
     }
 }

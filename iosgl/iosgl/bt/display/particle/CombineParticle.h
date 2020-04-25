@@ -18,6 +18,34 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CombineParticle : EventDispatcher
+
+
+-(void)setX:(float)value;
+-(float)x;
+-(void)setY:(float)value;
+-(float)y;
+-(void)setZ:(float)value;
+-(float)z;
+
+-(void)setRotationX:(float)value;
+-(float)rotationX;
+-(void)setRotationY:(float)value;
+-(float)rotationY;
+-(void)setRotationZ:(float)value;
+-(float)rotationZ;
+-(void)setScaleX:(float)value;
+-(float)scaleX;
+-(void)setScaleY:(float)value;
+-(float)scaleY;
+-(void)setScaleZ:(float)value;
+-(float)scaleZ;
+
+
+@property (nonatomic, assign)float  rotationX;
+@property (nonatomic, assign)float  rotationY;
+@property (nonatomic, assign)float  rotationZ;
+
+ 
 @property (nonatomic, strong)NSMutableArray<Display3DParticle*>*  _displayAry ;
 @property (nonatomic, strong)  NSString*  url;
 @property (nonatomic, assign)  int  type; //类型

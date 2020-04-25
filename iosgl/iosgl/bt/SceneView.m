@@ -16,6 +16,7 @@
 #import "SceneRes.h"
 #import "MathCore.h"
 #import "Scene_data.h"
+#import "ParticleManager.h"
 #import "MaterialManager.h"
 #import "GL_Header.h"
 
@@ -92,13 +93,30 @@
     
     int type=   [value[@"type"]intValue];
     switch (type) {
-        case 1:
+        case PREFAB_TYPE:
             [self addBuildDisplay3DSprite:value];
+            break;
+        case SCENE_PARTICLE_TYPE:
+            [self addParticleSprite:value];
             break;
             
         default:
             break;
     }
+}
+-(void)addParticleSprite:(NSDictionary*)itemObj;
+{
+    CombineParticle*  particle =   [ParticleManager   getParticleByte:itemObj[@"url"]];
+    [self.scene3D.particleManager addParticle:particle];
+    particle.x=[itemObj[@"x"]floatValue];
+    particle.y=[itemObj[@"y"]floatValue];
+    particle.z=[itemObj[@"z"]floatValue];
+    particle.scaleX=[itemObj[@"scaleX"]floatValue];
+    particle.scaleY=[itemObj[@"scaleY"]floatValue];
+    particle.scaleZ=[itemObj[@"scaleZ"]floatValue];
+    particle.rotationX=[itemObj[@"rotationX"]floatValue];
+    particle.rotationY=[itemObj[@"rotationY"]floatValue];
+    particle.rotationZ=[itemObj[@"rotationZ"]floatValue];
     
 }
 -(void)addBuildDisplay3DSprite:(NSDictionary*)value;
