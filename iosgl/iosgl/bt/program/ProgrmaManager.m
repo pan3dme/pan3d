@@ -143,6 +143,7 @@ static ProgrmaManager *instance = nil;
      "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"
     "gl_FragColor =ft2;"
     "}";
+    
 
   
       

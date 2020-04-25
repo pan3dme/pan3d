@@ -138,9 +138,9 @@
 - (void)upFrame;
 {
  
-    BOOL showLightUv=YES;
+    BOOL showLightUv=NO;
     if(showLightUv&&self.lightTextureRes){
-       // [self upFrameLightUv];
+         [self upFrameLightUv];
     }else{
         [super upFrame];
     }

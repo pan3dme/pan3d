@@ -180,15 +180,15 @@
         this._ready = true;
 
         if (obj.quadTreeData) {
-            this._sceneQuadTree = new SceneQuadTree();
-            this._sceneQuadTree.init(obj.quadTreeData, this._sceneDic);
+        //    this._sceneQuadTree = new SceneQuadTree();
+           // this._sceneQuadTree.init(obj.quadTreeData, this._sceneDic);
         } else {
             this._sceneQuadTree = null;
         }
 
         // this.viewFrustum.setData(obj.aabb);
 
-        Scene_data.cam3D.astarRect = AstarUtil.areaRect;
+     //   Scene_data.cam3D.astarRect = AstarUtil.areaRect;
 
 
 

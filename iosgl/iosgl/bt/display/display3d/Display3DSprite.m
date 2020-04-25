@@ -246,6 +246,35 @@
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
+    /*
+     0: 0.5
+     1: 0
+     2: 531.3599853515625
+     3: 0.0017371968133375049
+     4: 0
+     5: 1.7677669525146484
+     6: -1.7677669525146484
+     7: 0
+     8: 0.0313725508749485
+     9: 0.5803921818733215
+     10: 0.9450980424880981
+     11: 0
+
+     */
+    /*
+    [0]    GLfloat    0.5
+    [1]    GLfloat    0
+    [2]    GLfloat    531.359985
+    [3]    GLfloat    0.00173719705
+    [4]    GLfloat    -0.856720387
+    [5]    GLfloat    0.48988986
+    [6]    GLfloat    -0.161362886
+    [7]    GLfloat    0
+    [8]    GLfloat    0.0313725509
+    [9]    GLfloat    0.580392182
+    [10]    GLfloat    0.945098042
+    [11]    GLfloat    0
+    */
     [ctx setVc4fv:material.shader name:"fc" data:fcDataGlArr len:material.fcNum];
 }
 /*
@@ -262,8 +291,8 @@
 -(void)setCamPos:(Material*)material;
 {
     Vector3D* v3d=[[Vector3D alloc]x:self.scene3d.camera3D.x y:self.scene3d.camera3D.y z:self.scene3d.camera3D.z];
-    [v3d normalize];
-    [material updateCam:v3d.x y:v3d.y z:v3d.z];
+   // [v3d normalize];
+    [material updateCam:v3d.x/100.0 y:v3d.y/100.0 z:v3d.z/100.0];
     
 }
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;

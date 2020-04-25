@@ -128,9 +128,9 @@
         for(int i=0;i<buildItem.count;i++){
        
             if( [buildItem[i][@"id"]intValue]==58){
-                 [self parsingBuildItem:buildItem[i]];
+           
             }
-            
+                  [self parsingBuildItem:buildItem[i]];
             
         }
         NSLog(@"--");
