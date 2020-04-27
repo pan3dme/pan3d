@@ -269,6 +269,8 @@ module Pan3d {
         public getInt(): number {
             var value = this.data.getInt32(this.position, this.endian == Endian.LITTLE_ENDIAN);
             return value;
+
+
         }
 
         public readInt32(): number {

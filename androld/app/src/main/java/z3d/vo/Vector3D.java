@@ -3,6 +3,12 @@ package z3d.vo;
 import z3d.base.ByteArray;
 
 public class Vector3D {
+
+    public static Vector3D X_AXIS = new Vector3D(1, 0, 0);
+    public static Vector3D Y_AXIS = new Vector3D(0, 1, 0);
+    public static Vector3D Z_AXIS = new Vector3D(0, 0, 1);
+
+
     public float x;
     public float y;
     public float z;

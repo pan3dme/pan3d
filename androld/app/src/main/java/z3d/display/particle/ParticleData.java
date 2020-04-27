@@ -232,46 +232,76 @@ public class ParticleData {
 
         Matrix3D m = new Matrix3D();
         Vector3D p  = new Vector3D();
-        /*
-        m.identity()
-        m.appendRotation(-ar, Vector3D.Z_AXIS)
-        p = m.transformVector(new Vector3D($speedNum / 2, 0, 0))
 
-        var b: Vector2D = new Vector2D($speedNum / 2, a.y + p.y)
+        m.identity();
+        m.appendRotation(-ar, Vector3D.Z_AXIS);
+        p = m.transformVector(new Vector3D($speedNum / 2, 0, 0));
 
-        m.identity()
-        m.appendRotation(-br, Vector3D.Z_AXIS)
-        p = m.transformVector(new Vector3D(-$speedNum / 2, 0, 0))
+        Vector2D b = new Vector2D($speedNum / 2, a.y + p.y);
 
-        var c: Vector2D = new Vector2D($speedNum / 2, d.y + p.y)
+        m.identity();
+        m.appendRotation(-br, Vector3D.Z_AXIS);
+        p = m.transformVector(new Vector3D(-$speedNum / 2, 0, 0));
 
-
-        var ary: Array<Vector2D> = [a, b, c, d]
+        Vector2D c = new Vector2D($speedNum / 2, d.y + p.y);
 
 
+        ArrayList <Vector2D> ary  =new ArrayList<Vector2D>();
+        ary.add(a);
+        ary.add(b);
+        ary.add(c);
+        ary.add(d);
 
-        var posAry: Array<Vector2D> = new Array
-        var baseW: number = 3
-        for (var i: number = 1; i < $speedNum * 3; i++) {
 
-            posAry.push(this.drawbezier(ary, i / ($speedNum * 3)));
+
+        List<Vector2D> posAry  = new ArrayList<>();
+        float baseW = 3;
+        for (int i = 1; i < $speedNum * 3; i++) {
+
+            posAry.add(this.drawbezier(ary, i / ($speedNum * 3)));
         }
-        var _valueVec: Array<number> = new Array
-        for (i = 0; i < $speedNum; i++) {
-            for (var j: number = 0; j < posAry.length; j++) {
-                if (posAry[j].x >= i) {
-                    _valueVec.push(posAry[j].y / num80);
+        List<Float> _valueVec = new ArrayList<>();
+        for (int i = 0; i < $speedNum; i++) {
+            for (int j = 0; j < posAry.size(); j++) {
+                if (posAry.get(j).x >= i) {
+                    _valueVec.add(posAry.get(j).y / num80);
                     break;
                 }
             }
         }
 
-        return _valueVec
-                */
-
-        return null;
+        return _valueVec;
 
 
+
+
+
+    }
+    private  Vector2D drawbezier(List<Vector2D>   _array   ,float _time) {
+        List<Vector2D> _newarray  = new ArrayList<>();
+        if (_array.size() == 0) {
+            return new Vector2D();
+        }
+        for (int i=0;i<_array.size();i++) {
+            _newarray.add(new Vector2D(_array.get(i).x, _array.get(i).y));
+        }
+        while (_newarray.size() > 1) {
+            for (int j = 0; j < _newarray.size() - 1; j++) {
+                this.mathmidpoint(_newarray.get(j), _newarray.get(j + 1), _time);
+            }
+            _newarray.remove(_newarray.get(_newarray.size()-1));
+        }
+
+        return _newarray.get(0);
+
+    }
+    private void mathmidpoint(Vector2D a, Vector2D b,float t) {
+        float _nx, _ny;
+        _nx = a.x + (b.x - a.x) * t;
+        _ny = a.y + (b.y - a.y) * t;
+
+        a.x = _nx;
+        a.y = _ny;
 
     }
     private List readItems(ByteArray $byte) {

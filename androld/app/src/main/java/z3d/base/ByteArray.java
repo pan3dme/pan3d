@@ -76,6 +76,11 @@ public class ByteArray {
 
         return this.byteBuffer.readInt8();
     }
+    public int getInt() {
+        this. buffer.position(this.byteBuffer.position);
+        int a=  this. buffer.getInt();
+        return a;
+    }
     public String readUTF()  {
         try {
             return this.byteBuffer.readUTF();

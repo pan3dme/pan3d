@@ -59,16 +59,20 @@ var TpSceneProcessor = /** @class */ (function (_super) {
                 }
                 else {
                     this.makeUrlParam();
-                    this.makeMainChar();
+                    //  this.makeMainChar();
                     //  this.makeTestScene();
+                    this.loadBaseScene();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
             }
         }
     };
+    TpSceneProcessor.prototype.loadBaseScene = function () {
+        Pan3d.SceneManager.getInstance().loadScene("2012", function () { }, function (b) { }, function () { });
+    };
     TpSceneProcessor.prototype.makeTestScene = function () {
         var $sc = new SkillSceneChar();
-        $sc.setRoleUrl(getRoleUrl("erchiyuan001"));
+        $sc.setRoleUrl(getRoleUrl("erchiyuan0013"));
         Pan3d.SceneManager.getInstance().addMovieDisplay($sc);
     };
     TpSceneProcessor.prototype.makeUrlParam = function () {

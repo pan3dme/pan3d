@@ -193,10 +193,15 @@ public class BaseRes extends ResCount {
                     tempNum=  $byte.readFloatOneByte();
                 } else if (readType == 2) {
                     // $data.setFloat32((pos + j) * 4, $byte.readByte(), true);
+                    tempNum=  $byte.readByte();
                 } else if (readType == 3) {
                     // $data.setFloat32((pos + j) * 4, ($byte.readByte() + 128) / 255, true);
+
+                    tempNum=  $byte.readByte()+128.0f/255.0f;
                 } else if (readType == 4) {
                     // $data.setFloat32((pos + j) * 4, $byte.readFloat(), true);
+
+                    tempNum=  $byte.readFloat();
                 }
 
                 list.add(tempNum);

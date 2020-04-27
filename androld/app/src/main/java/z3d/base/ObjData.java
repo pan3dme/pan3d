@@ -9,7 +9,7 @@ public class ObjData extends ResCount {
 
     public List<Float> verticeslist;
     public List<Float> uvlist;
-    public List<Float> indexs;
+    public List<Integer> indexs;
     public List<Float> lightuvs;
     public List<Float> normals;
     public List<Float> tangents;
