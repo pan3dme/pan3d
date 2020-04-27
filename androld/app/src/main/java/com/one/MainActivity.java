@@ -11,6 +11,7 @@ import android.widget.Button;
 import java.io.InputStream;
 
 import z3d.res.SceneRes;
+import z3d.vo.Matrix3D;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         subMitBut.setOnClickListener(new MyClickListener());
 
 
+
+        Matrix3D m=  new Matrix3D();
 
 
     }
