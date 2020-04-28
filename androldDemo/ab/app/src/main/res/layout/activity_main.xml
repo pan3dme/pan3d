@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="edu.wuwang.opengl.MainActivity">
+    tools:context="edu.wuwang.opengl.Pan3d.MainActivity">
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/mList">
