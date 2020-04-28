@@ -10,92 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/one/EglHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/BaseSurfaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/BaseSurfaceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/androidTest/java/com/example/myapplication/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/com/example/myapplication/ImageViewActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/com/example/myapplication/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/com/example/myapplication/TextViewActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/base/ByteArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/base/ByteArrayJava.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/base/CallBackFun.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/base/ObjData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/base/ObjDataManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/base/ResGC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/base/Scene_data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/CombineParticle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/ParticleData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/ctrl/BaseAnim.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/ctrl/KeyFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/ctrl/TimeLine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/display/particle/facet/ParticleFacetData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/engine/GC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/engine/ResCount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/filemodel/ParticleManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/material/ConstItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/material/MaterialBaseParam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/material/MaterialManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/material/MaterialParam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/material/TexItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/res/SceneRes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/units/Scene_data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/units/TimeUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/vo/CurveItemVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/vo/CurveVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/vo/Matrix3D.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/vo/ParamDataConVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/vo/ParamDataVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/vo/Vector2D.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/java/z3d/vo/Vector3D.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/drawable/abc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/layout/activity_image_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/layout/activity_text_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/layout/progress_activity.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/raw/file2012.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/raw/file2018.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/main/res/xml/network_security_config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/app/src/test/java/com/example/myapplication/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/two/settings.gradle" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="70" column="50" selection-start-line="70" selection-start-column="50" selection-end-line="70" selection-end-column="50" />
+            <state relative-caret-position="423">
+              <caret line="118" selection-start-line="118" selection-end-line="119" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/BaseSurfaceView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="131" column="13" lean-forward="true" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
+            <state relative-caret-position="217">
+              <caret line="130" column="61" lean-forward="true" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -285,8 +200,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1671" />
-    <option name="y" value="25" />
+    <option name="x" value="-1653" />
+    <option name="y" value="147" />
     <option name="width" value="1652" />
     <option name="height" value="1025" />
   </component>
@@ -298,19 +213,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="one" type="b2602c69:ProjectViewProjectNode" />
               <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="one" type="b2602c69:ProjectViewProjectNode" />
@@ -353,8 +263,7 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="z3d" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="one" type="b2602c69:ProjectViewProjectNode" />
@@ -362,22 +271,21 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="z3d" type="462c0819:PsiDirectoryNode" />
-              <item name="program" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="raw" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -488,11 +396,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1671" y="25" width="1652" height="1025" extended-state="0" />
+    <frame x="-1653" y="147" width="1652" height="1025" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.32981366" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32981366" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -507,9 +415,9 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3290461" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.3290461" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.3290461" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3290461" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -563,12 +471,12 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector3D.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -817,16 +725,6 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="70" column="50" selection-start-line="70" selection-start-column="50" selection-end-line="70" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/android/view/SurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -898,8 +796,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/BaseSurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="131" column="13" lean-forward="true" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
+        <state relative-caret-position="217">
+          <caret line="130" column="61" lean-forward="true" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="118" selection-start-line="118" selection-end-line="119" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
