@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mList= (RecyclerView)findViewById(R.id.mList);
         mList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         data=new ArrayList<>();
-        add("绘制形体222",FGLViewActivity.class);
+        add("绘制形体3",FGLViewActivity.class);
 //        add("图片处理2",SGLViewActivity.class);
 //        add("图形变换3",VaryActivity.class);
 //        add("相机",CameraActivity.class);
