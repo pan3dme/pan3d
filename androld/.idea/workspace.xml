@@ -10,95 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/BaseActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/ChooseActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/blend/BlendActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/blend/SquareRelativeLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/blend/WheelView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/AiyaCamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/AiyaCamera2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/Camera2Activity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/Camera3Activity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/CameraActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/CameraDrawer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/CameraView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/FrameCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/IAiyaCamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/ICamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/KitkatCamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/Renderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/TextureController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/TextureFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/egl/EGLBackEnvActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/egl/EGLHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/egl/GLES20BackEnv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/egl/GlError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/etc/StateChangeListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/etc/ZipActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/etc/ZipAniView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/etc/ZipMulDrawer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/etc/ZipPkmReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/fbo/FBOActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/fbo/FBORender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/AFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/Beauty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/CameraFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/GrayFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/GroupFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/LookupFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/NoFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/OesFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/WaterMarkFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/ZipPkmAnimationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/image/SGLRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/image/SGLView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/image/SGLViewActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/image/filter/AFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/image/filter/ColorFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/image/filter/ContrastColorFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/light/LightActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/obj/MtlInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/obj/Obj3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/obj/ObjFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/obj/ObjFilter2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/obj/ObjLoadActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/obj/ObjLoadActivity2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/obj/ObjReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Ball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/BallWithLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Cone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Cube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Cylinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/FGLRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/FGLView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/FGLViewActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Oval.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Shape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Triangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/TriangleColorFull.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/TriangleWithCamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/EasyGlUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/GLEnvironment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/Gl2Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/MatrixUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/PermissionUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/ShaderUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/VaryTools.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/vary/Cube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/vary/VaryActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/vary/VaryRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/vr/MatrixHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/vr/SkySphere.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/vr/VrContextActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../androldDemo/.idea/androldDemo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../androldDemo/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../androldDemo/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../androldDemo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../androldDemo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/EglHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/EglHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,58 +32,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/IAiyaCamera.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/filter/WaterMarkFilter.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/camera/Renderer.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/vary/Cube.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/ShaderUtils.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/utils/GLEnvironment.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/ChooseActivity.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Cylinder.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Ball.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="33" column="46" lean-forward="true" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+            <state relative-caret-position="413">
+              <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="74" lean-forward="true" selection-start-line="27" selection-start-column="74" selection-end-line="27" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="29" column="37" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -227,13 +129,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/BaseSurfaceView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/EglHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/opengl/render/Ball.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-1680" />
     <option name="y" value="23" />
     <option name="width" value="1680" />
@@ -247,7 +149,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -288,6 +189,15 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="one" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="one" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java.edu.wuwang" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -298,21 +208,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java.edu.wuwang" type="462c0819:PsiDirectoryNode" />
               <item name="opengl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java.edu.wuwang" type="462c0819:PsiDirectoryNode" />
-              <item name="opengl" type="462c0819:PsiDirectoryNode" />
-              <item name="vr" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -435,7 +336,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32783884" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.34004885" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -444,13 +345,13 @@
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.3290461" />
+      <window_info anchor="bottom" id="Logcat" order="1" visible="true" weight="0.32834226" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3290461" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40085745" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3290461" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.32834226" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32834226" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3290461" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -492,20 +393,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/Matrix3D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4965">
-          <caret line="339" column="51" selection-start-line="339" selection-start-column="51" selection-end-line="339" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="89" column="45" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/CurveVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -620,16 +507,6 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/android/view/SurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -706,40 +583,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/image/SGLView.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/camera/IAiyaCamera.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/filter/WaterMarkFilter.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/camera/Renderer.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/vary/Cube.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/utils/ShaderUtils.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/utils/GLEnvironment.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/ChooseActivity.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/render/Cylinder.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/render/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/image/SGLView.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/camera/IAiyaCamera.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/filter/WaterMarkFilter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/camera/Renderer.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/vary/Cube.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/utils/ShaderUtils.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/utils/GLEnvironment.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/ChooseActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/render/Cylinder.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/opengl/render/Ball.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/image/SGLView.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -770,10 +623,38 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/render/Ball.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="74" lean-forward="true" selection-start-line="27" selection-start-column="74" selection-end-line="27" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java.edu.wuwang/opengl/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="33" column="46" lean-forward="true" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+        <state relative-caret-position="434">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
