@@ -5,102 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e956353-b77c-4b2b-91ba-633d7aa7ecf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/BaseActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/ChooseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/ChooseActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/blend/BlendActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/blend/BlendActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/blend/SquareRelativeLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/blend/SquareRelativeLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/blend/WheelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/blend/WheelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/AiyaCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/AiyaCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/AiyaCamera2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/AiyaCamera2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/Camera2Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/Camera2Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/Camera3Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/Camera3Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/CameraActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/CameraDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/CameraDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/CameraView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/CameraView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/FrameCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/FrameCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/IAiyaCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/IAiyaCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/ICamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/ICamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/KitkatCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/KitkatCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/TextureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/TextureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/camera/TextureFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/camera/TextureFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/egl/EGLBackEnvActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/egl/EGLBackEnvActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/egl/EGLHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/egl/EGLHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/egl/GLES20BackEnv.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/egl/GLES20BackEnv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/egl/GlError.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/egl/GlError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/etc/StateChangeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/etc/StateChangeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/etc/ZipActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/etc/ZipActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/etc/ZipAniView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/etc/ZipAniView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/etc/ZipMulDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/etc/ZipMulDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/etc/ZipPkmReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/etc/ZipPkmReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/fbo/FBOActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/fbo/FBOActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/fbo/FBORender.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/fbo/FBORender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/AFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/AFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/Beauty.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/Beauty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/CameraFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/CameraFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/GrayFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/GrayFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/GroupFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/GroupFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/LookupFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/LookupFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/NoFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/NoFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/OesFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/OesFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/WaterMarkFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/WaterMarkFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/filter/ZipPkmAnimationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/ZipPkmAnimationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/image/SGLRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/image/SGLRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/image/SGLView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/image/SGLView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/image/SGLViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/image/SGLViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/image/filter/AFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/image/filter/AFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/image/filter/ColorFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/image/filter/ColorFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/image/filter/ContrastColorFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/image/filter/ContrastColorFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/light/LightActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/light/LightActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/MtlInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/MtlInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/Obj3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/Obj3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/ObjFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/ObjFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/ObjFilter2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/ObjFilter2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/ObjLoadActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/ObjLoadActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/ObjLoadActivity2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/ObjLoadActivity2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/ObjReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/ObjReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/BallWithLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/BallWithLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Cone.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Cone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Cube.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Cube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Cylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/FGLRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/FGLRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/FGLView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/FGLView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/FGLViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/FGLViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Oval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/TriangleColorFull.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/TriangleColorFull.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/render/TriangleWithCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/render/TriangleWithCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/utils/EasyGlUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/utils/EasyGlUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/utils/GLEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/utils/GLEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/utils/Gl2Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/utils/Gl2Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/utils/MatrixUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/utils/MatrixUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/utils/PermissionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/utils/PermissionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/utils/ShaderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/utils/ShaderUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/utils/VaryTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/utils/VaryTools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/vary/Cube.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/vary/Cube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/vary/VaryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/vary/VaryActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/vary/VaryRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/vary/VaryRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/vr/MatrixHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/vr/MatrixHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/vr/SkySphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/vr/SkySphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/vr/VrContextActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/vr/VrContextActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_blend.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_blend.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_fglview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_fglview.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_picture.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_picture.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_zip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_zip.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,8 +29,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+            <state relative-caret-position="439">
+              <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -397,6 +305,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/ChooseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -404,13 +315,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        <state relative-caret-position="439">
+          <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
