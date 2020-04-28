@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import z3d.base.ByteArray;
+import z3d.display.particle.ball.ParticleBallData;
 import z3d.display.particle.facet.ParticleFacetData;
 import z3d.display.particle.model.ParticleModelData;
 import z3d.engine.ResCount;
@@ -15,10 +16,8 @@ public class CombineParticleData extends ResCount {
     public  float maxTime;
     public  List<ParticleData> dataAry;
     public void setDataByte(ByteArray _byte) {
-        //_byte.position = 0;
-
+        _byte.byteBuffer.position=0;
         int version = _byte.readInt();
-
         int len = _byte.readInt();
         this.maxTime = 0;
         this.dataAry = new ArrayList();
@@ -28,13 +27,10 @@ public class CombineParticleData extends ResCount {
             pdata.version = version;
             pdata.setAllByteInfo(_byte);
             this.dataAry.add(pdata);
-
             if (pdata.timelineData.maxFrameNum > this.maxTime) {
                 this.maxTime = pdata.timelineData.maxFrameNum;
             }
-
         }
-
         this.maxTime *= Scene_data.frameTime;
     }
     private ParticleData getParticleDataType(int type)
@@ -47,6 +43,11 @@ public class CombineParticleData extends ResCount {
             case 4:
             {
                 pdata = new ParticleModelData();
+                break;
+            }
+            case 18:
+            {
+                pdata = new ParticleBallData();
                 break;
             }
             default:
