@@ -1,10 +1,19 @@
 package com.one;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ConfigurationInfo;
+import android.opengl.GLES20;
+import android.os.Build;
+import android.util.Log;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
+
+import z3d.program.Shader3D;
 
 public class BoxSprite3D {
     private IntBuffer vertices;
@@ -14,12 +23,20 @@ public class BoxSprite3D {
     private float[] arrVertices;
     private int[] tmpBuffer;
 
+    private Shader3D shader3d;
+
     public BoxSprite3D()
     {
         super();
 
         this.loadData();
         this.updateData(100,100);
+        this.shader3d=new Shader3D();
+        this.shader3d.encode();
+
+        this.shader3d=new Shader3D();
+        this.shader3d.encode();
+
 
     }
     private void loadData() {
@@ -50,7 +67,10 @@ public class BoxSprite3D {
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
 
-      //      gl.glScalef(1f, -1f, 1f);
+
+        int a=this.shader3d.program;
+
+      //  GLES20.glUseProgram(this.shader3d.program);
 
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
@@ -63,6 +83,11 @@ public class BoxSprite3D {
 
         gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
         gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+
+
+        Log.d("画图", "onDrawFrame: ");
+
+
     }
 
     private void updateData(int width, int height) {
@@ -80,5 +105,22 @@ public class BoxSprite3D {
         }
         this.vertices.put(tmpBuffer, 0, tmpBuffer.length);
         this.vertices.flip();
+    }
+    public static boolean isSupportEs2(Context context) {
+        //检查是否支持2.0
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (activityManager != null) {
+            ConfigurationInfo deviceConfigurationInfo = activityManager.getDeviceConfigurationInfo();
+            int reqGlEsVersion = deviceConfigurationInfo.reqGlEsVersion;
+            return reqGlEsVersion >= 2 || (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1
+                    && (Build.FINGERPRINT.startsWith("generic")
+                    || Build.FINGERPRINT.startsWith("unknown")
+                    || Build.MODEL.contains("google_sdk")
+                    || Build.MODEL.contains("Emulator")
+                    || Build.MODEL.contains("Android SDK build for x86")));
+        } else {
+            return false;
+        }
+
     }
 }

@@ -108,8 +108,8 @@
             this._ready = false;
 
             ResManager.getInstance().loadSceneRes($url, $completeFun, $progressFun, ($str: any) => {
-                this.loadSceneConfigCom($str);
-                $analysisCompleteFun();
+              //  this.loadSceneConfigCom($str);
+              //  $analysisCompleteFun();
             });
 
             this._currentUrl = $url;
