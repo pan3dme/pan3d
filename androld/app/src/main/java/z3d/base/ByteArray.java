@@ -62,6 +62,11 @@ public class ByteArray {
         return a;
 
     }
+
+    public int readUnsignedInt() {
+
+        return this.byteBuffer.readUInt32();
+    }
     public int readByte() {
 
         return this.byteBuffer.readInt8();
@@ -89,6 +94,16 @@ public class ByteArray {
         }
         return "";
     }
+    public String readUTFBytes(int strlen)  {
+        try {
+            return this.byteBuffer.readUTFlen(strlen);
+        } catch (Exception e) {
+
+        }
+        return "";
+    }
+
+
     public void   tracePostion(String value){
 
     }

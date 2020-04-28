@@ -10,14 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleGpuData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallGpuData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ParicleRandomColorVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/scene/SceneManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/scene/SceneManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/scene/SceneManager.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/scene/SceneManager.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webstorm/pan3d/engine/scene/SceneManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/pan3d/engine/scene/SceneManager.ts" afterDir="false" />
@@ -34,14 +28,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_4_API_R" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="297">
+              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -56,10 +47,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticle.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="374">
+              <caret line="89" column="45" lean-forward="true" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -74,6 +65,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="44" column="48" lean-forward="true" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/CurveItemVo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -83,40 +83,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-579">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector2D.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="9" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="209" column="5" lean-forward="true" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="455">
+              <caret line="87" column="53" lean-forward="true" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -126,6 +96,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="33" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/ParamDataConVo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/ParamDataVo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -160,14 +148,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector3D.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector2D.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/ParicleRandomColorVo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java" />
       </list>
     </option>
   </component>
@@ -454,7 +442,7 @@
       <window_info anchor="bottom" id="Run" order="0" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.3290461" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3290461" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3290461" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40085745" />
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
@@ -474,9 +462,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java</url>
-          <line>41</line>
+          <line>58</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -527,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector3D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -562,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="60" column="4" lean-forward="true" selection-start-line="60" selection-start-column="4" selection-end-line="61" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -580,23 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="195" column="46" selection-start-line="195" selection-start-column="46" selection-end-line="195" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,6 +591,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="96" column="30" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2799">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -641,10 +622,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-579">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        <state relative-caret-position="288">
+          <caret line="209" column="5" lean-forward="true" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="87" column="53" lean-forward="true" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="44" column="48" lean-forward="true" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/ParicleRandomColorVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/ParamDataConVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/ParamDataVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -669,34 +688,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector2D.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="374">
+          <caret line="89" column="45" lean-forward="true" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="209" column="5" lean-forward="true" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/ParicleRandomColorVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="297">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
         </state>
       </provider>
     </entry>
