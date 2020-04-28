@@ -56,18 +56,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        boolean loadSceneres=true;
 
-        if(loadSceneres){
-            setContentView(R.layout.activity_main);
-            subMitBut=(Button)findViewById(R.id.loadBut);
-            subMitBut.setOnClickListener(new MyClickListener());
-        }else{
-            Intent starter = getIntent();
-            doColorful = starter.getBooleanExtra(COLOR_OPTION_EXTRA, false);
-            BaseSurfaceView  mAndroidSurface = new BaseSurfaceView(this);
-            setContentView(mAndroidSurface);
+        int type=1;
+        switch (type)
+        {
+            case 0:
+                setContentView(R.layout.activity_main);
+                subMitBut=(Button)findViewById(R.id.loadBut);
+                subMitBut.setOnClickListener(new MyClickListener());
+                break;
+            case 1:
+                Intent starter = getIntent();
+                doColorful = starter.getBooleanExtra(COLOR_OPTION_EXTRA, false);
+                BaseSurfaceView  mAndroidSurface = new BaseSurfaceView(this);
+                setContentView(mAndroidSurface);
+                break;
+            case 2:
+                break;
+            default:
+                break;
         }
+
 
 
     }
