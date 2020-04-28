@@ -26,6 +26,8 @@ public class BaseSurfaceView extends SurfaceView implements
         mAndroidHolder = getHolder();
         mAndroidHolder.addCallback(this);
 
+
+
     }
 
     public void surfaceChanged(SurfaceHolder holder, int format, int width,

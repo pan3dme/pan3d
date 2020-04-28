@@ -72,7 +72,16 @@ public class MainActivity extends AppCompatActivity {
                 setContentView(mAndroidSurface);
                 break;
             case 2:
+
+                EglHelper eglHelper=new EglHelper();
+                eglHelper.initEgl(null,null);
+
+
                 break;
+
+
+
+
             default:
                 break;
         }
