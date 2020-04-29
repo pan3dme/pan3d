@@ -34,8 +34,6 @@ public class BoxSprite3D {
         this.shader3d=new Shader3D();
         this.shader3d.encode();
 
-        this.shader3d=new Shader3D();
-        this.shader3d.encode();
 
 
     }

@@ -33,6 +33,8 @@ import z3d.vo.Matrix3D;
 
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     private Button subMitBut;
     private boolean doColorful = false;
     private BoxSprite3D boxSprite3D;
+    private Timer mTimer1;
+    private TimerTask mTask1;
     public static final String COLOR_OPTION_EXTRA = "COLORFUL";
 
     @Override
@@ -59,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        int type=2;
+        int type=1;
         switch (type)
         {
             case 0:

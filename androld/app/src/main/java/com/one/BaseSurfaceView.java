@@ -3,6 +3,7 @@ package com.one;
 import android.content.Context;
 import android.opengl.EGL14;
 import android.opengl.GLDebugHelper;
+import android.opengl.GLES20;
 import android.opengl.GLES30;
 import android.opengl.GLU;
 import android.util.Log;
@@ -50,6 +51,7 @@ public class BaseSurfaceView extends SurfaceView implements
     BasicGLThread mGLThread;
     private class BasicGLThread extends Thread {
         private static final String DEBUG_TAG = "BasicGLThread";
+        private int skipNum;
         SurfaceView sv;
         BasicGLThread(SurfaceView view) {
             sv = view;
@@ -64,14 +66,32 @@ public class BaseSurfaceView extends SurfaceView implements
                 mGL.glMatrixMode(GL10.GL_MODELVIEW);
                 mGL.glClearColor(1, 1, 1, 1);
                 while (!mDone) {
+
+                    this.skipNum++;
+                  //  Log.d("dddd",   " "+this.skipNum);
+
                     mGL.glClear(GL10.GL_COLOR_BUFFER_BIT| GL10.GL_DEPTH_BUFFER_BIT);
 
 
-                    mGL.glClearColor((float) Math.random(), 1, 0, 1);
+                   // mGL.glClearColor((float) Math.random(), 1, 0, 1);
+
+
+                    if(this.skipNum%2==1){
+
+                        GLES20.glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
+
+                        Log.d("this.1111","skipNum->"+this.skipNum);
+                    }else{
+
+                        GLES20.glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+
+                        Log.d("this.2222","skipNum->"+this.skipNum);
+                    }
 
                     mEGL.eglSwapBuffers(mGLDisplay, mGLSurface);
 
-                    Log.d("dddd", "run:dddddd");
+
+
 
 
 
