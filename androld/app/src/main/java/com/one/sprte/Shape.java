@@ -9,7 +9,7 @@ package com.one.sprte;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
-import com.one.BoxSprite3D;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.microedition.khronos.egl.EGLConfig;

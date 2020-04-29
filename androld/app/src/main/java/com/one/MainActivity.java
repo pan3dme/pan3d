@@ -2,49 +2,20 @@ package com.one;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ConfigurationInfo;
-import android.opengl.GLDebugHelper;
-import android.opengl.GLSurfaceView;
-import android.opengl.GLU;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 
 import java.io.InputStream;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
-import javax.microedition.khronos.egl.EGLSurface;
-import javax.microedition.khronos.opengles.GL10;
 
 import z3d.res.SceneRes;
-import z3d.vo.Matrix3D;
 
 
-import java.nio.ByteOrder;
-import java.nio.IntBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
-import android.app.Activity;
-import android.opengl.GLSurfaceView;
-import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
-
+import com.one.sprte.BoxSprite3D;
 import com.one.sprte.MyGLSurfaceView;
 
 
@@ -63,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        int type=2;
+        int type=1;
         switch (type)
         {
             case 0:

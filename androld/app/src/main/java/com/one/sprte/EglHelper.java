@@ -1,4 +1,4 @@
-package com.one;
+package com.one.sprte;
 
 
 import android.opengl.EGL14;
