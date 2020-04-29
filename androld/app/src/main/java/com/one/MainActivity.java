@@ -7,94 +7,56 @@ import android.view.View;
 import android.widget.Button;
 
 
+
+import android.opengl.GLSurfaceView;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+import com.one.two.OpenGLRender;
+
 import java.io.InputStream;
 
 import z3d.res.SceneRes;
 
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-import com.one.sprte.BoxSprite3D;
-import com.one.sprte.MyGLSurfaceView;
-
-
-public class MainActivity extends AppCompatActivity {
-
-    private Button subMitBut;
-    private boolean doColorful = false;
-    private BoxSprite3D boxSprite3D;
-    private Timer mTimer1;
-    private TimerTask mTask1;
-    public static final String COLOR_OPTION_EXTRA = "COLORFUL";
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GLSurfaceView glSurfaceView = new GLSurfaceView(this);
+        glSurfaceView.setRenderer(new OpenGLRender());
+        setContentView(glSurfaceView);
+        //setContentView(R.layout.activity_main);
 
 
+        SceneRes sceneRes = new SceneRes();
 
-        int type=1;
-        switch (type)
-        {
-            case 0:
-                setContentView(R.layout.activity_main);
-                subMitBut=(Button)findViewById(R.id.loadBut);
-                subMitBut.setOnClickListener(new MyClickListener());
-                break;
-            case 1:
-
-                setContentView( new BaseSurfaceView(this));
-                break;
-            case 2:
-
-                setContentView(new MyGLSurfaceView(this));
-                break;
-
-            case 3:
+        try {
 
 
-                break;
+            InputStream in = getResources().openRawResource(R.raw.file2012);
+            //获取文件的字节数
+            int lenght = in.available();
+            //创建byte数组byte[]  buffer = new byte[lenght];
+            byte[] buffer = new byte[lenght];
+            //将文件中的数据读到byte数组中
+            in.read(buffer);
+            sceneRes.loadComplete(buffer);
 
 
-            default:
-                break;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
 
 
     }
 
-
-
-    public class MyClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-
-            /*
-            Intent intent=new Intent(MainActivity.this,ImageViewActivity.class);
-            startActivity(intent);
-            */
-
-            SceneRes sceneRes = new SceneRes();
-
-            try {
-
-
-                InputStream in = getResources().openRawResource(R.raw.file2012);
-                //获取文件的字节数
-                int lenght = in.available();
-                //创建byte数组byte[]  buffer = new byte[lenght];
-                byte[] buffer = new byte[lenght];
-                //将文件中的数据读到byte数组中
-                in.read(buffer);
-                sceneRes.loadComplete(buffer);
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+       // getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
+
 }
