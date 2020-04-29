@@ -12,8 +12,6 @@
     <list default="true" id="6e956353-b77c-4b2b-91ba-633d7aa7ecf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/BaseSurfaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/BaseSurfaceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/sprte/MyGLSurfaceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/sprte/MyGLSurfaceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -130,8 +128,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/utils/GLEnvironment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2292">
-              <caret line="604" column="18" selection-start-line="604" selection-start-column="14" selection-end-line="604" selection-end-column="18" />
+            <state relative-caret-position="-318">
+              <caret line="467" column="46" lean-forward="true" selection-start-line="467" selection-start-column="46" selection-end-line="467" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -382,6 +380,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1680" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32967034" />
@@ -634,8 +633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/utils/GLEnvironment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2292">
-          <caret line="604" column="18" selection-start-line="604" selection-start-column="14" selection-end-line="604" selection-end-column="18" />
+        <state relative-caret-position="-318">
+          <caret line="467" column="46" lean-forward="true" selection-start-line="467" selection-start-column="46" selection-end-line="467" selection-end-column="46" />
         </state>
       </provider>
     </entry>

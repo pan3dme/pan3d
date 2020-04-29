@@ -63,14 +63,13 @@ public class BaseSurfaceView extends SurfaceView implements
                 initEGL();
                 initGL();
 
-                mGL.glMatrixMode(GL10.GL_MODELVIEW);
-                mGL.glClearColor(1, 1, 1, 1);
+
                 while (!mDone) {
 
                     this.skipNum++;
                   //  Log.d("dddd",   " "+this.skipNum);
 
-                    mGL.glClear(GL10.GL_COLOR_BUFFER_BIT| GL10.GL_DEPTH_BUFFER_BIT);
+                    GLES20.glClear(GL10.GL_COLOR_BUFFER_BIT| GL10.GL_DEPTH_BUFFER_BIT);
 
 
                    // mGL.glClearColor((float) Math.random(), 1, 0, 1);

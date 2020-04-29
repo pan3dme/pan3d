@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        int type=1;
+        int type=2;
         switch (type)
         {
             case 0:
