@@ -1,6 +1,7 @@
 package com.one;
 
 import android.content.Context;
+import android.opengl.EGL14;
 import android.opengl.GLDebugHelper;
 import android.opengl.GLES30;
 import android.opengl.GLU;
@@ -66,7 +67,7 @@ public class BaseSurfaceView extends SurfaceView implements
                     mGL.glClear(GL10.GL_COLOR_BUFFER_BIT| GL10.GL_DEPTH_BUFFER_BIT);
 
 
-                    mGL.glClearColor(1, 1, 0, 1);
+                    mGL.glClearColor((float) Math.random(), 1, 0, 1);
 
                     mEGL.eglSwapBuffers(mGLDisplay, mGLSurface);
 

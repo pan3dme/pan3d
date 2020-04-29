@@ -23,4 +23,18 @@
         tools:layout_editor_absoluteX="127dp"
         tools:layout_editor_absoluteY="192dp" />
 
+    <com.one.sprte.MyGLSurfaceView
+        android:id="@+id/myGLSurfaceView"
+        android:layout_width="178dp"
+        android:layout_height="111dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="409dp" />
+
+    <com.one.BaseSurfaceView
+        android:id="@+id/baseSurfaceView2"
+        android:layout_width="232dp"
+        android:layout_height="71dp"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="551dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

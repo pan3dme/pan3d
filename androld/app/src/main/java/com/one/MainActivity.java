@@ -43,6 +43,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.one.sprte.MyGLSurfaceView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        int type=1;
+        int type=2;
         switch (type)
         {
             case 0:
@@ -74,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
             case 2:
 
 
-
-
+                MyGLSurfaceView vc=      new MyGLSurfaceView(this);
+                setContentView(vc);
 
                 break;
 

@@ -62,10 +62,12 @@ public class BoxSprite3D {
     }
 
     public void onDrawFrame(GL10 gl) {
-        gl.glClearColor(0, 1, 0, 1);
+        gl.glClearColor((float) Math.random(),  (float) Math.random(), 0, 1);
+        gl.glClearColor(1,  0, 0, 1);
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
+
 
 
         int a=this.shader3d.program;
