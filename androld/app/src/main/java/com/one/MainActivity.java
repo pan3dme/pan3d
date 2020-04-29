@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        int type=0;
+        int type=1;
         switch (type)
         {
             case 0:
@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 2:
 
-                EglHelper eglHelper=new EglHelper();
-                eglHelper.initEgl(null,null);
+
+
 
 
                 break;

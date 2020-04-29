@@ -1,5 +1,6 @@
 package com.one;
 
+
 import android.opengl.EGL14;
 import android.view.Surface;
 
@@ -21,7 +22,7 @@ public class EglHelper {
         //1. 得到Egl实例
         mEgl = (EGL10) EGLContext.getEGL();
 
-
+        //2. 得到默认的显示设备（就是窗口）
         mEglDisplay = mEgl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
         if (mEglDisplay == EGL10.EGL_NO_DISPLAY) {
             throw new RuntimeException("eglGetDisplay failed");

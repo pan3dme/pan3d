@@ -1,13 +1,7 @@
 package z3d.program;
 
 import android.content.Context;
-import android.opengl.GLES30;
-import android.opengl.GLES30;
-
-import java.util.HashMap;
-import java.util.List;
-
-import javax.microedition.khronos.opengles.GL10;
+import android.opengl.GLES20;
 
 import z3d.base.Scene_data;
 
@@ -46,27 +40,27 @@ public class Shader3D {
 
 
 
-        this.vShader= GLES30.glCreateShader(GLES30.GL_VERTEX_SHADER);
-        this.fShader=   GLES30.glCreateShader(GLES30.GL_FRAGMENT_SHADER);
+        this.vShader= GLES20.glCreateShader(GLES20.GL_VERTEX_SHADER);
+        this.fShader=   GLES20.glCreateShader(GLES20.GL_FRAGMENT_SHADER);
 
-        GLES30.glShaderSource(this.vShader, vertexShaderCode);
-        GLES30.glShaderSource(this.fShader, fragmentShaderCode);
+        GLES20.glShaderSource(this.vShader, vertexShaderCode);
+        GLES20.glShaderSource(this.fShader, fragmentShaderCode);
 
-        GLES30.glCompileShader(this.vShader);
-        GLES30.glCompileShader(this.fShader);
+        GLES20.glCompileShader(this.vShader);
+        GLES20.glCompileShader(this.fShader);
 
 
-        int e = GLES30.glCreateProgram();
-        this.program = GLES30.glCreateProgram();
-        GLES30.glAttachShader(this.program, this.vShader);
-        GLES30.glAttachShader(this.program, this.fShader);
-        GLES30.glLinkProgram(this.program);
+        int e = GLES20.glCreateProgram();
+        this.program = GLES20.glCreateProgram();
+        GLES20.glAttachShader(this.program, this.vShader);
+        GLES20.glAttachShader(this.program, this.fShader);
+        GLES20.glLinkProgram(this.program);
 
         // var info: string = context.getProgramInfoLog(this.program);
 
-        String proLog=  GLES30.glGetProgramInfoLog(this.program);
-        String vLog=  GLES30.glGetShaderInfoLog(this.vShader);
-        String fLog=  GLES30.glGetShaderInfoLog(this.fShader);
+        String proLog=  GLES20.glGetProgramInfoLog(this.program);
+        String vLog=  GLES20.glGetShaderInfoLog(this.vShader);
+        String fLog=  GLES20.glGetShaderInfoLog(this.fShader);
 
 
         return true;

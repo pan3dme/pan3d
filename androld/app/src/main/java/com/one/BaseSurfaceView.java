@@ -15,6 +15,8 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL10;
 
+import z3d.program.Shader3D;
+
 public class BaseSurfaceView extends SurfaceView implements
         SurfaceHolder.Callback
 {
@@ -69,6 +71,9 @@ public class BaseSurfaceView extends SurfaceView implements
                     mEGL.eglSwapBuffers(mGLDisplay, mGLSurface);
 
                     Log.d("dddd", "run:dddddd");
+
+
+
                 }
 
 
@@ -170,6 +175,8 @@ public class BaseSurfaceView extends SurfaceView implements
             if (mGL == null) {
                 throw new Exception("Failed to get GL");
             }
+
+
 
         }
 
