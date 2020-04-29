@@ -72,17 +72,12 @@ public class MainActivity extends AppCompatActivity {
                 subMitBut.setOnClickListener(new MyClickListener());
                 break;
             case 1:
-                Intent starter = getIntent();
-                doColorful = starter.getBooleanExtra(COLOR_OPTION_EXTRA, false);
-                BaseSurfaceView  mAndroidSurface = new BaseSurfaceView(this);
-                setContentView(mAndroidSurface);
+
+                setContentView( new BaseSurfaceView(this));
                 break;
             case 2:
 
-
-                MyGLSurfaceView vc=      new MyGLSurfaceView(this);
-                setContentView(vc);
-
+                setContentView(new MyGLSurfaceView(this));
                 break;
 
             case 3:

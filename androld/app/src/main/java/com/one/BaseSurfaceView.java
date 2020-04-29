@@ -168,20 +168,16 @@ public class BaseSurfaceView extends SurfaceView implements
             mEGL.eglChooseConfig(mGLDisplay, mConfigSpec, configs, 1,
                     num_config);
             mGLConfig = configs[0];
-
+            SurfaceHolder kkk=  sv.getHolder();
             mGLSurface = mEGL.eglCreateWindowSurface(mGLDisplay, mGLConfig, sv
                     .getHolder(), null);
 
-            if (mGLSurface == null) {
-                throw new Exception("Couldn't create new surface");
-            }
+
 
             mGLContext = mEGL.eglCreateContext(mGLDisplay, mGLConfig,
                     EGL10.EGL_NO_CONTEXT, null);
 
-            if (mGLContext == null) {
-                throw new Exception("Couldn't create new context");
-            }
+
 
 
             if (!mEGL.eglMakeCurrent(mGLDisplay, mGLSurface, mGLSurface, mGLContext)) {
@@ -192,10 +188,6 @@ public class BaseSurfaceView extends SurfaceView implements
                     GLDebugHelper.CONFIG_CHECK_GL_ERROR
                             | GLDebugHelper.CONFIG_CHECK_THREAD
                             | GLDebugHelper.CONFIG_LOG_ARGUMENT_NAMES, null);
-
-            if (mGL == null) {
-                throw new Exception("Failed to get GL");
-            }
 
 
 
