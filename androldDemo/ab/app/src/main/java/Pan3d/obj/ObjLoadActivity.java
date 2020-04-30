@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -35,28 +36,45 @@ public class ObjLoadActivity extends BaseActivity {
         mGLView= (GLSurfaceView) findViewById(R.id.mGLView);
         mGLView.setEGLContextClientVersion(2);
         mFilter=new ObjFilter(getResources());
+
+
+
+        ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(10f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(10f);
+
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(10f);
+        alvResult.add(10f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(10f);
+        alvResult.add(10f);
+
         obj=new Obj3D();
-        try {
-            ObjReader.read(getAssets().open("3dres/hat.obj"),obj);
-            mFilter.setObj3D(obj);
+        obj.setVert(alvResult);
+        mFilter.setObj3D(obj);
 
 
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
-
-
-
-
                 mFilter.create();
-
-
                 modelShader3D=new Shader3D();
                 modelShader3D.encode();
 

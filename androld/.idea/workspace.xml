@@ -21,8 +21,7 @@
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/filter/AFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/filter/AFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjLoadActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjLoadActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/z3d/program/Shader3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjReader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +59,7 @@
           <provider editor-type-id="android-manifest" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="227">
-              <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
               <folding>
                 <element signature="e#629#647#0" expanded="true" />
               </folding>
@@ -663,7 +662,7 @@
       <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
-          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
             <element signature="e#629#647#0" expanded="true" />
           </folding>
