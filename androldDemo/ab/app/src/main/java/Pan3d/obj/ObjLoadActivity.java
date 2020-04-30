@@ -8,6 +8,8 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.ArrayList;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -141,9 +143,22 @@ public class ObjLoadActivity extends BaseActivity {
         alvResult.add(10f);
 
         obj=new Obj3D();
-        obj.setVert(alvResult);
+        setVert(alvResult);
         mFilter.setObj3D(obj);
     }
+
+    public void setVert(ArrayList<Float> data){
+        int size=data.size();
+        ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
+        buffer.order(ByteOrder.nativeOrder());
+        obj.vert=buffer.asFloatBuffer();
+        for (int i=0;i<size;i++){
+            obj.vert.put(data.get(i));
+        }
+        obj.vert.position(0);
+        obj.vertCount=size/3;
+    }
+
 
 
     @Override
