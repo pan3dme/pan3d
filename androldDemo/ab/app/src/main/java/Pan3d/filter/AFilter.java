@@ -40,7 +40,7 @@ public abstract class AFilter {
     /**
      * 程序句柄
      */
-    protected int mProgram;
+    public int mProgram;
     /**
      * 顶点坐标句柄
      */
@@ -118,6 +118,13 @@ public abstract class AFilter {
     public void draw(){
         onClear();
         onUseProgram();
+
+//        int program=this.mProgram;
+//        int mHPosition= GLES20.glGetAttribLocation(  program, "vPosition");
+//        int  mHCoord=GLES20.glGetAttribLocation( program,"vCoord");
+//        int mHMatrix=GLES20.glGetUniformLocation( program,"vMatrix");
+//        int mHTexture=GLES20.glGetUniformLocation( program,"vTexture");
+
         onSetExpandData();
         onBindTexture();
         onDraw();
@@ -208,7 +215,12 @@ public abstract class AFilter {
     protected abstract void onCreate();
     protected abstract void onSizeChanged(int width,int height);
 
-    protected final void createProgram(String vertex,String fragment){
+    public final void createProgram(String vertex,String fragment){
+
+
+
+
+
         mProgram= uCreateGlProgram(vertex,fragment);
         mHPosition= GLES20.glGetAttribLocation(mProgram, "vPosition");
         mHCoord=GLES20.glGetAttribLocation(mProgram,"vCoord");
@@ -218,6 +230,8 @@ public abstract class AFilter {
 
     protected final void createProgramByAssetsFile(String vertex,String fragment){
         createProgram(uRes(mRes,vertex),uRes(mRes,fragment));
+
+
     }
 
     /**
@@ -301,6 +315,10 @@ public abstract class AFilter {
 
     //创建GL程序
     public static int uCreateGlProgram(String vertexSource, String fragmentSource){
+
+
+
+
         int vertex=uLoadShader(GLES20.GL_VERTEX_SHADER,vertexSource);
         if(vertex==0)return 0;
         int fragment=uLoadShader(GLES20.GL_FRAGMENT_SHADER,fragmentSource);
@@ -310,14 +328,15 @@ public abstract class AFilter {
             GLES20.glAttachShader(program,vertex);
             GLES20.glAttachShader(program,fragment);
             GLES20.glLinkProgram(program);
-            int[] linkStatus=new int[1];
-            GLES20.glGetProgramiv(program, GLES20.GL_LINK_STATUS,linkStatus,0);
-            if(linkStatus[0]!= GLES20.GL_TRUE){
-                glError(1,"Could not link program:"+ GLES20.glGetProgramInfoLog(program));
-                GLES20.glDeleteProgram(program);
-                program=0;
-            }
+
         }
+
+        int mHPosition= GLES20.glGetAttribLocation(  program, "vPosition");
+        int  mHCoord=GLES20.glGetAttribLocation( program,"vCoord");
+        int mHMatrix=GLES20.glGetUniformLocation( program,"vMatrix");
+        int mHTexture=GLES20.glGetUniformLocation( program,"vTexture");
+
+
         return program;
     }
 
@@ -327,14 +346,7 @@ public abstract class AFilter {
         if(0!=shader){
             GLES20.glShaderSource(shader,source);
             GLES20.glCompileShader(shader);
-            int[] compiled=new int[1];
-            GLES20.glGetShaderiv(shader, GLES20.GL_COMPILE_STATUS,compiled,0);
-            if(compiled[0]==0){
-                glError(1,"Could not compile shader:"+shaderType);
-                glError(1,"GLES20 Error:"+ GLES20.glGetShaderInfoLog(shader));
-                GLES20.glDeleteShader(shader);
-                shader=0;
-            }
+
         }
         return shader;
     }

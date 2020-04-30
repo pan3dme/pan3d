@@ -4,6 +4,7 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.io.IOException;
 
@@ -14,6 +15,7 @@ import Pan3d.BaseActivity;
 import Pan3d.filter.AFilter;
 import edu.wuwang.opengl.R;
 import Pan3d.utils.Gl2Utils;
+import z3d.program.Shader3D;
 
 /**
  * Created by wuwang on 2017/1/7
@@ -24,6 +26,7 @@ public class ObjLoadActivity extends BaseActivity {
     private GLSurfaceView mGLView;
     private ObjFilter mFilter;
     private Obj3D obj;
+    private Shader3D modelShader3D;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,13 +41,26 @@ public class ObjLoadActivity extends BaseActivity {
             mFilter.setObj3D(obj);
 
 
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+
+
+
+
+
                 mFilter.create();
+
+
+                modelShader3D=new Shader3D();
+                modelShader3D.encode();
+
+
             }
 
             @Override
@@ -57,8 +73,14 @@ public class ObjLoadActivity extends BaseActivity {
 
             @Override
             public void onDrawFrame(GL10 gl) {
-               //  Matrix.rotateM(mFilter.getMatrix(),0,0.3f,0,1,0);
+                Matrix.rotateM(mFilter.getMatrix(),0,0.3f,0,1,0);
+
+              //
                 mFilter.draw();
+               // mFilter.mProgram=modelShader3D.program;
+
+                Log.d("abc-", "onDrawFrame: "+    modelShader3D.program);
+                Log.d("abc-", "onDrawFrame: "+    mFilter.mProgram);
             }
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);

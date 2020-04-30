@@ -30,6 +30,8 @@ public class ObjFilter extends AFilter {
 
     public void setObj3D(Obj3D obj){
         this.obj=obj;
+
+
     }
 
     @Override
@@ -39,9 +41,28 @@ public class ObjFilter extends AFilter {
 
     @Override
     protected void onCreate() {
-        createProgramByAssetsFile("3dres/obj.vert","3dres/obj.frag");
 
-        new Shader3D().encode();
+
+     String   vertex= "attribute vec3 vPosition;\n"+
+                "attribute vec2 vCoord;\n"+
+                "uniform mat4 vMatrix;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "void main(){\n"+
+                "gl_Position = vMatrix*vec4(vPosition*0.1,1);\n"+
+
+                "}";
+
+
+        String  fragment ="precision mediump float;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "varying vec4 vDiffuse;\n"+
+                "void main() {\n"+
+                "gl_FragColor= vec4(1.0,0.0,0.0,1.0);\n"+
+                "}";
+
+        createProgram (vertex,fragment);
+
+
         mHNormal=GLES20.glGetAttribLocation(mProgram,"vNormal");
         //打开深度检测
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
@@ -53,6 +74,8 @@ public class ObjFilter extends AFilter {
                 e.printStackTrace();
             }
         }
+
+
     }
 
     @Override
