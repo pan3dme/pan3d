@@ -12,17 +12,7 @@ import java.util.ArrayList;
 public class Obj3D {
     public FloatBuffer vert;
     public int vertCount;
-    public FloatBuffer vertNorl;
-    public FloatBuffer vertTexture;
 
-
-
-    private ArrayList<Float> tempVert;
-    private ArrayList<Float> tempVertNorl;
-    public ArrayList<Float> tempVertTexture;
-
-    public int textureSMode;
-    public int textureTMode;
 
 
 
