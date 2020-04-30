@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import Pan3d.obj.ObjLoadActivity;
-import Pan3d.obj.ObjLoadActivity2;
 import edu.wuwang.opengl.R;
 import z3d.res.SceneRes;
 

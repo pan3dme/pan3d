@@ -44,8 +44,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name="Pan3d.obj.ObjLoadActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="Pan3d.obj.ObjLoadActivity2"
-            android:screenOrientation="portrait" />
         <activity android:name="Pan3d.vr.VrContextActivity"
             android:screenOrientation="portrait"/>
         <activity android:name="Pan3d.blend.BlendActivity"
