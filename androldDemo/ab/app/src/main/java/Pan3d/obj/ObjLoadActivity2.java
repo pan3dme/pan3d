@@ -60,7 +60,7 @@ public class ObjLoadActivity2 extends AppCompatActivity {
 
             @Override
             public void onDrawFrame(GL10 gl) {
-                GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+                GLES20.glClearColor((float) Math.random(), 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 for (ObjFilter2 f:filters){
                     Matrix.rotateM(f.getMatrix(),0,0.3f,0,1,0);

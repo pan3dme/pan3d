@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        add("FBO使用", FBOActivity.class);
 //        add("EGL后台处理", EGLBackEnvActivity.class);
 //        add("第一个按钮3",ObjLoadActivity.class);
-//        add("obj+mtl模型", ObjLoadActivity2.class);
+        add("obj+mtl模型", ObjLoadActivity2.class);
 //        add("VR效果", VrContextActivity.class);
 //        add("颜色混合", BlendActivity.class);
 //        add("光照", LightActivity.class);
