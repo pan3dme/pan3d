@@ -15,7 +15,7 @@ public class Obj3D {
     public FloatBuffer vertNorl;
     public FloatBuffer vertTexture;
 
-   
+
 
     private ArrayList<Float> tempVert;
     private ArrayList<Float> tempVertNorl;
