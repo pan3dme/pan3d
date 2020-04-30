@@ -12,11 +12,13 @@ import z3d.base.CallBackFun;
 public class SceneRes extends BaseRes {
 
     public  JSONObject  sceneData;
+    private CallBackFun sceneFinishFun;
     public void load(String url) {
 
     }
-    public void  loadComplete(byte[] buff)
+    public void  loadComplete(byte[] buff, CallBackFun bfun)
     {
+        this.sceneFinishFun=bfun;
         this._byte =new ByteArray(buff);
         this.applyByteArray();
     }
@@ -59,6 +61,7 @@ public class SceneRes extends BaseRes {
         Log.d("partic地址 ->",   "aa");
 
 
+        this.sceneFinishFun.StateChange(true);
 
     }
     private void readTerrainIdInfoBitmapData(ByteArray $byte) {

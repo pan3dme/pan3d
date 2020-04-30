@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -16,7 +17,9 @@ import Pan3d.BaseActivity;
 import Pan3d.filter.AFilter;
 import edu.wuwang.opengl.R;
 import Pan3d.utils.Gl2Utils;
+import z3d.base.CallBackFun;
 import z3d.program.Shader3D;
+import z3d.res.SceneRes;
 
 /**
  * Created by wuwang on 2017/1/7
@@ -27,6 +30,7 @@ public class ObjLoadActivity extends BaseActivity {
     private GLSurfaceView mGLView;
     private ObjFilter mFilter;
     private Obj3D obj;
+    private SceneRes sceneRes;
     private Shader3D modelShader3D;
 
     @Override
@@ -39,35 +43,9 @@ public class ObjLoadActivity extends BaseActivity {
 
 
 
-        ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
-        alvResult.add(0f);
-        alvResult.add(0f);
-        alvResult.add(0f);
-
-        alvResult.add(10f);
-        alvResult.add(0f);
-        alvResult.add(0f);
-
-        alvResult.add(0f);
-        alvResult.add(0f);
-        alvResult.add(10f);
 
 
-        alvResult.add(0f);
-        alvResult.add(0f);
-        alvResult.add(0f);
-
-        alvResult.add(10f);
-        alvResult.add(10f);
-        alvResult.add(0f);
-
-        alvResult.add(0f);
-        alvResult.add(10f);
-        alvResult.add(10f);
-
-        obj=new Obj3D();
-        obj.setVert(alvResult);
-        mFilter.setObj3D(obj);
+        this.loadSceneRes();
 
 
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
@@ -93,15 +71,78 @@ public class ObjLoadActivity extends BaseActivity {
             public void onDrawFrame(GL10 gl) {
                 Matrix.rotateM(mFilter.getMatrix(),0,0.3f,0,1,0);
 
-              //
+                //
                 mFilter.draw();
-               // mFilter.mProgram=modelShader3D.program;
+                // mFilter.mProgram=modelShader3D.program;
 
                 Log.d("abc-", "onDrawFrame: "+    modelShader3D.program);
                 Log.d("abc-", "onDrawFrame: "+    mFilter.mProgram);
             }
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+    }
+    private void loadSceneRes()
+    {
+
+       this.sceneRes = new SceneRes();
+
+        try {
+
+
+            InputStream in = getResources().openRawResource(R.raw.file2012);
+            //获取文件的字节数
+            int lenght = in.available();
+            //创建byte数组byte[]  buffer = new byte[lenght];
+            byte[] buffer = new byte[lenght];
+            //将文件中的数据读到byte数组中
+            in.read(buffer);
+            this.sceneRes.loadComplete(buffer ,new CallBackFun() {
+                @Override
+                public void StateChange(boolean State) {
+
+                    Log.d("加载结算", "StateChange: ");
+
+                    makeOBjData();
+
+                }
+            });
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void makeOBjData()
+    {
+        ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
+        alvResult.add(0f);
+        alvResult.add(30f);
+        alvResult.add(0f);
+
+        alvResult.add(30f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(10f);
+
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(10f);
+        alvResult.add(10f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(10f);
+        alvResult.add(10f);
+
+        obj=new Obj3D();
+        obj.setVert(alvResult);
+        mFilter.setObj3D(obj);
     }
 
 

@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -19,9 +18,9 @@
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/filter/AFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/filter/AFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjLoadActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/Pan3d/obj/ObjLoadActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/z3d/res/SceneRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/app/src/main/java/z3d/res/SceneRes.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

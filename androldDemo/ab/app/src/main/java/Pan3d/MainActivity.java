@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import Pan3d.obj.ObjLoadActivity;
 import edu.wuwang.opengl.R;
+import z3d.base.CallBackFun;
 import z3d.res.SceneRes;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -111,7 +112,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             byte[] buffer = new byte[lenght];
             //将文件中的数据读到byte数组中
             in.read(buffer);
-            sceneRes.loadComplete(buffer);
+            sceneRes.loadComplete(buffer ,new CallBackFun() {
+                @Override
+                public void StateChange(boolean State) {
+
+
+                }
+            });
 
 
         } catch (Exception e) {
