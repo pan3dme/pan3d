@@ -11,20 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import Pan3d.blend.BlendActivity;
-import Pan3d.camera.Camera2Activity;
-import Pan3d.camera.Camera3Activity;
-import Pan3d.camera.CameraActivity;
-import Pan3d.egl.EGLBackEnvActivity;
-import Pan3d.etc.ZipActivity;
-import Pan3d.fbo.FBOActivity;
-import Pan3d.image.SGLViewActivity;
-import Pan3d.light.LightActivity;
-import Pan3d.obj.ObjLoadActivity;
 import Pan3d.obj.ObjLoadActivity2;
-import Pan3d.render.FGLViewActivity;
-import Pan3d.vary.VaryActivity;
-import Pan3d.vr.VrContextActivity;
 import edu.wuwang.opengl.R;
 import z3d.res.SceneRes;
 
@@ -40,7 +27,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mList= (RecyclerView)findViewById(R.id.mList);
         mList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         data=new ArrayList<>();
-        add("绘制形体9",FGLViewActivity.class);
+
 //        add("图片处理2", SGLViewActivity.class);
 //        add("图形变换3", VaryActivity.class);
 //        add("相机", CameraActivity.class);

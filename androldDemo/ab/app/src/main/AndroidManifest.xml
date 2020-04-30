@@ -24,12 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Pan3d.render.FGLViewActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity android:name="Pan3d.ChooseActivity"
-            android:screenOrientation="portrait">
-        </activity>
         <activity android:name="Pan3d.image.SGLViewActivity"
             android:screenOrientation="portrait">
         </activity>
