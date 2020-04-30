@@ -63,4 +63,5 @@
         android:text="@string/type_obj2"
         android:id="@+id/btObj2"
         android:onClick="onClick" />
+
 </LinearLayout>

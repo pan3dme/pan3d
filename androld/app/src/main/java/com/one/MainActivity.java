@@ -2,6 +2,7 @@ package com.one;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
+import com.one.four.FGLRender;
+import com.one.four.FGLView;
 import com.one.two.OpenGLRender;
 
 import java.io.InputStream;
@@ -20,45 +23,76 @@ import java.io.InputStream;
 import z3d.res.SceneRes;
 
 public class MainActivity extends Activity {
-
+    GLSurfaceView glSurfaceView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
 
-        GLSurfaceView glSurfaceView = new GLSurfaceView(this);
-        glSurfaceView.setRenderer(new OpenGLRender());
-        setContentView(glSurfaceView);
-        //setContentView(R.layout.activity_main);
+        int tabId=2;
 
 
-        SceneRes sceneRes = new SceneRes();
+        switch (tabId)
+        {
+            case 0:
+                SceneRes sceneRes = new SceneRes();
 
-        try {
-
-
-            InputStream in = getResources().openRawResource(R.raw.file2012);
-            //获取文件的字节数
-            int lenght = in.available();
-            //创建byte数组byte[]  buffer = new byte[lenght];
-            byte[] buffer = new byte[lenght];
-            //将文件中的数据读到byte数组中
-            in.read(buffer);
-            sceneRes.loadComplete(buffer);
+                try {
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
+                    InputStream in = getResources().openRawResource(R.raw.file2012);
+                    //获取文件的字节数
+                    int lenght = in.available();
+                    //创建byte数组byte[]  buffer = new byte[lenght];
+                    byte[] buffer = new byte[lenght];
+                    //将文件中的数据读到byte数组中
+                    in.read(buffer);
+                    sceneRes.loadComplete(buffer);
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 1:
+                GLSurfaceView glSurfaceView = new GLSurfaceView(this);
+                glSurfaceView.setRenderer(new OpenGLRender());
+                setContentView(glSurfaceView);
+
+
+                break;
+            case 2:
+
+
+                FGLView  dd= new FGLView(this);
+
+
+                break;
+            case 3:
+                break;
+            default:
+                break;
         }
 
 
+
+
     }
 
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-       // getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    protected void onResume() {
+        super.onResume();
+
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+
+
 
 }

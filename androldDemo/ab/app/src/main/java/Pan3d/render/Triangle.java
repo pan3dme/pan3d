@@ -96,6 +96,8 @@ public class Triangle extends Shape {
     @Override
     public void onDrawFrame(GL10 gl) {
 
+        gl.glClearColor((float) Math.random(), 1.0f, 1.0f, 0f);
+
         //将程序加入到OpenGLES2.0环境
         GLES20.glUseProgram(mProgram);
 
