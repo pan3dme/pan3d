@@ -11,6 +11,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import Pan3d.BaseActivity;
+import Pan3d.filter.AFilter;
 import edu.wuwang.opengl.R;
 import Pan3d.utils.Gl2Utils;
 
@@ -35,6 +36,8 @@ public class ObjLoadActivity extends BaseActivity {
         try {
             ObjReader.read(getAssets().open("3dres/hat.obj"),obj);
             mFilter.setObj3D(obj);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

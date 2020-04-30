@@ -32,10 +32,6 @@
         </activity>
         <activity android:name="Pan3d.camera.CameraActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name="Pan3d.camera.Camera2Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="Pan3d.camera.Camera3Activity"
-            android:screenOrientation="portrait"/>
         <activity android:name="Pan3d.etc.ZipActivity"
             android:screenOrientation="portrait" />
         <activity android:name="Pan3d.fbo.FBOActivity"
@@ -47,8 +43,6 @@
         <activity android:name="Pan3d.vr.VrContextActivity"
             android:screenOrientation="portrait"/>
         <activity android:name="Pan3d.blend.BlendActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="Pan3d.light.LightActivity"
             android:screenOrientation="portrait" />
     </application>
 

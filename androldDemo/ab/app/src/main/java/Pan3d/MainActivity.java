@@ -34,7 +34,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
 
-        this.loadSceneRes();
     }
 
     private void add(String name,Class<?> clazz){
@@ -94,7 +93,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         MenuBean bean=data.get(position);
         startActivity(new Intent(this,bean.clazz));
 
-//        this.loadSceneRes();
+        this.loadSceneRes();
     }
 
     private void loadSceneRes()

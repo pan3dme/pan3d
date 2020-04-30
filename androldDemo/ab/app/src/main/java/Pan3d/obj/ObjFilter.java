@@ -9,6 +9,7 @@ import android.opengl.GLUtils;
 import java.io.IOException;
 
 import Pan3d.filter.AFilter;
+import z3d.program.Shader3D;
 
 /**
  * Created by wuwang on 2017/1/8
@@ -39,6 +40,8 @@ public class ObjFilter extends AFilter {
     @Override
     protected void onCreate() {
         createProgramByAssetsFile("3dres/obj.vert","3dres/obj.frag");
+
+        new Shader3D().encode();
         mHNormal=GLES20.glGetAttribLocation(mProgram,"vNormal");
         //打开深度检测
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
