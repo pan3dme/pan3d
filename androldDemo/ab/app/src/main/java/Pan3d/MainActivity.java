@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import Pan3d.obj.ObjLoadActivity;
 import Pan3d.obj.ObjLoadActivity2;
 import edu.wuwang.opengl.R;
 import z3d.res.SceneRes;
@@ -28,7 +29,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         data=new ArrayList<>();
 
-        add("obj+mtl模型", ObjLoadActivity2.class);
+        add("obj+mtl模型", ObjLoadActivity.class);
 
         mList.setAdapter(new MenuAdapter());
 

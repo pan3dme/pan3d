@@ -54,7 +54,7 @@ public class ObjLoadActivity extends BaseActivity {
 
             @Override
             public void onDrawFrame(GL10 gl) {
-                Matrix.rotateM(mFilter.getMatrix(),0,0.3f,0,1,0);
+               // Matrix.rotateM(mFilter.getMatrix(),0,0.3f,0,1,0);
                 mFilter.draw();
             }
         });
