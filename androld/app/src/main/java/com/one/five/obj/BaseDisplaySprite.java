@@ -31,24 +31,24 @@ public   class BaseDisplaySprite  extends Display3D {
 
         ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
         alvResult.add(0f);
-        alvResult.add(50f);
-        alvResult.add(0f);
-
-        alvResult.add(30f);
-        alvResult.add(0f);
-        alvResult.add(0f);
-
-        alvResult.add(0f);
-        alvResult.add(0f);
         alvResult.add(10f);
+        alvResult.add(0f);
+
+        alvResult.add(3f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(1f);
 
 
         alvResult.add(0f);
         alvResult.add(0f);
         alvResult.add(0f);
 
-        alvResult.add(10f);
-        alvResult.add(10f);
+        alvResult.add(1f);
+        alvResult.add(1f);
         alvResult.add(0f);
 
         alvResult.add(0f);

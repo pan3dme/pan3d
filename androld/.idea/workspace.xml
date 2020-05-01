@@ -10,11 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/BaseDisplaySprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/BaseDisplaySprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/ObjFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/five/obj/BaseDisplaySprite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-431">
-              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="208">
+              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#756#763#0" expanded="true" />
@@ -72,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="194">
+              <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,7 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateData</find>
       <find>mAndroidSurface</find>
       <find>BasicGLThread</find>
       <find>initGL</find>
@@ -122,6 +118,7 @@
       <find>onSizeChanged</find>
       <find>create</find>
       <find>mHPosition</find>
+      <find>mFilterA</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,8 +175,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/Obj3D.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/ObjFilter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/CopySprite.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/BaseDisplaySprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/one/five/obj/BaseDisplaySprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" />
       </list>
     </option>
@@ -406,7 +403,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25213677" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25213677" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -417,11 +414,11 @@
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.497558" weight="0.32941177" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.8156288" weight="0.2919786" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.497558" weight="0.32834226" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6025641" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6013431" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3290461" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.3840049" side_tool="true" visible="true" weight="0.33475935" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.3986569" side_tool="true" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.6159951" visible="true" weight="0.33475935" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.6159951" weight="0.33475935" />
       <window_info anchor="bottom" id="Find" order="8" sideWeight="0.498779" weight="0.32834226" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -634,6 +631,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/five/obj/CopySprite.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/five/obj/ObjFilter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/five/obj/Obj3D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -646,8 +650,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/five/obj/BaseDisplaySprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-431">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="208">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#756#763#0" expanded="true" />
@@ -655,17 +659,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="194">
+          <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
