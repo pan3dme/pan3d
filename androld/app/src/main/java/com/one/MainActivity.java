@@ -56,10 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
         this.loadSceneRes();
 
 
@@ -77,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
-                mFilterA.onSizeChanged(width, height);
-                mFilterB.onSizeChanged(width, height);
+                mFilterA.setSize(width, height);
+                mFilterB.setSize(width, height);
                 float[] matrixA= Gl2Utils.getOriginalMatrix();
                 Matrix.scaleM(matrixA,0,0.2f,0.2f*width/height,0.2f);
 
@@ -94,11 +90,9 @@ public class MainActivity extends AppCompatActivity {
                 GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 for(int i=0;buildItem!=null&&i< buildItem.size();i++){
-                    float[] matrixA= Gl2Utils.getOriginalMatrix();
-                    Matrix.scaleM(matrixA,0,0.2f,0.2f*1,0.2f);
-                    if(i==1){
 
-                        Matrix.rotateM(  matrixA,0,0.3f,0,1,0);
+                    if(i==1){
+                        Matrix.rotateM(  buildItem.get(i).getMatrix(),0,0.3f,0,1,0);
                     }else{
                         Matrix.rotateM(  buildItem.get(i).getMatrix(),0,13.5f,0,1,0);
                     }

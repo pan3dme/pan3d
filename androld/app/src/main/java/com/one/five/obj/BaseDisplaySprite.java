@@ -6,6 +6,9 @@ import android.util.Log;
 
 import com.one.five.utils.MatrixUtils;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import z3d.display.Display3D;
@@ -21,24 +24,75 @@ public abstract class BaseDisplaySprite  extends Display3D {
     protected int mHCoord;
     protected int mHMatrix;
     protected int mHTexture;
+    public Obj3D obj;
     private float[] matrix= Arrays.copyOf(OM,16);
     public BaseDisplaySprite(Resources mRes){
 
 
     }
+    public void setObj3D(Obj3D obj){
+
+
+        ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
+        alvResult.add(0f);
+        alvResult.add(50f);
+        alvResult.add(0f);
+
+        alvResult.add(30f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(10f);
+
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(10f);
+        alvResult.add(10f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(10f);
+        alvResult.add(10f);
+
+        this.obj=new Obj3D();
+        setVert(alvResult);
+
+
+    }
+    public void setVert(ArrayList<Float> data){
+        int size=data.size();
+        ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
+        buffer.order(ByteOrder.nativeOrder());
+        obj.vert=buffer.asFloatBuffer();
+        for (int i=0;i<size;i++){
+            obj.vert.put(data.get(i));
+        }
+        obj.vert.position(0);
+        obj.vertCount=size/3;
+    }
     public final void create(){
         onCreate();
     }
 
-    public final void setSize(int width,int height){
-        onSizeChanged(width,height);
+    public   void setSize(int width,int height){
+        GLES20.glViewport(0,0,width,height);
     }
 
     public void draw(){
 
         onUseProgram();
         onSetExpandData();
-        onDraw();
+
+
+        GLES20.glEnableVertexAttribArray(mHPosition);
+        GLES20.glVertexAttribPointer(mHPosition,3, GLES20.GL_FLOAT, false, 3*4,obj.vert);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES,0,obj.vertCount);
+        GLES20.glDisableVertexAttribArray(mHPosition);
 
     }
 
@@ -52,7 +106,7 @@ public abstract class BaseDisplaySprite  extends Display3D {
     protected abstract void onCreate(
 
     );
-    protected abstract void onSizeChanged(int width,int height);
+
 
     public final void createProgram(String vertex, String fragment){
 
