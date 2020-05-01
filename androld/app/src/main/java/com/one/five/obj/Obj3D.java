@@ -11,6 +11,4 @@ public class Obj3D {
     public int vertCount;
 
 
-
-
 }

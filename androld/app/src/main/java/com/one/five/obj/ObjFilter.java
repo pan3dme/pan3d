@@ -3,35 +3,68 @@ package com.one.five.obj;
 import android.content.res.Resources;
 import android.opengl.GLES20;
 
-import com.one.five.filter.AFilter;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.ArrayList;
 
 
 /**
  * Created by wuwang on 2017/1/8
  */
 
-public class ObjFilter extends AFilter {
+public class ObjFilter extends BaseDisplaySprite {
 
-    private int vertCount;
 
-    private int mHNormal;
     private Obj3D obj;
-
-    private int textureId;
 
     public ObjFilter(Resources mRes) {
         super(mRes);
     }
 
     public void setObj3D(Obj3D obj){
-        this.obj=obj;
+
+
+        ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
+        alvResult.add(0f);
+        alvResult.add(30f);
+        alvResult.add(0f);
+
+        alvResult.add(30f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(10f);
+
+
+        alvResult.add(0f);
+        alvResult.add(0f);
+        alvResult.add(0f);
+
+        alvResult.add(10f);
+        alvResult.add(10f);
+        alvResult.add(0f);
+
+        alvResult.add(0f);
+        alvResult.add(10f);
+        alvResult.add(10f);
+
+        this.obj=new Obj3D();
+        setVert(alvResult);
 
 
     }
-
-    @Override
-    protected void initBuffer() {
-        super.initBuffer();
+    public void setVert(ArrayList<Float> data){
+        int size=data.size();
+        ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
+        buffer.order(ByteOrder.nativeOrder());
+        obj.vert=buffer.asFloatBuffer();
+        for (int i=0;i<size;i++){
+            obj.vert.put(data.get(i));
+        }
+        obj.vert.position(0);
+        obj.vertCount=size/3;
     }
 
     @Override
@@ -59,16 +92,12 @@ public class ObjFilter extends AFilter {
 
 
 
-        //打开深度检测
-        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
-
-
 
     }
 
     @Override
     protected void onClear() {
-        super.onClear();
+       super.onClear();
     }
 
     @Override
@@ -81,7 +110,7 @@ public class ObjFilter extends AFilter {
     }
 
     @Override
-    protected void onSizeChanged(int width, int height) {
+    public void onSizeChanged(int width, int height) {
         GLES20.glViewport(0,0,width,height);
     }
 
