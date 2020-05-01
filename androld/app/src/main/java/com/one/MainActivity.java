@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,12 +15,14 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
+import com.one.five.obj.ObjLoadActivity;
 import com.one.four.FGLRender;
 import com.one.four.FGLView;
 import com.one.two.OpenGLRender;
 
 import java.io.InputStream;
 
+import z3d.base.CallBackFun;
 import z3d.res.SceneRes;
 
 public class MainActivity extends Activity {
@@ -30,7 +33,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        int tabId=2;
+        int tabId=0;
 
 
         switch (tabId)
@@ -48,7 +51,20 @@ public class MainActivity extends Activity {
                     byte[] buffer = new byte[lenght];
                     //将文件中的数据读到byte数组中
                     in.read(buffer);
-                    sceneRes.loadComplete(buffer);
+
+
+                    sceneRes.loadComplete(buffer ,new CallBackFun() {
+                        @Override
+                        public void StateChange(boolean State) {
+
+                            Log.d("加载结算", "StateChange: ");
+
+
+
+
+
+                        }
+                    });
 
 
                 } catch (Exception e) {
@@ -76,7 +92,7 @@ public class MainActivity extends Activity {
         }
 
 
-
+       // startActivity(new Intent(this, ObjLoadActivity.class));
 
     }
 
