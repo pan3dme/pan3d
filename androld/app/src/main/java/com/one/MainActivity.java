@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.one.five.obj.Obj3D;
-import com.one.five.obj.ObjFilter;
+import com.one.five.obj.BaseDisplaySprite;
 import com.one.five.utils.Gl2Utils;
 
 import org.json.JSONArray;
@@ -37,13 +37,12 @@ import z3d.res.SceneRes;
 public class MainActivity extends AppCompatActivity {
 
     private GLSurfaceView mGLView;
-    private ObjFilter mFilterA;
-    private ObjFilter mFilterB;
-    private Obj3D obj;
+    private BaseDisplaySprite mFilterA;
+    private BaseDisplaySprite mFilterB;
     private SceneRes sceneRes;
-    private Shader3D modelShader3D;
 
-    private List<ObjFilter> buildItem;
+
+    private List<BaseDisplaySprite> buildItem;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_obj);
         mGLView= (GLSurfaceView) findViewById(R.id.mGLView);
         mGLView.setEGLContextClientVersion(2);
-        mFilterA=new ObjFilter(getResources());
-        mFilterB=new ObjFilter(getResources());
 
+        mFilterA=new BaseDisplaySprite();
+        mFilterB=new BaseDisplaySprite();
 
 
         this.loadSceneRes();
@@ -63,18 +62,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
-                mFilterA.create();
-                mFilterB.create();
-                modelShader3D=new Shader3D();
-                modelShader3D.encode();
-
+                makeShaderA(mFilterA);
+                makeShaderB(mFilterB);
 
             }
 
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
-                mFilterA.setSize(width, height);
-                mFilterB.setSize(width, height);
+                GLES20.glViewport(0,0,width,height);
                 float[] matrixA= Gl2Utils.getOriginalMatrix();
                 Matrix.scaleM(matrixA,0,0.2f,0.2f*width/height,0.2f);
 
@@ -94,11 +89,13 @@ public class MainActivity extends AppCompatActivity {
                     if(i==1){
                         Matrix.rotateM(  buildItem.get(i).getMatrix(),0,0.3f,0,1,0);
                     }else{
-                        Matrix.rotateM(  buildItem.get(i).getMatrix(),0,13.5f,0,1,0);
+                        Matrix.rotateM(  buildItem.get(i).getMatrix(),0,1.5f,0,1,0);
                     }
                     buildItem.get(i).draw();
 
                 }
+
+                Log.d("加载结算", "StateChange: ");
 
             }
         });
@@ -160,6 +157,58 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private  void makeShaderA(BaseDisplaySprite dis)
+    {
+        String vertex= "attribute vec3 vPosition;\n"+
+
+                "uniform mat4 vMatrix;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "void main(){\n"+
+                "gl_Position = vMatrix*vec4(vPosition*0.1,1);\n"+
+
+                "}";
+
+
+        String fragment ="precision mediump float;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "varying vec4 vDiffuse;\n"+
+                "void main() {\n"+
+                "gl_FragColor= vec4(1.0,0.0,1.0,1.0);\n"+
+                "}";
+
+
+        Shader3D vc=new Shader3D();
+        vc.encode();
+        vc.encodeVstr(vertex,fragment);
+
+        dis.shader3D=vc;
+    }
+    private  void makeShaderB(BaseDisplaySprite dis)
+    {
+        String vertex= "attribute vec3 vPosition;\n"+
+
+                "uniform mat4 vMatrix;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "void main(){\n"+
+                "gl_Position = vMatrix*vec4(vPosition*0.1,1);\n"+
+
+                "}";
+
+
+        String fragment ="precision mediump float;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "varying vec4 vDiffuse;\n"+
+                "void main() {\n"+
+                "gl_FragColor= vec4(1.0,0.0,0.0,1.0);\n"+
+                "}";
+
+
+        Shader3D vc=new Shader3D();
+        vc.encode();
+        vc.encodeVstr(vertex,fragment);
+
+        dis.shader3D=vc;
+    }
 
 
 

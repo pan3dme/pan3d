@@ -35,6 +35,13 @@ public class Shader3D {
         return true;
 
     }
+    public boolean  encodeVstr(String vertex,String fragment)
+    {
+        this.program= uCreateGlProgram(vertex,fragment);
+
+
+        return true;
+    }
 
     //创建GL程序
     public static int uCreateGlProgram(String vertexSource, String fragmentSource){

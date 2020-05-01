@@ -15,18 +15,14 @@ import z3d.display.Display3D;
 import z3d.program.Shader3D;
 
 
-public abstract class BaseDisplaySprite  extends Display3D {
+public   class BaseDisplaySprite  extends Display3D {
 
     private static final String TAG="Filter";
     public static final float[] OM= MatrixUtils.getOriginalMatrix();
-    public int mProgram;
-    protected int mHPosition;
-    protected int mHCoord;
-    protected int mHMatrix;
-    protected int mHTexture;
+    public Shader3D shader3D;
     public Obj3D obj;
     private float[] matrix= Arrays.copyOf(OM,16);
-    public BaseDisplaySprite(Resources mRes){
+    public BaseDisplaySprite( ){
 
 
     }
@@ -63,8 +59,9 @@ public abstract class BaseDisplaySprite  extends Display3D {
         setVert(alvResult);
 
 
+
     }
-    public void setVert(ArrayList<Float> data){
+    private void setVert(ArrayList<Float> data){
         int size=data.size();
         ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
         buffer.order(ByteOrder.nativeOrder());
@@ -75,24 +72,20 @@ public abstract class BaseDisplaySprite  extends Display3D {
         obj.vert.position(0);
         obj.vertCount=size/3;
     }
-    public final void create(){
-        onCreate();
-    }
 
-    public   void setSize(int width,int height){
-        GLES20.glViewport(0,0,width,height);
-    }
 
     public void draw(){
 
-        onUseProgram();
-        onSetExpandData();
+        if(this.shader3D!=null){
+            GLES20.glUseProgram(this.shader3D.program);
 
+            GLES20.glUniformMatrix4fv(GLES20.glGetUniformLocation(this.shader3D.program,"vMatrix"),1,false,matrix,0);
+            GLES20.glEnableVertexAttribArray(GLES20.glGetAttribLocation(this.shader3D.program, "vPosition"));
+            GLES20.glVertexAttribPointer(0,3, GLES20.GL_FLOAT, false, 3*4,obj.vert);
+            GLES20.glDrawArrays(GLES20.GL_TRIANGLES,0,obj.vertCount);
+            GLES20.glDisableVertexAttribArray(0);
+        }
 
-        GLES20.glEnableVertexAttribArray(mHPosition);
-        GLES20.glVertexAttribPointer(mHPosition,3, GLES20.GL_FLOAT, false, 3*4,obj.vert);
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES,0,obj.vertCount);
-        GLES20.glDisableVertexAttribArray(mHPosition);
 
     }
 
@@ -103,45 +96,10 @@ public abstract class BaseDisplaySprite  extends Display3D {
     public float[] getMatrix(){
         return matrix;
     }
-    protected abstract void onCreate(
-
-    );
 
 
-    public final void createProgram(String vertex, String fragment){
 
 
-        Shader3D vc=new Shader3D();
-        vc.encode();
-
-        mProgram= vc.program;
-        mHPosition= GLES20.glGetAttribLocation(mProgram, "vPosition");
-        mHCoord= GLES20.glGetAttribLocation(mProgram,"vCoord");
-        mHMatrix= GLES20.glGetUniformLocation(mProgram,"vMatrix");
-        mHTexture= GLES20.glGetUniformLocation(mProgram,"vTexture");
-    }
-
-
-    protected void onUseProgram(){
-        GLES20.glUseProgram(mProgram);
-    }
-
-    /**
-     * 启用顶点坐标和纹理坐标进行绘制
-     */
-    protected void onDraw(){
-
-    }
-
-
-    /**
-     * 设置其他扩展数据
-     */
-    protected void onSetExpandData(){
-
-        Log.d("加载结算", mHMatrix+"");
-        GLES20.glUniformMatrix4fv(mHMatrix,1,false,matrix,0);
-    }
 
 
 
