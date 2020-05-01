@@ -1,37 +1,35 @@
 package Pan3d;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+
+
+import java.io.InputStream;
 
 import Pan3d.obj.ObjLoadActivity;
 import edu.wuwang.opengl.R;
 import z3d.base.CallBackFun;
 import z3d.res.SceneRes;
 
+
 public class MainActivity extends BaseActivity   {
 
-    private RecyclerView mList;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this,ObjLoadActivity.class));
+
+        //startActivity(new Intent(this,ObjLoadActivity.class));
+
+
+        this.loadSceneRes();
 
 
     }
-
-
 
     private void loadSceneRes()
     {
@@ -61,4 +59,8 @@ public class MainActivity extends BaseActivity   {
             e.printStackTrace();
         }
     }
+
+
+
+
 }

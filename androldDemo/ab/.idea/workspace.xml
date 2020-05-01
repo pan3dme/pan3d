@@ -10,19 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e956353-b77c-4b2b-91ba-633d7aa7ecf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/blend/SquareRelativeLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/blend/WheelView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/filter/AFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/obj/Obj3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/obj/ObjFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/obj/ObjLoadActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/utils/Gl2Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/utils/MatrixUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/five/utils/ShaderUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/res/layout/activity_obj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/BaseActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/SceneRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/SceneRes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/four/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/four/BaseActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -30,7 +21,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/Pan3d/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/BaseActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,20 +46,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="62" />
+            <state relative-caret-position="298">
+              <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/blend/SquareRelativeLayout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -103,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
-              <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -139,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/BaseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -194,6 +177,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/Pan3d/filter/AFilter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/ObjLoadActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Pan3d/obj/Obj3D.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/Pan3d/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java" />
       </list>
     </option>
@@ -498,7 +482,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/vr/MatrixHelper.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/vr/SkySphere.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/image/SGLRender.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/image/filter/AFilter.java" />
@@ -664,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/utils/ShaderUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -688,14 +664,28 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
-          <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/appcompat-v7/24.2.0/f8d71c7ad6c0cb88bbe3792d024abac8414efee9/appcompat-v7-24.2.0-sources.jar!/android/support/v7/app/AppCompatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Pan3d/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="62" />
+        <state relative-caret-position="298">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

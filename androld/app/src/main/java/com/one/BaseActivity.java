@@ -1,16 +1,21 @@
-package com.one.four;
+package com.one;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+/**
+ * Created by wuwang on 2016/10/30
+ */
+
 public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("OpenGL 3333");
+        setTitle("baelllll");
     }
 
 }
