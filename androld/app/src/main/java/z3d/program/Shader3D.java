@@ -1,71 +1,70 @@
 package z3d.program;
 
-import android.content.Context;
+
 import android.opengl.GLES20;
 
-import z3d.base.Scene_data;
+
 
 public class Shader3D {
-    //    public String vertex;
-//    public String fragment;
-//    public String name;
+
     public int program;
-    public int vShader;
-    public int fShader;
-//    public List paramAry;
-//    public HashMap localDic;
 
 
     public boolean encode() {
-        Context context= Scene_data.context;
-        String vertexShaderCode = "attribute vec3 vPosition;\n"+
-                "attribute vec2 texcoord;\n"+
-                "uniform mat4 viewMatrix;\n"+
-                "uniform mat4 posMatrix;\n"+
-                "varying vec2 v0;\n"+
-                "void main()"+
-                "{"+
-                "v0= texcoord;\n"+
-                "vec4 vPos = vec4(vPosition.xyz,1.0);\n"+
-                "gl_Position = vPos * posMatrix* viewMatrix;\n"+
-                "}";
 
-        String fragmentShaderCode ="precision mediump float;\n"+
-                "varying vec2 v0;\n"+
-                "void main()"+
-                "{"+
-                "gl_FragColor =vec4(1.0,1.0,1.0,1.0);\n"+
+        String vertex= "attribute vec3 vPosition;\n"+
+
+                "uniform mat4 vMatrix;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "void main(){\n"+
+                "gl_Position = vMatrix*vec4(vPosition*0.1,1);\n"+
+
                 "}";
 
 
+        String fragment ="precision mediump float;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "varying vec4 vDiffuse;\n"+
+                "void main() {\n"+
+                "gl_FragColor= vec4(1.0,0.0,0.0,1.0);\n"+
+                "}";
 
-
-        this.vShader= GLES20.glCreateShader(GLES20.GL_VERTEX_SHADER);
-        this.fShader=   GLES20.glCreateShader(GLES20.GL_FRAGMENT_SHADER);
-
-        GLES20.glShaderSource(this.vShader, vertexShaderCode);
-        GLES20.glShaderSource(this.fShader, fragmentShaderCode);
-
-        GLES20.glCompileShader(this.vShader);
-        GLES20.glCompileShader(this.fShader);
-
-
-        int e = GLES20.glCreateProgram();
-        this.program = GLES20.glCreateProgram();
-        GLES20.glAttachShader(this.program, this.vShader);
-        GLES20.glAttachShader(this.program, this.fShader);
-        GLES20.glLinkProgram(this.program);
-
-        // var info: string = context.getProgramInfoLog(this.program);
-
-        String proLog=  GLES20.glGetProgramInfoLog(this.program);
-        String vLog=  GLES20.glGetShaderInfoLog(this.vShader);
-        String fLog=  GLES20.glGetShaderInfoLog(this.fShader);
+        this.program= uCreateGlProgram(vertex,fragment);
 
 
         return true;
 
     }
+
+    //创建GL程序
+    public static int uCreateGlProgram(String vertexSource, String fragmentSource){
+
+
+
+        int vertex=uLoadShader(GLES20.GL_VERTEX_SHADER,vertexSource);
+        if(vertex==0)return 0;
+        int fragment=uLoadShader(GLES20.GL_FRAGMENT_SHADER,fragmentSource);
+        if(fragment==0)return 0;
+        int program= GLES20.glCreateProgram();
+        if(program!=0){
+            GLES20.glAttachShader(program,vertex);
+            GLES20.glAttachShader(program,fragment);
+            GLES20.glLinkProgram(program);
+
+        }
+        return program;
+    }
+
+    //加载shader
+    public static int uLoadShader(int shaderType, String source){
+        int shader= GLES20.glCreateShader(shaderType);
+        if(0!=shader){
+            GLES20.glShaderSource(shader,source);
+            GLES20.glCompileShader(shader);
+        }
+        return shader;
+    }
+
 
     private String getVertexShaderString() {
         return "";

@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Matrix.rotateM(  matrixA,0,0.3f,0,1,0);
                     }else{
-                        Matrix.rotateM(  buildItem.get(i).getMatrix(),0,3.5f,0,1,0);
+                        Matrix.rotateM(  buildItem.get(i).getMatrix(),0,13.5f,0,1,0);
                     }
                     buildItem.get(i).draw();
 

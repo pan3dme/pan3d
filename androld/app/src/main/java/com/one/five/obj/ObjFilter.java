@@ -95,10 +95,6 @@ public class ObjFilter extends BaseDisplaySprite {
 
     }
 
-    @Override
-    protected void onClear() {
-       super.onClear();
-    }
 
     @Override
     protected void onDraw() {
