@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.one.R;
 import com.one.five.utils.Gl2Utils;
-import com.one.four.BaseActivity;
+
 
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -28,7 +29,7 @@ import z3d.res.SceneRes;
  * Created by wuwang on 2017/1/7
  */
 
-public class ObjLoadActivity extends BaseActivity {
+public class ObjLoadActivity extends AppCompatActivity {
 
     private GLSurfaceView mGLView;
     private ObjFilter mFilter;

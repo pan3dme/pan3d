@@ -3,6 +3,7 @@ package Pan3d;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 
 import java.io.InputStream;
@@ -13,7 +14,7 @@ import z3d.base.CallBackFun;
 import z3d.res.SceneRes;
 
 
-public class MainActivity extends BaseActivity   {
+public class MainActivity extends AppCompatActivity {
 
 
 
@@ -23,10 +24,10 @@ public class MainActivity extends BaseActivity   {
         super.onCreate(savedInstanceState);
 
 
-        //startActivity(new Intent(this,ObjLoadActivity.class));
+        startActivity(new Intent(this,ObjLoadActivity.class));
 
 
-        this.loadSceneRes();
+        //this.loadSceneRes();
 
 
     }

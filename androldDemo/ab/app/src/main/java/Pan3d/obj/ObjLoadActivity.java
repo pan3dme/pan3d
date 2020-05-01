@@ -4,9 +4,9 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import Pan3d.BaseActivity;
-import Pan3d.filter.AFilter;
 import edu.wuwang.opengl.R;
 import Pan3d.utils.Gl2Utils;
 import z3d.base.CallBackFun;
@@ -27,7 +25,7 @@ import z3d.res.SceneRes;
  * Created by wuwang on 2017/1/7
  */
 
-public class ObjLoadActivity extends BaseActivity {
+public class ObjLoadActivity extends AppCompatActivity {
 
     private GLSurfaceView mGLView;
     private ObjFilter mFilter;
