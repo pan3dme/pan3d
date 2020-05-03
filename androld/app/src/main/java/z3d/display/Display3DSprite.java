@@ -9,6 +9,7 @@ import java.util.Arrays;
 import z3d.base.ObjData;
 import z3d.core.Context3D;
 
+import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
@@ -28,7 +29,17 @@ public   class Display3DSprite extends Display3D {
 
         this.skipNum=0;
         this.modeMatrix=new Matrix3D();
+        this.registetProgame();
     }
+
+    private void  registetProgame()
+    {
+
+        ProgrmaManager.registe(Display3DShader.shaderStr,new Display3DShader());
+        this.shader3D=ProgrmaManager.getProgram(Display3DShader.shaderStr);
+
+    }
+
     public void upFrame(){
         Context3D ctx=this.scene3d.context3D;
 
