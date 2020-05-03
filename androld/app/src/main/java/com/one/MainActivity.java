@@ -8,7 +8,7 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.Bundle;
 import android.util.Log;
-import z3d.display.BaseDisplaySprite;
+import z3d.display.Display3DSprite;
 import com.one.five.utils.Gl2Utils;
 import org.json.JSONArray;
 import java.io.InputStream;
@@ -20,6 +20,7 @@ import z3d.base.CallBackFun;
 import z3d.base.ObjData;
 import z3d.program.Shader3D;
 import z3d.res.SceneRes;
+import z3d.scene.Scene3D;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private GLSurfaceView mGLView;
     private SceneRes sceneRes;
 
+    private Scene3D scene3D;
 
-    private List<BaseDisplaySprite> buildItem;
+    private List<Display3DSprite> buildItem;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                Log.d("加载结算", "StateChange: ");
+                Log.d("加载结束", "StateChange: ");
 
             }
         });
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadSceneRes()
     {
 
+        this.scene3D=new Scene3D();
         this.sceneRes = new SceneRes();
 
         try {
@@ -125,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("dd", "makeOBjData: ");
 
             this.buildItem=new ArrayList();
-            BaseDisplaySprite a=new BaseDisplaySprite();
+            Display3DSprite a=new Display3DSprite();
+            a.scene3d=this.scene3D;
             a.objData =new ObjData();
             a.objData.makeTriModel();
 
@@ -138,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private  void makeShaderA(BaseDisplaySprite dis)
+    private  void makeShaderA(Display3DSprite dis)
     {
         String vertex= "attribute vec3 vPosition;\n"+
 
