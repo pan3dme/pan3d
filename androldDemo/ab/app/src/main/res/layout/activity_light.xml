@@ -30,10 +30,4 @@
             android:id="@+id/specular"
             android:layout_alignParentBottom="true" />
     </LinearLayout>
-
-    <view
-        android:id="@+id/view"
-        class="Pan3d.camera.TextureController$GLView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </RelativeLayout>

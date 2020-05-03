@@ -10,5 +10,5 @@ void main() {
 //    gl_FragColor=finalColor;
 //vec4 finalColor=vec4(1.0);
        //给此片元颜色值
-    gl_FragColor=finalColor;
+    gl_FragColor=finalColor*vAmbient+finalColor*vSpecular+finalColor*vDiffuse;
 }

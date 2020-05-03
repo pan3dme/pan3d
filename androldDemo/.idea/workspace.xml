@@ -1,69 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae33d4e5-740e-48ee-a8b0-cbcf5b38521e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/base/ByteArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/base/ByteArrayJava.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/base/CallBackFun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/base/ObjData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/base/ObjDataManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/base/ResGC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/base/Scene_data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/Display3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/CombineParticle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ParticleData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ParticleGpuData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ball/ParticleBallGpuData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ctrl/BaseAnim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ctrl/KeyFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ctrl/TimeLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/facet/ParticleFacetData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/engine/GC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/engine/ResCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/filemodel/ParticleManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/material/ConstItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/material/MaterialBaseParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/material/MaterialManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/material/MaterialParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/material/TexItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/res/SceneRes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/units/Scene_data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/units/TimeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/CurveItemVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/CurveVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/Matrix3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/Object3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/ParamDataConVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/ParamDataVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/ParicleRandomColorVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/Quaternion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/Vector2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/z3d/vo/Vector3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/res/raw/file2012.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/res/raw/file2018.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/egl/EGLHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/egl/EGLHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/render/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/render/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/utils/GLEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/app/src/main/java/edu/wuwang/opengl/utils/GLEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidOpenGLDemo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidOpenGLDemo/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-    </list>
+    <list default="true" id="ae33d4e5-740e-48ee-a8b0-cbcf5b38521e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ab/app/src/main/java/Pan3d/filter/AFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#8203#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ab/app/src/main/java/Pan3d/blend/WheelView.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -80,9 +43,126 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Pan3d" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Pan3d" type="462c0819:PsiDirectoryNode" />
+              <item name="blend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Pan3d" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Pan3d" type="462c0819:PsiDirectoryNode" />
+              <item name="obj" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="z3d" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="z3d" type="462c0819:PsiDirectoryNode" />
+              <item name="display" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="androldDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androldDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="ab" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -116,22 +196,37 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1653" y="25" width="1652" height="1025" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.329859" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Resources Explorer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.329859" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="Resources Explorer" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
     </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ab/app/src/main/java/Pan3d/filter/AFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#8203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ab/app/src/main/java/Pan3d/blend/WheelView.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
 </project>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="edu.wuwang.opengl.Pan3d.MainActivity">
+    tools:context="edu.wuwang.opengl.MainActivity">
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/mList">
@@ -63,5 +63,4 @@
         android:text="@string/type_obj2"
         android:id="@+id/btObj2"
         android:onClick="onClick" />
-
 </LinearLayout>

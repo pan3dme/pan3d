@@ -7,7 +7,7 @@
         <!--android:layout_height="match_parent"-->
     <!--android:src="@mipmap/tbg"-->
     <!--android:scaleType="centerCrop"/>-->
-    <Pan3d.etc.ZipAniView
+    <edu.wuwang.opengl.etc.ZipAniView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/mAni"
