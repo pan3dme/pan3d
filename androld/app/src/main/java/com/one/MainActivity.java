@@ -8,7 +8,7 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.Bundle;
 import android.util.Log;
-import com.one.five.obj.BaseDisplaySprite;
+import z3d.display.BaseDisplaySprite;
 import com.one.five.utils.Gl2Utils;
 import org.json.JSONArray;
 import java.io.InputStream;

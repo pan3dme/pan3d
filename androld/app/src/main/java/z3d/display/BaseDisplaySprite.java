@@ -1,4 +1,4 @@
-package com.one.five.obj;
+package z3d.display;
 
 import android.opengl.GLES20;
 
@@ -23,7 +23,8 @@ public   class BaseDisplaySprite  extends Display3D {
 
     }
     public void draw(){
-
+//   [ctx pushVa:this.objData.verticesBuffer];
+//    [ctx setVaOffset:this.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
         if(this.shader3D!=null){
             GLES20.glUseProgram(this.shader3D.program);
             GLES20.glUniformMatrix4fv(GLES20.glGetUniformLocation(this.shader3D.program,"vMatrix"),1,false,matrix,0);
