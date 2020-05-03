@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e956353-b77c-4b2b-91ba-633d7aa7ecf8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/Display3DShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/ObjData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/ObjData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/program/Shader3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

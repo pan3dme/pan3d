@@ -7,6 +7,8 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.util.Log;
+
+import z3d.display.Display3DShader;
 import z3d.display.Display3DSprite;
 import com.one.five.utils.Gl2Utils;
 import org.json.JSONArray;
@@ -122,13 +124,13 @@ public class MainActivity extends AppCompatActivity {
             Log.d("dd", "makeOBjData: ");
 
             this.buildItem=new ArrayList();
-            Display3DSprite a=new Display3DSprite();
-            a.scene3d=this.scene3D;
-            a.objData =new ObjData();
-            a.objData.makeTriModel();
-
-            makeShaderA(a);
-            this.buildItem.add(a);
+            Display3DSprite dic=new Display3DSprite();
+            dic.scene3d=this.scene3D;
+            dic.objData =new ObjData();
+            dic.objData.makeTriModel();
+            dic.shader3D=new Display3DShader();
+            dic.shader3D.encode();
+            this.buildItem.add(dic);
 
 
         } catch (Exception e) {
@@ -136,33 +138,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private  void makeShaderA(Display3DSprite dis)
-    {
-        String vertex= "attribute vec3 vPosition;\n"+
-
-                "uniform mat4 vMatrix;\n"+
-                "varying vec2 textureCoordinate;\n"+
-                "void main(){\n"+
-                "gl_Position = vMatrix*vec4(vPosition*0.1,1);\n"+
-
-                "}";
-
-
-        String fragment ="precision mediump float;\n"+
-                "varying vec2 textureCoordinate;\n"+
-                "varying vec4 vDiffuse;\n"+
-                "void main() {\n"+
-                "gl_FragColor= vec4(1.0,0.0,1.0,1.0);\n"+
-                "}";
-
-
-        Shader3D vc=new Shader3D();
-        vc.encode();
-        vc.encodeVstr(vertex,fragment);
-
-
-        dis.shader3D=vc;
-    }
 
 
     @Override
