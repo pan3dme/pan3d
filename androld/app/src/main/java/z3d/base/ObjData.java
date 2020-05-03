@@ -45,30 +45,30 @@ public class ObjData extends ResCount {
 
 
         ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
+        alvResult.add(-1f);
         alvResult.add(0f);
-        alvResult.add(10f);
         alvResult.add(0f);
 
         alvResult.add(3f);
         alvResult.add(0f);
         alvResult.add(0f);
 
-        alvResult.add(0f);
-        alvResult.add(0f);
-        alvResult.add(1f);
-
-
-        alvResult.add(0f);
-        alvResult.add(0f);
+        alvResult.add(3f);
+        alvResult.add(5f);
         alvResult.add(0f);
 
-        alvResult.add(1f);
-        alvResult.add(1f);
+
+        alvResult.add(-1f);
+        alvResult.add(0f);
         alvResult.add(0f);
 
+        alvResult.add(3f);
+        alvResult.add(5f);
         alvResult.add(0f);
-        alvResult.add(10f);
-        alvResult.add(10f);
+
+        alvResult.add(-1f);
+        alvResult.add(4f);
+        alvResult.add(0f);
 
 
         setVert(alvResult);

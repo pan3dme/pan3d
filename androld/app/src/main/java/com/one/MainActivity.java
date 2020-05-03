@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
-import android.opengl.Matrix;
 import android.os.Bundle;
 import android.util.Log;
 import z3d.display.Display3DSprite;
@@ -67,13 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 for(int i=0;buildItem!=null&&i< buildItem.size();i++){
 
-                    if(i==1){
 
-                        Matrix.rotateM(  buildItem.get(i).getMatrix(),0,0.3f,0,1,0);
-                    }else{
-                        Matrix.rotateM(  buildItem.get(i).getMatrix(),0,1.5f,0,1,0);
-                    }
-                    buildItem.get(i).draw();
+                    buildItem.get(i).upFrame();
 
                 }
 

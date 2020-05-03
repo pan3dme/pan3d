@@ -2,7 +2,7 @@ package z3d.vo;
 
 public class Matrix3D {
     private  static  int MATRIX_SIZE = 16;
-    private  static  Matrix3D tempM ;
+    private  static  Matrix3D tempM=new  Matrix3D() ;
     public float[]  m =new float[Matrix3D.MATRIX_SIZE];
     public Matrix3D(){
         this.identity();
