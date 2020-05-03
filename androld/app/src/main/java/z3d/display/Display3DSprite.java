@@ -34,13 +34,14 @@ public   class Display3DSprite extends Display3D {
 
         if(this.shader3D!=null){
 
-
             this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
             ctx.setProgame(this.shader3D.program);
             ctx.setVcMatrix4fv(this.shader3D,"vMatrix",this.modeMatrix.m);
-            ctx.setVa(0,3,this.objData.vertexBuffer);
+
             ctx.setVaOffset(this.shader3D, "vPosition");
-            ctx.drawCall(objData.treNum);
+            ctx.setVa(0,3,this.objData.vertexBuffer);
+
+            ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
 
 
             GLES20.glDisableVertexAttribArray(0);

@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         vc.encode();
         vc.encodeVstr(vertex,fragment);
 
+
         dis.shader3D=vc;
     }
 
