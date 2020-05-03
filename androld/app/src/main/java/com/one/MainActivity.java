@@ -17,6 +17,7 @@ import java.util.List;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import z3d.base.CallBackFun;
+import z3d.base.ObjData;
 import z3d.program.Shader3D;
 import z3d.res.SceneRes;
 
@@ -124,9 +125,10 @@ public class MainActivity extends AppCompatActivity {
             Log.d("dd", "makeOBjData: ");
 
             this.buildItem=new ArrayList();
-
             BaseDisplaySprite a=new BaseDisplaySprite();
-            a.setObj3D(null);
+            a.objData =new ObjData();
+            a.objData.makeTriModel();
+
             makeShaderA(a);
             this.buildItem.add(a);
 
