@@ -532,4 +532,31 @@ public class Matrix3D {
         $q.fromMatrix(this);
         return $q.toEulerAngles(target);
     }
+
+    public Matrix3D clone()
+    {
+
+        Matrix3D   $target = new Matrix3D();
+
+
+        $target.m[0] = this.m[0];
+        $target.m[1] = this.m[1];
+        $target.m[2] = this.m[2];
+        $target.m[3] = this.m[3];
+        $target.m[4] = this.m[4];
+        $target.m[5] = this.m[5];
+        $target.m[6] = this.m[6];
+        $target.m[7] = this.m[7];
+        $target.m[8] = this.m[8];
+        $target.m[9] = this.m[9];
+        $target.m[10] = this.m[10];
+        $target.m[11] = this.m[11];
+        $target.m[12] = this.m[12];
+        $target.m[13] = this.m[13];
+        $target.m[14] = this.m[14];
+        $target.m[15] = this.m[15];
+
+        return $target;
+
+    }
 }

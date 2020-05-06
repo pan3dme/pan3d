@@ -6,5 +6,9 @@ public class Display3D {
 
     public Scene3D scene3d;
 
-  //  @property (nonatomic, strong)  Scene3D *scene3d;
+    public void  upFrame()
+    {
+
+    }
+
 }

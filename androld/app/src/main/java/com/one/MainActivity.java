@@ -71,8 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
                     buildItem.get(i).upFrame();
 
-                }
 
+
+
+                }
+                scene3D.upFrame();
                 Log.d("加载结束", "StateChange: ");
 
             }
@@ -128,7 +131,9 @@ public class MainActivity extends AppCompatActivity {
             dic.scene3d=this.scene3D;
             dic.objData =new ObjData();
             dic.objData.makeTriModel();
-            this.buildItem.add(dic);
+          //  this.buildItem.add(dic);
+
+            this.scene3D.addDisplay(dic);
 
 
         } catch (Exception e) {
