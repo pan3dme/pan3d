@@ -35,8 +35,8 @@ public   class Display3DSprite extends Display3D {
     private void  registetProgame()
     {
 
-        ProgrmaManager.registe(Display3DShader.shaderStr,new Display3DShader());
-        this.shader3D=ProgrmaManager.getProgram(Display3DShader.shaderStr);
+        ProgrmaManager.getInstance().registe(Display3DShader.shaderStr,new Display3DShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderStr);
 
     }
 

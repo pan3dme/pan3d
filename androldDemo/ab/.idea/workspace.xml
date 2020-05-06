@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6e956353-b77c-4b2b-91ba-633d7aa7ecf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/Display3DShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/Display3DShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

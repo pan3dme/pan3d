@@ -128,8 +128,6 @@ public class MainActivity extends AppCompatActivity {
             dic.scene3d=this.scene3D;
             dic.objData =new ObjData();
             dic.objData.makeTriModel();
-            dic.shader3D=new Display3DShader();
-            dic.shader3D.encode();
             this.buildItem.add(dic);
 
 
