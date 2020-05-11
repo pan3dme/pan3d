@@ -1,5 +1,7 @@
 package z3d.scene;
 
+import android.opengl.GLES20;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,14 +26,16 @@ public class Scene3D extends ResGC {
     }
     public  void  upFrame()
     {
+        this.camera3D._rotationY++;
+        this.camera3D._rotationX=30;
         this.camera3D.upFrame();
-
         for(int i=0;displayList!=null&&i< displayList.size();i++){
-
             displayList.get(i).upFrame();
-
         }
-
+    }
+    public  void resizeScene()
+    {
+        GLES20.glViewport(0,0,this.camera3D.fovw,this.camera3D.fovh);
     }
     public  void  addDisplay(Display3D dis)
     {

@@ -19,6 +19,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import z3d.base.CallBackFun;
 import z3d.base.ObjData;
+import z3d.display.basedis.DisplayBaseSprite;
 import z3d.program.Shader3D;
 import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
@@ -41,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -56,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
                 GLES20.glViewport(0,0,width,height);
-                float[] matrixA= Gl2Utils.getOriginalMatrix();
+
+                scene3D.camera3D.fovw=width;
+                scene3D.camera3D.fovh=height;
+                scene3D.resizeScene();
 
             }
 
@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
                 GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-
                 scene3D.upFrame();
                 Log.d("加载结束", "StateChange: ");
 
@@ -110,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("dd", "makeOBjData: ");
 
 
-            Display3DSprite dic=new Display3DSprite();
+            DisplayBaseSprite dic=new DisplayBaseSprite();
             dic.scene3d=this.scene3D;
 
 

@@ -1,10 +1,10 @@
-package z3d.display;
+package z3d.display.basedis;
 
 import z3d.program.Shader3D;
 
-public class Display3DShader extends Shader3D {
+public class DisplayBaseShader extends Shader3D {
 
-    public  static  String shaderStr="Display3DShader";
+    public  static  String shaderStr="DisplayBaseShader";
     public String getVertexShaderString() {
 
         String vertex= "attribute vec3 vPosition;\n"+
@@ -27,7 +27,7 @@ public class Display3DShader extends Shader3D {
                 "varying vec2 textureCoordinate;\n"+
                 "varying vec4 vDiffuse;\n"+
                 "void main() {\n"+
-                "gl_FragColor= vec4(1.0,0.0,0.0,1.0);\n"+
+                "gl_FragColor= vec4(1.0,0.0,1.0,1.0);\n"+
                 "}";
 
         return fragment;

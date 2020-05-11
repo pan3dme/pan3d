@@ -10,8 +10,8 @@ public class Camera3D extends Object3D {
     public Matrix3D modelMatrix;
     public float distance;
     public float sceneViewHW;
-    public float fovw;
-    public float fovh;
+    public int fovw;
+    public int fovh;
 
 
     public Camera3D()
@@ -19,7 +19,7 @@ public class Camera3D extends Object3D {
         this.camMatrix3D=new Matrix3D();
         this.viewMatrix =new Matrix3D();
         this.modelMatrix =new Matrix3D();
-        this.distance=500;
+        this.distance=100;
         this.sceneViewHW=100;
         this.fovw=300;
         this.fovh=500;

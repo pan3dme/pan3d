@@ -1,23 +1,19 @@
-package z3d.display;
+package z3d.display.basedis;
 
 import android.opengl.GLES20;
 
-import com.one.five.utils.MatrixUtils;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import z3d.base.ObjData;
 import z3d.core.Context3D;
+import z3d.display.Display3D;
 
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
 
-
-public   class Display3DSprite extends Display3D {
-
+public class DisplayBaseSprite extends Display3D {
     private static final String TAG="Filter";
 
     public Shader3D shader3D;
@@ -26,7 +22,7 @@ public   class Display3DSprite extends Display3D {
 
 
     private int skipNum;
-    public Display3DSprite( ){
+    public DisplayBaseSprite( ){
 
         this.skipNum=0;
         this.modeMatrix=new Matrix3D();
@@ -68,8 +64,8 @@ public   class Display3DSprite extends Display3D {
     private void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(Display3DShader.shaderStr,new Display3DShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderStr);
+        ProgrmaManager.getInstance().registe(DisplayBaseShader.shaderStr,new DisplayBaseShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(DisplayBaseShader.shaderStr);
 
     }
 
