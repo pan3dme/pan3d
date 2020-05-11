@@ -4,6 +4,7 @@ import android.opengl.GLES20;
 
 import com.one.five.utils.MatrixUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import z3d.base.ObjData;
@@ -30,6 +31,38 @@ public   class Display3DSprite extends Display3D {
         this.skipNum=0;
         this.modeMatrix=new Matrix3D();
         this.registetProgame();
+        this.makeTempObjData();
+    }
+    private void  makeTempObjData()
+    {
+        this.objData =new ObjData();
+
+        ObjData od=this.objData;
+
+        od.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
+        od.verticeslist.add(0f);
+        od.verticeslist.add(0f);
+        od.verticeslist.add(0f);
+
+        od.verticeslist.add(1f);
+        od.verticeslist.add(0f);
+        od.verticeslist.add(0f);
+
+        od.verticeslist.add(1f);
+        od.verticeslist.add(1f);
+        od.verticeslist.add(0f);
+
+
+        od.indexs=new ArrayList<Short>();
+        od.indexs.add((short)0);
+        od.indexs.add((short)1);
+        od.indexs.add((short)2);
+
+
+
+        od.upToGup();
+
+
     }
 
     private void  registetProgame()
@@ -45,7 +78,7 @@ public   class Display3DSprite extends Display3D {
 
         if(this.shader3D!=null){
 
-            this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
+          //  this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
             ctx.setProgame(this.shader3D.program);
             ctx.setVcMatrix4fv(this.shader3D,"vMatrix",this.modeMatrix.m);
 

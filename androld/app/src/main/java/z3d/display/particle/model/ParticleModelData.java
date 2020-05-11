@@ -29,7 +29,7 @@ public class ParticleModelData extends ParticleData {
         int iLen = $byte.readInt();
         this.objData.indexs=new ArrayList<>();
         for (int k = 0; k < iLen; k++) {
-            this.objData.indexs.add($byte.readInt());
+            this.objData.indexs.add((short)$byte.readInt());
         }
         this.objData.stride = dataWidth * 4;
         super.setAllByteInfo($byte);

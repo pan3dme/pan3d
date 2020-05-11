@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Scene3D scene3D;
 
-    private List<Display3DSprite> buildItem;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,15 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                 GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                for(int i=0;buildItem!=null&&i< buildItem.size();i++){
 
-
-                    buildItem.get(i).upFrame();
-
-
-
-
-                }
                 scene3D.upFrame();
                 Log.d("加载结束", "StateChange: ");
 
@@ -89,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
         this.sceneRes = new SceneRes();
 
         try {
-
-
             InputStream in = getResources().openRawResource(R.raw.file2012);
             //获取文件的字节数
             int lenght = in.available();
@@ -101,14 +90,8 @@ public class MainActivity extends AppCompatActivity {
             this.sceneRes.loadComplete(buffer ,new CallBackFun() {
                 @Override
                 public void StateChange(boolean State) {
-
                     Log.d("加载结算", "StateChange: ");
-
                     makeOBjData();
-
-
-
-
                 }
             });
 
@@ -126,12 +109,10 @@ public class MainActivity extends AppCompatActivity {
 
             Log.d("dd", "makeOBjData: ");
 
-            this.buildItem=new ArrayList();
+
             Display3DSprite dic=new Display3DSprite();
             dic.scene3d=this.scene3D;
-            dic.objData =new ObjData();
-            dic.objData.makeTriModel();
-          //  this.buildItem.add(dic);
+
 
             this.scene3D.addDisplay(dic);
 

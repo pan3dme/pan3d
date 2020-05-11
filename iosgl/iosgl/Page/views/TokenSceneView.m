@@ -28,6 +28,11 @@
 #import "DisplayTestSprite.h"
 #import "Scene3D.h"
 #import "TextureManager.h"
+#import <YBImageBrowser/YBIBVideoData.h>
+#import <YBImageBrowser/YBImageBrowser.h>
+ 
+ 
+ 
 
 
 @interface TokenSceneView ()
@@ -115,6 +120,18 @@
 -(void)playTypeBut:(int)tabId;
 {
     
+ 
+    
+     YBIBVideoData *data2 = [YBIBVideoData new];
+     data2.videoURL =  [NSURL URLWithString:@"http://cdn-res.hb88.tech//static/upload/2020050905/video/4767059f836bbdfe6dfd1d3c942c97b8.mp4"];
+ 
+
+     YBImageBrowser *browser = [YBImageBrowser new];
+     browser.dataSourceArray = @[  data2];
+ 
+     [browser show];
+    
+    /*
     
     [self.sceneView makeEemptyScene];
     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
@@ -184,7 +201,7 @@
             break;
     }
     
-    
+    */
     
 }
 -(void)makeRollAndMount;

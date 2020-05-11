@@ -14,7 +14,7 @@ public class ObjData extends ResCount {
 
     public List<Float> verticeslist;
     public List<Float> uvlist;
-    public List<Integer> indexs;
+    public List<Short> indexs;
     public List<Float> lightuvs;
     public List<Float> normals;
     public List<Float> tangents;
@@ -45,62 +45,75 @@ public class ObjData extends ResCount {
     public void makeTriModel(){
 
 
-        ArrayList<Float> alvResult=new ArrayList<Float>();//结果顶点坐标列表
-        alvResult.add(-1f);
-        alvResult.add(0f);
-        alvResult.add(0f);
+        this.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
+        this.verticeslist.add(-1f);
+        this.verticeslist.add(0f);
+        this.verticeslist.add(0f);
 
-        alvResult.add(3f);
-        alvResult.add(0f);
-        alvResult.add(0f);
+        this.verticeslist.add(3f);
+        this.verticeslist.add(0f);
+        this.verticeslist.add(0f);
 
-        alvResult.add(3f);
-        alvResult.add(5f);
-        alvResult.add(0f);
+        this.verticeslist.add(3f);
+        this.verticeslist.add(5f);
+        this.verticeslist.add(0f);
 
-        alvResult.add(-1f);
-        alvResult.add(4f);
-        alvResult.add(0f);
+        this.verticeslist.add(-1f);
+        this.verticeslist.add(4f);
+        this.verticeslist.add(0f);
 
-
-        alvResult.add(-1f);
-        alvResult.add(0f);
-        alvResult.add(0f);
-
+        this.verticeslist.add(-1f);
+        this.verticeslist.add(0f);
+        this.verticeslist.add(0f);
 
 
-        setVert(alvResult);
+        this.indexs=new ArrayList<Short>();//结果顶点坐标列表
+        this.indexs.add((short)0);
+        this.indexs.add((short)1);
+        this.indexs.add((short)2);
 
 
-        this.makeIndex();
 
+        this.upToGup();
 
     }
-    private void makeIndex()
+    public void  upToGup()
     {
-        final short index[]={
-                0,1,2,0,2,3
-        };
-        ByteBuffer cc= ByteBuffer.allocateDirect(index.length*2);
-        cc.order(ByteOrder.nativeOrder());
-        this.indexBuffer=cc.asShortBuffer();
-        this.indexBuffer.put(index);
-        this.indexBuffer.position(0);
-
-
-        this.treNum=index.length;
+        this.vertexBuffer=this.upGpuvertexBufferbbb(this.verticeslist);
+        this.indexBuffer=this.upGpuIndexBuffercopy(this.indexs);
+        this.treNum= this.indexs.size();
+    }
+/*
+short Indexbuff
+ */
+    public  ShortBuffer upGpuIndexBuffercopy(List<Short> data){
+        int size=data.size();
+        ByteBuffer buffer=ByteBuffer.allocateDirect(size*2);
+        buffer.order(ByteOrder.nativeOrder());
+        ShortBuffer verBuff=buffer.asShortBuffer();
+        for (int i=0;i<size;i++){
+            verBuff.put(data.get(i));
+        }
+        verBuff.position(0);
+        return verBuff;
 
     }
-    private void setVert(ArrayList<Float> data){
+    /*
+    float vertexBuff
+     */
+    public  FloatBuffer upGpuvertexBufferbbb(List<Float> data){
         int size=data.size();
         ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
         buffer.order(ByteOrder.nativeOrder());
-        this.vertexBuffer=buffer.asFloatBuffer();
+        FloatBuffer verBuff=buffer.asFloatBuffer();
         for (int i=0;i<size;i++){
-            this.vertexBuffer.put(data.get(i));
+            verBuff.put(data.get(i));
         }
-        this.vertexBuffer.position(0);
+        verBuff.position(0);
+        return verBuff;
 
     }
+
+
 
 }

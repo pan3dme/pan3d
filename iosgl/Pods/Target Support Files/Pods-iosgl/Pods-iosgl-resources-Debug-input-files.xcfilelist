@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-iosgl/Pods-iosgl-resources.sh
 ${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
+${PODS_ROOT}/YBImageBrowser/YBImageBrowser/YBImageBrowser.bundle
+${PODS_ROOT}/YBImageBrowser/Video/YBImageBrowserVideo.bundle
