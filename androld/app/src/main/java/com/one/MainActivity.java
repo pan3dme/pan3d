@@ -20,6 +20,7 @@ import javax.microedition.khronos.opengles.GL10;
 import z3d.base.CallBackFun;
 import z3d.base.ObjData;
 import z3d.display.basedis.DisplayBaseSprite;
+import z3d.display.line.LineDisplaySprite;
 import z3d.program.Shader3D;
 import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
@@ -109,10 +110,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("dd", "makeOBjData: ");
 
 
-            DisplayBaseSprite dic=new DisplayBaseSprite();
+            LineDisplaySprite dic=new LineDisplaySprite();
             dic.scene3d=this.scene3D;
-
-
             this.scene3D.addDisplay(dic);
 
 
