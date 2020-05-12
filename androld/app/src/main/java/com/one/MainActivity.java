@@ -1,3 +1,5 @@
+
+
 package com.one;
 
 
@@ -9,27 +11,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.InputDevice;
 import android.view.MotionEvent;
+import android.view.View;
 
-import z3d.display.Display3DShader;
-import z3d.display.Display3DSprite;
-import com.one.five.utils.Gl2Utils;
+
 import org.json.JSONArray;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import z3d.base.CallBackFun;
-import z3d.base.ObjData;
-import z3d.display.basedis.DisplayBaseSprite;
+
 import z3d.display.line.GridLineSprite;
-import z3d.display.line.LineDisplaySprite;
-import z3d.program.Shader3D;
+
 import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private GLSurfaceView mGLView;
     private SceneRes sceneRes;
@@ -76,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
+
+    @Override
+    public void onClick(View v) {
+        Log.d("onClick", "onClick: ");
+    }
+
     private void loadSceneRes()
     {
 

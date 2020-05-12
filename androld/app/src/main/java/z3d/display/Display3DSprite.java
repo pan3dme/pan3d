@@ -2,10 +2,10 @@ package z3d.display;
 
 import android.opengl.GLES20;
 
-import com.one.five.utils.MatrixUtils;
+
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 import z3d.base.ObjData;
 import z3d.core.Context3D;
@@ -82,7 +82,7 @@ public   class Display3DSprite extends Display3D {
             ctx.setProgame(this.shader3D.program);
 
             Matrix3D m=new Matrix3D();
-            m.appendScale(10,10,0);
+            m.appendScale(1,1,1);
 
 
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);

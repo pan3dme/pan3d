@@ -91,8 +91,7 @@ public class LineDisplaySprite extends DisplayBaseSprite {
             this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
             ctx.setProgame(this.shader3D.program);
 
-            Matrix3D m=new Matrix3D();
-            m.appendScale(10,10,0);
+
 
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);

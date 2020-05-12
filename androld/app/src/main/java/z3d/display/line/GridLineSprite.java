@@ -12,7 +12,7 @@ public class GridLineSprite  extends LineDisplaySprite {
         this.baseColor=new Vector3D(1,0,1);
         this.clearLine();
 
-        float w = 500;
+        float w = 100;
         float n = 10;
         float skeep = w / n;
 
