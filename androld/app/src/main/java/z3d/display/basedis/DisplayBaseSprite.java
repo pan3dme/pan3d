@@ -21,12 +21,14 @@ public class DisplayBaseSprite extends Display3D {
     public Matrix3D modeMatrix;
 
 
-    private int skipNum;
     public DisplayBaseSprite( ){
-
-        this.skipNum=0;
         this.modeMatrix=new Matrix3D();
         this.registetProgame();
+        this.initData();
+    }
+    protected void  initData()
+    {
+
         this.makeTempObjData();
     }
     protected void  makeTempObjData()

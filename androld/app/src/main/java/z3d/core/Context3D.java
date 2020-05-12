@@ -27,6 +27,8 @@ public class Context3D {
     public void setVaOffset(Shader3D shader3d, String name)
     {
         GLES20.glEnableVertexAttribArray(GLES20.glGetAttribLocation(shader3d.program, name));
+
+
     }
     public void  setVcMatrix4fv(Shader3D shader3d, String name , float[] m)
     {

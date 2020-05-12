@@ -80,6 +80,9 @@ public class ObjData extends ResCount {
     public void  upToGup()
     {
         this.vertexBuffer=this.upGpuvertexBufferbbb(this.verticeslist);
+        if(this.normals.size()>0){
+            this.normalsBuffer=this.upGpuvertexBufferbbb(this.normals);
+        }
         this.indexBuffer=this.upGpuIndexBuffercopy(this.indexs);
         this.treNum= this.indexs.size();
     }

@@ -14,35 +14,50 @@ import z3d.vo.Vector3D;
 
 public class LineDisplaySprite extends DisplayBaseSprite {
 
-    private Vector3D colorV3d;
+    public Vector3D baseColor=new Vector3D(1,0,1);
+
+    public LineDisplaySprite()
+    {
+
+        super();
+
+    }
     protected void  registetProgame()
     {
 
         ProgrmaManager.getInstance().registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
         this.shader3D=ProgrmaManager.getInstance().getProgram(LineDisplayShader.shaderNameStr);
     }
-    public  LineDisplaySprite()
+
+    protected void  initData()
     {
-        super();
-        this.onCreated();
-    }
-    protected void  onCreated()
-    {
+
         this.objData =new ObjData();
         this.clearLine();
-        this.colorV3d=new Vector3D(1,0,0);
 
-        this.addLineA2B(new Vector3D(0,0 ,0) ,new Vector3D(500,0,0));
-        this.addLineA2B(new Vector3D(0,0 ,0) ,new Vector3D(0,100,0));
+
+        this.makeLineMode(new Vector3D(0,0 ,0) ,new Vector3D(500,0,0));
+        this.makeLineMode(new Vector3D(0,0 ,0) ,new Vector3D(0,100,0));
+
+        this.upLineDataToGpu();
+    }
+
+    public void  upLineDataToGpu()
+    {
         this.objData.upToGup();
     }
     public  void clearLine()
     {
 
         this.objData.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
+        this.objData.normals=new ArrayList<Float>();//结果顶点坐标列表
         this.objData.indexs=new ArrayList<Short>();
     }
-    public  void  addLineA2B(Vector3D a, Vector3D b)
+    public  void  makeLineMode(Vector3D a, Vector3D b )
+    {
+        this.makeLineMode(a, b,this.baseColor);
+    }
+    public  void  makeLineMode(Vector3D a, Vector3D b,Vector3D c)
     {
         this.objData.verticeslist.add(a.x );
         this.objData.verticeslist.add(a.y );
@@ -53,22 +68,25 @@ public class LineDisplaySprite extends DisplayBaseSprite {
         this.objData.verticeslist.add(b.z );
 
 
+        this.objData.normals.add(c.x );
+        this.objData.normals.add(c.y );
+        this.objData.normals.add(c.z );
+
+        this.objData.normals.add(c.x );
+        this.objData.normals.add(c.y );
+        this.objData.normals.add(c.z );
+
+
         this.objData.indexs.add((short) this.objData.indexs.size());
         this.objData.indexs.add((short) this.objData.indexs.size());
 
     }
-    protected void  makeTempObjData()
-    {
 
-
-
-
-    }
 
     public void upFrame(){
         Context3D ctx=this.scene3d.context3D;
 
-        if(this.shader3D!=null){
+        if(this.shader3D!=null&&this.objData.treNum>0){
 
             this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
             ctx.setProgame(this.shader3D.program);
@@ -82,6 +100,9 @@ public class LineDisplaySprite extends DisplayBaseSprite {
 
             ctx.setVaOffset(this.shader3D, "vPosition");
             ctx.setVa(0,3,this.objData.vertexBuffer);
+
+            ctx.setVaOffset(this.shader3D, "vColorv3d");
+            ctx.setVa(1,3,this.objData.normalsBuffer);
 
 
            GLES20.glDrawElements(GLES20.GL_LINES,this.objData.treNum, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
