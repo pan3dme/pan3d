@@ -94,20 +94,13 @@ public class LineDisplaySprite extends DisplayBaseSprite {
             Matrix3D m=new Matrix3D();
             m.appendScale(10,10,0);
 
-
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
-            ctx.setVaOffset(this.shader3D, "vPosition");
-            ctx.setVa(0,3,this.objData.vertexBuffer);
+            ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
+            ctx.setVa(this.shader3D,"vColorv3d",3,this.objData.normalsBuffer);
 
-            ctx.setVaOffset(this.shader3D, "vColorv3d");
-            ctx.setVa(1,3,this.objData.normalsBuffer);
-
-
-           GLES20.glDrawElements(GLES20.GL_LINES,this.objData.treNum, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
-
-
+            GLES20.glDrawElements(GLES20.GL_LINES,this.objData.treNum, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
             GLES20.glDisableVertexAttribArray(0);
         }
 

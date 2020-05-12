@@ -88,8 +88,7 @@ public   class Display3DSprite extends Display3D {
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
-            ctx.setVaOffset(this.shader3D, "vPosition");
-            ctx.setVa(0,3,this.objData.vertexBuffer);
+            ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
 
             ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
 

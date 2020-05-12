@@ -26,7 +26,7 @@ public class Scene3D extends ResGC {
     }
     public  void  upFrame()
     {
-        this.camera3D._rotationY++;
+//        this.camera3D._rotationY++;
         this.camera3D._rotationX=-30;
         this.camera3D.upFrame();
         for(int i=0;displayList!=null&&i< displayList.size();i++){

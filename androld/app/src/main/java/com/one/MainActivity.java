@@ -7,6 +7,8 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.InputDevice;
+import android.view.MotionEvent;
 
 import z3d.display.Display3DShader;
 import z3d.display.Display3DSprite;
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 scene3D.upFrame();
-                Log.d("加载结束", "StateChange: ");
+
 
             }
         });
@@ -121,6 +123,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    public boolean onGenericMotionEvent(MotionEvent event) {
+
+        if (0 != (event.getSource() & InputDevice.SOURCE_CLASS_POINTER)) {
+            switch (event.getAction()) {
+                // process the scroll wheel movement...处理滚轮事件
+                case MotionEvent.ACTION_SCROLL:
+                    //获得垂直坐标上的滚动方向,也就是滚轮向下滚
+                    if( event.getAxisValue(MotionEvent.AXIS_VSCROLL) < 0.0f){
+                        Log.i("fortest::onGenericMotionEvent", "down" );
+                    }
+                    //获得垂直坐标上的滚动方向,也就是滚轮向上滚
+                    else{
+                        Log.i("fortest::onGenericMotionEvent", "up" );
+                    }
+                    return true;
+            }
+        }
+        return super.onGenericMotionEvent(event);
+    }
 
 
     @Override

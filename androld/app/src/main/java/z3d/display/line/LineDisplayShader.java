@@ -7,15 +7,14 @@ public class LineDisplayShader extends Shader3D {
     public  static  String shaderNameStr="LineDisplayShader";
     public String getVertexShaderString() {
 
-        String vertex=
-                "attribute vec3 vPosition;\n"+
+        String vertex= "attribute vec3 vPosition;\n"+
                 "attribute vec3 vColorv3d;\n"+
                 "uniform mat4 vpMatrix3D;\n"+
                 "uniform mat4 posMatrix;\n"+
 
                 "varying vec3 outColor;\n"+
                 "void main(){\n"+
-                        "outColor=vPosition;\n"+
+                "outColor=vColorv3d;\n"+
                 "gl_Position = vpMatrix3D*vec4(vPosition*0.1,1);\n"+
 
                 "}";
@@ -28,7 +27,7 @@ public class LineDisplayShader extends Shader3D {
         String fragment ="precision mediump float;\n"+
                 "varying vec3 outColor;\n"+
                 "void main() {\n"+
-                  "gl_FragColor=vec4(outColor.xyz,1/0);\n"+
+                "gl_FragColor=vec4(outColor.xyz,1/0);\n"+
                 "}";
 
         return fragment;
