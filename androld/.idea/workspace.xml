@@ -10,16 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/one/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayBaseSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayBaseSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplayShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplayShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplaySprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplaySprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/one/SceneActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,15 +43,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="221">
+              <caret line="34" column="30" lean-forward="true" selection-end-line="159" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2640#2861#0" expanded="true" />
                 <element signature="e#2860#2861#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/SceneActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3440#3661#0" expanded="true" />
+                <element signature="e#3660#3661#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,7 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/one/MyGLSurfaceView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/BaseRenderer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/sprte/VaryRender.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/BoxSprite3D.java" />
@@ -218,6 +222,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayBaseSprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/one/SceneActivity.java" />
       </list>
     </option>
   </component>
@@ -278,56 +283,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="one" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="z3d" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="z3d" type="462c0819:PsiDirectoryNode" />
-              <item name="display" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="z3d" type="462c0819:PsiDirectoryNode" />
-              <item name="display" type="462c0819:PsiDirectoryNode" />
-              <item name="line" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="z3d" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="one" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="z3d" type="462c0819:PsiDirectoryNode" />
-              <item name="scene" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -491,13 +446,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/android/content/Intent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="6854" selection-start-line="6854" selection-end-line="6854" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_obj.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
@@ -815,12 +763,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="221">
+          <caret line="34" column="30" lean-forward="true" selection-end-line="159" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2640#2861#0" expanded="true" />
             <element signature="e#2860#2861#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/SceneActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3440#3661#0" expanded="true" />
+            <element signature="e#3660#3661#0" expanded="true" />
           </folding>
         </state>
       </provider>
