@@ -21,8 +21,10 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import z3d.base.CallBackFun;
 
+import z3d.base.GroupBackFun;
 import z3d.display.line.GridLineSprite;
 
+import z3d.res.GroupRes;
 import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
 
@@ -84,8 +86,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
 
         this.scene3D=new Scene3D();
+        GridLineSprite dic=new GridLineSprite();
+        dic.scene3d=this.scene3D;
+        this.scene3D.addDisplay(dic);
+
+
         this.sceneRes = new SceneRes();
 
+        this.loadLyfGoup();
+
+       // this.loadSeneBase();
+
+    }
+    private void loadSeneBase()
+    {
         try {
             InputStream in = getResources().openRawResource(R.raw.file2012);
             //获取文件的字节数
@@ -107,6 +121,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
     }
+    private void  loadLyfGoup()
+    {
+        try {
+            GroupRes groupRes=new GroupRes();
+            InputStream in = getResources().openRawResource(R.raw.file10017lyf);
+            //获取文件的字节数
+            int lenght = in.available();
+            //创建byte数组byte[]  buffer = new byte[lenght];
+            byte[] buffer = new byte[lenght];
+            //将文件中的数据读到byte数组中
+            in.read(buffer);
+
+            groupRes.loadComplete(buffer, new GroupBackFun() {
+                @Override
+                public void Bfun(GroupRes value) {
+                    Log.d("GroupBackFun", "GroupBackFun: ");
+                }
+            });
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void makeOBjData()
     {
 
@@ -117,9 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d("dd", "makeOBjData: ");
 
 
-            GridLineSprite dic=new GridLineSprite();
-            dic.scene3d=this.scene3D;
-            this.scene3D.addDisplay(dic);
+
 
 
         } catch (Exception e) {
