@@ -14,20 +14,12 @@ import z3d.vo.Vector3D;
 
 public class LineDisplaySprite extends DisplayBaseSprite {
 
-
-//    @property (nonatomic, strong) Vector3D* colorV3d;
-//-(void)clearLine;
-//-(void)addLineA2B:(Vector3D*)a b:(Vector3D*)b;
-
     private Vector3D colorV3d;
-
-
     protected void  registetProgame()
     {
 
         ProgrmaManager.getInstance().registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
         this.shader3D=ProgrmaManager.getInstance().getProgram(LineDisplayShader.shaderNameStr);
-
     }
     public  LineDisplaySprite()
     {
@@ -36,49 +28,39 @@ public class LineDisplaySprite extends DisplayBaseSprite {
     }
     protected void  onCreated()
     {
-
+        this.objData =new ObjData();
         this.clearLine();
         this.colorV3d=new Vector3D(1,0,0);
 
-        this.addLineA2B(new Vector3D(0,0 ,0) ,new Vector3D(100,0,0));
+        this.addLineA2B(new Vector3D(0,0 ,0) ,new Vector3D(500,0,0));
         this.addLineA2B(new Vector3D(0,0 ,0) ,new Vector3D(0,100,0));
-
+        this.objData.upToGup();
     }
-
     public  void clearLine()
     {
 
+        this.objData.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
+        this.objData.indexs=new ArrayList<Short>();
     }
     public  void  addLineA2B(Vector3D a, Vector3D b)
     {
+        this.objData.verticeslist.add(a.x );
+        this.objData.verticeslist.add(a.y );
+        this.objData.verticeslist.add(a.z );
+
+        this.objData.verticeslist.add(b.x );
+        this.objData.verticeslist.add(b.y );
+        this.objData.verticeslist.add(b.z );
+
+
+        this.objData.indexs.add((short) this.objData.indexs.size());
+        this.objData.indexs.add((short) this.objData.indexs.size());
 
     }
     protected void  makeTempObjData()
     {
-        this.objData =new ObjData();
-
-        ObjData od=this.objData;
-
-        od.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
-        od.verticeslist.add(0f);
-        od.verticeslist.add(0f);
-        od.verticeslist.add(0f);
-
-        od.verticeslist.add(100f);
-        od.verticeslist.add(0f);
-        od.verticeslist.add(0f);
 
 
-
-
-        od.indexs=new ArrayList<Short>();
-        od.indexs.add((short)0);
-        od.indexs.add((short)1);
-
-
-
-
-        od.upToGup();
 
 
     }
@@ -97,15 +79,12 @@ public class LineDisplaySprite extends DisplayBaseSprite {
 
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
+
             ctx.setVaOffset(this.shader3D, "vPosition");
             ctx.setVa(0,3,this.objData.vertexBuffer);
 
 
-
-         //  GLES20.glDrawElements(GLES20.GL_TRIANGLES,this.objData.treNum, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
-
-           GLES20.glDrawElements(GLES20.GL_LINES,2, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
-
+           GLES20.glDrawElements(GLES20.GL_LINES,this.objData.treNum, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
 
 
             GLES20.glDisableVertexAttribArray(0);
