@@ -43,7 +43,7 @@ var Pan3d;
             //         var byte: ByteArray = new ByteArray($byte);
             //         combineParticle.setDataByte(byte)
             //     });
-            // }
+            // }ParticleManager
             combineParticle.url = url;
             return combineParticle;
         };

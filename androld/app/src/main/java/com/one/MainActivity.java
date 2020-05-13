@@ -22,8 +22,12 @@ import javax.microedition.khronos.opengles.GL10;
 import z3d.base.CallBackFun;
 
 import z3d.base.GroupBackFun;
+import z3d.base.GroupItem;
 import z3d.display.line.GridLineSprite;
 
+import z3d.display.particle.CombineParticle;
+import z3d.filemodel.ParticleManager;
+import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
@@ -89,8 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         GridLineSprite dic=new GridLineSprite();
         dic.scene3d=this.scene3D;
         this.scene3D.addDisplay(dic);
-
-
         this.sceneRes = new SceneRes();
 
         this.loadLyfGoup();
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void  loadLyfGoup()
     {
         try {
-            GroupRes groupRes=new GroupRes();
+
             InputStream in = getResources().openRawResource(R.raw.file10017lyf);
             //获取文件的字节数
             int lenght = in.available();
@@ -132,11 +134,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             byte[] buffer = new byte[lenght];
             //将文件中的数据读到byte数组中
             in.read(buffer);
-
+            GroupRes groupRes=new GroupRes();
             groupRes.loadComplete(buffer, new GroupBackFun() {
                 @Override
                 public void Bfun(GroupRes value) {
                     Log.d("GroupBackFun", "GroupBackFun: ");
+
+                    for (int i = 0; i < value.dataAry.size(); i++) {
+                        GroupItem item = value.dataAry.get(i);
+                        if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
+
+                            CombineParticle particle =    ParticleManager.getInstance().getParticleByte(item.particleUrl);
+
+                        } else {
+
+                        }
+                    }
                 }
             });
 

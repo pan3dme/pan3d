@@ -48,13 +48,17 @@ public class BaseRes extends ResCount {
             this.readImg();
 
         } else if (fileType == BaseRes.OBJS_TYPE) {
-            // this.readObj(this._byte);
+            Log.d("fileType",   "需要补充" );
+            this.readObj(this._byte);
         } else if (fileType == BaseRes.MATERIAL_TYPE) {
             this.readMaterial();
         } else if (fileType == BaseRes.PARTICLE_TYPE) {
             this.readParticle();
         } else if (fileType == BaseRes.ZIP_OBJS_TYPE) {
             this.readZipObj();
+        }else
+        {
+            Log.d("fileType",   "需要补充" );
         }
         if(this.imgFun!=null){
             this.imgFun.StateChange(true);
@@ -96,28 +100,40 @@ public class BaseRes extends ResCount {
 
     }
 
-    /*
-    public readParticle(): void {
-        var objNum: number = this._byte.readInt();
 
-        var time: number = TimeUtil.getTimer();
+    public List<MaterialInfoVo> readMaterialInfo()
+    {
 
-        for (var i: number = 0; i < objNum; i++) {
-            var url: string = Scene_data.fileRoot + this._byte.readUTF();
-            var size: number = this._byte.readInt();
+        int len = this._byte.readInt();
+        if (len > 0) {
+            List<MaterialInfoVo> $arr  = new ArrayList();
+            for (int i = 0; i < len; i++) {
+                MaterialInfoVo $temp  = new MaterialInfoVo();
+                $temp.type = this._byte.readInt();
+                $temp.name = this._byte.readUTF();
+                if ($temp.type == 0) {
+                    $temp.url = this._byte.readUTF();
+                }
+                if ($temp.type == 1) {
+                    $temp.x = this._byte.readFloat();
+                }
+                if ($temp.type == 2) {
+                    $temp.x = this._byte.readFloat();
+                    $temp.y = this._byte.readFloat();
+                }
+                if ($temp.type == 3) {
+                    $temp.x = this._byte.readFloat();
+                    $temp.y = this._byte.readFloat();
+                    $temp.z = this._byte.readFloat();
+                }
 
-
-            var dataByte: Pan3dByteArray = new Pan3dByteArray;
-            dataByte.length = size;
-            this._byte.readBytes(dataByte, 0, size)
-            ParticleManager.getInstance().addResByte(url, dataByte);
-
-
+                $arr.add($temp);
+            }
+            return $arr;
+        } else {
+            return null;
         }
-
-
     }
-    */
     private  void   readZipObj(){
         int zipLen = this._byte.readInt();
         byte[] zipByte= this._byte.readBytes(zipLen);
@@ -147,9 +163,7 @@ public class BaseRes extends ResCount {
             Log.d("obj地址 ->",   url+" " );
             Log.d("obj大小 ->",   objLen+" " );
 
-
             ObjDataManager.getInstance().loadObjCom(  objByte, url);
-
 
         }
 
@@ -235,26 +249,5 @@ public class BaseRes extends ResCount {
 
 
 
-    /*
-    public read($imgFun: Function = null): void {
-            this._imgFun = $imgFun;
-            var fileType: number = this._byte.readInt();
-            if (fileType == BaseRes.IMG_TYPE) {
-                if (Scene_data.supportBlob) {
-                    this.readImg();
-                } else {
-                    this.readImgLow();
-                }
-            } else if (fileType == BaseRes.OBJS_TYPE) {
-                this.readObj(this._byte);
-            } else if (fileType == BaseRes.MATERIAL_TYPE) {
-                this.readMaterial();
-            } else if (fileType == BaseRes.PARTICLE_TYPE) {
-                this.readParticle();
-            } else if (fileType == BaseRes.ZIP_OBJS_TYPE) {
-                this.readZipObj();
-            }
 
-        }
-     */
 }

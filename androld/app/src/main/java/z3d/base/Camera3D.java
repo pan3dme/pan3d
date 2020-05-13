@@ -32,8 +32,8 @@ public class Camera3D extends Object3D {
         this.viewMatrix.identity();
         this.viewMatrix.perspectiveFieldOfViewLH(1,1,10,1000);
         this.camMatrix3D.identity();
-        this.camMatrix3D.appendRotation(this._rotationY, Vector3D.Y_AXIS);
-        this.camMatrix3D.appendRotation(this._rotationX, Vector3D.X_AXIS);
+        this.camMatrix3D.appendRotation(this.rotationY, Vector3D.Y_AXIS);
+        this.camMatrix3D.appendRotation(this.rotationX, Vector3D.X_AXIS);
         this.camMatrix3D.appendTranslation(0,0,this.distance);
         this.modelMatrix= this.viewMatrix.clone();
         this.modelMatrix.prepend(this.camMatrix3D);

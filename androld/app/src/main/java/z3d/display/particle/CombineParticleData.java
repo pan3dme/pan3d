@@ -58,4 +58,19 @@ public class CombineParticleData extends ResCount {
         return pdata;
     }
 
+    public CombineParticle getCombineParticle()
+    {
+        CombineParticle particle = new CombineParticle();
+        particle.maxTime = this.maxTime;
+
+        for (int i = 0; i < this.dataAry.size(); i++) {
+            Display3DParticle display  = this.dataAry.get(i).creatPartilce();
+            particle.addPrticleItem(display);
+        }
+
+        particle.sourceData = this;
+
+        return particle;
+    }
+
 }

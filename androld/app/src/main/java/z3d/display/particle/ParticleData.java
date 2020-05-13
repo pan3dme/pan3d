@@ -7,6 +7,7 @@ import java.util.List;
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
 import z3d.base.Scene_data;
+import z3d.display.particle.ctrl.TimeLine;
 import z3d.display.particle.ctrl.TimeLineData;
 import z3d.material.MaterialParam;
 import z3d.vo.CurveItemVo;
@@ -103,6 +104,22 @@ public class ParticleData {
         strMaterialUrl = strMaterialUrl.replace("_byte.txt", ".txt");
         strMaterialUrl = strMaterialUrl.replace(".txt", "_byte.txt");
         this.set_materialUrl(strMaterialUrl);
+
+    }
+    public Display3DParticle getParticle()
+    {
+        return null;
+    }
+    public Display3DParticle creatPartilce()
+    {
+
+        Display3DParticle particle = this.getParticle();
+        particle.data = this;
+        TimeLine tl   = new TimeLine();
+        tl.setAllDataInfo(this.timelineData);
+        particle.setTimeLine(tl);
+        particle.onCreated();
+        return particle;
 
     }
 
