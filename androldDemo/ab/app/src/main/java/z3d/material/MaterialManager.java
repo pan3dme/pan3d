@@ -1,5 +1,6 @@
 package z3d.material;
 
+import java.util.Dictionary;
 import java.util.HashMap;
 
 import z3d.base.ByteArray;

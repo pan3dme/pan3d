@@ -6,6 +6,7 @@ import android.util.Log;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.zip.Inflater;
 import java.util.zip.ZipFile;
@@ -100,6 +101,36 @@ public class BaseRes extends ResCount {
 
     }
 
+    //读取材质参数
+    public  static  List<HashMap> readMaterialParamData(ByteArray _byte)
+    {
+        int mpNum = _byte.readInt();
+        if (mpNum > 0) {
+            List<HashMap> mpAry  = new ArrayList<>();
+            for (int j = 0; j < mpNum; j++) {
+                HashMap obj = new HashMap();
+                obj.put("name",_byte.readUTF());
+                int  objType=_byte.readByte();
+                obj.put("type ",objType);
+
+                if (objType == 0) {
+                    obj.put("url", _byte.readUTF());
+                } else if (objType== 1) {
+                    obj.put("x",_byte.readFloat());
+                } else if (objType== 2) {
+                    obj.put("x", _byte.readFloat());
+                    obj.put("y",_byte.readFloat());
+                } else if (objType == 3) {
+                    obj.put("x", _byte.readFloat());
+                    obj.put("y", _byte.readFloat());
+                    obj.put("z",_byte.readFloat());
+                }
+                mpAry.add(obj);
+            }
+            return mpAry;
+        }
+        return  null;
+    }
 
     public List<MaterialInfoVo> readMaterialInfo()
     {

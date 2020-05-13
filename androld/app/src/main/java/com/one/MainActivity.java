@@ -23,12 +23,15 @@ import z3d.base.CallBackFun;
 
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
+import z3d.base.RoleBackFun;
 import z3d.display.line.GridLineSprite;
 
 import z3d.display.particle.CombineParticle;
+import z3d.filemodel.MeshDataManager;
 import z3d.filemodel.ParticleManager;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
+import z3d.res.RoleRes;
 import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
 
@@ -95,8 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.scene3D.addDisplay(dic);
         this.sceneRes = new SceneRes();
 
-        this.loadLyfGoup();
-
+       // this.loadLyfGoup();
+        this.loadRoleRes();
        // this.loadSeneBase();
 
     }
@@ -150,6 +153,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         }
                     }
+                }
+            });
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void  loadRoleRes()
+    {
+        try {
+
+            InputStream in = getResources().openRawResource(R.raw.yezhuz);
+            //获取文件的字节数
+            int lenght = in.available();
+            //创建byte数组byte[]  buffer = new byte[lenght];
+            byte[] buffer = new byte[lenght];
+            //将文件中的数据读到byte数组中
+            in.read(buffer);
+
+            RoleRes groupRes=new RoleRes();
+            groupRes.loadComplete(buffer, new RoleBackFun() {
+                @Override
+                public void Bfun(RoleRes value) {
+
                 }
             });
 
