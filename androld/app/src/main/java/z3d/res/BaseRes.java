@@ -165,6 +165,13 @@ public class BaseRes extends ResCount {
             return null;
         }
     }
+    public ByteArray getZipByte(ByteArray _byte)
+    {
+        int zipLen = this._byte.readInt();
+        byte[] zipByte= this._byte.readBytes(zipLen);
+        byte[] outByte=this.getZipData(zipByte);
+        return  new ByteArray(outByte);
+    }
     private  void   readZipObj(){
         int zipLen = this._byte.readInt();
         byte[] zipByte= this._byte.readBytes(zipLen);

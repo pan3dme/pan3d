@@ -1,5 +1,7 @@
 package z3d.vo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.MeshData;
@@ -13,7 +15,7 @@ public class SkinMesh extends ResCount {
 
     public List<Matrix3D> bindPosInvertMatrixAry ;
 
-//    public boneSocketDic: Object;
+    public HashMap boneSocketDic;
 
     public float fileScale ;
     public float tittleHeight ;
@@ -21,7 +23,7 @@ public class SkinMesh extends ResCount {
 
     public int type ;
 
-//    public animDic: Object = new Object;
+    public HashMap animDic ;
 
     public boolean ready ;
 
@@ -31,11 +33,17 @@ public class SkinMesh extends ResCount {
     public List<List<Float> >  lightData ;
     public List<Vector3D> hitPosItem;
 
-//    public allParticleDic: Object;
+    public HashMap allParticleDic;
     public String url;
     public boolean hasDestory ;
 
 
+    public SkinMesh()
+    {
+        super();
+        this.animDic=new HashMap();
+        this.meshAry=new ArrayList<>();
+    }
     public void makeHitBoxItem()
     {
 

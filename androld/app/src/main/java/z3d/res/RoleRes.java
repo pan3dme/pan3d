@@ -1,11 +1,17 @@
 package z3d.res;
 
+import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import z3d.base.ByteArray;
 
+import z3d.base.CallBackFun;
 import z3d.base.RoleBackFun;
 import z3d.filemodel.MeshDataManager;
+import z3d.units.AnimManager;
+import z3d.vo.SkinMesh;
 import z3d.vo.Vector3D;
 
 public class RoleRes extends BaseRes {
@@ -26,6 +32,17 @@ public class RoleRes extends BaseRes {
         this.version = this._byte.readInt();
 
         this.readMesh();
+        this.readAction();
+        this.read(new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                readNext();
+            }
+        });;//readimg
+
+    }
+    private void   readNext() {
+
 
     }
     public void readMesh() {
@@ -52,8 +69,27 @@ public class RoleRes extends BaseRes {
             this.nrmDircet.z = this._byte.readFloat();
         }
 
-       //  MeshDataManager.getInstance().readData(this._byte, this.meshBatchNum, this.roleUrl, this.version);
+          MeshDataManager.getInstance().readData(this._byte, this.meshBatchNum, this.roleUrl, this.version);
 
-      //  this.readAction();
+
     }
+    private void readAction() {
+        ByteArray $actionByte;
+        if (this.version >= 30) {
+            $actionByte = this.getZipByte(this._byte);
+        } else {
+            $actionByte = this._byte;
+        }
+        this.actionAry = new ArrayList<>();
+        int actionNum = $actionByte.readInt();
+        for (int i = 0; i < actionNum; i++) {
+            String actionName = $actionByte.readUTF();
+            Log.d(actionName, "actionName: ");
+            AnimManager.getInstance().readData($actionByte, this.roleUrl + actionName);
+            this.actionAry.add(actionName);
+        }
+
+
+    }
+
 }

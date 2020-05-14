@@ -2,9 +2,13 @@ package z3d.filemodel;
 
 import android.widget.ListView;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
@@ -12,6 +16,9 @@ import z3d.base.MeshData;
 import z3d.base.ResGC;
 import z3d.res.BaseRes;
 import z3d.vo.BindParticle;
+import z3d.vo.BoneSocketData;
+import z3d.vo.Matrix3D;
+import z3d.vo.Quaternion;
 import z3d.vo.SkinMesh;
 import z3d.vo.Vector2D;
 
@@ -75,73 +82,87 @@ public class MeshDataManager extends ResGC {
 
             if ($version >= 21) {
                 this.readMesh2OneBuffer(_byte, meshData);
-            } else {
-
             }
-
             meshData.treNum = meshData.indexs.size();
-
-
-
             meshData.materialUrl = _byte.readUTF();
             meshData.materialParamData = BaseRes.readMaterialParamData(_byte);
-
             int particleNum = _byte.readInt();
             for ( int j = 0; j < particleNum; j++) {
-
                 BindParticle bindParticle = new BindParticle(_byte.readUTF(), _byte.readUTF());
                 meshData.particleAry.add(bindParticle);
-
-
-                allParticleDic.put(allParticleDic,true);
+                allParticleDic.put(bindParticle.url,true);
             }
 
             $skinMesh.addMesh(meshData);
 
-
         }
 
-        /*
+/*
         for (String key in allParticleDic) {
             ParticleManager.getInstance().registerUrl(key);
         }
+        */
 
         $skinMesh.allParticleDic = allParticleDic;
 
-        var bindPosLength: number = byte.readInt();
+        int bindPosLength = _byte.readInt();
 
-        var bindPosAry: Array<Array<number>> = new Array;
-        for (var j: number = 0; j < bindPosLength; j++) {
-            var ary: Array<number> = new Array(byte.readFloat(), byte.readFloat(), byte.readFloat(),
-                    byte.readFloat(), byte.readFloat(), byte.readFloat());
-            bindPosAry.push(ary);
+        List<List<Float>> bindPosAry  = new ArrayList<>();
+        for (int j = 0; j < bindPosLength; j++) {
+            List<Float> ary =   new ArrayList<Float>(Arrays.asList(_byte.readFloat(), _byte.readFloat(), _byte.readFloat(),
+                    _byte.readFloat(), _byte.readFloat(), _byte.readFloat()));
+
+            bindPosAry.add(ary);
         }
 
         this.getBindPosMatrix(bindPosAry, $skinMesh);
 
-        var sokcetLenght: number = byte.readInt();
+        int sokcetLenght    = _byte.readInt();
 
-        $skinMesh.boneSocketDic = new Object();
+        $skinMesh.boneSocketDic = new HashMap();
 
-        for (var j: number = 0; j < sokcetLenght; j++) {
-            var boneData: BoneSocketData = new BoneSocketData();
-            boneData.name = byte.readUTF();
-            boneData.boneName = byte.readUTF();
-            boneData.index = byte.readInt();
-            boneData.x = byte.readFloat();
-            boneData.y = byte.readFloat();
-            boneData.z = byte.readFloat();
-            boneData.rotationX = byte.readFloat();
-            boneData.rotationY = byte.readFloat();
-            boneData.rotationZ = byte.readFloat();
+        for (int j = 0; j < sokcetLenght; j++) {
+            BoneSocketData boneData = new BoneSocketData();
+            boneData.name = _byte.readUTF();
+            boneData.boneName = _byte.readUTF();
+            boneData.index = _byte.readInt();
+            boneData.x = _byte.readFloat();
+            boneData.y = _byte.readFloat();
+            boneData.z = _byte.readFloat();
+            boneData.rotationX = _byte.readFloat();
+            boneData.rotationY = _byte.readFloat();
+            boneData.rotationZ = _byte.readFloat();
 
-            $skinMesh.boneSocketDic[boneData.name] = boneData;
+            $skinMesh.boneSocketDic.put(boneData.name, boneData);
         }
 
-        this._dic[$url] = $skinMesh;
-        */
+        this.dic.put($url,$skinMesh);
+
 
         return $skinMesh;
+    }
+
+    private void getBindPosMatrix(List<List<Float>> bindPosAry, SkinMesh $skinMesh) {
+        List<Matrix3D> ary  = new ArrayList<>();
+        List<Matrix3D>  invertAry  =  new ArrayList<>();
+
+        for (int i = 0; i < bindPosAry.size(); i++) {
+            List<Float>  objbone = bindPosAry.get(i);
+
+            Quaternion OldQ   = new Quaternion(objbone.get(0), objbone.get(1), objbone.get(2));
+            OldQ.setMd5W();
+            Matrix3D newM  = OldQ.toMatrix3D();
+
+            newM.appendTranslation(objbone.get(3), objbone.get(4), objbone.get(5));
+            invertAry.add(newM.clone());
+            newM.invert();
+
+            ary.add(newM);
+        }
+
+        $skinMesh.bindPosMatrixAry = ary;
+        $skinMesh.bindPosInvertMatrixAry = invertAry;
+
     }
 
     public void readMesh2OneBuffer(ByteArray _byte, MeshData meshData) {
@@ -181,21 +202,22 @@ public class MeshDataManager extends ResGC {
         }
         int boneWeightOffsets = boneIDOffsets + 4;
 
-        /*
-        var arybuff: ArrayBuffer = new ArrayBuffer(len);
-        var data: DataView = new DataView(arybuff);
 
-        BaseRes.readBytes2ArrayBuffer(_byte, data, 3, 0, dataWidth);//vertices
-        BaseRes.readBytes2ArrayBuffer(_byte, data, 2, uvsOffsets, dataWidth);//uvs
-        BaseRes.readBytes2ArrayBuffer(_byte, data, 3, normalsOffsets, dataWidth);//normals
-        BaseRes.readBytes2ArrayBuffer(_byte, data, 3, tangentsOffsets, dataWidth);//tangents
-        BaseRes.readBytes2ArrayBuffer(_byte, data, 3, bitangentsOffsets, dataWidth);//bitangents
+        byte[] arybuff = new byte[(int)len];
+        ByteBuffer data=ByteBuffer.wrap(arybuff);
 
-        BaseRes.readBytes2ArrayBuffer(_byte, data, 4, boneIDOffsets, dataWidth, 2);//boneIDAry
-        BaseRes.readBytes2ArrayBuffer(_byte, data, 4, boneWeightOffsets, dataWidth, 1);//boneWeightAry
+        meshData.verticeslist= BaseRes.readBytes2ArrayBuffer(_byte, data, 3, 0, dataWidth,0);//vertices
+        meshData.uvlist= BaseRes.readBytes2ArrayBuffer(_byte, data, 2, uvsOffsets, dataWidth,0);//uvs
+        meshData.normals=  BaseRes.readBytes2ArrayBuffer(_byte, data, 3, normalsOffsets, dataWidth,0);//normals
+        meshData.tangents=  BaseRes.readBytes2ArrayBuffer(_byte, data, 3, tangentsOffsets, dataWidth,0);//tangents
+        meshData.bitangents=   BaseRes.readBytes2ArrayBuffer(_byte, data, 3, bitangentsOffsets, dataWidth,0);//bitangents
+        meshData.boneIDAry=  BaseRes.readBytes2ArrayBuffer(_byte, data, 4, boneIDOffsets, dataWidth, 2);//boneIDAry
+        meshData.boneWeightAry=   BaseRes.readBytes2ArrayBuffer(_byte, data, 4, boneWeightOffsets, dataWidth, 1);//boneWeightAry
 
-*/
 
+
+        meshData.indexs=new ArrayList<>();
+        meshData.boneNewIDAry=new ArrayList<>();
         BaseRes.readIntForTwoByte(_byte, meshData.indexs);
         BaseRes.readIntForTwoByte(_byte, meshData.boneNewIDAry);
 
@@ -210,10 +232,6 @@ public class MeshDataManager extends ResGC {
 
         meshData.stride = dataWidth * 4;
 
-        /*
-        meshData.vertexBuffer = Scene_data.context3D.uploadBuff3DArrayBuffer(arybuff);
-        meshData.indexBuffer = Scene_data.context3D.uploadIndexBuff3D(meshData.indexs);
-        */
 
     }
 

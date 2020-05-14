@@ -43,6 +43,9 @@ public class ByteArray {
 
     }
 
+    public Vector3D readVector3D() {
+        return  this.readVector3D(false);
+    }
     public Vector3D readVector3D(boolean hasW) {
 
         Vector3D v3d=new Vector3D();

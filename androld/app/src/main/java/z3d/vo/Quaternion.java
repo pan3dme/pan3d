@@ -8,6 +8,24 @@ public class Quaternion {
 
     public Quaternion(){
       super();
+        this.x=0;
+        this.y=0;
+        this.z=0;
+        this.w=1;
+    }
+    public Quaternion(float _x,float _y, float _z){
+        super();
+        this.x=_x;
+        this.y=_y;
+        this.z=_z;
+        this.w=1;
+    }
+    public Quaternion(float _x,float _y, float _z,float _w){
+        super();
+        this.x=_x;
+        this.y=_y;
+        this.z=_z;
+        this.w=_w;
     }
 
     public void print() {
@@ -26,6 +44,11 @@ public class Quaternion {
 
 
 
+    }
+    public Matrix3D toMatrix3D() {
+        Matrix3D $matrix3d = new Matrix3D();
+        this.toMatrix3D($matrix3d);
+        return $matrix3d;
     }
     public Matrix3D toMatrix3D(Matrix3D $matrix3d ) {
         if ($matrix3d==null) {
