@@ -178,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void Bfun(RoleRes value) {
 
+                    Log.d("", "Bfun: ROLEres  加载完");
                 }
             });
 

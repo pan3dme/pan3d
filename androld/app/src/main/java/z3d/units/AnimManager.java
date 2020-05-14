@@ -1,5 +1,7 @@
 package z3d.units;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -204,6 +206,10 @@ public class AnimManager extends ResGC {
     private void readFrameData(ByteArray _byte,List<List<Float>> frameAry) {
         List<Boolean> $frameTyeArr = this.readFrameTypeData(_byte);
         boolean $isStand = _byte.readBoolean() ;//是否为站立，这里特殊给站立的旋转设置其权重值不压缩
+        Log.d("position"+_byte.byteBuffer.length(), "readFrameData: "+_byte.byteBuffer.position);
+        if($isStand){
+            Log.d("position", "readFrameData: "+_byte.byteBuffer.position);
+        }
         float $scaleNum = _byte.readFloat();
         int numLength = _byte.readInt();
         for (int i = 0; i < numLength; i++) {
@@ -211,7 +217,7 @@ public class AnimManager extends ResGC {
             List<Float> frameItemAry = new ArrayList<>();
             frameAry.add(frameItemAry);
             for (int j = 0; j < frameItemAryLength; j++) {
-                if ($frameTyeArr.get(i)) {
+                if ($frameTyeArr.get(j)) {
                     frameItemAry.add(_byte.readFloatTwoByte($scaleNum));
                 } else {
                     if ($isStand) {  //注意这里的特殊，针对站立时的旋转精度用浮点

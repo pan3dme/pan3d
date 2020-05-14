@@ -10,31 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e956353-b77c-4b2b-91ba-633d7aa7ecf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/AnimManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/AnimData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/BoneSocketData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/ObjectBaseBone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/ObjectBone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/ByteArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/ByteArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/filemodel/MeshDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/filemodel/MeshDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/RoleRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/RoleRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/Quaternion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/Quaternion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/SkinMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/SkinMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/AnimManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/AnimManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../webstorm/pan3d/engine/utils/MeshDataManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../webstorm/pan3d/engine/utils/MeshDataManager.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArrayJava.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="401" column="46" selection-start-line="401" selection-start-column="42" selection-end-line="401" selection-end-column="46" />
+            <state relative-caret-position="404">
+              <caret line="415" column="59" lean-forward="true" selection-start-line="415" selection-start-column="59" selection-end-line="415" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -320,6 +301,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1666" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.35042736" />
@@ -590,8 +572,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArrayJava.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="401" column="46" selection-start-line="401" selection-start-column="42" selection-end-line="401" selection-end-column="46" />
+        <state relative-caret-position="404">
+          <caret line="415" column="59" lean-forward="true" selection-start-line="415" selection-start-column="59" selection-end-line="415" selection-end-column="59" />
         </state>
       </provider>
     </entry>

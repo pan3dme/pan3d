@@ -28,6 +28,7 @@ public class RoleRes extends BaseRes {
 
     public void  loadComplete(byte[] buff, RoleBackFun bfun)
     {
+        this.bfun=bfun;
         this._byte =new ByteArray(buff);
         this.version = this._byte.readInt();
 
@@ -43,7 +44,10 @@ public class RoleRes extends BaseRes {
     }
     private void   readNext() {
 
-
+        this.read();
+        this.read();
+        Log.d("readNext ->",   this.version+"===> " );
+        this.bfun.Bfun(this);
     }
     public void readMesh() {
         this.roleUrl = this._byte.readUTF();

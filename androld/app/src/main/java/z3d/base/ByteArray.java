@@ -2,6 +2,8 @@ package z3d.base;
 
 
 
+import android.util.Log;
+
 import java.io.InputStream;
 import java.io.UTFDataFormatException;
 import java.nio.ByteBuffer;
@@ -109,6 +111,7 @@ public class ByteArray {
 
     public void   tracePostion(String value){
 
+        Log.d("", "tracePostion: "+this.byteBuffer.position);
     }
     public byte[] readBytes(int lenght){
         return  this.byteBuffer.readBytes(lenght);

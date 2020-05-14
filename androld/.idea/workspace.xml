@@ -10,31 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/AnimData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/BoneSocketData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBaseBone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/MeshDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/MeshDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Quaternion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Quaternion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../androldDemo/ab/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/MeshDataManager.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webstorm/pan3d/engine/utils/MeshDataManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/pan3d/engine/utils/MeshDataManager.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,23 +38,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="176" column="60" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
+            <state relative-caret-position="262">
+              <caret line="180" column="52" lean-forward="true" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4919#5068#0" expanded="true" />
+                <element signature="e#5067#5068#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="333">
+              <caret line="48" column="30" lean-forward="true" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -82,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="169">
+              <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2013">
-              <caret line="211" column="39" lean-forward="true" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="39" />
+            <state relative-caret-position="306">
+              <caret line="223" selection-start-line="223" selection-end-line="223" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,14 +91,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state relative-caret-position="241">
+              <caret line="113" column="61" lean-forward="true" selection-start-line="113" selection-start-column="61" selection-end-line="113" selection-end-column="61" />
               <folding>
                 <element signature="e#1146#1147#0" expanded="true" />
                 <element signature="e#1194#1195#0" expanded="true" />
                 <element signature="e#2628#2629#0" expanded="true" />
                 <element signature="e#2685#2686#0" expanded="true" />
-                <element signature="e#2795#2796#0" expanded="true" />
+                <element signature="e#2883#2884#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,7 +164,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>create</find>
       <find>mHPosition</find>
       <find>mFilterA</find>
       <find>加载结算</find>
@@ -209,6 +193,7 @@
       <find>meshAry</find>
       <find>readBytes2ArrayBuffer</find>
       <find>frameToBone</find>
+      <find>readFrameData</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,7 +239,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/Display3DParticle.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/RoleBackFun.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/BindParticle.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/Quaternion.java" />
@@ -262,12 +246,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/MeshDataManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBaseBone.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBone.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/AnimData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -510,6 +495,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1680" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2857143" />
@@ -521,11 +507,11 @@
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4969475" weight="0.32941177" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.8070818" weight="0.2919786" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.8046398" weight="0.2919786" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.495116" weight="0.32834226" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.57326007" visible="true" weight="0.41925132" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.56593406" visible="true" weight="0.41925132" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993895" weight="0.32834226" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.42673993" side_tool="true" visible="true" weight="0.41925132" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.43406594" side_tool="true" visible="true" weight="0.41925132" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.6037851" weight="0.33262032" />
       <window_info anchor="bottom" id="Find" order="8" sideWeight="0.496337" weight="0.37326202" />
@@ -558,18 +544,6 @@
           <line>21</line>
           <properties />
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java</url>
-          <line>35</line>
-          <properties />
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java</url>
-          <line>88</line>
-          <properties />
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -905,20 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding>
-            <element signature="e#1146#1147#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#2628#2629#0" expanded="true" />
-            <element signature="e#2685#2686#0" expanded="true" />
-            <element signature="e#2795#2796#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBaseBone.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -940,10 +900,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="113" column="61" lean-forward="true" selection-start-line="113" selection-start-column="61" selection-end-line="113" selection-end-column="61" />
+          <folding>
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1194#1195#0" expanded="true" />
+            <element signature="e#2628#2629#0" expanded="true" />
+            <element signature="e#2685#2686#0" expanded="true" />
+            <element signature="e#2883#2884#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2013">
-          <caret line="211" column="39" lean-forward="true" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="39" />
+        <state relative-caret-position="306">
+          <caret line="223" selection-start-line="223" selection-end-line="223" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -952,18 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="176" column="60" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
+        <state relative-caret-position="169">
+          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -972,10 +936,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="333">
+          <caret line="48" column="30" lean-forward="true" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="180" column="52" lean-forward="true" selection-start-line="180" selection-start-column="52" selection-end-line="180" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4919#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
           </folding>
         </state>
       </provider>
