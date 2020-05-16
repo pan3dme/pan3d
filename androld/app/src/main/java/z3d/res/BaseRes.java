@@ -47,9 +47,7 @@ public class BaseRes extends ResCount {
         Log.d("fileType",   fileType+"" );
         if (fileType == BaseRes.IMG_TYPE) {
             this.readImg();
-
         } else if (fileType == BaseRes.OBJS_TYPE) {
-            Log.d("fileType",   "需要补充" );
             this.readObj(this._byte);
         } else if (fileType == BaseRes.MATERIAL_TYPE) {
             this.readMaterial();

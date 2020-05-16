@@ -33,6 +33,7 @@ import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.res.RoleRes;
 import z3d.res.SceneRes;
+import z3d.res.SkillRes;
 import z3d.scene.Scene3D;
 
 
@@ -99,8 +100,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.sceneRes = new SceneRes();
 
        // this.loadLyfGoup();
-        this.loadRoleRes();
+//        this.loadRoleRes();
        // this.loadSeneBase();
+        this.loadSkilRes();
 
     }
     private void loadSeneBase()
@@ -173,12 +175,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //将文件中的数据读到byte数组中
             in.read(buffer);
 
-            RoleRes groupRes=new RoleRes();
-            groupRes.loadComplete(buffer, new RoleBackFun() {
+            RoleRes roleRes=new RoleRes();
+            roleRes.loadComplete(buffer, new RoleBackFun() {
                 @Override
                 public void Bfun(RoleRes value) {
 
                     Log.d("", "Bfun: ROLEres  加载完");
+                }
+            });
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void  loadSkilRes()
+    {
+        try {
+
+            InputStream in = getResources().openRawResource(R.raw.jichu_1_byte);
+            //获取文件的字节数
+            int lenght = in.available();
+            //创建byte数组byte[]  buffer = new byte[lenght];
+            byte[] buffer = new byte[lenght];
+            //将文件中的数据读到byte数组中
+            in.read(buffer);
+
+            SkillRes roleRes=new SkillRes();
+            roleRes.loadComplete(buffer, new CallBackFun() {
+                @Override
+                public void StateChange(boolean State) {
+
                 }
             });
 

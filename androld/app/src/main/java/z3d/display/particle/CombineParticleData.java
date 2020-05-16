@@ -1,11 +1,15 @@
 package z3d.display.particle;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.display.particle.ball.ParticleBallData;
 import z3d.display.particle.facet.ParticleFacetData;
+import z3d.display.particle.locus.ParticleLocusData;
+import z3d.display.particle.locusball.ParticleLocusballData;
 import z3d.display.particle.model.ParticleModelData;
 import z3d.engine.ResCount;
 import z3d.units.Scene_data;
@@ -40,9 +44,22 @@ public class CombineParticleData extends ResCount {
             case 1:
                 pdata=new ParticleFacetData();
                 break;
+            case 3:
+                pdata=new ParticleLocusData();
+                break;
             case 4:
             {
                 pdata = new ParticleModelData();
+                break;
+            }
+            case 7:
+            {
+                pdata = new ParticleModelData();
+                break;
+            }
+            case 14:
+            {
+                pdata = new ParticleLocusballData();
                 break;
             }
             case 18:
@@ -52,8 +69,33 @@ public class CombineParticleData extends ResCount {
             }
             default:
 
+                Log.d("没有对象", "getParticleDataType: ");
                 break;
         }
+        /*
+          case 1:
+            pdata = [[ParticleFacetData alloc]init];
+            break;
+        case 3:
+            pdata = [[ParticleLocusData alloc]init];
+            break;
+        case 8:
+            pdata = [[ParticleFollowData alloc]init];
+            break;
+        case 4:
+            pdata = [[ParticleModelData alloc]init];
+            break;
+        case 7:
+            pdata = [[ParticleModelData alloc]init];
+            break;
+        case 9:
+            pdata = [[ParticleModelData alloc]init];
+            break;
+        case 14:
+            pdata = [[ParticleLocusballData alloc]init];
+            break;
+        case 18:
+         */
 
         return pdata;
     }
