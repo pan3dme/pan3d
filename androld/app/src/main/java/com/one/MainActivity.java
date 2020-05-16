@@ -24,6 +24,7 @@ import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
 import z3d.base.RoleBackFun;
+import z3d.base.SkillBackFun;
 import z3d.display.line.GridLineSprite;
 
 import z3d.display.particle.CombineParticle;
@@ -202,9 +203,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             in.read(buffer);
 
             SkillRes roleRes=new SkillRes();
-            roleRes.loadComplete(buffer, new CallBackFun() {
+            roleRes.loadComplete(buffer, new SkillBackFun() {
                 @Override
-                public void StateChange(boolean State) {
+                public void Bfun(SkillRes value) {
+                    Log.d("SkillRes", "SkillRes: ");
 
                 }
             });

@@ -72,6 +72,7 @@ public class BaseRes extends ResCount {
             String url=this._byte.readUTF();
             int materialSize=this._byte.readInt();
             byte[] materialByte= this._byte.readBytes(materialSize);
+
             Log.d("material地址 ->",   url+" " );
             Log.d("material大小 ->",   materialSize+" " );
 

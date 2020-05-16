@@ -9,6 +9,7 @@ import java.util.List;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.ResGC;
+import z3d.base.SkillBackFun;
 import z3d.vo.DataObjTempVo;
 import z3d.vo.ShockAryVo;
 import z3d.vo.Vector3D;
@@ -17,12 +18,13 @@ public class SkillRes extends BaseRes {
 
     public String skillUrl;
 
+    private SkillBackFun backFun;
     public int meshBatchNum;
     public HashMap data;
 
-    public void  loadComplete(byte[] buff, CallBackFun bfun)
+    public void  loadComplete(byte[] buff, SkillBackFun bfun)
     {
-
+this.backFun=bfun;
         this._byte =new ByteArray(buff);
         this.version = this._byte.readInt();
         this.skillUrl = this._byte.readUTF();
@@ -38,7 +40,11 @@ public class SkillRes extends BaseRes {
     {
         this.read();
         this.read();
+
+        Log.d("TAG", "readNext: ");
         this.data = this.readData(this._byte);
+
+        this.backFun.Bfun(this);
     }
     private HashMap readData(ByteArray $byte) {
         int len = $byte.readInt();
@@ -50,7 +56,7 @@ public class SkillRes extends BaseRes {
             String $action = $byte.readUTF();
             $obj.put("skillname",$name) ;
             $obj.put("action",$action) ;
-            $obj.put("type",$byte.readFloat()) ;
+            $obj.put("type",(int)$byte.readFloat()) ;
 
             if (this.version >= 26) {
 
@@ -96,7 +102,9 @@ public class SkillRes extends BaseRes {
                 dataObj.frame = $byte.readFloat();
 
 
-                switch ( (int) $obj.get("type")) {
+
+
+                switch ( (int)($obj.get("type"))) {
                     case 1:
                         dataObj.beginType = $byte.readInt();
 

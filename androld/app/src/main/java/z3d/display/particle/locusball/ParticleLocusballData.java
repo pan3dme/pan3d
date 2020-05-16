@@ -1,6 +1,8 @@
 package z3d.display.particle.locusball;
 
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONException;
@@ -20,11 +22,13 @@ public class ParticleLocusballData extends ParticleBallData {
     protected float _tangentSpeed ;
     public void setAllByteInfo(ByteArray $byte) {
 
+        Log.d("length "+ $byte.byteBuffer.length(), "position "+ $byte.byteBuffer.position);
 
         this._tangentSpeed = $byte.readFloat();
-        this._posAry =  this.paresArray($byte.readUTF());
-        this._angleAry = this.paresArray($byte.readUTF());
-        this._tangentAry = this.paresArray($byte.readUTF());
+
+        this._posAry =  this.paresArray($byte.readUTFCopy());
+        this._angleAry = this.paresArray($byte.readUTFCopy());
+        this._tangentAry = this.paresArray($byte.readUTFCopy());
 
         super.setAllByteInfo($byte);
 
@@ -37,7 +41,8 @@ public class ParticleLocusballData extends ParticleBallData {
             JSONArray jsonarr = new JSONArray(value);
             for(int i=0;i<jsonarr.length();i++)
             {
-             arr.add(  (float) jsonarr.get(i));
+                Number A=   (Number)  jsonarr.get(i);
+                arr.add( A.floatValue());
             }
 
         } catch (JSONException e) {
@@ -45,6 +50,7 @@ public class ParticleLocusballData extends ParticleBallData {
         }
         return  arr;
     }
+
 
     public void initBasePos() {
         List<Float> basePos  = new ArrayList<>();

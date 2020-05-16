@@ -57,6 +57,11 @@ public class CombineParticleData extends ResCount {
                 pdata = new ParticleModelData();
                 break;
             }
+            case 9:
+            {
+                pdata = new ParticleModelData();
+                break;
+            }
             case 14:
             {
                 pdata = new ParticleLocusballData();

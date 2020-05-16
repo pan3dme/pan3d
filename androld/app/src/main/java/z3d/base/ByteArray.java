@@ -99,6 +99,15 @@ public class ByteArray {
         }
         return "";
     }
+    public String readUTFCopy()  {
+        try {
+            int utfLength = this.byteBuffer.readUInt16();
+            return readUTFBytes(utfLength);
+        } catch (Exception e) {
+
+        }
+        return "";
+    }
     public String readUTFBytes(int strlen)  {
         try {
             return this.byteBuffer.readUTFlen(strlen);
