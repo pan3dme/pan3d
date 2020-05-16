@@ -1,6 +1,7 @@
 package z3d.display.particle.locusball;
 
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -36,18 +37,25 @@ public class ParticleLocusballData extends ParticleBallData {
     }
     private List<Float> paresArray(String value)
     {
-        List<Float> arr=new ArrayList<>();
-        try {
-            JSONArray jsonarr = new JSONArray(value);
-            for(int i=0;i<jsonarr.length();i++)
-            {
-                Number A=   (Number)  jsonarr.get(i);
-                arr.add( A.floatValue());
-            }
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if(value.equals("null")){
+            return null;
         }
+        List<Float> arr=new ArrayList<>();
+        if(value!="" ){
+            try {
+                JSONArray jsonarr = new JSONArray(value);
+                for(int i=0;i<jsonarr.length();i++)
+                {
+                    Number A=   (Number)  jsonarr.get(i);
+                    arr.add( A.floatValue());
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
         return  arr;
     }
 

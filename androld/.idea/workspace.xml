@@ -13,14 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/SkillBackFun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" afterDir="false" />
@@ -50,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+            <state relative-caret-position="218">
+              <caret line="103" selection-start-line="103" selection-end-line="103" />
             </state>
           </provider>
         </entry>
@@ -74,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="185">
+              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="24" column="55" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="55" />
+            <state relative-caret-position="369">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="208" column="12" lean-forward="true" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="12" />
+            <state relative-caret-position="180">
+              <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5717#5888#0" expanded="true" />
@@ -247,11 +240,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/ParticleLocusData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/SkillBackFun.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java" />
       </list>
     </option>
   </component>
@@ -467,13 +460,13 @@
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4969475" weight="0.32941177" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.7973138" weight="0.2919786" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.7954823" weight="0.2919786" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.4920635" weight="0.32834226" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7704518" weight="0.41925132" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.76129425" visible="true" weight="0.41925132" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993895" weight="0.32834226" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.26007327" side_tool="true" visible="true" weight="0.33262032" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.23870574" side_tool="true" visible="true" weight="0.41925132" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.73992676" visible="true" weight="0.33262032" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.73992676" weight="0.33262032" />
       <window_info anchor="bottom" id="Find" order="8" sideWeight="0.4957265" weight="0.37326202" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -512,10 +505,10 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java</url>
+          <line>54</line>
           <properties />
-          <option name="timeStamp" value="32" />
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -841,13 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArrayJava.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13950">
@@ -859,16 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="96" column="52" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -905,8 +881,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="24" column="55" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="55" />
+        <state relative-caret-position="369">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -915,12 +891,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="208" column="12" lean-forward="true" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="12" />
+        <state relative-caret-position="180">
+          <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5717#5888#0" expanded="true" />
             <element signature="e#5887#5888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

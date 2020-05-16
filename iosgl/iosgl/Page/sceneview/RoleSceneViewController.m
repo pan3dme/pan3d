@@ -123,16 +123,16 @@
     
     NSString* titleStr=btn.titleLabel.text;
     if([titleStr isEqualToString:@"角色"]){
-        [self makeRollAndMount];
-        [self addRoleToScene:@"yezhuz" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
+      //  [self makeRollAndMount];
+   //     [self addRoleToScene:@"yezhuz" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
 //        [self addRoleToScene:@"50004" pos:[[Vector3D alloc]x:-40 y:0 z:0]];
 //        [self addRoleToScene:@"50005" pos:[[Vector3D alloc]x:-60 y:0 z:0]];
 //        [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
     }
     if([titleStr isEqualToString:@"特效"]){
     
-        
-        [self showLyfItems];
+         Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+     //   [self showLyfItems];
         
     }
     if([titleStr isEqualToString:@"技能"]){
