@@ -5,6 +5,8 @@ package com.one;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -134,6 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
 
 
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -252,7 +256,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tempDis.setInfo(obj);
                     this.scene3D.addDisplay(tempDis);
 
+                    InputStream imgin= getResources().openRawResource(R.raw.wb);
 
+                    tempDis.makeBaseTexture(BitmapFactory.decodeStream(imgin));
 
                     break;
 
