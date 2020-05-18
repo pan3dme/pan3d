@@ -1,9 +1,14 @@
 package z3d.res;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.print.PrinterId;
 import android.util.Log;
 
 
+import com.one.R;
+
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,9 +19,11 @@ import java.util.zip.ZipFile;
 import z3d.base.CallBackFun;
 
 import z3d.base.ObjDataManager;
+import z3d.display.BuildDisplay3DSprite;
 import z3d.engine.ResCount;
 import z3d.base.ByteArray;
 import z3d.filemodel.ParticleManager;
+import z3d.filemodel.TextureManager;
 import z3d.material.MaterialManager;
 import z3d.units.TimeUtil;
 
@@ -78,7 +85,7 @@ public class BaseRes extends ResCount {
 
             MaterialManager.getInstance().addResByte(url, new ByteArray(materialByte));
 
-         }
+        }
 
     }
 
@@ -265,7 +272,7 @@ public class BaseRes extends ResCount {
 
 
     }
-        public  void readImg()
+    public  void readImg()
     {
         this.imgNum = this._byte.readInt();
         this._byte.tracePostion("图片数量"+imgNum);
@@ -277,8 +284,9 @@ public class BaseRes extends ResCount {
             Log.d("图片地址 ->",   url+" " );
             Log.d("图片大小 ->",   imgSize+" " );
             if(imgSize>0){
-                this._byte.readBytes(imgSize);
-
+                byte[] imgByte=  this._byte.readBytes(imgSize);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
+                TextureManager.getInstance().addRes(url,bitmap);
             }
         }
         Log.d("url ->",     "-----" );

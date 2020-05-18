@@ -19,7 +19,11 @@ import java.util.ArrayList;
 import z3d.base.ObjData;
 import z3d.base.ObjDataBackFun;
 import z3d.base.ObjDataManager;
+import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
+import z3d.filemodel.TextureManager;
+import z3d.material.MaterialManager;
+import z3d.material.TextureRes;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.vo.Matrix3D;
@@ -48,6 +52,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.setObjUrl(value.getString("objsurl"));
 
 
+            this.makeBaseTexture();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,34 +61,20 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 
     }
 
-    private int textureBase;
-    public void makeBaseTexture(Bitmap bmp)
+    private TextureRes textureBase;
+    private void makeBaseTexture()
     {
 
-            Bitmap b = Bitmap.createBitmap(512, 512, Bitmap.Config.RGB_565);
-            this.textureBase= this.createTexture(bmp);
 
-    }
-    private int createTexture(Bitmap bitmap){
-        int[] texture=new int[1];
-        if(bitmap!=null&&!bitmap.isRecycled()){
-            //生成纹理
-            GLES20.glGenTextures(1,texture,0);
-            //生成纹理
-            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texture[0]);
-            //设置缩小过滤为使用纹理中坐标最接近的一个像素的颜色作为需要绘制的像素颜色
-            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER,GLES20.GL_NEAREST);
-            //设置放大过滤为使用纹理中坐标最接近的若干个颜色，通过加权平均算法得到需要绘制的像素颜色
-            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,GLES20.GL_TEXTURE_MAG_FILTER,GLES20.GL_LINEAR);
-            //设置环绕方向S，截取纹理坐标到[1/2n,1-1/2n]。将导致永远不会与border融合
-            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S,GLES20.GL_CLAMP_TO_EDGE);
-            //设置环绕方向T，截取纹理坐标到[1/2n,1-1/2n]。将导致永远不会与border融合
-            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,GLES20.GL_CLAMP_TO_EDGE);
-            //根据以上指定的参数，生成一个2D纹理
-            GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
-            return texture[0];
-        }
-        return 0;
+        TextureManager.getInstance().getTexture("content/finalscens/mapscene/copy/ba卦tai/ba卦tai_hide/lightuv/build2.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+
+                textureBase=value;
+            }
+        });
+
+
     }
 
     @Override
@@ -110,7 +101,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/ljtai_fb_zhongtai_0.xml" -> {ObjData@12842}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml" -> {ObjData@12844}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_tiankong_0.xml" -> {ObjData@12846}
-    //   value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
+       value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
         Log.d(TAG, "value: "+value);
         ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
             @Override
@@ -125,7 +116,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     @Override
     public void upFrame(){
         Context3D ctx=this.scene3d.context3D;
-        if(this.objData!=null&&this.shader3D!=null &&this.textureBase>0 ){
+        if(this.objData!=null&&this.shader3D!=null &&this.textureBase!=null ){
 
             this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
             ctx.setProgame(this.shader3D.program);
@@ -141,10 +132,8 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 
 
 
-            int textureSlot= GLES20.glGetUniformLocation(this.shader3D.program,"colorMap");
-            GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
-            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,this.textureBase);
-            GLES20.glUniform1f(textureSlot,0);
+
+            ctx.setRenderTexture(this.shader3D,"colorMap",this.textureBase.textTureInt,0);
 
 
 

@@ -10,15 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e956353-b77c-4b2b-91ba-633d7aa7ecf8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/TexTuresBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/filemodel/TextureManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/material/TextureRes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/BuildDisplay3DShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/BuildDisplay3DShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/SkillBackFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/SkillBackFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/material/MaterialManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/material/MaterialManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/ObjReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-620">
-              <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+            <state relative-caret-position="280">
+              <caret line="178" column="68" lean-forward="true" selection-start-line="178" selection-start-column="68" selection-end-line="178" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -128,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>EGLContext.getEG</find>
       <find>MyGLRenderer</find>
       <find>application</find>
       <find>GLSurfaceView.Renderer</find>
@@ -158,6 +159,7 @@
       <find>createBitmap</find>
       <find>createTexture</find>
       <find>FileInputStream</find>
+      <find>getByteArrayExtra</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -739,8 +741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/wuwang/opengl/obj/ObjReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-620">
-          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+        <state relative-caret-position="280">
+          <caret line="178" column="68" lean-forward="true" selection-start-line="178" selection-start-column="68" selection-end-line="178" selection-end-column="68" />
         </state>
       </provider>
     </entry>

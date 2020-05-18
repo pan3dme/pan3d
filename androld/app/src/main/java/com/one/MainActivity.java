@@ -39,6 +39,7 @@ import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.filemodel.MeshDataManager;
 import z3d.filemodel.ParticleManager;
+import z3d.filemodel.TextureManager;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.res.RoleRes;
@@ -255,10 +256,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tempDis.scene3d=this.scene3D;
                     tempDis.setInfo(obj);
                     this.scene3D.addDisplay(tempDis);
-
-                    InputStream imgin= getResources().openRawResource(R.raw.wb);
-
-                    tempDis.makeBaseTexture(BitmapFactory.decodeStream(imgin));
 
                     break;
 

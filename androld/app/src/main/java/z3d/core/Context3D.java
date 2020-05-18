@@ -29,22 +29,40 @@ public class Context3D {
         GLES20.glVertexAttribPointer(a1,dataWidth, GLES20.GL_FLOAT, false, dataWidth*4, dataBuffer);
     }
 
-
-    /*
-    public void setVa(int dataId,int dataWidth,FloatBuffer dataBuffer)
+    public void  setRenderTexture(Shader3D shader3D,String name,int texTureId,int level)
     {
-        GLES20.glVertexAttribPointer(dataId,dataWidth, GLES20.GL_FLOAT, false, dataWidth*4, dataBuffer);
+        int textureSlot= GLES20.glGetUniformLocation(shader3D.program,name);
 
+        switch (level) {
+            case 0:
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+                break;
+            case 1:
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE1);
+                break;
+            case 2:
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE2);
+                break;
+            case 3:
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE3);
+                break;
+            case 4:
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE4);
+                break;
+            case 5:
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE5);
+                break;
+            case 6:
+                GLES20.glActiveTexture(GLES20.GL_TEXTURE6);
+                break;
+            default:
+                break;
+        }
 
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texTureId);
+        GLES20.glUniform1f(textureSlot,level);
     }
 
-    public void setVaOffset(Shader3D shader3d, String name)
-    {
-        GLES20.glEnableVertexAttribArray(GLES20.glGetAttribLocation(shader3d.program, name));
-
-
-    }
-    */
     public void  setVcMatrix4fv(Shader3D shader3d, String name , float[] m)
     {
         GLES20.glUniformMatrix4fv(GLES20.glGetUniformLocation(shader3d.program,name),1,false,m,0);

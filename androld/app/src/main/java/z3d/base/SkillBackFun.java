@@ -2,7 +2,7 @@
 
 package z3d.base;
 
-        import z3d.res.SkillRes;
+import z3d.res.SkillRes;
 
 public interface SkillBackFun {
 
