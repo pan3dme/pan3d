@@ -51,11 +51,11 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 
     }
 
-    private void  registetProgame()
+    protected void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(Display3DShader.shaderStr,new Display3DShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderStr);
+        ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderStr,new BuildDisplay3DShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderStr);
 
     }
 

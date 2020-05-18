@@ -13,23 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataBackFun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DShader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/SceneActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/SceneActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/GridLineSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/GridLineSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplaySprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplaySprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/res/SkillRes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/res/SkillRes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/res/SkillRes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/utils/res/SkillRes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webstorm/pan3d/engine/utils/res/SkillRes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/pan3d/engine/utils/res/SkillRes.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="309">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2228#2420#0" expanded="true" />
@@ -67,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DShader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+            <state relative-caret-position="35">
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -151,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="73" column="5" lean-forward="true" selection-start-line="66" selection-end-line="73" selection-end-column="5" />
+            <state relative-caret-position="182">
+              <caret line="67" column="35" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,7 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.class</find>
       <find>his.dic.ge</find>
       <find>ends  ResGC</find>
       <find>clone</find>
@@ -202,6 +187,7 @@
       <find>addDisplay</find>
       <find>makeTempObjData</find>
       <find>BuildDisplay3DShader</find>
+      <find>registetProgame</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -255,11 +241,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataBackFun.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplaySprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/line/GridLineSprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DShader.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" />
       </list>
     </option>
@@ -924,15 +910,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DShader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+        <state relative-caret-position="35">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="73" column="5" lean-forward="true" selection-start-line="66" selection-end-line="73" selection-end-column="5" />
+        <state relative-caret-position="182">
+          <caret line="67" column="35" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -941,8 +927,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="309">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2228#2420#0" expanded="true" />
