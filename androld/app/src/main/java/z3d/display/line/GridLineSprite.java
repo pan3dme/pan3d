@@ -42,8 +42,6 @@ public class GridLineSprite  extends LineDisplaySprite {
             this.makeLineMode(a, b);
         }
 
-       
-
 
         this.upLineDataToGpu();
     }

@@ -1,6 +1,7 @@
 package z3d.display.line;
 
 import android.opengl.GLES20;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,12 @@ public class LineDisplaySprite extends DisplayBaseSprite {
 
         ProgrmaManager.getInstance().registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
         this.shader3D=ProgrmaManager.getInstance().getProgram(LineDisplayShader.shaderNameStr);
+
+        int a1=GLES20.glGetAttribLocation(this.shader3D.program, "vPosition");
+        int a2=GLES20.glGetAttribLocation(this.shader3D.program, "vColorv3d");
+        Log.d("", "registetProgame: ");
+
+
     }
 
     protected void  initData()

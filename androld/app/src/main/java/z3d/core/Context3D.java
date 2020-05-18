@@ -22,6 +22,9 @@ public class Context3D {
     public void  setVa(Shader3D shader3d ,  String name , int dataWidth,FloatBuffer dataBuffer)
     {
         int a1=GLES20.glGetAttribLocation(shader3d.program, name);
+        if(a1==-1){
+            Log.d("有错", "setVa: ");
+        }
         GLES20.glEnableVertexAttribArray(a1);
         GLES20.glVertexAttribPointer(a1,dataWidth, GLES20.GL_FLOAT, false, dataWidth*4, dataBuffer);
     }

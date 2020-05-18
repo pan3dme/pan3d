@@ -57,6 +57,10 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderStr,new BuildDisplay3DShader());
         this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderStr);
 
+        int a1=GLES20.glGetAttribLocation(this.shader3D.program, "vPosition");
+        int a2=GLES20.glGetAttribLocation(this.shader3D.program, "vColorv3d");
+        Log.d("", "registetProgame: ");
+
     }
 
     public void  setObjUrl(String value)
@@ -66,7 +70,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/ljtai_fb_zhongtai_0.xml" -> {ObjData@12842}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml" -> {ObjData@12844}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_tiankong_0.xml" -> {ObjData@12846}
-       value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
+       //value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
 
         Log.d(TAG, "value: "+value);
         ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
@@ -98,10 +102,17 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
             ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
+
+            ctx.setVa(this.shader3D,"vTextCoord",2,this.objData.uvBuffer);
+
+
+
             ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
 
 
+
             GLES20.glDisableVertexAttribArray(0);
+            GLES20.glDisableVertexAttribArray(1);
 
 
 
