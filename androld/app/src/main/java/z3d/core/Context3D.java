@@ -1,6 +1,7 @@
 package z3d.core;
 
 import android.opengl.GLES20;
+import android.util.Log;
 
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
@@ -48,7 +49,9 @@ public class Context3D {
     public void drawCall(ShortBuffer dataBuffer, int num)
     {
 
-        GLES20.glDrawElements(GLES20.GL_TRIANGLES,num, GLES20.GL_UNSIGNED_SHORT,dataBuffer);
+
+
+        GLES20.glDrawElements(GLES20.GL_TRIANGLES,       num, GLES20.GL_UNSIGNED_SHORT,dataBuffer);
 
 
     }

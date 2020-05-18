@@ -150,7 +150,7 @@
 
                     $obj.data.push(dataObj)
 
-
+                    ParticleLocusData
 
                 }
 

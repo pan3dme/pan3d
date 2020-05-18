@@ -28,6 +28,17 @@ public class ObjDataManager extends ResGC {
 
     }
 
+    public void getObjData(String url,ObjDataBackFun backFun)
+    {
+       if( this.dic.get(url)!=null){
+           ObjData objData=     (ObjData)this.dic.get(url);
+           objData.upToGup();
+           backFun.Bfun(objData);
+       }
+
+
+    }
+
     public void  loadObjCom(byte[] srcByte,String url)
     {
 
@@ -37,6 +48,9 @@ public class ObjDataManager extends ResGC {
         int version = byteArray.readInt();
         String str = byteArray.readUTF();
         this.readObj2OneBuffer(byteArray,objData);
+
+
+        this.dic.put(url,objData);
 
     }
     public void readObj2OneBuffer(ByteArray byteArray , ObjData objData)

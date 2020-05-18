@@ -10,6 +10,9 @@ import java.util.List;
 
 import z3d.engine.ResCount;
 
+
+
+
 public class ObjData extends ResCount {
 
     public List<Float> verticeslist;
@@ -30,6 +33,7 @@ public class ObjData extends ResCount {
     public int bitangentsOffsets;
     public int stride;
     public boolean hasdispose;
+    public boolean isCompile;
 
 
     public FloatBuffer vertexBuffer;
@@ -79,12 +83,17 @@ public class ObjData extends ResCount {
     }
     public void  upToGup()
     {
-        this.vertexBuffer=this.upGpuvertexBufferbbb(this.verticeslist);
-        if(this.normals.size()>0){
-            this.normalsBuffer=this.upGpuvertexBufferbbb(this.normals);
+        if(!this.isCompile){
+            this.vertexBuffer=this.upGpuvertexBufferbbb(this.verticeslist);
+            if(this.normals!=null&&this.normals.size()>0){
+                this.normalsBuffer=this.upGpuvertexBufferbbb(this.normals);
+            }
+            this.indexBuffer=this.upGpuIndexBuffercopy(this.indexs);
+            this.treNum= this.indexs.size();
+            this.isCompile=true;
         }
-        this.indexBuffer=this.upGpuIndexBuffercopy(this.indexs);
-        this.treNum= this.indexs.size();
+
+
     }
 /*
 short Indexbuff

@@ -139,6 +139,7 @@ var Pan3d;
                             break;
                     }
                     $obj.data.push(dataObj);
+                    Pan3d.ParticleLocusData;
                 }
                 byteData[$name] = $obj;
             }

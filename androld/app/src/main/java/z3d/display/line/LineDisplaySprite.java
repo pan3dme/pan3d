@@ -99,8 +99,8 @@ public class LineDisplaySprite extends DisplayBaseSprite {
             ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
             ctx.setVa(this.shader3D,"vColorv3d",3,this.objData.normalsBuffer);
 
-            GLES20.glDrawElements(GLES20.GL_LINES,this.objData.treNum, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
-            GLES20.glDisableVertexAttribArray(0);
+         //   GLES20.glDrawElements(GLES20.GL_LINES,this.objData.treNum, GLES20.GL_UNSIGNED_SHORT,this.objData.indexBuffer);
+          //  GLES20.glDisableVertexAttribArray(0);
         }
 
 

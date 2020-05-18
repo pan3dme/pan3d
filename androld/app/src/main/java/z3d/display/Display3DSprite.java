@@ -33,7 +33,7 @@ public   class Display3DSprite extends Display3D {
         this.registetProgame();
         this.makeTempObjData();
     }
-    private void  makeTempObjData()
+    protected void  makeTempObjData()
     {
         this.objData =new ObjData();
 

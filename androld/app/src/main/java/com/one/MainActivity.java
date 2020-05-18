@@ -15,7 +15,12 @@ import android.view.View;
 
 
 import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
+
+
 import java.io.InputStream;
+import java.util.jar.JarException;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -25,6 +30,7 @@ import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
 import z3d.base.RoleBackFun;
 import z3d.base.SkillBackFun;
+import z3d.display.BuildDisplay3DSprite;
 import z3d.display.line.GridLineSprite;
 
 import z3d.display.particle.CombineParticle;
@@ -100,10 +106,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.scene3D.addDisplay(dic);
         this.sceneRes = new SceneRes();
 
+
+
        // this.loadLyfGoup();
-//        this.loadRoleRes();
-       // this.loadSeneBase();
-        this.loadSkilRes();
+       // this.loadRoleRes();
+        this.loadSeneBase();
+      //  this.loadSkilRes();
 
     }
     private void loadSeneBase()
@@ -218,21 +226,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void makeOBjData()
     {
-
-
         try {
             JSONArray buildItem=    this.sceneRes.sceneData.getJSONArray("buildItem");
+            for(int i=0;i<buildItem.length();i++){
 
-            Log.d("dd", "makeOBjData: ");
-
-
-
-
+                this.parsingBuildItem((JSONObject)buildItem.get(i));
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    private  void parsingBuildItem(JSONObject obj)
+    {
+
+        try {
+            int type = obj.getInt("type");
+
+            switch ( type) {
+                case 1:
+                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                    tempDis.scene3d=this.scene3D;
+                    tempDis.setInfo(obj);
+                    this.scene3D.addDisplay(tempDis);
+
+                    break;
+
+
+                default:
+                    break;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        /*
+
+        */
+
+    }
+
+
 
 
     @Override
