@@ -53,7 +53,6 @@ public class Context3D {
     {
 
 
-
         GLES20.glDrawElements(GLES20.GL_TRIANGLES,       num, GLES20.GL_UNSIGNED_SHORT,dataBuffer);
 
 
