@@ -59,6 +59,25 @@ public   class Display3DSprite extends Display3D {
         od.indexs.add((short)2);
 
 
+        for(int i=0;i<100000;i++){
+
+            od.verticeslist.add(100f);
+            od.verticeslist.add(100f);
+            od.verticeslist.add(0f);
+
+        }
+
+        for(int i=0;i<10000;i++){
+
+            od.indexs.add((short)i);
+            od.indexs.add((short)i);
+            od.indexs.add((short)i);
+
+        }
+
+
+
+
 
         od.upToGup();
 

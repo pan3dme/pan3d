@@ -42,11 +42,7 @@ public class GridLineSprite  extends LineDisplaySprite {
             this.makeLineMode(a, b);
         }
 
-//1693
-
-        for (int j = 0; j<10000; j++) {
-            this.makeLineMode(new Vector3D(0,0,0), new Vector3D((float) Math.random()  *200.0f ,0,(float) Math.random()  *200.0f ));
-        }
+       
 
 
         this.upLineDataToGpu();

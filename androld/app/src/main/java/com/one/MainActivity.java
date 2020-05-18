@@ -31,6 +31,7 @@ import z3d.base.GroupItem;
 import z3d.base.RoleBackFun;
 import z3d.base.SkillBackFun;
 import z3d.display.BuildDisplay3DSprite;
+import z3d.display.Display3DSprite;
 import z3d.display.line.GridLineSprite;
 
 import z3d.display.particle.CombineParticle;
@@ -101,9 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
 
         this.scene3D=new Scene3D();
-        GridLineSprite dic=new GridLineSprite();
-        dic.scene3d=this.scene3D;
-        this.scene3D.addDisplay(dic);
+//        GridLineSprite dic=new GridLineSprite();
+//        dic.scene3d=this.scene3D;
+//        this.scene3D.addDisplay(dic);
         this.sceneRes = new SceneRes();
 
 
@@ -226,16 +227,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void makeOBjData()
     {
+
         try {
             JSONArray buildItem=    this.sceneRes.sceneData.getJSONArray("buildItem");
             for(int i=0;i<buildItem.length();i++){
-
                 this.parsingBuildItem((JSONObject)buildItem.get(i));
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     private  void parsingBuildItem(JSONObject obj)
@@ -250,6 +251,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tempDis.scene3d=this.scene3D;
                     tempDis.setInfo(obj);
                     this.scene3D.addDisplay(tempDis);
+
+
 
                     break;
 
