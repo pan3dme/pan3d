@@ -1,67 +1,90 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MaterialApp(home: new HomePage2()));
 
-class MyApp extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: '第一组'),
-    );
-  }
-}
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  void _incrementCounter() {
-    setState(() {
-      _counter+=1;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
+    // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        appBar: new AppBar(
+          title: Text('我的Ap3p'),
+        ),
+        body: Row(
           children: <Widget>[
-            Text(
-              '点击显示数据 变化:',
+            Container(
+              color: Colors.black,
+              width: 100.0,
+              height: 100.0,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            Text(
-              '底下一行'
+            Container(
+              margin: EdgeInsets.only(left: 10.0),
+              color: Colors.yellow,
+              width: 100.0,
+              height: 100.0,
             )
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        ));
   }
 }
+
+class HomePage2 extends StatefulWidget {
+  @override
+  HomePage2State createState() {
+    return new HomePage2State();
+  }
+}
+
+class HomePage2State extends State<HomePage2> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.forward),
+          onPressed: () {
+            setState(() {});
+          },
+        ),
+        appBar: new AppBar(
+          title: Text('我的Ap3p'),
+        ),
+        body: Row(
+          children: <Widget>[
+            Container(
+              color: getColor(),
+              width: 100.0,
+              height: 100.0,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 10.0),
+              color: Colors.blue,
+              width: 100.0,
+              height: 100.0,
+            )
+          ],
+        ));
+  }
+
+  Color getColor() {
+    return Color.fromARGB(255, Random().nextInt(255), Random().nextInt(255),
+        Random().nextInt(255));
+  }
+}
+
+/*
+class HomePagetwo2 extends StatefulWidget
+{
+  @override
+   HomePage2State creatState()=>HomePage2State();
+
+}
+class HomePage2State extends State<HomePagetwo2>{
+  @override
+  Widget build(BuildContext context)
+  {
+    return null;
+  }
+
+
+  */
