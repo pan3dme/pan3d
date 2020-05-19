@@ -7,36 +7,23 @@ void main() => runApp(MaterialApp(home: new HomePage()));
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //debugPaintSizeEnabled=true;
+//    debugPaintSizeEnabled=true;
 
-    TextEditingController txtcontroller=new TextEditingController();
     // TODO: implement build
-
     return Scaffold(
         appBar: new AppBar(
           title: Text('当前'),
         ),
-        body: TextField(
-          controller: txtcontroller,
-          onChanged: (text) {
-            print('onchange=>'+text);
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, idx) {
+            print(idx);
+            return Card(
+                child: Container(
+              child: Text('$idx'),
+              height: 100,
+            ));
           },
-          onEditingComplete: (){
-//            print('onEditingComplete');
-            print('绑定文本->'+txtcontroller.text);
-          },
-//          onSubmitted: (text){
-//            print('onSubmitted'+text);
-//          },
-          decoration: new InputDecoration(
-            icon: Icon(Icons.calendar_today),
-            labelText: '日期',
-            focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.black54)),
-            helperText: '输入日期',
-//            suffix: Icon(Icons.remove),
-            suffixIcon: Icon(Icons.close),
-          ),
         ));
   }
 }
@@ -169,6 +156,96 @@ class HomePage5 extends StatelessWidget {
           child: Card(
             child: Text('TestDemo'),
           ),
+        ));
+  }
+}
+
+class HomePage6 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //debugPaintSizeEnabled=true;
+
+    TextEditingController txtcontroller = new TextEditingController();
+    // TODO: implement build
+
+    return Scaffold(
+        appBar: new AppBar(
+          title: Text('当前'),
+        ),
+        body: TextField(
+          controller: txtcontroller,
+          onChanged: (text) {
+            print('onchange=>' + text);
+          },
+          onEditingComplete: () {
+            print('绑定文本->' + txtcontroller.text);
+          },
+          decoration: new InputDecoration(
+            icon: Icon(Icons.calendar_today),
+            labelText: '日期',
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black54)),
+            helperText: '输入日期',
+            suffix: IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () {
+                FocusScope.of(context).requestFocus(new FocusNode());
+
+                txtcontroller.text = '';
+              },
+            ),
+          ),
+        ));
+  }
+}
+
+class HomePage7 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //debugPaintSizeEnabled=true;
+
+    TextEditingController txtcontroller = new TextEditingController();
+    // TODO: implement build
+
+    return Scaffold(
+        appBar: new AppBar(
+          title: Text('当前'),
+        ),
+        body: ListView(
+          children: List.generate(
+              1000,
+              (index) => Card(
+                    child: Container(
+                      height: 150,
+                      color: Colors.greenAccent,
+                      child: Text('$index'),
+                    ),
+                  )),
+        ));
+  }
+}
+
+
+class HomePage8 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+//    debugPaintSizeEnabled=true;
+
+    // TODO: implement build
+    return Scaffold(
+        appBar: new AppBar(
+          title: Text('当前'),
+        ),
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, idx) {
+            print(idx);
+            return Card(
+                child: Container(
+                  child: Text('$idx'),
+                  height: 100,
+                ));
+          },
         ));
   }
 }
