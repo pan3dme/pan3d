@@ -3,6 +3,91 @@ import 'dart:math';
 import 'package:flutter/rendering.dart';
 
 
+
+
+class BottomNavigationPage extends StatefulWidget {
+  @override
+  BottomNavigationPageState createState() {
+    return new BottomNavigationPageState();
+  }
+}
+
+class BottomNavigationPageState extends State<BottomNavigationPage> {
+  int index=0;
+  List<Widget>pages=[Container(color: Colors.red,),Container(color: Colors.green,),Container(color: Colors.blue,),Container(color: Colors.white,)];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.forward),
+          onPressed: () {
+            setState(() {});
+          },
+        ),
+        appBar: new AppBar(
+          title: Text('HomePage2'),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: index,
+          onTap: (int idx) {
+            index=idx;
+            print("indx->$idx");
+            setState(() {});
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.forward,
+                color: Colors.black54,
+              ),
+              title: Text(
+                "可已",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.account_circle,
+                color: Colors.black54,
+              ),
+              title: Text(
+                "德旺",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.calendar_today,
+                color: Colors.black54,
+              ),
+              title: Text(
+                "中新",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.build,
+                color: Colors.black54,
+              ),
+              title: Text(
+                "我的",
+                style: TextStyle(color: Colors.black),
+              ),
+            )
+          ],
+        ),
+        body: pages[index]);
+  }
+
+  Color getColor() {
+    return Color.fromARGB(255, Random().nextInt(255), Random().nextInt(255),
+        Random().nextInt(255));
+  }
+}
+
+
 class GridViewBuild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
