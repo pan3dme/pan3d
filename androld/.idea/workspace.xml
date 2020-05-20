@@ -12,10 +12,7 @@
     <bookmark url="file://$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" description="return this.byteBuffer.readUTF();" line="95" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+            <state relative-caret-position="292">
+              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -411,7 +408,7 @@
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4945055" weight="0.32941177" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.82905984" weight="0.4053476" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.48779" weight="0.32834226" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6947497" visible="true" weight="0.48235294" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6947497" weight="0.48235294" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993895" weight="0.32834226" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.30525032" side_tool="true" visible="true" weight="0.48235294" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
@@ -870,8 +867,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        <state relative-caret-position="292">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
         </state>
       </provider>
     </entry>
