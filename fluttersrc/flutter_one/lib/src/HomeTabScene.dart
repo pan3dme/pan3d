@@ -86,16 +86,39 @@ class HomeSceneState extends State<HomeTabScene>
       children: tabTitles.map((item) {
         return Container(
           color: _getColor(),
+          child: _diamondPageListView(),
+          /*
           child: Center(
-            child: Text(item,
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white)),
-          ),
+          child: Text(item,
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+        ),
+
+           */
         );
       }).toList(),
     );
+  }
+  Widget _diamondPageListView() {
+    return Column(children: <Widget>[
+      Container(
+        margin: EdgeInsets.only(left: 0.0),
+        color: Colors.yellow,
+        height: 100.0,
+        child: new Swiper(
+          itemBuilder: (BuildContext context, int index) {
+            return new Image.network(
+              "http://via.placeholder.com/350x150",
+              fit: BoxFit.fill,
+            );
+          },
+          itemCount: 3,
+        ),
+      ),
+
+    ]);
   }
   Color _getColor() {
     var random = new Random();
