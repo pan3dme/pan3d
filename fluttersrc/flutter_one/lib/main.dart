@@ -2,24 +2,31 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterone/src/AppBarBottom.dart';
 import 'package:flutterone/src/HomeBanner.dart';
+import 'package:flutterone/src/HomeTabScene.dart';
 import 'package:flutterone/src/RoutePage.dart';
 
 import 'package:flutterone/src/Vect3d.dart';
 
-/*
 
 void main() => runApp(MaterialApp(routes: {
-      '/': (context) {
-        return RoutePageView();
-      },
-      '/page2': (context) {
-        return Router2();
-      },
-    }));
+  '/': (context) {
+    return HomeTabScene();
+  },
+  '/AppBarBottomSample': (context) {
+    return AppBarBottomSample();
+  },
+  '/RoutePageView': (context) {
+    return RoutePageView();
+  },
+  '/page2': (context) {
+    return Router2();
+  },
+}));
 
-*/
-void main() => runApp(MaterialApp(home: new HomeBanerBase()));
+
+//void main() => runApp(MaterialApp(home: new AppBarBottomSample()));
 
 class GridViewBuild extends StatelessWidget {
   @override
