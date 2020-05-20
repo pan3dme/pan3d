@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.ObjData;
@@ -29,6 +30,8 @@ import z3d.material.MaterialManager;
 import z3d.material.TextureRes;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
+import z3d.units.LoadBackFun;
+import z3d.units.LoadManager;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
 
@@ -54,17 +57,13 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.rotationZ=(float) value.getDouble("rotationZ");
 
             this.setObjUrl(value.getString("objsurl"));
-            this.setMaterialUrl((value.getString("materialurl")),new ArrayList());
+         //   this.setMaterialUrl((value.getString("materialurl")),new ArrayList());
 
-
-
-
-            if(value.getString("lighturl")!=null){
+            if( value.has("lighturl")){
                 this.loadLightTexture(value.getString("lighturl"));
             }else{
-                this.makeBaseTexture();
+               this.makeBaseTexture();
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,6 +116,15 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             }
         });
 
+
+        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/reda.png", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+
+                textureBase=value;
+            }
+        });
+
     }
 
     @Override
@@ -143,7 +151,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/ljtai_fb_zhongtai_0.xml" -> {ObjData@12842}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml" -> {ObjData@12844}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_tiankong_0.xml" -> {ObjData@12846}
-      //  value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
+        //  value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
         Log.d(TAG, "value: "+value);
         ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
             @Override
@@ -176,8 +184,6 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 
 
             ctx.setRenderTexture(this.shader3D,"colorMap",this.textureBase.textTureInt,0);
-
-
 
             ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
 

@@ -7,6 +7,7 @@ import 'package:flutterone/src/RoutePage.dart';
 
 import 'package:flutterone/src/Vect3d.dart';
 
+/*
 
 void main() => runApp(MaterialApp(routes: {
       '/': (context) {
@@ -17,7 +18,8 @@ void main() => runApp(MaterialApp(routes: {
       },
     }));
 
-
+*/
+void main() => runApp(MaterialApp(home: new HomeBanerBase()));
 
 class GridViewBuild extends StatelessWidget {
   @override
