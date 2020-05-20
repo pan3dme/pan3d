@@ -57,7 +57,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.rotationZ=(float) value.getDouble("rotationZ");
 
             this.setObjUrl(value.getString("objsurl"));
-         //   this.setMaterialUrl((value.getString("materialurl")),new ArrayList());
+            this.setMaterialUrl((value.getString("materialurl")),new ArrayList());
 
             if( value.has("lighturl")){
                 this.loadLightTexture(value.getString("lighturl"));
@@ -92,17 +92,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             }
         });
 
-        /*
-    [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
-        this.material=(Material*)obj;
-        if (this.material.useNormal) {
-        }
-        if (paramData) {
-            this.materialParam = [[MaterialBaseParam alloc]init];
-            [this.materialParam setData:this.material ary:paramData];
-        }
-    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
-    */
+
     }
 
 

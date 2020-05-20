@@ -50,7 +50,7 @@ public class Material extends ResCount {
     public void setByteData(ByteArray _byte) {
         ByteArray fs = _byte;
         int vesion = fs.readInt();
-        this.shaderStr = fs.readUTF() ;
+        this.shaderStr = fs.readUTFCopy() ;
         this.hasTime = fs.readBoolean();
         this.timeSpeed = fs.readFloat();
         this.blendMode = (int) fs.readFloat();
@@ -70,13 +70,12 @@ public class Material extends ResCount {
         this.noLight = fs.readBoolean();
         this.scaleLightMap = fs.readBoolean();
         this.fogMode = fs.readInt();
-        if (vesion >= 22) {
-            this.fcNum = fs.readByte();
-            int leg = fs.readByte();
-            this.fcIDAry = new ArrayList<>();
-            for (int i = 0; i < leg; i++) {
-                this.fcIDAry.add((short)fs.readByte());
-            }
+
+        this.fcNum = fs.readByte();
+        int len = fs.readByte();
+        this.fcIDAry = new ArrayList<>();
+        for (int i = 0; i < len; i++) {
+            this.fcIDAry.add((short)fs.readByte());
         }
 
         this.hasParticleColor = false;

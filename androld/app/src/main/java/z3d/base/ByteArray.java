@@ -92,12 +92,15 @@ public class ByteArray {
         return a;
     }
     public String readUTF()  {
+        /*
         try {
             return this.byteBuffer.readUTF();
         } catch (Exception e) {
 
         }
         return "";
+        */
+        return  this.readUTFCopy();
     }
     public String readUTFCopy()  {
         try {
