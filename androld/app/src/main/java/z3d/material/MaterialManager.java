@@ -21,7 +21,7 @@ public class MaterialManager extends ResGC {
 
     public HashMap loadDic;
     public HashMap resDic;
-    public HashMap regDic;
+
 
     private static MaterialManager _instance;
     public static MaterialManager getInstance()  {
@@ -35,7 +35,7 @@ public class MaterialManager extends ResGC {
         super();
         this.loadDic=new HashMap();
         this.resDic=new HashMap();
-        this.regDic=new HashMap();
+
 
 
     }
@@ -80,6 +80,9 @@ public class MaterialManager extends ResGC {
     }
     public void getMaterialByte(String url, MaterialBackFun materialBfun )
     {
+        url = url.replace("_byte.txt", ".txt");
+        url = url.replace(".txt", "_byte.txt");
+
         if(this.dic.containsKey(url)){
             materialBfun.Bfun((Material)this.dic.get(url));
             return;
@@ -96,9 +99,9 @@ public class MaterialManager extends ResGC {
         List newArr=new ArrayList();
         newArr.add(materialLoad);
         this.loadDic.put(url,newArr);
-        if(this.regDic.containsKey(url)){
-            this.meshByteMaterialByte((ByteArray)this.regDic.get(url), materialLoad);
-            this.regDic.remove(url);
+        if(this.resDic.containsKey(url)){
+            this.meshByteMaterialByte((ByteArray)this.resDic.get(url), materialLoad);
+            this.resDic.remove(url);
 
         }else{
             Log.d("需要加载功能", "getMaterialByte: ");

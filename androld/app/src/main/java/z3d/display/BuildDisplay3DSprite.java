@@ -57,13 +57,29 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.setMaterialUrl((value.getString("materialurl")),new ArrayList());
 
 
-            this.makeBaseTexture();
 
-           //   [self setMaterialUrl:self.buildSceneVo.materialurl paramData:self.buildSceneVo.materialInfoArr];
+
+            if(value.getString("lighturl")!=null){
+                this.loadLightTexture(value.getString("lighturl"));
+            }else{
+                this.makeBaseTexture();
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+    private void  loadLightTexture(String url)
+    {
+
+        TextureManager.getInstance().getTexture(url, new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                textureBase=value;
+            }
+        });
 
     }
 
@@ -73,6 +89,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             @Override
             public void Bfun(Material value) {
 
+                Log.d(TAG, "Bfun: ");
             }
         });
 
@@ -92,8 +109,6 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 
     private void makeBaseTexture()
     {
-
-
         TextureManager.getInstance().getTexture("content/finalscens/mapscene/copy/ba卦tai/ba卦tai_hide/lightuv/build2.jpg", new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
@@ -101,7 +116,6 @@ public class BuildDisplay3DSprite extends Display3DSprite {
                 textureBase=value;
             }
         });
-
 
     }
 
@@ -129,7 +143,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/ljtai_fb_zhongtai_0.xml" -> {ObjData@12842}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml" -> {ObjData@12844}
 //        "content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_tiankong_0.xml" -> {ObjData@12846}
-       value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
+      //  value="content/finalscens/mapscene/copy/ba卦tai/moxing/bgtai_fb_texiao_0.xml";
         Log.d(TAG, "value: "+value);
         ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
             @Override
