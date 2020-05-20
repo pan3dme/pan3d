@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/rendering.dart';
 
-
-
-
 class BottomNavigationPage extends StatefulWidget {
   @override
   BottomNavigationPageState createState() {
@@ -13,8 +10,21 @@ class BottomNavigationPage extends StatefulWidget {
 }
 
 class BottomNavigationPageState extends State<BottomNavigationPage> {
-  int index=0;
-  List<Widget>pages=[Container(color: Colors.red,),Container(color: Colors.green,),Container(color: Colors.blue,),Container(color: Colors.white,)];
+  int index = 0;
+  List<Widget> pages = [
+    Container(
+      color: Colors.red,
+    ),
+    Container(
+      color: Colors.green,
+    ),
+    Container(
+      color: Colors.blue,
+    ),
+    Container(
+      color: Colors.white,
+    )
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +41,7 @@ class BottomNavigationPageState extends State<BottomNavigationPage> {
           type: BottomNavigationBarType.fixed,
           currentIndex: index,
           onTap: (int idx) {
-            index=idx;
+            index = idx;
             print("indx->$idx");
             setState(() {});
           },
@@ -87,7 +97,6 @@ class BottomNavigationPageState extends State<BottomNavigationPage> {
   }
 }
 
-
 class GridViewBuild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -111,10 +120,10 @@ class GridViewBuild extends StatelessWidget {
             itemBuilder: (context, idx) {
               return Card(
                   child: Container(
-                    color: Colors.red,
-                    child: Text('index$idx'),
-                    height: 100,
-                  ));
+                color: Colors.red,
+                child: Text('index$idx'),
+                height: 100,
+              ));
             }));
   }
 }
@@ -135,20 +144,20 @@ class HomePage12 extends StatelessWidget {
         ),
         body: GridView.count(
           crossAxisCount: 3,
-          childAspectRatio: 2/3,
+          childAspectRatio: 2 / 3,
           children: List.generate(
               100,
-                  (idx) => Card(
-                child: Container(
-                  color: Colors.blue,
-                  child: Image.asset(
-                    'lib/images/dt_xihuan_hong.png',
-                    height: 50.0,
-                    width: 50.0,
-                    fit: BoxFit.none,
-                  ),
-                ),
-              )),
+              (idx) => Card(
+                    child: Container(
+                      color: Colors.blue,
+                      child: Image.asset(
+                        'lib/images/dt_xihuan_hong.png',
+                        height: 50.0,
+                        width: 50.0,
+                        fit: BoxFit.none,
+                      ),
+                    ),
+                  )),
         ));
   }
 }
@@ -187,15 +196,14 @@ class HomePage10 extends StatelessWidget {
         appBar: new AppBar(
           title: Text('当前'),
         ),
-        body: Image.asset('lib/images/dt_xihuan_hong.png',
+        body: Image.asset(
+          'lib/images/dt_xihuan_hong.png',
           height: 200.0,
           width: 200.0,
-          fit: BoxFit.none ,)
-    );
+          fit: BoxFit.none,
+        ));
   }
 }
-
-
 
 class HomePage9 extends StatelessWidget {
   @override
@@ -215,13 +223,12 @@ class HomePage9 extends StatelessWidget {
         bannerImg,
         height: 200.0,
         width: 500,
-        fit: BoxFit.none ,
+        fit: BoxFit.none,
         alignment: Alignment.bottomCenter,
       ),
     );
   }
 }
-
 
 class HomePage1 extends StatelessWidget {
   @override
@@ -409,17 +416,16 @@ class HomePage7 extends StatelessWidget {
         body: ListView(
           children: List.generate(
               1000,
-                  (index) => Card(
-                child: Container(
-                  height: 150,
-                  color: Colors.greenAccent,
-                  child: Text('$index'),
-                ),
-              )),
+              (index) => Card(
+                    child: Container(
+                      height: 150,
+                      color: Colors.greenAccent,
+                      child: Text('$index'),
+                    ),
+                  )),
         ));
   }
 }
-
 
 class HomePage8 extends StatelessWidget {
   @override
@@ -437,9 +443,9 @@ class HomePage8 extends StatelessWidget {
             print(idx);
             return Card(
                 child: Container(
-                  child: Text('$idx'),
-                  height: 100,
-                ));
+              child: Text('$idx'),
+              height: 100,
+            ));
           },
         ));
   }
