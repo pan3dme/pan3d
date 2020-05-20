@@ -1,15 +1,23 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutterone/src/AppBarBottom.dart';
 
 class HomeTabScene extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => HomeSceneState();
 }
-
 class HomeSceneState extends State<HomeTabScene>
     with SingleTickerProviderStateMixin {
   TabController tabController;
   List tabs = ['钻石', '筹码', '座驾', '会员']; // 顶部导航栏
+  List<String> tabTitles = [
+  "tab1",
+  "tab2",
+  "tab3",
+  "tab4",
+  ];
   double sceneWidth=300;
   void initState() {
     super.initState();
@@ -28,6 +36,8 @@ class HomeSceneState extends State<HomeTabScene>
           ),
           preferredSize: Size.fromHeight(50),
         ),
+        body: _tabBarView(),
+        /*
         body: Column(children: <Widget>[
           Container(
             margin: EdgeInsets.only(left: 0.0),
@@ -45,6 +55,8 @@ class HomeSceneState extends State<HomeTabScene>
           ),
 
         ]),
+        */
+
       ),
     );
   }
@@ -68,4 +80,32 @@ class HomeSceneState extends State<HomeTabScene>
     );
     return tabBar;
   }
+  Widget _tabBarView() {
+    return TabBarView(
+      controller: tabController,
+      children: tabTitles.map((item) {
+        return Container(
+          color: _getColor(),
+          child: Center(
+            child: Text(item,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
+          ),
+        );
+      }).toList(),
+    );
+  }
+  Color _getColor() {
+    var random = new Random();
+    int r = random.nextInt(255);
+    int g = random.nextInt(255);
+    int b = random.nextInt(255);
+    print(r);
+    print(g);
+    print(b);
+    return Color.fromARGB(255, r, g, b);
+  }
+
 }
