@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 import z3d.base.ObjData;
 import z3d.base.ObjDataBackFun;
@@ -22,6 +23,8 @@ import z3d.base.ObjDataManager;
 import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 import z3d.filemodel.TextureManager;
+import z3d.material.Material;
+import z3d.material.MaterialBackFun;
 import z3d.material.MaterialManager;
 import z3d.material.TextureRes;
 import z3d.program.ProgrmaManager;
@@ -32,6 +35,7 @@ import z3d.vo.Vector3D;
 public class BuildDisplay3DSprite extends Display3DSprite {
 
     public static String TAG="Display3DSprite";
+    private TextureRes textureBase;
     public String lighturl;
     public void  setInfo(JSONObject value)
     {
@@ -50,18 +54,42 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.rotationZ=(float) value.getDouble("rotationZ");
 
             this.setObjUrl(value.getString("objsurl"));
+            this.setMaterialUrl((value.getString("materialurl")),new ArrayList());
 
 
             this.makeBaseTexture();
+
+           //   [self setMaterialUrl:self.buildSceneVo.materialurl paramData:self.buildSceneVo.materialInfoArr];
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
     }
 
-    private TextureRes textureBase;
+    public void setMaterialUrl(String url,List paramData)
+    {
+        MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
+            @Override
+            public void Bfun(Material value) {
+
+            }
+        });
+
+        /*
+    [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+        this.material=(Material*)obj;
+        if (this.material.useNormal) {
+        }
+        if (paramData) {
+            this.materialParam = [[MaterialBaseParam alloc]init];
+            [this.materialParam setData:this.material ary:paramData];
+        }
+    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
+    */
+    }
+
+
     private void makeBaseTexture()
     {
 

@@ -3,11 +3,17 @@ package z3d.material;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
+import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ResGC;
+import z3d.base.TexTuresBackFun;
+import z3d.filemodel.TextureManager;
+import z3d.program.Shader3D;
 
 public class MaterialManager extends ResGC {
 
@@ -72,5 +78,82 @@ public class MaterialManager extends ResGC {
 
 
     }
+    public void getMaterialByte(String url, MaterialBackFun materialBfun )
+    {
+        if(this.dic.containsKey(url)){
+            materialBfun.Bfun((Material)this.dic.get(url));
+            return;
+        }
+
+        MaterialLoad materialLoad=new MaterialLoad(materialBfun,null,url,true,"",new Shader3D());
+
+        if(this.loadDic.containsKey(url)){
+            List arr=(List) this.loadDic.get(url);
+            arr.add(materialLoad);
+            return;
+
+        }
+        List newArr=new ArrayList();
+        newArr.add(materialLoad);
+        this.loadDic.put(url,newArr);
+        if(this.regDic.containsKey(url)){
+            this.meshByteMaterialByte((ByteArray)this.regDic.get(url), materialLoad);
+            this.regDic.remove(url);
+
+        }else{
+            Log.d("需要加载功能", "getMaterialByte: ");
+        }
+
+
+    }
+    private  void   loadMaterial(Material material)
+    {
+        List texVec =material.texList;
+        for (int i = 0; i < texVec.size(); i++) {
+
+            TexItem texItem=(TexItem)texVec.get(i);
+            if (texItem.isParticleColor ||texItem.isDynamic || texItem.type != 0) {
+                continue;
+            }
+            TextureManager.getInstance().getTexture(texItem.url, new TexTuresBackFun() {
+                @Override
+                public void Bfun(TextureRes value) {
+                    Log.d("", "Bfun: "+value);
+                }
+            });
+
+        }
+
+        /*
+
+        for (var i: number = 0; i < texVec.length; i++) {
+        if (texVec[i].isParticleColor || texVec[i].isDynamic || texVec[i].type != 0) {
+            continue;
+        }
+        TextureManager.getInstance().getTexture(Scene_data.fileRoot + texVec[i].url, ($textureVo: TextureRes, $texItem: TexItem) => {
+            $texItem.textureRes = $textureVo;
+        }, texVec[i].wrap, texVec[i], texVec[i].filter, texVec[i].mipmap);
+
+         */
+    }
+
+    private  void meshByteMaterialByte(ByteArray _byte,MaterialLoad _info)
+    {
+
+        Material material = new Material();
+        material.setByteData(_byte);
+        material.url = _info.url;
+        this.loadMaterial(material);
+
+       List arr= (List) this.loadDic.get(_info.url);
+       for (int i=0;i<arr.size();i++){
+           MaterialLoad materialLoad=(MaterialLoad)arr.get(i);
+           materialLoad.fun.Bfun(material);
+       }
+
+       this.loadDic.remove(_info.url);
+       this.dic.put(_info.url,material);
+
+     }
 
 }

@@ -1,17 +1,27 @@
+
+
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:flutter/rendering.dart';
+import 'package:flutterone/src/RoutePage.dart';
 
 import 'package:flutterone/src/Vect3d.dart';
 
-void main() => runApp(MaterialApp(home: new GridViewBuild()));
 
+void main() => runApp(MaterialApp(routes: {
+      '/': (context) {
+        return RoutePageView();
+      },
+      '/page2': (context) {
+        return Router2();
+      },
+    }));
 
+//void main() => runApp(MaterialApp(home: new RoutePageView()));
 
 class GridViewBuild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-//    debugPaintSizeEnabled = true;
+    //debugPaintSizeEnabled = true;
 
     //final String bannerImg='http://img2.imgtn.bdimg.com/it/u=2134092665,3141066907&fm=26&gp=0.jpg';
     final String bannerImg =
@@ -31,10 +41,10 @@ class GridViewBuild extends StatelessWidget {
             itemBuilder: (context, idx) {
               return Card(
                   child: Container(
-                    color: Colors.red,
-                    child: Text('index$idx'),
-                    height: 100,
-                  ));
+                color: Colors.red,
+                child: Text('index$idx'),
+                height: 100,
+              ));
             }));
   }
 }
