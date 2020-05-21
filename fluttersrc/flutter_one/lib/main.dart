@@ -14,6 +14,9 @@ void main() => runApp(MaterialApp(routes: {
   '/': (context) {
     return HomeTabScene();
   },
+  '/HomeTabScene': (context) {
+    return HomeTabScene();
+  },
   '/AppBarBottomSample': (context) {
     return AppBarBottomSample();
   },

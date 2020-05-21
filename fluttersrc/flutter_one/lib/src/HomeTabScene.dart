@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutterone/main.dart';
 import 'package:flutterone/src/AppBarBottom.dart';
+import 'package:flutterone/src/MartPageView.dart';
 
 class HomeTabScene extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class HomeSceneState extends State<HomeTabScene>
   ];
   bool haveGonggao = true;
   double sceneWidth = 300;
+
   void initState() {
     super.initState();
     tabController =
@@ -41,25 +43,6 @@ class HomeSceneState extends State<HomeTabScene>
           preferredSize: Size.fromHeight(50),
         ),
         body: _tabBarView(),
-        /*
-        body: Column(children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(left: 0.0),
-            color: Colors.yellow,
-            height: 100.0,
-            child: new Swiper(
-              itemBuilder: (BuildContext context, int index) {
-                return new Image.network(
-                  "http://via.placeholder.com/350x150",
-                  fit: BoxFit.fill,
-                );
-              },
-              itemCount: 3,
-            ),
-          ),
-
-        ]),
-        */
       ),
     );
   }
@@ -90,13 +73,13 @@ class HomeSceneState extends State<HomeTabScene>
       children: tabTitles.map((item) {
         return Container(
           color: _getColor(),
-          child: _banerSwiper(),
+          child: _banerSwiper(item),
         );
       }).toList(),
     );
   }
 
-  Widget _banerSwiper() {
+  Widget _banerSwiper(item) {
     return Column(children: <Widget>[
       Container(
         margin: EdgeInsets.all(0.0),
@@ -112,12 +95,12 @@ class HomeSceneState extends State<HomeTabScene>
           itemCount: 3,
         ),
       ),
-      gonggaoBoxView(),
+      gonggaoBoxView(item),
       Container(
         margin: EdgeInsets.all(0.0),
         color: Colors.yellow,
-        height: 500,
-        child: rightGridBoxView(),
+        height: 300,
+        child: MartPageView(item),
       ),
     ]);
   }
@@ -138,8 +121,13 @@ class HomeSceneState extends State<HomeTabScene>
     return content;
   }
 
-  Widget gonggaoBoxView() {
+  Widget gonggaoBoxView(tabStr) {
     var content;
+    if (tabStr == "tab1" || tabStr == "tab3") {
+      haveGonggao = true;
+    } else {
+      haveGonggao = false;
+    }
     if (haveGonggao) {
       //如果数据不为空，则显示Text
       content = Container(

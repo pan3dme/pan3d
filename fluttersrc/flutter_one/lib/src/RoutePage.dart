@@ -27,7 +27,7 @@ class RoutePageViewState extends State<RoutePageView> {
               return Router2(
                 textData: "fukcjusttobi",
               );
-            })).then((value){
+            })).then((value) {
               print(value);
             });
           },
