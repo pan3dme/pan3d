@@ -5,6 +5,21 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutterone/main.dart';
 import 'package:flutterone/src/AppBarBottom.dart';
 import 'package:flutterone/src/MartPageView.dart';
+import 'package:flutterone/src/Vect3d.dart';
+
+class ChangeZhifuFanshi extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+//    debugPaintSizeEnabled=true;
+
+    // TODO: implement build
+    return Scaffold(
+      appBar: new AppBar(
+        title: Text('当333abc前'),
+      ),
+    );
+  }
+}
 
 class HomeTabScene extends StatefulWidget {
   @override
@@ -14,6 +29,17 @@ class HomeTabScene extends StatefulWidget {
 class HomeSceneState extends State<HomeTabScene>
     with SingleTickerProviderStateMixin {
   TabController tabController;
+  List zhifuLeixin = [
+    '关注',
+    '推荐',
+    '热门',
+    '附近',
+    '颜值',
+    '新人',
+    '星秀',
+    '交友',
+    '才艺'
+  ]; // 顶部导航栏
   List tabs = ['钻石', '筹码', '座驾', '会员']; // 顶部导航栏
   List<String> tabTitles = [
     "tab1",
@@ -67,6 +93,14 @@ class HomeSceneState extends State<HomeTabScene>
     return tabBar;
   }
 
+  buildTabBarCopy() {
+    Widget tabBar = TabBar(
+      isScrollable: true,
+      tabs: zhifuLeixin.map((e) => Tab(text: e)).toList(),
+    );
+    return tabBar;
+  }
+
   Widget _tabBarView() {
     return TabBarView(
       controller: tabController,
@@ -89,6 +123,10 @@ class HomeSceneState extends State<HomeTabScene>
               ),
             ),
             gonggaoBoxView(item),
+            Container(
+              height: 100,
+              child: ChangeZhifuFanshi(),
+            ),
             Expanded(
 //              margin: EdgeInsets.all(0.0),
 //              color: Colors.green,
@@ -99,12 +137,13 @@ class HomeSceneState extends State<HomeTabScene>
                     Container(
                       color: Colors.green,
                       width: 100,
-                      height: 1000,
+                      height: 9999,
+                      alignment: Alignment.topLeft,
                       child: Text('a'),
                     ),
                     LimitedBox(
                       maxWidth: 275,
-                      maxHeight: 100,
+                      maxHeight: 999999,
                       child: GridView.count(
                         crossAxisCount: 3,
                         childAspectRatio: 1,
