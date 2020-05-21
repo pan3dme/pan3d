@@ -72,10 +72,91 @@ class HomeSceneState extends State<HomeTabScene>
       controller: tabController,
       children: tabTitles.map((item) {
         return Container(
-          color: _getColor(),
-          child: _banerSwiper(item),
+//          color: _getColor(),
+          child: Column(children: <Widget>[
+            Container(
+//              margin: EdgeInsets.all(0.0),
+              color: Colors.yellow,
+              height: 135.0,
+              child: new Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return new Image.network(
+                    "http://via.placeholder.com/350x150",
+                    fit: BoxFit.fill,
+                  );
+                },
+                itemCount: 3,
+              ),
+            ),
+            gonggaoBoxView(item),
+            Expanded(
+//              margin: EdgeInsets.all(0.0),
+//              color: Colors.green,
+              child: Container(
+                color: Colors.red,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      color: Colors.green,
+                      width: 100,
+                      height: 1000,
+                      child: Text('a'),
+                    ),
+                    LimitedBox(
+                      maxWidth: 275,
+                      maxHeight: 100,
+                      child: GridView.count(
+                        crossAxisCount: 3,
+                        childAspectRatio: 1,
+                        children: List.generate(
+                            10,
+                            (idx) => Card(
+                                  child: Container(
+                                    color: Colors.blue,
+                                    child: Image.asset(
+                                      'lib/images/dt_xihuan_hong.png',
+                                      height: 50.0,
+                                      width: 50.0,
+                                      fit: BoxFit.none,
+                                    ),
+                                  ),
+                                )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+//        width: 300,
+//              height: 200,
+            ),
+          ]),
         );
       }).toList(),
+    );
+  }
+
+  /// 构建button
+  Column _buildButtonColumn(BuildContext context, String label) {
+    Color color = Theme.of(context).primaryColor;
+
+    return Column(
+//      mainAxisSize: MainAxisSize.min,
+//      mainAxisAlignment: MainAxisAlignment.center,
+      //列布局
+      children: <Widget>[
+        Text('abcd'),
+        Container(
+          margin: EdgeInsets.only(top: 8.0),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        )
+      ],
     );
   }
 
@@ -98,9 +179,10 @@ class HomeSceneState extends State<HomeTabScene>
       gonggaoBoxView(item),
       Container(
         margin: EdgeInsets.all(0.0),
-        color: Colors.yellow,
-        height: 300,
-        child: MartPageView(item),
+        color: Colors.green,
+//        width: 300,
+        height: 100,
+//        child: MartPageView(item),
       ),
     ]);
   }
@@ -128,6 +210,7 @@ class HomeSceneState extends State<HomeTabScene>
     } else {
       haveGonggao = false;
     }
+    haveGonggao = true;
     if (haveGonggao) {
       //如果数据不为空，则显示Text
       content = Container(

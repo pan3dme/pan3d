@@ -147,17 +147,17 @@ class HomePage12 extends StatelessWidget {
           childAspectRatio: 2 / 3,
           children: List.generate(
               100,
-              (idx) => Card(
-                    child: Container(
-                      color: Colors.blue,
-                      child: Image.asset(
-                        'lib/images/dt_xihuan_hong.png',
-                        height: 50.0,
-                        width: 50.0,
-                        fit: BoxFit.none,
-                      ),
-                    ),
-                  )),
+                  (idx) => Card(
+                child: Container(
+                  color: Colors.blue,
+                  child: Image.asset(
+                    'lib/images/dt_xihuan_hong.png',
+                    height: 50.0,
+                    width: 50.0,
+                    fit: BoxFit.none,
+                  ),
+                ),
+              )),
         ));
   }
 }
