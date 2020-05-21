@@ -119,7 +119,7 @@ class HomeSceneState extends State<HomeTabScene>
             gonggaoBoxView(item),
             Container(
               height: 48,
-              child: AppBar(
+              child: new AppBar(
                 bottom: buildZhifuMenu(),
               ),
             ),
@@ -134,16 +134,15 @@ class HomeSceneState extends State<HomeTabScene>
                     ),
                     LimitedBox(
                       maxWidth: 275,
-                      maxHeight: 999999,
+                      maxHeight: double.infinity,
                       child: GridView.count(
-                        crossAxisCount: 2,
+                        crossAxisCount: 3,
                         childAspectRatio: 1,
                         children: List.generate(
                             smartList.length,
                             (idx) => Card(
                                   color: _getColor(),
                                   child: IconButton(
-
                                     onPressed: () {
                                       showAboutDialog(
                                         context: context,
@@ -153,9 +152,9 @@ class HomeSceneState extends State<HomeTabScene>
                                     },
                                     icon:Image.asset(
                                       'lib/images/dt_xihuan_hong.png',
-//                                      height: 50.0,
-//                                      width: 50.0,
-                                      fit: BoxFit.none,
+                                      height: 50.0,
+                                      width: 50.0,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 )),
@@ -174,8 +173,9 @@ class HomeSceneState extends State<HomeTabScene>
   }
 
   buildZhifuMenu() {
-    Widget tabBar = TabBar(
-      tabs: zhifuMenuXml.map((e) => Tab(text: e)).toList(),
+    Widget tabBar = new TabBar(
+
+      tabs:  zhifuMenuXml.map((e) => Tab(text: e)).toList(),
     );
     return tabBar;
   }
