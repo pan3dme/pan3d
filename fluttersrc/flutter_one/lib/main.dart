@@ -2,17 +2,30 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutterone/src/AppBarBottom.dart';
-import 'package:flutterone/src/HomeBanner.dart';
-import 'package:flutterone/src/HomeTabScene.dart';
-import 'package:flutterone/src/RoutePage.dart';
+import 'package:flutterone/src/old/AppBarBottom.dart';
 
-import 'package:flutterone/src/Vect3d.dart';
+import 'package:flutterone/src/old/HomeTabScene.dart';
+import 'package:flutterone/src/old/RoutePage.dart';
+
+import 'package:flutterone/src/old/Vect3d.dart';
+import 'package:flutterone/src/base/BaseColumnView.dart';
+import 'package:flutterone/src/base/BaseRowView.dart';
+import 'package:flutterone/src/base/ShowAlrit.dart';
 
 
 void main() => runApp(MaterialApp(routes: {
   '/': (context) {
     return HomeTabScene();
+  },
+
+  '/BaseColumnView': (context) {
+    return BaseColumnView();
+  },
+  '/BaseRowView': (context) {
+    return BaseRowView();
+  },
+  '/ShowAboutView': (context) {
+    return ShowAboutView();
   },
   '/HomeTabScene': (context) {
     return HomeTabScene();

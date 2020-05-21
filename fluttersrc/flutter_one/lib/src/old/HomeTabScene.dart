@@ -3,23 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutterone/main.dart';
-import 'package:flutterone/src/AppBarBottom.dart';
-import 'package:flutterone/src/MartPageView.dart';
-import 'package:flutterone/src/Vect3d.dart';
-
-class ChangeZhifuFanshi extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-//    debugPaintSizeEnabled=true;
-
-    // TODO: implement build
-    return Scaffold(
-      appBar: new AppBar(
-        title: Text('当333abc前'),
-      ),
-    );
-  }
-}
+import 'package:flutterone/src/base/BaseColumnView.dart';
+import 'package:flutterone/src/old/AppBarBottom.dart';
+import 'package:flutterone/src/old/MartPageView.dart';
+import 'package:flutterone/src/old/Vect3d.dart';
 
 class HomeTabScene extends StatefulWidget {
   @override
@@ -29,17 +16,7 @@ class HomeTabScene extends StatefulWidget {
 class HomeSceneState extends State<HomeTabScene>
     with SingleTickerProviderStateMixin {
   TabController tabController;
-  List zhifuLeixin = [
-    '关注',
-    '推荐',
-    '热门',
-    '附近',
-    '颜值',
-    '新人',
-    '星秀',
-    '交友',
-    '才艺'
-  ]; // 顶部导航栏
+
   List tabs = ['钻石', '筹码', '座驾', '会员']; // 顶部导航栏
   List<String> tabTitles = [
     "tab1",
@@ -47,6 +24,8 @@ class HomeSceneState extends State<HomeTabScene>
     "tab3",
     "tab4",
   ];
+  List zhifuMenuXml = ['钻a石', '筹b码', '座c驾', '会d员']; // 顶部导航栏
+//  List zhifuMenuXml = ['支付宝', '人工充值', '云闪付', '微信', '网银中心']; // 顶部导航栏
   bool haveGonggao = true;
   double sceneWidth = 300;
 
@@ -93,14 +72,6 @@ class HomeSceneState extends State<HomeTabScene>
     return tabBar;
   }
 
-  buildTabBarCopy() {
-    Widget tabBar = TabBar(
-      isScrollable: true,
-      tabs: zhifuLeixin.map((e) => Tab(text: e)).toList(),
-    );
-    return tabBar;
-  }
-
   Widget _tabBarView() {
     return TabBarView(
       controller: tabController,
@@ -124,23 +95,18 @@ class HomeSceneState extends State<HomeTabScene>
             ),
             gonggaoBoxView(item),
             Container(
-              height: 100,
-              child: ChangeZhifuFanshi(),
+              height: 48,
+              child: AppBar(
+                bottom: buildZhifuMenu(),
+              ),
             ),
             Expanded(
-//              margin: EdgeInsets.all(0.0),
-//              color: Colors.green,
+
               child: Container(
                 color: Colors.red,
                 child: Row(
                   children: <Widget>[
-                    Container(
-                      color: Colors.green,
-                      width: 100,
-                      height: 9999,
-                      alignment: Alignment.topLeft,
-                      child: Text('a'),
-                    ),
+                   Container(width: 100, child:  BaseColumnView(),),
                     LimitedBox(
                       maxWidth: 275,
                       maxHeight: 999999,
@@ -172,6 +138,19 @@ class HomeSceneState extends State<HomeTabScene>
         );
       }).toList(),
     );
+  }
+
+  buildZhifuMenu() {
+
+
+
+
+    Widget tabBar = TabBar(
+      tabs: zhifuMenuXml.map((e) => Tab(text: e)).toList(),
+    );
+    return tabBar;
+
+
   }
 
   /// 构建button
@@ -249,14 +228,14 @@ class HomeSceneState extends State<HomeTabScene>
     } else {
       haveGonggao = false;
     }
-    haveGonggao = true;
+//    haveGonggao = true;
     if (haveGonggao) {
       //如果数据不为空，则显示Text
       content = Container(
         margin: EdgeInsets.all(0.0),
         height: 30,
         color: Colors.white10,
-        child: Text('这里显示公告数据这里显示公告数据这里显'),
+        child: Text('这里显示公告$tabStr示公告数据这里显'),
       );
     } else {
       //当数据为空我们需要隐藏这个Text
