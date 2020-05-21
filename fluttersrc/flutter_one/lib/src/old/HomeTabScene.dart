@@ -25,6 +25,17 @@ class HomeSceneState extends State<HomeTabScene>
     "tab4",
   ];
   List zhifuMenuXml = ['钻a石', '筹b码', '座c驾', '会d员']; // 顶部导航栏
+
+  List<String> smartList = [
+    "aaa",
+    "bbb",
+    "ccc",
+    "ddd",
+    "aaa",
+    "bbb",
+    "ccc",
+    "ddd",
+  ];
 //  List zhifuMenuXml = ['支付宝', '人工充值', '云闪付', '微信', '网银中心']; // 顶部导航栏
   bool haveGonggao = true;
   double sceneWidth = 300;
@@ -73,6 +84,18 @@ class HomeSceneState extends State<HomeTabScene>
   }
 
   Widget _tabBarView() {
+    final List<Widget> aboutBoxChildren = <Widget>[
+      SizedBox(height: 24),
+      RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(text: 'Flutter is Googleâ t '),
+            TextSpan(text: 'http://www.baidu.com'),
+          ],
+        ),
+      ),
+    ];
+
     return TabBarView(
       controller: tabController,
       children: tabTitles.map((item) {
@@ -101,27 +124,37 @@ class HomeSceneState extends State<HomeTabScene>
               ),
             ),
             Expanded(
-
               child: Container(
                 color: Colors.red,
                 child: Row(
                   children: <Widget>[
-                   Container(width: 100, child:  BaseColumnView(),),
+                    Container(
+                      width: 100,
+                      child: BaseColumnView(),
+                    ),
                     LimitedBox(
                       maxWidth: 275,
                       maxHeight: 999999,
                       child: GridView.count(
-                        crossAxisCount: 3,
+                        crossAxisCount: 2,
                         childAspectRatio: 1,
                         children: List.generate(
-                            10,
+                            smartList.length,
                             (idx) => Card(
-                                  child: Container(
-                                    color: Colors.blue,
-                                    child: Image.asset(
+                                  color: _getColor(),
+                                  child: IconButton(
+
+                                    onPressed: () {
+                                      showAboutDialog(
+                                        context: context,
+                                        applicationVersion: 'August 2019',
+                                        children: aboutBoxChildren,
+                                      );
+                                    },
+                                    icon:Image.asset(
                                       'lib/images/dt_xihuan_hong.png',
-                                      height: 50.0,
-                                      width: 50.0,
+//                                      height: 50.0,
+//                                      width: 50.0,
                                       fit: BoxFit.none,
                                     ),
                                   ),
@@ -141,16 +174,10 @@ class HomeSceneState extends State<HomeTabScene>
   }
 
   buildZhifuMenu() {
-
-
-
-
     Widget tabBar = TabBar(
       tabs: zhifuMenuXml.map((e) => Tab(text: e)).toList(),
     );
     return tabBar;
-
-
   }
 
   /// 构建button
