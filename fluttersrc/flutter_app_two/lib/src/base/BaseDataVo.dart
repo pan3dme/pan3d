@@ -1,26 +1,44 @@
-class BaseDataVo {
+
+class ZhifuFanshiVo {
+
+  String tittle;
+  List<String> playList   ;
+  ZhifuFanshiVo(str) {
+    tittle=str;
+    playList=new List();
+    playList.add("10元");
+    playList.add("20元");
+    playList.add("30元");
+    playList.add("40元");
+    playList.add("50元");
+    playList.add("60元");
+
+  }
+}
+
+class ZhifuLieTongDaoVo {
   int selectIdx = 0;
   String tabName = '1';
   List<String> menuLists = [
     "空",
   ];
-  BaseDataVo(str) {
+  ZhifuLieTongDaoVo(str) {
     this.tabName = str;
   }
 }
 
 class BaseDataItem {
   int tabIdx = 0;
-  List<BaseDataVo> pageList;
+  List<ZhifuLieTongDaoVo> pageList;
   BaseDataItem() {
     this.pageList = new List();
     this.pageList.add(makeTab0());
     this.pageList.add(makeTab1());
     this.pageList.add(makeTab2());
-    this.pageList.add(new BaseDataVo('云闪付'));
+    this.pageList.add(new ZhifuLieTongDaoVo('云闪付'));
   }
   makeTab0() {
-    BaseDataVo one = new BaseDataVo('支付宝');
+    ZhifuLieTongDaoVo one = new ZhifuLieTongDaoVo('支付宝');
     one.menuLists = new List();
     one.menuLists.add("支付宝0");
     one.menuLists.add("支付宝1");
@@ -34,7 +52,7 @@ class BaseDataItem {
   }
 
   makeTab1() {
-    BaseDataVo one = new BaseDataVo('微信');
+    ZhifuLieTongDaoVo one = new ZhifuLieTongDaoVo('微信');
     one.menuLists = new List();
     one.menuLists.add("微信0");
     one.menuLists.add("微信1");
@@ -45,7 +63,7 @@ class BaseDataItem {
   }
 
   makeTab2() {
-    BaseDataVo one = new BaseDataVo('人工充值');
+    ZhifuLieTongDaoVo one = new ZhifuLieTongDaoVo('人工充值');
     one.menuLists = new List();
     one.menuLists.add("人工充值0");
     one.menuLists.add("人工充值1");

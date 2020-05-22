@@ -5,9 +5,9 @@ import 'package:flutterapptwo/src/base/BaseDataVo.dart';
 import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
 
 class ListGridPanel extends StatefulWidget {
-  BaseDataVo selectVo;
+  ZhifuLieTongDaoVo selectVo;
 
-  ListGridPanel(BaseDataVo vo) {
+  ListGridPanel(ZhifuLieTongDaoVo vo) {
     selectVo = vo;
   }
   @override
@@ -17,7 +17,7 @@ class ListGridPanel extends StatefulWidget {
 }
 
 class ListGridPanelState extends State<ListGridPanel> {
-  BaseDataVo baseDataVo = new BaseDataVo('支付宝');
+  ZhifuLieTongDaoVo baseDataVo = new ZhifuLieTongDaoVo('支付宝');
   final List<Widget> aboutBoxChildren = <Widget>[
     SizedBox(height: 24),
     RichText(
@@ -49,7 +49,7 @@ class ListGridPanelState extends State<ListGridPanel> {
     "ccc",
     "ddd",
   ];
-  ListGridPanelState(BaseDataVo vo) {
+  ListGridPanelState(ZhifuLieTongDaoVo vo) {
     baseDataVo = vo;
   }
   @override
