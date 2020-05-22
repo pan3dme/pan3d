@@ -29,26 +29,11 @@ class ListGridPanelState extends State<ListGridPanel> {
       ),
     ),
   ];
-  List<String> gridlistData = [
-    "aaa",
-    "bbb",
-    "ccc",
-    "ddd",
-    "aaa",
-    "bbb",
-    "ccc",
-    "ccc",
-    "ddd",
-    "aaa",
-    "bbb",
-    "ccc",
-    "ccc",
-    "ddd",
-    "aaa",
-    "bbb",
-    "ccc",
-    "ddd",
-  ];
+//  List<String> gridlistData = [
+//    "aaa",
+//    "bbb",
+//
+//  ];
   ListGridPanelState(ZhifuLieTongDaoVo vo) {
     baseDataVo = vo;
   }
@@ -58,7 +43,7 @@ class ListGridPanelState extends State<ListGridPanel> {
       body: oldPanelText(baseDataVo),
     );
   }
-  Widget oldPanelText(item)
+  Widget oldPanelText(ZhifuLieTongDaoVo item)
   {
     return  Row(
       children: <Widget>[
@@ -74,10 +59,10 @@ class ListGridPanelState extends State<ListGridPanel> {
               crossAxisCount: 3,
               childAspectRatio: 0.9,
               children: List.generate(
-                  gridlistData.length,
+                  item.menuLists[item.selectIdx].playList.length,
                       (idx) => Card(
-                    color: _getColor(),
-                    child: ShopGridViewCellCopy(context, idx),
+                    color: Colors.green,
+                    child: ShopGridViewCellCopy(context,item.menuLists[item.selectIdx], item.menuLists[item.selectIdx].playList[idx]),
                   )),
             ),
           ),
@@ -87,13 +72,13 @@ class ListGridPanelState extends State<ListGridPanel> {
 
   }
 
-  Widget ShopGridViewCellCopy(context, idx) {
+  Widget ShopGridViewCellCopy(context,ZhifuFanshiVo zhifuFanshiVo,String str) {
     GestureDetector ctx = new GestureDetector(
 //      color: Colors.white,
       onTapDown: (_) => {
         showAboutDialog(
           context: context,
-          applicationVersion: '确认购买$idx',
+          applicationVersion: '确认购买',
           children: aboutBoxChildren,
         ),
       },
@@ -105,8 +90,8 @@ class ListGridPanelState extends State<ListGridPanel> {
               size: 24.0,
               semanticLabel: 'Text to announce in accessibility modes',
             ),
-            new Text('60$idx钻石'),
-            new Text('9$idx元')
+            new Text(zhifuFanshiVo.tittle),
+            new Text('$str')
           ])),
     );
 
@@ -132,11 +117,11 @@ class ListGridPanelState extends State<ListGridPanel> {
         });
   }
 
-  Widget ShopLeftViewCell(context, idx, baseDataVo) {
+  Widget ShopLeftViewCell(context, idx,ZhifuLieTongDaoVo zhifuLieTongDaoVo) {
     GestureDetector ctx = new GestureDetector(
       onTapDown: (_) => {this.baseDataVo.selectIdx = idx, setState(() {})},
       child: Container(
-        child: Text(baseDataVo.menuLists[idx], textAlign: TextAlign.center),
+        child: Text(zhifuLieTongDaoVo.menuLists[idx].tittle, textAlign: TextAlign.center),
         height: 35,
       ),
     );
