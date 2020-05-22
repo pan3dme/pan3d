@@ -76,7 +76,7 @@ class BaseDataItem {
   }
 
   makeTab2() {
-    ZhifuLieTongDaoVo one = new ZhifuLieTongDaoVo('人工充值');
+    ZhifuLieTongDaoVo one = new ZhifuLieTongDaoVo('人工充@');
     one.menuLists = new List();
     one.menuLists.add(new ZhifuFanshiVo('人工充值0'));
     return one;
