@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutterapptwo/src/base/BaseDataVo.dart';
 
 import 'package:flutterapptwo/src/page/LeftListView.dart';
 import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
@@ -16,13 +17,8 @@ class MathSonPageViewState extends State<MathSonPageView>
     with SingleTickerProviderStateMixin {
   TabController tabController;
 
-  List tabs = ['微1信', '支付宝', '银1联', '闪1付']; // 顶部导航栏
-  List<String> tabTitles = [
-    "tab1",
-    "tab2",
-    "tab3",
-    "tab4",
-  ];
+  BaseDataItem dataItem = new BaseDataItem();
+
   List<String> smartList = [
     "aaa",
     "bbb",
@@ -57,15 +53,15 @@ class MathSonPageViewState extends State<MathSonPageView>
 
   void initState() {
     super.initState();
-    tabController =
-        TabController(initialIndex: 0, length: tabs.length, vsync: this);
+    tabController = TabController(
+        initialIndex: 0, length: dataItem.pageList.length, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     // MediaQueryData mediaQuery = MediaQuery.of(context);
     return DefaultTabController(
-      length: tabs.length,
+      length: dataItem.pageList.length,
       child: Scaffold(
         appBar: PreferredSize(
           child: AppBar(
@@ -81,7 +77,7 @@ class MathSonPageViewState extends State<MathSonPageView>
   Widget _tabBarView() {
     return TabBarView(
       controller: tabController,
-      children: tabTitles.map((item) {
+      children: dataItem.pageList.map((item) {
         return Container(
 //          color: _getColor(),
           child: Row(
@@ -113,12 +109,12 @@ class MathSonPageViewState extends State<MathSonPageView>
     );
   }
 
-  Widget ShopGridViewCellCopy(context,idx) {
+  Widget ShopGridViewCellCopy(context, idx) {
     GestureDetector ctx = new GestureDetector(
 //      color: Colors.white,
       onTapDown: (_) => {
         showAboutDialog(
-         context: context,
+          context: context,
           applicationVersion: '确认购买$idx',
           children: aboutBoxChildren,
         ),
@@ -139,46 +135,6 @@ class MathSonPageViewState extends State<MathSonPageView>
     return ctx;
   }
 
-  Widget ShopGridViewCell() {
-    Container ctx = new Container(
-      color: Colors.white,
-      child: new Expanded(
-          child: new Column(
-        children: <Widget>[
-          Icon(
-            Icons.add,
-            color: Colors.pink,
-            size: 24.0,
-            semanticLabel: 'Text to announce in accessibility modes',
-          ),
-          new Text(
-            '601钻石',
-            style: new TextStyle(
-              color: Colors.black,
-            ),
-          ),
-        ],
-      )),
-    );
-
-    return ctx;
-
-    return IconButton(
-      onPressed: () {
-        showAboutDialog(
-//         context: context,
-          applicationVersion: 'August 2019',
-          children: aboutBoxChildren,
-        );
-      },
-      icon: Image.asset(
-        'lib/images/com_diamond_1@3x.png',
-        height: 30.0,
-        width: 50.0,
-        fit: BoxFit.cover,
-      ),
-    );
-  }
 
   Color _getColor() {
     var random = new Random();
@@ -194,7 +150,7 @@ class MathSonPageViewState extends State<MathSonPageView>
   buildTabBar() {
     Widget tabBar = new TabBar(
       controller: tabController,
-      tabs: tabs.map((e) => Tab(text: e)).toList(),
+      tabs: this.dataItem.pageList.map((e) => Tab(text: e.tabName)).toList(),
     );
     return tabBar;
   }

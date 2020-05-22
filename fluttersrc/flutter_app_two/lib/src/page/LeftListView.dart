@@ -2,9 +2,17 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutterapptwo/src/base/BaseDataVo.dart';
+ 
 
-class ListTabelView extends StatelessWidget {
-  final BaseDataVo baseDataVo = new BaseDataVo();
+class ListTabelView extends StatefulWidget {
+  @override
+  ListTabelViewState createState() {
+    return new ListTabelViewState();
+  }
+}
+
+class ListTabelViewState extends State<ListTabelView> {
+  final BaseDataVo baseDataVo = new BaseDataVo('支付宝');
   final List<Widget> aboutBoxChildren = <Widget>[
     SizedBox(height: 24),
     RichText(
@@ -16,11 +24,8 @@ class ListTabelView extends StatelessWidget {
       ),
     ),
   ];
-
   @override
   Widget build(BuildContext context) {
-//    debugPaintSizeEnabled=true;
-    // TODO: implement build
     return Scaffold(
         body: ListView.builder(
       itemCount: baseDataVo.menuLists.length,
@@ -35,11 +40,7 @@ class ListTabelView extends StatelessWidget {
 
   Widget ShopLeftViewCell(context, idx, baseDataVo) {
     GestureDetector ctx = new GestureDetector(
-      onTapDown: (_) => {
-        this.baseDataVo.selectIdx = idx,
-
-        //this.selectIdx=idx;
-      },
+      onTapDown: (_) => {this.baseDataVo.selectIdx = idx, setState(() {})},
       child: Container(
         child: Text(baseDataVo.menuLists[idx], textAlign: TextAlign.center),
         height: 35,
@@ -49,14 +50,8 @@ class ListTabelView extends StatelessWidget {
     return ctx;
   }
 
-  Color _getColor() {
-    var random = new Random();
-    int r = random.nextInt(255);
-    int g = random.nextInt(255);
-    int b = random.nextInt(255);
-    print(r);
-    print(g);
-    print(b);
-    return Color.fromARGB(255, r, g, b);
+  Color getColor() {
+    return Color.fromARGB(255, Random().nextInt(255), Random().nextInt(255),
+        Random().nextInt(255));
   }
 }
