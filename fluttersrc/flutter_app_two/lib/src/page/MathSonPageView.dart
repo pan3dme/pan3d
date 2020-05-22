@@ -19,7 +19,7 @@ class MathSonPageViewState extends State<MathSonPageView>
 
   BaseDataItem dataItem = new BaseDataItem();
 
-  List<String> smartList = [
+  List<String> gridlistData = [
     "aaa",
     "bbb",
     "ccc",
@@ -79,34 +79,38 @@ class MathSonPageViewState extends State<MathSonPageView>
       controller: tabController,
       children: dataItem.pageList.map((item) {
         return Container(
-//          color: _getColor(),
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: ScreenUtil().scaleWidth * 300,
-                color: Colors.red,
-                child: ListTabelView(item),
-              ),
-              Expanded(
-                child: LimitedBox(
-                  maxHeight: double.infinity,
-                  child: GridView.count(
-                    crossAxisCount: 3,
-                    childAspectRatio: 0.9,
-                    children: List.generate(
-                        smartList.length,
-                        (idx) => Card(
-                              color: _getColor(),
-                              child: ShopGridViewCellCopy(context, idx),
-                            )),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          child:oldPanelText(item),
         );
       }).toList(),
     );
+  }
+  Widget oldPanelText(item)
+  {
+    return  Row(
+      children: <Widget>[
+        Container(
+          width: ScreenUtil().scaleWidth * 300,
+          color: Colors.red,
+          child: ListTabelView(item),
+        ),
+        Expanded(
+          child: LimitedBox(
+            maxHeight: double.infinity,
+            child: GridView.count(
+              crossAxisCount: 3,
+              childAspectRatio: 0.9,
+              children: List.generate(
+                  gridlistData.length,
+                      (idx) => Card(
+                    color: _getColor(),
+                    child: ShopGridViewCellCopy(context, idx),
+                  )),
+            ),
+          ),
+        ),
+      ],
+    );
+
   }
 
   Widget ShopGridViewCellCopy(context, idx) {
@@ -134,7 +138,6 @@ class MathSonPageViewState extends State<MathSonPageView>
 
     return ctx;
   }
-
 
   Color _getColor() {
     var random = new Random();
