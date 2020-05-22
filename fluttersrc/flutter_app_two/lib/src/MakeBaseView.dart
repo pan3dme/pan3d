@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flutterapptwo/src/page/MathSonPageView.dart';
+import 'package:flutterapptwo/src/page/Shop_SonPageView.dart';
 
 class MarkBaseView extends StatefulWidget {
   @override

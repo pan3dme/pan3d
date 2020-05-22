@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutterapptwo/src/base/BaseDataVo.dart';
+import 'package:flutterapptwo/src/page/Shop_DataVo.dart';
 import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
 
 class ListGridPanel extends StatefulWidget {

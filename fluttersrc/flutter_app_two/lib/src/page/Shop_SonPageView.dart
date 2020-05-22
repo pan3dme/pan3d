@@ -1,10 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutterapptwo/src/base/BaseDataVo.dart';
+import 'package:flutterapptwo/src/page/Shop_DataVo.dart';
 
-import 'package:flutterapptwo/src/page/ListGridPanel.dart';
-
+import 'package:flutterapptwo/src/page/Shop_GridPanel.dart';
 
 typedef MenuCallBack = void Function(int position);
 
@@ -18,8 +17,6 @@ class MathSonPageViewState extends State<MathSonPageView>
   TabController tabController;
 
   BaseDataItem dataItem = new BaseDataItem();
-
-
 
   void initState() {
     super.initState();
@@ -49,12 +46,11 @@ class MathSonPageViewState extends State<MathSonPageView>
       controller: tabController,
       children: dataItem.pageList.map((item) {
         return Container(
-          child:ListGridPanel(item),
+          child: ListGridPanel(item),
         );
       }).toList(),
     );
   }
-
 
   Color _getColor() {
     var random = new Random();
