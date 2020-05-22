@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapptwo/src/base/BaseDataVo.dart';
 
 import 'package:flutterapptwo/src/page/LeftListView.dart';
+import 'package:flutterapptwo/src/page/ListGridPanel.dart';
 import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
 
 typedef MenuCallBack = void Function(int position);
@@ -79,7 +80,7 @@ class MathSonPageViewState extends State<MathSonPageView>
       controller: tabController,
       children: dataItem.pageList.map((item) {
         return Container(
-          child:oldPanelText(item),
+          child:ListGridPanel(item),
         );
       }).toList(),
     );
