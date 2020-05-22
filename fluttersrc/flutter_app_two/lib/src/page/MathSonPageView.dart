@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutterapptwo/src/base/BaseColumnView.dart';
+
 import 'package:flutterapptwo/src/page/LeftListView.dart';
 import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
 
@@ -26,6 +26,16 @@ class MathSonPageViewState extends State<MathSonPageView>
   List<String> smartList = [
     "aaa",
     "bbb",
+    "ccc",
+    "ddd",
+    "aaa",
+    "bbb",
+    "ccc",
+    "ccc",
+    "ddd",
+    "aaa",
+    "bbb",
+    "ccc",
     "ccc",
     "ddd",
     "aaa",
@@ -77,7 +87,7 @@ class MathSonPageViewState extends State<MathSonPageView>
           child: Row(
             children: <Widget>[
               Container(
-                width: ScreenUtil().scaleWidth*300,
+                width: ScreenUtil().scaleWidth * 300,
                 color: Colors.red,
                 child: ListTabelView(),
               ),
@@ -86,12 +96,12 @@ class MathSonPageViewState extends State<MathSonPageView>
                   maxHeight: double.infinity,
                   child: GridView.count(
                     crossAxisCount: 3,
-                    childAspectRatio: 1,
+                    childAspectRatio: 0.9,
                     children: List.generate(
                         smartList.length,
                         (idx) => Card(
                               color: _getColor(),
-                              child: ShopGridViewCellCopy(idx),
+                              child: ShopGridViewCellCopy(context, idx),
                             )),
                   ),
                 ),
@@ -102,17 +112,18 @@ class MathSonPageViewState extends State<MathSonPageView>
       }).toList(),
     );
   }
-  _onClick(){
-    print("abc");
-  }
-  Widget ShopGridViewCellCopy(idx) {
+
+  Widget ShopGridViewCellCopy(context,idx) {
     GestureDetector ctx = new GestureDetector(
 //      color: Colors.white,
       onTapDown: (_) => {
-        debugPrint("$idx onTapDown")
+        showAboutDialog(
+         context: context,
+          applicationVersion: '确认购买$idx',
+          children: aboutBoxChildren,
+        ),
       },
       child: new Container(
-
           child: new Column(children: <Widget>[
         Icon(
           Icons.add,
@@ -120,7 +131,8 @@ class MathSonPageViewState extends State<MathSonPageView>
           size: 24.0,
           semanticLabel: 'Text to announce in accessibility modes',
         ),
-        new Text('60$idx钻石')
+        new Text('60$idx钻石'),
+        new Text('9$idx元')
       ])),
     );
 
