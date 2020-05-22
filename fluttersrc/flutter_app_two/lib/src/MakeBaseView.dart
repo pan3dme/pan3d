@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutterapptwo/src/page/MathSonPageView.dart';
 
-
 class MarkBaseView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => MarkBaseViewState();
@@ -50,6 +49,7 @@ class MarkBaseViewState extends State<MarkBaseView>
                 color: _getColor(),
                 child: Column(children: <Widget>[
                   MakeBaseBaner(tabstr),
+
                   Expanded(child: MakeSonPageView(tabstr))
                 ]));
           }).toList(),
@@ -91,7 +91,7 @@ class MarkBaseViewState extends State<MarkBaseView>
         margin: EdgeInsets.all(0.0),
         height: 300,
         color: Colors.white10,
-         child: MathSonPageView(),
+        child: MathSonPageView(),
       );
     } else {
       //当数据为空我们需要隐藏这个Text

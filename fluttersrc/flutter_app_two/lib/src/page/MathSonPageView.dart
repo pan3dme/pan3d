@@ -2,6 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutterapptwo/src/base/BaseColumnView.dart';
+import 'package:flutterapptwo/src/page/LeftListView.dart';
+import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
+
+typedef MenuCallBack = void Function(int position);
 
 class MathSonPageView extends StatefulWidget {
   @override
@@ -73,9 +77,9 @@ class MathSonPageViewState extends State<MathSonPageView>
           child: Row(
             children: <Widget>[
               Container(
-                width: 80,
+                width: ScreenUtil().scaleWidth*300,
                 color: Colors.red,
-                child: BaseColumnView(),
+                child: ListTabelView(),
               ),
               Expanded(
                 child: LimitedBox(
@@ -87,7 +91,7 @@ class MathSonPageViewState extends State<MathSonPageView>
                         smartList.length,
                         (idx) => Card(
                               color: _getColor(),
-                              child: ShopGridViewCell(),
+                              child: ShopGridViewCellCopy(idx),
                             )),
                   ),
                 ),
@@ -97,6 +101,30 @@ class MathSonPageViewState extends State<MathSonPageView>
         );
       }).toList(),
     );
+  }
+  _onClick(){
+    print("abc");
+  }
+  Widget ShopGridViewCellCopy(idx) {
+    GestureDetector ctx = new GestureDetector(
+//      color: Colors.white,
+      onTapDown: (_) => {
+        debugPrint("$idx onTapDown")
+      },
+      child: new Container(
+
+          child: new Column(children: <Widget>[
+        Icon(
+          Icons.add,
+          color: Colors.pink,
+          size: 24.0,
+          semanticLabel: 'Text to announce in accessibility modes',
+        ),
+        new Text('60$idx钻石')
+      ])),
+    );
+
+    return ctx;
   }
 
   Widget ShopGridViewCell() {
@@ -116,11 +144,10 @@ class MathSonPageViewState extends State<MathSonPageView>
             style: new TextStyle(
               color: Colors.black,
             ),
-          )
+          ),
         ],
       )),
     );
-
 
     return ctx;
 
