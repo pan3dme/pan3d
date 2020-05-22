@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutterone/src/base/BaseColumnView.dart';
+import 'package:flutterapptwo/src/base/BaseColumnView.dart';
 
 class MathSonPageView extends StatefulWidget {
   @override
@@ -100,26 +100,29 @@ class MathSonPageViewState extends State<MathSonPageView>
   }
 
   Widget ShopGridViewCell() {
-
-    Container ctx=new Container(
-
-      child: Column(
+    Container ctx = new Container(
+      color: Colors.white,
+      child: new Expanded(
+          child: new Column(
         children: <Widget>[
           Icon(
-            Icons.favorite,
+            Icons.add,
             color: Colors.pink,
             size: 24.0,
             semanticLabel: 'Text to announce in accessibility modes',
           ),
+          new Text(
+            '601钻石',
+            style: new TextStyle(
+              color: Colors.black,
+            ),
+          )
         ],
-      ),
-
-
-
+      )),
     );
 
-    return ctx;
 
+    return ctx;
 
     return IconButton(
       onPressed: () {

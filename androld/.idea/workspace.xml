@@ -13,11 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_one/lib/src/markbase/MakeBaseView.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_one/lib/src/markbase/MathSonPageView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_one/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_one/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_one/lib/src/markbase/MathSonPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_one/lib/src/markbase/MathSonPageView.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="65">
+              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -806,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="65">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
         </state>
       </provider>
     </entry>
