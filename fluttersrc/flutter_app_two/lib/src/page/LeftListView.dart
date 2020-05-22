@@ -2,17 +2,25 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutterapptwo/src/base/BaseDataVo.dart';
- 
 
 class ListTabelView extends StatefulWidget {
+  BaseDataVo selectVo;
+  ListTabelView(BaseDataVo vo) {
+    selectVo = vo;
+  }
   @override
   ListTabelViewState createState() {
-    return new ListTabelViewState();
+    return new ListTabelViewState(selectVo);
   }
 }
 
 class ListTabelViewState extends State<ListTabelView> {
-  final BaseDataVo baseDataVo = new BaseDataVo('支付宝');
+  BaseDataVo baseDataVo = new BaseDataVo('支付宝');
+
+  ListTabelViewState(BaseDataVo vo) {
+    baseDataVo = vo;
+  }
+
   final List<Widget> aboutBoxChildren = <Widget>[
     SizedBox(height: 24),
     RichText(

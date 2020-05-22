@@ -1,13 +1,15 @@
 class BaseDataVo {
-  BaseDataVo(tabName);
   int selectIdx = 0;
-  final String tabName = '微信';
+  String tabName = '1';
   List<String> menuLists = [
     "支付宝0",
     "支付宝1",
     "支付宝2",
     "支付宝3",
   ];
+  BaseDataVo(str) {
+    this.tabName = str;
+  }
 }
 
 class BaseDataItem {

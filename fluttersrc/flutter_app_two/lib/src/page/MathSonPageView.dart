@@ -85,7 +85,7 @@ class MathSonPageViewState extends State<MathSonPageView>
               Container(
                 width: ScreenUtil().scaleWidth * 300,
                 color: Colors.red,
-                child: ListTabelView(),
+                child: ListTabelView(item),
               ),
               Expanded(
                 child: LimitedBox(

@@ -16,7 +16,7 @@ import 'package:flutterone/src/base/ShowAlrit.dart';
 
 void main() => runApp(MaterialApp(routes: {
   '/': (context) {
-    return MarkBaseView();
+    return RoutePageView();
   },
 
   '/MarkBaseView': (context) { //综合
