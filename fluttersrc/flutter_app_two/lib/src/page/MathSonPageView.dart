@@ -3,9 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutterapptwo/src/base/BaseDataVo.dart';
 
-import 'package:flutterapptwo/src/page/LeftListView.dart';
 import 'package:flutterapptwo/src/page/ListGridPanel.dart';
-import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
+
 
 typedef MenuCallBack = void Function(int position);
 
@@ -20,37 +19,7 @@ class MathSonPageViewState extends State<MathSonPageView>
 
   BaseDataItem dataItem = new BaseDataItem();
 
-  List<String> gridlistData = [
-    "aaa",
-    "bbb",
-    "ccc",
-    "ddd",
-    "aaa",
-    "bbb",
-    "ccc",
-    "ccc",
-    "ddd",
-    "aaa",
-    "bbb",
-    "ccc",
-    "ccc",
-    "ddd",
-    "aaa",
-    "bbb",
-    "ccc",
-    "ddd",
-  ];
-  final List<Widget> aboutBoxChildren = <Widget>[
-    SizedBox(height: 24),
-    RichText(
-      text: TextSpan(
-        children: <TextSpan>[
-          TextSpan(text: 'Flutter is Googleâ t '),
-          TextSpan(text: 'http://www.baidu.com'),
-        ],
-      ),
-    ),
-  ];
+
 
   void initState() {
     super.initState();
@@ -85,60 +54,7 @@ class MathSonPageViewState extends State<MathSonPageView>
       }).toList(),
     );
   }
-  Widget oldPanelText(item)
-  {
-    return  Row(
-      children: <Widget>[
-        Container(
-          width: ScreenUtil().scaleWidth * 300,
-          color: Colors.red,
-          child: ListTabelView(item),
-        ),
-        Expanded(
-          child: LimitedBox(
-            maxHeight: double.infinity,
-            child: GridView.count(
-              crossAxisCount: 3,
-              childAspectRatio: 0.9,
-              children: List.generate(
-                  gridlistData.length,
-                      (idx) => Card(
-                    color: _getColor(),
-                    child: ShopGridViewCellCopy(context, idx),
-                  )),
-            ),
-          ),
-        ),
-      ],
-    );
 
-  }
-
-  Widget ShopGridViewCellCopy(context, idx) {
-    GestureDetector ctx = new GestureDetector(
-//      color: Colors.white,
-      onTapDown: (_) => {
-        showAboutDialog(
-          context: context,
-          applicationVersion: '确认购买$idx',
-          children: aboutBoxChildren,
-        ),
-      },
-      child: new Container(
-          child: new Column(children: <Widget>[
-        Icon(
-          Icons.add,
-          color: Colors.pink,
-          size: 24.0,
-          semanticLabel: 'Text to announce in accessibility modes',
-        ),
-        new Text('60$idx钻石'),
-        new Text('9$idx元')
-      ])),
-    );
-
-    return ctx;
-  }
 
   Color _getColor() {
     var random = new Random();

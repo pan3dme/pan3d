@@ -64,7 +64,7 @@ class ListGridPanelState extends State<ListGridPanel> {
       children: <Widget>[
         Container(
           width: ScreenUtil().scaleWidth * 300,
-          color: Colors.red,
+          color: Colors.white,
           child: leftListBox(),
         ),
         Expanded(
