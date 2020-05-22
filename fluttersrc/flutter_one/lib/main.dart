@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterone/src/markbase/MakeBaseView.dart';
 import 'package:flutterone/src/old/AppBarBottom.dart';
 
 import 'package:flutterone/src/old/HomeTabScene.dart';
@@ -15,6 +16,13 @@ import 'package:flutterone/src/base/ShowAlrit.dart';
 
 void main() => runApp(MaterialApp(routes: {
   '/': (context) {
+    return MarkBaseView();
+  },
+
+  '/MarkBaseView': (context) { //综合
+    return MarkBaseView();
+  },
+  '/HomeTabScene': (context) { //综合
     return HomeTabScene();
   },
 
