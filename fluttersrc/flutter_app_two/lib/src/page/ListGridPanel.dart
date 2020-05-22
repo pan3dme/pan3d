@@ -29,11 +29,6 @@ class ListGridPanelState extends State<ListGridPanel> {
       ),
     ),
   ];
-//  List<String> gridlistData = [
-//    "aaa",
-//    "bbb",
-//
-//  ];
   ListGridPanelState(ZhifuLieTongDaoVo vo) {
     baseDataVo = vo;
   }
@@ -43,9 +38,9 @@ class ListGridPanelState extends State<ListGridPanel> {
       body: oldPanelText(baseDataVo),
     );
   }
-  Widget oldPanelText(ZhifuLieTongDaoVo item)
-  {
-    return  Row(
+
+  Widget oldPanelText(ZhifuLieTongDaoVo item) {
+    return Row(
       children: <Widget>[
         Container(
           width: ScreenUtil().scaleWidth * 300,
@@ -60,21 +55,22 @@ class ListGridPanelState extends State<ListGridPanel> {
               childAspectRatio: 0.9,
               children: List.generate(
                   item.menuLists[item.selectIdx].playList.length,
-                      (idx) => Card(
-                    color: Colors.green,
-                    child: ShopGridViewCellCopy(context,item.menuLists[item.selectIdx], item.menuLists[item.selectIdx].playList[idx]),
-                  )),
+                  (idx) => Card(
+                        color: Colors.white,
+                        child: ShopGridViewCell(
+                            context,
+                            item.menuLists[item.selectIdx],
+                            item.menuLists[item.selectIdx].playList[idx]),
+                      )),
             ),
           ),
         ),
       ],
     );
-
   }
 
-  Widget ShopGridViewCellCopy(context,ZhifuFanshiVo zhifuFanshiVo,String str) {
+  Widget ShopGridViewCell(context, ZhifuFanshiVo zhifuFanshiVo, String str) {
     GestureDetector ctx = new GestureDetector(
-//      color: Colors.white,
       onTapDown: (_) => {
         showAboutDialog(
           context: context,
@@ -83,30 +79,68 @@ class ListGridPanelState extends State<ListGridPanel> {
         ),
       },
       child: new Container(
+          decoration: new BoxDecoration(
+              border: new Border.all(color: Colors.red, width: 0.5), // 边色与边宽度
+              color: Colors.white, // 底色
+              shape: BoxShape.rectangle, // 默认值也是矩形
+              borderRadius: new BorderRadius.circular((8.0))), // 圆角度
           child: new Column(children: <Widget>[
-            Icon(
-              Icons.add,
-              color: Colors.pink,
-              size: 24.0,
-              semanticLabel: 'Text to announce in accessibility modes',
+            Container(
+              height: 40.0,
+              child: Image.asset(
+                'lib/images/shop_diamond.png',
+                height: 30.0,
+                width: 30.0,
+                fit: BoxFit.fitWidth,
+              ),
             ),
-            new Text(zhifuFanshiVo.tittle),
-            new Text('$str')
+            new Text(zhifuFanshiVo.tittle,
+                style: new TextStyle(
+                  decoration: TextDecoration
+                      .lineThrough, //none无文字装饰   lineThrough删除线   overline文字上面显示线    underline文字下面显示线
+                  fontSize: 11.0,
+                  color: Colors.black,
+                )),
+            new Text('$str',
+                style: new TextStyle(
+                  fontSize: 11.0,
+                )),
+            Expanded(
+              child: bottomInfoBoxCopy(),
+            ),
           ])),
     );
 
     return ctx;
   }
-  Color _getColor() {
-    var random = new Random();
-    int r = random.nextInt(255);
-    int g = random.nextInt(255);
-    int b = random.nextInt(255);
-    print(r);
-    print(g);
-    print(b);
-    return Color.fromARGB(255, r, g, b);
+
+  Widget bottomInfoBoxCopy() {
+    return Container(
+        color: Colors.green,
+        child: LayoutBuilder(builder: (context, constrains) {
+          return Container(
+            width: 100,
+            child: new Text('BI3G', textAlign: TextAlign.center),
+          );
+        }));
   }
+
+  Widget bottomInfoBox() {
+    return Container(
+      decoration: new BoxDecoration(
+          border:
+              new Border.all(color: Color(0xFFFFFF00), width: 0.5), // 边色与边宽度
+          gradient: RadialGradient(
+              colors: [Color(0xFFFFFF00), Color(0xFF00FF00), Color(0xFF00FFFF)],
+              radius: 1,
+              tileMode: TileMode.repeated)),
+      child: new Text('93339元',
+          style: new TextStyle(
+            fontSize: 11.0,
+          )),
+    );
+  }
+
   Widget leftListBox() {
     return ListView.builder(
         itemCount: baseDataVo.menuLists.length,
@@ -117,11 +151,12 @@ class ListGridPanelState extends State<ListGridPanel> {
         });
   }
 
-  Widget ShopLeftViewCell(context, idx,ZhifuLieTongDaoVo zhifuLieTongDaoVo) {
+  Widget ShopLeftViewCell(context, idx, ZhifuLieTongDaoVo zhifuLieTongDaoVo) {
     GestureDetector ctx = new GestureDetector(
       onTapDown: (_) => {this.baseDataVo.selectIdx = idx, setState(() {})},
       child: Container(
-        child: Text(zhifuLieTongDaoVo.menuLists[idx].tittle, textAlign: TextAlign.center),
+        child: Text(zhifuLieTongDaoVo.menuLists[idx].tittle,
+            textAlign: TextAlign.center),
         height: 35,
       ),
     );
