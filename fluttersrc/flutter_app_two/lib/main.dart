@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapptwo/src/shop_mainview.dart';
+import 'package:flutterapptwo/src/shop/shop_mainview.dart';
+import 'package:flutterapptwo/src/testdemo/Demo001.dart';
+import 'package:flutterapptwo/src/testdemo/Demo002.dart';
 
 //void main() {
 //  runApp(MyApp());
 //}
 
 
+
 void main() => runApp(MaterialApp(routes: {
   '/': (context) {
-//    ScreenUtil.getInstance().init(context);
-    return ShopMainView();
+    return Demo002();
+  },
+  '/Demo002': (context) { //TABBAR 顶部
+    return Demo002();
+  },
+  '/Demo001': (context) { //TABBAR 顶部
+    return Demo001();
   },
 
+  '/MyApp': (context) { //测试事件
+    return MyApp();
+  },
 
 }));
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
