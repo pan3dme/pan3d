@@ -81,9 +81,6 @@ public   class Display3DSprite extends Display3D {
         }
 
 
-
-
-
         od.upToGup();
 
 
@@ -133,56 +130,27 @@ public   class Display3DSprite extends Display3D {
                 continue;
             }
             if (texItem.type == TexItem.LIGHTMAP) {
+                Log.d(TAG, "LIGHTMAP: ");
             }
             else if (texItem.type == TexItem.LTUMAP   ) {
+                Log.d(TAG, "LTUMAP: ");
             }
             else if (texItem.type == TexItem.CUBEMAP) {
-                Log.d(TAG, "setMaterialTexture: ");
+                Log.d(TAG, "CUBEMAP: ");
             }
             else if (texItem.type == 0) {
                 ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
             }
         }
         List<DynamicTexItem> texDynamicVec  =  mp.dynamicTexList;
-
-
-/*
- NSArray<TexItem*>* texVec  = mp.material.texList;
-    TexItem* texItem;
-    for (int i   = 0; i < texVec.count; i++) {
-        texItem=texVec[i];
-        if (texItem.isDynamic) {
-            continue;
-        }
-        if (texItem.type == TexItem.LIGHTMAP) {
-        }
-        else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
-            NSLog(@"TexItem.LTUMAP)");
-        }
-        else if (texItem.type == TexItem.CUBEMAP) {
-            if (material.useDynamicIBL) {// && _reflectionTextureVo) {
-                NSLog(@"TexItem.useDynamicIBL)");
-            } else {
-                if([Scene_data default].skyCubeTexture){
-                    [ctx setRenderTextureCube:material.shader name:texItem.name texture:[Scene_data default].skyCubeTexture level:texItem.id];
-                }
+        for (int i   = 0; i < texDynamicVec.size(); i++) {
+            texItem=texDynamicVec.get(i).target;
+            if(texItem!=null ){
+                ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
             }
         }
-        else if (texItem.type == 0) {
-            [ctx setRenderTexture:material.shader name:texItem.name texture:  texItem.textureRes.textTureLuint level:texItem.id];
-
-        }
-    }
-    NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
-    for (int i   = 0; i < texDynamicVec.count; i++) {
-        texItem=texDynamicVec[i].target;
-        if(texItem ){
-            [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
 
 
-        }
-    }
- */
     }
 
 
