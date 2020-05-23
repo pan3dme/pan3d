@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapptwo/src/MakeBaseView.dart';
-import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
+import 'package:flutterapptwo/src/shop_mainview.dart';
 
 //void main() {
 //  runApp(MyApp());
@@ -9,8 +8,8 @@ import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
 
 void main() => runApp(MaterialApp(routes: {
   '/': (context) {
-    ScreenUtil.getInstance().init(context);
-    return MarkBaseView();
+//    ScreenUtil.getInstance().init(context);
+    return ShopMainView();
   },
 
 

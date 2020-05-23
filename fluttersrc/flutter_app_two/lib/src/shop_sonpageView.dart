@@ -1,9 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutterapptwo/src/page/Shop_DataVo.dart';
+import 'package:flutterapptwo/src/shop_dataVo.dart';
+import 'package:flutterapptwo/src/shop_gridpanel.dart';
 
-import 'package:flutterapptwo/src/page/Shop_GridPanel.dart';
+
 
 typedef MenuCallBack = void Function(int position);
 

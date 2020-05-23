@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutterapptwo/src/page/Shop_DataVo.dart';
-import 'package:flutterapptwo/src/unit/ScreenUtil.dart';
+import 'package:flutterapptwo/src/shop_dataVo.dart';
+
 
 class ListGridPanel extends StatefulWidget {
   ZhifuLieTongDaoVo selectVo;
@@ -35,15 +35,18 @@ class ListGridPanelState extends State<ListGridPanel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: oldPanelText(baseDataVo),
+      body: makeShopGridListAndTab(baseDataVo),
     );
   }
+  /*
+  创建标签和支付档次列表
+   */
 
-  Widget oldPanelText(ZhifuLieTongDaoVo item) {
+  Widget makeShopGridListAndTab(ZhifuLieTongDaoVo item) {
     return Row(
       children: <Widget>[
         Container(
-          width: ScreenUtil().scaleWidth * 300,
+          width: 100,
           color: Colors.white,
           child: leftListBox(),
         ),

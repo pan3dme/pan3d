@@ -2,14 +2,16 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flutterapptwo/src/page/Shop_SonPageView.dart';
+import 'package:flutterapptwo/src/shop_sonpageView.dart';
 
-class MarkBaseView extends StatefulWidget {
+
+
+class ShopMainView extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => MarkBaseViewState();
+  State<StatefulWidget> createState() => ShopMainViewState();
 }
 
-class MarkBaseViewState extends State<MarkBaseView>
+class ShopMainViewState extends State<ShopMainView>
     with SingleTickerProviderStateMixin {
   TabController tabController;
 
