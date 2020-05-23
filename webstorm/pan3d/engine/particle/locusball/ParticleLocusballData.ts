@@ -53,7 +53,7 @@
 
                 if (this._isSendRandom) {
                     resultv3d.scaleBy(this._speed * Math.random());
-                } else {
+                } else {Material
                     resultv3d.scaleBy(this._speed);
                 }
 

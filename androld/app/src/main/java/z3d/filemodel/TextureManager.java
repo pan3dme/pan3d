@@ -10,12 +10,16 @@ import android.util.Log;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ResGC;
 import z3d.base.TexTuresBackFun;
 import z3d.material.TextureRes;
+import z3d.units.LoadBackFun;
+import z3d.units.LoadManager;
 
 public class TextureManager extends ResGC {
 
@@ -46,34 +50,57 @@ public class TextureManager extends ResGC {
 
         this.getImageFromNet("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/waterfall_01.png");
     }
-    //-(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
-    //{
 
     public void getTexture(String url , TexTuresBackFun bfun)
     {
-//        "content/finalscens/mapscene/copy/ba卦tai/ba卦tai_hide/lightuv/build2.jpg" -> {Bitmap@12949} ""
-//        "content/particleresources/textures/pattern/xingkong_bagua_01.png" -> {Bitmap@12951} ""
-//        "content/particleresources/textures/halo/smallglow_00.jpg" -> {Bitmap@12953} ""
-//        "content/particleresources/textures/pattern/xingkong_bagua.png" -> {Bitmap@12955} ""
-//        "content/particleresources/textures/light_beam/ef_circle007.jpg" -> {Bitmap@12957} ""
-//        "content/finalscens/mapscene/copy/ba卦tai/ba卦tai_hide/lightuv/build1.jpg" -> {Bitmap@12959} ""
-//        "content/particleresources/textures/halo/jianguang.jpg" -> {Bitmap@12961} ""
-//        "content/finalscens/mapscene/copy/ba卦tai/tietu/bgtai_fb_tiankong.jpg" -> {Bitmap@12963} ""
-//        "content/finalscens/mapscene/copy/ba卦tai/tietu/ljfb_bagua.png" -> {Bitmap@12965} ""
-//        "content/finalscens/mapscene/copy/ba卦tai/tietu/bgtai_fb_01.jpg" -> {Bitmap@12967} ""
+
         TextureRes textureRes;
         if( this.dic.containsKey(url)){
              textureRes=(TextureRes)this.dic.get(url);
              bfun.Bfun(textureRes);
              return;
         }
+
+
         if( this.resDic.containsKey(url)) {
             textureRes=new TextureRes();
             textureRes.textTureInt= this.createTexture((Bitmap) this.resDic.get(url));
             bfun.Bfun(textureRes);
+            this.dic.put(url,textureRes);
             return;
         }
+        TextureLoad textureLoad=new TextureLoad();
+        textureLoad.fun=bfun;
+        textureLoad.url=url;
+        List<TextureLoad> loadKeyArr;
+        if(this.loadDic.containsKey(url)){
+            loadKeyArr=(List<TextureLoad>) this.loadDic.get(url);
+            loadKeyArr.add(textureLoad);
+            return;
+        }else{
+            loadKeyArr=new ArrayList<>();
+            loadKeyArr.add(textureLoad);
+            this.loadDic.put(url,loadKeyArr);
+        }
+        LoadManager.getInstance().loadUrl(url, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap dic) {
+                loadNetTextureCom((TextureLoad)  dic.get("info"),(Bitmap)  dic.get("bitmap"));
+            }
+        },textureLoad);
 
+
+    }
+    private  void  loadNetTextureCom(TextureLoad textureLoad,Bitmap bitmap)
+    {
+        TextureRes  textureRes=new TextureRes();
+        textureRes.textTureInt= createTexture(bitmap);
+        List<TextureLoad> arr=(List<TextureLoad>) this.loadDic.get(textureLoad.url);
+        for (int i=0;i<arr.size();i++){
+            arr.get(i).fun.Bfun(textureRes);
+        }
+        this.dic.put(textureLoad.url,textureRes);
+        this.loadDic.remove(textureLoad.url);
     }
     private int createTexture(Bitmap bitmap){
         int[] texture=new int[1];
