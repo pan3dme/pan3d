@@ -112,10 +112,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-       // this.loadLyfGoup();
-       // this.loadRoleRes();
+        // this.loadLyfGoup();
+        // this.loadRoleRes();
         this.loadSeneBase();
-      //  this.loadSkilRes();
+        //  this.loadSkilRes();
 
     }
     private void loadSeneBase()
@@ -246,20 +246,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private  void parsingBuildItem(JSONObject obj)
     {
-
         try {
             int type = obj.getInt("type");
-
             switch ( type) {
                 case 1:
-                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                    tempDis.scene3d=this.scene3D;
-                    tempDis.setInfo(obj);
-                    this.scene3D.addDisplay(tempDis);
-
+                    if( obj.getInt("id")==35){
+                        BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                        tempDis.scene3d=this.scene3D;
+                        tempDis.setInfo(obj);
+                        this.scene3D.addDisplay(tempDis);
+                    }
                     break;
-
-
                 default:
                     break;
             }
@@ -270,7 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /*
 
-        */
+         */
 
     }
 
