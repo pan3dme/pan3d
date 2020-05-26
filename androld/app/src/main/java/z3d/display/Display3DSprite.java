@@ -223,11 +223,13 @@ public   class Display3DSprite extends Display3D {
 
         List<DynamicTexItem> texDynamicVec  =  mp.dynamicTexList;
         for (int i   = 0; i < texDynamicVec.size(); i++) {
+            /*
             texItem=texDynamicVec.get(i).target;
             if(texItem!=null ){
                 Log.d(TAG, "基础图: ");
                // ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
             }
+            */
         }
 
 

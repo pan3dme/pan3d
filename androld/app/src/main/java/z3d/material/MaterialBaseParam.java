@@ -17,7 +17,9 @@ public class MaterialBaseParam extends GC {
     public Material material;
     public List dynamicTexList ;
     public List dynamicConstList ;
-    public void setData(Material matr,List ary )
+
+
+    public void setData( final Material matr,final List ary )
     {
         this.material = matr;
         this.dynamicConstList = new ArrayList();
@@ -28,14 +30,22 @@ public class MaterialBaseParam extends GC {
         for (int i = 0; i < ary.size(); i++) {
             JSONObject obj = (JSONObject) ary.get(i);
             try {
+
                 if ( obj.getInt("type")== 0) {
                 final    DynamicBaseTexItem texItem = new DynamicBaseTexItem();
                     texItem.paramName = obj.getString("name");
+                    String paramNameC=obj.getString("name");
+//                    paramNameC="param0";
                     for (int j = 0; j < texList.size(); j++) {
-                        if (texItem.paramName == texList.get(j).paramName) {
+
+
+                        final String paramNameA=texItem.paramName;
+                        final String paramNameB=texList.get(j).paramName;
+                        if (paramNameC=="param0") {
                             texItem.target = texList.get(j);
                             break;
                         }
+
                     }
                     int mipmap = 0;
                     if (texItem.target!=null) {
