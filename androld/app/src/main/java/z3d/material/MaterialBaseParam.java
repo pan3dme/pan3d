@@ -1,91 +1,89 @@
 package z3d.material;
 
+import android.util.Log;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import z3d.base.MathCore;
+import z3d.base.TexTuresBackFun;
 import z3d.engine.GC;
+import z3d.filemodel.TextureManager;
 
 public class MaterialBaseParam extends GC {
     public Material material;
-    public List<DynamicTexItem> dynamicTexList ;
+    public List dynamicTexList ;
     public List dynamicConstList ;
-
-
-
-//    public  MaterialBaseParam  materialParam;
-    public void setData(Material material,List arr )
+    //    public  MaterialBaseParam  materialParam;
+    public void setData(Material matr,List ary )
     {
-        this.material = material;
+        this.material = matr;
+        this.dynamicConstList = new ArrayList();
+        this.dynamicTexList = new ArrayList<>();
+        List<ConstItem> constList  = matr.constList;
+        List<TexItem> texList  = matr.texList;
 
-/*
+        for (int i = 0; i < ary.size(); i++) {
+            JSONObject obj = (JSONObject) ary.get(i);
+            try {
+                if ( obj.getInt("type")== 0) {
+                final    DynamicBaseTexItem texItem = new DynamicBaseTexItem();
+                    texItem.paramName = obj.getString("name");
+                    for (int j = 0; j < texList.size(); j++) {
+                        if (texItem.paramName == texList.get(j).paramName) {
+                            texItem.target = texList.get(j);
+                            break;
+                        }
+                    }
+                    int mipmap = 0;
+                    if (texItem.target!=null) {
+                        mipmap = texItem.target.mipmap;
+                    }
+                    mipmap = 0;
+                    TextureManager.getInstance().getTexture( obj.getString("url"), new TexTuresBackFun() {
+                        @Override
+                        public void Bfun(TextureRes value) {
+                            texItem.textureRes = value;
+                        }
+                    });
+                    this.dynamicTexList.add(texItem);
+                } else {
+                    String targetName = obj.getString("name");
+                    ConstItem target=null ;
+                    for (int j = 0; j < constList.size(); j++) {
 
-        this.dynamicConstList = new Array;
-        this.dynamicTexList = new Array;
+                        if (targetName == constList.get(j).paramName0
+                                || targetName == constList.get(j).paramName1
+                                || targetName == constList.get(j).paramName2
+                                || targetName == constList.get(j).paramName3) {
 
-        var constList: Array<ConstItem> = $material.constList;
-        var texList: Array<TexItem> = $material.texList;
+                            target = constList.get(j);
+                            break;
 
-        for (var i: number = 0; i < $ary.length; i++) {
-        var obj: any = $ary[i];
-        if (obj.type == 0) {
-            var texItem: DynamicBaseTexItem = new DynamicBaseTexItem();
-            texItem.paramName = obj.name;
-
-
-            for (var j: number = 0; j < texList.length; j++) {
-                if (texItem.paramName == texList[j].paramName) {
-                    texItem.target = texList[j];
-                    break;
+                        }
+                    }
+                    DynamicBaseConstItem constItem = new DynamicBaseConstItem();
+                    constItem.setTargetInfo(target, targetName, obj.getInt("type"));
+                    List<Float> valArr=new ArrayList<>();
+                    if (obj.getInt("type") >= 1) {
+                        valArr.add((float) obj.getDouble("x"));
+                    }
+                    if (obj.getInt("type") >= 2) {
+                        valArr.add((float) obj.getDouble("y"));
+                    }
+                    if (obj.getInt("type") >= 3) {
+                        valArr.add((float) obj.getDouble("z"));
+                    }
+                    constItem.setCurrentVal(valArr);
+                    this.dynamicConstList.add(constItem);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            var mipmap: number = 0
-            if (texItem.target) {
-                mipmap = texItem.target.mipmap;
-            }
-            mipmap = 0
-
-            TextureManager.getInstance().getTexture(Scene_data.fileRoot + obj.url, ($textres: TextureRes) => {
-                texItem.textureRes = $textres;
-            }, 0, null, 0, mipmap);
-            this.dynamicTexList.push(texItem);
-
-
-
-        } else {
-            var targetName: string = obj.name;
-
-            var target: ConstItem = null;
-            for (var j: number = 0; j < constList.length; j++) {
-
-                if (targetName == constList[j].paramName0
-                        || targetName == constList[j].paramName1
-                        || targetName == constList[j].paramName2
-                        || targetName == constList[j].paramName3) {
-
-                    target = constList[j];
-
-                    break;
-
-                }
-
-            }
-            var constItem: DynamicBaseConstItem = new DynamicBaseConstItem();
-            constItem.setTargetInfo(target, targetName, obj.type);
-
-            if (obj.type == 1) {
-                constItem.setCurrentVal(obj.x);
-            } else if (obj.type == 2) {
-                constItem.setCurrentVal(obj.x, obj.y);
-            } else {
-                constItem.setCurrentVal(obj.x, obj.y, obj.z);
-            }
-
-            this.dynamicConstList.push(constItem);
-
         }
-    }
-
-*/
-
     }
 
 }

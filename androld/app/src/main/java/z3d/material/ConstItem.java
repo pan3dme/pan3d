@@ -43,4 +43,16 @@ public class ConstItem {
         this.vecNum.put(2 + this.offset,this.value.z);
         this.vecNum.put(3 + this.offset,this.value.w);
     }
+
+    public void setDynamicOffset(DynamicBaseConstItem $dynamic) {
+        if (this.paramName0 == $dynamic.paramName) {
+            $dynamic.targetOffset = this.param0Index + this.offset;
+        } else if (this.paramName1 == $dynamic.paramName) {
+            $dynamic.targetOffset = this.param1Index + this.offset;
+        } else if (this.paramName2 == $dynamic.paramName) {
+            $dynamic.targetOffset = this.param2Index + this.offset;
+        } else if (this.paramName3 == $dynamic.paramName) {
+            $dynamic.targetOffset = this.param3Index + this.offset;
+        }
+    }
 }

@@ -13,10 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseConstItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
@@ -39,37 +38,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="185">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4564#4709#0" expanded="true" />
-                <element signature="e#4708#4709#0" expanded="true" />
+                <element signature="e#1686#1908#0" expanded="true" />
+                <element signature="e#1907#1908#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/Scene_data.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseConstItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="18" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="21" />
+            <state relative-caret-position="330">
+              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,28 +65,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/org/json/JSONArray.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="286" column="53" selection-start-line="286" selection-start-column="40" selection-end-line="286" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBackFun.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/org/json/JSONObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="592" column="29" selection-start-line="592" selection-start-column="20" selection-end-line="592" selection-end-column="29" />
+            <state relative-caret-position="352">
+              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,22 +79,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-367">
-              <caret line="31" column="2" lean-forward="true" selection-start-line="31" selection-start-column="2" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="174">
+              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="47" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5049#5376#0" expanded="true" />
-                <element signature="e#5375#5376#0" expanded="true" />
+                <element signature="e#1326#1479#0" expanded="true" />
+                <element signature="e#1478#1479#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="302">
+              <caret line="75" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,22 +103,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialManager.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="113" column="38" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="38" />
+            <state relative-caret-position="197">
+              <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/Material.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicTexItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="54" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -163,11 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>static</find>
-      <find>entrySet</find>
-      <find>meshAry</find>
-      <find>readBytes2ArrayBuffer</find>
-      <find>frameToBone</find>
       <find>readFrameData</find>
       <find>readParticle</find>
       <find>loadSeneBase</find>
@@ -193,6 +157,11 @@
       <find>makeBaseTexture</find>
       <find>setMaterialVc</find>
       <find>setMaterialUrl</find>
+      <find>Object</find>
+      <find>JSONObject</find>
+      <find>sceneData</find>
+      <find>DynamicTexItem</find>
+      <find>dynamicConstList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBaseBone.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBone.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/AnimData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" />
@@ -229,7 +197,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBfun.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/Scene_data.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/vo/Float32Array.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBackFun.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialLoad.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialManager.java" />
@@ -251,6 +218,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseConstItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" />
       </list>
     </option>
@@ -332,6 +301,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="z3d" type="462c0819:PsiDirectoryNode" />
               <item name="display" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="one" type="b2602c69:ProjectViewProjectNode" />
+              <item name="androld" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="z3d" type="462c0819:PsiDirectoryNode" />
+              <item name="material" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -481,12 +460,12 @@
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4945055" weight="0.32941177" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.82417583" weight="0.4053476" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.4859585" weight="0.32834226" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6739927" visible="true" weight="0.42780748" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.67216116" weight="0.42780748" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993895" weight="0.32834226" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.32600734" side_tool="true" visible="true" weight="0.42780748" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.504884" side_tool="true" visible="true" weight="0.37326202" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3290461" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.7887668" weight="0.3315508" />
-      <window_info anchor="bottom" id="Find" order="8" sideWeight="0.4957265" weight="0.37326202" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.7881563" weight="0.3315508" />
+      <window_info active="true" anchor="bottom" id="Find" order="8" sideWeight="0.495116" visible="true" weight="0.37326202" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -530,17 +509,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="948" column="4" selection-start-line="948" selection-start-column="4" selection-end-line="950" selection-end-column="5" />
-          <folding>
-            <element signature="e#45018#45019#0" expanded="true" />
-            <element signature="e#45048#45049#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/filemodel/GroupDataManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -629,18 +597,6 @@
           <folding>
             <element signature="e#223#224#0" expanded="true" />
             <element signature="e#247#248#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -757,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicTexItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/TexItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -782,13 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -823,16 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="134" column="34" lean-forward="true" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -876,25 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4564#4709#0" expanded="true" />
-            <element signature="e#4708#4709#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBackFun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-29/org/json/JSONObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -909,24 +822,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-367">
-          <caret line="31" column="2" lean-forward="true" selection-start-line="31" selection-start-column="2" selection-end-line="32" selection-end-column="45" />
+        <state relative-caret-position="169">
+          <caret line="255" selection-start-line="255" selection-end-line="255" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5049#5376#0" expanded="true" />
-            <element signature="e#5375#5376#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBackFun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="75" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="47" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1326#1479#0" expanded="true" />
+            <element signature="e#1478#1479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicTexItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="54" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseConstItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="185">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1686#1908#0" expanded="true" />
+            <element signature="e#1907#1908#0" expanded="true" />
           </folding>
         </state>
       </provider>
