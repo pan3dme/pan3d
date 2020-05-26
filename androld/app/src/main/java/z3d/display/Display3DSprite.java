@@ -216,39 +216,20 @@ public   class Display3DSprite extends Display3D {
                 Log.d(TAG, "CUBEMAP: ");
             }
             else if (texItem.type == 0) {
+                Log.d(TAG, "基础图: ");
                // ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
             }
         }
 
-        /*
-        List<TexItem> texVec= mp.material.texList;
-        TexItem texItem;
-        for (int i   = 0; i < texVec.size(); i++) {
-            texItem=texVec.get(i);
-            if (texItem.isDynamic) {
-                continue;
-            }
-            if (texItem.type == TexItem.LIGHTMAP) {
-                Log.d(TAG, "LIGHTMAP: ");
-            }
-            else if (texItem.type == TexItem.LTUMAP   ) {
-                Log.d(TAG, "LTUMAP: ");
-            }
-            else if (texItem.type == TexItem.CUBEMAP) {
-                Log.d(TAG, "CUBEMAP: ");
-            }
-            else if (texItem.type == 0) {
-                ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
-            }
-        }
         List<DynamicTexItem> texDynamicVec  =  mp.dynamicTexList;
         for (int i   = 0; i < texDynamicVec.size(); i++) {
             texItem=texDynamicVec.get(i).target;
             if(texItem!=null ){
-                ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
+                Log.d(TAG, "基础图: ");
+               // ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
             }
         }
-*/
+
 
     }
 

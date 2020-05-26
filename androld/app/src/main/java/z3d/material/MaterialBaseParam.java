@@ -17,7 +17,6 @@ public class MaterialBaseParam extends GC {
     public Material material;
     public List dynamicTexList ;
     public List dynamicConstList ;
-    //    public  MaterialBaseParam  materialParam;
     public void setData(Material matr,List ary )
     {
         this.material = matr;
