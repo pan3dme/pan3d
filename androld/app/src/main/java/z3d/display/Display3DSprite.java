@@ -175,7 +175,7 @@ public   class Display3DSprite extends Display3D {
 
     }
 
-    public void setMaterialUrl(String url,final List paramData)
+    public void setMaterialUrl(String url,  List paramData)
     {
 
         MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {

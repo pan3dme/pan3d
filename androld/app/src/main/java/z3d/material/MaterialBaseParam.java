@@ -19,29 +19,30 @@ public class MaterialBaseParam extends GC {
     public List dynamicConstList ;
 
 
-    public void setData( final Material matr,final List ary )
+    public void setData(   Material mater,  List ary )
     {
-        this.material = matr;
+        this.material = mater;
         this.dynamicConstList = new ArrayList();
         this.dynamicTexList = new ArrayList<>();
-        List<ConstItem> constList  = matr.constList;
-        List<TexItem> texList  = matr.texList;
+        List<ConstItem> constList  = mater.constList;
+        List<TexItem> texList  = mater.texList;
 
         for (int i = 0; i < ary.size(); i++) {
-            JSONObject obj = (JSONObject) ary.get(i);
+            HashMap obj =(HashMap) ary.get(i);
             try {
 
-                if ( obj.getInt("type")== 0) {
+                int objType=(int)obj.get("type");
+
+                if (objType== 0) {
                 final    DynamicBaseTexItem texItem = new DynamicBaseTexItem();
-                    texItem.paramName = obj.getString("name");
-                    String paramNameC=obj.getString("name");
-//                    paramNameC="param0";
+                    texItem.paramName = (String) obj.get("name");
+                    String paramNameC=(String)obj.get("name");
+
                     for (int j = 0; j < texList.size(); j++) {
 
-
-                        final String paramNameA=texItem.paramName;
-                        final String paramNameB=texList.get(j).paramName;
-                        if (paramNameC=="param0") {
+                          String paramNameA=texItem.paramName;
+                            String paramNameB=texList.get(j).paramName;
+                        if (paramNameB=="param0") {
                             texItem.target = texList.get(j);
                             break;
                         }
@@ -52,7 +53,7 @@ public class MaterialBaseParam extends GC {
                         mipmap = texItem.target.mipmap;
                     }
                     mipmap = 0;
-                    TextureManager.getInstance().getTexture( obj.getString("url"), new TexTuresBackFun() {
+                    TextureManager.getInstance().getTexture( (String) obj.get("url"), new TexTuresBackFun() {
                         @Override
                         public void Bfun(TextureRes value) {
                             texItem.textureRes = value;
@@ -60,7 +61,7 @@ public class MaterialBaseParam extends GC {
                     });
                     this.dynamicTexList.add(texItem);
                 } else {
-                    String targetName = obj.getString("name");
+                    String targetName =(String) obj.get("name");
                     ConstItem target=null ;
                     for (int j = 0; j < constList.size(); j++) {
 
@@ -75,16 +76,16 @@ public class MaterialBaseParam extends GC {
                         }
                     }
                     DynamicBaseConstItem constItem = new DynamicBaseConstItem();
-                    constItem.setTargetInfo(target, targetName, obj.getInt("type"));
+                    constItem.setTargetInfo(target, targetName, objType);
                     List<Float> valArr=new ArrayList<>();
-                    if (obj.getInt("type") >= 1) {
-                        valArr.add((float) obj.getDouble("x"));
+                    if (objType>= 1) {
+                        valArr.add((float) obj.get("x"));
                     }
-                    if (obj.getInt("type") >= 2) {
-                        valArr.add((float) obj.getDouble("y"));
+                    if (objType >= 2) {
+                        valArr.add((float) obj.get("y"));
                     }
-                    if (obj.getInt("type") >= 3) {
-                        valArr.add((float) obj.getDouble("z"));
+                    if (objType >= 3) {
+                        valArr.add((float) obj.get("z"));
                     }
                     constItem.setCurrentVal(valArr);
                     this.dynamicConstList.add(constItem);
