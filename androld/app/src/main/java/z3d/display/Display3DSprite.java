@@ -228,7 +228,7 @@ public   class Display3DSprite extends Display3D {
             DynamicBaseTexItem dynamicBaseTexItem=texDynamicVec.get(i);
             texItem=(TexItem)dynamicBaseTexItem.target;
             if(texItem !=null&&dynamicBaseTexItem.textureRes!=null){
-                Log.d(TAG, "基础图: ");
+             //   Log.d(TAG, "基础图: ");
                 ctx.setRenderTexture(this.shader3D,"colorMap",dynamicBaseTexItem.textureRes.textTureInt,0);
                 // [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
 
