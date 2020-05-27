@@ -61,6 +61,7 @@ var Pan3d;
                     resultv3d.scaleBy(this._speed * Math.random());
                 }
                 else {
+                    Pan3d.Material;
                     resultv3d.scaleBy(this._speed);
                 }
                 //var ranAngle: Number = this._baseRandomAngle * Math.random() * Math.PI / 180;

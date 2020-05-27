@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */; };
 		FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B85241EE1DD00AD44BE /* MaterialParamData.m */; };
-		FE064B8A241EE63800AD44BE /* DynamicTexListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B89241EE63800AD44BE /* DynamicTexListVo.m */; };
 		FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2392395104700D2483A /* AppDelegate.m */; };
 		FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC23C2395104700D2483A /* SceneDelegate.m */; };
 		FE0FC2402395104700D2483A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC23F2395104700D2483A /* ViewController.m */; };
@@ -194,8 +193,6 @@
 		763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosgl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE064B84241EE1DD00AD44BE /* MaterialParamData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialParamData.h; sourceTree = "<group>"; };
 		FE064B85241EE1DD00AD44BE /* MaterialParamData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialParamData.m; sourceTree = "<group>"; };
-		FE064B88241EE63800AD44BE /* DynamicTexListVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTexListVo.h; sourceTree = "<group>"; };
-		FE064B89241EE63800AD44BE /* DynamicTexListVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTexListVo.m; sourceTree = "<group>"; };
 		FE0FC2352395104700D2483A /* iosgl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosgl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0FC2382395104700D2483A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE0FC2392395104700D2483A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -925,8 +922,6 @@
 				FE887D6D241676CC00025A74 /* TexItem.m */,
 				FE064B84241EE1DD00AD44BE /* MaterialParamData.h */,
 				FE064B85241EE1DD00AD44BE /* MaterialParamData.m */,
-				FE064B88241EE63800AD44BE /* DynamicTexListVo.h */,
-				FE064B89241EE63800AD44BE /* DynamicTexListVo.m */,
 			);
 			path = material;
 			sourceTree = "<group>";
@@ -1403,7 +1398,6 @@
 				FE15ACA72435750A0062741F /* Display3dMovie.m in Sources */,
 				FEEF8BD62448E79E001AFEB2 /* SkillSinPath.m in Sources */,
 				FE15ACAB243576760062741F /* SkinMesh.m in Sources */,
-				FE064B8A241EE63800AD44BE /* DynamicTexListVo.m in Sources */,
 				FE0FC23D2395104700D2483A /* SceneDelegate.m in Sources */,
 				FE8788BE24327359003E0EE7 /* ScaleChange.m in Sources */,
 				FE887D622416769500025A74 /* DynamicTexItem.m in Sources */,

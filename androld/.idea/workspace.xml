@@ -9,14 +9,19 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="" />
+    <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Galaxy_Nexus_API_29" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -33,63 +38,32 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>MainActivity</find>
-      <find>loadSceneRes</find>
-      <find>BaseActivity</find>
-      <find>onCreate</find>
-      <find>readMaterialInfo</find>
-      <find>readObj</find>
-      <find>his.dic</find>
-      <find>getParticleByte</find>
-      <find>keyFrameAry</find>
-      <find>loadRoleRes</find>
-      <find>loadLyfGoup</find>
-      <find>static</find>
-      <find>entrySet</find>
-      <find>meshAry</find>
-      <find>readBytes2ArrayBuffer</find>
-      <find>frameToBone</find>
-      <find>readFrameData</find>
-      <find>readParticle</find>
-      <find>makeOBjData</find>
-      <find>loadSeneBase</find>
-      <find>addDisplay</find>
-      <find>makeTempObjData</find>
-      <find>BuildDisplay3DShader</find>
-      <find>registetProgame</find>
-      <find>textCoord</find>
-      <find>texImage2D</find>
-      <find>glBindTexture</find>
-      <find>readImg</find>
-      <find>readBytes</find>
-      <find>createTexture</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1666" />
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
-  </component>
+  <component name="ProjectId" id="1cTu6s7JmeerxW4P9gv5KkQfiuH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DEBUGGABLE_DEVICE" value="Nexus_4_API_R [emulator-5554]" />
     <property name="DEBUGGABLE_PROCESS" value="com.one" />
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_4_API_R" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-03T19:19:28.137Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-21T18:48:59.347Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="android-custom-view/Users/zhao/Library/Android/sdk/sources/android-29/android/opengl/GLSurfaceView.java_SELECTED" value="GLSurfaceView" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/one/five" />
+    <property name="multi-representation-preview/Users/zhao/Library/Android/sdk/sources/android-29/android/opengl/GLSurfaceView.java_selected" value="Custom views" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -97,6 +71,7 @@
       <recent name="com.one" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="z3d.units" />
       <recent name="com.one" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -107,7 +82,7 @@
       <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.one-app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -117,6 +92,57 @@
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="one-app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="one-app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -180,20 +206,51 @@
     </task>
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="WindowStateProjectService">
-    <state x="-1147" y="176" key="#app" timestamp="1590569924536">
+    <state x="-1240" y="202" key="#Notifications" timestamp="1590565156176">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-1147" y="176" key="#app/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569924536" />
+    <state x="-1240" y="202" key="#Notifications/-1680.23.1680.1027/0.23.1920.1057@-1680.23.1680.1027" timestamp="1590565156176" />
+    <state x="-1147" y="176" key="#one-app" timestamp="1590569835142">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state x="-1147" y="176" key="#one-app/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569835142" />
+    <state width="450" height="466" key="DebuggerActiveHint" timestamp="1590567922907">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="450" height="466" key="DebuggerActiveHint/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590567922907" />
+    <state width="1124" height="491" key="GridCell.Tab.0.bottom" timestamp="1590569694197">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1124" height="491" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569694197" />
+    <state width="1124" height="491" key="GridCell.Tab.0.center" timestamp="1590569694196">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1124" height="491" key="GridCell.Tab.0.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569694196" />
+    <state width="1124" height="491" key="GridCell.Tab.0.left" timestamp="1590569694196">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1124" height="491" key="GridCell.Tab.0.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569694196" />
+    <state width="1124" height="491" key="GridCell.Tab.0.right" timestamp="1590569694197">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1124" height="491" key="GridCell.Tab.0.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569694197" />
+    <state width="1123" height="491" key="GridCell.Tab.1.bottom" timestamp="1590569880022">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1123" height="491" key="GridCell.Tab.1.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569880022" />
+    <state width="1123" height="491" key="GridCell.Tab.1.center" timestamp="1590569880021">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1123" height="491" key="GridCell.Tab.1.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569880021" />
+    <state width="1123" height="491" key="GridCell.Tab.1.left" timestamp="1590569880021">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1123" height="491" key="GridCell.Tab.1.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569880021" />
+    <state width="1123" height="491" key="GridCell.Tab.1.right" timestamp="1590569880022">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1123" height="491" key="GridCell.Tab.1.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569880022" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -217,6 +274,11 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/one/SceneActivity.java</url>
           <line>243</line>
           <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
