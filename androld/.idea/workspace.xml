@@ -11,9 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +58,8 @@
     <property name="DEBUGGABLE_DEVICE" value="Nexus_4_API_R [emulator-5554]" />
     <property name="DEBUGGABLE_PROCESS" value="com.one" />
     <property name="DEBUGGER_ID" value="Auto" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_4_API_R" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-21T18:48:59.347Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Galaxy_Nexus_API_29" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-27T20:17:24.814Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android-custom-view/Users/zhao/Library/Android/sdk/sources/android-29/android/opengl/GLSurfaceView.java_SELECTED" value="GLSurfaceView" />
@@ -210,11 +211,12 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1240" y="202" key="#Notifications" timestamp="1590586968064">
+    <state x="-1240" y="202" key="#Notifications" timestamp="1590608098602">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1240" y="202" key="#Notifications/-1680.23.1680.1027/0.23.1920.1057@-1680.23.1680.1027" timestamp="1590565156176" />
     <state x="-1240" y="202" key="#Notifications/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590586968064" />
+    <state x="-1240" y="202" key="#Notifications/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590608098602" />
     <state x="-1027" y="227" key="#com.intellij.ide.util.MemberChooser" timestamp="1590587157312">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -232,46 +234,50 @@
     </state>
     <state width="450" height="466" key="DebuggerActiveHint/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590567922907" />
     <state width="523" height="466" key="DebuggerActiveHint/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590601466201" />
-    <state width="1430" height="415" key="GridCell.Tab.0.bottom" timestamp="1590604271856">
+    <state width="1418" height="415" key="GridCell.Tab.0.bottom" timestamp="1590610649165">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176257" />
-    <state width="1430" height="415" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604271856" />
-    <state width="1430" height="415" key="GridCell.Tab.0.center" timestamp="1590604271856">
+    <state width="1418" height="415" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649165" />
+    <state width="1418" height="415" key="GridCell.Tab.0.center" timestamp="1590610649164">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1430" height="415" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604271856" />
-    <state width="1430" height="415" key="GridCell.Tab.0.left" timestamp="1590604271856">
+    <state width="1418" height="415" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649164" />
+    <state width="1418" height="415" key="GridCell.Tab.0.left" timestamp="1590610649164">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1430" height="415" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604271856" />
-    <state width="1430" height="415" key="GridCell.Tab.0.right" timestamp="1590604271856">
+    <state width="1418" height="415" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649164" />
+    <state width="1418" height="415" key="GridCell.Tab.0.right" timestamp="1590610649164">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1430" height="415" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604271856" />
-    <state width="1429" height="415" key="GridCell.Tab.1.bottom" timestamp="1590604277012">
+    <state width="1418" height="415" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649164" />
+    <state width="1418" height="415" key="GridCell.Tab.1.bottom" timestamp="1590610649228">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1429" height="415" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604277012" />
-    <state width="1429" height="415" key="GridCell.Tab.1.center" timestamp="1590604277011">
+    <state width="1418" height="415" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649228" />
+    <state width="1418" height="415" key="GridCell.Tab.1.center" timestamp="1590610649227">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1429" height="415" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604277011" />
-    <state width="1429" height="415" key="GridCell.Tab.1.left" timestamp="1590604277011">
+    <state width="1418" height="415" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649227" />
+    <state width="1418" height="415" key="GridCell.Tab.1.left" timestamp="1590610649227">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176253" />
-    <state width="1429" height="415" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604277011" />
-    <state width="1429" height="415" key="GridCell.Tab.1.right" timestamp="1590604277012">
+    <state width="1418" height="415" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649227" />
+    <state width="1418" height="415" key="GridCell.Tab.1.right" timestamp="1590610649227">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1429" height="415" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604277012" />
+    <state width="1418" height="415" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590610649227" />
+    <state x="-1381" y="175" key="SettingsEditor" timestamp="1590604937581">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state x="-1381" y="175" key="SettingsEditor/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590604937581" />
     <state x="-1188" y="293" width="695" height="486" key="find.popup" timestamp="1590600321892">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -308,6 +314,11 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java</url>
           <line>23</line>
           <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

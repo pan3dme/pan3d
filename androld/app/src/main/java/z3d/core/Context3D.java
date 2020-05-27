@@ -33,6 +33,8 @@ public class Context3D {
     {
         int textureSlot= GLES20.glGetUniformLocation(shader3D.program,name);
 
+        Log.d(name, textureSlot +"   "+level);
+
         switch (level) {
             case 0:
                 GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
@@ -60,6 +62,7 @@ public class Context3D {
         }
 
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texTureId);
+
         GLES20.glUniform1f(textureSlot,level);
     }
 

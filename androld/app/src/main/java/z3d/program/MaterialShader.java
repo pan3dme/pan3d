@@ -172,15 +172,24 @@ public class MaterialShader extends  Shader3D {
          */
         String fragment ="precision mediump float;\n"+
                 "varying vec2 v0;\n"+
-                "uniform sampler2D fs1;\n"+
+
                 "uniform sampler2D fs0;\n"+
+                "uniform sampler2D fs1;\n"+
+                "uniform sampler2D fs2;\n"+
+                "uniform sampler2D fs3;\n"+
+
+
 
                 "void main() {\n"+
 
                 "vec4 aa =texture2D(fs0,v0);\n"+
                 "vec4 bb =texture2D(fs1,v0);\n"+
-                "vec4 ee =vec4(1.0,0.0,0.0,1.0);\n"+
-                "gl_FragColor=bb;\n"+
+                "vec4 cc =texture2D(fs2,v0);\n"+
+                "vec4 dd =texture2D(fs3,v0);\n"+
+
+                "vec4 qq =vec4(0,0,0,1);\n"+
+
+                "gl_FragColor=dd;\n"+
                 "}";
 
 

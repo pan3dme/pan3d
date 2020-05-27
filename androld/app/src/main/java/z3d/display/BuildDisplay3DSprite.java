@@ -109,7 +109,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     }
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
-        super.setMaterialTexture(material,mp);
+      super.setMaterialTexture(material,mp);
         Context3D ctx=this.scene3d.context3D;
         List<TexItem> texVec= mp.material.texList;
         TexItem texItem=null;
@@ -118,8 +118,11 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null) {
 
 
-              //  ctx.setRenderTexture(material.shader,"f0",this.lightTextureRes.textTureInt,0);
-                ctx.setRenderTexture(material.shader,texItem.name,this.lightTextureRes.textTureInt,texItem.get_id());
+//                ctx.setRenderTexture(material.shader,"fs0",this.lightTextureRes.textTureInt,0);
+                ctx.setRenderTexture(material.shader,"fs1",this.lightTextureRes.textTureInt,1);
+                ctx.setRenderTexture(material.shader,"fs2",this.lightTextureRes.textTureInt,2);
+                ctx.setRenderTexture(material.shader,"fs3",this.lightTextureRes.textTureInt,3);
+//                ctx.setRenderTexture(material.shader,texItem.name,this.lightTextureRes.textTureInt,texItem.get_id());
 
             }
 
