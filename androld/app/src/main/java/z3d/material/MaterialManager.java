@@ -13,6 +13,7 @@ import z3d.base.ByteArray;
 import z3d.base.ResGC;
 import z3d.base.TexTuresBackFun;
 import z3d.filemodel.TextureManager;
+import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 
 public class MaterialManager extends ResGC {
@@ -78,23 +79,19 @@ public class MaterialManager extends ResGC {
 
 
     }
-    public void getMaterialByte(String url, MaterialBackFun materialBfun )
+    public void getMaterialByte(String url, MaterialBackFun materialBfun,String resName ,Shader3D shader3DCls )
     {
         url = url.replace("_byte.txt", ".txt");
         url = url.replace(".txt", "_byte.txt");
-
         if(this.dic.containsKey(url)){
             materialBfun.Bfun((Material)this.dic.get(url));
             return;
         }
-
-        MaterialLoad materialLoad=new MaterialLoad(materialBfun,null,url,true,"",new Shader3D());
-
+        MaterialLoad materialLoad=new MaterialLoad(materialBfun,null,url,true,resName,shader3DCls);
         if(this.loadDic.containsKey(url)){
             List arr=(List) this.loadDic.get(url);
             arr.add(materialLoad);
             return;
-
         }
         List newArr=new ArrayList();
         newArr.add(materialLoad);
@@ -147,13 +144,14 @@ public class MaterialManager extends ResGC {
         material.setByteData(_byte);
         material.url = _info.url;
         this.loadMaterial(material);
-
+        if (_info.autoReg) {
+            material.shader = ProgrmaManager.getInstance().getMaterialProgram(_info.regName,_info.shader3D,material,new ArrayList<Boolean>(),true);
+        }
        List arr= (List) this.loadDic.get(_info.url);
        for (int i=0;i<arr.size();i++){
            MaterialLoad materialLoad=(MaterialLoad)arr.get(i);
            materialLoad.fun.Bfun(material);
        }
-
        this.loadDic.remove(_info.url);
        this.dic.put(_info.url,material);
 

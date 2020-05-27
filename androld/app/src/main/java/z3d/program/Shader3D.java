@@ -3,12 +3,14 @@ package z3d.program;
 
 import android.opengl.GLES20;
 
+import java.util.List;
 
 
 public class Shader3D {
 
     public int program;
-
+    public List<Boolean> paramAry;
+    public String fragment;
 
     public boolean encode() {
 

@@ -21,6 +21,7 @@ import z3d.material.MaterialBaseParam;
 import z3d.material.MaterialManager;
 import z3d.material.TexItem;
 import z3d.material.TextureRes;
+import z3d.program.MaterialShader;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.vo.Matrix3D;
@@ -188,18 +189,14 @@ public   class Display3DSprite extends Display3D {
                     materialParam.setData(material,paramData);
                 }
             }
-        });
-
+        }, MaterialShader.shaderStr,new MaterialShader());
+//} info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 
     }
 
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
         Context3D ctx=this.scene3d.context3D;
-        if(this.textureBase!=null){
-            ctx.setRenderTexture(this.shader3D,"fs0",this.textureBase.textTureInt,0);
-        }
-
         List<TexItem> texVec= mp.material.texList;
         TexItem texItem=null;
         for (int i   = 0; i < texVec.size(); i++) {
@@ -221,23 +218,14 @@ public   class Display3DSprite extends Display3D {
                // ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
             }
         }
-
         List<DynamicBaseTexItem> texDynamicVec  =  mp.dynamicTexList;
         for (int i   = 0; i < texDynamicVec.size(); i++) {
-
             DynamicBaseTexItem dynamicBaseTexItem=texDynamicVec.get(i);
             texItem=(TexItem)dynamicBaseTexItem.target;
             if(texItem !=null&&dynamicBaseTexItem.textureRes!=null){
-             //   Log.d(TAG, "基础图: ");
-                ctx.setRenderTexture(this.shader3D,"fs0",dynamicBaseTexItem.textureRes.textTureInt,0);
-                // [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
-
+                ctx.setRenderTexture(material.shader,texItem.name,dynamicBaseTexItem.textureRes.textTureInt,texItem.get_id());
             }
-
         }
-
-
-
 
     }
 
