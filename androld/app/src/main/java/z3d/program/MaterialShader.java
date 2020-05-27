@@ -149,9 +149,8 @@ public class MaterialShader extends  Shader3D {
                 "void main() {\n"+
 
                 "vec4 aa =texture2D(fs0,textureCoordinate);\n"+
-                "vec4 bb =vec4(textureCoordinate.x,1.0,1.0,1.0);\n"+
-
-                "gl_FragColor=bb;\n"+
+                "vec4 bb =vec4(1.0,0.0,0.0,1.0);\n"+
+                "gl_FragColor=aa;\n"+
                 "}";
 
         return fragment;
