@@ -156,6 +156,10 @@ public class MaterialShader extends  Shader3D {
                 "gl_FragColor=aa;\n"+
                 "}";
 
+
+        Log.d("fs=>", this.fragment);
+
+
         return fragment;
     }
 }

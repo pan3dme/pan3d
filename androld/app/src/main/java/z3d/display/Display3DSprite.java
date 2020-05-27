@@ -138,7 +138,7 @@ public   class Display3DSprite extends Display3D {
         {
             return;
         }
-        //this.shader3D=this.material.shader;
+        this.shader3D=this.material.shader;
         Context3D ctx=this.scene3d.context3D;
         ctx.setProgame(this.shader3D.program);
 //        this.updateBind();
