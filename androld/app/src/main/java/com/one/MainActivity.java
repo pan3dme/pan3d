@@ -6,7 +6,6 @@ package com.one;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -18,11 +17,9 @@ import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONException;
 
 
 import java.io.InputStream;
-import java.util.jar.JarException;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -33,13 +30,10 @@ import z3d.base.GroupItem;
 import z3d.base.RoleBackFun;
 import z3d.base.SkillBackFun;
 import z3d.display.BuildDisplay3DSprite;
-import z3d.display.Display3DSprite;
 import z3d.display.line.GridLineSprite;
 
 import z3d.display.particle.CombineParticle;
-import z3d.filemodel.MeshDataManager;
 import z3d.filemodel.ParticleManager;
-import z3d.filemodel.TextureManager;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.res.RoleRes;

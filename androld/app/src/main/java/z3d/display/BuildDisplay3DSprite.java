@@ -32,6 +32,7 @@ import z3d.material.MaterialBackFun;
 import z3d.material.MaterialBaseParam;
 import z3d.material.MaterialManager;
 import z3d.material.TextureRes;
+import z3d.program.MaterialShader;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.units.LoadBackFun;
@@ -86,8 +87,8 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     protected void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderStr,new BuildDisplay3DShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderStr);
+        ProgrmaManager.getInstance().registe(MaterialShader.shaderStr,new MaterialShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(MaterialShader.shaderStr);
 
     }
 

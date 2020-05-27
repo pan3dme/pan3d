@@ -10,13 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +222,10 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1027" y="227" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587157312" />
+    <state x="-1102" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590598408363">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state x="-1102" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590598408363" />
     <state x="-1147" y="176" key="#one-app" timestamp="1590569835142">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>

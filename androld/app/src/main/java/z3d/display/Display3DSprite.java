@@ -117,6 +117,7 @@ public   class Display3DSprite extends Display3D {
     public void upFrame(){
         Context3D ctx=this.scene3d.context3D;
         if(this.material!=null){
+
             this.updateMaterial();
         }else{
             if(this.shader3D!=null){
@@ -137,8 +138,8 @@ public   class Display3DSprite extends Display3D {
         {
             return;
         }
+        //this.shader3D=this.material.shader;
         Context3D ctx=this.scene3d.context3D;
-        //   this.shader3D=this.material.shader;
         ctx.setProgame(this.shader3D.program);
 //        this.updateBind();
         this.setVc();
