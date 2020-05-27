@@ -123,7 +123,7 @@ static MaterialManager *instance = nil;
 -(void)loadDynamicTexUtil:(MaterialParam*)material;
 {
     
-    NSMutableArray<DynamicTexListVo*>* dynamicTexList  = material.dynamicTexList;
+    NSMutableArray<DynamicTexItem*>* dynamicTexList  = material.dynamicTexList;
     for (int i= 0; i < dynamicTexList.count; i++) {
         if (dynamicTexList[i].isParticleColor) {
             [(DynamicTexItem*)dynamicTexList[i]  creatTextureByCurve];

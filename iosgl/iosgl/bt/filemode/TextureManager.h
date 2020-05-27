@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GL_Header.h"
 #import "ResGC.h"
-#import "DynamicTexListVo.h"
+ 
 #import "TextureRes.h"
 NS_ASSUME_NONNULL_BEGIN
 
