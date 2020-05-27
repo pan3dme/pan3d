@@ -251,11 +251,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch ( type) {
                 case 1:
                     if( obj.getInt("id")==35){
-                        BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                        tempDis.scene3d=this.scene3D;
-                        tempDis.setInfo(obj);
-                        this.scene3D.addDisplay(tempDis);
+
                     }
+                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                    tempDis.scene3d=this.scene3D;
+                    tempDis.setInfo(obj);
+                    this.scene3D.addDisplay(tempDis);
+
                     break;
                 default:
                     break;

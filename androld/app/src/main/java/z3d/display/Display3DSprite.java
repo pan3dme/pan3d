@@ -13,6 +13,7 @@ import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 
 import z3d.filemodel.TextureManager;
+import z3d.material.DynamicBaseTexItem;
 import z3d.material.DynamicTexItem;
 import z3d.material.Material;
 import z3d.material.MaterialBackFun;
@@ -175,7 +176,7 @@ public   class Display3DSprite extends Display3D {
 
     }
 
-    public void setMaterialUrl(String url,  List paramData)
+    public void setMaterialUrl(String url, final List paramData)
     {
 
         MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
@@ -200,7 +201,7 @@ public   class Display3DSprite extends Display3D {
         }
 
         List<TexItem> texVec= mp.material.texList;
-        TexItem texItem;
+        TexItem texItem=null;
         for (int i   = 0; i < texVec.size(); i++) {
             texItem=texVec.get(i);
             if (texItem.isDynamic) {
@@ -221,16 +222,21 @@ public   class Display3DSprite extends Display3D {
             }
         }
 
-        List<DynamicTexItem> texDynamicVec  =  mp.dynamicTexList;
+        List<DynamicBaseTexItem> texDynamicVec  =  mp.dynamicTexList;
         for (int i   = 0; i < texDynamicVec.size(); i++) {
-            /*
-            texItem=texDynamicVec.get(i).target;
-            if(texItem!=null ){
+
+            DynamicBaseTexItem dynamicBaseTexItem=texDynamicVec.get(i);
+            texItem=(TexItem)dynamicBaseTexItem.target;
+            if(texItem !=null&&dynamicBaseTexItem.textureRes!=null){
                 Log.d(TAG, "基础图: ");
-               // ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
+                ctx.setRenderTexture(this.shader3D,"colorMap",dynamicBaseTexItem.textureRes.textTureInt,0);
+                // [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
+
             }
-            */
+
         }
+
+
 
 
     }
