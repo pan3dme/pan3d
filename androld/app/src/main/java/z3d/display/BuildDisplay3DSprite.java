@@ -13,6 +13,7 @@ import androidx.appcompat.widget.VectorEnabledTintResources;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
+import org.w3c.dom.Text;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -78,17 +79,18 @@ public class BuildDisplay3DSprite extends Display3DSprite {
                  lightTextureRes=value;
             }
         });
+        this.loagTextTextureRes("https://cms-bucket.ws.126.net/2020/0526/1c932f5ej00qay0pi005vc000go00cic.jpg");
     }
-    /*
-    -(void)setLighturl:(NSString*)value;
+    private TextureRes testTextUreRes;
+    private void loagTextTextureRes(String lighturl)
     {
-        if(value&&value.length){
-        [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
-                self.lightTextureRes=(TextureRes*)any;
-            } wrapType:0 info: nil filteType:0 mipmapType:0];
-        }
+        TextureManager.getInstance().getTexture(lighturl, new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                testTextUreRes=value;
+            }
+        });
     }
-    */
 
     @Override
     protected void makeTempObjData() {
@@ -115,10 +117,10 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         TexItem texItem=null;
         for (int i   = 0; i < texVec.size(); i++) {
             texItem=texVec.get(i);
-            if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null) {
+            if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null&&this.testTextUreRes!=null) {
 
 
-//                ctx.setRenderTexture(material.shader,"fs0",this.lightTextureRes.textTureInt,0);
+                 ctx.setRenderTexture(material.shader,"fs0",this.testTextUreRes.textTureInt,0);
                 ctx.setRenderTexture(material.shader,"fs1",this.lightTextureRes.textTureInt,1);
                 ctx.setRenderTexture(material.shader,"fs2",this.lightTextureRes.textTureInt,2);
                 ctx.setRenderTexture(material.shader,"fs3",this.lightTextureRes.textTureInt,3);
