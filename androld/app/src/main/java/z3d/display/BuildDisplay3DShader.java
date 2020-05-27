@@ -27,10 +27,10 @@ public class BuildDisplay3DShader extends Shader3D {
     public String getFragmentShaderString() {
         String fragment ="precision mediump float;\n"+
                 "varying vec2 textureCoordinate;\n"+
-                "uniform sampler2D colorMap;\n"+
+                "uniform sampler2D fs0;\n"+
                 "void main() {\n"+
 
-                    "vec4 aa =texture2D(colorMap,textureCoordinate);\n"+
+                    "vec4 aa =texture2D(fs0,textureCoordinate);\n"+
                     "vec4 bb =vec4(textureCoordinate.xy,1.0,1.0);\n"+
 
                     "gl_FragColor=aa;\n"+

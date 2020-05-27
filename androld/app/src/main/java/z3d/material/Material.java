@@ -138,7 +138,7 @@ public class Material extends ResCount {
 
 
             TexItem texItem = new TexItem();
-            texItem.id = (int)fs.readFloat();
+            texItem.set_id( (int)fs.readFloat());
             texItem.url = fs.readUTF();
             texItem.isDynamic = fs.readBoolean();
             texItem.paramName = fs.readUTF();

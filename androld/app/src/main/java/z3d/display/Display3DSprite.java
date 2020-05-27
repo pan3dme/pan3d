@@ -197,7 +197,7 @@ public   class Display3DSprite extends Display3D {
     {
         Context3D ctx=this.scene3d.context3D;
         if(this.textureBase!=null){
-            ctx.setRenderTexture(this.shader3D,"colorMap",this.textureBase.textTureInt,0);
+            ctx.setRenderTexture(this.shader3D,"fs0",this.textureBase.textTureInt,0);
         }
 
         List<TexItem> texVec= mp.material.texList;
@@ -229,7 +229,7 @@ public   class Display3DSprite extends Display3D {
             texItem=(TexItem)dynamicBaseTexItem.target;
             if(texItem !=null&&dynamicBaseTexItem.textureRes!=null){
              //   Log.d(TAG, "基础图: ");
-                ctx.setRenderTexture(this.shader3D,"colorMap",dynamicBaseTexItem.textureRes.textTureInt,0);
+                ctx.setRenderTexture(this.shader3D,"fs0",dynamicBaseTexItem.textureRes.textTureInt,0);
                 // [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
 
             }

@@ -3,9 +3,14 @@ package z3d.material;
 import z3d.vo.Vector3D;
 
 public class TexItem {
-
-
-    public int id;
+    private int _id;
+    public int get_id() {
+        return _id;
+    }
+    public void set_id(int _id) {
+        this._id = _id;
+        this.name = "fs"+_id;
+    }
     public String url;
     public TextureRes  textureRes;
     public boolean isDynamic;
@@ -23,5 +28,7 @@ public class TexItem {
     public static int CUBEMAP = 3;
     public static int HEIGHTMAP = 4;
     public static int REFRACTIONMAP = 5;
+
+
 
 }
