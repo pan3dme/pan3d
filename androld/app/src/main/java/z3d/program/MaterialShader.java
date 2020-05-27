@@ -11,9 +11,9 @@ public class MaterialShader extends  Shader3D {
                 "uniform mat4 vpMatrix3D;\n"+
                 "uniform mat4 posMatrix;\n"+
 
-                "varying vec2 textureCoordinate;\n"+
+                "varying vec2 v0;\n"+
                 "void main(){\n"+
-                "textureCoordinate=vTextCoord;\n"+
+                "v0=vTextCoord;\n"+
                 "gl_Position = vpMatrix3D*vec4(vPosition*0.1,1);\n"+
 
                 "}";
@@ -171,13 +171,16 @@ public class MaterialShader extends  Shader3D {
     gl_FragColor = ft2;
          */
         String fragment ="precision mediump float;\n"+
-                "varying vec2 textureCoordinate;\n"+
+                "varying vec2 v0;\n"+
+                "uniform sampler2D fs1;\n"+
                 "uniform sampler2D fs0;\n"+
+
                 "void main() {\n"+
 
-                "vec4 aa =texture2D(fs0,textureCoordinate);\n"+
-                "vec4 bb =vec4(1.0,0.0,0.0,1.0);\n"+
-                "gl_FragColor=aa;\n"+
+                "vec4 aa =texture2D(fs0,v0);\n"+
+                "vec4 bb =texture2D(fs1,v0);\n"+
+                "vec4 ee =vec4(1.0,0.0,0.0,1.0);\n"+
+                "gl_FragColor=bb;\n"+
                 "}";
 
 

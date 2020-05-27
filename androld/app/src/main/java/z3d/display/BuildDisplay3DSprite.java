@@ -31,6 +31,7 @@ import z3d.material.Material;
 import z3d.material.MaterialBackFun;
 import z3d.material.MaterialBaseParam;
 import z3d.material.MaterialManager;
+import z3d.material.TexItem;
 import z3d.material.TextureRes;
 import z3d.program.MaterialShader;
 import z3d.program.ProgrmaManager;
@@ -43,8 +44,8 @@ import z3d.vo.Vector3D;
 public class BuildDisplay3DSprite extends Display3DSprite {
 
     public static String TAG="Display3DSprite";
+      public TextureRes lightTextureRes;
 
-    public String lighturl;
     public void  setInfo(JSONObject value)
     {
 
@@ -61,7 +62,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.setObjUrl(value.getString("objsurl"));
             this.setMaterialUrl((value.getString("materialurl")), MathCore.ObjArrToList( value.getJSONArray("materialInfoArr")));
             if( value.has("lighturl")){
-               // this.loadLightTexture(value.getString("lighturl"));
+              this.setLighturl(value.getString("lighturl"));
             }
 
         } catch (Exception e) {
@@ -69,6 +70,25 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         }
 
     }
+    private void setLighturl(String lighturl)
+    {
+        TextureManager.getInstance().getTexture(lighturl, new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                 lightTextureRes=value;
+            }
+        });
+    }
+    /*
+    -(void)setLighturl:(NSString*)value;
+    {
+        if(value&&value.length){
+        [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+                self.lightTextureRes=(TextureRes*)any;
+            } wrapType:0 info: nil filteType:0 mipmapType:0];
+        }
+    }
+    */
 
     @Override
     protected void makeTempObjData() {
@@ -89,7 +109,22 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     }
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
-         super.setMaterialTexture(material,mp);
+        super.setMaterialTexture(material,mp);
+        Context3D ctx=this.scene3d.context3D;
+        List<TexItem> texVec= mp.material.texList;
+        TexItem texItem=null;
+        for (int i   = 0; i < texVec.size(); i++) {
+            texItem=texVec.get(i);
+            if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null) {
+
+
+              //  ctx.setRenderTexture(material.shader,"f0",this.lightTextureRes.textTureInt,0);
+                ctx.setRenderTexture(material.shader,texItem.name,this.lightTextureRes.textTureInt,texItem.get_id());
+
+            }
+
+        }
+
     }
     @Override
     public void upFrame(){
