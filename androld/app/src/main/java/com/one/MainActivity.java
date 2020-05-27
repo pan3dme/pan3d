@@ -244,11 +244,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int type = obj.getInt("type");
             switch ( type) {
                 case 1:
-                    if( obj.getInt("id")==35){
+                    //35 58  34 32 1 19 2
+                    int id=obj.getInt("id");
+                    if( obj.getInt("id")==1){
                         BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
                         tempDis.scene3d=this.scene3D;
                         tempDis.setInfo(obj);
                         this.scene3D.addDisplay(tempDis);
+
                     }
 
 
