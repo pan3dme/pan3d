@@ -109,6 +109,22 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         });
 
     }
+
+    @Override
+    public void updateMaterial() {
+        if(this.material==null||this.objData==null)
+        {
+            return;
+        }
+        this.shader3D=this.material.shader;
+        Context3D ctx=this.scene3d.context3D;
+        ctx.setProgame(this.shader3D.program);
+        this.setVc();
+        this.setMaterialTexture(this.material,this.materialParam);
+        this.setMaterialVa();
+
+    }
+
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
       super.setMaterialTexture(material,mp);
@@ -117,14 +133,15 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         TexItem texItem=null;
         for (int i   = 0; i < texVec.size(); i++) {
             texItem=texVec.get(i);
-            if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null&&this.testTextUreRes!=null) {
+            if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null) {
+
+//                 ctx.setRenderTexture(material.shader,"fs0",this.testTextUreRes.textTureInt,0);
+//                ctx.setRenderTexture(material.shader,"fs1",this.lightTextureRes.textTureInt,1);
+
+                ctx.setRenderTexture(material.shader,"fs0",this.lightTextureRes.textTureInt,0);
+                ctx.setRenderTexture(material.shader,texItem.name,this.lightTextureRes.textTureInt,texItem.get_id());
 
 
-                 ctx.setRenderTexture(material.shader,"fs0",this.testTextUreRes.textTureInt,0);
-                ctx.setRenderTexture(material.shader,"fs1",this.lightTextureRes.textTureInt,1);
-                ctx.setRenderTexture(material.shader,"fs2",this.lightTextureRes.textTureInt,2);
-                ctx.setRenderTexture(material.shader,"fs3",this.lightTextureRes.textTureInt,3);
-//                ctx.setRenderTexture(material.shader,texItem.name,this.lightTextureRes.textTureInt,texItem.get_id());
 
             }
 

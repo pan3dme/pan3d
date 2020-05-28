@@ -206,7 +206,7 @@ public   class Display3DSprite extends Display3D {
                 continue;
             }
             if (texItem.type == TexItem.LIGHTMAP) {
-                Log.d(TAG, "LIGHTMAP: ");
+              //  Log.d(TAG, "LIGHTMAP: ");
             }
             else if (texItem.type == TexItem.LTUMAP   ) {
                 Log.d(TAG, "LTUMAP: ");
