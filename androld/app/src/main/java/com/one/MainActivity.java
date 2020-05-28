@@ -23,6 +23,8 @@ import java.io.InputStream;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
+
+import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 
 import z3d.base.GroupBackFun;
@@ -141,8 +143,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
 
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -195,7 +195,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //将文件中的数据读到byte数组中
             in.read(buffer);
             RoleRes roleRes=new RoleRes();
-            roleRes.loadComplete(buffer, new RoleBackFun() {
+
+            roleRes.loadComplete(new ByteArray(buffer), new RoleBackFun() {
                 @Override
                 public void Bfun(RoleRes value) {
 

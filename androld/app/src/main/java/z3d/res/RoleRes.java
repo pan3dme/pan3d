@@ -35,14 +35,13 @@ public class RoleRes extends BaseRes {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){
-                    /*
                     loadComplete((ByteArray) dic.get("byte"), new RoleBackFun() {
                         @Override
                         public void Bfun(RoleRes value) {
 
                         }
                     });
-                    */
+
                 }else{
                     Log.d(TAG, "bfun: 角色地址错误");
                 }
@@ -54,10 +53,10 @@ public class RoleRes extends BaseRes {
 
     }
 
-    public void  loadComplete(byte[] buff, RoleBackFun bfun)
+    public void  loadComplete(ByteArray buff, RoleBackFun bfun)
     {
         this.bfun=bfun;
-        this._byte =new ByteArray(buff);
+        this._byte =buff;
         this.version = this._byte.readInt();
 
         this.readMesh();
