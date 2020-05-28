@@ -11,5 +11,9 @@ public class Display3D extends Object3D {
     {
 
     }
+    public void  updateMatrix()
+    {
+
+    }
 
 }

@@ -53,7 +53,7 @@
     [self addEventButBy:@"推-"];
     [self addEventButBy:@"新加"];
      [self addEventButBy:@"场景"];
-     [self addEventButBy:@"特别"];
+     [self addEventButBy:@"野猪"];
     
 }
 
@@ -178,6 +178,9 @@
     if([titleStr isEqualToString:@"特别"]){
         [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:0 y:0 z:0]];
     }
+    if([titleStr isEqualToString:@"野猪"]){
+           [self addRoleToScene:@"yezhuz" pos:[[Vector3D alloc]x:0 y:0 z:0]];
+       }
     
     //
 }

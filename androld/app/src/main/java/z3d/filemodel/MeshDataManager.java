@@ -14,7 +14,9 @@ import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.MeshData;
 import z3d.base.ResGC;
+import z3d.base.SkinMeshBackFun;
 import z3d.res.BaseRes;
+import z3d.res.RoleRes;
 import z3d.vo.BindParticle;
 import z3d.vo.BoneSocketData;
 import z3d.vo.Matrix3D;
@@ -32,8 +34,16 @@ public class MeshDataManager extends ResGC {
         return MeshDataManager._instance;
     }
 
-    public void getMeshData(String $url, CallBackFun bfun, int batchNum)
+    public void getMeshData(String url, SkinMeshBackFun bfun, int batchNum)
     {
+
+        SkinMesh $skinMesh = new SkinMesh();
+
+        if(this.dic.containsKey(url)){
+            bfun.Bfun((SkinMesh)this.dic.get(url));
+            return;
+        }
+
 
 
         /*
@@ -51,13 +61,30 @@ public class MeshDataManager extends ResGC {
         this._loadDic[$url] = new Array;
         this._loadDic[$url].push($fun);
 
-
         ResManager.getInstance().loadRoleRes(Scene_data.fileRoot + $url, ($roleRes: RoleRes) => {
             this.roleResCom($roleRes, $fun);
         }, $batchNum);
         */
 
 
+    }
+    //RoleRes*)roleRes fun:(SuccessBlock)fun;
+    public void roleResCom(RoleRes roleRes ,SkinMeshBackFun bfun )
+    {
+/*
+NSString* url = roleRes.roleUrl;
+    SkinMesh* skinMesh = this.dic[url];
+    [skinMesh loadMaterial];
+    [skinMesh setAction:roleRes.actionAry roleUrl:url];
+
+    NSArray* arr=  this.loadDic[url];
+    for (int i = 0; i <arr.count ; i++) {
+        SkinMeshBfun temp=  arr[i];
+        temp(skinMesh);
+    }
+    skinMesh.ready = YES;
+    [this.loadDic removeObjectForKey:url];
+ */
     }
     public SkinMesh readData(ByteArray _byte,int $batchNum,String $url,int $version)
     {

@@ -145,10 +145,11 @@ public   class Display3DSprite extends Display3D {
         this.setVc();
 //        this.setBaseMaterialVc(this.material);
           this.setMaterialTexture(this.material,this.materialParam);
-//        this.setMaterialVc(this.material,this.materialParam);
+          this.setMaterialVc(this.material,this.materialParam);
         this.setMaterialVa();
         this.resetVa();
     }
+
     protected void updateBind()
     {
 
@@ -194,7 +195,10 @@ public   class Display3DSprite extends Display3D {
 //} info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 
     }
+    protected void setMaterialVc(Material material,MaterialBaseParam mp)
+    {
 
+    }
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
         Context3D ctx=this.scene3d.context3D;

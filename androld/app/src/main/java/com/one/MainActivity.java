@@ -33,6 +33,7 @@ import z3d.display.BuildDisplay3DSprite;
 import z3d.display.line.GridLineSprite;
 
 import z3d.display.particle.CombineParticle;
+import z3d.display.role.Display3dMovie;
 import z3d.filemodel.ParticleManager;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // this.loadLyfGoup();
-        // this.loadRoleRes();
+       //  this.loadRoleRes();
         this.loadSeneBase();
         //  this.loadSkilRes();
 
@@ -183,15 +184,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             byte[] buffer = new byte[lenght];
             //将文件中的数据读到byte数组中
             in.read(buffer);
-
             RoleRes roleRes=new RoleRes();
             roleRes.loadComplete(buffer, new RoleBackFun() {
                 @Override
                 public void Bfun(RoleRes value) {
 
                     Log.d("", "Bfun: ROLEres  加载完");
+
+
+                    Display3dMovie sc=new Display3dMovie();
+                    sc.scene3d=scene3D;
+                    sc.setRoleUrl("role/yezhuz.txt");
+                    scene3D.addMovieDisplay(sc);
                 }
             });
+
+
+
+
+
 
 
         } catch (Exception e) {
@@ -247,13 +258,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //35 58  34 32 1 19 2
                     int id=obj.getInt("id");
                     if( obj.getInt("id")==1){
-                        BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                        tempDis.scene3d=this.scene3D;
-                        tempDis.setInfo(obj);
-                        this.scene3D.addDisplay(tempDis);
 
                     }
-
+                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                    tempDis.scene3d=this.scene3D;
+                    tempDis.setInfo(obj);
+                    this.scene3D.addDisplay(tempDis);
 
                     break;
                 default:
