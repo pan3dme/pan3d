@@ -108,9 +108,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // this.loadLyfGoup();
-       //  this.loadRoleRes();
-        this.loadSeneBase();
+        this.loadRoleRes();
+        //this.loadSeneBase();
         //  this.loadSkilRes();
+       // this.addRoleToScene();
+
+    }
+    private void  addRoleToScene()
+    {
+        Display3dMovie sc=new Display3dMovie();
+        sc.scene3d=scene3D;
+        sc.setRoleUrl("role/yezhuz.txt");
+        scene3D.addMovieDisplay(sc);
 
     }
     private void loadSeneBase()
@@ -175,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void  loadRoleRes()
     {
+
         try {
 
             InputStream in = getResources().openRawResource(R.raw.yezhuz);
@@ -192,22 +202,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Log.d("", "Bfun: ROLEres  加载完");
 
 
-                    Display3dMovie sc=new Display3dMovie();
-                    sc.scene3d=scene3D;
-                    sc.setRoleUrl("role/yezhuz.txt");
-                    scene3D.addMovieDisplay(sc);
+
                 }
             });
-
-
-
-
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
     private void  loadSkilRes()
     {

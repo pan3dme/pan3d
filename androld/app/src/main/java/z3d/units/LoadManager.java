@@ -5,6 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class LoadManager {
+
+    public static String  BYTE_TYPE="BYTE_TYPE";
+    public static String  IMG_TYPE="IMG_TYPE";
+    public static String  XML_TYPE="XML_TYPE";
+
+
     private static LoadManager _instance;
 
     public static LoadManager getInstance()  {
@@ -24,10 +30,11 @@ public class LoadManager {
         }
     }
 
-    public void loadUrl(String url, LoadBackFun backFun, Object info)
+    public void loadUrl(String url,String typestr,  LoadBackFun backFun, Object info)
     {
         LoadInfo loadInfo = new LoadInfo();
         loadInfo.url=url;
+        loadInfo.type=typestr;
         loadInfo.fun=backFun;
         loadInfo.info=info;
         for (int i = 0; i < this.loadThreadList.size(); i++) {

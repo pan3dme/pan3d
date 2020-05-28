@@ -14,6 +14,7 @@ import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.MeshData;
 import z3d.base.ResGC;
+import z3d.base.RoleBackFun;
 import z3d.base.SkinMeshBackFun;
 import z3d.res.BaseRes;
 import z3d.res.RoleRes;
@@ -27,6 +28,7 @@ import z3d.vo.Vector2D;
 public class MeshDataManager extends ResGC {
 
     private static MeshDataManager _instance;
+    public HashMap loadDic;
     public static MeshDataManager getInstance()  {
         if (MeshDataManager._instance==null) {
             MeshDataManager._instance = new MeshDataManager();
@@ -34,37 +36,30 @@ public class MeshDataManager extends ResGC {
         return MeshDataManager._instance;
     }
 
-    public void getMeshData(String url, SkinMeshBackFun bfun, int batchNum)
+    public MeshDataManager()
     {
-
-        SkinMesh $skinMesh = new SkinMesh();
+        super();
+        this.loadDic=new HashMap();
+    }
+    public void getMeshData(String url, final SkinMeshBackFun bfun, int batchNum)
+    {
 
         if(this.dic.containsKey(url)){
             bfun.Bfun((SkinMesh)this.dic.get(url));
             return;
         }
-
-
-
-        /*
-        if (this._dic[$url] && this._dic[$url].ready) {
-            $fun(this._dic[$url]);
-            this._dic[$url].useNum++;
+        if(this.loadDic.containsKey(url)){
+            ( (List) this.loadDic.get(url)).add(bfun);
             return;
         }
-
-        if (this._loadDic[$url]) {
-            this._loadDic[$url].push($fun);
-            return;
-        }
-
-        this._loadDic[$url] = new Array;
-        this._loadDic[$url].push($fun);
-
-        ResManager.getInstance().loadRoleRes(Scene_data.fileRoot + $url, ($roleRes: RoleRes) => {
-            this.roleResCom($roleRes, $fun);
-        }, $batchNum);
-        */
+        this.loadDic.put(url,new ArrayList<>());
+        ( (List) this.loadDic.get(url)).add(bfun);
+        ResManager.getInstance().loadRoleRes("http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/"+ url, new RoleBackFun() {
+            @Override
+            public void Bfun(RoleRes value) {
+                roleResCom(value,bfun);
+            }
+        },batchNum);
 
 
     }
@@ -103,7 +98,7 @@ NSString* url = roleRes.roleUrl;
         $skinMesh.makeHitBoxItem();
 
         int meshNum = _byte.readInt();
-       HashMap allParticleDic = new HashMap();
+        HashMap allParticleDic = new HashMap();
         for (int i = 0; i < meshNum; i++) {
             MeshData meshData = new MeshData();
 

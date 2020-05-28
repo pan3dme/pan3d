@@ -3,6 +3,7 @@ package z3d.res;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.ByteArray;
@@ -11,6 +12,8 @@ import z3d.base.CallBackFun;
 import z3d.base.RoleBackFun;
 import z3d.filemodel.MeshDataManager;
 import z3d.units.AnimManager;
+import z3d.units.LoadBackFun;
+import z3d.units.LoadManager;
 import z3d.vo.SkinMesh;
 import z3d.vo.Vector3D;
 
@@ -25,6 +28,31 @@ public class RoleRes extends BaseRes {
     public float sunLigthIntensity;
     public Vector3D nrmDircet;
 
+    private  static String TAG="ResManager";
+    public void load(String url,CallBackFun backFun)
+    {
+        LoadManager.getInstance().loadUrl(url,LoadManager.BYTE_TYPE, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap dic) {
+                if(dic!=null){
+                    /*
+                    loadComplete((ByteArray) dic.get("byte"), new RoleBackFun() {
+                        @Override
+                        public void Bfun(RoleRes value) {
+
+                        }
+                    });
+                    */
+                }else{
+                    Log.d(TAG, "bfun: 角色地址错误");
+                }
+
+
+            }
+        },null);
+
+
+    }
 
     public void  loadComplete(byte[] buff, RoleBackFun bfun)
     {

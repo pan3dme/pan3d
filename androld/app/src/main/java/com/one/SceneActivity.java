@@ -169,6 +169,7 @@ public class SceneActivity extends AppCompatActivity implements View.OnClickList
     }
     private void  loadRoleRes()
     {
+        /*
         try {
 
             InputStream in = getResources().openRawResource(R.raw.yezhuz);
@@ -192,6 +193,7 @@ public class SceneActivity extends AppCompatActivity implements View.OnClickList
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
     }
     private void  loadSkilRes()
     {
