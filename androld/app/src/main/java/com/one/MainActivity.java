@@ -6,6 +6,7 @@ package com.one;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ import z3d.res.RoleRes;
 import z3d.res.SceneRes;
 import z3d.res.SkillRes;
 import z3d.scene.Scene3D;
+import z3d.units.LoaderThread;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_obj);
         mGLView= (GLSurfaceView) findViewById(R.id.mGLView);
         mGLView.setEGLContextClientVersion(2);
-
+        LoaderThread.fileContext=getApplicationContext();
 
 
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
@@ -110,16 +112,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // this.loadLyfGoup();
-        this.loadRoleRes();
+
         //this.loadSeneBase();
         //  this.loadSkilRes();
-       // this.addRoleToScene();
-
+        this.addRoleToScene();
+      // this.loadRoleRes();
     }
     private void  addRoleToScene()
     {
         Display3dMovie sc=new Display3dMovie();
         sc.scene3d=scene3D;
+//        sc.setRoleUrl("role/yezhuz.txt");
         sc.setRoleUrl("role/yezhuz.txt");
         scene3D.addMovieDisplay(sc);
 
@@ -176,7 +179,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             });
-
 
         } catch (Exception e) {
             e.printStackTrace();

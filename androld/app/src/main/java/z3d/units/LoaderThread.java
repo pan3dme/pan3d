@@ -4,11 +4,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import android.content.Context;
 import com.one.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.HashMap;
 
 import z3d.base.ByteArray;
@@ -20,17 +24,26 @@ public class LoaderThread {
 
     public  LoadInfo loadInfo;
 
+    public  static Context fileContext;
     public LoaderThread()
     {
-
+ 
         this.idle = true;
     }
     public  void  load(LoadInfo value)
     {
+
         this.idle = false;
         this.loadInfo=value;
+
+        if(value.type==LoadManager.BYTE_TYPE){
+            String savePath6 = LoaderThread.fileContext.getFilesDir().getPath();
+           this.writeUrToStrealm( new File(savePath6+"ccav.xtx")  ,this.loadInfo.url);
+            return;
+        }
         HttpURLConnection conn = null;
         try {
+            //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/role/yezhuz.txt
             URL mURL = new URL(this.loadInfo.url);
             conn = (HttpURLConnection) mURL.openConnection();
             conn.setRequestMethod("GET"); //设置请求方法
@@ -46,7 +59,7 @@ public class LoaderThread {
                     this.loadImg(bitmap);
                 }
                 if(value.type==LoadManager.BYTE_TYPE){
-                  this.loadByte(in);
+                 this.loadByte(in);
 
                 }
 
@@ -62,6 +75,50 @@ public class LoaderThread {
             }
         }
     }
+    private  void writeUrToStrealm(File uFile,String url) {
+        try {
+            URL uri = new URL(url);
+            URLConnection connection = uri.openConnection();
+            InputStream uristream = connection.getInputStream();
+            //String cache = connection.getHeaderField("Ddbuild-Cache");
+            String contentType = connection.getContentType();
+            //textml; charset=utf-8
+            String mimeType = "";
+            String encoding = "";
+            if (contentType != null && !"".equals(contentType)) {
+                if (contentType.indexOf(";") != -1) {
+                    String[] args = contentType.split(";");
+                    mimeType = args[0];
+                    String[] args2 = args[1].trim().split("=");
+                    if (args.length == 2 && args2[0].trim().toLowerCase().equals("charset")) {
+                        encoding = args2[1].trim();
+                    } else {
+
+                        encoding = "utf-8";
+                    }
+                } else {
+                    mimeType = contentType;
+                    encoding = "utf-8";
+                }
+            }
+
+            //todo:缓存uristream
+            FileOutputStream output = new FileOutputStream( uFile,true);;
+            int read_len;
+            byte[] buffer = new byte[1024];
+
+            while ((read_len = uristream.read(buffer)) > 0) {
+                output.write(buffer, 0, read_len);
+            }
+            output.close();
+            uristream.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     private void  loadByte(InputStream in)
     {
         HashMap dic=new HashMap();
