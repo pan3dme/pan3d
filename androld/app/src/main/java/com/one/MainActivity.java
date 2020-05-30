@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //this.loadSeneBase();
         //  this.loadSkilRes();
-        this.addRoleToScene();
+     this.addRoleToScene();
       // this.loadRoleRes();
     }
     private void  addRoleToScene()

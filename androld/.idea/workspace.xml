@@ -10,12 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/HttpUrlConnectionAsyncTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,46 +237,46 @@
     </state>
     <state width="450" height="466" key="DebuggerActiveHint/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590567922907" />
     <state width="523" height="466" key="DebuggerActiveHint/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833647598" />
-    <state width="1377" height="281" key="GridCell.Tab.0.bottom" timestamp="1590833681404">
+    <state width="1377" height="281" key="GridCell.Tab.0.bottom" timestamp="1590833778371">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176257" />
-    <state width="1377" height="281" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681404" />
-    <state width="1377" height="281" key="GridCell.Tab.0.center" timestamp="1590833681404">
+    <state width="1377" height="281" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778371" />
+    <state width="1377" height="281" key="GridCell.Tab.0.center" timestamp="1590833778370">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1377" height="281" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681404" />
-    <state width="1377" height="281" key="GridCell.Tab.0.left" timestamp="1590833681404">
+    <state width="1377" height="281" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778370" />
+    <state width="1377" height="281" key="GridCell.Tab.0.left" timestamp="1590833778370">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1377" height="281" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681404" />
-    <state width="1377" height="281" key="GridCell.Tab.0.right" timestamp="1590833681404">
+    <state width="1377" height="281" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778370" />
+    <state width="1377" height="281" key="GridCell.Tab.0.right" timestamp="1590833778371">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1377" height="281" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681404" />
-    <state width="1377" height="281" key="GridCell.Tab.1.bottom" timestamp="1590833681455">
+    <state width="1377" height="281" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778371" />
+    <state width="1377" height="281" key="GridCell.Tab.1.bottom" timestamp="1590833778369">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1377" height="281" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681455" />
-    <state width="1377" height="281" key="GridCell.Tab.1.center" timestamp="1590833681454">
+    <state width="1377" height="281" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778369" />
+    <state width="1377" height="281" key="GridCell.Tab.1.center" timestamp="1590833778369">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1377" height="281" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681454" />
-    <state width="1377" height="281" key="GridCell.Tab.1.left" timestamp="1590833681454">
+    <state width="1377" height="281" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778369" />
+    <state width="1377" height="281" key="GridCell.Tab.1.left" timestamp="1590833778368">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176253" />
-    <state width="1377" height="281" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681454" />
-    <state width="1377" height="281" key="GridCell.Tab.1.right" timestamp="1590833681454">
+    <state width="1377" height="281" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778368" />
+    <state width="1377" height="281" key="GridCell.Tab.1.right" timestamp="1590833778369">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1377" height="281" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833681454" />
+    <state width="1377" height="281" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590833778369" />
     <state x="-1381" y="175" key="SettingsEditor" timestamp="1590604937581">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -326,11 +323,6 @@
           <url>file://$USER_HOME$/Library/Android/sdk/sources/android-29/android/os/AsyncTask.java</url>
           <line>752</line>
           <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureManager.java</url>
-          <line>132</line>
-          <option name="timeStamp" value="156" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
