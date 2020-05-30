@@ -48,7 +48,7 @@ public class TextureManager extends ResGC {
         }
 
 
-        this.getImageFromNet("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/waterfall_01.png");
+       // this.getImageFromNet("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/waterfall_01.png");
     }
 
     public void getTexture(String url , TexTuresBackFun bfun)

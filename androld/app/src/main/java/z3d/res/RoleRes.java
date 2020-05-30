@@ -38,14 +38,14 @@ public class RoleRes extends BaseRes {
 
                     ByteArray temp=(ByteArray)dic.get("byte");
                     Log.d(TAG, "bfun");
-                    /*
+
                     loadComplete((ByteArray) dic.get("byte"), new RoleBackFun() {
                         @Override
                         public void Bfun(RoleRes value) {
 
                         }
                     });
-                    */
+
 
                 }else{
                     Log.d(TAG, "bfun: 角色地址错误");
