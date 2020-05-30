@@ -12,14 +12,8 @@
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,51 +233,51 @@
     </state>
     <state x="-1147" y="176" key="#one-app/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590569835142" />
     <state x="-1147" y="176" key="#one-app/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590827055352" />
-    <state width="523" height="466" key="DebuggerActiveHint" timestamp="1590857288133">
+    <state width="523" height="466" key="DebuggerActiveHint" timestamp="1590868177813">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="450" height="466" key="DebuggerActiveHint/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590567922907" />
-    <state width="523" height="466" key="DebuggerActiveHint/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590857288133" />
-    <state width="1638" height="250" key="GridCell.Tab.0.bottom" timestamp="1590866481550">
+    <state width="523" height="466" key="DebuggerActiveHint/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868177813" />
+    <state width="1638" height="436" key="GridCell.Tab.0.bottom" timestamp="1590868723524">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176257" />
-    <state width="1638" height="250" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866481550" />
-    <state width="1638" height="250" key="GridCell.Tab.0.center" timestamp="1590866481549">
+    <state width="1638" height="436" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723524" />
+    <state width="1638" height="436" key="GridCell.Tab.0.center" timestamp="1590868723523">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1638" height="250" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866481549" />
-    <state width="1638" height="250" key="GridCell.Tab.0.left" timestamp="1590866481549">
+    <state width="1638" height="436" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723523" />
+    <state width="1638" height="436" key="GridCell.Tab.0.left" timestamp="1590868723523">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1638" height="250" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866481549" />
-    <state width="1638" height="250" key="GridCell.Tab.0.right" timestamp="1590866481549">
+    <state width="1638" height="436" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723523" />
+    <state width="1638" height="436" key="GridCell.Tab.0.right" timestamp="1590868723524">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1638" height="250" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866481549" />
-    <state width="1638" height="250" key="GridCell.Tab.1.bottom" timestamp="1590866478152">
+    <state width="1638" height="436" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723524" />
+    <state width="1638" height="436" key="GridCell.Tab.1.bottom" timestamp="1590868723523">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1638" height="250" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866478152" />
-    <state width="1638" height="250" key="GridCell.Tab.1.center" timestamp="1590866478151">
+    <state width="1638" height="436" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723523" />
+    <state width="1638" height="436" key="GridCell.Tab.1.center" timestamp="1590868723523">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1638" height="250" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866478151" />
-    <state width="1638" height="250" key="GridCell.Tab.1.left" timestamp="1590866478150">
+    <state width="1638" height="436" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723523" />
+    <state width="1638" height="436" key="GridCell.Tab.1.left" timestamp="1590868723523">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176253" />
-    <state width="1638" height="250" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866478150" />
-    <state width="1638" height="250" key="GridCell.Tab.1.right" timestamp="1590866478151">
+    <state width="1638" height="436" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723523" />
+    <state width="1638" height="436" key="GridCell.Tab.1.right" timestamp="1590868723523">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1638" height="250" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590866478151" />
+    <state width="1638" height="436" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868723523" />
     <state x="-1381" y="175" key="SettingsEditor" timestamp="1590604937581">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -322,23 +316,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="211" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="212" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="213" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java</url>
           <line>33</line>
-          <option name="timeStamp" value="214" />
+          <option name="timeStamp" value="221" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

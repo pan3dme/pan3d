@@ -115,16 +115,18 @@ public class BaseRes extends ResCount {
                 HashMap obj = new HashMap();
                 obj.put("name",_byte.readUTF());
                 int  objType=_byte.readByte();
-                obj.put("type ",objType);
-
                 if (objType == 0) {
+                    obj.put("type",0);
                     obj.put("url", _byte.readUTF());
                 } else if (objType== 1) {
+                    obj.put("type",1);
                     obj.put("x",_byte.readFloat());
                 } else if (objType== 2) {
+                    obj.put("type",2);
                     obj.put("x", _byte.readFloat());
                     obj.put("y",_byte.readFloat());
                 } else if (objType == 3) {
+                    obj.put("type",3);
                     obj.put("x", _byte.readFloat());
                     obj.put("y", _byte.readFloat());
                     obj.put("z",_byte.readFloat());

@@ -30,7 +30,8 @@ public class MaterialBaseParam extends GC {
             try {
 
                 HashMap obj = (HashMap) ary.get(i);
-                int objType= (int)obj.get("type");
+
+                int objType= (int) obj.get("type");
                 if (objType== 0) {
                 final    DynamicBaseTexItem texItem = new DynamicBaseTexItem();
                     texItem.paramName = (String) obj.get("name");
@@ -68,7 +69,7 @@ public class MaterialBaseParam extends GC {
                         }
                     }
                     DynamicBaseConstItem constItem = new DynamicBaseConstItem();
-                    constItem.setTargetInfo(target, targetName, objType);
+                    constItem.setTargetInfo(target, targetName, (int)objType);
                     List<Float> valArr=new ArrayList<>();
                     if (objType>= 1) {
                         valArr.add((float) obj.get("x"));
