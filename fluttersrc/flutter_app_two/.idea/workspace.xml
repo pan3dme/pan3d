@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5afc69d0-b7e3-4905-91da-eb86aed38d22" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/program/MaterialAnimShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/AnimData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/AnimData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/filemodel/MeshDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/filemodel/MeshDataManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/SkinMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/SkinMesh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +124,10 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1638" height="345" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590847337221" />
+    <state x="-1339" y="175" key="SettingsEditor" timestamp="1590854638001">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state x="-1339" y="175" key="SettingsEditor/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590854638001" />
     <state x="-1175" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1590850883221">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>

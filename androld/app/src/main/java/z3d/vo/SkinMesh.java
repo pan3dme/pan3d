@@ -10,7 +10,9 @@ import z3d.base.Scene_data;
 import z3d.engine.ResCount;
 import z3d.material.Material;
 import z3d.material.MaterialBackFun;
+import z3d.material.MaterialBaseParam;
 import z3d.material.MaterialManager;
+import z3d.program.MaterialAnimShader;
 import z3d.program.MaterialShader;
 import z3d.units.AnimManager;
 
@@ -59,8 +61,11 @@ public class SkinMesh extends ResCount {
             @Override
             public void Bfun(Material value) {
                 meshData.material=value;
+                meshData.materialParam =new MaterialBaseParam();
+                meshData.materialParam.setData(value,meshData.materialParamData);
+
             }
-        }, MaterialShader.shaderStr,new MaterialShader());
+        }, MaterialAnimShader.shaderStr,new MaterialAnimShader());
     }
 
     public  void  setAction(List<String> actionAry,String roleUrl )

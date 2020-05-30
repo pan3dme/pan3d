@@ -105,9 +105,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.sceneRes = new SceneRes();
 
         // this.loadLyfGoup();
-       // this.loadSeneBase();
+      this.loadSeneBase();
         //  this.loadSkilRes();
-        this.addRoleToScene();
+       // this.addRoleToScene();
         // this.loadRoleRes();
 
         /*
@@ -122,8 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void  addRoleToScene()
     {
         Display3dMovie sc=new Display3dMovie();
-        sc.scene3d=scene3D;
-//        sc.setRoleUrl("role/yezhuz.txt");
+        sc.scene3d=this.scene3D;
         sc.setRoleUrl("role/yezhuz.txt");
         scene3D.addMovieDisplay(sc);
 

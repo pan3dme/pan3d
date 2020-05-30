@@ -64,31 +64,21 @@ public class MeshDataManager extends ResGC {
 
 
     }
-    //RoleRes*)roleRes fun:(SuccessBlock)fun;
+
     private void roleResCom(RoleRes roleRes ,SkinMeshBackFun bfun )
     {
         String url= roleRes.roleUrl;
         SkinMesh skinMesh=(SkinMesh)this.dic.get(url);
         skinMesh.loadMaterial();
-
         skinMesh.setAction(roleRes.actionAry,url);
-
-
-/*
-
-
-
-    [skinMesh setAction:roleRes.actionAry roleUrl:url];
-
-    NSArray* arr=  this.loadDic[url];
-    for (int i = 0; i <arr.count ; i++) {
-        SkinMeshBfun temp=  arr[i];
-        temp(skinMesh);
+        List<SkinMeshBackFun>  arr= (List<SkinMeshBackFun>) (this.loadDic.get(url));
+        for (int i = 0; i <arr.size() ; i++) {
+            arr.get(i).Bfun(skinMesh);
+        }
+        skinMesh.ready=true;
+        this.loadDic.remove(url);
     }
-    skinMesh.ready = YES;
-    [this.loadDic removeObjectForKey:url];
- */
-    }
+
     public SkinMesh readData(ByteArray _byte,int $batchNum,String $url,int $version)
     {
         SkinMesh $skinMesh = new SkinMesh();
