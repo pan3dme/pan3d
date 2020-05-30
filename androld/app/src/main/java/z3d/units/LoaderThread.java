@@ -25,11 +25,14 @@ import z3d.base.CallBackFun;
 public class LoaderThread
 {
     public boolean idle;
+    public int id;
     public  LoadInfo loadInfo;
+
     private HttpUrlConnectionAsyncTask httpFilevotp;
     public  static Context fileContext;
-    public LoaderThread()
+    public LoaderThread(int val)
     {
+        this.id=val;
         this.idle = true;
         this.httpFilevotp=new HttpUrlConnectionAsyncTask();
     }
@@ -44,7 +47,7 @@ public class LoaderThread
                 public void StateChange(boolean State) {
                     loadFinishByteUrl();
                 }
-            }, this.loadInfo.url, savePath + "/ccav.xtx");
+            }, this.loadInfo.url, savePath + "/loadfile"+this.id);
             return;
         }
         HttpURLConnection conn = null;

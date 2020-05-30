@@ -62,26 +62,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGLView= (GLSurfaceView) findViewById(R.id.mGLView);
         mGLView.setEGLContextClientVersion(2);
         LoaderThread.fileContext=getApplicationContext();
-
-
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-
-
                 loadSceneRes();
             }
-
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
                 GLES20.glViewport(0,0,width,height);
-
                 scene3D.camera3D.fovw=width;
                 scene3D.camera3D.fovh=height;
                 scene3D.resizeScene();
-
             }
-
             @Override
             public void onDrawFrame(GL10 gl) {
 

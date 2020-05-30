@@ -26,7 +26,7 @@ public class LoadManager {
         this.loadThreadList=new ArrayList<>();
         this.waitLoadList=new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            this.loadThreadList.add(new LoaderThread());
+            this.loadThreadList.add(new LoaderThread(i));
         }
     }
 
