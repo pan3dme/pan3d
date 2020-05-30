@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 
 import java.io.InputStream;
+import java.util.HashMap;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -44,6 +45,8 @@ import z3d.res.RoleRes;
 import z3d.res.SceneRes;
 import z3d.res.SkillRes;
 import z3d.scene.Scene3D;
+import z3d.units.LoadBackFun;
+import z3d.units.LoadManager;
 import z3d.units.LoaderThread;
 
 
@@ -105,9 +108,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // this.loadLyfGoup();
 
-        //this.loadSeneBase();
+        this.loadSeneBase();
         //  this.loadSkilRes();
-     this.addRoleToScene();
+//     this.addRoleToScene();
       // this.loadRoleRes();
     }
     private void  addRoleToScene()
@@ -121,6 +124,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void loadSeneBase()
     {
+        this.sceneRes=new SceneRes();
+
+        /*
+        this.sceneRes.load("map/2012.txt", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                makeOBjData();
+            }
+        });
+*/
+
         try {
             InputStream in = getResources().openRawResource(R.raw.file2012);
             //获取文件的字节数
@@ -129,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             byte[] buffer = new byte[lenght];
             //将文件中的数据读到byte数组中
             in.read(buffer);
-            this.sceneRes.loadComplete(buffer ,new CallBackFun() {
+            this.sceneRes.loadComplete(new ByteArray(buffer) ,new CallBackFun() {
                 @Override
                 public void StateChange(boolean State) {
                     Log.d("加载结算", "StateChange: ");
@@ -141,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
     private void  loadLyfGoup()
     {
