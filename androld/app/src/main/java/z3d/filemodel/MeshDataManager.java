@@ -12,6 +12,7 @@ import java.util.Map;
 
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
+import z3d.base.MathCore;
 import z3d.base.MeshData;
 import z3d.base.ResGC;
 import z3d.base.RoleBackFun;
@@ -105,7 +106,7 @@ public class MeshDataManager extends ResGC {
             }
             meshData.treNum = meshData.indexs.size();
             meshData.materialUrl = _byte.readUTF();
-            meshData.materialParamData = BaseRes.readMaterialParamData(_byte);
+            meshData.materialParamData =  BaseRes.readMaterialParamData(_byte);
             int particleNum = _byte.readInt();
             for ( int j = 0; j < particleNum; j++) {
                 BindParticle bindParticle = new BindParticle(_byte.readUTF(), _byte.readUTF());
