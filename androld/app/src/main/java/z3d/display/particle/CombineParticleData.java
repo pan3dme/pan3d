@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import z3d.base.ByteArray;
+import z3d.base.Scene_data;
 import z3d.display.particle.ball.ParticleBallData;
 import z3d.display.particle.facet.ParticleFacetData;
 import z3d.display.particle.locus.ParticleLocusData;
 import z3d.display.particle.locusball.ParticleLocusballData;
 import z3d.display.particle.model.ParticleModelData;
 import z3d.engine.ResCount;
-import z3d.units.Scene_data;
 
 public class CombineParticleData extends ResCount {
 

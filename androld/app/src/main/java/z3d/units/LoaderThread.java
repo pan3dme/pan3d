@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
+import z3d.base.Scene_data;
 
 
 public class LoaderThread
@@ -38,8 +39,11 @@ public class LoaderThread
     }
     public  void  load(LoadInfo value)
     {
+
         this.idle = false;
         this.loadInfo=value;
+        String localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
+        localUrl=localUrl.replace("/","_");
         if(value.type==LoadManager.BYTE_TYPE){
             String savePath = LoaderThread.fileContext.getFilesDir().getPath();
             this.httpFilevotp.downloadFile(new CallBackFun() {
@@ -47,12 +51,11 @@ public class LoaderThread
                 public void StateChange(boolean State) {
                     loadFinishByteUrl();
                 }
-            }, this.loadInfo.url, savePath + "/loadfile"+this.id);
+            }, this.loadInfo.url, savePath +"/"+localUrl);
             return;
         }
         HttpURLConnection conn = null;
         try {
-            //http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/role/yezhuz.txt
             URL mURL = new URL(this.loadInfo.url);
             conn = (HttpURLConnection) mURL.openConnection();
             conn.setRequestMethod("GET"); //设置请求方法

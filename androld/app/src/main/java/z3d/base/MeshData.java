@@ -12,7 +12,7 @@ public class MeshData extends ObjData {
     public  List<Float>  boneWeightAry;
     public FloatBuffer boneWeightBuffer ;
     public FloatBuffer boneIdBuffer ;
-    public  List<Float>  boneNewIDAry;
+    public  List<Short>  boneNewIDAry;
     public String materialUrl;
     public List materialParamData  ;
     public MaterialBaseParam materialParam;

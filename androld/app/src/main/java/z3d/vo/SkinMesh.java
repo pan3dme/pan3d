@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import z3d.base.CallBackFun;
 import z3d.base.MeshData;
+import z3d.base.Scene_data;
 import z3d.engine.ResCount;
+import z3d.material.Material;
+import z3d.material.MaterialBackFun;
+import z3d.material.MaterialManager;
+import z3d.program.MaterialShader;
+import z3d.units.AnimManager;
 
 public class SkinMesh extends ResCount {
 
@@ -53,4 +60,54 @@ public class SkinMesh extends ResCount {
         $mesh.uid = this.meshAry.size();
         this.meshAry.add($mesh);
     }
+    public void  loadMaterial()
+    {
+        for (int i = 0; i < this.meshAry.size(); i++){
+            this.loadByteMeshDataMaterial(this.meshAry.get(i),null);
+        }
+    }
+    private void loadByteMeshDataMaterial(final MeshData meshData, CallBackFun backFun)
+    {
+        MaterialManager.getInstance().getMaterialByte( meshData.materialUrl, new MaterialBackFun() {
+            @Override
+            public void Bfun(Material value) {
+                meshData.material=value;
+            }
+        }, MaterialShader.shaderStr,new MaterialShader());
+    }
+
+    public  void  setAction(List<String> actionAry,String roleUrl )
+    {
+
+        this.animUrlAry=new ArrayList<>();
+
+        for (int i = 0; i < actionAry.size(); i++) {
+            String name  = actionAry.get(i);
+            String url = roleUrl +name;
+            AnimData anim=  AnimManager.getInstance().getAnimDataImmediate(url);
+            anim.processMesh(this);
+
+
+//        [anim processMesh:self];
+//                self.animDic[name] = anim;
+//        [self.animUrlAry addObject:url];
+        }
+
+    }
+    /*
+
+-(void)setAction:(NSMutableArray<NSString*>*)actionAry roleUrl:(NSString*)roleUrl;
+{
+   self.animUrlAry =[[NSMutableArray alloc]init];
+    for (int i = 0; i < actionAry.count; i++) {
+        NSString* name  = actionAry[i];
+        NSString* url = [roleUrl stringByAppendingString:actionAry[i]];
+        AnimData* anim = [[AnimManager default] getAnimDataImmediate:url];
+        [anim processMesh:self];
+        self.animDic[name] = anim;
+        [self.animUrlAry addObject:url];
+    }
+}
+     */
+
 }

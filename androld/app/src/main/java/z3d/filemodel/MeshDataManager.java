@@ -15,6 +15,7 @@ import z3d.base.CallBackFun;
 import z3d.base.MeshData;
 import z3d.base.ResGC;
 import z3d.base.RoleBackFun;
+import z3d.base.Scene_data;
 import z3d.base.SkinMeshBackFun;
 import z3d.res.BaseRes;
 import z3d.res.RoleRes;
@@ -54,7 +55,7 @@ public class MeshDataManager extends ResGC {
         }
         this.loadDic.put(url,new ArrayList<>());
         ( (List) this.loadDic.get(url)).add(bfun);
-        ResManager.getInstance().loadRoleRes("http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/"+ url, new RoleBackFun() {
+        ResManager.getInstance().loadRoleRes(Scene_data.fileRoot+ url, new RoleBackFun() {
             @Override
             public void Bfun(RoleRes value) {
                 roleResCom(value,bfun);
@@ -64,12 +65,19 @@ public class MeshDataManager extends ResGC {
 
     }
     //RoleRes*)roleRes fun:(SuccessBlock)fun;
-    public void roleResCom(RoleRes roleRes ,SkinMeshBackFun bfun )
+    private void roleResCom(RoleRes roleRes ,SkinMeshBackFun bfun )
     {
+        String url= roleRes.roleUrl;
+        SkinMesh skinMesh=(SkinMesh)this.dic.get(url);
+        skinMesh.loadMaterial();
+
+        skinMesh.setAction(roleRes.actionAry,url);
+
+
 /*
-NSString* url = roleRes.roleUrl;
-    SkinMesh* skinMesh = this.dic[url];
-    [skinMesh loadMaterial];
+
+
+
     [skinMesh setAction:roleRes.actionAry roleUrl:url];
 
     NSArray* arr=  this.loadDic[url];

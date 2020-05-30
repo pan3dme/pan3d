@@ -78,6 +78,10 @@ public class AnimManager extends ResGC {
         this.dic.put($url,animData);
         return animData;
     }
+     public AnimData getAnimDataImmediate( String url)
+    {
+        return (AnimData)this.dic.get(url);
+    }
     private List<List<Matrix3D>> processFrame(List<List<Float>> frameAry,  List<ObjectBone> hierarchyList)
     {
         List<List<ObjectBaseBone>> newFrameAry  = new ArrayList<>();

@@ -104,14 +104,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.scene3D.addDisplay(dic);
         this.sceneRes = new SceneRes();
 
-
-
         // this.loadLyfGoup();
-
-        this.loadSeneBase();
+       // this.loadSeneBase();
         //  this.loadSkilRes();
-//     this.addRoleToScene();
-      // this.loadRoleRes();
+        this.addRoleToScene();
+        // this.loadRoleRes();
+
+        /*
+        this.sceneRes.load("map/3004.txt", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+
+            }
+        });
+        */
     }
     private void  addRoleToScene()
     {
@@ -124,16 +130,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void loadSeneBase()
     {
-        this.sceneRes=new SceneRes();
-
         /*
+        this.sceneRes=new SceneRes();
         this.sceneRes.load("map/2012.txt", new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
                 makeOBjData();
             }
         });
-*/
+        */
+
+
 
         try {
             InputStream in = getResources().openRawResource(R.raw.file2012);
@@ -155,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
     }
     private void  loadLyfGoup()
@@ -193,9 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void  loadRoleRes()
     {
-
         try {
-
             InputStream in = getResources().openRawResource(R.raw.yezhuz);
             //获取文件的字节数
             int lenght = in.available();
@@ -204,18 +210,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //将文件中的数据读到byte数组中
             in.read(buffer);
             RoleRes roleRes=new RoleRes();
-
             roleRes.loadComplete(new ByteArray(buffer), new RoleBackFun() {
                 @Override
                 public void Bfun(RoleRes value) {
-
                     Log.d("", "Bfun: ROLEres  加载完");
-
-
-
                 }
             });
-
         } catch (Exception e) {
             e.printStackTrace();
         }

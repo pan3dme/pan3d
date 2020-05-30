@@ -29,7 +29,7 @@ public class RoleRes extends BaseRes {
     public Vector3D nrmDircet;
 
     private  static String TAG="ResManager";
-    public void load(String url,CallBackFun backFun)
+    public void load(String url,final CallBackFun backFun)
     {
         LoadManager.getInstance().loadUrl(url,LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override
@@ -42,7 +42,7 @@ public class RoleRes extends BaseRes {
                     loadComplete((ByteArray) dic.get("byte"), new RoleBackFun() {
                         @Override
                         public void Bfun(RoleRes value) {
-
+                            backFun.StateChange(true);
                         }
                     });
 

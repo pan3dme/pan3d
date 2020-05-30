@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
+import z3d.base.Scene_data;
 import z3d.units.LoadBackFun;
 import z3d.units.LoadManager;
 
@@ -18,21 +19,13 @@ public class SceneRes extends BaseRes {
     public  JSONObject  sceneData;
     private CallBackFun sceneFinishFun;
     public void load(String url ,final CallBackFun bfun) {
-
-        LoadManager.getInstance().loadUrl("http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/"+url,LoadManager.BYTE_TYPE, new LoadBackFun() {
+        LoadManager.getInstance().loadUrl(Scene_data.fileRoot+url,LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){
-
                     ByteArray temp=(ByteArray)dic.get("byte");
-
                     loadComplete(null,bfun);
-
-                }else{
-
                 }
-
-
             }
         },null);
     }

@@ -72,6 +72,13 @@ public class Matrix3D {
 
     }
 
+    public Vector3D  position()
+    {
+
+        return  this.transformVector(new Vector3D());
+
+    }
+
     public void invertToMatrix(Matrix3D $target) {
         float[] a = this.m;
         float a00 = a[0], a01 = a[1], a02 = a[2], a03 = a[3],
@@ -532,7 +539,11 @@ public class Matrix3D {
         $q.fromMatrix(this);
         return $q.toEulerAngles(target);
     }
+    public Matrix3D clone(Matrix3D temp) {
 
+        temp= this.clone();
+        return this.clone();
+    }
     public Matrix3D clone()
     {
 
