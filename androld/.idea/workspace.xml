@@ -11,47 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/Scene_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/Scene_data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/MeshDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/MeshDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/units/Scene_data.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/AnimData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/AnimData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Matrix3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Matrix3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.dart_tool/flutter_build/23be428b86f0d10d3a9301b280d41902/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.dart_tool/flutter_build/23be428b86f0d10d3a9301b280d41902/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.dart_tool/flutter_build/23be428b86f0d10d3a9301b280d41902/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.dart_tool/flutter_build/23be428b86f0d10d3a9301b280d41902/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/5.6.2/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/incremental/debug-mergeNativeLibs/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/kotlin/compileDebugKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/kotlin/compileDebugKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/kotlin/compileDebugKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/kotlin/compileDebugKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/apk/app.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/cache.dill" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_two/build/cache.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,46 +238,46 @@
     </state>
     <state width="450" height="466" key="DebuggerActiveHint/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590567922907" />
     <state width="523" height="466" key="DebuggerActiveHint/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852698055" />
-    <state width="1638" height="281" key="GridCell.Tab.0.bottom" timestamp="1590852663664">
+    <state width="1638" height="281" key="GridCell.Tab.0.bottom" timestamp="1590853084939">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176257" />
-    <state width="1638" height="281" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852663664" />
-    <state width="1638" height="281" key="GridCell.Tab.0.center" timestamp="1590852663663">
+    <state width="1638" height="281" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084939" />
+    <state width="1638" height="281" key="GridCell.Tab.0.center" timestamp="1590853084939">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1638" height="281" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852663663" />
-    <state width="1638" height="281" key="GridCell.Tab.0.left" timestamp="1590852663663">
+    <state width="1638" height="281" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084939" />
+    <state width="1638" height="281" key="GridCell.Tab.0.left" timestamp="1590853084939">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1638" height="281" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852663663" />
-    <state width="1638" height="281" key="GridCell.Tab.0.right" timestamp="1590852663664">
+    <state width="1638" height="281" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084939" />
+    <state width="1638" height="281" key="GridCell.Tab.0.right" timestamp="1590853084939">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1638" height="281" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852663664" />
-    <state width="1638" height="281" key="GridCell.Tab.1.bottom" timestamp="1590852660046">
+    <state width="1638" height="281" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084939" />
+    <state width="1638" height="281" key="GridCell.Tab.1.bottom" timestamp="1590853084938">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1638" height="281" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852660046" />
-    <state width="1638" height="281" key="GridCell.Tab.1.center" timestamp="1590852660046">
+    <state width="1638" height="281" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084938" />
+    <state width="1638" height="281" key="GridCell.Tab.1.center" timestamp="1590853084938">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1638" height="281" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852660046" />
-    <state width="1638" height="281" key="GridCell.Tab.1.left" timestamp="1590852660045">
+    <state width="1638" height="281" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084938" />
+    <state width="1638" height="281" key="GridCell.Tab.1.left" timestamp="1590853084937">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176253" />
-    <state width="1638" height="281" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852660045" />
-    <state width="1638" height="281" key="GridCell.Tab.1.right" timestamp="1590852660046">
+    <state width="1638" height="281" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084937" />
+    <state width="1638" height="281" key="GridCell.Tab.1.right" timestamp="1590853084938">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1638" height="281" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590852660046" />
+    <state width="1638" height="281" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590853084938" />
     <state x="-1381" y="175" key="SettingsEditor" timestamp="1590604937581">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>

@@ -6,33 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5afc69d0-b7e3-4905-91da-eb86aed38d22" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/Scene_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/base/Scene_data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/filemodel/MeshDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/filemodel/MeshDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/RoleRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/RoleRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/SceneRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/res/SceneRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/AnimManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/AnimManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/LoaderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/LoaderThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/units/Scene_data.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/AnimData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/AnimData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/Matrix3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/Matrix3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/SkinMesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../androld/app/src/main/java/z3d/vo/SkinMesh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/cache.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/cache.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

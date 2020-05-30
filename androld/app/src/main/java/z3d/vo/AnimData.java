@@ -17,8 +17,6 @@ public class AnimData {
     public List<List<Matrix3D>>  matrixAry ;
     public List<List<DualQuatFloat32Array>>  boneQPAry ;
     public boolean hasProcess ;
-
-
     public  void  processMesh(SkinMesh skinMesh)
     {
         if (this.hasProcess){
@@ -55,12 +53,10 @@ public class AnimData {
                 {
 
                     Matrix3D m=   baseBone.get( newIDBoneArr.get(k)).clone();
-
                     m.appendScale(-1,1,1);
                     Quaternion q=new Quaternion();
                     q.fromMatrix(m);
                     Vector3D p=m.position();
-
                     quat[k * 4 + 0] = q.x;
                     quat[k * 4 + 1] = q.y;
                     quat[k * 4 + 2] = q.z;
