@@ -105,10 +105,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.sceneRes = new SceneRes();
 
         // this.loadLyfGoup();
-     this.loadSeneBase();
+   this.loadSeneBase();
         //  this.loadSkilRes();
-//        this.addRoleToScene();
-        // this.loadRoleRes();
+        this.addRoleToScene();
+
 
         /*
         this.sceneRes.load("map/3004.txt", new CallBackFun() {
@@ -197,28 +197,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    private void  loadRoleRes()
-    {
-        try {
-            InputStream in = getResources().openRawResource(R.raw.yezhuz);
-            //获取文件的字节数
-            int lenght = in.available();
-            //创建byte数组byte[]  buffer = new byte[lenght];
-            byte[] buffer = new byte[lenght];
-            //将文件中的数据读到byte数组中
-            in.read(buffer);
-            RoleRes roleRes=new RoleRes();
-            roleRes.loadComplete(new ByteArray(buffer), new RoleBackFun() {
-                @Override
-                public void Bfun(RoleRes value) {
-                    Log.d("", "Bfun: ROLEres  加载完");
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
     private void  loadSkilRes()
     {

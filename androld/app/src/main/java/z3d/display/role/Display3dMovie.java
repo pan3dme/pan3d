@@ -69,19 +69,13 @@ public class Display3dMovie extends Display3DSprite {
         Context3D ctx=this.scene3d.context3D;
         this.shader3D=mesh.material.shader;
         ctx.setProgame(this.shader3D.program);
-        this.setMaterialTexture(mesh.material,mesh.materialParam);
-
-        /*
-        Context3D ctx=this.scene3d.context3D;
-        this.shader3D=mesh.material.shader;
-        ctx.setProgame(this.shader3D.program);
-        this.setMaterialTexture(mesh.material,mesh.materialParam);
+         this.setMaterialTexture(mesh.material,mesh.materialParam);
         this.setMaterialVc(mesh.material,mesh.materialParam);
         this.setVc();
         this.setMeshVc(mesh);
         this.setVaCompress(mesh);
 
-        */
+
 
     }
     private  void setMeshVc(MeshData mesh)
