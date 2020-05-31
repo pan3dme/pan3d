@@ -34,6 +34,7 @@ import z3d.base.GroupItem;
 import z3d.base.RoleBackFun;
 import z3d.base.SkillBackFun;
 import z3d.display.BuildDisplay3DSprite;
+import z3d.display.basedis.DisplayBaseSprite;
 import z3d.display.line.GridLineSprite;
 
 import z3d.display.particle.CombineParticle;
@@ -103,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dic.scene3d=this.scene3D;
         this.scene3D.addDisplay(dic);
         this.sceneRes = new SceneRes();
+
+
 
         // this.loadLyfGoup();
   // this.loadSeneBase();

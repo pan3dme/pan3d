@@ -1,5 +1,6 @@
 package z3d.display.role;
 
+import android.opengl.GLES20;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -8,13 +9,19 @@ import java.util.List;
 
 import z3d.base.CallBackFun;
 import z3d.base.MeshData;
+import z3d.base.ObjData;
 import z3d.base.SkinMeshBackFun;
 import z3d.core.Context3D;
+import z3d.display.Display3DShader;
 import z3d.display.Display3DSprite;
+import z3d.display.basedis.DisplayBaseSprite;
 import z3d.filemodel.MeshDataManager;
+import z3d.program.ProgrmaManager;
 import z3d.vo.AnimData;
 import z3d.vo.DualQuatFloat32Array;
+import z3d.vo.Matrix3D;
 import z3d.vo.SkinMesh;
+import z3d.vo.Vector3D;
 
 public class Display3dMovie extends Display3DSprite {
 
@@ -57,6 +64,7 @@ public class Display3dMovie extends Display3DSprite {
 
     @Override
     public void upFrame() {
+
         if(this.skinMesh==null){
             return;
         }
@@ -66,6 +74,28 @@ public class Display3dMovie extends Display3DSprite {
                 this.updateMaterialMesh(this.skinMesh.meshAry.get(i));
             }
         }
+
+    }
+    private DisplayBaseSprite  tempDIc;
+    private void upTemp() {
+        if (this.tempDIc == null) {
+            this.tempDIc = new DisplayBaseSprite();
+        } else
+        {
+
+
+            Context3D ctx=this.scene3d.context3D;
+
+            ctx.setProgame(this.tempDIc.shader3D.program);
+            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"posMatrix",this.modeMatrix.m);
+            ctx.setVa(this.tempDIc.shader3D,"vPosition",3,this.tempDIc.objData.vertexBuffer);
+            ctx.drawCall(this.tempDIc.objData.indexBuffer,this.tempDIc.objData.treNum);
+
+            GLES20.glDisableVertexAttribArray(0);
+        }
+
+
     }
     protected void  updateMaterialMesh(MeshData mesh)
     {
@@ -74,7 +104,7 @@ public class Display3dMovie extends Display3DSprite {
             return;
         }
         Context3D ctx=this.scene3d.context3D;
-        this.shader3D=mesh.material.shader;
+     //   this.shader3D=mesh.material.shader;
         ctx.setProgame(this.shader3D.program);
         this.setMaterialTexture(mesh.material,mesh.materialParam);
         this.setMaterialVc(mesh.material,mesh.materialParam);
@@ -115,9 +145,19 @@ public class Display3dMovie extends Display3DSprite {
     }
     private  void setVaCompress(MeshData mesh)
     {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
-//        ctx.drawCall(mesh.indexBuffer,3);
+        if (this.tempDIc == null) {
+            this.tempDIc = new DisplayBaseSprite();
+        } else
+        {
+
+            Context3D ctx=this.scene3d.context3D;
+            ctx.setProgame(this.tempDIc.shader3D.program);
+            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"posMatrix",this.modeMatrix.m);
+            ctx.setVa(this.tempDIc.shader3D,"vPosition",3,this.tempDIc.objData.vertexBuffer);
+            ctx.drawCall(this.tempDIc.objData.indexBuffer,this.tempDIc.objData.treNum);
+           // GLES20.glDisableVertexAttribArray(0);
+        }
 
         /*
             [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];

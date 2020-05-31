@@ -10,28 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_two/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_two/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_two/.idea/libraries/Flutter_for_Android.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_two/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_two/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_two/example/ios/Podfile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_two/flutterplugintwo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_pz/ios/Classes/TestDemo.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_pz/ios/Classes/TestDemo.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_one/example/ios/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/one/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_pz/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fluttersrc/sy_flutter_alipay-master/example/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/sy_flutter_alipay-master/example/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_one/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_one/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_one/example/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_plugin_one/example/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,46 +242,46 @@
     </state>
     <state width="450" height="466" key="DebuggerActiveHint/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590567922907" />
     <state width="523" height="466" key="DebuggerActiveHint/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590868177813" />
-    <state width="1638" height="431" key="GridCell.Tab.0.bottom" timestamp="1590954919578">
+    <state width="1638" height="431" key="GridCell.Tab.0.bottom" timestamp="1590958510924">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176257" />
-    <state width="1638" height="431" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919578" />
-    <state width="1638" height="431" key="GridCell.Tab.0.center" timestamp="1590954919577">
+    <state width="1638" height="431" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510924" />
+    <state width="1638" height="431" key="GridCell.Tab.0.center" timestamp="1590958510923">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1638" height="431" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919577" />
-    <state width="1638" height="431" key="GridCell.Tab.0.left" timestamp="1590954919577">
+    <state width="1638" height="431" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510923" />
+    <state width="1638" height="431" key="GridCell.Tab.0.left" timestamp="1590958510923">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1638" height="431" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919576" />
-    <state width="1638" height="431" key="GridCell.Tab.0.right" timestamp="1590954919577">
+    <state width="1638" height="431" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510923" />
+    <state width="1638" height="431" key="GridCell.Tab.0.right" timestamp="1590958510924">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.0.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176256" />
-    <state width="1638" height="431" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919577" />
-    <state width="1638" height="431" key="GridCell.Tab.1.bottom" timestamp="1590954919576">
+    <state width="1638" height="431" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510924" />
+    <state width="1638" height="431" key="GridCell.Tab.1.bottom" timestamp="1590958510923">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.bottom/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176255" />
-    <state width="1638" height="431" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919576" />
-    <state width="1638" height="431" key="GridCell.Tab.1.center" timestamp="1590954919575">
+    <state width="1638" height="431" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510923" />
+    <state width="1638" height="431" key="GridCell.Tab.1.center" timestamp="1590958510922">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.center/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1638" height="431" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919575" />
-    <state width="1638" height="431" key="GridCell.Tab.1.left" timestamp="1590954919575">
+    <state width="1638" height="431" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510922" />
+    <state width="1638" height="431" key="GridCell.Tab.1.left" timestamp="1590958510922">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.left/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176253" />
-    <state width="1638" height="431" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919575" />
-    <state width="1638" height="431" key="GridCell.Tab.1.right" timestamp="1590954919575">
+    <state width="1638" height="431" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510922" />
+    <state width="1638" height="431" key="GridCell.Tab.1.right" timestamp="1590958510922">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="1120" height="285" key="GridCell.Tab.1.right/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590587176254" />
-    <state width="1638" height="431" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954919575" />
+    <state width="1638" height="431" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590958510922" />
     <state x="-1381" y="175" key="SettingsEditor" timestamp="1590604937581">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -308,11 +294,11 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1188" y="293" width="695" height="486" key="find.popup/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590858642736" />
-    <state x="-1175" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1590954797435">
+    <state x="-1175" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1590957971409">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1175" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1920.1057/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590586989149" />
-    <state x="-1175" y="250" width="670" height="676" key="search.everywhere.popup/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590954797435" />
+    <state x="-1175" y="250" width="670" height="676" key="search.everywhere.popup/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1590957971409" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
