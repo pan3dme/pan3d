@@ -7,6 +7,7 @@ import z3d.program.Shader3D;
 public class MaterialAnimShader extends Shader3D {
     public  static  String shaderStr="MaterialAnimShader";
     public String getVertexShaderString() {
+
         String vertex= "attribute vec3 vPosition;\n"+
 
                 "uniform mat4 vpMatrix3D;\n"+
@@ -25,9 +26,9 @@ public class MaterialAnimShader extends Shader3D {
     public String getFragmentShaderString() {
         String fragment ="precision mediump float;\n"+
                 "varying vec2 textureCoordinate;\n"+
-
+                "varying vec4 vDiffuse;\n"+
                 "void main() {\n"+
-                "gl_FragColor= vec4(1.0,0.0,1.0,1.0);\n"+
+                "gl_FragColor= vec4(1.0,1.0,1.0,1.0);\n"+
                 "}";
 
         return fragment;

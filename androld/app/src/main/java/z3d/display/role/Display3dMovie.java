@@ -16,6 +16,7 @@ import z3d.display.Display3DShader;
 import z3d.display.Display3DSprite;
 import z3d.display.basedis.DisplayBaseSprite;
 import z3d.filemodel.MeshDataManager;
+import z3d.program.MaterialAnimShader;
 import z3d.program.ProgrmaManager;
 import z3d.vo.AnimData;
 import z3d.vo.DualQuatFloat32Array;
@@ -59,6 +60,9 @@ public class Display3dMovie extends Display3DSprite {
     {
 
 
+        ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
+
 
     }
 
@@ -98,9 +102,14 @@ public class Display3dMovie extends Display3DSprite {
 
         if (this.tempDIc == null) {
             this.tempDIc = new DisplayBaseSprite();
+            this.tempDIc.scene3d=this.scene3d;
         } else
         {
 
+           this.tempDIc.upFrame();
+
+
+           /*
             Context3D ctx=this.scene3d.context3D;
             this.shader3D=this.tempDIc.shader3D;
             ctx.setProgame(this.shader3D.program);
@@ -109,6 +118,8 @@ public class Display3dMovie extends Display3DSprite {
             this.setVc();
             ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
             ctx.drawCall(mesh.indexBuffer,333*3);
+
+            */
 
         }
 
