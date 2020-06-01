@@ -77,40 +77,40 @@ public class Display3dMovie extends Display3DSprite {
 
     }
     private DisplayBaseSprite  tempDIc;
-    private void upTemp() {
-        if (this.tempDIc == null) {
-            this.tempDIc = new DisplayBaseSprite();
-        } else
-        {
 
-
-            Context3D ctx=this.scene3d.context3D;
-
-            ctx.setProgame(this.tempDIc.shader3D.program);
-            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"posMatrix",this.modeMatrix.m);
-            ctx.setVa(this.tempDIc.shader3D,"vPosition",3,this.tempDIc.objData.vertexBuffer);
-            ctx.drawCall(this.tempDIc.objData.indexBuffer,this.tempDIc.objData.treNum);
-
-            GLES20.glDisableVertexAttribArray(0);
-        }
-
-
-    }
     protected void  updateMaterialMesh(MeshData mesh)
     {
         if (mesh.material==null) {
             Log.d(TAG, "没有: ");
             return;
         }
+        /*
         Context3D ctx=this.scene3d.context3D;
-     //   this.shader3D=mesh.material.shader;
+       this.shader3D=mesh.material.shader;
         ctx.setProgame(this.shader3D.program);
         this.setMaterialTexture(mesh.material,mesh.materialParam);
         this.setMaterialVc(mesh.material,mesh.materialParam);
         this.setVc();
         this.setMeshVc(mesh);
         this.setVaCompress(mesh);
+
+        */
+
+        if (this.tempDIc == null) {
+            this.tempDIc = new DisplayBaseSprite();
+        } else
+        {
+
+            Context3D ctx=this.scene3d.context3D;
+            this.shader3D=this.tempDIc.shader3D;
+            ctx.setProgame(this.shader3D.program);
+            this.setMaterialTexture(mesh.material,mesh.materialParam);
+            this.setMaterialVc(mesh.material,mesh.materialParam);
+            this.setVc();
+            ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
+            ctx.drawCall(mesh.indexBuffer,333*3);
+
+        }
 
 
 
@@ -145,29 +145,8 @@ public class Display3dMovie extends Display3DSprite {
     }
     private  void setVaCompress(MeshData mesh)
     {
-        if (this.tempDIc == null) {
-            this.tempDIc = new DisplayBaseSprite();
-        } else
-        {
 
-            Context3D ctx=this.scene3d.context3D;
-            ctx.setProgame(this.tempDIc.shader3D.program);
-            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-            ctx.setVcMatrix4fv(this.tempDIc.shader3D,"posMatrix",this.modeMatrix.m);
-            ctx.setVa(this.tempDIc.shader3D,"vPosition",3,this.tempDIc.objData.vertexBuffer);
-            ctx.drawCall(this.tempDIc.objData.indexBuffer,this.tempDIc.objData.treNum);
-           // GLES20.glDisableVertexAttribArray(0);
-        }
 
-        /*
-            [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa:    mesh.uvBuffer];
-    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
-    [ctx pushVa: mesh.boneIdBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
-    [ctx pushVa: mesh.boneWeightBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
-         */
 
     }
 
