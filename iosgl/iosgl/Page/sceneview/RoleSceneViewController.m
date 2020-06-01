@@ -15,7 +15,7 @@
 #import "SceneRes.h"
 #import "GroupDataManager.h"
 #import "GridLineSprite.h"
-
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface RoleSceneViewController ()
 

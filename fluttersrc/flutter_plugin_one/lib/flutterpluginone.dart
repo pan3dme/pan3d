@@ -10,8 +10,4 @@ class Flutterpluginone {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
-  static Future<String> get getNative async {
-    final String nativeInfo = await _channel.invokeMethod('getNative');
-    return nativeInfo;
-  }
 }

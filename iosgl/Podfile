@@ -13,7 +13,7 @@ target 'iosgl' do
  pod 'SSZipArchive'
 
  pod 'GZIP', '~> 1.2'
-  
+  pod 'AlipaySDK-iOS'
  pod 'YBImageBrowser'
  pod 'YBImageBrowser/Video'
 
