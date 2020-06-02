@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                loadSceneRes();
+              loadSceneRes();
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.scene3D=new Scene3D();
         GridLineSprite dic=new GridLineSprite();
         dic.scene3d=this.scene3D;
-        this.scene3D.addDisplay(dic);
+      this.scene3D.addDisplay(dic);
         this.sceneRes = new SceneRes();
 
 
