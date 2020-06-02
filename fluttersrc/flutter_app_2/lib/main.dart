@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_alipay/flutter_alipay.dart';
 
 void main() {
   runApp(MyApp());
@@ -63,6 +64,24 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String _payInfo = "ccavet";
+  AlipayResult _payResult;
+  callAlipay() async {
+    dynamic payResult;
+    try {
+      print("The pay info is : " + _payInfo);
+      payResult = await FlutterAlipay.pay(_payInfo);
+    } on Exception catch (e) {
+      payResult = null;
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      _payResult = payResult;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -100,10 +119,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Container(
+                child: new RaisedButton(
+                    child: new Text('检查是否安装'), onPressed: callAlipay))
           ],
         ),
       ),
