@@ -121,11 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              '支付方式选择:',
             ),
             Container(
                 child: new RaisedButton(
-                    child: new Text('检查是否安装'), onPressed: callAlipay))
+                    child: new Text('打开支付宝'), onPressed: callAlipay))
           ],
         ),
       ),
