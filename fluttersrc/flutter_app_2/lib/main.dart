@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   linkAppAlipay() async {
-    
+
   }
 
   @override

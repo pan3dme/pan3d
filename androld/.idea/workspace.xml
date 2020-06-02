@@ -10,18 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51bf953-c8ff-4706-bcaa-96831c1d4501" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayBaseShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayBaseShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_2/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_2/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_2/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_2/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fluttersrc/flutter_app_2/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../fluttersrc/flutter_app_2/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Galaxy_Nexus_API_29" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
