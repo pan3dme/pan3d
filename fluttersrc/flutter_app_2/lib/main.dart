@@ -81,6 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
       _payResult = payResult;
     });
   }
+  linkAppAlipay() async
+  {
+    await FlutterAlipay.setIosUrlSchema('YOUR APP SCHEME NAME');
+  }
 
   @override
   Widget build(BuildContext context) {
