@@ -21,9 +21,7 @@
         
         NSString* urlScheme =@"org.zoomdev.flutter.alipay";
         NSDictionary *arguments = [call arguments];
- 
-        
-        [[AlipaySDK defaultService] payOrder:arguments fromScheme:urlScheme callback:^(NSDictionary *resultDic) {
+        [[AlipaySDK defaultService] payOrder:@"jcxinxi" fromScheme:urlScheme callback:^(NSDictionary *resultDic) {
                 //NSLog(@"%@",resultDic);
                result(@"ios Yes--333");
             }];
