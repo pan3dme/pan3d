@@ -81,9 +81,21 @@ class _MyHomePageState extends State<MyHomePage> {
       _payResult = payResult;
     });
   }
-  linkAppAlipay() async
-  {
 
+  linkAppAlipay() async {
+    dynamic payResult;
+    try {
+      print("The pay info is : " + _payInfo);
+      payResult = await FlutterAlipay.paycopy("ccav");
+    } on Exception catch (e) {
+      payResult = null;
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      _payResult = payResult;
+    });
   }
 
   @override
@@ -125,7 +137,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
                 child: new RaisedButton(
-                    child: new Text('打开支付宝'), onPressed: callAlipay))
+                    child: new Text('打开支付1宝'), onPressed: callAlipay)),
+            Container(
+                child: new RaisedButton(
+                    child: new Text('测试通道'), onPressed: linkAppAlipay))
           ],
         ),
       ),
