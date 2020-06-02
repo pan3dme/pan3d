@@ -3,10 +3,6 @@
 package com.one;
 
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -15,43 +11,36 @@ import android.view.InputDevice;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 import java.io.InputStream;
-import java.util.HashMap;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
-
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
-import z3d.base.RoleBackFun;
 import z3d.base.SkillBackFun;
 import z3d.display.BuildDisplay3DSprite;
-import z3d.display.basedis.DisplayBaseSprite;
 import z3d.display.line.GridLineSprite;
-
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.ParticleManager;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
-import z3d.res.RoleRes;
 import z3d.res.SceneRes;
 import z3d.res.SkillRes;
 import z3d.scene.Scene3D;
-import z3d.units.LoadBackFun;
-import z3d.units.LoadManager;
 import z3d.units.LoaderThread;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainScene extends AppCompatActivity implements View.OnClickListener {
 
     private GLSurfaceView mGLView;
     private SceneRes sceneRes;
@@ -110,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // this.loadLyfGoup();
   // this.loadSeneBase();
         //  this.loadSkilRes();
-       // this.addRoleToScene();
+        this.addRoleToScene();
 
 
         /*
