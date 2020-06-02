@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   linkAppAlipay() async
   {
-    await FlutterAlipay.setIosUrlSchema('YOUR APP SCHEME NAME');
+
   }
 
   @override
