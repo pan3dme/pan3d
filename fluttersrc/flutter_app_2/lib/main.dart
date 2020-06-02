@@ -83,19 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   linkAppAlipay() async {
-    dynamic payResult;
-    try {
-
-      payResult = await FlutterAlipay.paycopy("ccav");
-    } on Exception catch (e) {
-      payResult = null;
-    }
-
-    if (!mounted) return;
-
-    setState(() {
-      _payResult = payResult;
-    });
+    
   }
 
   @override
