@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
   linkAppAlipay() async {
     dynamic payResult;
     try {
-      print("The pay info is : " + _payInfo);
+
       payResult = await FlutterAlipay.paycopy("ccav");
     } on Exception catch (e) {
       payResult = null;
