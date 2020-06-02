@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="12def614-31a7-43bc-814c-72b340e13777" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_for_Android.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.metadata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/flutterpluginfive/FlutterpluginfivePlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/.metadata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/java/com/flutterpluginfive_example/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Podfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/Runner/main.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/test/widget_test.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flutterpluginfive.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/Assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/Classes/FlutterpluginfivePlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/Classes/FlutterpluginfivePlugin.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/flutterpluginfive.podspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/flutterpluginfive.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/flutterpluginfive_test.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/libraries/Flutter_for_Android.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/.metadata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/android/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/android/src/main/java/com/example/flutterpluginfour/FlutterpluginfourPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/.metadata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/java/com/example/flutterpluginfour_example/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Podfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/AppDelegate.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/AppDelegate.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/ios/Runner/main.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/lib/main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/example/test/widget_test.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/flutterpluginfour.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/ios/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/ios/Assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/ios/Classes/FlutterpluginfourPlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/ios/Classes/FlutterpluginfourPlugin.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/ios/flutterpluginfour.podspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/lib/flutterpluginfour.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_four/test/flutterpluginfour_test.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/.idea/libraries/Flutter_for_Android.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/.metadata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/android/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/android/src/main/java/com/example/flutterpluginthree/FlutterpluginthreePlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/.metadata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/java/com/example/flutterpluginthree_example/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Podfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Podfile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/AppDelegate.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/AppDelegate.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/ios/Runner/main.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/lib/main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/example/test/widget_test.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/flutterpluginthree.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/ios/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/ios/Assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/ios/Classes/FlutterpluginthreePlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/ios/Classes/FlutterpluginthreePlugin.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/ios/flutterpluginthree.podspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/lib/flutterpluginthree.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_three/test/flutterpluginthree_test.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/libraries/Flutter_for_Android.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/example/ios/Podfile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/example/ios/Runner/FlutterplugintwoPlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/example/ios/Runner/FlutterplugintwoPlugin.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flutter_plugin_two/flutterplugintwo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/libraries/Dart_SDK.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/libraries/Flutter_for_Android.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/runConfigurations/example_lib_main_dart.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/android/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/android/src/main/java/com/example/flutterpluginone/FlutterpluginonePlugin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/java/com/example/flutterpluginone_example/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Podfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/ios/Runner/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/example/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/flutterpluginone.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/ios/Assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/ios/Classes/FlutterpluginonePlugin.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/ios/Classes/FlutterpluginonePlugin.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/ios/Classes/TempText.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/ios/Classes/TempText.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/ios/flutterpluginone.podspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/lib/flutterpluginone.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_plugin_one/test/flutterpluginone_test.dart" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1cjUB9IeK3iE4kgJ6s5QhR8LNPw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="12def614-31a7-43bc-814c-72b340e13777" name="Default Changelist" comment="" />
+      <created>1591041357691</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591041357691</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1638" height="345" key="GridCell.Tab.0.bottom" timestamp="1591041533595">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.0.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533595" />
+    <state width="1638" height="345" key="GridCell.Tab.0.center" timestamp="1591041533594">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.0.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533594" />
+    <state width="1638" height="345" key="GridCell.Tab.0.left" timestamp="1591041533594">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.0.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533594" />
+    <state width="1638" height="345" key="GridCell.Tab.0.right" timestamp="1591041533595">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.0.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533595" />
+    <state width="1638" height="345" key="GridCell.Tab.1.bottom" timestamp="1591041533594">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.1.bottom/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533594" />
+    <state width="1638" height="345" key="GridCell.Tab.1.center" timestamp="1591041533593">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.1.center/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533593" />
+    <state width="1638" height="345" key="GridCell.Tab.1.left" timestamp="1591041533593">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.1.left/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533593" />
+    <state width="1638" height="345" key="GridCell.Tab.1.right" timestamp="1591041533594">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="345" key="GridCell.Tab.1.right/0.23.2560.1417/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1591041533594" />
+  </component>
+</project>
