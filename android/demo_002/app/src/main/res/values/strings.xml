@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">demo_002</string>
+    <string name="app_veriso">1.0.1</string>
+    <string name="denrutxt">登入</string>
+    <string name="username_hint">请输入账号</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="iconmsg">图标</string>
+</resources>
