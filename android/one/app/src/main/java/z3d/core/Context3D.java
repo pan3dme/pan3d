@@ -33,7 +33,7 @@ public class Context3D {
     {
         int textureSlot= GLES20.glGetUniformLocation(shader3D.program,name);
 
-       Log.d("name3333333->"+  name, "slot=>"+textureSlot +"  level=> "+level);
+      // Log.d("name3333333->"+  name, "slot=>"+textureSlot +"  level=> "+level);
 
         switch (level) {
             case 0:

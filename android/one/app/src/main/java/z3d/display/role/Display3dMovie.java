@@ -66,7 +66,7 @@ public class Display3dMovie extends Display3DSprite {
        ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
 
     }
-    
+
     @Override
     public void upFrame() {
 
@@ -103,11 +103,11 @@ public class Display3dMovie extends Display3DSprite {
         if(this.shader3D!=null){
             Context3D ctx=this.scene3d.context3D;
             ctx.setProgame(this.shader3D.program);
-            this.setMaterialTexture(mesh.material,mesh.materialParam);
-            this.setMaterialVc(mesh.material,mesh.materialParam);
+       //     this.setMaterialTexture(mesh.material,mesh.materialParam);
+      //      this.setMaterialVc(mesh.material,mesh.materialParam);
             this.setVc();
             ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
-            ctx.drawCall(mesh.indexBuffer,333*3);
+            ctx.drawCall(mesh.indexBuffer,mesh.treNum);
         }
 
 
