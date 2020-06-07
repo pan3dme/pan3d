@@ -14,6 +14,7 @@ import z3d.base.SkinMeshBackFun;
 import z3d.core.Context3D;
 import z3d.display.Display3DShader;
 import z3d.display.Display3DSprite;
+import z3d.display.basedis.DisplayBaseShader;
 import z3d.display.basedis.DisplayBaseSprite;
 import z3d.filemodel.MeshDataManager;
 import z3d.program.MaterialAnimShader;
@@ -58,21 +59,21 @@ public class Display3dMovie extends Display3DSprite {
     }
     private void onMeshLoaded()
     {
-
-
-        ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
         this.shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
-
+    }
+    protected void  registetProgame()
+    {
+       ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
 
     }
-
+    
     @Override
     public void upFrame() {
 
         if(this.skinMesh==null){
             return;
         }
-        this.updateBind();
+        //this.updateBind();
         if(this.meshVisible){
             for (int i = 0; i < this.skinMesh.meshAry.size(); i++) {
                 this.updateMaterialMesh(this.skinMesh.meshAry.get(i));
@@ -80,7 +81,7 @@ public class Display3dMovie extends Display3DSprite {
         }
 
     }
-    private DisplayBaseSprite  tempDIc;
+
 
     protected void  updateMaterialMesh(MeshData mesh)
     {
@@ -97,32 +98,17 @@ public class Display3dMovie extends Display3DSprite {
         this.setVc();
         this.setMeshVc(mesh);
         this.setVaCompress(mesh);
+*/
 
-        */
-
-        if (this.tempDIc == null) {
-            this.tempDIc = new DisplayBaseSprite();
-            this.tempDIc.scene3d=this.scene3d;
-        } else
-        {
-
-           this.tempDIc.upFrame();
-
-
-           /*
+        if(this.shader3D!=null){
             Context3D ctx=this.scene3d.context3D;
-            this.shader3D=this.tempDIc.shader3D;
             ctx.setProgame(this.shader3D.program);
             this.setMaterialTexture(mesh.material,mesh.materialParam);
             this.setMaterialVc(mesh.material,mesh.materialParam);
             this.setVc();
             ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
             ctx.drawCall(mesh.indexBuffer,333*3);
-
-            */
-
         }
-
 
 
     }
