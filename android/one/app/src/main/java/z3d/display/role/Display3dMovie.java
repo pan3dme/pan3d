@@ -57,14 +57,16 @@ public class Display3dMovie extends Display3DSprite {
         }, 1);
 
     }
-    private void onMeshLoaded()
+    protected void onMeshLoaded()
     {
-        this.shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
+
+        this.registetProgame();
     }
     protected void  registetProgame()
     {
-       ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
 
+       ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
     }
 
     @Override
@@ -89,16 +91,7 @@ public class Display3dMovie extends Display3DSprite {
             Log.d(TAG, "没有: ");
             return;
         }
-        /*
-        Context3D ctx=this.scene3d.context3D;
-       this.shader3D=mesh.material.shader;
-        ctx.setProgame(this.shader3D.program);
-        this.setMaterialTexture(mesh.material,mesh.materialParam);
-        this.setMaterialVc(mesh.material,mesh.materialParam);
-        this.setVc();
-        this.setMeshVc(mesh);
-        this.setVaCompress(mesh);
-*/
+
 
         if(this.shader3D!=null){
             Context3D ctx=this.scene3d.context3D;
@@ -109,7 +102,6 @@ public class Display3dMovie extends Display3DSprite {
             ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
             ctx.drawCall(mesh.indexBuffer,mesh.treNum);
         }
-
 
     }
     private  void setMeshVc(MeshData mesh)
