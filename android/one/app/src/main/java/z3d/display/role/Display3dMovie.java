@@ -19,6 +19,7 @@ import z3d.display.basedis.DisplayBaseSprite;
 import z3d.filemodel.MeshDataManager;
 import z3d.program.MaterialAnimShader;
 import z3d.program.ProgrmaManager;
+import z3d.program.Shader3D;
 import z3d.vo.AnimData;
 import z3d.vo.DualQuatFloat32Array;
 import z3d.vo.Matrix3D;
@@ -35,6 +36,7 @@ public class Display3dMovie extends Display3DSprite {
     public  String curentAction;
     public  String defaultAction="stand";
     public  int curentFrame;
+    public Shader3D md5shader3D;
     public  Display3dMovie()
     {
         this.meshVisible=true;
@@ -66,7 +68,7 @@ public class Display3dMovie extends Display3DSprite {
     {
 
        ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
+        this.md5shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
     }
 
     @Override
@@ -93,15 +95,24 @@ public class Display3dMovie extends Display3DSprite {
         }
 
 
-        if(this.shader3D!=null){
+        if(this.md5shader3D!=null){
             Context3D ctx=this.scene3d.context3D;
-            ctx.setProgame(this.shader3D.program);
+            ctx.setProgame(this.md5shader3D.program);
        //     this.setMaterialTexture(mesh.material,mesh.materialParam);
       //      this.setMaterialVc(mesh.material,mesh.materialParam);
             this.setVc();
-            ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
+            ctx.setVa(this.md5shader3D,"vPosition",3,mesh.vertexBuffer);
+            ctx.setVa(this.md5shader3D,"vTextCoord",2,mesh.uvBuffer);
+
             ctx.drawCall(mesh.indexBuffer,mesh.treNum);
         }
+
+    }
+    protected void setVc()
+    {
+        Context3D ctx=this.scene3d.context3D;
+        ctx.setVcMatrix4fv(this.md5shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+        ctx.setVcMatrix4fv(this.md5shader3D,"posMatrix",this.modeMatrix.m);
 
     }
     private  void setMeshVc(MeshData mesh)

@@ -1,5 +1,7 @@
 package z3d.base;
 
+import android.util.Log;
+
 import java.nio.FloatBuffer;
 import java.util.List;
 
@@ -25,7 +27,11 @@ public class MeshData extends ObjData {
     public void  upToGup()
     {
         if(!this.isCompile){
+            int a=this.uvlist.size()/2;
+            int b=this.verticeslist.size()/3;
+
             this.vertexBuffer=this.upGpuvertexBufferbbb(this.verticeslist);
+            this.uvBuffer=this.upGpuvertexBufferbbb(this.uvlist);
             this.indexBuffer=this.upGpuIndexBuffercopy(this.indexs);
             this.treNum= this.indexs.size();
             this.isCompile=true;
