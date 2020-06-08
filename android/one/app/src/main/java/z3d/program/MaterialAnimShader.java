@@ -15,7 +15,7 @@ public class MaterialAnimShader extends Shader3D {
 
                 "varying vec2 v0;\n"+
                 "void main(){\n"+
-                "v0=vTextCoord\n"+
+
                 "gl_Position = vpMatrix3D*vec4(vPosition*0.1,1);\n"+
 
                 "}";

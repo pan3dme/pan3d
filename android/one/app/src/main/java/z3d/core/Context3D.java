@@ -23,7 +23,7 @@ public class Context3D {
     {
         int a1=GLES20.glGetAttribLocation(shader3d.program, name);
         if(a1==-1){
-            Log.d("有错", "setVa: ");
+            Log.d("有错", "setVa: "+name);
         }
         GLES20.glEnableVertexAttribArray(a1);
         GLES20.glVertexAttribPointer(a1,dataWidth, GLES20.GL_FLOAT, false, dataWidth*4, dataBuffer);

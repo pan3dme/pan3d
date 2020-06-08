@@ -84,7 +84,7 @@ public   class Display3DSprite extends Display3D {
         od.indexs.add((short)2);
 
 
-        for(int i=0;i<100000;i++){
+        for(int i=0;i<1;i++){
 
             od.verticeslist.add(100f);
             od.verticeslist.add(100f);
@@ -92,7 +92,7 @@ public   class Display3DSprite extends Display3D {
 
         }
 
-        for(int i=0;i<10000;i++){
+        for(int i=0;i<1;i++){
 
             od.indexs.add((short)i);
             od.indexs.add((short)i);

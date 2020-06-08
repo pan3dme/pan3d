@@ -34,6 +34,7 @@ import z3d.base.GroupItem;
 import z3d.base.RoleBackFun;
 import z3d.base.SkillBackFun;
 import z3d.display.BuildDisplay3DSprite;
+import z3d.display.Display3DSprite;
 import z3d.display.basedis.DisplayBaseSprite;
 import z3d.display.line.GridLineSprite;
 
@@ -106,9 +107,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.sceneRes = new SceneRes();
 
 
+        Display3DSprite b=new Display3DSprite();
+        b.scene3d=this.scene3D;
+//        this.scene3D.addDisplay(b);
+
 
         // this.loadLyfGoup();
-  // this.loadSeneBase();
+//    this.loadSeneBase();
         //  this.loadSkilRes();
        this.addRoleToScene();
 
