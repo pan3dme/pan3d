@@ -90,7 +90,7 @@ public class Display3dMovie extends Display3DSprite {
 
     protected void  updateMaterialMesh(MeshData mesh)
     {
-        if (mesh.material==null) {
+        if (mesh.material==null||mesh.vertexBuffer==null) {
             Log.d(TAG, "没有: ");
             return;
         }
@@ -103,6 +103,17 @@ public class Display3dMovie extends Display3DSprite {
         if(this.md5shader3D!=null){
 
          this.tempBaseTextDis.upFrame();
+
+            if(mesh.vertexBuffer!=null&&mesh.indexBuffer!=null&&mesh.treNum>0){
+                this.tempBaseTextDis.objData.vertexBuffer=mesh.vertexBuffer;
+                this.tempBaseTextDis.objData.indexBuffer=mesh.indexBuffer;
+                this.tempBaseTextDis.objData.treNum=mesh.treNum;
+            }else{
+
+            }
+
+
+
 
          /*
             Context3D ctx=this.scene3d.context3D;
