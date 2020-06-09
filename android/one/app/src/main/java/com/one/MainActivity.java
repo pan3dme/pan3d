@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // this.loadLyfGoup();
-//    this.loadSeneBase();
+    this.loadSeneBase();
         //  this.loadSkilRes();
-       this.addRoleToScene();
+//       this.addRoleToScene();
 
 
         /*

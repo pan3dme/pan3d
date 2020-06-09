@@ -103,8 +103,9 @@ public class Display3dMovie extends Display3DSprite {
 
         if(this.md5shader3D!=null){
             Log.d("33333", this.md5shader3D.program+"");
-//            this.tempBaseTextDis.upFrame();
+           this.tempBaseTextDis.upFrame();
 
+            /*
             Context3D ctx=this.scene3d.context3D;
             ctx.setProgame(this.md5shader3D.program);
             this.setVc();
@@ -112,15 +113,10 @@ public class Display3dMovie extends Display3DSprite {
             ctx.drawCall(mesh.indexBuffer,mesh.treNum);
             GLES20.glDisableVertexAttribArray(0);
 
+            */
 
-         /*
-            Context3D ctx=this.scene3d.context3D;
-            ctx.setProgame(this.md5shader3D.program);
-            this.setVc();
-            ctx.setVa(this.md5shader3D,"vPosition",3,mesh.vertexBuffer);
-//            ctx.setVa(this.md5shader3D,"vTextCoord",2,mesh.uvBuffer);
-            ctx.drawCall(mesh.indexBuffer,mesh.treNum);
- */
+
+
 
         }
 
