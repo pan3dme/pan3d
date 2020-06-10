@@ -20,6 +20,7 @@ import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
+import z3d.base.Scene_data;
 import z3d.base.SkillBackFun;
 import z3d.display.BuildDisplay3DSprite;
 import z3d.display.Display3DSprite;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mGLView= (GLSurfaceView) findViewById(R.id.mGLView);
         mGLView.setEGLContextClientVersion(2);
+        Scene_data.fileRoot = "http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
         LoaderThread.fileContext=getApplicationContext();
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b.scene3d=this.scene3D;
 
        this.loadSeneBase();
+        this.addRoleToScene();
 
     }
     private void  addRoleToScene()
@@ -124,11 +127,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             JSONArray buildItem=    this.sceneRes.sceneData.getJSONArray("buildItem");
             for(int i=0;i<buildItem.length();i++){
-                this.parsingBuildItem((JSONObject)buildItem.get(i));
+              this.parsingBuildItem((JSONObject)buildItem.get(i));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
     }
 

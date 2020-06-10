@@ -44,6 +44,17 @@ public class LoaderThread
         this.loadInfo=value;
         String localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
         localUrl=localUrl.replace("/","_");
+        String savePath = LoaderThread.fileContext.getFilesDir().getPath();
+
+        HttpConnectionUtil.downloadFile(Scene_data.fileRoot+value.url,savePath);
+    }
+    public  void  loadcopy(LoadInfo value)
+    {
+
+        this.idle = false;
+        this.loadInfo=value;
+        String localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
+        localUrl=localUrl.replace("/","_");
         if(value.type==LoadManager.BYTE_TYPE){
             String savePath = LoaderThread.fileContext.getFilesDir().getPath();
             this.httpFilevotp.downloadFile(new CallBackFun() {

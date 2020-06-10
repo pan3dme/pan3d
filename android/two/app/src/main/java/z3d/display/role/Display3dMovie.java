@@ -73,7 +73,12 @@ public class Display3dMovie extends Display3DSprite {
 
     @Override
     public void upFrame() {
-
+        if(this.tempBaseTextDis==null){
+            this.tempBaseTextDis=new Display3DSprite();
+            this.tempBaseTextDis.scene3d=this.scene3d;
+        }else{
+            this.tempBaseTextDis.upFrame();
+        }
         if(this.skinMesh==null){
             return;
         }

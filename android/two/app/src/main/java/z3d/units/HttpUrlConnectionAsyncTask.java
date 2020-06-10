@@ -39,7 +39,7 @@ public class HttpUrlConnectionAsyncTask extends AsyncTask<Integer, Integer, Stri
         this.filePath = filePath;
         this.backFun=bfun;
         //调用doInBackground方法（方法里面是异步执行）
-        execute(2);
+        execute(1);
     }
 
     @Override
