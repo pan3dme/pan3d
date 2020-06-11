@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.scene3D=new Scene3D();
         GridLineSprite dic=new GridLineSprite();
         dic.scene3d=this.scene3D;
-        this.scene3D.addDisplay(dic);
+//        this.scene3D.addDisplay(dic);
         this.sceneRes = new SceneRes();
         Display3DSprite b=new Display3DSprite();
         b.scene3d=this.scene3D;

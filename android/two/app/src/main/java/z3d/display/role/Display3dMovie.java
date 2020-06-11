@@ -48,25 +48,30 @@ public class Display3dMovie extends Display3DSprite {
         MeshDataManager.getInstance().getMeshData(url, new SkinMeshBackFun() {
             @Override
             public void Bfun(SkinMesh value) {
+
                 skinMesh=value;
                 fileScale=skinMesh.fileScale;
                 animDic = skinMesh.animDic;
+
                 for (int i = 0; i <  skinMesh.meshAry.size(); i++) {
                     skinMesh.meshAry.get(i).upToGup();
                 }
+
                 onMeshLoaded();
                 updateMatrix();
+
             }
         }, 1);
 
     }
-    protected void onMeshLoaded()
+   final protected void onMeshLoaded()
     {
-
+//
 
     }
     protected void  registetProgame()
     {
+
         ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
         this.md5shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
     }
