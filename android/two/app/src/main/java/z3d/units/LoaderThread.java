@@ -12,16 +12,12 @@ import java.io.FileInputStream;
 
 import java.io.InputStream;
 
-import java.net.HttpURLConnection;
-
-import java.net.URL;
-
 import java.util.HashMap;
 
 import urlhttp.CallBackUtil;
 import urlhttp.UrlHttpUtil;
 import z3d.base.ByteArray;
-import z3d.base.CallBackFun;
+
 import z3d.base.Scene_data;
 
 
@@ -31,13 +27,13 @@ public class LoaderThread
     public int id;
     public  LoadInfo loadInfo;
     private String localUrl;
-    private HttpUrlConnectionAsyncTask httpFilevotp;
+
     public  static Context fileContext;
     public LoaderThread(int val)
     {
         this.id=val;
         this.idle = true;
-        this.httpFilevotp=new HttpUrlConnectionAsyncTask();
+
     }
     public  void  load(LoadInfo value)
     {
@@ -46,7 +42,7 @@ public class LoaderThread
         this. localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
         this. localUrl=   this. localUrl.replace("/","_");
         String savePath = LoaderThread.fileContext.getFilesDir().getPath();
-      final   LoaderThread that=this;
+        final   LoaderThread that=this;
         UrlHttpUtil.downloadFile(this.loadInfo.url, new CallBackUtil.CallBackFile(savePath,localUrl) {
             @Override
             public void onFailure(int code, String errorMessage) {
@@ -92,65 +88,7 @@ public class LoaderThread
 
 
     }
-    public  void  loadcopy(LoadInfo value)
-    {
 
-        this.idle = false;
-        this.loadInfo=value;
-        String localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
-        localUrl=localUrl.replace("/","_");
-        if(value.type==LoadManager.BYTE_TYPE){
-            String savePath = LoaderThread.fileContext.getFilesDir().getPath();
-            this.httpFilevotp.downloadFile(new CallBackFun() {
-                @Override
-                public void StateChange(boolean State) {
-                    loadFinishByteUrl();
-                }
-            }, this.loadInfo.url, savePath +"/"+localUrl);
-            return;
-        }
-        HttpURLConnection conn = null;
-        try {
-            URL mURL = new URL(this.loadInfo.url);
-            conn = (HttpURLConnection) mURL.openConnection();
-            conn.setRequestMethod("GET"); //设置请求方法
-            // conn.setConnectTimeout(10000);设置连接服务器超时时间
-            conn.setReadTimeout(5000); //设置读取数据超时时间
-            conn.connect(); //开始连接
-            int responseCode = conn.getResponseCode();
-            //得到服务器的响应码
-            if (responseCode == 200) { //访问成功
-                InputStream in = conn.getInputStream(); //获得服务器返回的流数据
-                if(value.type==LoadManager.IMG_TYPE){
-                    Bitmap bitmap = BitmapFactory.decodeStream(in); //根据流数据 创建一个bitmap对象
-                    this.loadImg(bitmap);
-                }
-            } else { //访问失败
-                Log.d("lyf--", "访问失败===responseCode：" + responseCode);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (conn != null) {
-                conn.disconnect(); //断开连接
-            }
-        }
-    }
-
-    private void  loadFinishByteUrl()
-    {
-        try {
-            InputStream in =new FileInputStream(new File( this.httpFilevotp.filePath));
-            int lenght = in.available();
-            //创建byte数组byte[]  buffer = new byte[lenght];
-            byte[] buffer = new byte[lenght];
-            //将文件中的数据读到byte数组中
-            in.read(buffer);
-            this.loadByte(new ByteArray(buffer));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     private void  loadByte(ByteArray value)
     {
         HashMap dic=new HashMap();
