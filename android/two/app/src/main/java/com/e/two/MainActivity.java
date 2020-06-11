@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Display3DSprite b=new Display3DSprite();
         b.scene3d=this.scene3D;
 
-       this.loadSeneBase();
+//       this.loadSeneBase();
         this.addRoleToScene();
 
     }

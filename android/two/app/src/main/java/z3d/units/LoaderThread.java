@@ -18,6 +18,8 @@ import java.net.URL;
 
 import java.util.HashMap;
 
+import urlhttp.CallBackUtil;
+import urlhttp.UrlHttpUtil;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.Scene_data;
@@ -28,7 +30,7 @@ public class LoaderThread
     public boolean idle;
     public int id;
     public  LoadInfo loadInfo;
-
+    private String localUrl;
     private HttpUrlConnectionAsyncTask httpFilevotp;
     public  static Context fileContext;
     public LoaderThread(int val)
@@ -39,14 +41,56 @@ public class LoaderThread
     }
     public  void  load(LoadInfo value)
     {
-
         this.idle = false;
         this.loadInfo=value;
-        String localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
-        localUrl=localUrl.replace("/","_");
+        this. localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
+        this. localUrl=   this. localUrl.replace("/","_");
         String savePath = LoaderThread.fileContext.getFilesDir().getPath();
+      final   LoaderThread that=this;
+        UrlHttpUtil.downloadFile(this.loadInfo.url, new CallBackUtil.CallBackFile(savePath,localUrl) {
+            @Override
+            public void onFailure(int code, String errorMessage) {
+                Log.d("errorMessage", "onResponse: ");
+            }
+            @Override
+            public void onProgress(float progress, long total) {
+                super.onProgress(progress, total);
+            }
+            @Override
+            public void onResponse(File response) {
+                Log.d("TAG", "onResponse: ");
+                that.onResponse(response);
+            }
+        });
 
-        HttpConnectionUtil.downloadFile(Scene_data.fileRoot+value.url,savePath);
+    }
+    private void  onResponse(File file)
+    {
+
+        if( this.loadInfo.type==LoadManager.BYTE_TYPE){
+            try {
+                InputStream in =new FileInputStream(file);
+                int lenght = in.available();
+                //创建byte数组byte[]  buffer = new byte[lenght];
+                byte[] buffer = new byte[lenght];
+                //将文件中的数据读到byte数组中
+                in.read(buffer);
+                this.loadByte(new ByteArray(buffer));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else  if( this.loadInfo.type==LoadManager.IMG_TYPE){
+
+            try {
+                Bitmap bitmap = BitmapFactory.decodeStream(new FileInputStream(file)); //根据流数据 创建一个bitmap对象
+                this.loadImg(bitmap);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
     }
     public  void  loadcopy(LoadInfo value)
     {
