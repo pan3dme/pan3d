@@ -54,8 +54,8 @@ public class Display3dMovie extends Display3DSprite {
                 for (int i = 0; i <  skinMesh.meshAry.size(); i++) {
                     skinMesh.meshAry.get(i).upToGup();
                 }
-                 onMeshLoaded();
-               updateMatrix();
+                onMeshLoaded();
+                updateMatrix();
             }
         }, 1);
 
@@ -73,12 +73,7 @@ public class Display3dMovie extends Display3DSprite {
 
     @Override
     public void upFrame() {
-        if(this.tempBaseTextDis==null){
-            this.tempBaseTextDis=new Display3DSprite();
-            this.tempBaseTextDis.scene3d=this.scene3d;
-        }else{
-            this.tempBaseTextDis.upFrame();
-        }
+
         if(this.skinMesh==null){
             return;
         }
@@ -107,10 +102,10 @@ public class Display3dMovie extends Display3DSprite {
 
 
         if(this.md5shader3D!=null){
-            Log.d("33333", this.md5shader3D.program+"");
-           this.tempBaseTextDis.upFrame();
 
-            /*
+//               this.tempBaseTextDis.upFrame();
+
+
             Context3D ctx=this.scene3d.context3D;
             ctx.setProgame(this.md5shader3D.program);
             this.setVc();
@@ -118,7 +113,6 @@ public class Display3dMovie extends Display3DSprite {
             ctx.drawCall(mesh.indexBuffer,mesh.treNum);
             GLES20.glDisableVertexAttribArray(0);
 
-            */
 
 
 
