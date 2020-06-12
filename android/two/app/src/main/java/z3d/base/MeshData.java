@@ -8,6 +8,7 @@ import z3d.material.MaterialBackFun;
 import z3d.material.MaterialBaseParam;
 import z3d.material.MaterialManager;
 import z3d.program.MaterialAnimShader;
+import z3d.program.MaterialShader;
 import z3d.vo.BindParticle;
 
 public class MeshData extends ObjData {
@@ -48,14 +49,18 @@ public class MeshData extends ObjData {
     {
         if (this.material == null) {
             final MeshData that = this;
+
             MaterialManager.getInstance().getMaterialByte(this.materialUrl, new MaterialBackFun() {
                 @Override
                 public void Bfun(Material value) {
-                    that.material = value;
-                    that.materialParam = new MaterialBaseParam();
-                    that.materialParam.setData(value, that.materialParamData);
+                     material = value;
+                    materialParam = new MaterialBaseParam();
+                    materialParam.setData(value, that.materialParamData);
                 }
-            }, MaterialAnimShader.shaderStr, new MaterialAnimShader());
+            }, MaterialAnimShader.shaderNameStr, new MaterialAnimShader());
+
+
+
 
         }
     }

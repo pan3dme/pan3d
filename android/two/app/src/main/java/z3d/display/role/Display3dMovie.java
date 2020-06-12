@@ -16,6 +16,8 @@ import z3d.display.Display3DShader;
 import z3d.display.Display3DSprite;
 import z3d.display.basedis.DisplayBaseShader;
 import z3d.display.basedis.DisplayBaseSprite;
+import z3d.display.basedis.DisplayTestShader;
+import z3d.display.line.GridLineSprite;
 import z3d.filemodel.MeshDataManager;
 import z3d.program.MaterialAnimShader;
 import z3d.program.ProgrmaManager;
@@ -36,7 +38,7 @@ public class Display3dMovie extends Display3DSprite {
     public  String curentAction;
     public  String defaultAction="stand";
     public  int curentFrame;
-    public Shader3D md5shader3D;
+//    public Shader3D md5shader3D;
     public  Display3dMovie()
     {
         this.meshVisible=true;
@@ -70,7 +72,7 @@ public class Display3dMovie extends Display3DSprite {
         }
 
     }
-    private  Display3DSprite tempBaseTextDis;
+    private GridLineSprite gridline;
 
     protected void  updateMaterialMesh(MeshData mesh)
     {
@@ -82,23 +84,27 @@ public class Display3dMovie extends Display3DSprite {
             Log.d(TAG, "没有: ");
             return;
         }
-        this.md5shader3D=mesh.material.shader;
+
+
+        this.shader3D=mesh.material.shader;
         Context3D ctx=this.scene3d.context3D;
-        ctx.setProgame(this.md5shader3D.program);
+        ctx.setProgame(this.shader3D.program);
         this.setVc();
-        ctx.setVa(this.md5shader3D,"vPosition",3,mesh.vertexBuffer);
-        ctx.setVa(this.md5shader3D,"vTextCoord",2,mesh.uvBuffer);
+        ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
+        ctx.setVa(this.shader3D,"vTextCoord",2,mesh.uvBuffer);
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
-        GLES20.glDisableVertexAttribArray(0);
-        GLES20.glDisableVertexAttribArray(1);
+
+
+
 
     }
+
     protected void setVc()
     {
         Context3D ctx=this.scene3d.context3D;
         this.modeMatrix=new Matrix3D();
-        ctx.setVcMatrix4fv(this.md5shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.md5shader3D,"posMatrix",this.modeMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
     }
     private  void setMeshVc(MeshData mesh)

@@ -4,7 +4,7 @@ import z3d.program.Shader3D;
 
 public class Display3DShader extends Shader3D {
 
-    public  static  String shaderStr="Display3DShader";
+    public  static  String shaderNameStr="Display3DShader";
     public String getVertexShaderString() {
 
         String vertex= "attribute vec3 vPosition;\n"+

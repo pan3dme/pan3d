@@ -1,19 +1,16 @@
 package z3d.display.basedis;
 
-import android.opengl.GLES20;
-
 import java.util.ArrayList;
 
 import z3d.base.ObjData;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
-
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
 
-public class DisplayBaseSprite extends Display3D {
+public class DisplayTestSprite extends Display3D {
     private static final String TAG="Filter";
 
     public Shader3D shader3D;
@@ -21,7 +18,7 @@ public class DisplayBaseSprite extends Display3D {
     public Matrix3D modeMatrix;
 
 
-    public DisplayBaseSprite( ){
+    public DisplayTestSprite( ){
         this.modeMatrix=new Matrix3D();
         this.registetProgame();
         this.initData();
@@ -50,6 +47,17 @@ public class DisplayBaseSprite extends Display3D {
         od.verticeslist.add(100f);
         od.verticeslist.add(0f);
 
+        od.uvlist=new ArrayList<Float>();//结果顶点坐标列表
+        od.uvlist.add(0.5f);
+        od.uvlist.add(1f);
+
+        od.uvlist.add(0.5f);
+        od.uvlist.add(1f);
+
+        od.uvlist.add(0.5f);
+        od.uvlist.add(1f);
+
+
 
         od.indexs=new ArrayList<Short>();
         od.indexs.add((short)0);
@@ -66,8 +74,8 @@ public class DisplayBaseSprite extends Display3D {
     protected void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(DisplayBaseShader.shaderNameStr,new DisplayBaseShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(DisplayBaseShader.shaderNameStr);
+        ProgrmaManager.getInstance().registe(DisplayTestShader.shaderNameStr,new DisplayTestShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(DisplayTestShader.shaderNameStr);
 
     }
 
@@ -89,6 +97,7 @@ public class DisplayBaseSprite extends Display3D {
 
 
             ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
+            ctx.setVa(this.shader3D,"vTextCoord",2,this.objData.uvBuffer);
 
             ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
 

@@ -109,8 +109,8 @@ public   class Display3DSprite extends Display3D {
     protected void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(Display3DShader.shaderStr,new Display3DShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderStr);
+        ProgrmaManager.getInstance().registe(Display3DShader.shaderNameStr,new Display3DShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderNameStr);
 
     }
 
@@ -127,7 +127,7 @@ public   class Display3DSprite extends Display3D {
                 ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
                 ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
                 ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
-                GLES20.glDisableVertexAttribArray(0);
+
             }
         }
 
@@ -191,7 +191,7 @@ public   class Display3DSprite extends Display3D {
                     materialParam.setData(material,paramData);
                 }
             }
-        }, MaterialShader.shaderStr,new MaterialShader());
+        }, MaterialShader.shaderNameStr,new MaterialShader());
 //} info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 
     }
