@@ -95,8 +95,10 @@ public class Display3dMovie extends Display3DSprite {
         this.setVc();
         this.setMaterialTexture(mesh.material,mesh.materialParam);
         this.setMeshVc(mesh);
-        ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
-        ctx.setVa(this.shader3D,"vTextCoord",2,mesh.uvBuffer);
+        ctx.setVa(this.shader3D,"pos",3,mesh.vertexBuffer);
+        ctx.setVa(this.shader3D,"v2Uv",2,mesh.uvBuffer);
+        ctx.setVa(this.shader3D,"boneID",4,mesh.boneIdBuffer);
+        ctx.setVa(this.shader3D,"boneWeight",4,mesh.boneWeightBuffer);
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
 
 
@@ -124,9 +126,9 @@ public class Display3dMovie extends Display3DSprite {
         this.curentFrame=0;
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
 
-        dualQuatFrame.quatArr.set(0+4*5,1.0f);
-        dualQuatFrame.quatArr.set(1+4*5,0.0f);
-        dualQuatFrame.quatArr.set(2+4*5,0.0f);
+//        dualQuatFrame.quatArr.set(0+4*5,0.0f);
+//        dualQuatFrame.quatArr.set(1+4*5,0.0f);
+//        dualQuatFrame.quatArr.set(2+4*5,1.0f);
 
         if(dualQuatFrame.boneDarrBuff==null){
             dualQuatFrame.boneDarrBuff=this.upGpuvertexBufferbbb(dualQuatFrame.quatArr);

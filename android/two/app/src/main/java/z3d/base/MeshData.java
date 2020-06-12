@@ -31,6 +31,8 @@ public class MeshData extends ObjData {
 
         this.vertexBuffer=this.upGpuvertexBufferbbb(this.verticeslist);
         this.uvBuffer=this.upGpuvertexBufferbbb(this.uvlist);
+        this.boneIdBuffer=this.upGpuvertexBufferbbb(this.boneIDAry);
+        this.boneWeightBuffer=this.upGpuvertexBufferbbb(this.boneWeightAry);
         this.indexBuffer=this.upGpuIndexBuffercopy(this.indexs);
         this.treNum= this.indexs.size();
 
