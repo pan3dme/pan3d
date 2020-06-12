@@ -85,14 +85,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        b.scene3d=this.scene3D;
 //        this.scene3D.addDisplay(b);
 
-//       this.loadSeneBase();
+       this.loadSeneBase();
         this.addRoleToScene();
 
     }
     private void  addRoleToScene()
     {
+//                [self addRoleToScene:@"50004" pos:[[Vector3D alloc]x:-40 y:0 z:0]];
+//        [self addRoleToScene:@"50005" pos:[[Vector3D alloc]x:-60 y:0 z:0]];
+//        [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
         Display3dMovie sc=new Display3dMovie();
         sc.scene3d=this.scene3D;
+//        sc.setRoleUrl("role/yezhuz.txt");
+//        sc.setRoleUrl("role/50004.txt");
+//        sc.setRoleUrl("role/50005.txt");
+//        sc.setRoleUrl("role/50005.txt");
+//        sc.setRoleUrl("role/50011.txt");
         sc.setRoleUrl("role/yezhuz.txt");
         scene3D.addMovieDisplay(sc);
 
