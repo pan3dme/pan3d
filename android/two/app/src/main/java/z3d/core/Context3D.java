@@ -70,6 +70,27 @@ public class Context3D {
     {
         GLES20.glUniformMatrix4fv(GLES20.glGetUniformLocation(shader3d.program,name),1,false,m,0);
     }
+    public void  setVc4fv(Shader3D shader3d, String name,int count , FloatBuffer m)
+    {
+
+        GLES20.glUniform4fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);
+
+    }
+    public void  setVc3fv(Shader3D shader3d, String name,int count , FloatBuffer m)
+    {
+
+        GLES20.glUniform3fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);
+
+    }
+
+
+
+
+//    -(void)setVc4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data len:(int)len;
+//    {
+//        glUniform4fv( glGetUniformLocation( shader.program, name), len, data);
+//
+//    }
     public void drawCall(ShortBuffer dataBuffer, int num)
     {
 

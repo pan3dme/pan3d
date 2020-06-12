@@ -3,6 +3,9 @@ package z3d.display.role;
 import android.opengl.GLES20;
 import android.util.Log;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -91,6 +94,7 @@ public class Display3dMovie extends Display3DSprite {
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         this.setMaterialTexture(mesh.material,mesh.materialParam);
+        this.setMeshVc(mesh);
         ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
         ctx.setVa(this.shader3D,"vTextCoord",2,mesh.uvBuffer);
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
@@ -104,7 +108,7 @@ public class Display3dMovie extends Display3DSprite {
         this.modeMatrix=new Matrix3D();
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
- 
+
     }
     private  void setMeshVc(MeshData mesh)
     {
@@ -118,20 +122,34 @@ public class Display3dMovie extends Display3DSprite {
             return;
         }
         this.curentFrame=0;
-
-
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
 
+        dualQuatFrame.quatArr.set(0+4*5,1.0f);
+        dualQuatFrame.quatArr.set(1+4*5,0.0f);
+        dualQuatFrame.quatArr.set(2+4*5,0.0f);
 
-        Log.d(TAG, "dd");
+        if(dualQuatFrame.boneDarrBuff==null){
+            dualQuatFrame.boneDarrBuff=this.upGpuvertexBufferbbb(dualQuatFrame.quatArr);
+        }
+        if(dualQuatFrame.boneQarrBuff==null){
+            dualQuatFrame.boneQarrBuff=this.upGpuvertexBufferbbb(dualQuatFrame.posArr);
+        }
+        Context3D ctx=this.scene3d.context3D;
+        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneDarrBuff);
+        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneQarrBuff);
 
 
-
-    /*
-    [context3D setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
-    [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
-         */
-
+    }
+    public FloatBuffer upGpuvertexBufferbbb(List<Float> data){
+        int size=data.size();
+        ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
+        buffer.order(ByteOrder.nativeOrder());
+        FloatBuffer verBuff=buffer.asFloatBuffer();
+        for (int i=0;i<size;i++){
+            verBuff.put(data.get(i));
+        }
+        verBuff.position(0);
+        return verBuff;
 
     }
     private  void setVaCompress(MeshData mesh)
