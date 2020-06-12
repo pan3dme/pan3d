@@ -52,7 +52,7 @@ public class MaterialAnimShader extends Shader3D {
 
                     "v0=v2Uv;\n"+
                     "vec4 vt0 = getQDdata(vec3(pos.x,pos.y,pos.z));\n"+
-                    "gl_Position = vpMatrix3D*vec4(vt0.xyz,1);\n"+
+                    "gl_Position =posMatrix *vpMatrix3D*vec4(vt0.xyz,1);\n"+
 
                 "}";
 
@@ -66,11 +66,11 @@ public class MaterialAnimShader extends Shader3D {
                 "varying vec2 v0;\n"+
                 "varying vec4 outcolor;\n"+
                 "void main() {\n"+
-
-                "vec4 aa =texture2D(fs0,v0);\n"+
-                "vec4 bb =vec4(1,0,1,1);\n"+
-//                "vec4 cc =vec4(outcolor.xyz,1);\n"+
-                "gl_FragColor= aa;\n"+
+                    "vec4 infoUvf =texture2D(fs0,v0);\n"+
+                    "if (infoUvf.w <= 0.5) {\n"+
+                         "discard;\n"+
+                    "};\n"+
+                    "gl_FragColor= infoUvf;\n"+
                 "}";
 
         return fragment;

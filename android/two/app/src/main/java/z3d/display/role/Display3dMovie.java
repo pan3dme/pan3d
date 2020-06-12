@@ -113,14 +113,17 @@ public class Display3dMovie extends Display3DSprite {
     {
         Context3D ctx=this.scene3d.context3D;
         this.modeMatrix=new Matrix3D();
-        this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
+        this.modeMatrix.appendScale(0.51f,0.51f,0.51f);
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
     }
     private  void setMeshVc(MeshData mesh)
     {
-
+        //death -> {AnimData@9698}
+        //walk
+        //stand -> {AnimData@9702}
+        this.curentAction="stand";
         AnimData  animData;
         if (this.animDic.containsKey(this.curentAction)) {
             animData = (AnimData)this.animDic.get(this.curentAction);
