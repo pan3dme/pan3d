@@ -19,8 +19,6 @@ import urlhttp.UrlHttpUtil;
 import z3d.base.ByteArray;
 
 import z3d.base.Scene_data;
-import z3d.display.role.Display3dMovieShader;
-import z3d.program.ProgrmaManager;
 
 
 public class LoaderThread

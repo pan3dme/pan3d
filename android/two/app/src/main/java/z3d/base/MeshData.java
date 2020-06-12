@@ -1,17 +1,13 @@
 package z3d.base;
 
-import android.util.Log;
-
 import java.nio.FloatBuffer;
 import java.util.List;
 
-import z3d.display.role.Display3dMovieShader;
 import z3d.material.Material;
 import z3d.material.MaterialBackFun;
 import z3d.material.MaterialBaseParam;
 import z3d.material.MaterialManager;
 import z3d.program.MaterialAnimShader;
-import z3d.program.ProgrmaManager;
 import z3d.vo.BindParticle;
 
 public class MeshData extends ObjData {

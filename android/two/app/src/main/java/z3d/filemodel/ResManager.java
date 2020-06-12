@@ -2,13 +2,9 @@ package z3d.filemodel;
 
 import android.util.Log;
 
-import java.util.HashMap;
-
 import z3d.base.CallBackFun;
 import z3d.base.ResGC;
 import z3d.base.RoleBackFun;
-import z3d.display.role.Display3dMovieShader;
-import z3d.program.ProgrmaManager;
 import z3d.res.RoleRes;
 
 public class ResManager extends ResGC {

@@ -87,8 +87,10 @@ public class Display3dMovie extends Display3DSprite {
         ctx.setProgame(this.md5shader3D.program);
         this.setVc();
         ctx.setVa(this.md5shader3D,"vPosition",3,mesh.vertexBuffer);
+        ctx.setVa(this.md5shader3D,"vTextCoord",2,mesh.uvBuffer);
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
         GLES20.glDisableVertexAttribArray(0);
+        GLES20.glDisableVertexAttribArray(1);
 
     }
     protected void setVc()
