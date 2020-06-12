@@ -45,6 +45,7 @@ public class Display3dMovie extends Display3DSprite {
     public  Display3dMovie()
     {
         this.meshVisible=true;
+        this.curentFrame=0;
     }
     public void  setRoleUrl(String url)
     {
@@ -91,6 +92,9 @@ public class Display3dMovie extends Display3DSprite {
 
         this.shader3D=mesh.material.shader;
         Context3D ctx=this.scene3d.context3D;
+        ctx.setDepthTest(true);
+        ctx.setWriteDepth(true);
+
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         this.setMaterialTexture(mesh.material,mesh.materialParam);
@@ -102,12 +106,14 @@ public class Display3dMovie extends Display3DSprite {
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
 
 
+
     }
 
     protected void setVc()
     {
         Context3D ctx=this.scene3d.context3D;
         this.modeMatrix=new Matrix3D();
+        this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
@@ -123,12 +129,11 @@ public class Display3dMovie extends Display3DSprite {
         } else {
             return;
         }
-        this.curentFrame=0;
+        this.curentFrame++;
+        if( this.curentFrame>animData.boneQPAry.get(mesh.uid).size()-1){
+            this.curentFrame=0;
+        }
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
-
-//        dualQuatFrame.quatArr.set(0+4*5,0.0f);
-//        dualQuatFrame.quatArr.set(1+4*5,0.0f);
-//        dualQuatFrame.quatArr.set(2+4*5,1.0f);
 
         if(dualQuatFrame.boneDarrBuff==null){
             dualQuatFrame.boneDarrBuff=this.upGpuvertexBufferbbb(dualQuatFrame.quatArr);

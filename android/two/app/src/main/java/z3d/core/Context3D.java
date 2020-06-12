@@ -29,6 +29,25 @@ public class Context3D {
         GLES20.glVertexAttribPointer(a1,dataWidth, GLES20.GL_FLOAT, false, dataWidth*4, dataBuffer);
     }
 
+    public  void  setDepthTest(boolean tf)
+    {
+        if(tf){
+            GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+        }else
+        {
+            GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+        }
+    }
+    public  void  setWriteDepth(boolean tf)
+    {
+        if(tf){
+            GLES20.glDepthFunc(GLES20.GL_LESS);
+        }else
+        {
+            GLES20.glDepthFunc(GLES20.GL_LESS);
+        }
+    }
+
     public void  setRenderTexture(Shader3D shader3D,String name,int texTureId,int level)
     {
         int textureSlot= GLES20.glGetUniformLocation(shader3D.program,name);
@@ -72,25 +91,13 @@ public class Context3D {
     }
     public void  setVc4fv(Shader3D shader3d, String name,int count , FloatBuffer m)
     {
-
         GLES20.glUniform4fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);
-
     }
     public void  setVc3fv(Shader3D shader3d, String name,int count , FloatBuffer m)
     {
-
         GLES20.glUniform3fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);
-
     }
 
-
-
-
-//    -(void)setVc4fv:(Shader3D*)shader name:(GLchar*)name data:(GLfloat*)data len:(int)len;
-//    {
-//        glUniform4fv( glGetUniformLocation( shader.program, name), len, data);
-//
-//    }
     public void drawCall(ShortBuffer dataBuffer, int num)
     {
 
