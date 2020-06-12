@@ -90,11 +90,10 @@ public class Display3dMovie extends Display3DSprite {
         Context3D ctx=this.scene3d.context3D;
         ctx.setProgame(this.shader3D.program);
         this.setVc();
+        this.setMaterialTexture(mesh.material,mesh.materialParam);
         ctx.setVa(this.shader3D,"vPosition",3,mesh.vertexBuffer);
         ctx.setVa(this.shader3D,"vTextCoord",2,mesh.uvBuffer);
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
-
-
 
 
     }
@@ -105,7 +104,7 @@ public class Display3dMovie extends Display3DSprite {
         this.modeMatrix=new Matrix3D();
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-
+ 
     }
     private  void setMeshVc(MeshData mesh)
     {

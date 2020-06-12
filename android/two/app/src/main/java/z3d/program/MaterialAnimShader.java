@@ -26,9 +26,13 @@ public class MaterialAnimShader extends Shader3D {
     }
     public String getFragmentShaderString() {
         String fragment ="precision mediump float;\n"+
+                "uniform sampler2D fs0;\n"+
                 "varying vec2 v0;\n"+
                 "void main() {\n"+
-                "gl_FragColor= vec4(1,0,1,1);\n"+
+
+                "vec4 aa =texture2D(fs0,v0);\n"+
+                "vec4 bb =vec4(1,0,1,1);\n"+
+                "gl_FragColor= aa;\n"+
                 "}";
 
         return fragment;
