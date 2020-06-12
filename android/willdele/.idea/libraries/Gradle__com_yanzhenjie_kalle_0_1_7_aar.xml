@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.yanzhenjie:kalle:0.1.7@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/185ac27bb3134cb841d4f993db44ac87/jetified-kalle-0.1.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/185ac27bb3134cb841d4f993db44ac87/jetified-kalle-0.1.7/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yanzhenjie/kalle/0.1.7/c9cf02100f42486329ac606aaa4c715078fcf536/kalle-0.1.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yanzhenjie/kalle/0.1.7/48830dbf351e586c15df6ba0bd923f4414947d2a/kalle-0.1.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
