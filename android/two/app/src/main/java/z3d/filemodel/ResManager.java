@@ -2,8 +2,6 @@ package z3d.filemodel;
 
 import android.util.Log;
 
-import java.util.HashMap;
-
 import z3d.base.CallBackFun;
 import z3d.base.ResGC;
 import z3d.base.RoleBackFun;
@@ -34,9 +32,6 @@ public class ResManager extends ResGC {
             }
         });
 
-//    [roleRes load:url fun:^(NSString *localPath) {
-//        fun(roleRes);
-//    }];
 
     }
 }

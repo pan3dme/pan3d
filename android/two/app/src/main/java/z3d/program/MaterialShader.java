@@ -3,7 +3,7 @@ package z3d.program;
 import android.util.Log;
 
 public class MaterialShader extends  Shader3D {
-    public  static  String shaderStr="MaterialShader";
+    public  static  String shaderNameStr="MaterialShader";
     public String getVertexShaderString() {
 
         String vertex= "attribute vec3 vPosition;\n"+

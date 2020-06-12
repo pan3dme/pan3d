@@ -24,6 +24,7 @@ import z3d.base.Scene_data;
 import z3d.base.SkillBackFun;
 import z3d.display.BuildDisplay3DSprite;
 import z3d.display.Display3DSprite;
+import z3d.display.basedis.DisplayTestSprite;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
@@ -79,11 +80,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         GridLineSprite dic=new GridLineSprite();
         dic.scene3d=this.scene3D;
         this.scene3D.addDisplay(dic);
-        this.sceneRes = new SceneRes();
-        Display3DSprite b=new Display3DSprite();
-        b.scene3d=this.scene3D;
 
-       this.loadSeneBase();
+//        DisplayTestSprite b=new DisplayTestSprite();
+//        b.scene3d=this.scene3D;
+//        this.scene3D.addDisplay(b);
+
+//       this.loadSeneBase();
         this.addRoleToScene();
 
     }
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             byte[] buffer = new byte[lenght];
             //将文件中的数据读到byte数组中
             in.read(buffer);
+            this.sceneRes = new SceneRes();
             this.sceneRes.loadComplete(new ByteArray(buffer) ,new CallBackFun() {
                 @Override
                 public void StateChange(boolean State) {

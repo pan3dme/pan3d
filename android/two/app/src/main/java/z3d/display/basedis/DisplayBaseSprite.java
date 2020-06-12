@@ -93,7 +93,6 @@ public class DisplayBaseSprite extends Display3D {
             ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
 
 
-            GLES20.glDisableVertexAttribArray(0);
         }
 
 

@@ -49,28 +49,7 @@ public class SkinMesh extends ResCount {
         $mesh.uid = this.meshAry.size();
         this.meshAry.add($mesh);
     }
-    public void  loadMaterial()
-    {
-        for (int i = 0; i < this.meshAry.size(); i++){
-            this.loadByteMeshDataMaterial(this.meshAry.get(i),null);
-        }
-    }
-    private void loadByteMeshDataMaterial(final MeshData meshData, CallBackFun backFun)
-    {
-        meshData.material=new Material();
-        /*
-        MaterialManager.getInstance().getMaterialByte( meshData.materialUrl, new MaterialBackFun() {
-            @Override
-            public void Bfun(Material value) {
-                meshData.material=value;
-                meshData.materialParam =new MaterialBaseParam();
-                meshData.materialParam.setData(value,meshData.materialParamData);
 
-            }
-        }, MaterialAnimShader.shaderStr,new MaterialAnimShader());
-
-         */
-    }
 
     public  void  setAction(List<String> actionAry,String roleUrl )
     {
