@@ -43,37 +43,17 @@ public class Display3dMovie extends Display3DSprite {
     }
     public void  setRoleUrl(String url)
     {
-
-
         MeshDataManager.getInstance().getMeshData(url, new SkinMeshBackFun() {
             @Override
             public void Bfun(SkinMesh value) {
-
                 skinMesh=value;
                 fileScale=skinMesh.fileScale;
                 animDic = skinMesh.animDic;
-
-                for (int i = 0; i <  skinMesh.meshAry.size(); i++) {
-                    skinMesh.meshAry.get(i).upToGup();
-                }
-
-                onMeshLoaded();
                 updateMatrix();
 
             }
         }, 1);
 
-    }
-   final protected void onMeshLoaded()
-    {
-//
-
-    }
-    protected void  registetProgame()
-    {
-
-        ProgrmaManager.getInstance().registe(MaterialAnimShader.shaderStr,new MaterialAnimShader());
-        this.md5shader3D=ProgrmaManager.getInstance().getProgram(MaterialAnimShader.shaderStr);
     }
 
     @Override
@@ -92,37 +72,23 @@ public class Display3dMovie extends Display3DSprite {
     }
     private  Display3DSprite tempBaseTextDis;
 
-
     protected void  updateMaterialMesh(MeshData mesh)
     {
-        if (mesh.material==null||mesh.vertexBuffer==null) {
+        if(!mesh.isCompile){
+            mesh.AsyncCxtDtata();
+            return;
+        }
+        if (mesh.material==null ) {
             Log.d(TAG, "没有: ");
             return;
         }
-        if(this.tempBaseTextDis==null){
-            this.tempBaseTextDis=new Display3DSprite();
-            this.tempBaseTextDis.scene3d=this.scene3d;
-        }
-
-
-
-        if(this.md5shader3D!=null){
-
-//               this.tempBaseTextDis.upFrame();
-
-
-            Context3D ctx=this.scene3d.context3D;
-            ctx.setProgame(this.md5shader3D.program);
-            this.setVc();
-            ctx.setVa(this.md5shader3D,"vPosition",3,mesh.vertexBuffer);
-            ctx.drawCall(mesh.indexBuffer,mesh.treNum);
-            GLES20.glDisableVertexAttribArray(0);
-
-
-
-
-
-        }
+        this.md5shader3D=mesh.material.shader;
+        Context3D ctx=this.scene3d.context3D;
+        ctx.setProgame(this.md5shader3D.program);
+        this.setVc();
+        ctx.setVa(this.md5shader3D,"vPosition",3,mesh.vertexBuffer);
+        ctx.drawCall(mesh.indexBuffer,mesh.treNum);
+        GLES20.glDisableVertexAttribArray(0);
 
     }
     protected void setVc()

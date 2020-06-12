@@ -28,7 +28,7 @@ public class MaterialAnimShader extends Shader3D {
         String fragment ="precision mediump float;\n"+
                 "varying vec2 v0;\n"+
                 "void main() {\n"+
-                "gl_FragColor= vec4(1.0,0.5,0.4,1.0);\n"+
+                "gl_FragColor= vec4(0.0,0,1,1.0);\n"+
                 "}";
 
         return fragment;
