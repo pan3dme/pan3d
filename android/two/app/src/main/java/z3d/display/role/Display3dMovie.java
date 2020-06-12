@@ -137,31 +137,15 @@ public class Display3dMovie extends Display3DSprite {
             this.curentFrame=0;
         }
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
+        dualQuatFrame.upToGpu();
 
-        if(dualQuatFrame.boneDarrBuff==null){
-            dualQuatFrame.boneDarrBuff=this.upGpuvertexBufferbbb(dualQuatFrame.quatArr);
-        }
-        if(dualQuatFrame.boneQarrBuff==null){
-            dualQuatFrame.boneQarrBuff=this.upGpuvertexBufferbbb(dualQuatFrame.posArr);
-        }
         Context3D ctx=this.scene3d.context3D;
         ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneDarrBuff);
         ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneQarrBuff);
 
 
     }
-    public FloatBuffer upGpuvertexBufferbbb(List<Float> data){
-        int size=data.size();
-        ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
-        buffer.order(ByteOrder.nativeOrder());
-        FloatBuffer verBuff=buffer.asFloatBuffer();
-        for (int i=0;i<size;i++){
-            verBuff.put(data.get(i));
-        }
-        verBuff.position(0);
-        return verBuff;
 
-    }
     private  void setVaCompress(MeshData mesh)
     {
 
