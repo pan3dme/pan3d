@@ -5,6 +5,7 @@ package z3d.res;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.ByteArray;
@@ -12,16 +13,48 @@ import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
+import z3d.base.RoleBackFun;
+import z3d.units.LoadBackFun;
+import z3d.units.LoadManager;
 
 public class GroupRes extends BaseRes {
 
     public List<GroupItem> dataAry ;
     private GroupBackFun groupBackFun;
-    public void  loadComplete(byte[] buff, GroupBackFun bfun)
+    private  String TAG="baseres";
+    public  void  load(String url,final CallBackFun backFun)
+    {
+        LoadManager.getInstance().loadUrl(url,LoadManager.BYTE_TYPE, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap dic) {
+                if(dic!=null){
+
+                    ByteArray temp=(ByteArray)dic.get("byte");
+                    Log.d(TAG, "bfun");
+
+                    loadComplete((ByteArray) dic.get("byte"), new GroupBackFun() {
+                        @Override
+                        public void Bfun(GroupRes value) {
+                            backFun.StateChange(true);
+                        }
+                    });
+
+
+
+                }else{
+                    Log.d(TAG, "bfun: 角色地址错误");
+                }
+
+
+            }
+        },null);
+
+    }
+    public void  loadComplete(ByteArray buff, GroupBackFun bfun)
     {
 
         this.groupBackFun=bfun;
-        this._byte =new ByteArray(buff);
+        this._byte =buff;
 
         this.version = this._byte.readInt();
         Log.d("GroupRes ->",   this.version+"===> " );
@@ -32,6 +65,7 @@ public class GroupRes extends BaseRes {
             }
         });//img
     }
+
     private void   readNext() {
         this.read();//obj
         this.read();//material

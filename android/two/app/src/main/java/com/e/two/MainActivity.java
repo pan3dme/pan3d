@@ -28,6 +28,7 @@ import z3d.display.basedis.DisplayTestSprite;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
+import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.ParticleManager;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
@@ -79,32 +80,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.scene3D=new Scene3D();
         GridLineSprite dic=new GridLineSprite();
         dic.scene3d=this.scene3D;
-        this.scene3D.addDisplay(dic);
+//        this.scene3D.addDisplay(dic);
 
 //        DisplayTestSprite b=new DisplayTestSprite();
 //        b.scene3d=this.scene3D;
 //        this.scene3D.addDisplay(b);
 
-       this.loadSeneBase();
-        this.addRoleToScene();
+//        this.loadSeneBase();
+//        this.addRoleToScene();
+        this.playLyf();
 
     }
+    private void   playLyf()
+    {
+        String url="model/levelup_lyf.txt";
+        GroupDataManager.getInstance().getGroupData(url, new GroupBackFun() {
+            @Override
+            public void Bfun(GroupRes groupRes) {
+
+
+                for (int i = 0; i < groupRes.dataAry.size(); i++) {
+                    GroupItem item =  groupRes.dataAry.get(i);
+                    if (item.types ==BaseRes.SCENE_PARTICLE_TYPE) {
+
+              //  [particleManager addParticle:particle];
+                    //    CombineParticle  particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
+
+                        Log.d("TAG", "Bfun: ");
+
+                    } else {
+                        Log.d("播放的不是单纯特效", "Bfun: ");
+                    }
+                }
+            }
+        });
+    }
+
     private void  addRoleToScene()
     {
-//                [self addRoleToScene:@"50004" pos:[[Vector3D alloc]x:-40 y:0 z:0]];
-//        [self addRoleToScene:@"50005" pos:[[Vector3D alloc]x:-60 y:0 z:0]];
-//        [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
-        Display3dMovie sc=new Display3dMovie();
-        sc.scene3d=this.scene3D;
-//        sc.setRoleUrl("role/yezhuz.txt");
+        //        sc.setRoleUrl("role/yezhuz.txt");
 //        sc.setRoleUrl("role/50004.txt");
 //        sc.setRoleUrl("role/50005.txt");
 //        sc.setRoleUrl("role/50005.txt");
 //        sc.setRoleUrl("role/50011.txt");
+
+
+        Display3dMovie sc=new Display3dMovie();
+        sc.scene3d=this.scene3D;
+
+
         sc.setRoleUrl("role/yezhuz.txt");
         scene3D.addMovieDisplay(sc);
 
+
+
     }
+
+
     private void loadSeneBase()
     {
 
@@ -138,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             JSONArray buildItem=    this.sceneRes.sceneData.getJSONArray("buildItem");
             for(int i=0;i<buildItem.length();i++){
-              this.parsingBuildItem((JSONObject)buildItem.get(i));
+                this.parsingBuildItem((JSONObject)buildItem.get(i));
             }
         } catch (Exception e) {
             e.printStackTrace();
