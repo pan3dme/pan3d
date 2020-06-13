@@ -1,5 +1,6 @@
 package z3d.display.particle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import z3d.vo.Matrix3D;
@@ -30,6 +31,12 @@ public class CombineParticle {
     public boolean sceneVisible;
     public boolean dynamic;
     public boolean hasDestory;
+
+
+    public  CombineParticle()
+    {
+        this.displayAry=new ArrayList<>();
+    }
 
     public void addPrticleItem(Display3DParticle dis) {
         dis.visible = false;

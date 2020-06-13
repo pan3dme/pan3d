@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.ByteArray;
+import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
+import z3d.display.particle.ctrl.TimeLine;
 import z3d.vo.Matrix3D;
 import z3d.vo.ParicleRandomColorVo;
 import z3d.vo.Vector3D;
@@ -78,6 +80,12 @@ public class ParticleBallData extends ParticleData {
         this._lixinForce=new Vector3D();
         this._particleRandomScale=new Vector3D();
 
+    }
+
+    @Override
+    public Display3DParticle creatPartilce() {
+
+        return new Display3DBallPartilce();
     }
 
     public void setAllByteInfo(ByteArray $byte) {

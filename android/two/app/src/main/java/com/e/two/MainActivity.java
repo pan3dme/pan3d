@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     GroupItem item =  groupRes.dataAry.get(i);
                     if (item.types ==BaseRes.SCENE_PARTICLE_TYPE) {
 
-              //  [particleManager addParticle:particle];
-                    //    CombineParticle  particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
+
+                       CombineParticle  particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
 
                         Log.d("TAG", "Bfun: ");
 
