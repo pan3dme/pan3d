@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        b.scene3d=this.scene3D;
 //        this.scene3D.addDisplay(b);
 
-//        this.loadSeneBase();
-//        this.addRoleToScene();
+        this.loadSeneBase();
+        this.addRoleToScene();
         this.playLyf();
 
     }
@@ -102,10 +102,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 for (int i = 0; i < groupRes.dataAry.size(); i++) {
                     GroupItem item =  groupRes.dataAry.get(i);
                     if (item.types ==BaseRes.SCENE_PARTICLE_TYPE) {
-
-
+//          [particleManager addParticle:particle];
+                        ParticleManager particleManager=scene3D.particleManager;
                        CombineParticle  particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
-
+                        particleManager.addParticle(particle);
                         Log.d("TAG", "Bfun: ");
 
                     } else {

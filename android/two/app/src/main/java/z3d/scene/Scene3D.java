@@ -10,18 +10,21 @@ import z3d.base.ResGC;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
 import z3d.display.role.Display3dMovie;
+import z3d.filemodel.ParticleManager;
 
 public class Scene3D extends ResGC {
     public Context3D context3D;
     public Camera3D camera3D;
     public List<Display3D> displayList;
     public List<Display3dMovie> displayRoleList;
+    public ParticleManager particleManager;
 
     public Scene3D( ){
         this.context3D=new Context3D();
         this.camera3D=new Camera3D();
         this.displayList=new ArrayList<>();
         this.displayRoleList=new ArrayList<>();
+        this.particleManager=new ParticleManager();
     }
     public  void  clearAll()
     {
@@ -40,6 +43,7 @@ public class Scene3D extends ResGC {
         for(int i=0; i< displayRoleList.size();i++){
             displayRoleList.get(i).upFrame();
         }
+         this.particleManager.upFrame();
     }
     public  void resizeScene()
     {

@@ -1,5 +1,7 @@
 package z3d.display.particle;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +37,7 @@ public class CombineParticle {
 
     public  CombineParticle()
     {
+        this._time=0;
         this.displayAry=new ArrayList<>();
     }
 
@@ -44,4 +47,26 @@ public class CombineParticle {
         this.displayAry.add(dis);
 
     }
+    private String TAG="dd";
+    public  void updateTime(float t)
+    {
+
+
+        this._time+=t;
+
+        for(int i=0;i<this.displayAry.size();i++)
+        {
+            this.displayAry.get(i).updateTime(this._time);
+        }
+    }
+
+    public  void  upframe()
+    {
+
+        for(int i=0;i<this.displayAry.size();i++)
+        {
+            this.displayAry.get(i).upframe();
+        }
+    }
+
 }

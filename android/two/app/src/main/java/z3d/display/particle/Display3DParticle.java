@@ -47,4 +47,12 @@ public class Display3DParticle extends Object3D {
     {
 
     }
+     public void updateTime(float t)
+    {
+
+    }
+    public void upframe()
+    {
+
+    }
 }

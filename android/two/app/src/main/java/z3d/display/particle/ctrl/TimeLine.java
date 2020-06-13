@@ -1,5 +1,6 @@
 package z3d.display.particle.ctrl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TimeLine {
@@ -8,7 +9,7 @@ public class TimeLine {
     public float maxFrameNum;
     private KeyFrame _currentKeyFrame;//当前操作的关键帧
     private float _currentFrameNum;//当前帧数
-    private float _time;//播放时间
+    public float time;//播放时间
     private  float targetFlag;
     public boolean visible;
     public  float beginTime;
@@ -20,6 +21,14 @@ public class TimeLine {
     private ScaleAnim _scaleAnim;
     private ScaleNoise _scaleNosie;
 
+    public  TimeLine()
+    {
+        this.keyFrameAry=new ArrayList<>();
+        this.targetFlag = -1;
+        this.visible = false;
+        this.maxFrameNum = 0;
+        this.time = 0;
+    }
     public void setAllDataInfo(TimeLineData $data)
     {
         this.isByteData = true;

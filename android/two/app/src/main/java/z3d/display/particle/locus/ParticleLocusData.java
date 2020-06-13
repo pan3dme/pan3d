@@ -6,6 +6,7 @@ import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
+import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
 import z3d.res.BaseRes;
 import z3d.vo.Float32Array;
@@ -72,6 +73,12 @@ public class ParticleLocusData extends ParticleData {
         this.vcmatData = new Float32Array(Display3DLocusShader.getVcSize() * 16);
 
     }
+
+    @Override
+    public Display3DParticle getParticle() {
+        return new Display3DLocusPartilce();
+    }
+
     public void initUV() {
         this._resultUvVec = new Vector3D(0,0,0);
 
