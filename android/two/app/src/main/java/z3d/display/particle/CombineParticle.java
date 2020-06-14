@@ -42,7 +42,7 @@ public class CombineParticle {
     }
 
     public void addPrticleItem(Display3DParticle dis) {
-        dis.visible = false;
+        dis.visible = true;
         dis.setBind(this.bindVecter3d, this.bindMatrix, this.bindScale, this.invertBindMatrix, this.groupMatrix);
         this.displayAry.add(dis);
 

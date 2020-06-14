@@ -81,13 +81,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         GridLineSprite dic=new GridLineSprite();
         dic.scene3d=this.scene3D;
 //        this.scene3D.addDisplay(dic);
-
 //        DisplayTestSprite b=new DisplayTestSprite();
 //        b.scene3d=this.scene3D;
 //        this.scene3D.addDisplay(b);
 
-        this.loadSeneBase();
-        this.addRoleToScene();
+//        this.loadSeneBase();
+//        this.addRoleToScene();
         this.playLyf();
 
     }
