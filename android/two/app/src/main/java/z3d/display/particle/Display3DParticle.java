@@ -1,5 +1,7 @@
 package z3d.display.particle;
 
+import android.util.Log;
+
 import z3d.base.Object3D;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
@@ -27,6 +29,7 @@ public class Display3DParticle extends Display3D {
     public Vector3D groupScale;
     public Vector3D groupRotation;
 
+    private String  TAG="Display3DParticle";
     public Display3DParticle()
     {
 
@@ -55,7 +58,7 @@ public class Display3DParticle extends Display3D {
     public void upframe()
     {
 
-        if (this.visible){
+        if (this.visible&& this.data!=null){
             if( this.data.materialParam!=null){
                 Context3D ctx=this.scene3d.context3D;
 
@@ -67,6 +70,9 @@ public class Display3DParticle extends Display3D {
                 this.resetVa();
 
             }
+        }else
+        {
+            Log.d(TAG, "upframe: ");
         }
 
     }

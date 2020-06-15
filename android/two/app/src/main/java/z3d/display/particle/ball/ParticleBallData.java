@@ -82,10 +82,10 @@ public class ParticleBallData extends ParticleData {
 
     }
 
-    @Override
-    public Display3DParticle creatPartilce() {
 
-        return new Display3DBallPartilce();
+    @Override
+    public Display3DParticle getParticle() {
+        return  new Display3DBallPartilce();
     }
 
     public void setAllByteInfo(ByteArray $byte) {
