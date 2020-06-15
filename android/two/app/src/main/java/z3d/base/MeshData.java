@@ -59,7 +59,7 @@ public class MeshData extends ObjData {
                     materialParam = new MaterialBaseParam();
                     materialParam.setData(value, that.materialParamData);
                 }
-            }, MaterialAnimShader.shaderNameStr, new MaterialAnimShader());
+            },true, MaterialAnimShader.shaderNameStr, new MaterialAnimShader());
 
 
 

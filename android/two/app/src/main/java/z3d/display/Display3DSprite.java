@@ -191,7 +191,7 @@ public   class Display3DSprite extends Display3D {
                     materialParam.setData(material,paramData);
                 }
             }
-        }, MaterialShader.shaderNameStr,new MaterialShader());
+        },true, MaterialShader.shaderNameStr,new MaterialShader());
 //} info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 
     }

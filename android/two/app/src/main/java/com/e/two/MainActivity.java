@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        b.scene3d=this.scene3D;
 //        this.scene3D.addDisplay(b);
 
-//        this.loadSeneBase();
-//        this.addRoleToScene();
-        this.playLyf();
+        this.loadSeneBase();
+        this.addRoleToScene();
+//        this.playLyf();
 
     }
     private void   playLyf()

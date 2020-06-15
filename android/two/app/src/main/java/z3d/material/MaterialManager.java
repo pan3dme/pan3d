@@ -79,7 +79,10 @@ public class MaterialManager extends ResGC {
 
 
     }
-    public void getMaterialByte(String url, MaterialBackFun materialBfun,String resName ,Shader3D shader3DCls )
+
+ //   -(void)getMaterialByte:(NSString*)url fun:(SuccessMaterial)fun info:(NSDictionary*)info autoReg:(BOOL)autoReg regName:(NSString*)regName shader3DCls:(NSObject*)shader3DCls;
+
+    public void getMaterialByte(String url, MaterialBackFun materialBfun,boolean autoReg,String resName ,Shader3D shader3DCls )
     {
         url = url.replace("_byte.txt", ".txt");
         url = url.replace(".txt", "_byte.txt");
@@ -87,7 +90,7 @@ public class MaterialManager extends ResGC {
             materialBfun.Bfun((Material)this.dic.get(url));
             return;
         }
-        MaterialLoad materialLoad=new MaterialLoad(materialBfun,null,url,true,resName,shader3DCls);
+        MaterialLoad materialLoad=new MaterialLoad(materialBfun,null,url,autoReg,resName,shader3DCls);
         if(this.loadDic.containsKey(url)){
             List arr=(List) this.loadDic.get(url);
             arr.add(materialLoad);

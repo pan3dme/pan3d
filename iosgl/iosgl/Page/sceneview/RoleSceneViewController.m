@@ -131,8 +131,8 @@
     }
     if([titleStr isEqualToString:@"特效"]){
     
-         Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
-     //   [self showLyfItems];
+    //     Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+     [self showLyfItems];
         
     }
     if([titleStr isEqualToString:@"技能"]){

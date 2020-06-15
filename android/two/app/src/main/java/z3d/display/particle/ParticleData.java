@@ -132,6 +132,7 @@ public class ParticleData {
     public void set_materialUrl(String value) {
         this._materialUrl = value;
 
+/*
         MaterialManager.getInstance().getMaterialByte(  value, new MaterialBackFun() {
             @Override
             public void Bfun(Material value) {
@@ -139,11 +140,9 @@ public class ParticleData {
                 Log.d(TAG, "Bfun: ");
 
             }
-        },null,null);
+        },false,null,null);
+*/
 
-//          [[MaterialManager default] getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * obj) {
-//        [self onMaterialLoad:(Material*)obj];
-//        } info:nil autoReg:nil regName:nil shader3DCls:nil];
     }
 
     private void readMaterialPara(ByteArray $byte) {
