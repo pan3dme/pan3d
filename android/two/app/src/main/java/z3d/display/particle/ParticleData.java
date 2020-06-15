@@ -1,5 +1,7 @@
 package z3d.display.particle;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,9 @@ import z3d.base.ObjData;
 import z3d.base.Scene_data;
 import z3d.display.particle.ctrl.TimeLine;
 import z3d.display.particle.ctrl.TimeLineData;
+import z3d.material.Material;
+import z3d.material.MaterialBackFun;
+import z3d.material.MaterialManager;
 import z3d.material.MaterialParam;
 import z3d.vo.CurveItemVo;
 import z3d.vo.CurveVo;
@@ -54,6 +59,7 @@ public class ParticleData {
     public TimeLineData timelineData;
     public Vector3D rotationV3d;
     public Vector3D center;
+    public  String TAG="ParticleData";
     public void setAllByteInfo(ByteArray $byte){
 
         this.timelineData = new TimeLineData();
@@ -123,8 +129,21 @@ public class ParticleData {
 
     }
 
-    public void set_materialUrl(String _materialUrl) {
-        this._materialUrl = _materialUrl;
+    public void set_materialUrl(String value) {
+        this._materialUrl = value;
+
+        MaterialManager.getInstance().getMaterialByte(  value, new MaterialBackFun() {
+            @Override
+            public void Bfun(Material value) {
+
+                Log.d(TAG, "Bfun: ");
+
+            }
+        },null,null);
+
+//          [[MaterialManager default] getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * obj) {
+//        [self onMaterialLoad:(Material*)obj];
+//        } info:nil autoReg:nil regName:nil shader3DCls:nil];
     }
 
     private void readMaterialPara(ByteArray $byte) {
