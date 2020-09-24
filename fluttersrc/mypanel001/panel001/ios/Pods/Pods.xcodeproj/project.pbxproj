@@ -1,0 +1,1496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 94078A06C17E946ADC1F2C06726219E5 /* Build configuration list for PBXAggregateTarget "Flutter" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = Flutter;
+		};
+		4847ACB1E2799345AA74D9E317048D58 /* AlipaySDK-iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = BF3E456FC696AC1C9DA23DA25CCD1ADF /* Build configuration list for PBXAggregateTarget "AlipaySDK-iOS" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = "AlipaySDK-iOS";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		07863FF50239B22E51BCC13E1C11567C /* FLTWebViewFlutterPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 481CFC90995DA48185E93B317698AECE /* FLTWebViewFlutterPlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		119693B26A9C89979BDD306A1755FEC6 /* FlutterAlipayPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 926436DCB36E278E7448324C6E0F9B4F /* FlutterAlipayPlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1AD2C8361DEB3FD5056537755BBADE03 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E31232637003E198ED2C85DC81015F3 /* Pods-Runner-dummy.m */; };
+		37DD0ED11D7D971666F0A15CB6022592 /* JavaScriptChannelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDCA5F6A35B63518D4E5A6D08180A9 /* JavaScriptChannelHandler.m */; };
+		49F15DCFDFFD3127236D6253BFC95EFA /* flutter_alipay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5955379894823B977C89EE9FF78A3 /* flutter_alipay-dummy.m */; };
+		4DC939D6ECEAA36436C0BA6DAD7ED7E8 /* FlutterAlipayPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 926BE6E2F073CB36BA26B840130D3048 /* FlutterAlipayPlugin.m */; };
+		4F5C837E4ACB0767A7D76200282A2AF1 /* FLTWKNavigationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 14524C05C079B6C198B5CDCCB170D203 /* FLTWKNavigationDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5EB076F0039A7B562CD2F851FC927D40 /* FlutterWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F57E92D8E4E9F0265BA034B55B4C2B /* FlutterWebView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6FEAA174868EF5DB94AA30AD67209894 /* flutter_alipay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 352199CCF74036AAAEBAC2FE92B47169 /* flutter_alipay-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		84E974EF5911B0F01FE2343E704A8608 /* FLTCookieManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C592F468A7372A63DCAA7338DFB6E9B5 /* FLTCookieManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9EBF4CE3BA8B1284DF43593E7A8A6276 /* FLTWebViewFlutterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B6714BF025D1243071ACCE79AB68F /* FLTWebViewFlutterPlugin.m */; };
+		A3FD2A06868AF1FA278FA98CA5432F88 /* webview_flutter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD4EA32016419135CAF9A7B12FEEDE /* webview_flutter-dummy.m */; };
+		B5B77005A9B406332C224BEDFCD44F4C /* FlutterWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01043B74846C6353C67F83B964C4C50E /* FlutterWebView.m */; };
+		BA983EE17E31ADDD94BA2BFCAD99D739 /* webview_flutter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0019AAA4B05657339B269BF8196BEA2 /* webview_flutter-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DFC2BDF49EDCF60F8BDAB2795DC70170 /* FLTWKNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 600D5A845592FAB351EFB74196C4E746 /* FLTWKNavigationDelegate.m */; };
+		F25B5E01D890A3874E7007F7FAF99341 /* FLTCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3021D958D2C1414308DEA91BB01E8DB /* FLTCookieManager.m */; };
+		F91BD86DE4C6D8AA9F8C69BDC3076D50 /* JavaScriptChannelHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC4E65101F7404604EA23F1FE7A67FC /* JavaScriptChannelHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0CFEB4A0E015C7B22A2986EB8ABBF581 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4847ACB1E2799345AA74D9E317048D58;
+			remoteInfo = "AlipaySDK-iOS";
+		};
+		29909F032C3FCF6FCCFBC2CE9A641635 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+		69D858204DB1118590DEB23C2FE26E8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB484115EA4FF29EB2BFA8861F896957;
+			remoteInfo = flutter_alipay;
+		};
+		72D92D8C6A3BEC2FEBE09A26B37A2C3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C62825B628631BFD7AD90BF817C32BF6;
+			remoteInfo = webview_flutter;
+		};
+		8B73B514C6DE4CA8E180A5143F01A8B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4847ACB1E2799345AA74D9E317048D58;
+			remoteInfo = "AlipaySDK-iOS";
+		};
+		BF59D369FED4A6FB7701D07321A01EE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+		E86C9C609C01817BC4E0E0A65123C11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01043B74846C6353C67F83B964C4C50E /* FlutterWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterWebView.m; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FlutterWebView.m"; sourceTree = "<group>"; };
+		14524C05C079B6C198B5CDCCB170D203 /* FLTWKNavigationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLTWKNavigationDelegate.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FLTWKNavigationDelegate.h"; sourceTree = "<group>"; };
+		15D0FEAF4F24B71C6EC57BE24AB8110B /* Flutter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Flutter.podspec; path = ../../../../../../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		16E27DBA5A78BE15C61E0C9899AEF9A3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/flutter_alipay-1.0.0/LICENSE"; sourceTree = "<group>"; };
+		1C6E4BD4BA8FDC3433226C9D6C6213B2 /* webview_flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = webview_flutter.debug.xcconfig; sourceTree = "<group>"; };
+		26A39580C12D00D508EB51AF8D3090D7 /* webview_flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = webview_flutter.release.xcconfig; sourceTree = "<group>"; };
+		2859C926E1160510EA55C2F907188FF8 /* webview_flutter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "webview_flutter-prefix.pch"; sourceTree = "<group>"; };
+		2CB5F6C8463C776D8372CB53B845031B /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		2F7B1C03A7D95CFD5EB7FD931D8737DD /* AlipaySDK-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AlipaySDK-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		2F9E4A4DFBB3FA382E47DEEF13A9ED68 /* libwebview_flutter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libwebview_flutter.a; path = libwebview_flutter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		352199CCF74036AAAEBAC2FE92B47169 /* flutter_alipay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_alipay-umbrella.h"; sourceTree = "<group>"; };
+		37D45D4068C282E9C6E46646B542088A /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
+		38001A78009EBCC8605DA39400E948DD /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = ../../../../../../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework; sourceTree = "<group>"; };
+		3C005CF0E7E38CE68190BD27174FC372 /* webview_flutter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = webview_flutter.podspec; path = "../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/webview_flutter.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3CCD4EA32016419135CAF9A7B12FEEDE /* webview_flutter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "webview_flutter-dummy.m"; sourceTree = "<group>"; };
+		3FBDCA5F6A35B63518D4E5A6D08180A9 /* JavaScriptChannelHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JavaScriptChannelHandler.m; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/JavaScriptChannelHandler.m"; sourceTree = "<group>"; };
+		430CAC87F0F2BCC6E189C017CE4AE070 /* libflutter_alipay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libflutter_alipay.a; path = libflutter_alipay.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		481CFC90995DA48185E93B317698AECE /* FLTWebViewFlutterPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLTWebViewFlutterPlugin.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FLTWebViewFlutterPlugin.h"; sourceTree = "<group>"; };
+		49E860841B79F979EEC14EE7F5E70D7D /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		4A1B6714BF025D1243071ACCE79AB68F /* FLTWebViewFlutterPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLTWebViewFlutterPlugin.m; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FLTWebViewFlutterPlugin.m"; sourceTree = "<group>"; };
+		4BD5955379894823B977C89EE9FF78A3 /* flutter_alipay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_alipay-dummy.m"; sourceTree = "<group>"; };
+		5F050EB8C2A6EE0A2CCE0279E1D44D10 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/LICENSE"; sourceTree = "<group>"; };
+		600D5A845592FAB351EFB74196C4E746 /* FLTWKNavigationDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLTWKNavigationDelegate.m; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FLTWKNavigationDelegate.m"; sourceTree = "<group>"; };
+		669E8F25E1897672BDB80B7EB784DA24 /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Runner.a"; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E2583F07C5A2617CD8C12D9ECEE81EE /* Flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter.debug.xcconfig; sourceTree = "<group>"; };
+		6E31232637003E198ED2C85DC81015F3 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
+		70A7CBBCA2DE16CDC8DB00C26AB5DEFC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../../../../../../../../../flutter/bin/cache/artifacts/engine/ios/LICENSE; sourceTree = "<group>"; };
+		7B58FC23B04266CB1F063E6C9C03FA26 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		864AB38D88F54A32E61FEF37AD5FD14B /* flutter_alipay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_alipay-prefix.pch"; sourceTree = "<group>"; };
+		91B2C59215FCF23A3053ED3AE2BACF32 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
+		926436DCB36E278E7448324C6E0F9B4F /* FlutterAlipayPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterAlipayPlugin.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/flutter_alipay-1.0.0/ios/Classes/FlutterAlipayPlugin.h"; sourceTree = "<group>"; };
+		926BE6E2F073CB36BA26B840130D3048 /* FlutterAlipayPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterAlipayPlugin.m; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/flutter_alipay-1.0.0/ios/Classes/FlutterAlipayPlugin.m"; sourceTree = "<group>"; };
+		97E5E43DF97F0E8FFC980BD99CEF8EEF /* Flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter.release.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A9266BFAF01348768C30D8BB98D29BD1 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B39840EA37E9B7457EE3DA0EC8EFEEB7 /* flutter_alipay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_alipay.release.xcconfig; sourceTree = "<group>"; };
+		BBE80C2A425B6E905C7EAAB8C25A7D0F /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+		BE6563FBBA88B48E5E9DE8406049A25D /* AlipaySDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		BEE11A587C68544F2F19A8E75AD550AB /* Pods-Runner-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-resources.sh"; sourceTree = "<group>"; };
+		BFC4E65101F7404604EA23F1FE7A67FC /* JavaScriptChannelHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JavaScriptChannelHandler.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/JavaScriptChannelHandler.h"; sourceTree = "<group>"; };
+		C592F468A7372A63DCAA7338DFB6E9B5 /* FLTCookieManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLTCookieManager.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FLTCookieManager.h"; sourceTree = "<group>"; };
+		CA54D57ED4EA71250E743D38619781E6 /* flutter_alipay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = flutter_alipay.modulemap; sourceTree = "<group>"; };
+		CAF2EE562063736CEFE555C06FE790CB /* webview_flutter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = webview_flutter.modulemap; sourceTree = "<group>"; };
+		D4F57E92D8E4E9F0265BA034B55B4C2B /* FlutterWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterWebView.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FlutterWebView.h"; sourceTree = "<group>"; };
+		E0019AAA4B05657339B269BF8196BEA2 /* webview_flutter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "webview_flutter-umbrella.h"; sourceTree = "<group>"; };
+		E3021D958D2C1414308DEA91BB01E8DB /* FLTCookieManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLTCookieManager.m; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios/Classes/FLTCookieManager.m"; sourceTree = "<group>"; };
+		F740DA1BE399808BD55080ACC1B33855 /* flutter_alipay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_alipay.debug.xcconfig; sourceTree = "<group>"; };
+		FBD8CA50C1F6BDD0057BB5E581B19B75 /* flutter_alipay.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_alipay.podspec; path = "../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/flutter_alipay-1.0.0/ios/flutter_alipay.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FEF7C82D4F8C653988173E8DFC948B0F /* AlipaySDK-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AlipaySDK-iOS.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40DD3EC67C3B012E0E07F9FFA3D4DF2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		563B02892FC8469B227E3BBF49488A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D966A1859804B73F55095AE7B50D5BFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01799E329F76048F307504D0B559AC05 /* gitios */ = {
+			isa = PBXGroup;
+			children = (
+				B930E9D8826A3EE155D69CD650780531 /* fluttersrc */,
+			);
+			name = gitios;
+			path = gitios;
+			sourceTree = "<group>";
+		};
+		0323D2A84C7994068F4A998562F8EBE1 /* panel001 */ = {
+			isa = PBXGroup;
+			children = (
+				BC89467AD6A929BE9FCC698070597FDB /* ios */,
+			);
+			name = panel001;
+			path = panel001;
+			sourceTree = "<group>";
+		};
+		0D947E3CAA4E9345810497FCF7A2CA16 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				F1FC0738BF10C8712222268B7EEC3FD2 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/flutter_alipay-1.0.0/ios";
+			sourceTree = "<group>";
+		};
+		113D9FF080DDF084484B3EA853C73479 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1AD8E4CC70F8F3A5B2002CDCAB9895C /* Flutter */,
+				DE1F7C9DD67C3DF84EFD6A49E3CCEAFE /* flutter_alipay */,
+				FD37FF1A3C796DA9BE666AAB46905683 /* webview_flutter */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		153E58E79E1FD5A1E2598D9955FF033D /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				E07D2BAE6FD467DAB93708DB990FA194 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1952442AF580BAECFC5F32686B372718 /* AlipaySDK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3935CED35BF1A1830E78341FFAEE5EE5 /* Frameworks */,
+				894AE93AFEC6BF050D3FCBBF9750FDA3 /* Resources */,
+				D1EF9691CF9C2E323C38757A75BF354B /* Support Files */,
+			);
+			name = "AlipaySDK-iOS";
+			path = "AlipaySDK-iOS";
+			sourceTree = "<group>";
+		};
+		1A3DE7AE8741DB97710D390B50044C3F /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				3210900A479E5CAC259A32AF6E14B687 /* flutter_alipay */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		1EDEB8CBDFEB21E9247CEE5128055248 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				15D0FEAF4F24B71C6EC57BE24AB8110B /* Flutter.podspec */,
+				70A7CBBCA2DE16CDC8DB00C26AB5DEFC /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		2D6DE12905029189B006F959B043C235 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				6A379DC1C457F175581A7BF262D0FCD9 /* webview_flutter */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		2EBA06FD814B52B96746FCF29005F022 /* Pods-Runner */ = {
+			isa = PBXGroup;
+			children = (
+				A9266BFAF01348768C30D8BB98D29BD1 /* Pods-Runner-acknowledgements.markdown */,
+				37D45D4068C282E9C6E46646B542088A /* Pods-Runner-acknowledgements.plist */,
+				6E31232637003E198ED2C85DC81015F3 /* Pods-Runner-dummy.m */,
+				91B2C59215FCF23A3053ED3AE2BACF32 /* Pods-Runner-frameworks.sh */,
+				BEE11A587C68544F2F19A8E75AD550AB /* Pods-Runner-resources.sh */,
+				BBE80C2A425B6E905C7EAAB8C25A7D0F /* Pods-Runner.debug.xcconfig */,
+				49E860841B79F979EEC14EE7F5E70D7D /* Pods-Runner.profile.xcconfig */,
+				2CB5F6C8463C776D8372CB53B845031B /* Pods-Runner.release.xcconfig */,
+			);
+			name = "Pods-Runner";
+			path = "Target Support Files/Pods-Runner";
+			sourceTree = "<group>";
+		};
+		3210900A479E5CAC259A32AF6E14B687 /* flutter_alipay */ = {
+			isa = PBXGroup;
+			children = (
+				ECA904B8CDB20049F87D4E63EF9D77CE /* ios */,
+			);
+			name = flutter_alipay;
+			path = flutter_alipay;
+			sourceTree = "<group>";
+		};
+		37C68D188C00C8EF3712072CBB09A12B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1952442AF580BAECFC5F32686B372718 /* AlipaySDK-iOS */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3935CED35BF1A1830E78341FFAEE5EE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B58FC23B04266CB1F063E6C9C03FA26 /* AlipaySDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C872972FED2BE27D5DB07830D4DF697 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				1A3DE7AE8741DB97710D390B50044C3F /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		4EDB7F5E4530B2614232D2E7FE17E8B0 /* gitios */ = {
+			isa = PBXGroup;
+			children = (
+				6B5C0DCC02DDA59593BA6D525B963E64 /* fluttersrc */,
+			);
+			name = gitios;
+			path = gitios;
+			sourceTree = "<group>";
+		};
+		4F96FA06BD3BA2D3EF25008EAD800283 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38001A78009EBCC8605DA39400E948DD /* Flutter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58A8CF45FF0931C4C76B9DA0D2416CE7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAF2EE562063736CEFE555C06FE790CB /* webview_flutter.modulemap */,
+				3CCD4EA32016419135CAF9A7B12FEEDE /* webview_flutter-dummy.m */,
+				2859C926E1160510EA55C2F907188FF8 /* webview_flutter-prefix.pch */,
+				E0019AAA4B05657339B269BF8196BEA2 /* webview_flutter-umbrella.h */,
+				1C6E4BD4BA8FDC3433226C9D6C6213B2 /* webview_flutter.debug.xcconfig */,
+				26A39580C12D00D508EB51AF8D3090D7 /* webview_flutter.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/webview_flutter";
+			sourceTree = "<group>";
+		};
+		608BC31929EDEA2E545B12982965AF17 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				FBD8CA50C1F6BDD0057BB5E581B19B75 /* flutter_alipay.podspec */,
+				16E27DBA5A78BE15C61E0C9899AEF9A3 /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		669300C906DA11B6B7FD33D6241E8F15 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				EF9AEE0074B7D8AB4DBCFCCDA73366A9 /* Classes */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		6A379DC1C457F175581A7BF262D0FCD9 /* webview_flutter */ = {
+			isa = PBXGroup;
+			children = (
+				669300C906DA11B6B7FD33D6241E8F15 /* ios */,
+			);
+			name = webview_flutter;
+			path = webview_flutter;
+			sourceTree = "<group>";
+		};
+		6B5C0DCC02DDA59593BA6D525B963E64 /* fluttersrc */ = {
+			isa = PBXGroup;
+			children = (
+				BDDD2A38E406D712FAEDEA46FB8DA2FD /* mypanel001 */,
+			);
+			name = fluttersrc;
+			path = fluttersrc;
+			sourceTree = "<group>";
+		};
+		7682BF4A5A335FF8C92570B2325B943C /* panel001 */ = {
+			isa = PBXGroup;
+			children = (
+				DB7E16AD271231F00CB0B69719F0324A /* ios */,
+			);
+			name = panel001;
+			path = panel001;
+			sourceTree = "<group>";
+		};
+		7817131A7F9280AE215D3FF23BCF249E /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				9928283757BE032A9F64BC08A97D42EA /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		894AE93AFEC6BF050D3FCBBF9750FDA3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE6563FBBA88B48E5E9DE8406049A25D /* AlipaySDK.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		95764E43A4F2B550B515868AFC7EAF75 /* mypanel001 */ = {
+			isa = PBXGroup;
+			children = (
+				7682BF4A5A335FF8C92570B2325B943C /* panel001 */,
+			);
+			name = mypanel001;
+			path = mypanel001;
+			sourceTree = "<group>";
+		};
+		9687773BE2E58581B38A54C2584BE0D6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA54D57ED4EA71250E743D38619781E6 /* flutter_alipay.modulemap */,
+				4BD5955379894823B977C89EE9FF78A3 /* flutter_alipay-dummy.m */,
+				864AB38D88F54A32E61FEF37AD5FD14B /* flutter_alipay-prefix.pch */,
+				352199CCF74036AAAEBAC2FE92B47169 /* flutter_alipay-umbrella.h */,
+				F740DA1BE399808BD55080ACC1B33855 /* flutter_alipay.debug.xcconfig */,
+				B39840EA37E9B7457EE3DA0EC8EFEEB7 /* flutter_alipay.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/flutter_alipay";
+			sourceTree = "<group>";
+		};
+		9928283757BE032A9F64BC08A97D42EA /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				CA4754A80BCE5C014C77D902F86D51FB /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A19CAC1DA91633E9D4A4A53A375119F7 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				2D6DE12905029189B006F959B043C235 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		A6AFAC2B62B2459444CFD3E7A24ABEA4 /* Desktop */ = {
+			isa = PBXGroup;
+			children = (
+				01799E329F76048F307504D0B559AC05 /* gitios */,
+			);
+			name = Desktop;
+			path = Desktop;
+			sourceTree = "<group>";
+		};
+		B4806C8430A9C5444243ECC04E7D4040 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5F050EB8C2A6EE0A2CCE0279E1D44D10 /* LICENSE */,
+				3C005CF0E7E38CE68190BD27174FC372 /* webview_flutter.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		B5AD0D71395A17687BC40159E8392E32 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA06FD814B52B96746FCF29005F022 /* Pods-Runner */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B7C8D0756D3DA558AA6747356068AF6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				430CAC87F0F2BCC6E189C017CE4AE070 /* libflutter_alipay.a */,
+				669E8F25E1897672BDB80B7EB784DA24 /* libPods-Runner.a */,
+				2F9E4A4DFBB3FA382E47DEEF13A9ED68 /* libwebview_flutter.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8B139DE6EFFBE001C5DB53566FE43E1 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				A6AFAC2B62B2459444CFD3E7A24ABEA4 /* Desktop */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B930E9D8826A3EE155D69CD650780531 /* fluttersrc */ = {
+			isa = PBXGroup;
+			children = (
+				95764E43A4F2B550B515868AFC7EAF75 /* mypanel001 */,
+			);
+			name = fluttersrc;
+			path = fluttersrc;
+			sourceTree = "<group>";
+		};
+		BC89467AD6A929BE9FCC698070597FDB /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				A19CAC1DA91633E9D4A4A53A375119F7 /* .symlinks */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		BD62C14B60B88FF81F409707C79FED15 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E2583F07C5A2617CD8C12D9ECEE81EE /* Flutter.debug.xcconfig */,
+				97E5E43DF97F0E8FFC980BD99CEF8EEF /* Flutter.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../Pods/Target Support Files/Flutter";
+			sourceTree = "<group>";
+		};
+		BDDD2A38E406D712FAEDEA46FB8DA2FD /* mypanel001 */ = {
+			isa = PBXGroup;
+			children = (
+				0323D2A84C7994068F4A998562F8EBE1 /* panel001 */,
+			);
+			name = mypanel001;
+			path = mypanel001;
+			sourceTree = "<group>";
+		};
+		C550B9677E8B514038502B3767F95BE2 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				FA529FB5E7AA1F2E500DFC3D6C66532D /* Desktop */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CA4754A80BCE5C014C77D902F86D51FB /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				CB623F34D179F10BDA5074226081E75E /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CB623F34D179F10BDA5074226081E75E /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				C550B9677E8B514038502B3767F95BE2 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				113D9FF080DDF084484B3EA853C73479 /* Development Pods */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				37C68D188C00C8EF3712072CBB09A12B /* Pods */,
+				B7C8D0756D3DA558AA6747356068AF6E /* Products */,
+				B5AD0D71395A17687BC40159E8392E32 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D1EF9691CF9C2E323C38757A75BF354B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F7B1C03A7D95CFD5EB7FD931D8737DD /* AlipaySDK-iOS.debug.xcconfig */,
+				FEF7C82D4F8C653988173E8DFC948B0F /* AlipaySDK-iOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AlipaySDK-iOS";
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB7E16AD271231F00CB0B69719F0324A /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				3C872972FED2BE27D5DB07830D4DF697 /* .symlinks */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		DBC3DCE97F6D3F1366C0BFA552A02BD5 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				B8B139DE6EFFBE001C5DB53566FE43E1 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		DE1F7C9DD67C3DF84EFD6A49E3CCEAFE /* flutter_alipay */ = {
+			isa = PBXGroup;
+			children = (
+				0D947E3CAA4E9345810497FCF7A2CA16 /* .. */,
+				608BC31929EDEA2E545B12982965AF17 /* Pod */,
+				9687773BE2E58581B38A54C2584BE0D6 /* Support Files */,
+			);
+			name = flutter_alipay;
+			path = ../.symlinks/plugins/flutter_alipay/ios;
+			sourceTree = "<group>";
+		};
+		E07D2BAE6FD467DAB93708DB990FA194 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				DBC3DCE97F6D3F1366C0BFA552A02BD5 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E1AD8E4CC70F8F3A5B2002CDCAB9895C /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				4F96FA06BD3BA2D3EF25008EAD800283 /* Frameworks */,
+				1EDEB8CBDFEB21E9247CEE5128055248 /* Pod */,
+				BD62C14B60B88FF81F409707C79FED15 /* Support Files */,
+			);
+			name = Flutter;
+			path = ../.symlinks/flutter/ios;
+			sourceTree = "<group>";
+		};
+		E5AC8612B211AF2712FDFE174DCC4326 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				926436DCB36E278E7448324C6E0F9B4F /* FlutterAlipayPlugin.h */,
+				926BE6E2F073CB36BA26B840130D3048 /* FlutterAlipayPlugin.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E60735A0C3C40086F08BBB188E23F69A /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				7817131A7F9280AE215D3FF23BCF249E /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../../.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1/ios";
+			sourceTree = "<group>";
+		};
+		ECA904B8CDB20049F87D4E63EF9D77CE /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				E5AC8612B211AF2712FDFE174DCC4326 /* Classes */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		EF9AEE0074B7D8AB4DBCFCCDA73366A9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C592F468A7372A63DCAA7338DFB6E9B5 /* FLTCookieManager.h */,
+				E3021D958D2C1414308DEA91BB01E8DB /* FLTCookieManager.m */,
+				481CFC90995DA48185E93B317698AECE /* FLTWebViewFlutterPlugin.h */,
+				4A1B6714BF025D1243071ACCE79AB68F /* FLTWebViewFlutterPlugin.m */,
+				14524C05C079B6C198B5CDCCB170D203 /* FLTWKNavigationDelegate.h */,
+				600D5A845592FAB351EFB74196C4E746 /* FLTWKNavigationDelegate.m */,
+				D4F57E92D8E4E9F0265BA034B55B4C2B /* FlutterWebView.h */,
+				01043B74846C6353C67F83B964C4C50E /* FlutterWebView.m */,
+				BFC4E65101F7404604EA23F1FE7A67FC /* JavaScriptChannelHandler.h */,
+				3FBDCA5F6A35B63518D4E5A6D08180A9 /* JavaScriptChannelHandler.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F1FC0738BF10C8712222268B7EEC3FD2 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				153E58E79E1FD5A1E2598D9955FF033D /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FA529FB5E7AA1F2E500DFC3D6C66532D /* Desktop */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB7F5E4530B2614232D2E7FE17E8B0 /* gitios */,
+			);
+			name = Desktop;
+			path = Desktop;
+			sourceTree = "<group>";
+		};
+		FD37FF1A3C796DA9BE666AAB46905683 /* webview_flutter */ = {
+			isa = PBXGroup;
+			children = (
+				E60735A0C3C40086F08BBB188E23F69A /* .. */,
+				B4806C8430A9C5444243ECC04E7D4040 /* Pod */,
+				58A8CF45FF0931C4C76B9DA0D2416CE7 /* Support Files */,
+			);
+			name = webview_flutter;
+			path = ../.symlinks/plugins/webview_flutter/ios;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		60FF01FC3EA7E052888DBDC061744612 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E974EF5911B0F01FE2343E704A8608 /* FLTCookieManager.h in Headers */,
+				07863FF50239B22E51BCC13E1C11567C /* FLTWebViewFlutterPlugin.h in Headers */,
+				4F5C837E4ACB0767A7D76200282A2AF1 /* FLTWKNavigationDelegate.h in Headers */,
+				5EB076F0039A7B562CD2F851FC927D40 /* FlutterWebView.h in Headers */,
+				F91BD86DE4C6D8AA9F8C69BDC3076D50 /* JavaScriptChannelHandler.h in Headers */,
+				BA983EE17E31ADDD94BA2BFCAD99D739 /* webview_flutter-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FFDAC342041BCD58466080FCA58E62E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D13F610C2C8FCAE4F37CA1374222273F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FEAA174868EF5DB94AA30AD67209894 /* flutter_alipay-umbrella.h in Headers */,
+				119693B26A9C89979BDD306A1755FEC6 /* FlutterAlipayPlugin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8B74B458B450D74B75744B87BD747314 /* Pods-Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0077B5358EDBA568D655F5F22E74C920 /* Build configuration list for PBXNativeTarget "Pods-Runner" */;
+			buildPhases = (
+				6FFDAC342041BCD58466080FCA58E62E /* Headers */,
+				8DD42CFB5BF167DDDAF55342A07E6B2B /* Sources */,
+				40DD3EC67C3B012E0E07F9FFA3D4DF2B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C73A2323CFC41C6A71ADEA9E57CB74C8 /* PBXTargetDependency */,
+				39D77C5663436B2FFDDAF1BAD0FC74B2 /* PBXTargetDependency */,
+				852F468265C50DBBE13E77E8BEA48A4E /* PBXTargetDependency */,
+				46DDA28DA40588BF77C180E68AE16185 /* PBXTargetDependency */,
+			);
+			name = "Pods-Runner";
+			productName = "Pods-Runner";
+			productReference = 669E8F25E1897672BDB80B7EB784DA24 /* libPods-Runner.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C62825B628631BFD7AD90BF817C32BF6 /* webview_flutter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 811F2316001E780E0C1139DA2E9D488F /* Build configuration list for PBXNativeTarget "webview_flutter" */;
+			buildPhases = (
+				60FF01FC3EA7E052888DBDC061744612 /* Headers */,
+				11800BD229DED0A8BB7D2C9697D7353D /* Sources */,
+				D966A1859804B73F55095AE7B50D5BFC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05327E423BAADA885585A705240CD4B3 /* PBXTargetDependency */,
+			);
+			name = webview_flutter;
+			productName = webview_flutter;
+			productReference = 2F9E4A4DFBB3FA382E47DEEF13A9ED68 /* libwebview_flutter.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CB484115EA4FF29EB2BFA8861F896957 /* flutter_alipay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FC6DCA7B600612A95553C301DBB577D /* Build configuration list for PBXNativeTarget "flutter_alipay" */;
+			buildPhases = (
+				D13F610C2C8FCAE4F37CA1374222273F /* Headers */,
+				88FFE899E1E08BECE038A7BEFD19243F /* Sources */,
+				563B02892FC8469B227E3BBF49488A79 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A17DA2DEE54F49BF34122309B5295D6C /* PBXTargetDependency */,
+				ADE3438E522F863F5C51C170DDAD9589 /* PBXTargetDependency */,
+			);
+			name = flutter_alipay;
+			productName = flutter_alipay;
+			productReference = 430CAC87F0F2BCC6E189C017CE4AE070 /* libflutter_alipay.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = B7C8D0756D3DA558AA6747356068AF6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4847ACB1E2799345AA74D9E317048D58 /* AlipaySDK-iOS */,
+				1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */,
+				CB484115EA4FF29EB2BFA8861F896957 /* flutter_alipay */,
+				8B74B458B450D74B75744B87BD747314 /* Pods-Runner */,
+				C62825B628631BFD7AD90BF817C32BF6 /* webview_flutter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11800BD229DED0A8BB7D2C9697D7353D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F25B5E01D890A3874E7007F7FAF99341 /* FLTCookieManager.m in Sources */,
+				9EBF4CE3BA8B1284DF43593E7A8A6276 /* FLTWebViewFlutterPlugin.m in Sources */,
+				DFC2BDF49EDCF60F8BDAB2795DC70170 /* FLTWKNavigationDelegate.m in Sources */,
+				B5B77005A9B406332C224BEDFCD44F4C /* FlutterWebView.m in Sources */,
+				37DD0ED11D7D971666F0A15CB6022592 /* JavaScriptChannelHandler.m in Sources */,
+				A3FD2A06868AF1FA278FA98CA5432F88 /* webview_flutter-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FFE899E1E08BECE038A7BEFD19243F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F15DCFDFFD3127236D6253BFC95EFA /* flutter_alipay-dummy.m in Sources */,
+				4DC939D6ECEAA36436C0BA6DAD7ED7E8 /* FlutterAlipayPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD42CFB5BF167DDDAF55342A07E6B2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AD2C8361DEB3FD5056537755BBADE03 /* Pods-Runner-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05327E423BAADA885585A705240CD4B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = BF59D369FED4A6FB7701D07321A01EE3 /* PBXContainerItemProxy */;
+		};
+		39D77C5663436B2FFDDAF1BAD0FC74B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = E86C9C609C01817BC4E0E0A65123C11F /* PBXContainerItemProxy */;
+		};
+		46DDA28DA40588BF77C180E68AE16185 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = webview_flutter;
+			target = C62825B628631BFD7AD90BF817C32BF6 /* webview_flutter */;
+			targetProxy = 72D92D8C6A3BEC2FEBE09A26B37A2C3B /* PBXContainerItemProxy */;
+		};
+		852F468265C50DBBE13E77E8BEA48A4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = flutter_alipay;
+			target = CB484115EA4FF29EB2BFA8861F896957 /* flutter_alipay */;
+			targetProxy = 69D858204DB1118590DEB23C2FE26E8D /* PBXContainerItemProxy */;
+		};
+		A17DA2DEE54F49BF34122309B5295D6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "AlipaySDK-iOS";
+			target = 4847ACB1E2799345AA74D9E317048D58 /* AlipaySDK-iOS */;
+			targetProxy = 0CFEB4A0E015C7B22A2986EB8ABBF581 /* PBXContainerItemProxy */;
+		};
+		ADE3438E522F863F5C51C170DDAD9589 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = 29909F032C3FCF6FCCFBC2CE9A641635 /* PBXContainerItemProxy */;
+		};
+		C73A2323CFC41C6A71ADEA9E57CB74C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "AlipaySDK-iOS";
+			target = 4847ACB1E2799345AA74D9E317048D58 /* AlipaySDK-iOS */;
+			targetProxy = 8B73B514C6DE4CA8E180A5143F01A8B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0BB56C0973717B06C2C9C505C5A38E12 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49E860841B79F979EEC14EE7F5E70D7D /* Pods-Runner.profile.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		10F5BC0B312E7693B41DFBCCAA52F34B /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39840EA37E9B7457EE3DA0EC8EFEEB7 /* flutter_alipay.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/flutter_alipay/flutter_alipay-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/flutter_alipay/flutter_alipay.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = flutter_alipay;
+				PRODUCT_NAME = flutter_alipay;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		23C7EA8FFC074AD95EBBC45D7AB3154E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBE80C2A425B6E905C7EAAB8C25A7D0F /* Pods-Runner.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		352472D9C0BF916CA06CD66D7F3465A1 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97E5E43DF97F0E8FFC980BD99CEF8EEF /* Flutter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		37765FA71BC674CC7D6113470430D9A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F740DA1BE399808BD55080ACC1B33855 /* flutter_alipay.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/flutter_alipay/flutter_alipay-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/flutter_alipay/flutter_alipay.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = flutter_alipay;
+				PRODUCT_NAME = flutter_alipay;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B1619E5BF7D8E1A1D677E6ABA17376B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F7B1C03A7D95CFD5EB7FD931D8737DD /* AlipaySDK-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		423EB80B2E7FB1B0395024A83A3A121F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C6E4BD4BA8FDC3433226C9D6C6213B2 /* webview_flutter.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/webview_flutter/webview_flutter-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/webview_flutter/webview_flutter.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = webview_flutter;
+				PRODUCT_NAME = webview_flutter;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		6863F0693859FBC3C52CAAFDB1ECDB21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CB5F6C8463C776D8372CB53B845031B /* Pods-Runner.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68C7E74006189634A494B24247130C65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39840EA37E9B7457EE3DA0EC8EFEEB7 /* flutter_alipay.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/flutter_alipay/flutter_alipay-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/flutter_alipay/flutter_alipay.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = flutter_alipay;
+				PRODUCT_NAME = flutter_alipay;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69BD398B6D4A2533EEC66E44E43C38BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEF7C82D4F8C653988173E8DFC948B0F /* AlipaySDK-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6DB88287FBF0DDC642169D4FE56485F2 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_PROFILE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Profile;
+		};
+		72C8BFF8FF11BAF5F12E0B2CA5FD1A78 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEF7C82D4F8C653988173E8DFC948B0F /* AlipaySDK-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A61138F34FDEA196B7E17C45338192EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97E5E43DF97F0E8FFC980BD99CEF8EEF /* Flutter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7F9814FCB5BFCD83E86C536406996D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A39580C12D00D508EB51AF8D3090D7 /* webview_flutter.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/webview_flutter/webview_flutter-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/webview_flutter/webview_flutter.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = webview_flutter;
+				PRODUCT_NAME = webview_flutter;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D865F451DBED2657D8C1644047E1D987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E2583F07C5A2617CD8C12D9ECEE81EE /* Flutter.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E6C6C9E2D20773B02D31A321A7FBADFC /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A39580C12D00D508EB51AF8D3090D7 /* webview_flutter.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/webview_flutter/webview_flutter-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/webview_flutter/webview_flutter.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = webview_flutter;
+				PRODUCT_NAME = webview_flutter;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0077B5358EDBA568D655F5F22E74C920 /* Build configuration list for PBXNativeTarget "Pods-Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23C7EA8FFC074AD95EBBC45D7AB3154E /* Debug */,
+				0BB56C0973717B06C2C9C505C5A38E12 /* Profile */,
+				6863F0693859FBC3C52CAAFDB1ECDB21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				6DB88287FBF0DDC642169D4FE56485F2 /* Profile */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		811F2316001E780E0C1139DA2E9D488F /* Build configuration list for PBXNativeTarget "webview_flutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				423EB80B2E7FB1B0395024A83A3A121F /* Debug */,
+				E6C6C9E2D20773B02D31A321A7FBADFC /* Profile */,
+				A7F9814FCB5BFCD83E86C536406996D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FC6DCA7B600612A95553C301DBB577D /* Build configuration list for PBXNativeTarget "flutter_alipay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37765FA71BC674CC7D6113470430D9A6 /* Debug */,
+				10F5BC0B312E7693B41DFBCCAA52F34B /* Profile */,
+				68C7E74006189634A494B24247130C65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94078A06C17E946ADC1F2C06726219E5 /* Build configuration list for PBXAggregateTarget "Flutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D865F451DBED2657D8C1644047E1D987 /* Debug */,
+				352472D9C0BF916CA06CD66D7F3465A1 /* Profile */,
+				A61138F34FDEA196B7E17C45338192EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF3E456FC696AC1C9DA23DA25CCD1ADF /* Build configuration list for PBXAggregateTarget "AlipaySDK-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B1619E5BF7D8E1A1D677E6ABA17376B /* Debug */,
+				72C8BFF8FF11BAF5F12E0B2CA5FD1A78 /* Profile */,
+				69BD398B6D4A2533EEC66E44E43C38BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
