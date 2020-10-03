@@ -397,7 +397,7 @@
                         android:orientation="vertical">
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:background="@mipmap/ic_launcher"
+                            android:background="@drawable/abc"
                             android:layout_height="267dp">
 
                             <ImageView
@@ -500,7 +500,7 @@
                     android:orientation="vertical">
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:background="@mipmap/ic_launcher"
+                        android:background="@drawable/abc"
                         android:layout_height="267dp">
 
                         <ImageView
