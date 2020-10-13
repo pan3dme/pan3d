@@ -776,7 +776,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4EA878D2-23A8-4883-90CD-351188D34DDB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/material/MaterialManager.m"
@@ -904,7 +904,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "089B7F76-E14B-4897-B364-1992384E9A78"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/display/particle/ParticleData.m"
@@ -916,7 +916,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "089B7F76-E14B-4897-B364-1992384E9A78 - 47ddcd2b96dbf051"
+                  uuid = "089B7F76-E14B-4897-B364-1992384E9A78 - 2551140c24118ff9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -928,10 +928,10 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "104"
                   endingLineNumber = "104"
-                  offsetFromSymbolStart = "188">
+                  offsetFromSymbolStart = "160">
                </Location>
                <Location
-                  uuid = "089B7F76-E14B-4897-B364-1992384E9A78 - 938d5f5de3dafc6d"
+                  uuid = "089B7F76-E14B-4897-B364-1992384E9A78 - f101867a511083e4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -941,9 +941,9 @@
                   urlString = "file:///Users/zhao/Desktop/gitios/iosgl/iosgl/bt/display/particle/ParticleData.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -952,7 +952,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CD50AB42-78BF-4CD6-B9F0-6DE9D8E57835"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/material/MaterialManager.m"

@@ -1653,7 +1653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XR8B28QY58;
+				DEVELOPMENT_TEAM = 855NL5R63P;
 				INFOPLIST_FILE = iosgl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
