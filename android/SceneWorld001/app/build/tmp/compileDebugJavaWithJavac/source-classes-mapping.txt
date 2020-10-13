@@ -27,11 +27,9 @@ z3d/vo/Matrix3D.java
  z3d.vo.Matrix3D
 z3d/display/particle/locusball/ParticleLocusballData.java
  z3d.display.particle.locusball.ParticleLocusballData
-scene/SceneLyfBase.java
- scene.SceneLyfBase
- scene.SceneLyfBase$1
- scene.SceneLyfBase$2
- scene.SceneLyfBase$3
+z3d/filemodel/GroupDataManager.java
+ z3d.filemodel.GroupDataManager
+ z3d.filemodel.GroupDataManager$1
 z3d/display/role/Display3dMovie.java
  z3d.display.role.Display3dMovie
  z3d.display.role.Display3dMovie$1
@@ -297,6 +295,8 @@ z3d/material/MaterialBackFun.java
  z3d.material.MaterialBackFun
 z3d/base/GroupItem.java
  z3d.base.GroupItem
-z3d/filemodel/GroupDataManager.java
- z3d.filemodel.GroupDataManager
- z3d.filemodel.GroupDataManager$1
+scene/SceneLyfBase.java
+ scene.SceneLyfBase
+ scene.SceneLyfBase$1
+ scene.SceneLyfBase$2
+ scene.SceneLyfBase$3

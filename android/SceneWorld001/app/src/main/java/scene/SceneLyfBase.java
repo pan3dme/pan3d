@@ -44,7 +44,6 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
 
 
     private GLSurfaceView mGLView;
-    private SceneRes sceneRes;
     private Scene3D scene3D;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +129,7 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
                 for (int i = 0; i < groupRes.dataAry.size(); i++) {
                     GroupItem item =  groupRes.dataAry.get(i);
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
-//          [particleManager addParticle:particle];
+
                         ParticleManager particleManager=scene3D.particleManager;
                         CombineParticle particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
                         particleManager.addParticle(particle);
