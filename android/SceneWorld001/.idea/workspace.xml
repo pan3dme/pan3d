@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneLyfBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneRoleBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneTestTwoTexture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneWorldBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/scene/dis/TwoTextureShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/scene/dis/TwoTextureSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/urlhttp/CallBackUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/urlhttp/RealRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/urlhttp/RealResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/urlhttp/RequestUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/urlhttp/UrlHttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ByteArrayJava.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/CallBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/Camera3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/GroupBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/GroupItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjDataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/Object3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ResGC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/RoleBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/Scene_data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/SkillBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/SkinMeshBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/TexTuresBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayBaseShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayBaseSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayTestShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/basedis/DisplayTestSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/GridLineSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplayShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/line/LineDisplaySprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/Display3DParticle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleGpuData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/Display3DBallPartilce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallGpuData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/AxisMove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/AxisRotaion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/BaseAnim.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/KeyFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/ScaleAnim.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/ScaleChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/ScaleNoise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/SelfRotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/TimeLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/ParticleFacetData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusPartilce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/ParticleLocusData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/engine/GC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/engine/ResCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/GroupDataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/MeshDataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/ParticleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/ResManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/ConstItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/Curve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseConstItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseTexItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicConstItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicTexItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialLoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/TexItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/TextureRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/GroupRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/MaterialInfoVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/RoleRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/SceneRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/AnimManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoadBackFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoadInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoadManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/TimeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/AnimData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/BindParticle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/BoneSocketData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/CurveItemVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/CurveVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DataObjTempVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Float32Array.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Matrix3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBaseBone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ParamDataConVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ParamDataVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ParicleRandomColorVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Quaternion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ShockAryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/Vector3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/scene001_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/file2012.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/e/sceneworld001/FirstFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/e/sceneworld001/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/e/sceneworld001/SecondFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[8RBDU19427009929]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1ipc0B90YrasxyQe0gf68cQDnxx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="SceneWorld001.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="" />
+      <created>1602607748642</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602607748642</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1638" height="323" key="GridCell.Tab.0.bottom" timestamp="1602609126469">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="323" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602609126469" />
+    <state width="1638" height="323" key="GridCell.Tab.0.center" timestamp="1602609126468">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="323" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602609126468" />
+    <state width="1638" height="323" key="GridCell.Tab.0.left" timestamp="1602609126468">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="323" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602609126468" />
+    <state width="1638" height="323" key="GridCell.Tab.0.right" timestamp="1602609126469">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="323" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602609126469" />
+    <state x="-615" y="429" width="615" height="490" key="find.popup" timestamp="1602608704114">
+      <screen x="-1680" y="23" width="1680" height="1027" />
+    </state>
+    <state x="-615" y="429" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602608704114" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,63 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.e.sceneworld001"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="29"
+8-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml
+10    <!-- 权限 -->
+11    <uses-permission android:name="android.permission.READ_CONTACTS" />
+11-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:5:5-72
+11-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:5:22-69
+12    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+12-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:6:5-73
+12-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:6:22-70
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:7:5-67
+13-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:7:22-64
+14
+15    <application
+15-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:8:5-26:19
+16        android:allowBackup="true"
+16-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:9:9-35
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.1.0] /Users/zhao/.gradle/caches/transforms-2/files-2.1/80f58724caaf330e74c3000cc6797977/core-1.1.0/AndroidManifest.xml:24:18-86
+18        android:debuggable="true"
+19        android:extractNativeLibs="false"
+20        android:icon="@mipmap/ic_launcher"
+20-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:10:9-43
+21        android:label="@string/app_name"
+21-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:11:9-41
+22        android:networkSecurityConfig="@xml/network_security_config"
+22-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:12:9-69
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:13:9-54
+24        android:supportsRtl="true"
+24-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:14:9-35
+25        android:testOnly="true"
+26        android:theme="@style/Theme.SceneWorld001" >
+26-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:15:9-51
+27        <activity
+27-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:16:9-23:20
+28            android:name="scene.SceneRoleBase"
+28-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:17:13-47
+29            android:launchMode="singleInstance" >
+29-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:18:13-48
+30            <intent-filter>
+30-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:19:13-22:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:20:17-69
+31-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:20:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:21:17-77
+33-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:21:27-74
+34            </intent-filter>
+35        </activity>
+36    </application>
+37
+38</manifest>
