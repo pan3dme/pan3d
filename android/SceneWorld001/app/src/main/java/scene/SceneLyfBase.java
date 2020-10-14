@@ -200,8 +200,8 @@ public class SceneLyfBase extends AppCompatActivity  {
                     case "ACTION_MOVE":
                         if(_downPosV2d!=null){
                          Vector2D toV2d=   new Vector2D( event.getX(), event.getY());
-                         scene3D.camera3D.rotationY= _oldPosV2d.rotationY+(toV2d.x-_downPosV2d.x);
-                         scene3D.camera3D.rotationX= _oldPosV2d.rotationX+(toV2d.y-_downPosV2d.y)/10.0f;
+                         scene3D.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
+                         scene3D.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
 
                             Log.d(TAG+ TimeUtil.getTimer(), "滑动吧");
                         }

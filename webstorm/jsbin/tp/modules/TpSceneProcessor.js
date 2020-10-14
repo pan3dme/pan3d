@@ -50,8 +50,15 @@ var TpSceneProcessor = /** @class */ (function (_super) {
         _this.weaponNum = 50011;
         _this.skipId = 1;
         _this.skillEffectItem = ["skill_01", "skill_02", "skill_03", "m_skill_01", "m_skill_02", "m_skill_03"];
+        _this.initSceneFocueEvent();
         return _this;
     }
+    TpSceneProcessor.prototype.initSceneFocueEvent = function () {
+        var that = this;
+        document.addEventListener(Pan3d.MouseType.MouseDown, function () {
+            that.loadLyf();
+        });
+    };
     TpSceneProcessor.prototype.getName = function () {
         return "TpSceneProcessor";
     };

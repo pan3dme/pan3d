@@ -17,7 +17,8 @@ class TpSceneEvent extends Pan3d.BaseEvent {
     //展示面板
     public static SHOW_TP_SCENE_EVENT: string = "SHOW_TP_SCENE_EVENT";
     public static ENTER_SCENE_EVENT: string = "ENTER_SCENE_EVENT";
-    
+
+
     public   mapId: number | undefined;
 
 }
@@ -26,13 +27,28 @@ class TpSceneProcessor extends Pan3d.BaseProcessor {
 
     public constructor() {
         super();
+
+        this.initSceneFocueEvent();
+
     }
+    public initSceneFocueEvent(): void {
+
+        var that =this;
+        document.addEventListener(Pan3d.MouseType.MouseDown, ()=>{
+
+            that.loadLyf();
+        });
+
+    }
+
+
     public getName(): string {
         return "TpSceneProcessor";
     }
     protected receivedModuleEvent($event: Pan3d.BaseEvent): void {
         if ($event instanceof TpSceneEvent) {
             var $tpMenuEvent: TpSceneEvent = <TpSceneEvent>$event;
+
             if ($tpMenuEvent.type == TpSceneEvent.SHOW_TP_SCENE_EVENT) {
                 this.addGridLineSprite();
 
@@ -43,6 +59,7 @@ class TpSceneProcessor extends Pan3d.BaseProcessor {
                   // this.makeMainChar(); //开启显示角色
                   //  this.makeTestScene();
                   //   this.loadBaseScene();
+                    
                     this.loadLyf();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
