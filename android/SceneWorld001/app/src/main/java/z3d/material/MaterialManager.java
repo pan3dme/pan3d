@@ -11,6 +11,7 @@ import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ResGC;
+import z3d.base.Scene_data;
 import z3d.base.TexTuresBackFun;
 import z3d.filemodel.TextureManager;
 import z3d.program.ProgrmaManager;
@@ -118,10 +119,11 @@ public class MaterialManager extends ResGC {
             if (texItem.isParticleColor ||texItem.isDynamic || texItem.type != 0) {
                 continue;
             }
-            TextureManager.getInstance().getTexture(texItem.url, new TexTuresBackFun() {
+            TextureManager.getInstance().getTexture(Scene_data.fileRoot+texItem.url, new TexTuresBackFun() {
                 @Override
                 public void Bfun(TextureRes value) {
                     Log.d("", "Bfun: "+value);
+                    texItem.textureRes =value;
                 }
             });
 
@@ -159,34 +161,20 @@ public class MaterialManager extends ResGC {
        this.dic.put(_info.url,material);
 
      }
-
     public void loadDynamicTexUtil(MaterialParam materialParam) {
         List<DynamicTexItem> dynamicTexList = materialParam.dynamicTexList;
-
         for (int i = 0; i < dynamicTexList.size(); i++) {
             DynamicTexItem dynamicTexItem=  dynamicTexList.get(i);
             if (dynamicTexItem.isParticleColor) {
                 dynamicTexItem.creatTextureByCurve();
             } else {
-//                TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
-//                    $texItem.textureRes = $textureVo;
-//                }, 0, dynamicTexList[i], 0, 1);
+                TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexItem.url, new TexTuresBackFun() {
+                    @Override
+                    public void Bfun(TextureRes value) {
+                        dynamicTexItem.textureRes = value;
+                    }
+                });
             }
         }
-
-        /*
-           var dynamicTexList: Array<DynamicTexItem> = material.dynamicTexList;
-
-            for (var i: number = 0; i < dynamicTexList.length; i++) {
-                if (dynamicTexList[i].isParticleColor) {
-                    dynamicTexList[i].creatTextureByCurve();
-                } else {
-                    TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
-                        $texItem.textureRes = $textureVo;
-                    }, 0, dynamicTexList[i], 0, 1);
-                }
-            }
-         */
-
     }
 }

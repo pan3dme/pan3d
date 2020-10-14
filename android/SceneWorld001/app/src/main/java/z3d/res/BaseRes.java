@@ -16,6 +16,7 @@ import java.util.zip.Inflater;
 import z3d.base.CallBackFun;
 
 import z3d.base.ObjDataManager;
+import z3d.base.Scene_data;
 import z3d.engine.ResCount;
 import z3d.base.ByteArray;
 import z3d.filemodel.ParticleManager;
@@ -286,7 +287,7 @@ public class BaseRes extends ResCount {
             if(imgSize>0){
                 byte[] imgByte=  this._byte.readBytes(imgSize);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
-                TextureManager.getInstance().addRes(url,bitmap);
+                TextureManager.getInstance().addRes(Scene_data.fileRoot+ url,bitmap);
             }
         }
         Log.d("url ->",     "-----" );

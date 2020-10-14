@@ -102,7 +102,7 @@ public class TextureManager extends ResGC {
         this.dic.put(textureLoad.url,textureRes);
         this.loadDic.remove(textureLoad.url);
     }
-    private int createTexture(Bitmap bitmap){
+    public int createTexture(Bitmap bitmap){
         int[] texture=new int[1];
         if(bitmap!=null&&!bitmap.isRecycled()){
             //生成纹理

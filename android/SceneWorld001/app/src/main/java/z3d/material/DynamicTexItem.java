@@ -1,11 +1,18 @@
 package z3d.material;
 
+import android.graphics.Bitmap;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import z3d.filemodel.TextureManager;
+import z3d.units.ColorTransition;
 
 public class DynamicTexItem extends DynamicBaseTexItem {
 
 
+    private static final String TAG ="DynamicTexItem" ;
     public  String url;
     public  int textureDynamic;
     public  boolean isParticleColor;
@@ -55,11 +62,10 @@ public class DynamicTexItem extends DynamicBaseTexItem {
                     imgNumVec.add(this.curve.valueVec.get(index).get(3) * 0xff);     }
             }
         }
+         Bitmap bitmap= ColorTransition.getImageData(imgNumVec,this.life);
+         this.textureDynamic= TextureManager.getInstance().createTexture(bitmap);
 
-
-//        var img: ImageData = ColorTransition.getInstance().getImageDataByVec(imgNumVec, this.life);
-//        this._textureDynamic = Scene_data.context3D.getTexture(img);
-
+        Log.d(TAG, "creatTextureByCurve: ");
 
     }
 }
