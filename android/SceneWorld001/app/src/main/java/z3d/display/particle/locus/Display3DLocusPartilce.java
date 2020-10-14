@@ -1,15 +1,10 @@
 package z3d.display.particle.locus;
 
-import android.opengl.GLES20;
-import android.util.Log;
 
-import scene.dis.TwoTextureShader;
-import scene.dis.TwoTextureSprite;
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
 import z3d.core.Context3D;
-import z3d.display.basedis.DisplayTestShader;
-import z3d.display.basedis.DisplayTestSprite;
+ 
 import z3d.display.particle.Display3DParticle;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
@@ -41,11 +36,6 @@ public class Display3DLocusPartilce extends Display3DParticle {
        super.update();
     }
 
-    public void creatData() {
-        this.data = new ParticleLocusData();
-
-
-    }
 
     @Override
     public void setVa() {
