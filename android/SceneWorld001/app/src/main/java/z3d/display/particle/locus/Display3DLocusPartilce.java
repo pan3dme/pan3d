@@ -61,25 +61,8 @@ public class Display3DLocusPartilce extends Display3DParticle {
         ctx.drawCall(_twoTextureSprite.objData.indexBuffer,_twoTextureSprite.objData.treNum);
 
 
-        
-
-    }
-    /*
-
-    @Override
-    public void setVc() {
-        super.setVc();
-        /*
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setProgame(this.shader3D.program);
-
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        this.modeMatrix=new Matrix3D();
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-
 
 
     }
 
-    */
 }
