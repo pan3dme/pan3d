@@ -4,7 +4,7 @@ package z3d.display.particle.locus;
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
 import z3d.core.Context3D;
- 
+
 import z3d.display.particle.Display3DParticle;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
@@ -26,13 +26,6 @@ public class Display3DLocusPartilce extends Display3DParticle {
 
     @Override
     public void update() {
-
-
-
-        if( this.shader3D==null){
-            ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
-            this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
-        }
        super.update();
     }
 
@@ -47,14 +40,17 @@ public class Display3DLocusPartilce extends Display3DParticle {
         ctx.setVa(this.shader3D,Shader3D.v3Normal,4,objData.normalsBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
 
-
-
-
     }
 
     @Override
     public void setVc() {
         super.setVc();
+        if( this.shader3D==null){
+            ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
+            this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
+        }
+
+
         this.modeMatrix=new Matrix3D();
         this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
         Camera3D cam3d= this.scene3d.camera3D;
