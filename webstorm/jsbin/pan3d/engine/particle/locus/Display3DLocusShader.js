@@ -107,6 +107,7 @@ var Pan3d;
                 mainStr += posStr;
             }
             var resultStr = defineStr + "void main(void){\n" + mainStr + "}";
+            console.log(resultStr);
             return resultStr;
         };
         Display3DLocusShader.prototype.getFragmentShaderString = function () {

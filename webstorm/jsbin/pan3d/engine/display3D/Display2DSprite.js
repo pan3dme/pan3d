@@ -111,7 +111,7 @@ var Pan3d;
                 this._scaleX = value;
                 this.posData[3] = 100 * value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Sprite.prototype, "x", {
@@ -119,7 +119,7 @@ var Pan3d;
                 this._x = value;
                 this.posData[0] = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Sprite.prototype, "y", {
@@ -127,7 +127,7 @@ var Pan3d;
                 this._y = value;
                 this.posData[1] = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Sprite.prototype, "z", {
@@ -135,7 +135,7 @@ var Pan3d;
                 this._z = value;
                 this.posData[2] = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return Sprite;

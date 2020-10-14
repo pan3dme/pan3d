@@ -117,6 +117,7 @@
 
             var resultStr: string = defineStr + "void main(void){\n" + mainStr + "}";
 
+            console.log(resultStr);
             return resultStr;
 
         }

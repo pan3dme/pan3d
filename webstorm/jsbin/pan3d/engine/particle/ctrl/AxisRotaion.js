@@ -35,7 +35,7 @@ var Pan3d;
                 this.speed = Number(value[4].value) * 0.1;
                 this.aSpeed = Number(value[5].value) * 0.1;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         AxisRotaion.prototype.dataByte = function (va, arr) {

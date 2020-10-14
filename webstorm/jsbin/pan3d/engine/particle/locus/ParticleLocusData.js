@@ -72,6 +72,7 @@ var Pan3d;
             this._resultUvVec = new Array(3);
             var $nowTime = 0;
             var $lifeRoundNum = (this._life / 100);
+            // @ts-ignore
             var $moveUv = this._speed * $nowTime / this._density / 10;
             if (this._isEnd) {
                 $moveUv = Math.min(1, $moveUv);
@@ -132,11 +133,13 @@ var Pan3d;
             this.vcmatData = new Float32Array(Pan3d.Display3DLocusShader.getVcSize() * 16);
         };
         ParticleLocusData.prototype.setFloat32Vec = function (key, ary) {
+            // @ts-ignore
             var idxary = Pan3d.Display3DLocusShader.shader_vec4[key];
             var idx = idxary[0] * 16 + idxary[1] * 4;
             this.vcmatData.set(ary, idx);
         };
         ParticleLocusData.prototype.setFloat32Mat = function (key, ary) {
+            // @ts-ignore
             var idx = Pan3d.Display3DLocusShader.shader_mat4[key] * 16;
             this.vcmatData.set(ary, idx);
         };

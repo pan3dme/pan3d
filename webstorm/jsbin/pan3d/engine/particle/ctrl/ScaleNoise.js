@@ -34,7 +34,7 @@ var Pan3d;
                 this.amplitude = Number(value[2].value);
                 this.speed = Number(value[3].value) * 0.01;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ScaleNoise.prototype.dataByte = function (va, arr) {

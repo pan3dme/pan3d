@@ -31,7 +31,7 @@ var Pan3d;
                 this.speed = Number(value[2].value) * 0.1;
                 this.aSpeed = Number(value[3].value) * 0.1;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SelfRotation.prototype.dataByte = function (va, arr) {

@@ -48,7 +48,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         DynamicTexItem.prototype.creatTextureByCurve = function () {
@@ -91,7 +91,7 @@ var Pan3d;
             set: function (value) {
                 this._life = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return DynamicTexItem;

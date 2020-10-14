@@ -29,7 +29,7 @@ var Pan3d;
             get: function () {
                 return this._onStage;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3D.prototype.addStage = function () {

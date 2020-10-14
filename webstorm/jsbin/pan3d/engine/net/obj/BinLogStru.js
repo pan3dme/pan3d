@@ -45,7 +45,7 @@ var Pan3d;
             set: function (o) {
                 this._opt = o;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "index", {
@@ -55,7 +55,7 @@ var Pan3d;
             set: function (i) {
                 this._index = i;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "offset", {
@@ -67,7 +67,7 @@ var Pan3d;
                 //this._value_u32 = SyncEvent.SetByteValue(this._value_u32, val, 0);
                 this._value_u32_buffer.setUint8(0, val);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "typ", {
@@ -77,7 +77,7 @@ var Pan3d;
             set: function (t) {
                 this._typ = t;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "atomic_opt", {
@@ -87,7 +87,7 @@ var Pan3d;
             set: function (val) {
                 this._atomic_opt = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "callback_idx", {
@@ -97,7 +97,7 @@ var Pan3d;
             set: function (val) {
                 this._callback_index = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "uint32", {
@@ -110,7 +110,7 @@ var Pan3d;
                 //this._value_u32 = val;
                 this._value_u32_buffer.setUint32(0, val, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "int32", {
@@ -125,7 +125,7 @@ var Pan3d;
                 //this._value_u32 = (0xFFFFFFFF+val)+1;
                 this._value_u32_buffer.setInt32(0, val, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "bit", {
@@ -140,7 +140,7 @@ var Pan3d;
                 //this._value_u32 = val;
                 this._value_u32_buffer.setUint32(0, val, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "old_int32", {
@@ -156,7 +156,7 @@ var Pan3d;
                 //this._old_value_u32 = (0xFFFFFFFF+val)+1;
                 this._old_value_u32_buffer.setInt32(0, val, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "uint16", {
@@ -171,7 +171,7 @@ var Pan3d;
                 //this._value_u32 = SyncEvent.SetUInt16Value(this._value_u32,val,1);
                 this._value_u32_buffer.setUint16(2, val, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "int16", {
@@ -186,7 +186,7 @@ var Pan3d;
                 //this._value_u32 = SyncEvent.SetInt16Value(this._value_u32,val,1);
                 this._value_u32_buffer.setInt16(2, val, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "byte", {
@@ -201,7 +201,7 @@ var Pan3d;
                 //this._value_u32 = SyncEvent.SetByteValue(this._value_u32, val, 2);	
                 this._value_u32_buffer.setInt8(2, val);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "double", {
@@ -211,7 +211,7 @@ var Pan3d;
             set: function (val) {
                 this._value_dbe = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "float", {
@@ -223,7 +223,7 @@ var Pan3d;
                 //this._value_u32 = SyncEvent.SetFloatValue(val);
                 this._value_u32_buffer.setFloat32(0, val, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "str", {
@@ -236,7 +236,7 @@ var Pan3d;
                 this._typ = Pan3d.SyncEvent.TYPE_STRING;
                 this._value_str = v;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "old_str", {
@@ -250,7 +250,7 @@ var Pan3d;
                     throw new Error("set old_str but _typ != SyncEvent.TYPE_STRING!");
                 this._old_value_str = v;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "value", {
@@ -262,7 +262,7 @@ var Pan3d;
                 //this._value_u32 = v;
                 this._value_u32_buffer.setUint32(0, v, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BinLogStru.prototype, "old_value", {
@@ -274,7 +274,7 @@ var Pan3d;
                 //this._old_value_u32 = v;
                 this._old_value_u32_buffer.setUint32(0, v, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         BinLogStru.prototype.Clear = function () {

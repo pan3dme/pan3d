@@ -56,7 +56,7 @@ var Pan3d;
             set: function (s) {
                 this._guid = s;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         /**

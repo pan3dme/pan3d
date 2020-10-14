@@ -38,7 +38,7 @@ var Pan3d;
             get: function () {
                 return this._ref;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         GuidObject.prototype.getName = function () {

@@ -12,6 +12,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var GroupRes = Pan3d.GroupRes;
+var GroupItem = Pan3d.GroupItem;
+var BaseRes = Pan3d.BaseRes;
+var ParticleManager = Pan3d.ParticleManager;
+var Scene_data = Pan3d.Scene_data;
+var CombineParticle = Pan3d.CombineParticle;
 var TpSceneModule = /** @class */ (function (_super) {
     __extends(TpSceneModule, _super);
     function TpSceneModule() {
@@ -58,14 +64,28 @@ var TpSceneProcessor = /** @class */ (function (_super) {
                     window.location.href = "index.html?id=" + random(10);
                 }
                 else {
-                    this.makeUrlParam();
-                    //  this.makeMainChar();
+                    // this.makeUrlParam()
+                    // this.makeMainChar(); //开启显示角色
                     //  this.makeTestScene();
-                    this.loadBaseScene();
+                    //   this.loadBaseScene();
+                    this.loadLyf();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
             }
         }
+    };
+    TpSceneProcessor.prototype.loadLyf = function () {
+        Pan3d.GroupDataManager.getInstance().getGroupData("res/model/levelup_lyf.txt", function (groupRes) {
+            for (var i = 0; i < groupRes.dataAry.length; i++) {
+                var item = groupRes.dataAry[i];
+                if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
+                    var particle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
+                    particle.dynamic = true;
+                    ParticleManager.getInstance().addParticle(particle);
+                    console.log(particle);
+                }
+            }
+        });
     };
     TpSceneProcessor.prototype.loadBaseScene = function () {
         Pan3d.SceneManager.getInstance().loadScene("2012", function () { }, function (b) { }, function () { });

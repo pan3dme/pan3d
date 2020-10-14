@@ -63,7 +63,7 @@ var Pan3d;
         Object.defineProperty(BaseAnim.prototype, "data", {
             set: function (value) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(BaseAnim.prototype, "isDeath", {
@@ -73,7 +73,7 @@ var Pan3d;
             set: function (value) {
                 this._isDeath = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         BaseAnim.prototype.getAllNum = function (allTime) {

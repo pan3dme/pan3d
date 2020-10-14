@@ -44,14 +44,14 @@ var Pan3d;
             set: function (value) {
                 this._displayAry = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "maxTime", {
             set: function (value) {
                 this._maxTime = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "bindTarget", {
@@ -59,14 +59,14 @@ var Pan3d;
                 this._bindTarget = value;
                 this.invertBindMatrix.isIdentity = false;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "bindSocket", {
             set: function (value) {
                 this._bindSocket = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "x", {
@@ -76,7 +76,7 @@ var Pan3d;
             set: function (value) {
                 this.bindVecter3d.x = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "y", {
@@ -86,7 +86,7 @@ var Pan3d;
             set: function (value) {
                 this.bindVecter3d.y = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "z", {
@@ -96,7 +96,7 @@ var Pan3d;
             set: function (value) {
                 this.bindVecter3d.z = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         CombineParticle.prototype.setPos = function ($xpos, $ypos, $zpos) {
@@ -114,21 +114,21 @@ var Pan3d;
             set: function (value) {
                 this.bindScale.x = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "scaleY", {
             set: function (value) {
                 this.bindScale.y = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "scaleZ", {
             set: function (value) {
                 this.bindScale.z = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "rotationX", {
@@ -136,7 +136,7 @@ var Pan3d;
                 this._rotationX = value;
                 this.applyRotation();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "rotationY", {
@@ -144,7 +144,7 @@ var Pan3d;
                 this._rotationY = value;
                 this.applyRotation();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CombineParticle.prototype, "rotationZ", {
@@ -152,7 +152,7 @@ var Pan3d;
                 this._rotationZ = value;
                 this.applyRotation();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         CombineParticle.prototype.applyRotation = function () {
@@ -327,7 +327,7 @@ var Pan3d;
                 }
                 return this._displayAry.length;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         //private onSourceLoadCom(event: BaseEvent): void {

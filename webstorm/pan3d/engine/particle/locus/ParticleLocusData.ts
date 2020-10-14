@@ -1,14 +1,15 @@
 ﻿module Pan3d {
     export class ParticleLocusData extends ParticleData {
+
         public _speed: number = 1;   //粒子运动数字
         public _isLoop: boolean = false;  //是否循环
-        public _density: number;
-        public _isEnd: boolean;
+        private _density: number | undefined;
+        private _isEnd: boolean | undefined;
 
-        public _resultUvVec: Array<number>;
-        public _caramPosVec: Array<number>;
-        public _changUv: boolean;
-        public _uvVec: Array<number>;
+        public _resultUvVec: Array<number> | undefined;
+        public _caramPosVec: Array<number> | undefined;
+        public _changUv: boolean | undefined;
+        public _uvVec: Array<number> | undefined;
 
         public getParticle(): Display3DParticle {
             return new Display3DLocusPartilce;
@@ -80,6 +81,7 @@
 
             var $nowTime: number = 0;
             var $lifeRoundNum: number = (this._life / 100);
+            // @ts-ignore
             var $moveUv: number = this._speed * $nowTime / this._density / 10
             if (this._isEnd) {
                 $moveUv = Math.min(1, $moveUv);
@@ -155,11 +157,13 @@
         }
 
         public setFloat32Vec(key: string, ary: Array<number>): void {
+            // @ts-ignore
             var idxary: Array<number> = Display3DLocusShader.shader_vec4[key];
             var idx: number = idxary[0] * 16 + idxary[1] * 4;
             this.vcmatData.set(ary, idx);
         }
         public setFloat32Mat(key: string, ary: Float32Array): void {
+            // @ts-ignore
             var idx: number = Display3DLocusShader.shader_mat4[key] * 16;
             this.vcmatData.set(ary, idx);
         }

@@ -2,6 +2,7 @@ package z3d.filemodel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -63,6 +64,10 @@ public class ParticleManager extends ResGC {
         this.particleList.add(particle);
         this.addRenderDic(particle);
 
+    }
+    public  void clearAll(){
+        this.particleList=new ArrayList<>();
+        this.renderDic=new HashMap<>();
     }
 
     private   void  addRenderDic(CombineParticle particle )

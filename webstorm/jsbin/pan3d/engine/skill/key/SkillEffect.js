@@ -26,7 +26,7 @@ var Pan3d;
             set: function (value) {
                 this._active = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SkillEffect.prototype.addToRender = function () {

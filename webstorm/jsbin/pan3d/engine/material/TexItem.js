@@ -17,7 +17,7 @@ var Pan3d;
                 this._id = value;
                 this.name = "fs" + value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(TexItem.prototype, "texture", {
@@ -29,7 +29,7 @@ var Pan3d;
                     return null;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         TexItem.LIGHTMAP = 1;

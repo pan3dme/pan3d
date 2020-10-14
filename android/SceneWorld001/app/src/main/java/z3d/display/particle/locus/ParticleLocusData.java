@@ -79,7 +79,7 @@ public class ParticleLocusData extends ParticleData {
         this.objData.uvBuffer= this.objData.upGpuvertexBuffer(this.objData.uvlist);
         this.objData.indexBuffer= this.objData.upGpuIndexBuffer(this.objData.indexs);
 
-
+        this.objData.treNum=this.objData.indexs.size();
 
     }
    

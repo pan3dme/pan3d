@@ -46,7 +46,7 @@ var Pan3d;
                 }
                 return this._aabbVect;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3DSprite.prototype.setObjUrl = function (value) {
@@ -87,7 +87,7 @@ var Pan3d;
                 }
                 return this.lightMapTextureRes.texture;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3DSprite.prototype.setMaterialUrl = function (value, $paramData) {
@@ -131,7 +131,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3DSprite.prototype.update = function () {

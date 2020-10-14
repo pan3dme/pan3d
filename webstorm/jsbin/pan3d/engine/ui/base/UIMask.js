@@ -80,7 +80,7 @@ var Pan3d;
                 this._x = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIMask.prototype, "y", {
@@ -91,7 +91,7 @@ var Pan3d;
                 this._y = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIMask.prototype, "width", {
@@ -102,7 +102,7 @@ var Pan3d;
                 this._width = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIMask.prototype, "height", {
@@ -113,7 +113,7 @@ var Pan3d;
                 this._height = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIMask.prototype.dispose = function () {

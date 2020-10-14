@@ -22,6 +22,7 @@ import java.io.InputStream;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import scene.dis.TwoTextureSprite;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
@@ -81,8 +82,8 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
 
                 GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                scene3D.camera3D.distance=30;
-                scene3D.camera3D.rotationY++;
+                scene3D.camera3D.distance=100;
+//                scene3D.camera3D.rotationY++;
                 scene3D.upFrame();
 
 
@@ -91,31 +92,46 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
 
-        this.addButs();
+        this.addButs("播放", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                playLyf();
+            }
+        });
+
+        this.addButs("清理", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                ParticleManager particleManager=scene3D.particleManager;
+                particleManager.clearAll();
+            }
+        });
     }
-    private void addButs()
+
+    private void addButs(String val,final CallBackFun backFun)
     {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         Button bn = new Button(this);
-        bn.setText("点击");
+        bn.setText(val);
         bn.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
         layout.addView(bn);
         bn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
-                playLyf();
+                backFun.StateChange(true);
             }
         });
     }
+
     private void loadSceneRes()
     {
 
         this.scene3D=new Scene3D();
-//        this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
+        this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
+//        this.scene3D.addDisplay(new TwoTextureSprite(this.scene3D));
 //        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
 
     }

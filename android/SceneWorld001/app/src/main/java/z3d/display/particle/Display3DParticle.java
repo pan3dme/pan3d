@@ -6,6 +6,7 @@ import z3d.base.Object3D;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
 import z3d.display.particle.ctrl.TimeLine;
+import z3d.program.Shader3D;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
 
@@ -14,6 +15,8 @@ public class Display3DParticle extends Display3D {
 
     public boolean visible;
     public TimeLine timeline;
+    public Shader3D shader3D;
+    public Matrix3D modeMatrix;
     protected float _time;
     private float _beginTime;
     public ParticleData data;

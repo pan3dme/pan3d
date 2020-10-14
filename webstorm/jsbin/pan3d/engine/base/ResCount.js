@@ -32,7 +32,7 @@ var Pan3d;
                     this.idleTime = 0;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ResCount.prototype.clearUseNum = function () {
