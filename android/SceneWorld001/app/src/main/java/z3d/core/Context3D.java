@@ -10,6 +10,7 @@ import z3d.program.Shader3D;
 
 public class Context3D {
 
+
     public void pushVa(FloatBuffer buf)
     {
 
@@ -95,6 +96,10 @@ public class Context3D {
     public void  setVc3fv(Shader3D shader3d, String name,int count , FloatBuffer m)
     {
         GLES20.glUniform3fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);
+    }
+    public void  setVcUniform4f(Shader3D shader3d, String name,float x,float y,float z,float w)
+    {
+        GLES20.glUniform4f(GLES20.glGetUniformLocation(shader3d.program,name),x,y,z,w);
     }
 
     public void drawCall(ShortBuffer dataBuffer, int num)

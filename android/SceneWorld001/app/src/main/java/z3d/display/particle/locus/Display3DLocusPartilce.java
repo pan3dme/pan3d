@@ -4,6 +4,7 @@ import android.util.Log;
 
 import scene.dis.TwoTextureShader;
 import scene.dis.TwoTextureSprite;
+import z3d.base.Camera3D;
 import z3d.base.ObjData;
 import z3d.core.Context3D;
 import z3d.display.basedis.DisplayTestShader;
@@ -13,6 +14,7 @@ import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.units.TimeUtil;
 import z3d.vo.Matrix3D;
+import z3d.vo.Vector3D;
 
 public class Display3DLocusPartilce extends Display3DParticle {
 
@@ -64,11 +66,19 @@ public class Display3DLocusPartilce extends Display3DParticle {
         super.setVc();
         this.modeMatrix=new Matrix3D();
         this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
-
+        Camera3D cam3d= this.scene3d.camera3D;
         Context3D ctx=this.scene3d.context3D;
         ctx.setProgame(this.shader3D.program);
-        ctx.setVcMatrix4fv(this.shader3D,Shader3D.viewMatrix,this.scene3d.camera3D.viewMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,Shader3D.camMatrix,this.scene3d.camera3D.camMatrix3D.m);
+        ctx.setVcMatrix4fv(this.shader3D,Shader3D.viewMatrix,cam3d.viewMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,Shader3D.camMatrix,cam3d.camMatrix3D.m);
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.posMatrix,this.modeMatrix.m);
+        
+        Vector3D _resultUvVec= this.locusdata()._resultUvVec;
+        ctx.setVcUniform4f(this.shader3D,"vcmat30'",_resultUvVec.x,_resultUvVec.y,_resultUvVec.z,_resultUvVec.w);
+        if(this.data._watchEye){
+            ctx.setVcUniform4f(this.shader3D,"vcmat31'",cam3d.x,cam3d.y,cam3d.z,cam3d.w);
+        }
+
+
     }
 }

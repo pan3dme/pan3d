@@ -22,9 +22,9 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/locus/Display3DLocusShader.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/locus/Display3DLocusShader.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusPartilce.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusPartilce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,22 +155,22 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="493" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602667113775" />
-    <state width="1638" height="345" key="GridCell.Tab.0.bottom" timestamp="1602667332086">
+    <state width="1638" height="323" key="GridCell.Tab.0.bottom" timestamp="1602669894570">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="345" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602667332086" />
-    <state width="1638" height="345" key="GridCell.Tab.0.center" timestamp="1602667332085">
+    <state width="1638" height="323" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602669894570" />
+    <state width="1638" height="323" key="GridCell.Tab.0.center" timestamp="1602669894569">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="345" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602667332085" />
-    <state width="1638" height="345" key="GridCell.Tab.0.left" timestamp="1602667332085">
+    <state width="1638" height="323" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602669894569" />
+    <state width="1638" height="323" key="GridCell.Tab.0.left" timestamp="1602669894568">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="345" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602667332085" />
-    <state width="1638" height="345" key="GridCell.Tab.0.right" timestamp="1602667332086">
+    <state width="1638" height="323" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602669894568" />
+    <state width="1638" height="323" key="GridCell.Tab.0.right" timestamp="1602669894569">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="345" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602667332086" />
+    <state width="1638" height="323" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602669894569" />
     <state width="1638" height="345" key="GridCell.Tab.1.bottom" timestamp="1602667332084">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>

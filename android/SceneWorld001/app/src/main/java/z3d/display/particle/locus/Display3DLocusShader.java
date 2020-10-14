@@ -17,6 +17,8 @@ public class Display3DLocusShader extends Shader3D {
                 "uniform mat4 viewMatrix;\n"+
                 "uniform mat4 camMatrix;\n"+
                 "uniform mat4 posMatrix;\n"+
+                "uniform vec4 vcmat30;\n"+
+                "uniform vec4 vcmat31;\n"+
 
                 "varying vec2 v0;\n"+
                 "void main(){\n"+
