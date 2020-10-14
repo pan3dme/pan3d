@@ -2,10 +2,14 @@ package z3d.display.particle;
 
 import android.util.Log;
 
+import java.util.List;
+
 import z3d.base.Object3D;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
 import z3d.display.particle.ctrl.TimeLine;
+import z3d.material.DynamicTexItem;
+import z3d.material.TexItem;
 import z3d.program.Shader3D;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
@@ -86,7 +90,24 @@ public class Display3DParticle extends Display3D {
     }
     public void  setMaterialTexture()
     {
+        Context3D ctx=this.scene3d.context3D;
+        List<TexItem> texVec  = this.data.materialParam.material.texList;
+        for (int i   = 0; i < texVec.size(); i++) {
+            TexItem texItem=texVec.get(i);
+            if (texItem.isDynamic) {
+                continue;
+            }
+            ctx.setRenderTexture(this.shader3D,texItem.name,texItem.textureRes.textTureInt,texItem.get_id());
+//        [ctx setRenderTexture:self.data.materialParam.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
+        }
+        List<DynamicTexItem>  texDynamicVec  = this.data.materialParam.dynamicTexList;
+        for (int i   = 0; i < texDynamicVec.size(); i++) {
+          TexItem texItem=texDynamicVec.get(i).target;
+          if(texItem.textureRes!=null){
+              ctx.setRenderTexture(this.shader3D,texItem.name,texItem.textureRes.textTureInt,texItem.get_id());
+          }
 
+        }
     }
     public void  reset()
     {

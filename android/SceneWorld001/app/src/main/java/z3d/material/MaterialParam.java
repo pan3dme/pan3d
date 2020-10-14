@@ -10,7 +10,7 @@ public class MaterialParam {
 
     public Material material ;
     public String materialUrl  ;
-    public List<Object> dynamicTexList;
+    public List<DynamicTexItem> dynamicTexList;
     public List<Object>  dynamicConstList ;
 
 
