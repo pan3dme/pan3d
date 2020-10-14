@@ -14,6 +14,7 @@ public class Shader3D {
     public static  String vpMatrix3D="vpMatrix3D";
     public static  String viewMatrix="viewMatrix";
     public static  String camMatrix="camMatrix";
+    public static  String modeMatrix="modeMatrix";
     public static  String posMatrix="posMatrix";
 
 

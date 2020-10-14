@@ -16,7 +16,7 @@ public class Display3DLocusShader extends Shader3D {
                 "attribute vec4 v3Normal;\n"+
                 "uniform mat4 viewMatrix;\n"+
                 "uniform mat4 camMatrix;\n"+
-                "uniform mat4 posMatrix;\n"+
+                "uniform mat4 modeMatrix;\n"+
                 "uniform vec4 vcmat30;\n"+
                 "uniform vec4 vcmat31;\n"+
 
@@ -25,17 +25,29 @@ public class Display3DLocusShader extends Shader3D {
                 "varying vec4 v2;\n"+
 
                 "void main(){\n"+
-                "v0=v2TexCoord;\n"+
-                " vec4 tempPos = posMatrix * vec4(v3Position.xyz,1.0);\n"+
+
+                "vec2 tempv0 = v2TexCoord;\n"+
+                "tempv0.x -= vcmat30.x;\n"+
+                "float alpha = tempv0.x/vcmat30.y;\n"+
+                "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);\n"+
+                "float kill = -tempv0.x;\n"+
+                "kill *= tempv0.x - vcmat30.z;\n"+
+                "v2 = vec4(kill,0.0,0.0,alpha);\n"+
+                "v1 = v2TexCoord;\n"+
+                "v0 = tempv0;\n"+
+
+
+                "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);\n"+
                 "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"+
                 "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n"+
-                "mulPos = normalize(vec3(0,0,0) - mulPos);\n"+
+                "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"+
                 "mulPos = cross(mulPos, normals);\n"+
                 "mulPos = normalize(mulPos);\n"+
-                "mulPos *= v3Normal.w;\n"+
+                "mulPos *= v3Normal.w*10.0  ;\n"+
                 "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"+
 
-                "gl_Position = viewMatrix*camMatrix*posMatrix*tempPos;\n"+
+                "gl_Position =viewMatrix*camMatrix*modeMatrix* tempPos ;\n"+
+
 
                 "}";
 
@@ -45,11 +57,10 @@ public class Display3DLocusShader extends Shader3D {
     }
 
     public String getFragmentShaderString() {
-        String fragment =
-                "precision mediump float;\n"+
-                        "varying vec2 v0;\n"+
-                        "varying vec2 v1;\n"+
-                        "varying vec4 v2;\n"+
+        String fragment =  "precision mediump float;\n"+
+                "varying vec2 v0;\n"+
+                "varying vec2 v1;\n"+
+                "varying vec4 v2;\n"+
                 "void main() {\n"+
                 "gl_FragColor= vec4(0,0,1,1);\n"+
                 "}";

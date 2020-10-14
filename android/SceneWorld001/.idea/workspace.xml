@@ -24,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusPartilce.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusPartilce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/Display3DLocusShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/Shader3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
