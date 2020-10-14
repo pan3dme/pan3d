@@ -21,6 +21,9 @@ public class Display3DLocusShader extends Shader3D {
                 "uniform vec4 vcmat31;\n"+
 
                 "varying vec2 v0;\n"+
+                "varying vec2 v1;\n"+
+                "varying vec4 v2;\n"+
+
                 "void main(){\n"+
                 "v0=v2TexCoord;\n"+
                 " vec4 tempPos = posMatrix * vec4(v3Position.xyz,1.0);\n"+
@@ -44,9 +47,11 @@ public class Display3DLocusShader extends Shader3D {
     public String getFragmentShaderString() {
         String fragment =
                 "precision mediump float;\n"+
-                "varying vec2 v0;\n"+
+                        "varying vec2 v0;\n"+
+                        "varying vec2 v1;\n"+
+                        "varying vec4 v2;\n"+
                 "void main() {\n"+
-                "gl_FragColor= vec4(1,0,0,1);\n"+
+                "gl_FragColor= vec4(0,0,1,1);\n"+
                 "}";
 
         return fragment;

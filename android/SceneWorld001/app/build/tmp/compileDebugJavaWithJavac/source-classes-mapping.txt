@@ -222,8 +222,8 @@ z3d/material/Material.java
  z3d.material.Material
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
-z3d/display/particle/locus/Display3DLocusShader.java
- z3d.display.particle.locus.Display3DLocusShader
+z3d/display/particle/CombineParticle.java
+ z3d.display.particle.CombineParticle
 z3d/display/BuildDisplay3DSprite.java
  z3d.display.BuildDisplay3DSprite
  z3d.display.BuildDisplay3DSprite$1
@@ -235,8 +235,8 @@ scene/SceneTestTwoTexture.java
  scene.SceneTestTwoTexture$2
 z3d/scene/Scene3D.java
  z3d.scene.Scene3D
-z3d/display/particle/locus/ParticleLocusData.java
- z3d.display.particle.locus.ParticleLocusData
+z3d/display/particle/model/ParticleModelData.java
+ z3d.display.particle.model.ParticleModelData
 z3d/display/basedis/DisplayBaseSprite.java
  z3d.display.basedis.DisplayBaseSprite
 scene/SceneWorldBase.java
@@ -288,8 +288,8 @@ scene/dis/TwoTextureSprite.java
  scene.dis.TwoTextureSprite
  scene.dis.TwoTextureSprite$1
  scene.dis.TwoTextureSprite$2
-z3d/display/particle/locus/Display3DLocusPartilce.java
- z3d.display.particle.locus.Display3DLocusPartilce
+z3d/display/particle/ball/Display3DBallPartilce.java
+ z3d.display.particle.ball.Display3DBallPartilce
 z3d/display/line/GridLineSprite.java
  z3d.display.line.GridLineSprite
 z3d/display/Display3D.java
@@ -298,9 +298,9 @@ z3d/display/particle/ball/ParticleBallData.java
  z3d.display.particle.ball.ParticleBallData
 z3d/filemodel/ParticleManager.java
  z3d.filemodel.ParticleManager
-z3d/display/particle/model/ParticleModelData.java
- z3d.display.particle.model.ParticleModelData
-z3d/display/particle/ball/Display3DBallPartilce.java
- z3d.display.particle.ball.Display3DBallPartilce
-z3d/display/particle/CombineParticle.java
- z3d.display.particle.CombineParticle
+z3d/display/particle/locus/Display3DLocusShader.java
+ z3d.display.particle.locus.Display3DLocusShader
+z3d/display/particle/locus/Display3DLocusPartilce.java
+ z3d.display.particle.locus.Display3DLocusPartilce
+z3d/display/particle/locus/ParticleLocusData.java
+ z3d.display.particle.locus.ParticleLocusData
