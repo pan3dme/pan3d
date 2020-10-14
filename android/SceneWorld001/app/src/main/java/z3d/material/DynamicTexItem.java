@@ -14,10 +14,19 @@ public class DynamicTexItem extends DynamicBaseTexItem {
 
     private static final String TAG ="DynamicTexItem" ;
     public  String url;
-    public  int textureDynamic;
+    public  TextureRes textureDynamic;
     public  boolean isParticleColor;
     public  Curve curve;
     public  float life;
+
+    public int getTexture() {
+        return textureDynamic!=null?textureDynamic.textTureInt:this.textureRes.textTureInt;
+    }
+    public void setTexture(int x) {
+
+
+    }
+
 
 
     public void initCurve(int i) {
@@ -63,9 +72,14 @@ public class DynamicTexItem extends DynamicBaseTexItem {
             }
         }
          Bitmap bitmap= ColorTransition.getImageData(imgNumVec,this.life);
-         this.textureDynamic= TextureManager.getInstance().createTexture(bitmap);
+         this.textureDynamic=new TextureRes();
+         this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
 
         Log.d(TAG, "creatTextureByCurve: ");
 
+    }
+
+    public boolean hasTextureRes() {
+        return      this.textureDynamic!=null||this.textureRes!=null;
     }
 }

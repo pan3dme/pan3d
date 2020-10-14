@@ -98,14 +98,15 @@ public class Display3DParticle extends Display3D {
                 continue;
             }
             ctx.setRenderTexture(this.shader3D,texItem.name,texItem.textureRes.textTureInt,texItem.get_id());
-//        [ctx setRenderTexture:self.data.materialParam.shader name:texVec[i].name texture:  texVec[i].textureRes.textTureLuint level:0];
         }
         List<DynamicTexItem>  texDynamicVec  = this.data.materialParam.dynamicTexList;
         for (int i   = 0; i < texDynamicVec.size(); i++) {
-          TexItem texItem=texDynamicVec.get(i).target;
-          if(texItem.textureRes!=null){
-              ctx.setRenderTexture(this.shader3D,texItem.name,texItem.textureRes.textTureInt,texItem.get_id());
+            DynamicTexItem dynamicTexItem=  texDynamicVec.get(i);
+          TexItem texItem=dynamicTexItem.target;
+          if(dynamicTexItem.hasTextureRes()){
+              ctx.setRenderTexture(this.shader3D,texItem.name,dynamicTexItem.getTexture(),texItem.get_id());
           }
+
 
         }
     }

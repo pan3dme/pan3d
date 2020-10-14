@@ -10,8 +10,8 @@ z3d/material/Curve.java
  z3d.material.Curve
 z3d/filemodel/TextureLoad.java
  z3d.filemodel.TextureLoad
-z3d/display/particle/locus/Display3DLocusPartilce.java
- z3d.display.particle.locus.Display3DLocusPartilce
+z3d/base/SkillBackFun.java
+ z3d.base.SkillBackFun
 z3d/vo/ParicleRandomColorVo.java
  z3d.vo.ParicleRandomColorVo
 z3d/vo/ParamDataConVo.java
@@ -33,8 +33,11 @@ z3d/display/particle/MaterialParamDataVo.java
  z3d.display.particle.MaterialParamDataVo
 z3d/res/MaterialInfoVo.java
  z3d.res.MaterialInfoVo
-z3d/material/MaterialParam.java
- z3d.material.MaterialParam
+z3d/res/GroupRes.java
+ z3d.res.GroupRes
+ z3d.res.GroupRes$1
+ z3d.res.GroupRes$1$1
+ z3d.res.GroupRes$2
 z3d/base/ByteArrayJava.java
  z3d.base.ByteArrayJava
 z3d/vo/DualQuatFloat32Array.java
@@ -77,13 +80,11 @@ urlhttp/RequestUtil.java
  urlhttp.RequestUtil$1
  urlhttp.RequestUtil$2
  urlhttp.RequestUtil$3
-z3d/display/BuildDisplay3DSprite.java
- z3d.display.BuildDisplay3DSprite
- z3d.display.BuildDisplay3DSprite$1
- z3d.display.BuildDisplay3DSprite$2
- z3d.display.BuildDisplay3DSprite$3
-z3d/display/particle/Display3DParticle.java
- z3d.display.particle.Display3DParticle
+z3d/res/BaseRes.java
+ z3d.res.BaseRes
+z3d/filemodel/ResManager.java
+ z3d.filemodel.ResManager
+ z3d.filemodel.ResManager$1
 z3d/base/ObjDataBackFun.java
  z3d.base.ObjDataBackFun
 z3d/units/TimeUtil.java
@@ -119,18 +120,19 @@ z3d/base/ByteArray.java
  z3d.base.ByteArray
 z3d/program/MaterialAnimShader.java
  z3d.program.MaterialAnimShader
-z3d/display/particle/CombineParticle.java
- z3d.display.particle.CombineParticle
+z3d/base/GroupBackFun.java
+ z3d.base.GroupBackFun
 z3d/units/AnimManager.java
  z3d.units.AnimManager
 z3d/vo/SkinMesh.java
  z3d.vo.SkinMesh
-z3d/display/particle/ball/Display3DBallPartilce.java
- z3d.display.particle.ball.Display3DBallPartilce
+z3d/base/ObjDataManager.java
+ z3d.base.ObjDataManager
 z3d/vo/Float32Array.java
  z3d.vo.Float32Array
-z3d/display/particle/model/ParticleModelData.java
- z3d.display.particle.model.ParticleModelData
+z3d/filemodel/MeshDataManager.java
+ z3d.filemodel.MeshDataManager
+ z3d.filemodel.MeshDataManager$1
 z3d/units/LoadBackFun.java
  z3d.units.LoadBackFun
 z3d/vo/Quaternion.java
@@ -187,8 +189,8 @@ com/e/sceneworld001/BuildConfig.java
  com.e.sceneworld001.BuildConfig
 z3d/vo/ShockAryVo.java
  z3d.vo.ShockAryVo
-z3d/filemodel/ParticleManager.java
- z3d.filemodel.ParticleManager
+z3d/units/ColorTransition.java
+ z3d.units.ColorTransition
 z3d/engine/GC.java
  z3d.engine.GC
 z3d/display/particle/ctrl/KeyFrame.java
@@ -199,48 +201,70 @@ z3d/program/MaterialShader.java
  z3d.program.MaterialShader
 z3d/display/particle/ball/ParticleBallGpuData.java
  z3d.display.particle.ball.ParticleBallGpuData
-z3d/display/particle/facet/ParticleFacetData.java
- z3d.display.particle.facet.ParticleFacetData
-z3d/material/DynamicTexItem.java
- z3d.material.DynamicTexItem
+z3d/res/RoleRes.java
+ z3d.res.RoleRes
+ z3d.res.RoleRes$1
+ z3d.res.RoleRes$1$1
+ z3d.res.RoleRes$2
+z3d/material/DynamicBaseConstItem.java
+ z3d.material.DynamicBaseConstItem
 z3d/material/ConstItem.java
  z3d.material.ConstItem
-z3d/display/particle/ball/ParticleBallData.java
- z3d.display.particle.ball.ParticleBallData
-z3d/display/Display3D.java
- z3d.display.Display3D
+z3d/material/DynamicConstItem.java
+ z3d.material.DynamicConstItem
+z3d/material/MaterialBaseParam.java
+ z3d.material.MaterialBaseParam
+ z3d.material.MaterialBaseParam$1
+z3d/res/SkillRes.java
+ z3d.res.SkillRes
+ z3d.res.SkillRes$1
+z3d/base/MeshData.java
+ z3d.base.MeshData
+ z3d.base.MeshData$1
+z3d/display/particle/facet/ParticleFacetData.java
+ z3d.display.particle.facet.ParticleFacetData
+z3d/display/BuildDisplay3DSprite.java
+ z3d.display.BuildDisplay3DSprite
+ z3d.display.BuildDisplay3DSprite$1
+ z3d.display.BuildDisplay3DSprite$2
+ z3d.display.BuildDisplay3DSprite$3
 scene/SceneTestTwoTexture.java
  scene.SceneTestTwoTexture
  scene.SceneTestTwoTexture$1
  scene.SceneTestTwoTexture$2
 z3d/scene/Scene3D.java
  z3d.scene.Scene3D
-z3d/material/DynamicBaseConstItem.java
- z3d.material.DynamicBaseConstItem
-z3d/display/line/GridLineSprite.java
- z3d.display.line.GridLineSprite
+z3d/display/particle/locus/ParticleLocusData.java
+ z3d.display.particle.locus.ParticleLocusData
 z3d/display/basedis/DisplayBaseSprite.java
  z3d.display.basedis.DisplayBaseSprite
-scene/dis/TwoTextureSprite.java
- scene.dis.TwoTextureSprite
- scene.dis.TwoTextureSprite$1
- scene.dis.TwoTextureSprite$2
+scene/SceneWorldBase.java
+ scene.SceneWorldBase
+ scene.SceneWorldBase$1
+ scene.SceneWorldBase$2
+ scene.SceneWorldBase$3
+ scene.SceneWorldBase$4
 z3d/display/particle/locusball/ParticleLocusballData.java
  z3d.display.particle.locusball.ParticleLocusballData
 z3d/display/line/LineDisplaySprite.java
  z3d.display.line.LineDisplaySprite
-z3d/units/ColorTransition.java
- z3d.units.ColorTransition
-z3d/material/DynamicConstItem.java
- z3d.material.DynamicConstItem
-z3d/material/MaterialBaseParam.java
- z3d.material.MaterialBaseParam
- z3d.material.MaterialBaseParam$1
+scene/SceneLyfBase.java
+ scene.SceneLyfBase
+ scene.SceneLyfBase$1
+ scene.SceneLyfBase$2
+ scene.SceneLyfBase$3
+ scene.SceneLyfBase$4
+ scene.SceneLyfBase$5
+ scene.SceneLyfBase$6
+ scene.SceneLyfBase$7
+z3d/display/particle/ParticleData.java
+ z3d.display.particle.ParticleData
+ z3d.display.particle.ParticleData$1
 z3d/display/role/Display3dMovie.java
  z3d.display.role.Display3dMovie
  z3d.display.role.Display3dMovie$1
-z3d/display/particle/CombineParticleData.java
- z3d.display.particle.CombineParticleData
+z3d/material/DynamicTexItem.java
+ z3d.material.DynamicTexItem
 z3d/display/basedis/DisplayTestSprite.java
  z3d.display.basedis.DisplayTestSprite
 scene/SceneRoleBase.java
@@ -251,61 +275,37 @@ scene/SceneRoleBase.java
  scene.SceneRoleBase$4
  scene.SceneRoleBase$5
  scene.SceneRoleBase$6
-z3d/filemodel/ResManager.java
- z3d.filemodel.ResManager
- z3d.filemodel.ResManager$1
-z3d/res/GroupRes.java
- z3d.res.GroupRes
- z3d.res.GroupRes$1
- z3d.res.GroupRes$1$1
- z3d.res.GroupRes$2
-z3d/base/SkillBackFun.java
- z3d.base.SkillBackFun
-z3d/base/GroupBackFun.java
- z3d.base.GroupBackFun
-z3d/display/particle/locus/ParticleLocusData.java
- z3d.display.particle.locus.ParticleLocusData
-z3d/res/SkillRes.java
- z3d.res.SkillRes
- z3d.res.SkillRes$1
-scene/SceneWorldBase.java
- scene.SceneWorldBase
- scene.SceneWorldBase$1
- scene.SceneWorldBase$2
- scene.SceneWorldBase$3
- scene.SceneWorldBase$4
-z3d/filemodel/MeshDataManager.java
- z3d.filemodel.MeshDataManager
- z3d.filemodel.MeshDataManager$1
-scene/SceneLyfBase.java
- scene.SceneLyfBase
- scene.SceneLyfBase$1
- scene.SceneLyfBase$2
- scene.SceneLyfBase$3
- scene.SceneLyfBase$4
- scene.SceneLyfBase$5
- scene.SceneLyfBase$6
- scene.SceneLyfBase$7
-z3d/base/ObjDataManager.java
- z3d.base.ObjDataManager
-z3d/res/RoleRes.java
- z3d.res.RoleRes
- z3d.res.RoleRes$1
- z3d.res.RoleRes$1$1
- z3d.res.RoleRes$2
-z3d/display/Display3DSprite.java
- z3d.display.Display3DSprite
- z3d.display.Display3DSprite$1
- z3d.display.Display3DSprite$2
-z3d/base/MeshData.java
- z3d.base.MeshData
- z3d.base.MeshData$1
-z3d/display/particle/ParticleData.java
- z3d.display.particle.ParticleData
- z3d.display.particle.ParticleData$1
-z3d/res/BaseRes.java
- z3d.res.BaseRes
 z3d/material/MaterialManager.java
  z3d.material.MaterialManager
  z3d.material.MaterialManager$1
  z3d.material.MaterialManager$2
+z3d/display/Display3DSprite.java
+ z3d.display.Display3DSprite
+ z3d.display.Display3DSprite$1
+ z3d.display.Display3DSprite$2
+z3d/display/particle/Display3DParticle.java
+ z3d.display.particle.Display3DParticle
+z3d/material/MaterialParam.java
+ z3d.material.MaterialParam
+z3d/display/particle/CombineParticleData.java
+ z3d.display.particle.CombineParticleData
+scene/dis/TwoTextureSprite.java
+ scene.dis.TwoTextureSprite
+ scene.dis.TwoTextureSprite$1
+ scene.dis.TwoTextureSprite$2
+z3d/display/particle/locus/Display3DLocusPartilce.java
+ z3d.display.particle.locus.Display3DLocusPartilce
+z3d/display/line/GridLineSprite.java
+ z3d.display.line.GridLineSprite
+z3d/display/Display3D.java
+ z3d.display.Display3D
+z3d/display/particle/ball/ParticleBallData.java
+ z3d.display.particle.ball.ParticleBallData
+z3d/filemodel/ParticleManager.java
+ z3d.filemodel.ParticleManager
+z3d/display/particle/model/ParticleModelData.java
+ z3d.display.particle.model.ParticleModelData
+z3d/display/particle/ball/Display3DBallPartilce.java
+ z3d.display.particle.ball.Display3DBallPartilce
+z3d/display/particle/CombineParticle.java
+ z3d.display.particle.CombineParticle
