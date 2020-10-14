@@ -30,7 +30,10 @@ public class Display3DLocusPartilce extends Display3DParticle {
 
 
 
-
+        if( this.shader3D==null){
+            ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
+            this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
+        }
        super.update();
     }
 
@@ -47,25 +50,17 @@ public class Display3DLocusPartilce extends Display3DParticle {
         if(this._twoTextureSprite==null){
             _twoTextureSprite=new DisplayTestSprite(null);
         }
-        if( this.shader3D==null){
-            ProgrmaManager.getInstance().registe(Display3DLocusShader.Display3DLocusShader,new Display3DLocusShader());
-            this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.Display3DLocusShader);
-        }
+
         ctx.setProgame(this.shader3D.program);
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         this.modeMatrix=new Matrix3D();
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-        ctx.setVa(this.shader3D,"vPosition",3,_twoTextureSprite.objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"vTextCoord",2,_twoTextureSprite.objData.uvBuffer);
+        ctx.setVa(this.shader3D,"v3Position",3,_twoTextureSprite.objData.vertexBuffer);
+        ctx.setVa(this.shader3D,"v2TexCoord",2,_twoTextureSprite.objData.uvBuffer);
+//        ctx.setVa(this.shader3D,"v3Normal",4,_twoTextureSprite.objData.uvBuffer);
         ctx.drawCall(_twoTextureSprite.objData.indexBuffer,_twoTextureSprite.objData.treNum);
 
-//        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.verticeslist);
-//        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.vertexBuffer);
 
-//        ctx.setVa(this.shader3D,"v3Position",3,_twoTextureSprite.objData.vertexBuffer);
-//        ctx.setVa(this.shader3D,"v2TexCoord",2,_twoTextureSprite.objData.uvBuffer);
-//        ctx.setVa(this.shader3D,"v2TexCoord",2,temp.uvBuffer);
-//        ctx.setVa(this.shader3D,"v3Normal",4,temp.normalsBuffer);
 //        ctx.drawCall(temp.indexBuffer,temp.treNum);
 
 //        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.treNum);

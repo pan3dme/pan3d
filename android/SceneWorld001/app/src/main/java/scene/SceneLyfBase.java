@@ -99,7 +99,7 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        this.addButs("播放", new CallBackFun() {
+        this.addButs("清理", new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
                 ParticleManager particleManager=scene3D.particleManager;
