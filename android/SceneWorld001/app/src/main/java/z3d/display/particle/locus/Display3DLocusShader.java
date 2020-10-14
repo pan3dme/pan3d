@@ -18,14 +18,11 @@ public class Display3DLocusShader extends Shader3D {
                 "uniform mat4 camMatrix;\n"+
                 "uniform mat4 modeMatrix;\n"+
                 "uniform vec4 vcmat30;\n"+
-                "uniform vec4 vcmat31;\n"+
-
+                "uniform vec4 v3CamPos;\n"+
                 "varying vec2 v0;\n"+
                 "varying vec2 v1;\n"+
                 "varying vec4 v2;\n"+
-
                 "void main(){\n"+
-
                 "vec2 tempv0 = v2TexCoord;\n"+
                 "tempv0.x -= vcmat30.x;\n"+
                 "float alpha = tempv0.x/vcmat30.y;\n"+
@@ -36,14 +33,13 @@ public class Display3DLocusShader extends Shader3D {
                 "v1 = v2TexCoord;\n"+
                 "v0 = tempv0;\n"+
 
-
                 "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);\n"+
                 "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"+
                 "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n"+
-                "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"+
+                "mulPos = normalize(vec3(v3CamPos.xyz) - mulPos);\n"+
                 "mulPos = cross(mulPos, normals);\n"+
                 "mulPos = normalize(mulPos);\n"+
-                "mulPos *= v3Normal.w*10.0  ;\n"+
+                "mulPos *= v3Normal.w*2.0  ;\n"+
                 "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"+
 
                 "gl_Position =viewMatrix*camMatrix*modeMatrix* tempPos ;\n"+
@@ -62,7 +58,7 @@ public class Display3DLocusShader extends Shader3D {
                 "varying vec2 v1;\n"+
                 "varying vec4 v2;\n"+
                 "void main() {\n"+
-                "gl_FragColor= vec4(0,0,1,1);\n"+
+                "gl_FragColor= vec4(1,0,0,1);\n"+
                 "}";
 
         return fragment;

@@ -203,7 +203,7 @@ public class SceneLyfBase extends AppCompatActivity  {
                          scene3D.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
                          scene3D.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
 
-                            Log.d(TAG+ TimeUtil.getTimer(), "滑动吧");
+                          //  Log.d(TAG+ TimeUtil.getTimer(), "滑动吧");
                         }
                         break;
                     case "ACTION_UP":

@@ -1,5 +1,6 @@
 package z3d.display.particle.locus;
 
+import android.opengl.GLES20;
 import android.util.Log;
 
 import scene.dis.TwoTextureShader;
@@ -73,10 +74,12 @@ public class Display3DLocusPartilce extends Display3DParticle {
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.camMatrix,cam3d.camMatrix3D.m);
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.modeMatrix,this.modeMatrix.m);
 
+
         Vector3D _resultUvVec= this.locusdata()._resultUvVec;
-        ctx.setVcUniform4f(this.shader3D,"vcmat30'",_resultUvVec.x,_resultUvVec.y,_resultUvVec.z,_resultUvVec.w);
+        ctx.setVcUniform4f(this.shader3D,"vcmat30",_resultUvVec.x,_resultUvVec.y,_resultUvVec.z,_resultUvVec.w);
         if(this.data._watchEye){
-            ctx.setVcUniform4f(this.shader3D,"vcmat31'",cam3d.x,cam3d.y,cam3d.z,cam3d.w);
+            ctx.setVcUniform4f(this.shader3D,"v3CamPos",cam3d.x,cam3d.y,cam3d.z,cam3d.w);
+
         }
 
 
