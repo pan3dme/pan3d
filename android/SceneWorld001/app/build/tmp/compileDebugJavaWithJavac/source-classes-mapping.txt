@@ -280,8 +280,8 @@ z3d/display/Display3DSprite.java
  z3d.display.Display3DSprite$2
 z3d/display/particle/Display3DParticle.java
  z3d.display.particle.Display3DParticle
-z3d/display/particle/CombineParticleData.java
- z3d.display.particle.CombineParticleData
+z3d/filemodel/ParticleManager.java
+ z3d.filemodel.ParticleManager
 scene/dis/TwoTextureSprite.java
  scene.dis.TwoTextureSprite
  scene.dis.TwoTextureSprite$1
@@ -294,8 +294,8 @@ z3d/display/Display3D.java
  z3d.display.Display3D
 z3d/display/particle/ball/ParticleBallData.java
  z3d.display.particle.ball.ParticleBallData
-z3d/filemodel/ParticleManager.java
- z3d.filemodel.ParticleManager
+z3d/display/particle/CombineParticleData.java
+ z3d.display.particle.CombineParticleData
 z3d/display/particle/locus/Display3DLocusShader.java
  z3d.display.particle.locus.Display3DLocusShader
 z3d/display/particle/locus/Display3DLocusPartilce.java
