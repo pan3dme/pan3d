@@ -67,8 +67,7 @@ public class Display3DParticle extends Display3D {
     {
 
         if (this.visible&& this.data!=null&&this.scene3d!=null){
-            if( this.data.materialParam!=null){
-                Context3D ctx=this.scene3d.context3D;
+            if( this.data.materialParam!=null&&this.shader3D!=null){
 
                 this.updateMatrix();
                 this.setMaterialVc();

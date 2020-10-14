@@ -72,7 +72,10 @@ public class DynamicTexItem extends DynamicBaseTexItem {
             }
         }
          Bitmap bitmap= ColorTransition.getImageData(imgNumVec,this.life);
+
          this.textureDynamic=new TextureRes();
+         this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
+         this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
          this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
 
         Log.d(TAG, "creatTextureByCurve: ");

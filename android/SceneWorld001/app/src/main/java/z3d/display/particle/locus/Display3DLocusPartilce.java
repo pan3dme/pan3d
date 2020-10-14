@@ -26,6 +26,10 @@ public class Display3DLocusPartilce extends Display3DParticle {
 
     @Override
     public void update() {
+        if( this.shader3D==null){
+            ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
+            this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
+        }
        super.update();
     }
 
@@ -45,10 +49,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void setVc() {
         super.setVc();
-        if( this.shader3D==null){
-            ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
-            this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
-        }
+
         this.modeMatrix=new Matrix3D();
         this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
         Camera3D cam3d= this.scene3d.camera3D;
