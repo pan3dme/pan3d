@@ -29,9 +29,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
     public void update() {
 
 
-        if(this._twoTextureSprite==null){
-            _twoTextureSprite=new DisplayTestSprite(null);
-        }
+
         if( this.shader3D==null){
             ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
             this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
@@ -44,13 +42,12 @@ public class Display3DLocusPartilce extends Display3DParticle {
 
 
     }
-    DisplayTestSprite _twoTextureSprite;
+
     @Override
     public void setVa() {
         Context3D ctx=this.scene3d.context3D;
         ObjData temp=  this.particleGpuObjData();
 
-//        temp=_twoTextureSprite.objData;
         ctx.setProgame(this.shader3D.program);
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         this.modeMatrix=new Matrix3D();
