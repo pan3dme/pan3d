@@ -12,6 +12,8 @@ public class Shader3D {
     public static  String v2TexCoord="v2TexCoord";
     public static  String v3Normal="v3Normal";
     public static  String vpMatrix3D="vpMatrix3D";
+    public static  String viewMatrix="viewMatrix";
+    public static  String camMatrix="camMatrix";
     public static  String posMatrix="posMatrix";
 
 
