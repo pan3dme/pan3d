@@ -49,7 +49,6 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void setVc() {
         super.setVc();
-
         this.modeMatrix=new Matrix3D();
         this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
         Camera3D cam3d= this.scene3d.camera3D;
@@ -58,7 +57,6 @@ public class Display3DLocusPartilce extends Display3DParticle {
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.viewMatrix,cam3d.viewMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.camMatrix,cam3d.camMatrix3D.m);
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.modeMatrix,this.modeMatrix.m);
-
         Vector3D _resultUvVec= this.locusdata()._resultUvVec;
         ctx.setVcUniform4f(this.shader3D,"vcmat30",_resultUvVec.x,_resultUvVec.y,_resultUvVec.z,_resultUvVec.w);
         if(this.data._watchEye){
