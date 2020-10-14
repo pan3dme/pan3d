@@ -8,16 +8,17 @@ public class DynamicBaseConstItem {
     public String paramName ;
     public List<Float> currentValue;
     public int targetOffset;
-    public int type;
     protected int _type;
-
     public void setTargetInfo(ConstItem $target,String $paramName,int $type) {
         this.target = $target;
         this.paramName = $paramName;
-        this.type = $type;
+        this.settype($type);
         this.target.setDynamicOffset(this);
         this.currentValue = new ArrayList<>($type);
 
+    }
+    public void settype(int value) {
+        this._type = value;
     }
     public void setCurrentVal(List args ) {
         for (int i = 0; i < args.size(); i++) {

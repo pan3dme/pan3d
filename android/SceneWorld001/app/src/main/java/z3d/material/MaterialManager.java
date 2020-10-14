@@ -160,4 +160,33 @@ public class MaterialManager extends ResGC {
 
      }
 
+    public void loadDynamicTexUtil(MaterialParam materialParam) {
+        List<DynamicTexItem> dynamicTexList = materialParam.dynamicTexList;
+
+        for (int i = 0; i < dynamicTexList.size(); i++) {
+            DynamicTexItem dynamicTexItem=  dynamicTexList.get(i);
+            if (dynamicTexItem.isParticleColor) {
+                dynamicTexItem.creatTextureByCurve();
+            } else {
+//                TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
+//                    $texItem.textureRes = $textureVo;
+//                }, 0, dynamicTexList[i], 0, 1);
+            }
+        }
+
+        /*
+           var dynamicTexList: Array<DynamicTexItem> = material.dynamicTexList;
+
+            for (var i: number = 0; i < dynamicTexList.length; i++) {
+                if (dynamicTexList[i].isParticleColor) {
+                    dynamicTexList[i].creatTextureByCurve();
+                } else {
+                    TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexList[i].url, ($textureVo: TextureRes, $texItem: DynamicTexItem) => {
+                        $texItem.textureRes = $textureVo;
+                    }, 0, dynamicTexList[i], 0, 1);
+                }
+            }
+         */
+
+    }
 }

@@ -54,7 +54,7 @@ public class ParticleData {
     public float  overAllScale;
     public String  _materialUrl;
     public MaterialParam materialParam;
-    public HashMap materialParamData;
+    public MaterialParamDataVo materialParamData;
     public ObjData objData;
     public TimeLineData timelineData;
     public Vector3D rotationV3d;
@@ -140,28 +140,32 @@ public class ParticleData {
     }
     private void   onMaterialLoad(Material material){
         this.materialParam = new MaterialParam() ;
-    this.materialParam.setMaterial(material);
+        this.materialParam.setMaterial(material);
+
+        this.materialParam.setLife(this._life);
+        if (this.materialParamData!=null) {
+
+            this.materialParam.setTextObj(materialParamData.texAry);
+             this.materialParam.setConstObj(this.materialParamData.conAry);
+        }
+        MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
         /*
-         this.materialParam.setLife(this._life);
 
 
-     if (this.materialParamData) {
-         this.materialParam.setTextObj(this.materialParamData.texAry);
-         this.materialParam.setConstObj(this.materialParamData.conAry);
-     }
 
-     MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
 
-     this.regShader();
+
+
+            this.regShader();
 
          */
 
     }
 
     private void readMaterialPara(ByteArray $byte) {
-        this.materialParamData = new HashMap();
+        this.materialParamData = new MaterialParamDataVo();
         String materialUrl = $byte.readUTF();
-        this.materialParamData.put("materialUrl",materialUrl);
+        this.materialParamData.materialUrl=materialUrl;
         int texAryLen = $byte.readInt();
         List texAry=new ArrayList();
         for (int i = 0; i < texAryLen; i++) {
@@ -175,7 +179,7 @@ public class ParticleData {
             }
             texAry.add(temp);
         }
-        this.materialParamData.put("texAry",texAry);
+        this.materialParamData.texAry=texAry;
         this.readMaterialParaConAry($byte);
 
 
@@ -195,7 +199,7 @@ public class ParticleData {
             arr.add(obj);
         }
 
-        this.materialParamData.put("conAry",arr);
+        this.materialParamData.conAry=arr;
 
     }
     private void readTempCurve(ByteArray $byte, CurveVo curve)
@@ -218,8 +222,8 @@ public class ParticleData {
         }
         has = true;
 
-        curve.type = $byte.readFloat();
-        curve.maxFrame = $byte.readFloat();
+        curve.type = (int) $byte.readFloat();
+        curve.maxFrame =(int) $byte.readFloat();
         curve.sideType = $byte.readBoolean();
         curve.speedType = $byte.readBoolean();
         curve.useColorType = $byte.readBoolean();

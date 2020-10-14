@@ -1,6 +1,10 @@
 package z3d.material;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import z3d.vo.CurveItemVo;
+import z3d.vo.CurveVo;
 
 public class Curve {
 
@@ -13,5 +17,42 @@ public class Curve {
     public List<Float> getValue(float t) {
 
         return null;
+    }
+
+    public void setData(CurveVo obj) {
+
+        this.type = obj.type;
+        this.maxFrame = obj.maxFrame;
+        if (obj.items.size()>0) {
+            CurveItemVo curveItemVo=(CurveItemVo) obj.items.get(0);
+            this.begintFrame = curveItemVo.frame;
+        } else {
+            this.begintFrame = -1;
+        }
+        int len = obj.values.get(0).size();
+        List<List<Float>> ary= new ArrayList<>();
+        for (int i = 0; i < len; i++) {
+            List<Float> itemAry  = new ArrayList<>();
+            if (this.type == 1) {
+                itemAry.add(obj.values.get(0).get(i));
+            } else if (this.type == 2) {
+                itemAry.add(obj.values.get(0).get(i));
+                itemAry.add(obj.values.get(1).get(i));
+            } else if (this.type == 3) {
+                itemAry.add(obj.values.get(0).get(i));
+                itemAry.add(obj.values.get(1).get(i));
+                itemAry.add(obj.values.get(2).get(i));
+            } else if (this.type == 4) {
+                Float w = obj.values.get(3).get(i);
+                itemAry.add(obj.values.get(0).get(i)*w);
+                itemAry.add(obj.values.get(1).get(i)*w);
+                itemAry.add(obj.values.get(2).get(i)*w);
+                itemAry.add(w);
+            }
+            ary.add(itemAry);
+        }
+        this.valueVec = ary;
+
+
     }
 }

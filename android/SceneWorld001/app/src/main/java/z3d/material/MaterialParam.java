@@ -1,17 +1,22 @@
 package z3d.material;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import z3d.display.Display3D;
+import z3d.vo.ParamDataConVo;
+import z3d.vo.ParamDataVo;
 import z3d.vo.Vector2D;
 
 public class MaterialParam {
 
+    private static final String TAG = "MaterialParam";
     public Material material ;
     public String materialUrl  ;
     public List<DynamicTexItem> dynamicTexList;
-    public List<Object>  dynamicConstList ;
+    public List<DynamicConstItem>  dynamicConstList ;
 
 
 
@@ -73,6 +78,47 @@ public class MaterialParam {
             }
 
         }
+    }
+
+    public void setLife(float life) {
+        for (int i = 0; i < this.dynamicTexList.size(); i++) {
+            if (this.dynamicTexList.get(i).isParticleColor) {
+                this.dynamicTexList.get(i).life =life;
+            }
+        }
+    }
+
+    public void setTextObj(List<ParamDataVo> ary) {
+        for (int i = 0; i < ary.size(); i++) {
+            ParamDataVo obj =(ParamDataVo) ary.get(i);
+            for (int j = 0; j < this.dynamicTexList.size(); j++) {
+                DynamicTexItem dynamicTexItem=    this.dynamicTexList.get(j);
+                if (dynamicTexItem.paramName.equals(obj.paramName)) {
+                    if (dynamicTexItem.isParticleColor) {
+                        dynamicTexItem.curve.setData(obj.curve);
+                    } else {
+                        dynamicTexItem.url = obj.url;
+                    }
+                    break;
+                }
+            }
+        }
+
+    }
+
+    public void setConstObj(List<ParamDataConVo> ary) {
+        for (int i = 0; i < ary.size(); i++) {
+            ParamDataConVo obj = ary.get(i);
+            for (int j = 0; j < this.dynamicConstList.size(); j++) {
+                DynamicConstItem dynamicConstItem=    this.dynamicConstList.get(j);
+                if (dynamicConstItem.paramName.equals(obj.paramName)) {
+                    dynamicConstItem.curve.setData(obj.curve);
+                    break;
+                }
+            }
+        }
+
+
     }
 
 }
