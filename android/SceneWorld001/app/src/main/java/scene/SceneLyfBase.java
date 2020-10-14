@@ -82,7 +82,7 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
                 GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 scene3D.camera3D.distance=30;
-                scene3D.camera3D.rotationY++;
+//                scene3D.camera3D.rotationY++;
                 scene3D.upFrame();
 
 
@@ -115,7 +115,7 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
     {
 
         this.scene3D=new Scene3D();
-//        this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
+        this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
 //        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
 
     }
