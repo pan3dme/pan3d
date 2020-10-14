@@ -60,7 +60,8 @@ public class Display3DLocusShader extends Shader3D {
 }
      */
     public String getFragmentShaderString() {
-        String fragment ="precision mediump float;\n"+
+        String fragment =
+                "precision mediump float;\n"+
                 "varying vec2 v0;\n"+
                 "void main() {\n"+
                 "gl_FragColor= vec4(v0.x,0,1,1);\n"+

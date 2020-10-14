@@ -27,8 +27,13 @@ z3d/vo/Matrix3D.java
  z3d.vo.Matrix3D
 z3d/display/particle/locusball/ParticleLocusballData.java
  z3d.display.particle.locusball.ParticleLocusballData
-z3d/display/particle/locus/Display3DLocusShader.java
- z3d.display.particle.locus.Display3DLocusShader
+scene/SceneLyfBase.java
+ scene.SceneLyfBase
+ scene.SceneLyfBase$1
+ scene.SceneLyfBase$2
+ scene.SceneLyfBase$3
+ scene.SceneLyfBase$4
+ scene.SceneLyfBase$5
 z3d/display/role/Display3dMovie.java
  z3d.display.role.Display3dMovie
  z3d.display.role.Display3dMovie$1
@@ -291,14 +296,9 @@ z3d/display/particle/ctrl/ScaleAnim.java
  z3d.display.particle.ctrl.ScaleAnim
 z3d/base/Camera3D.java
  z3d.base.Camera3D
-z3d/display/particle/locus/ParticleLocusData.java
- z3d.display.particle.locus.ParticleLocusData
+z3d/display/particle/locus/Display3DLocusShader.java
+ z3d.display.particle.locus.Display3DLocusShader
 z3d/display/particle/locus/Display3DLocusPartilce.java
  z3d.display.particle.locus.Display3DLocusPartilce
-scene/SceneLyfBase.java
- scene.SceneLyfBase
- scene.SceneLyfBase$1
- scene.SceneLyfBase$2
- scene.SceneLyfBase$3
- scene.SceneLyfBase$4
- scene.SceneLyfBase$5
+z3d/display/particle/locus/ParticleLocusData.java
+ z3d.display.particle.locus.ParticleLocusData

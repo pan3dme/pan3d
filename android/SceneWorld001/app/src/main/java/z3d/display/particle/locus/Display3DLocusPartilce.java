@@ -46,21 +46,28 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void setVa() {
         Context3D ctx=this.scene3d.context3D;
-        ObjData temp=  this.particleGpuObjData();
+        ObjData objData=  this.particleGpuObjData();
 
-        ctx.setProgame(this.shader3D.program);
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        this.modeMatrix=new Matrix3D();
-        this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-        ctx.setVa(this.shader3D,"v3Position",3,temp.vertexBuffer);
-        ctx.setVa(this.shader3D,"v2TexCoord",2,temp.uvBuffer);
-        ctx.setVa(this.shader3D,"v3Normal",4,temp.normalsBuffer);
-        ctx.drawCall(temp.indexBuffer,temp.treNum);
+
+        ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
+        ctx.setVa(this.shader3D,"v2TexCoord",2,objData.uvBuffer);
+        ctx.setVa(this.shader3D,"v3Normal",4,objData.normalsBuffer);
+        ctx.drawCall(objData.indexBuffer,objData.treNum);
 
 
 
 
     }
 
+    @Override
+    public void setVc() {
+        super.setVc();
+        Context3D ctx=this.scene3d.context3D;
+
+        ctx.setProgame(this.shader3D.program);
+        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+        this.modeMatrix=new Matrix3D();
+        this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
+        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
+    }
 }
