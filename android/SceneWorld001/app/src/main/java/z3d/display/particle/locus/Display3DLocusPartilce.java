@@ -10,6 +10,7 @@ import z3d.display.basedis.DisplayTestShader;
 import z3d.display.basedis.DisplayTestSprite;
 import z3d.display.particle.Display3DParticle;
 import z3d.program.ProgrmaManager;
+import z3d.program.Shader3D;
 import z3d.units.TimeUtil;
 import z3d.vo.Matrix3D;
 
@@ -49,9 +50,9 @@ public class Display3DLocusPartilce extends Display3DParticle {
         ObjData objData=  this.particleGpuObjData();
 
 
-        ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"v2TexCoord",2,objData.uvBuffer);
-        ctx.setVa(this.shader3D,"v3Normal",4,objData.normalsBuffer);
+        ctx.setVa(this.shader3D, Shader3D.v3Position,3,objData.vertexBuffer);
+        ctx.setVa(this.shader3D,Shader3D.v2TexCoord,2,objData.uvBuffer);
+        ctx.setVa(this.shader3D,Shader3D.v3Normal,4,objData.normalsBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
 
 
@@ -62,12 +63,12 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void setVc() {
         super.setVc();
-        Context3D ctx=this.scene3d.context3D;
-
-        ctx.setProgame(this.shader3D.program);
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         this.modeMatrix=new Matrix3D();
         this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
+
+        Context3D ctx=this.scene3d.context3D;
+        ctx.setProgame(this.shader3D.program);
+        ctx.setVcMatrix4fv(this.shader3D,Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,Shader3D.posMatrix,this.modeMatrix.m);
     }
 }

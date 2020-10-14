@@ -8,6 +8,13 @@ import java.util.List;
 
 public class Shader3D {
 
+    public static  String v3Position="v3Position";
+    public static  String v2TexCoord="v2TexCoord";
+    public static  String v3Normal="v3Normal";
+    public static  String vpMatrix3D="vpMatrix3D";
+    public static  String posMatrix="posMatrix";
+
+
     public int program;
     public List<Boolean> paramAry;
     public String fragment;
