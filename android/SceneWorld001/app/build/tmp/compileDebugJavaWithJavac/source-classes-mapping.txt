@@ -243,8 +243,8 @@ z3d/display/particle/CombineParticle.java
  z3d.display.particle.CombineParticle
 z3d/vo/ShockAryVo.java
  z3d.vo.ShockAryVo
-z3d/display/particle/locus/Display3DLocusShader.java
- z3d.display.particle.locus.Display3DLocusShader
+z3d/material/MaterialBackFun.java
+ z3d.material.MaterialBackFun
 z3d/vo/Quaternion.java
  z3d.vo.Quaternion
 z3d/vo/BoneSocketData.java
@@ -296,8 +296,8 @@ z3d/display/particle/ctrl/ScaleAnim.java
  z3d.display.particle.ctrl.ScaleAnim
 z3d/base/Camera3D.java
  z3d.base.Camera3D
-z3d/material/MaterialBackFun.java
- z3d.material.MaterialBackFun
+z3d/display/particle/locus/Display3DLocusShader.java
+ z3d.display.particle.locus.Display3DLocusShader
 z3d/display/particle/locus/Display3DLocusPartilce.java
  z3d.display.particle.locus.Display3DLocusPartilce
 z3d/display/particle/locus/ParticleLocusData.java
