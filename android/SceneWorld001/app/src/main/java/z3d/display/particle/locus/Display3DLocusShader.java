@@ -52,6 +52,7 @@ public class Display3DLocusShader extends Shader3D {
         return vertex;
     }
 
+    
     public String getFragmentShaderString() {
         String fragment =  "precision mediump float;\n"+
                 "uniform sampler2D fs0;"+
