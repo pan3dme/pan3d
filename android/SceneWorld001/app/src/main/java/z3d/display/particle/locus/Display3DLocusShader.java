@@ -20,7 +20,7 @@ public class Display3DLocusShader extends Shader3D {
                 "varying vec2 v0;\n"+
                 "void main(){\n"+
                 "v0=v2TexCoord;\n"+
-                "gl_Position = vpMatrix3D*vec4(v3Position*0.1,1);\n"+
+                "gl_Position = vpMatrix3D*posMatrix*vec4(v3Position*0.1,1);\n"+
 
                 "}";
 
