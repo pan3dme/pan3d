@@ -151,8 +151,9 @@ scene/dis/TwoTextureSprite.java
  scene.dis.TwoTextureSprite
  scene.dis.TwoTextureSprite$1
  scene.dis.TwoTextureSprite$2
-z3d/display/particle/locus/Display3DLocusPartilce.java
- z3d.display.particle.locus.Display3DLocusPartilce
+z3d/filemodel/GroupDataManager.java
+ z3d.filemodel.GroupDataManager
+ z3d.filemodel.GroupDataManager$1
 z3d/display/line/LineDisplayShader.java
  z3d.display.line.LineDisplayShader
 z3d/material/MaterialBaseParam.java
@@ -255,8 +256,8 @@ z3d/display/BuildDisplay3DSprite.java
  z3d.display.BuildDisplay3DSprite$3
 z3d/program/Shader3D.java
  z3d.program.Shader3D
-z3d/display/particle/locus/ParticleLocusData.java
- z3d.display.particle.locus.ParticleLocusData
+z3d/base/GroupItem.java
+ z3d.base.GroupItem
 z3d/program/ProgrmaManager.java
  z3d.program.ProgrmaManager
 z3d/material/TextureRes.java
@@ -297,8 +298,7 @@ z3d/base/Camera3D.java
  z3d.base.Camera3D
 z3d/material/MaterialBackFun.java
  z3d.material.MaterialBackFun
-z3d/base/GroupItem.java
- z3d.base.GroupItem
-z3d/filemodel/GroupDataManager.java
- z3d.filemodel.GroupDataManager
- z3d.filemodel.GroupDataManager$1
+z3d/display/particle/locus/Display3DLocusPartilce.java
+ z3d.display.particle.locus.Display3DLocusPartilce
+z3d/display/particle/locus/ParticleLocusData.java
+ z3d.display.particle.locus.ParticleLocusData
