@@ -31,7 +31,7 @@ var Pan3d;
                 this._threeBattarId = value;
                 ////console.log("this._threeBattarId", this._threeBattarId)
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         GameInstance.setAttackTargetByName = function ($name) {
@@ -55,7 +55,7 @@ var Pan3d;
                     GameInstance._attackTarget.addPart(Pan3d.SceneChar.SEL_PART, Pan3d.SceneChar.NONE_SLOT, getModelUIUrl("6301"));
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         GameInstance.pingpontm = 9999999;

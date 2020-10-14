@@ -38,7 +38,7 @@ var Pan3d;
                 this.time = 0;
                 this.update();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Disp2DBaseText.prototype.makeData = function () {

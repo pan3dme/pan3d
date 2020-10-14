@@ -43,7 +43,7 @@ var Pan3d;
                 this._contentX = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(List.prototype, "contentY", {
@@ -54,7 +54,7 @@ var Pan3d;
                 this._contentY = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         List.prototype.testPoint = function ($x, $y) {
@@ -224,7 +224,7 @@ var Pan3d;
             get: function () {
                 return this._listItemData;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ListItemRender.prototype.setNewData = function ($data) {
@@ -236,7 +236,7 @@ var Pan3d;
             set: function (value) {
                 this._selected = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ListItemRender.prototype.draw = function () {

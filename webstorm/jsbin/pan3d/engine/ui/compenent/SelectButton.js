@@ -34,7 +34,7 @@ var Pan3d;
                     this._state = 0;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SelectButton.prototype.interactiveEvent = function (e) {

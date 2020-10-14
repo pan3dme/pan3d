@@ -320,7 +320,7 @@ var Pan3d;
             set: function (val) {
                 this._dragY = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SList.prototype.scrollIdx = function (idx) {
@@ -483,7 +483,7 @@ var Pan3d;
             set: function (val) {
                 this._selected = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SListItem.prototype.creatSUI = function (render, baseAtlas, $name, x, y, width, height) {

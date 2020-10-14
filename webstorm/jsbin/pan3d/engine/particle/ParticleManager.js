@@ -95,7 +95,7 @@ var Pan3d;
             get: function () {
                 return this._particleList;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ParticleManager.prototype.updateTime = function () {

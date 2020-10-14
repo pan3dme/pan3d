@@ -46,7 +46,7 @@ var Pan3d;
                 this._isSinging = value;
                 //console.log(" this._isSinging",this._isSinging)
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Display3dMovie.prototype, "curentAction", {
@@ -56,7 +56,7 @@ var Pan3d;
             set: function (value) {
                 this._curentAction = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3dMovie.prototype.fixAstartData = function (pos) { };
@@ -175,7 +175,7 @@ var Pan3d;
                 this._scaleZ = value * this._fileScale;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Display3dMovie.prototype, "fileScale", {
@@ -186,7 +186,7 @@ var Pan3d;
                 this._scaleZ = this._nextScale * value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Display3dMovie.prototype, "shadow", {
@@ -202,7 +202,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3dMovie.prototype.setShadowSize = function (value) {
@@ -781,7 +781,7 @@ var Pan3d;
                 }
                 this.changePos();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Display3dMovie.prototype, "y", {
@@ -796,7 +796,7 @@ var Pan3d;
                 }
                 this.changePos();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Display3dMovie.prototype, "z", {
@@ -811,7 +811,7 @@ var Pan3d;
                 }
                 this.changePos();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3dMovie.prototype.changePos = function () {

@@ -28,7 +28,7 @@ var Pan3d;
             get: function () {
                 return this.data;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3DFacetParticle.prototype.creatData = function () {

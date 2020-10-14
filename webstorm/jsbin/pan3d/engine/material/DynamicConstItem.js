@@ -31,7 +31,7 @@ var Pan3d;
                 this.curve = new Pan3d.Curve;
                 this.curve.type = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return DynamicConstItem;

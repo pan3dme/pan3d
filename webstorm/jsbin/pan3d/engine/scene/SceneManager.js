@@ -33,21 +33,21 @@ var Pan3d;
             get: function () {
                 return this._displayList;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneManager.prototype, "displayRoleList", {
             get: function () {
                 return this._displayRoleList;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneManager.prototype, "displaySpriteList", {
             get: function () {
                 return this._displaySpriteList;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         // private initSceneLoader(): void {
@@ -192,7 +192,7 @@ var Pan3d;
                 //console.log("--setready--", $value);
                 this._ready = $value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SceneManager.prototype.getBuildSprite = function (itemObj) {

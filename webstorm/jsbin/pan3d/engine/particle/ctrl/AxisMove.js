@@ -34,7 +34,7 @@ var Pan3d;
                 this.speed = Number(value[3].value) * 0.1;
                 this.aSpeed = Number(value[4].value) * 0.001;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         AxisMove.prototype.dataByte = function (va, arr) {

@@ -24,7 +24,7 @@ var Pan3d;
             set: function (value) {
                 this._x = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Circle.prototype, "y", {
@@ -34,7 +34,7 @@ var Pan3d;
             set: function (value) {
                 this._y = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Circle.prototype.setRadius = function ($radius) {

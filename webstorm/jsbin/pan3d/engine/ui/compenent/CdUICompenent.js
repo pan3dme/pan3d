@@ -85,7 +85,7 @@ var Pan3d;
                     return false;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         CdUICompenent.prototype.update = function () {

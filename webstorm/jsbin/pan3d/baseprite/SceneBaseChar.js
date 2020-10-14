@@ -29,7 +29,7 @@ var Pan3d;
             set: function (value) {
                 this._visible = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SceneBaseChar.prototype.setAvatar = function (num) {

@@ -159,7 +159,7 @@ var Pan3d;
             get: function () {
                 return this.url + "?v=" + this.version;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return LoadInfo;

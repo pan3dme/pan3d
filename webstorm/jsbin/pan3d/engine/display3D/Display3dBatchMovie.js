@@ -29,7 +29,7 @@ var Pan3d;
                     this.batchPos[i].fileScale = value;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3dBatchMovie.prototype.addSun = function ($obj) {
@@ -103,7 +103,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "fileScale", {
@@ -114,7 +114,7 @@ var Pan3d;
                 this._scaleZ *= value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "scale", {
@@ -125,7 +125,7 @@ var Pan3d;
                 this.posData[3] = 20 * value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "x", {
@@ -145,7 +145,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "y", {
@@ -165,7 +165,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "z", {
@@ -185,7 +185,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Movie3D.prototype.add = function () {

@@ -48,7 +48,7 @@ var Pan3d;
                 this.minNum = Number(value[3].value) * 0.01;
                 this.maxNum = Number(value[4].value) * 0.01;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ScaleChange.prototype.dataByte = function (va, arr) {

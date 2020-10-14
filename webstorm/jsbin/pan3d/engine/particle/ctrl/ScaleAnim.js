@@ -109,7 +109,7 @@ var Pan3d;
                 }
                 this._currentTarget = this.scaleAry[0];
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ScaleAnim.prototype.dataByte = function (va, arr) {

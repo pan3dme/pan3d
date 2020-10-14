@@ -24,7 +24,7 @@ var Pan3d;
             get: function () {
                 return this.data;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3DBallPartilce.prototype.creatData = function () {
@@ -169,7 +169,7 @@ var Pan3d;
             get: function () {
                 return (this.data.objData);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return Display3DBallPartilce;

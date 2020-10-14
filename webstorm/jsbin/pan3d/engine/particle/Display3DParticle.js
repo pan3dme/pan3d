@@ -54,7 +54,7 @@ var Pan3d;
                 var temp = this.data._renderPriority <= Pan3d.Scene_data.effectsLev; //0
                 return !temp;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3DParticle.prototype.updateTime = function (t) {

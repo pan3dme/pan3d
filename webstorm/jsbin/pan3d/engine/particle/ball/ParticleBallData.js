@@ -146,7 +146,7 @@ var Pan3d;
             get: function () {
                 return (this.objData);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ParticleBallData.prototype.uploadGpu = function () {

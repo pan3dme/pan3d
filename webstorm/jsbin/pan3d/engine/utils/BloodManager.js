@@ -670,7 +670,7 @@ var Pan3d;
                 this._visible = value;
                 this.visibleChange = true;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return baseMeshVo;
@@ -948,7 +948,7 @@ var Pan3d;
                 this._num = value;
                 this.needDraw = true;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return CharTitleMeshVo;
@@ -967,7 +967,7 @@ var Pan3d;
                 this._name = value;
                 this.needDraw = true;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         CharNameMeshVo.prototype.destory = function () {
