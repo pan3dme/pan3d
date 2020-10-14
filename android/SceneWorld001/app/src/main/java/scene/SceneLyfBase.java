@@ -22,6 +22,7 @@ import java.io.InputStream;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import scene.dis.TwoTextureSprite;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
@@ -130,7 +131,8 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
 
         this.scene3D=new Scene3D();
         this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
-        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
+        this.scene3D.addDisplay(new TwoTextureSprite(this.scene3D));
+//        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
 
     }
     private void   playLyf()
