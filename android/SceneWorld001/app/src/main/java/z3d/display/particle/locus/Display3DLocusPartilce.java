@@ -15,8 +15,8 @@ public class Display3DLocusPartilce extends Display3DParticle {
     private  static  String TAG="Display3DLocusPartilce->";
     public Display3DLocusPartilce()
     {
-        ProgrmaManager.getInstance().registe(TwoTextureShader.shaderNameStr,new TwoTextureShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(TwoTextureShader.shaderNameStr);
+        ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
     }
     public ParticleLocusData locusdata(){
         return (ParticleLocusData)this.data;
@@ -43,19 +43,16 @@ public class Display3DLocusPartilce extends Display3DParticle {
         Context3D ctx=this.scene3d.context3D;
         ObjData temp=  this.particleGpuObjData();
 
-        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.verticeslist);
-        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.vertexBuffer);
+//        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.verticeslist);
+//        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.vertexBuffer);
 
 
+        ctx.setVa(this.shader3D,"v3Position",3,temp.vertexBuffer);
+        ctx.setVa(this.shader3D,"v2TexCoord",2,temp.uvBuffer);
+        ctx.setVa(this.shader3D,"v3Normal",4,temp.normalsBuffer);
+        ctx.drawCall(temp.indexBuffer,temp.treNum);
 
-
-
-            ctx.setVa(this.shader3D,"v3Position",3,temp.vertexBuffer);
-            ctx.setVa(this.shader3D,"v2TexCoord",2,temp.uvBuffer);
-            ctx.setVa(this.shader3D,"v3Normal",4,temp.normalsBuffer);
-
-
-
+        Log.d(TAG, TimeUtil.getTimer()+"setVa: "+temp.treNum);
 
         /*
 

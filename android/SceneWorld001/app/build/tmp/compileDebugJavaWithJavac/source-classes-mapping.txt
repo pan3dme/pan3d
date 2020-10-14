@@ -1,7 +1,7 @@
 z3d/base/MathCore.java
  z3d.base.MathCore
-z3d/res/BaseRes.java
- z3d.res.BaseRes
+z3d/display/particle/locus/Display3DLocusShader.java
+ z3d.display.particle.locus.Display3DLocusShader
 z3d/material/MaterialBackFun.java
  z3d.material.MaterialBackFun
 z3d/base/Camera3D.java
@@ -222,10 +222,10 @@ z3d/vo/Quaternion.java
  z3d.vo.Quaternion
 z3d/vo/ShockAryVo.java
  z3d.vo.ShockAryVo
-z3d/display/particle/locus/Display3DLocusShader.java
- z3d.display.particle.locus.Display3DLocusShader
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
+z3d/res/BaseRes.java
+ z3d.res.BaseRes
 z3d/display/BuildDisplay3DSprite.java
  z3d.display.BuildDisplay3DSprite
  z3d.display.BuildDisplay3DSprite$1
@@ -256,6 +256,8 @@ scene/SceneLyfBase.java
  scene.SceneLyfBase$1
  scene.SceneLyfBase$2
  scene.SceneLyfBase$3
+ scene.SceneLyfBase$4
+ scene.SceneLyfBase$5
 z3d/display/particle/ParticleData.java
  z3d.display.particle.ParticleData
  z3d.display.particle.ParticleData$1

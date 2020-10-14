@@ -91,32 +91,46 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
 
-        this.addButs();
+        this.addButs("播放", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                playLyf();
+            }
+        });
+
+        this.addButs("播放", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                ParticleManager particleManager=scene3D.particleManager;
+                particleManager.clearAll();
+            }
+        });
     }
-    private void addButs()
+
+    private void addButs(String val,final CallBackFun backFun)
     {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         Button bn = new Button(this);
-        bn.setText("点击");
+        bn.setText(val);
         bn.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
         layout.addView(bn);
         bn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
-                playLyf();
+                backFun.StateChange(true);
             }
         });
     }
+
     private void loadSceneRes()
     {
 
         this.scene3D=new Scene3D();
         this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
-//        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
+        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
 
     }
     private void   playLyf()
