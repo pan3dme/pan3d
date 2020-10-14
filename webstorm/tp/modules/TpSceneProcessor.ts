@@ -1,4 +1,10 @@
-﻿
+﻿import GroupRes = Pan3d.GroupRes;
+import GroupItem = Pan3d.GroupItem;
+import BaseRes = Pan3d.BaseRes;
+import ParticleManager = Pan3d.ParticleManager;
+import Scene_data = Pan3d.Scene_data;
+import CombineParticle = Pan3d.CombineParticle;
+
 class TpSceneModule extends Pan3d.Module {
     public getModuleName(): string {
         return "TpSceneModule";
@@ -12,10 +18,11 @@ class TpSceneEvent extends Pan3d.BaseEvent {
     public static SHOW_TP_SCENE_EVENT: string = "SHOW_TP_SCENE_EVENT";
     public static ENTER_SCENE_EVENT: string = "ENTER_SCENE_EVENT";
     
-    public   mapId: number;
+    public   mapId: number | undefined;
 
 }
 class TpSceneProcessor extends Pan3d.BaseProcessor {
+
 
     public constructor() {
         super();
@@ -32,16 +39,41 @@ class TpSceneProcessor extends Pan3d.BaseProcessor {
                 if (!getUrlParam("id")) {
                     window.location.href = "index.html?id=" + random(10);
                 } else {
-                    this.makeUrlParam()
-                 //  this.makeMainChar();
+                    // this.makeUrlParam()
+                  // this.makeMainChar(); //开启显示角色
                   //  this.makeTestScene();
-                    this.loadBaseScene();
+                  //   this.loadBaseScene();
+                    this.loadLyf();
                     Pan3d.Scene_data.cam3D.distance = 250;
                 }
 
             }
         }
     }
+    private  loadLyf():void
+    {
+
+        Pan3d.GroupDataManager.getInstance().getGroupData("res/model/levelup_lyf.txt",(groupRes:GroupRes)=>{
+
+            for (var i: number = 0; i < groupRes.dataAry.length; i++) {
+                var item: GroupItem = groupRes.dataAry[i];
+
+                if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
+                    var particle: CombineParticle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
+                    particle.dynamic = true;
+                    ParticleManager.getInstance().addParticle(particle);
+                    console.log(particle);
+
+                }
+
+            }
+
+        })
+
+
+
+    }
+
     private  loadBaseScene():void
     {
         Pan3d. SceneManager.getInstance().loadScene("2012",()=>{},(b)=>{},()=>{});
