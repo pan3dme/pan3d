@@ -84,7 +84,10 @@
     }
     [self addEventLyfButBy:@"10017"];
        [self addEventLyfButBy:@"10018"];
-       [self addEventLyfButBy:@"13012"];
+    [self addEventLyfButBy:@"13012"];
+    [self addEventLyfButBy:@"levelup"];
+    
+    
     
     [self addEventButBy:@"清理"];
     [self addEventButBy:@"拉+"];
@@ -187,6 +190,7 @@
  
 -(void)playLyfByUrl:(NSString*)value
 {
+ 
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
     NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:value];
     [[GroupDataManager default] getGroupData:modeurl Block:^(GroupRes *groupRes) {
