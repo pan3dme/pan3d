@@ -16,14 +16,7 @@ import z3d.vo.Matrix3D;
 public class Display3DLocusPartilce extends Display3DParticle {
 
     private  static  String TAG="Display3DLocusPartilce->";
-    public Display3DLocusPartilce()
-    {
-        super();
-        ProgrmaManager.getInstance().registe(Display3DLocusShader.Display3DLocusShader,new Display3DLocusShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.Display3DLocusShader);
 
-
-    }
     public ParticleLocusData locusdata(){
         return (ParticleLocusData)this.data;
     }
@@ -35,7 +28,10 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void update() {
 
-        super.update();
+
+
+
+       super.update();
     }
 
     public void creatData() {
@@ -47,12 +43,14 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void setVa() {
         Context3D ctx=this.scene3d.context3D;
-
         ObjData temp=  this.particleGpuObjData();
         if(this._twoTextureSprite==null){
             _twoTextureSprite=new DisplayTestSprite(null);
         }
-        this.shader3D=_twoTextureSprite.shader3D;
+        if( this.shader3D==null){
+            ProgrmaManager.getInstance().registe(Display3DLocusShader.Display3DLocusShader,new Display3DLocusShader());
+            this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.Display3DLocusShader);
+        }
         ctx.setProgame(this.shader3D.program);
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         this.modeMatrix=new Matrix3D();

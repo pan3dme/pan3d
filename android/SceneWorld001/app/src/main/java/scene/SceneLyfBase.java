@@ -131,7 +131,7 @@ public class SceneLyfBase extends AppCompatActivity implements View.OnClickListe
 
         this.scene3D=new Scene3D();
         this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
-        this.scene3D.addDisplay(new TwoTextureSprite(this.scene3D));
+//        this.scene3D.addDisplay(new TwoTextureSprite(this.scene3D));
 //        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
 
     }
