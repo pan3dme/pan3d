@@ -71,11 +71,11 @@ public class DynamicTexItem extends DynamicBaseTexItem {
                     imgNumVec.add(this.curve.valueVec.get(index).get(3) * 0xff);     }
             }
         }
-         Bitmap bitmap= ColorTransition.getImageData(imgNumVec,this.life);
-
+        int a=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+        int b=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+        int c=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
          this.textureDynamic=new TextureRes();
-         this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
-
+         this.textureDynamic.textTureInt=  TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
 
 
 

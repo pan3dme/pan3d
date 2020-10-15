@@ -15,34 +15,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.e.sceneworld001.R;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.InputStream;
+import java.util.ArrayList;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import scene.dis.TwoTextureSprite;
-import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
 import z3d.base.Object3D;
 import z3d.base.Scene_data;
-import z3d.display.BuildDisplay3DSprite;
-import z3d.display.basedis.DisplayTestSprite;
+import z3d.core.Context3D;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
-import z3d.display.role.Display3dMovie;
 import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.ParticleManager;
+import z3d.filemodel.TextureManager;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
-import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
+import z3d.units.ColorTransition;
 import z3d.units.LoaderThread;
-import z3d.units.TimeUtil;
 import z3d.vo.Vector2D;
 
 public class SceneLyfBase extends AppCompatActivity  {
@@ -50,7 +43,7 @@ public class SceneLyfBase extends AppCompatActivity  {
 
     private static final String TAG ="SceneLyfBase" ;
     private GLSurfaceView mGLView;
-    private Scene3D scene3D;
+    private Scene3D scene3d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -71,10 +64,10 @@ public class SceneLyfBase extends AppCompatActivity  {
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
                 GLES20.glViewport(0, 0, width, height);
-                scene3D.camera3D.fovw = width;
-                scene3D.camera3D.fovh = height;
-                scene3D.resizeScene();
-                scene3D.camera3D.distance=100;
+                scene3d.camera3D.fovw = width;
+                scene3d.camera3D.fovh = height;
+                scene3d.resizeScene();
+                scene3d.camera3D.distance=100;
             }
 
             @Override
@@ -83,7 +76,7 @@ public class SceneLyfBase extends AppCompatActivity  {
                 GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 
-                scene3D.upFrame();
+                scene3d.upFrame();
 
 
             }
@@ -99,7 +92,7 @@ public class SceneLyfBase extends AppCompatActivity  {
         this.addButs("清理", new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-                ParticleManager particleManager=scene3D.particleManager;
+                ParticleManager particleManager= scene3d.particleManager;
                 particleManager.clearAll();
             }
         });
@@ -107,16 +100,25 @@ public class SceneLyfBase extends AppCompatActivity  {
         this.addButs("放大", new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-                scene3D.camera3D.distance*=0.8;
+                scene3d.camera3D.distance*=0.8;
             }
         });
 
         this.addButs("缩小", new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-                scene3D.camera3D.distance/=0.8;
+                scene3d.camera3D.distance/=0.8;
+                makeTexture();
+
             }
         });
+    }
+    private void makeTexture(){
+        int a=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+        int b=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+        int c=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+        int d=1;
+
     }
 
     private void addButs(String val,final CallBackFun backFun)
@@ -140,8 +142,8 @@ public class SceneLyfBase extends AppCompatActivity  {
     private void loadSceneRes()
     {
 
-        this.scene3D=new Scene3D();
-        this.scene3D.addDisplay(new GridLineSprite(this.scene3D));
+        this.scene3d =new Scene3D();
+        this.scene3d.addDisplay(new GridLineSprite(this.scene3d));
 //        this.scene3D.addDisplay(new TwoTextureSprite(this.scene3D));
 //        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
 
@@ -158,7 +160,7 @@ public class SceneLyfBase extends AppCompatActivity  {
                     GroupItem item =  groupRes.dataAry.get(i);
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
 
-                        ParticleManager particleManager=scene3D.particleManager;
+                        ParticleManager particleManager= scene3d.particleManager;
                         CombineParticle particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
                         particleManager.addParticle(particle);
                         Log.d("TAG", "Bfun: ");
@@ -190,18 +192,18 @@ public class SceneLyfBase extends AppCompatActivity  {
                     case "ACTION_DOWN":
                         _downPosV2d=new Vector2D( event.getX(), event.getY());
                         _oldPosV2d=new Object3D();
-                        _oldPosV2d.x=scene3D.camera3D.x;
-                        _oldPosV2d.y=scene3D.camera3D.y;
-                        _oldPosV2d.z=scene3D.camera3D.z;
-                        _oldPosV2d.rotationX=scene3D.camera3D.rotationX;
-                        _oldPosV2d.rotationY=scene3D.camera3D.rotationY;
+                        _oldPosV2d.x= scene3d.camera3D.x;
+                        _oldPosV2d.y= scene3d.camera3D.y;
+                        _oldPosV2d.z= scene3d.camera3D.z;
+                        _oldPosV2d.rotationX= scene3d.camera3D.rotationX;
+                        _oldPosV2d.rotationY= scene3d.camera3D.rotationY;
 
                         break;
                     case "ACTION_MOVE":
                         if(_downPosV2d!=null){
                          Vector2D toV2d=   new Vector2D( event.getX(), event.getY());
-                         scene3D.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
-                         scene3D.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
+                         scene3d.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
+                         scene3d.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
 
                           //  Log.d(TAG+ TimeUtil.getTimer(), "滑动吧");
                         }

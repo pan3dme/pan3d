@@ -92,26 +92,13 @@ public class Display3DLocusPartilce extends Display3DParticle {
                 oneTextureRes =value;
             }
         });
-        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg", new TexTuresBackFun() {
-            @Override
-            public void Bfun(TextureRes value) {
-               // twoTextureRes =value;
-            }
-        });
-
+        int a=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+        int b=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+        int c=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
 
         this.twoTextureRes=new TextureRes();
-
-        LoadManager.getInstance().loadUrl("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg",LoadManager.IMG_TYPE , new LoadBackFun() {
-            @Override
-            public void bfun(HashMap dic) {
-//
-                Bitmap bitmap= ColorTransition.getImageData(new ArrayList<>(),100);
-
-                twoTextureRes.textTureInt= TextureManager.getInstance().createTexture(bitmap);
-
-            }
-        },null);
+        Bitmap bitmap= ColorTransition.getImageData(new ArrayList<>(),100);
+        twoTextureRes.textTureInt= TextureManager.getInstance().createTexture(bitmap);
 
     }
     public void  setMaterialTexture()
