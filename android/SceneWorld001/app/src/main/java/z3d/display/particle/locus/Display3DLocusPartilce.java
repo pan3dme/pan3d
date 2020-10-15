@@ -1,13 +1,28 @@
 package z3d.display.particle.locus;
 
 
+import android.graphics.Bitmap;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
+import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 
 import z3d.display.particle.Display3DParticle;
+import z3d.filemodel.TextureLoad;
+import z3d.filemodel.TextureManager;
+import z3d.material.DynamicTexItem;
+import z3d.material.TexItem;
+import z3d.material.TextureRes;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
+import z3d.units.ColorTransition;
+import z3d.units.LoadBackFun;
+import z3d.units.LoadManager;
 import z3d.units.TimeUtil;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
@@ -29,6 +44,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
         if( this.shader3D==null){
             ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
             this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
+            _makeTestTexture();
         }
        super.update();
     }
@@ -64,6 +80,46 @@ public class Display3DLocusPartilce extends Display3DParticle {
 
         }
 
+    }
+    TextureRes oneTextureRes;
+    TextureRes twoTextureRes;
+    private void  _makeTestTexture()
+    {
+
+        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                oneTextureRes =value;
+            }
+        });
+        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+               // twoTextureRes =value;
+            }
+        });
+
+
+        this.twoTextureRes=new TextureRes();
+
+        LoadManager.getInstance().loadUrl("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg",LoadManager.IMG_TYPE , new LoadBackFun() {
+            @Override
+            public void bfun(HashMap dic) {
+//
+                Bitmap bitmap= ColorTransition.getImageData(new ArrayList<>(),100);
+
+                twoTextureRes.textTureInt= TextureManager.getInstance().createTexture(bitmap);
+
+            }
+        },null);
+
+    }
+    public void  setMaterialTexture()
+    {
+        super.setMaterialTexture();
+        Context3D ctx=this.scene3d.context3D;
+        ctx. setRenderTexture(this.shader3D,"fs0",  this.oneTextureRes.textTureInt,0);
+        ctx. setRenderTexture(this.shader3D,"fs1",  this.twoTextureRes.textTureInt,1);
 
     }
 }

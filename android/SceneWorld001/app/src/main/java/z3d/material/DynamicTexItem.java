@@ -75,8 +75,7 @@ public class DynamicTexItem extends DynamicBaseTexItem {
 
          this.textureDynamic=new TextureRes();
          this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
-         this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
-         this.textureDynamic.textTureInt= TextureManager.getInstance().createTexture(bitmap);
+
 
 
 

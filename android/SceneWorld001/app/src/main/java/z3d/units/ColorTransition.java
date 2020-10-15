@@ -6,20 +6,27 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.BitmapDrawable;
 
 import java.util.List;
 
 public class ColorTransition {
     public static Bitmap getImageData(List<Float> imgNumVec, float life) {
 
-        Bitmap inputBitmap = Bitmap.createBitmap( 128, 2,  Bitmap.Config.ARGB_8888);
-        int tintColor=  Color.RED;
-        Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap.getWidth(), inputBitmap.getHeight(), inputBitmap.getConfig());
-        Canvas canvas = new Canvas(outputBitmap);
+
+        Bitmap bitmap = Bitmap.createBitmap(128, 128,
+                Bitmap.Config.ARGB_8888);
+        bitmap.eraseColor(Color.parseColor("#0000FF"));
+        Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
-        paint.setColorFilter(new PorterDuffColorFilter(tintColor, PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(inputBitmap, 0, 0, paint);
-        return  inputBitmap;
+        paint .setTextSize(100);
+        paint .setColor(Color.YELLOW);
+        paint .setFlags(1);
+        paint .setStyle(Paint.Style.FILL);
+        canvas.drawText("CSDN", 100, 100, paint );
+
+
+        return bitmap;
 
         /*
          var length: number = $data.pos.length;
