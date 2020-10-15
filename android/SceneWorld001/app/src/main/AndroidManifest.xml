@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SceneWorld001">
         <activity
-            android:name="scene.SceneRoleBase"
+            android:name="scene.SceneLyfBase"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

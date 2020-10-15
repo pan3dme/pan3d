@@ -41,8 +41,10 @@ z3d/core/Context3D.java
  z3d.core.Context3D
 z3d/units/LoadInfo.java
  z3d.units.LoadInfo
-z3d/display/particle/locus/ParticleLocusData.java
- z3d.display.particle.locus.ParticleLocusData
+z3d/material/MaterialManager.java
+ z3d.material.MaterialManager
+ z3d.material.MaterialManager$1
+ z3d.material.MaterialManager$2
 z3d/base/ResGC.java
  z3d.base.ResGC
 z3d/base/SkillBackFun.java
@@ -224,8 +226,14 @@ z3d/material/DynamicConstItem.java
  z3d.material.DynamicConstItem
 z3d/vo/ShockAryVo.java
  z3d.vo.ShockAryVo
-z3d/display/particle/locus/Display3DLocusShader.java
- z3d.display.particle.locus.Display3DLocusShader
+scene/SceneRoleBase.java
+ scene.SceneRoleBase
+ scene.SceneRoleBase$1
+ scene.SceneRoleBase$2
+ scene.SceneRoleBase$3
+ scene.SceneRoleBase$4
+ scene.SceneRoleBase$5
+ scene.SceneRoleBase$6
 z3d/vo/Quaternion.java
  z3d.vo.Quaternion
 z3d/vo/BoneSocketData.java
@@ -258,9 +266,8 @@ scene/dis/TwoTextureSprite.java
  scene.dis.TwoTextureSprite
  scene.dis.TwoTextureSprite$1
  scene.dis.TwoTextureSprite$2
-z3d/display/particle/locus/Display3DLocusPartilce.java
- z3d.display.particle.locus.Display3DLocusPartilce
- z3d.display.particle.locus.Display3DLocusPartilce$1
+z3d/display/particle/CombineParticle.java
+ z3d.display.particle.CombineParticle
 z3d/display/line/GridLineSprite.java
  z3d.display.line.GridLineSprite
 z3d/display/basedis/DisplayBaseSprite.java
@@ -296,17 +303,10 @@ z3d/material/DynamicTexItem.java
  z3d.material.DynamicTexItem
 z3d/display/basedis/DisplayTestSprite.java
  z3d.display.basedis.DisplayTestSprite
-scene/SceneRoleBase.java
- scene.SceneRoleBase
- scene.SceneRoleBase$1
- scene.SceneRoleBase$2
- scene.SceneRoleBase$3
- scene.SceneRoleBase$4
- scene.SceneRoleBase$5
- scene.SceneRoleBase$6
-z3d/material/MaterialManager.java
- z3d.material.MaterialManager
- z3d.material.MaterialManager$1
- z3d.material.MaterialManager$2
-z3d/display/particle/CombineParticle.java
- z3d.display.particle.CombineParticle
+z3d/display/particle/locus/Display3DLocusShader.java
+ z3d.display.particle.locus.Display3DLocusShader
+z3d/display/particle/locus/Display3DLocusPartilce.java
+ z3d.display.particle.locus.Display3DLocusPartilce
+ z3d.display.particle.locus.Display3DLocusPartilce$1
+z3d/display/particle/locus/ParticleLocusData.java
+ z3d.display.particle.locus.ParticleLocusData

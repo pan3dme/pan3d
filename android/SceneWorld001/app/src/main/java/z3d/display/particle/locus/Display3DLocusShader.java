@@ -39,7 +39,7 @@ public class Display3DLocusShader extends Shader3D {
                 "mulPos = normalize(vec3(v3CamPos.xyz) - mulPos);\n"+
                 "mulPos = cross(mulPos, normals);\n"+
                 "mulPos = normalize(mulPos);\n"+
-                "mulPos *= v3Normal.w*20.0  ;\n"+
+                "mulPos *= v3Normal.w*2.0  ;\n"+
                 "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"+
 
                 "gl_Position =viewMatrix*camMatrix*modeMatrix* tempPos ;\n"+

@@ -31,7 +31,7 @@ public class ProgrmaManager extends  ResGC {
     {
         if (!this.dic.containsKey(name)) {
             shader3d.encode();
-             this.dic.put(name,shader3d);
+            this.dic.put(name,shader3d);
         }
     }
     public   Shader3D getProgram(String name)

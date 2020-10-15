@@ -44,11 +44,9 @@ public class Display3DLocusPartilce extends Display3DParticle {
         if( this.shader3D==null){
             ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
             this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
-            _makeTestTexture();
         }
        super.update();
     }
-
 
     @Override
     public void setVa() {
@@ -94,16 +92,6 @@ public class Display3DLocusPartilce extends Display3DParticle {
         });
 
 
-        Bitmap bitmap= ColorTransition.getImageData(new ArrayList<>(),100);
-        twoTextureRes= TextureManager.getInstance().createTexture(bitmap);
-
     }
-    public void  setMaterialTexture()
-    {
-        super.setMaterialTexture();
-        Context3D ctx=this.scene3d.context3D;
-        ctx. setRenderTexture(this.shader3D,"fs0",  this.oneTextureRes.textTureInt,0);
-        ctx. setRenderTexture(this.shader3D,"fs1",  this.twoTextureRes.textTureInt,1);
 
-    }
 }
