@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.MathCore;
+import z3d.base.Scene_data;
 import z3d.base.TexTuresBackFun;
 import z3d.engine.GC;
 import z3d.filemodel.TextureManager;
@@ -46,7 +47,7 @@ public class MaterialBaseParam extends GC {
                         mipmap = texItem.target.mipmap;
                     }
                     mipmap = 0;
-                    TextureManager.getInstance().getTexture(  (String)  obj.get("url"), new TexTuresBackFun() {
+                    TextureManager.getInstance().getTexture(Scene_data.fileRoot+ obj.get("url"), new TexTuresBackFun() {
                         @Override
                         public void Bfun(TextureRes value) {
                             texItem.textureRes = value;
