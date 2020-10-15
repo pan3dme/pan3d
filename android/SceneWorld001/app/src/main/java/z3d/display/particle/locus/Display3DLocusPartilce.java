@@ -92,13 +92,10 @@ public class Display3DLocusPartilce extends Display3DParticle {
                 oneTextureRes =value;
             }
         });
-        int a=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-        int b=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-        int c=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
 
-        this.twoTextureRes=new TextureRes();
+
         Bitmap bitmap= ColorTransition.getImageData(new ArrayList<>(),100);
-        twoTextureRes.textTureInt= TextureManager.getInstance().createTexture(bitmap);
+        twoTextureRes= TextureManager.getInstance().createTexture(bitmap);
 
     }
     public void  setMaterialTexture()

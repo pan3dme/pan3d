@@ -91,12 +91,12 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/zhao
 		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:15:9-51
 	android:networkSecurityConfig
 		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:12:9-69
-activity#scene.SceneLyfBase
+activity#scene.SceneRoleBase
 ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:16:9-23:20
 	android:launchMode
 		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:18:13-48
 	android:name
-		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:17:13-46
+		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:17:13-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:19:13-22:29
 action#android.intent.action.MAIN

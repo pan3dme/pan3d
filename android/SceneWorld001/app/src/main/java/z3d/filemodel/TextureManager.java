@@ -63,8 +63,8 @@ public class TextureManager extends ResGC {
 
 
         if( this.resDic.containsKey(url)) {
-            textureRes=new TextureRes();
-            textureRes.textTureInt= this.createTexture((Bitmap) this.resDic.get(url));
+
+            textureRes= this.createTexture((Bitmap) this.resDic.get(url));
             bfun.Bfun(textureRes);
             this.dic.put(url,textureRes);
             return;
@@ -93,8 +93,7 @@ public class TextureManager extends ResGC {
     }
     private  void  loadNetTextureCom(TextureLoad textureLoad,Bitmap bitmap)
     {
-        TextureRes  textureRes=new TextureRes();
-        textureRes.textTureInt= createTexture(bitmap);
+        TextureRes    textureRes= createTexture(bitmap);
         List<TextureLoad> arr=(List<TextureLoad>) this.loadDic.get(textureLoad.url);
         for (int i=0;i<arr.size();i++){
             arr.get(i).fun.Bfun(textureRes);
@@ -102,7 +101,20 @@ public class TextureManager extends ResGC {
         this.dic.put(textureLoad.url,textureRes);
         this.loadDic.remove(textureLoad.url);
     }
-    public int createTexture(Bitmap bitmap){
+    public TextureRes createTexture(Bitmap bitmap){
+        TextureRes  textureRes=new TextureRes();
+        textureRes.bitmap=bitmap;
+        _waitArr.add(textureRes);
+        return  textureRes;
+    }
+    private List<TextureRes> _waitArr=new ArrayList<>();
+    public void upDataGenTextUserItem(){
+        while (_waitArr.size()>0){
+            TextureRes textureRes=   _waitArr.remove(0);
+            textureRes.textTureInt=createTextureBase(textureRes.bitmap);
+        }
+    }
+    private int createTextureBase(Bitmap bitmap){
         int[] texture=new int[1];
         if(bitmap!=null&&!bitmap.isRecycled()){
             //生成纹理

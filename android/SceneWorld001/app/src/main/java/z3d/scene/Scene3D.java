@@ -11,6 +11,7 @@ import z3d.core.Context3D;
 import z3d.display.Display3D;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.ParticleManager;
+import z3d.filemodel.TextureManager;
 import z3d.units.TimeUtil;
 
 public class Scene3D extends ResGC {
@@ -39,6 +40,7 @@ public class Scene3D extends ResGC {
     {
 
 
+        TextureManager.getInstance().upDataGenTextUserItem();
 //        this.camera3D.rotationY++;
         this.camera3D.upFrame();
         updateFrameRole();

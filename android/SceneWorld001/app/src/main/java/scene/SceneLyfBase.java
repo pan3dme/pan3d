@@ -114,10 +114,7 @@ public class SceneLyfBase extends AppCompatActivity  {
         });
     }
     private void makeTexture(){
-        int a=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-        int b=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-        int c=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-        int d=1;
+
 
     }
 

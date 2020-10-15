@@ -71,11 +71,8 @@ public class DynamicTexItem extends DynamicBaseTexItem {
                     imgNumVec.add(this.curve.valueVec.get(index).get(3) * 0xff);     }
             }
         }
-        int a=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-        int b=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-        int c=   TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
-         this.textureDynamic=new TextureRes();
-         this.textureDynamic.textTureInt=  TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
+
+         this.textureDynamic=  TextureManager.getInstance().createTexture(ColorTransition.getImageData(new ArrayList<>(),100));
 
 
 
