@@ -14,16 +14,10 @@ public class ColorTransition {
     public static Bitmap getImageData(List<Float> imgNumVec, float life) {
 
 
-        Bitmap bitmap = Bitmap.createBitmap(128, 128,
+        Bitmap bitmap = Bitmap.createBitmap(128, 2,
                 Bitmap.Config.ARGB_8888);
-        bitmap.eraseColor(Color.parseColor("#0000FF"));
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-        paint .setTextSize(100);
-        paint .setColor(Color.YELLOW);
-        paint .setFlags(1);
-        paint .setStyle(Paint.Style.FILL);
-        canvas.drawText("CSDN", 100, 100, paint );
+        bitmap.eraseColor(Color.parseColor("#FF0000"));
+
 
 
         return bitmap;
