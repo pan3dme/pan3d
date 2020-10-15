@@ -11,14 +11,19 @@ import android.graphics.drawable.BitmapDrawable;
 import java.util.List;
 
 public class ColorTransition {
-    public static Bitmap getImageData(List<Float> imgNumVec, float life) {
+    public static Bitmap getImageDataByVec(List<Float> imgNumVec, float life) {
 
 
         Bitmap bitmap = Bitmap.createBitmap(128, 2,
                 Bitmap.Config.ARGB_8888);
-        bitmap.eraseColor(Color.parseColor("#FF0000"));
+//        bitmap.eraseColor(Color.parseColor("#FF0000"));
 
 
+        int length   =imgNumVec.size()/4;
+        for(int i=0;i<bitmap.getWidth();i++){
+            bitmap.setPixel(i,0,Color.YELLOW);
+            bitmap.setPixel(i,1,Color.YELLOW);
+        }
 
         return bitmap;
 

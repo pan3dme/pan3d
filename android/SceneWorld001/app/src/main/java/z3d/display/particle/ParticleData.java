@@ -216,6 +216,7 @@ public class ParticleData {
             int rgbLen = $byte.readInt();
             ArrayList valuesArr = new ArrayList<>();
             for (int k = 0; k < rgbLen; k++) {
+                Log.d(TAG, "readTempCurve: "+45 / 127 * scaleNum);
                 valuesArr.add($byte.readByte() / 127 * scaleNum);
             }
             curve.values.add(valuesArr);
