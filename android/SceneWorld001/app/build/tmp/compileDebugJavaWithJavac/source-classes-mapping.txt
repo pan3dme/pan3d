@@ -19,10 +19,8 @@ z3d/base/RoleBackFun.java
  z3d.base.RoleBackFun
 z3d/vo/Matrix3D.java
  z3d.vo.Matrix3D
-z3d/material/MaterialManager.java
- z3d.material.MaterialManager
- z3d.material.MaterialManager$1
- z3d.material.MaterialManager$2
+z3d/res/BaseRes.java
+ z3d.res.BaseRes
 z3d/base/GroupItem.java
  z3d.base.GroupItem
 z3d/display/particle/MaterialParamDataVo.java
@@ -43,14 +41,16 @@ z3d/core/Context3D.java
  z3d.core.Context3D
 z3d/units/LoadInfo.java
  z3d.units.LoadInfo
-z3d/res/BaseRes.java
- z3d.res.BaseRes
+z3d/material/MaterialManager.java
+ z3d.material.MaterialManager
+ z3d.material.MaterialManager$1
+ z3d.material.MaterialManager$2
 z3d/base/ResGC.java
  z3d.base.ResGC
 z3d/base/SkillBackFun.java
  z3d.base.SkillBackFun
-z3d/material/DynamicTexItem.java
- z3d.material.DynamicTexItem
+z3d/vo/ShockAryVo.java
+ z3d.vo.ShockAryVo
 z3d/program/Shader3D.java
  z3d.program.Shader3D
 z3d/display/particle/ctrl/AxisMove.java
@@ -85,8 +85,8 @@ z3d/base/ObjDataBackFun.java
  z3d.base.ObjDataBackFun
 z3d/units/TimeUtil.java
  z3d.units.TimeUtil
-z3d/units/ColorTransition.java
- z3d.units.ColorTransition
+z3d/material/MaterialParam.java
+ z3d.material.MaterialParam
 z3d/display/basedis/DisplayTestShader.java
  z3d.display.basedis.DisplayTestShader
 z3d/base/MeshData.java
@@ -225,10 +225,6 @@ z3d/engine/ResCount.java
  z3d.engine.ResCount
 z3d/material/DynamicConstItem.java
  z3d.material.DynamicConstItem
-z3d/vo/ShockAryVo.java
- z3d.vo.ShockAryVo
-z3d/material/MaterialParam.java
- z3d.material.MaterialParam
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
 z3d/display/BuildDisplay3DSprite.java
@@ -252,6 +248,8 @@ scene/SceneWorldBase.java
  scene.SceneWorldBase$2
  scene.SceneWorldBase$3
  scene.SceneWorldBase$4
+z3d/display/particle/ball/Display3DBallPartilce.java
+ z3d.display.particle.ball.Display3DBallPartilce
 z3d/display/particle/locusball/ParticleLocusballData.java
  z3d.display.particle.locusball.ParticleLocusballData
 z3d/display/line/LineDisplaySprite.java
@@ -271,6 +269,8 @@ z3d/display/particle/ParticleData.java
 z3d/display/role/Display3dMovie.java
  z3d.display.role.Display3dMovie
  z3d.display.role.Display3dMovie$1
+z3d/display/particle/CombineParticle.java
+ z3d.display.particle.CombineParticle
 z3d/display/basedis/DisplayTestSprite.java
  z3d.display.basedis.DisplayTestSprite
 scene/SceneRoleBase.java
@@ -306,7 +306,7 @@ z3d/filemodel/ParticleManager.java
  z3d.filemodel.ParticleManager
 z3d/display/particle/model/ParticleModelData.java
  z3d.display.particle.model.ParticleModelData
-z3d/display/particle/ball/Display3DBallPartilce.java
- z3d.display.particle.ball.Display3DBallPartilce
-z3d/display/particle/CombineParticle.java
- z3d.display.particle.CombineParticle
+z3d/material/DynamicTexItem.java
+ z3d.material.DynamicTexItem
+z3d/units/ColorTransition.java
+ z3d.units.ColorTransition
