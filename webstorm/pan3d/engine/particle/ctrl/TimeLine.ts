@@ -215,7 +215,7 @@
             this.isByteData = true
             var len: number = $byte.readFloat();
             for (var i: number = 0; i < len; i++) {
-                var frameNum: number = $byte.readFloat();
+                var frameNum: number = $byte.readFloat();s
                 var key: KeyFrame = this.addKeyFrame(frameNum);
                 key.frameNum = frameNum;
                 key.baseValue = new Array();

@@ -16,6 +16,7 @@
             return this._type;
         }
 
+
         public set type(value: number) {
             this._type = value;
         }

@@ -189,6 +189,7 @@ var Pan3d;
             var len = $byte.readFloat();
             for (var i = 0; i < len; i++) {
                 var frameNum = $byte.readFloat();
+                s;
                 var key = this.addKeyFrame(frameNum);
                 key.frameNum = frameNum;
                 key.baseValue = new Array();

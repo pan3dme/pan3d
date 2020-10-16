@@ -94,7 +94,7 @@ public class ParticleManager extends ResGC {
     {
         float _tempTime=  TimeUtil.getTimer();
         float t = _tempTime - this.time;
-
+        this.time=_tempTime;
         Set<String> set=this.renderDic.keySet();
         for (String url : set) {
             List<CombineParticle> arr=    this.renderDic.get(url);

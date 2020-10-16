@@ -9,6 +9,10 @@ public class BaseAnim {
     public float  beginTime;
     public  float lastTime;
     public  float baseTime;
+    public boolean isDeath;
     protected boolean _isActiva;
     protected boolean _isDeath;
+
+    public void updata(float time) {
+    }
 }
