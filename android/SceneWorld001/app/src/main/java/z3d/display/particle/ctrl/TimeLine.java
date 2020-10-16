@@ -3,6 +3,9 @@ package z3d.display.particle.ctrl;
 import java.util.ArrayList;
 import java.util.List;
 
+import z3d.display.particle.Display3DParticle;
+import z3d.vo.Matrix3D;
+
 public class TimeLine {
 
      private List<KeyFrame> keyFrameAry;
@@ -53,4 +56,10 @@ public class TimeLine {
     }
 
 
+    public void updateMatrix(Matrix3D posMatrix3d, Display3DParticle display3DParticle) {
+    }
+
+    public void updateTime(float t) {
+        this.visible=true;
+    }
 }

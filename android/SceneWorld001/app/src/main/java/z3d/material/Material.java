@@ -191,4 +191,6 @@ public class Material extends ResCount {
     }
 
 
+    public void update(float t) {
+    }
 }

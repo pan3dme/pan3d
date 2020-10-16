@@ -38,6 +38,12 @@ public class CombineParticle {
     {
         this._time=0;
         this.displayAry=new ArrayList<>();
+        this.bindVecter3d =new Vector3D();
+        this.bindScale = new Vector3D(1,1,1);
+        this.bindMatrix = new Matrix3D();
+        this.invertBindMatrix = new Matrix3D();
+        this.groupMatrix =  new Matrix3D();
+        this.groupRotationMatrix =new Matrix3D();
     }
 
     public void addPrticleItem(Display3DParticle dis) {

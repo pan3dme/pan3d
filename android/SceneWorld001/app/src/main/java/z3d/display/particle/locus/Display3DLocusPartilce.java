@@ -79,6 +79,12 @@ public class Display3DLocusPartilce extends Display3DParticle {
         }
 
     }
+
+    @Override
+    public void setMaterialVc() {
+        super.setMaterialVc();
+    }
+
     TextureRes oneTextureRes;
     TextureRes twoTextureRes;
     private void  _makeTestTexture()

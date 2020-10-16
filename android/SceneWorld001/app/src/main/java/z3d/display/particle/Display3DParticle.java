@@ -5,12 +5,15 @@ import android.util.Log;
 import java.util.List;
 
 import z3d.base.Object3D;
+import z3d.base.Scene_data;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
 import z3d.display.particle.ctrl.TimeLine;
+import z3d.material.DynamicConstItem;
 import z3d.material.DynamicTexItem;
 import z3d.material.TexItem;
 import z3d.program.Shader3D;
+import z3d.vo.Float32Array;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
 
@@ -61,6 +64,21 @@ public class Display3DParticle extends Display3D {
     }
     public void updateTime(float t)
     {
+
+
+        this._time = t - this._beginTime;
+        this._time += this.data._delayedTime; //加上延时
+        this.timeline.updateTime(t);
+
+        this.visible = this.timeline.visible;
+
+
+        this.posMatrix3d.identity();
+        this.posMatrix3d.prependScale(this.scaleX * 0.1f * this.bindScale.x * this.data.overAllScale,
+                this.scaleY * 0.1f * this.bindScale.y * this.data.overAllScale,
+                this.scaleZ * 0.1f * this.bindScale.z * this.data.overAllScale);
+
+        this.timeline.updateMatrix(this.posMatrix3d, this);
 
     }
     public void update()
@@ -127,6 +145,31 @@ public class Display3DParticle extends Display3D {
     }
     public void  setMaterialVc()
     {
+
+        if (this.data.materialParam==null) {
+            return;
+        }
+        List<DynamicConstItem> dynamicConstList= this.data.materialParam.dynamicConstList;
+
+        float t= Math.floorMod ((long) this._time , (long) (Scene_data.frameTime * this.data._life));
+        for (int i = 0; i < dynamicConstList.size(); i++) {
+        dynamicConstList.get(i).update(t);
+        }
+        if(this.data.materialParam.material.fcNum <= 0){
+            return;
+        }
+        t = t * this.data.materialParam.material.timeSpeed;
+        this.data.materialParam.material.update(t);
+
+        Float32Array fcData= this.data.materialParam.material.fcData;
+
+        /*
+        GLfloat fcDataGlArr[fcData.count];
+        for (int i=0; i<fcData.count; i++) {
+            fcDataGlArr[i]=fcData[i].floatValue;
+        }
+       [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
+*/
 
     }
 
