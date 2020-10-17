@@ -35,7 +35,6 @@ public class Display3DLocusShader extends Shader3D {
                 "v0 = tempv0;\n"+
 
 
-
                 "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);\n"+
                 "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"+
                 "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n"+
@@ -47,7 +46,6 @@ public class Display3DLocusShader extends Shader3D {
 
                 "gl_Position =viewMatrix*camMatrix*modeMatrix* tempPos ;\n"+
 
-
                 "}";
 
 
@@ -56,6 +54,8 @@ public class Display3DLocusShader extends Shader3D {
     }
 
     public String getFragmentShaderString() {
+
+
         String fragment =  "precision mediump float;\n"+
                 "uniform sampler2D fs0;"+
                 "uniform sampler2D fs1;"+
@@ -65,16 +65,16 @@ public class Display3DLocusShader extends Shader3D {
                 "varying vec4 v2;\n"+
                 "void main() {\n"+
 
-                "vec4 ft0 = texture2D(fs0,v0);"+
-                "ft0.xyz *= ft0.w;"+
-                "vec4 ft1 = texture2D(fs1,v1);"+
-                "ft1.xyz = ft1.xyz * ft1.w;"+
-                "vec4 ft2 = ft0 * ft1;"+
-                "ft0 = ft2 * v2.w;"+
-                "ft1.xyz = ft0.xyz;"+
-                "ft1.w = ft0.w;"+
-                "if(v2.x<fc[0].x){discard;}"+
-                "gl_FragColor = ft1;"+
+                "vec4 ft0 = texture2D(fs0,v0);\n"+
+                "ft0.xyz *= ft0.w;\n"+
+                "vec4 ft1 = texture2D(fs1,v1);\n"+
+                "ft1.xyz = ft1.xyz * ft1.w;\n"+
+                "vec4 ft2 = ft0 * ft1;\n"+
+                "ft0 = ft2 * v2.w;\n"+
+                "ft1.xyz = ft0.xyz;\n"+
+                "ft1.w = ft0.w;\n"+
+                "if(v2.x<fc[0].x){discard;}\n"+
+                "gl_FragColor = ft1;\n"+
 
                 "}";
 

@@ -21,19 +21,32 @@ public class Shader3D {
     public int program;
     public List<Boolean> paramAry;
     public String fragment;
+    public String vertex;
+    public String vertexStr(){
+        if(this.vertex!=null){
+            return this.vertex;
+        }else{
+            return this.getVertexShaderString();
+        }
+    }
 
     public boolean encode() {
 
-        this.program= uCreateGlProgram(this.getVertexShaderString(),this.getFragmentShaderString());
-
-        return true;
+        return encodeVstr();
 
     }
-    public boolean  encodeVstr(String vertex,String fragment)
+    public boolean  encodeVstr(){
+        return  encodeVstr(null,null);
+    }
+    public boolean  encodeVstr(String vstr,String fstr)
     {
-        this.program= uCreateGlProgram(vertex,fragment);
-
-
+        if(vstr==null){
+            vstr=this.getVertexShaderString();
+        }
+        if(fstr==null){
+            fstr=this.getFragmentShaderString();
+        }
+        this.program= uCreateGlProgram(vstr,fstr);
         return true;
     }
 

@@ -28,6 +28,7 @@ import z3d.base.Scene_data;
 import z3d.core.Context3D;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
+import z3d.display.role.Display3dMovie;
 import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.ParticleManager;
 import z3d.filemodel.TextureManager;
@@ -94,6 +95,7 @@ public class SceneLyfBase extends AppCompatActivity  {
             public void StateChange(boolean State) {
                 ParticleManager particleManager= scene3d.particleManager;
                 particleManager.clearAll();
+                scene3d.clearAll();
             }
         });
 
@@ -108,16 +110,24 @@ public class SceneLyfBase extends AppCompatActivity  {
             @Override
             public void StateChange(boolean State) {
                 scene3d.camera3D.distance/=0.8;
-                makeTexture();
+
+
+
 
             }
         });
 
-        this.addButs("目录", new CallBackFun() {
+
+        this.addButs("添2加50004", new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-
-
+                addRoleToSceneByUrl("50004.txt");
+            }
+        });
+        this.addButs("添2加50004", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                addRoleToSceneByUrl("7505.txt");
             }
         });
     }
@@ -151,6 +161,19 @@ public class SceneLyfBase extends AppCompatActivity  {
         this.scene3d.addDisplay(new GridLineSprite(this.scene3d));
 //        this.scene3D.addDisplay(new TwoTextureSprite(this.scene3D));
 //        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
+
+    }
+    private void  addRoleToSceneByUrl(String val)
+    {
+
+        Display3dMovie sc=new Display3dMovie(this.scene3d);
+        sc.setRoleUrl("role/"+val);
+        sc.scaleX=2;
+        sc.scaleY=2;
+        sc.scaleZ=2;
+
+
+        scene3d.addMovieDisplay(sc);
 
     }
 

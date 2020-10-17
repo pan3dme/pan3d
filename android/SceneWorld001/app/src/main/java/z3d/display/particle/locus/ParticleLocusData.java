@@ -93,7 +93,7 @@ public class ParticleLocusData extends ParticleData {
         }
         this.getShaderParam();
         List<Boolean>  shaderParameAry =this.getShaderParam();
-        ProgrmaManager.getInstance().getMaterialProgram(Display3DLocusShader.shaderNameStr,new Display3DLocusShader(),this.materialParam.material,shaderParameAry,false);
+        this.materialParam.shader3D=   ProgrmaManager.getInstance().getMaterialProgram(Display3DLocusShader.shaderNameStr,new Display3DLocusShader(),this.materialParam.material,shaderParameAry,false);
     }
 
     private List<Boolean>  getShaderParam() {

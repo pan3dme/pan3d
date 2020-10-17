@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import z3d.display.Display3D;
+import z3d.program.Shader3D;
 import z3d.vo.ParamDataConVo;
 import z3d.vo.ParamDataVo;
 import z3d.vo.Vector2D;
@@ -15,6 +16,7 @@ public class MaterialParam {
     private static final String TAG = "MaterialParam";
     public Material material ;
     public String materialUrl  ;
+    public Shader3D shader3D;
     public List<DynamicTexItem> dynamicTexList;
     public List<DynamicConstItem>  dynamicConstList ;
 
