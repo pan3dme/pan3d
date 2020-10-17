@@ -254,15 +254,8 @@ z3d/display/particle/locusball/ParticleLocusballData.java
  z3d.display.particle.locusball.ParticleLocusballData
 z3d/display/line/LineDisplaySprite.java
  z3d.display.line.LineDisplaySprite
-scene/SceneLyfBase.java
- scene.SceneLyfBase
- scene.SceneLyfBase$1
- scene.SceneLyfBase$2
- scene.SceneLyfBase$3
- scene.SceneLyfBase$4
- scene.SceneLyfBase$5
- scene.SceneLyfBase$6
- scene.SceneLyfBase$7
+z3d/display/particle/CombineParticle.java
+ z3d.display.particle.CombineParticle
 z3d/display/particle/ParticleData.java
  z3d.display.particle.ParticleData
  z3d.display.particle.ParticleData$1
@@ -307,5 +300,13 @@ z3d/display/particle/model/ParticleModelData.java
  z3d.display.particle.model.ParticleModelData
 z3d/display/particle/ball/Display3DBallPartilce.java
  z3d.display.particle.ball.Display3DBallPartilce
-z3d/display/particle/CombineParticle.java
- z3d.display.particle.CombineParticle
+scene/SceneLyfBase.java
+ scene.SceneLyfBase
+ scene.SceneLyfBase$1
+ scene.SceneLyfBase$2
+ scene.SceneLyfBase$3
+ scene.SceneLyfBase$4
+ scene.SceneLyfBase$5
+ scene.SceneLyfBase$6
+ scene.SceneLyfBase$7
+ scene.SceneLyfBase$8

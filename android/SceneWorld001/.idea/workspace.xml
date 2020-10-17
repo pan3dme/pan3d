@@ -15,14 +15,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/Display3DParticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/Display3DParticle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/Display3DParticle.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/Display3DParticle.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/Display3DParticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/Display3DParticle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/ParticleLocusData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/locus/ParticleLocusData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneLyfBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneLyfBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" afterDir="false" />
@@ -165,10 +159,10 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1071" y="290" key="AndroidProcessChooserDialog/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602655454001" />
-    <state width="548" height="466" key="DebuggerActiveHint" timestamp="1602931709950">
+    <state width="548" height="466" key="DebuggerActiveHint" timestamp="1602943401554">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="548" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602931709950" />
+    <state width="548" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602943401554" />
     <state width="1102" height="348" key="GridCell.Tab.0.bottom" timestamp="1602932025856">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -205,10 +199,10 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1339" y="175" key="SettingsEditor/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602672697955" />
-    <state x="-710" y="397" width="615" height="490" key="find.popup" timestamp="1602926690504">
+    <state x="-710" y="397" width="615" height="490" key="find.popup" timestamp="1602943594362">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-710" y="397" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602926690504" />
+    <state x="-710" y="397" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602943594362" />
     <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1602925773813">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>

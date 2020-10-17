@@ -112,6 +112,14 @@ public class SceneLyfBase extends AppCompatActivity  {
 
             }
         });
+
+        this.addButs("目录", new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+
+
+            }
+        });
     }
     private void makeTexture(){
 
