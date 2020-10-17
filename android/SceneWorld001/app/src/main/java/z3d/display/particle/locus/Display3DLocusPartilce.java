@@ -9,6 +9,7 @@ import java.util.List;
 
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
+import z3d.base.Scene_data;
 import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 
@@ -63,6 +64,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void setVc() {
         super.setVc();
+        this.updateUV();
         this.modeMatrix=new Matrix3D();
         this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
         Camera3D cam3d= this.scene3d.camera3D;
@@ -75,9 +77,23 @@ public class Display3DLocusPartilce extends Display3DParticle {
         ctx.setVcUniform4f(this.shader3D,"vcmat30",_resultUvVec.x,_resultUvVec.y,_resultUvVec.z,_resultUvVec.w);
         if(this.data._watchEye){
             ctx.setVcUniform4f(this.shader3D,"v3CamPos",cam3d.x,cam3d.y,cam3d.z,cam3d.w);
-
         }
-
+    }
+    private void updateUV() {
+        float nowTime=this._time/ Scene_data.frameTime;
+        float lifeRoundNum=this.data._life / 100.0f;
+        float moveUv = this.locusdata()._speed * nowTime / this.locusdata()._density / 10.0f;
+        if (this.locusdata()._isEnd) {
+            moveUv = Math.min(1.0f, moveUv);
+        }
+        if (this.locusdata()._isLoop) {
+            if (this.locusdata()._life>0.0) {
+                moveUv = moveUv- (float) Math.ceil(moveUv/(lifeRoundNum+1))*(lifeRoundNum+1) ;
+            } else {
+                moveUv = moveUv-(float) Math.ceil(moveUv/1)  ;
+            }
+        }
+        this.locusdata()._resultUvVec.x = moveUv;
     }
 
     @Override

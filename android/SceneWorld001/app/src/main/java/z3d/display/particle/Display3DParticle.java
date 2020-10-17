@@ -97,7 +97,7 @@ public class Display3DParticle extends Display3D {
             }
         }else
         {
-            Log.d(TAG, "upframe: ");
+
         }
 
     }
