@@ -4,11 +4,13 @@ import android.util.Log;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
 import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
+import z3d.program.ProgrmaManager;
 import z3d.res.BaseRes;
 import z3d.vo.Float32Array;
 import z3d.vo.Vector3D;
@@ -82,7 +84,35 @@ public class ParticleLocusData extends ParticleData {
         this.objData.treNum=this.objData.indexs.size();
 
     }
-   
+
+    @Override
+    protected void regShader() {
+
+        if (this.materialParam==null) {
+            return;
+        }
+        this.getShaderParam();
+        List<Boolean>  shaderParameAry =this.getShaderParam();
+        ProgrmaManager.getInstance().getMaterialProgram(Display3DLocusShader.shaderNameStr,new Display3DLocusShader(),this.materialParam.material,shaderParameAry,false);
+    }
+
+    private List<Boolean>  getShaderParam() {
+        boolean isWatchEye = this._watchEye ?true : false;
+        boolean changeUv = false;
+        boolean hasParticleColor = this.materialParam.material.hasParticleColor ?true :false;
+        if (this._isU || this._isV || this._isUV) {
+            changeUv = true;
+            this._changUv = true;
+        } else {
+            this._changUv = false;
+        }
+        List<Boolean> shaderParameAry=new ArrayList<>();
+        shaderParameAry.add(isWatchEye );
+        shaderParameAry.add( changeUv);
+        shaderParameAry.add(hasParticleColor);
+        return shaderParameAry;
+    }
+
     public void initVcData() {
         this.vcmatData = new Float32Array(Display3DLocusShader.getVcSize());
 

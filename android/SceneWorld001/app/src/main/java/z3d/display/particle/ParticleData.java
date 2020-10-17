@@ -149,17 +149,13 @@ public class ParticleData {
              this.materialParam.setConstObj(this.materialParamData.conAry);
         }
         MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
-        /*
-
-
-
-
-
 
             this.regShader();
 
-         */
 
+    }
+
+    protected void regShader() {
     }
 
     private void readMaterialPara(ByteArray $byte) {
