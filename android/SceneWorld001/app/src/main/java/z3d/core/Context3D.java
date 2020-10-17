@@ -110,4 +110,37 @@ public class Context3D {
 
 
     }
+
+    public void setBlendParticleFactors(float type) {
+        GLES20.glEnable(GLES20.GL_BLEND);
+        switch ((int)type) {
+            case 0:
+                GLES20.glBlendFunc( GLES20.GL_ONE,  GLES20.GL_ONE_MINUS_SRC_ALPHA);
+                break;
+            case 1:
+                GLES20.glBlendFunc( GLES20.GL_ONE,  GLES20.GL_ONE);
+                break;
+            case 2:
+                GLES20.glBlendFunc( GLES20.GL_DST_COLOR,  GLES20.GL_ZERO);
+                break;
+            case 3:
+                GLES20.glBlendFunc( GLES20.GL_ONE,  GLES20.GL_ONE_MINUS_SRC_COLOR);
+                break;
+            case 4:
+                GLES20.glBlendFunc( GLES20.GL_SRC_ALPHA,  GLES20.GL_ONE);
+                break;
+            case -1:
+                GLES20.glBlendFunc( GLES20.GL_SRC_ALPHA,  GLES20.GL_ONE_MINUS_SRC_ALPHA);
+                break;
+        }
+    }
+
+    public void cullFaceBack(boolean tf) {
+        if (tf) {
+            GLES20.glEnable(GLES20.GL_CULL_FACE);
+            GLES20.glCullFace(GLES20.GL_BACK);
+        } else {
+            GLES20.glDisable(GLES20.GL_CULL_FACE);
+        }
+    }
 }

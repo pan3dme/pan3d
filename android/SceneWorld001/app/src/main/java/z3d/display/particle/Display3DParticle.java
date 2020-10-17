@@ -2,6 +2,9 @@ package z3d.display.particle;
 
 import android.util.Log;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 import java.util.List;
 
 import z3d.base.Object3D;
@@ -86,7 +89,10 @@ public class Display3DParticle extends Display3D {
 
         if (this.visible&& this.data!=null&&this.scene3d!=null){
             if( this.data.materialParam!=null&&this.shader3D!=null){
-
+                Context3D ctx=this.scene3d.context3D;
+                ctx.setProgame(this.shader3D.program);
+                ctx.setBlendParticleFactors(this.data._alphaMode);
+                ctx.cullFaceBack(this.data.materialParam.material.backCull);
                 this.updateMatrix();
                 this.setMaterialVc();
                 this.setMaterialTexture();
@@ -95,11 +101,7 @@ public class Display3DParticle extends Display3D {
                 this.resetVa();
 
             }
-        }else
-        {
-
         }
-
     }
     public void  setViewCamModeMatr3d()
     {
@@ -160,9 +162,19 @@ public class Display3DParticle extends Display3D {
         }
         t = t * this.data.materialParam.material.timeSpeed;
         this.data.materialParam.material.update(t);
-
         Float32Array fcData= this.data.materialParam.material.fcData;
 
+        Context3D ctx=this.scene3d.context3D;
+        int fcNum=this.data.materialParam.material.fcNum;
+        ByteBuffer buffer=ByteBuffer.allocateDirect(fcNum*4);
+        buffer.order(ByteOrder.nativeOrder());
+        FloatBuffer verBuff=buffer.asFloatBuffer();
+        for (int i=0;i<fcNum*4;i++){
+           // verBuff.put(fcData.get(i));
+        }
+     //   verBuff.position(0);
+
+        ctx.setVc4fv(this.shader3D,"fc",fcNum, fcData.verBuff);
         /*
         GLfloat fcDataGlArr[fcData.count];
         for (int i=0; i<fcData.count; i++) {
