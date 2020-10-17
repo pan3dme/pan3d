@@ -62,18 +62,15 @@ public class Display3DLocusPartilce extends Display3DParticle {
 
     @Override
     public void setVc() {
-        super.setVc();
+
+        this.setViewCamModeMatr3d();
         this.updateUV();
         this.modeMatrix=new Matrix3D();
-        this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
         Camera3D cam3d= this.scene3d.camera3D;
         Context3D ctx=this.scene3d.context3D;
 
-        ctx.setVcMatrix4fv(this.shader3D,Shader3D.viewMatrix,cam3d.viewMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,Shader3D.camMatrix,cam3d.camMatrix3D.m);
-        ctx.setVcMatrix4fv(this.shader3D,Shader3D.modeMatrix,this.modeMatrix.m);
-        Vector3D _resultUvVec= this.locusdata()._resultUvVec;
-        ctx.setVcUniform4f(this.shader3D,"vcmat30",_resultUvVec.x,_resultUvVec.y,_resultUvVec.z,_resultUvVec.w);
+        Vector3D scaleVec= this.locusdata()._resultUvVec;
+        ctx.setVcUniform4f(this.shader3D,"vcmat30",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
         if(this.data._watchEye){
             ctx.setVcUniform4f(this.shader3D,"v3CamPos",cam3d.x,cam3d.y,cam3d.z,cam3d.w);
         }
@@ -94,25 +91,11 @@ public class Display3DLocusPartilce extends Display3DParticle {
         }
         this.locusdata()._resultUvVec.x = moveUv;
     }
-
     @Override
     public void setMaterialVc() {
         super.setMaterialVc();
     }
 
-    TextureRes oneTextureRes;
-    TextureRes twoTextureRes;
-    private void  _makeTestTexture()
-    {
 
-        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
-            @Override
-            public void Bfun(TextureRes value) {
-                oneTextureRes =value;
-            }
-        });
-
-
-    }
 
 }

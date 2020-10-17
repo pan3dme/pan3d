@@ -18,8 +18,10 @@ public class Display3D<bool> extends Object3D {
     public void upData()
     {
     }
-    final public void  updateMatrix()
+      public void  updateMatrix()
     {
+
+
     }
 
 }

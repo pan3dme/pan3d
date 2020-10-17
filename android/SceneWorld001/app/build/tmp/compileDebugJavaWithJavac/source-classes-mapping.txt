@@ -4,8 +4,8 @@ z3d/res/BaseRes.java
  z3d.res.BaseRes
 z3d/vo/ShockAryVo.java
  z3d.vo.ShockAryVo
-z3d/base/Camera3D.java
- z3d.base.Camera3D
+z3d/core/Context3D.java
+ z3d.core.Context3D
 z3d/material/Curve.java
  z3d.material.Curve
 z3d/filemodel/TextureLoad.java
@@ -84,8 +84,8 @@ urlhttp/RequestUtil.java
  urlhttp.RequestUtil$3
 z3d/display/particle/ctrl/KeyFrame.java
  z3d.display.particle.ctrl.KeyFrame
-z3d/vo/BoneSocketData.java
- z3d.vo.BoneSocketData
+z3d/vo/AnimData.java
+ z3d.vo.AnimData
 z3d/base/ObjDataBackFun.java
  z3d.base.ObjDataBackFun
 z3d/units/TimeUtil.java
@@ -144,8 +144,8 @@ z3d/material/MaterialManager.java
  z3d.material.MaterialManager
  z3d.material.MaterialManager$1
  z3d.material.MaterialManager$2
-z3d/base/GroupItem.java
- z3d.base.GroupItem
+z3d/material/Material.java
+ z3d.material.Material
 z3d/display/line/LineDisplayShader.java
  z3d.display.line.LineDisplayShader
 z3d/res/MaterialInfoVo.java
@@ -156,8 +156,8 @@ z3d/display/particle/ball/ParticleBallGpuData.java
  z3d.display.particle.ball.ParticleBallGpuData
 z3d/display/particle/ctrl/AxisRotaion.java
  z3d.display.particle.ctrl.AxisRotaion
-z3d/base/Object3D.java
- z3d.base.Object3D
+z3d/program/ProgrmaManager.java
+ z3d.program.ProgrmaManager
 z3d/base/ObjData.java
  z3d.base.ObjData
 z3d/units/LoadManager.java
@@ -219,14 +219,14 @@ z3d/material/MaterialLoad.java
  z3d.material.MaterialLoad
 z3d/units/AnimManager.java
  z3d.units.AnimManager
-z3d/program/ProgrmaManager.java
- z3d.program.ProgrmaManager
-z3d/material/Material.java
- z3d.material.Material
-z3d/vo/AnimData.java
- z3d.vo.AnimData
-z3d/core/Context3D.java
- z3d.core.Context3D
+z3d/base/Camera3D.java
+ z3d.base.Camera3D
+z3d/vo/BoneSocketData.java
+ z3d.vo.BoneSocketData
+z3d/base/GroupItem.java
+ z3d.base.GroupItem
+z3d/base/Object3D.java
+ z3d.base.Object3D
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
 z3d/display/BuildDisplay3DSprite.java
@@ -293,7 +293,6 @@ scene/dis/TwoTextureSprite.java
  scene.dis.TwoTextureSprite$2
 z3d/display/particle/locus/Display3DLocusPartilce.java
  z3d.display.particle.locus.Display3DLocusPartilce
- z3d.display.particle.locus.Display3DLocusPartilce$1
 z3d/display/line/GridLineSprite.java
  z3d.display.line.GridLineSprite
 z3d/display/Display3D.java

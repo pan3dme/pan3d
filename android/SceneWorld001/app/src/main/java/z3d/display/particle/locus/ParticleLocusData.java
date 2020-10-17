@@ -84,7 +84,7 @@ public class ParticleLocusData extends ParticleData {
     }
    
     public void initVcData() {
-        this.vcmatData = new Float32Array(Display3DLocusShader.getVcSize() * 16);
+        this.vcmatData = new Float32Array(Display3DLocusShader.getVcSize());
 
     }
 

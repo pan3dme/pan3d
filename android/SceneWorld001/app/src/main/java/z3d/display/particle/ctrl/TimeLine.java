@@ -6,6 +6,7 @@ import java.util.List;
 import z3d.base.Scene_data;
 import z3d.display.particle.Display3DParticle;
 import z3d.vo.Matrix3D;
+import z3d.vo.Vector3D;
 
 public class TimeLine {
 
@@ -57,7 +58,35 @@ public class TimeLine {
     }
 
 
-    public void updateMatrix(Matrix3D posMatrix3d, Display3DParticle display3DParticle) {
+    public void updateMatrix(Matrix3D posMatrix, Display3DParticle $particle) {
+
+        if (this._axisMove!=null) {
+            posMatrix.prependTranslation(this._axisMove.axis.x * this._axisMove.num, this._axisMove.axis.y * this._axisMove.num, this._axisMove.axis.z * this._axisMove.num);
+        }
+        if (this._axisRotaion!=null) {
+            posMatrix.prependRotation(this._axisRotaion.num, this._axisRotaion.axis);
+        }
+
+        posMatrix.prependTranslation($particle.data.center.x, $particle.data.center.y, $particle.data.center.z);
+
+
+        if (this._scaleChange!=null) {
+            //processScale();
+            posMatrix.prependScale($particle.data._widthFixed ? 1 : this._scaleChange.num, $particle.data._heightFixed ? 1 : this._scaleChange.num,
+                    $particle.data._widthFixed ? 1 : this._scaleChange.num);
+        } else if (this._scaleNosie!=null) {
+            //processNosie();
+            posMatrix.prependScale($particle.data._widthFixed ? 1 : (1 + this._scaleNosie.num), $particle.data._heightFixed ? 1 : (1 + this._scaleNosie.num),
+                    $particle.data._widthFixed ? 1 : (1 + this._scaleNosie.num));
+        } else if (this._scaleAnim!=null) {
+            //processScaleAnim();
+            posMatrix.prependScale($particle.data._widthFixed ? 1 : this._scaleAnim.num, $particle.data._heightFixed ? 1 : this._scaleAnim.num,
+                    $particle.data._widthFixed ? 1 : this._scaleAnim.num);
+            ////console.log(this._scaleAnim.num);
+        }
+        posMatrix.prependRotation($particle.data.rotationV3d.z, Vector3D.Z_AXIS);
+        posMatrix.prependRotation($particle.data.rotationV3d.y, Vector3D.Y_AXIS);
+        posMatrix.prependRotation($particle.data.rotationV3d.x, Vector3D.X_AXIS);
     }
 
 
