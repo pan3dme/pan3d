@@ -10,6 +10,7 @@ import java.util.List;
 
 import z3d.base.ResGC;
 import z3d.display.particle.CombineParticleData;
+import z3d.display.particle.locus.Display3DLocusShader;
 import z3d.material.Material;
 
 public class ProgrmaManager extends  ResGC {
@@ -74,6 +75,7 @@ public class ProgrmaManager extends  ResGC {
             this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
             this.changeShader(shader);
+
         }
         shader.encodeVstr(shader.vertex,shader.fragment);
         this.dic.put(keyStr,shader);
@@ -140,7 +142,7 @@ public class ProgrmaManager extends  ResGC {
                 "ft1.xyz = ft0.xyz;"+
                 "ft1.w = ft0.w;"+
                 "if(v2.x<fc[0].x){discard;}"+
-                "gl_FragColor = ft1;"+
+                "gl_FragColor = vec4(1,0,0,1);"+
 
                 "}";
     }

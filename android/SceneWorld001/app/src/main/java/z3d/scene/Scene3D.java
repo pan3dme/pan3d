@@ -12,6 +12,7 @@ import z3d.display.Display3D;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.ParticleManager;
 import z3d.filemodel.TextureManager;
+import z3d.program.Shader3D;
 import z3d.units.TimeUtil;
 
 public class Scene3D extends ResGC {
@@ -39,7 +40,7 @@ public class Scene3D extends ResGC {
     public  void  upFrame()
     {
 
-
+        Shader3D.upDataProgramWaitIng();
         TextureManager.getInstance().upDataGenTextUserItem();
 
         Context3D ctx=this.context3D;

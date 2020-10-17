@@ -3,7 +3,10 @@ package z3d.program;
 
 import android.opengl.GLES20;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import z3d.material.TextureRes;
 
 
 public class Shader3D {
@@ -46,8 +49,19 @@ public class Shader3D {
         if(fstr==null){
             fstr=this.getFragmentShaderString();
         }
-        this.program= uCreateGlProgram(vstr,fstr);
+        this.vertex=vstr;
+        this.fragment=fstr;
+        this.program= uCreateGlProgram( this.vertex, this.fragment);
+
+        Shader3D._waitArr.add(this);
         return true;
+    }
+    private static List<Shader3D> _waitArr=new ArrayList<>();
+    public static void upDataProgramWaitIng(){
+        while (_waitArr.size()>0){
+            Shader3D shader3D=   _waitArr.remove(0);
+            shader3D.program= uCreateGlProgram( shader3D.vertex, shader3D.fragment);
+        }
     }
 
     //创建GL程序
