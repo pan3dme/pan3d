@@ -92,6 +92,9 @@ public class Context3D {
     public void  setVc4fv(Shader3D shader3d, String name,int count , FloatBuffer m)
     {
         GLES20.glUniform4fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);
+
+
+
     }
     public void  setVc3fv(Shader3D shader3d, String name,int count , FloatBuffer m)
     {

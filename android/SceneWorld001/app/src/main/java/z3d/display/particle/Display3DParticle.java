@@ -1,5 +1,6 @@
 package z3d.display.particle;
 
+import android.opengl.GLES20;
 import android.util.Log;
 
 import java.nio.ByteBuffer;
@@ -163,25 +164,14 @@ public class Display3DParticle extends Display3D {
         t = t * this.data.materialParam.material.timeSpeed;
         this.data.materialParam.material.update(t);
         Float32Array fcData= this.data.materialParam.material.fcData;
-
         Context3D ctx=this.scene3d.context3D;
         int fcNum=this.data.materialParam.material.fcNum;
-        ByteBuffer buffer=ByteBuffer.allocateDirect(fcNum*4);
-        buffer.order(ByteOrder.nativeOrder());
-        FloatBuffer verBuff=buffer.asFloatBuffer();
-        for (int i=0;i<fcNum*4;i++){
-           // verBuff.put(fcData.get(i));
-        }
-     //   verBuff.position(0);
-
+        fcData.put(0,0.0f);
+        fcData.put(1,1.0f);
+        fcData.put(2,0.0f);
+        fcData.put(3,0.2f);
         ctx.setVc4fv(this.shader3D,"fc",fcNum, fcData.verBuff);
-        /*
-        GLfloat fcDataGlArr[fcData.count];
-        for (int i=0; i<fcData.count; i++) {
-            fcDataGlArr[i]=fcData[i].floatValue;
-        }
-       [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
-*/
+
 
     }
 
