@@ -1,4 +1,6 @@
 package z3d.display.particle;
 
-public class ParticleGpuData {
+import z3d.base.ObjData;
+
+public class ParticleGpuData  extends ObjData {
 }

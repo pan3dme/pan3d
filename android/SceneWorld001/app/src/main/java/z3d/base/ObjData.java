@@ -129,7 +129,20 @@ short Indexbuff
         return verBuff;
 
     }
-
+    public static   List<Float> getListFoatByArr(Float[] data){
+        List<Float> arr=new ArrayList<>();
+        for(int i=0;i<data.length;i++){
+            arr.add(data[i]);
+        }
+        return  arr;
+    }
+    public static   List<Short> getListShortByArr(int[] data){
+        List<Short> arr=new ArrayList<>();
+        for(int i=0;i<data.length;i++){
+           arr.add((short)data[i]);
+        }
+        return  arr;
+    }
 
 
 }

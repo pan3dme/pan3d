@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.ByteArray;
+import z3d.base.ObjData;
 import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
 import z3d.display.particle.ctrl.TimeLine;
@@ -194,28 +195,76 @@ public class ParticleBallData extends ParticleData {
             this._allRotationMatrix = new Matrix3D();
         }
 
-        this.initVcData();
+        this.uploadGpu();
 
     }
-    public void initVcData() {
-        /*
-        this.vcmatData = new Float32Array(Display3DBallShader.getVcSize() * 16);
-        this.setFloat32Vec("time", this._timeVec);
-        if (this._needAddSpeed) {
-            this.setFloat32Vec("force", this._addSpeedVec);
-        }
-        if (this._needScale) {
-            this.setFloat32Vec("scale", this._scaleVec);
-            this.setFloat32Vec("scaleCtrl", this._scaleCtrlVec);
-        }
-        if (this._uvType == 1) {
-            this.setFloat32Vec("animCtrl", this._animCtrlVec);
-        } else if (this._uvType == 2) {
+    private void uploadGpu() {
+        this.objData =new ParticleBallGpuData() ;
+        this.initBaseData();
+        this. initUV ();
+        this.initBasePos();
+        this. initSpeed();
 
-            this.setFloat32Vec("uvCtrl", this._uvCtrlVec);
-        }
-        */
     }
+
+    private void initBaseData() {
+
+        float ranScale = (float) Math.random() * (this._particleRandomScale.x - this._particleRandomScale.y) + this._particleRandomScale.y;
+        float width=this._width;
+        float height=this._height;
+        float offsetX=this._originWidthScale;
+        float offsetY=this._originHeightScale;
+
+        int lznum=this._totalNum;
+        Float[] attrArr=new Float[lznum*16];
+        int[] Indices  =new int[lznum*6];
+        for(int i=0;i<lznum;i++){
+            int skipAtt=i*16;
+            attrArr[skipAtt+0]=(-offsetX * width) * ranScale;
+            attrArr[skipAtt+1]=(height - offsetY * height) * ranScale;
+            attrArr[skipAtt+2]=0.0f;
+            attrArr[skipAtt+3]=(float)i;
+
+            attrArr[skipAtt+4]=(width - offsetX * width) * ranScale;
+            attrArr[skipAtt+5]=(height - offsetY * height) * ranScale;
+            attrArr[skipAtt+6]=0.0f;
+            attrArr[skipAtt+7]=(float)i;
+
+            attrArr[skipAtt+8]=(width - offsetX * width) * ranScale;
+            attrArr[skipAtt+9]=(-offsetY * height) * ranScale;
+            attrArr[skipAtt+10]=0.0f;
+            attrArr[skipAtt+11]=(float)i;
+
+            attrArr[skipAtt+12]=(-offsetX * width) * ranScale;
+            attrArr[skipAtt+13]=(-offsetY * height) * ranScale;
+            attrArr[skipAtt+14]=0.0f;
+            attrArr[skipAtt+15]=(float)i;
+
+            int skipTri=i*4;
+            int skipInd=i*6;
+            Indices[skipInd+0]=0+skipTri;
+            Indices[skipInd+1]=1+skipTri;
+            Indices[skipInd+2]=2+skipTri;
+            Indices[skipInd+3]=0+skipTri;
+            Indices[skipInd+4]=2+skipTri;
+            Indices[skipInd+5]=3+skipTri;
+        }
+
+
+        this.objData.vertexBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(attrArr));
+        this.objData.indexBuffer= this.objData.upGpuIndexBuffer( ObjData.getListShortByArr(Indices));
+
+   
+    }
+    private void initUV() {
+    }
+    private void initBasePos() {
+
+    }
+    private void initSpeed() {
+    }
+
+
     private void readRandomColor(ByteArray $byte) {
         int randomColorLen = $byte.readInt();
         ParicleRandomColorVo obj = new ParicleRandomColorVo();
