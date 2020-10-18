@@ -8,6 +8,7 @@
 
 #import "CombineParticle.h"
 #import "Display3DParticle.h"
+#import "Display3DLocusPartilce.h"
 #import "IBind.h"
 
 
@@ -122,7 +123,12 @@
     for(int i=0;i<self._displayAry.count;i++)
     {
         self._displayAry[i].scene3d=self.scene3d;
-        [self._displayAry[i] update];
+        
+        if([ self._displayAry[i] isKindOfClass:[Display3DLocusPartilce class ] ]){
+            [self._displayAry[i] update];
+        }
+      
+        
     }
 }
 -(void)updateItem:(int)idx;
