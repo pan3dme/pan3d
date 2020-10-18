@@ -191,8 +191,10 @@ z3d/program/Shader3D.java
  z3d.program.Shader3D
 z3d/display/line/LineDisplayShader.java
  z3d.display.line.LineDisplayShader
-z3d/display/particle/ball/Display3DBallPartilce.java
- z3d.display.particle.ball.Display3DBallPartilce
+z3d/material/MaterialManager.java
+ z3d.material.MaterialManager
+ z3d.material.MaterialManager$1
+ z3d.material.MaterialManager$2
 z3d/core/Context3D.java
  z3d.core.Context3D
 z3d/material/MaterialParam.java
@@ -227,8 +229,8 @@ z3d/material/MaterialBackFun.java
  z3d.material.MaterialBackFun
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
-z3d/display/particle/ball/ParticleBallData.java
- z3d.display.particle.ball.ParticleBallData
+z3d/program/ProgrmaManager.java
+ z3d.program.ProgrmaManager
 scene/SceneTestTwoTexture.java
  scene.SceneTestTwoTexture
  scene.SceneTestTwoTexture$1
@@ -305,9 +307,7 @@ z3d/display/particle/locus/ParticleLocusData.java
  z3d.display.particle.locus.ParticleLocusData
 z3d/display/basedis/DisplayBaseSprite.java
  z3d.display.basedis.DisplayBaseSprite
-z3d/material/MaterialManager.java
- z3d.material.MaterialManager
- z3d.material.MaterialManager$1
- z3d.material.MaterialManager$2
-z3d/program/ProgrmaManager.java
- z3d.program.ProgrmaManager
+z3d/display/particle/ball/ParticleBallData.java
+ z3d.display.particle.ball.ParticleBallData
+z3d/display/particle/ball/Display3DBallPartilce.java
+ z3d.display.particle.ball.Display3DBallPartilce
