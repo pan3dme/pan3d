@@ -18,8 +18,8 @@ public class ColorTransition {
         for(float i=0;i<bitmap.getWidth();i++){
            int idx=(int)(i/(float) bitmap.getWidth()*length);
            int drawColor=   Color.argb(imgNumVec.get(idx*4+0),imgNumVec.get(idx*4+1),imgNumVec.get(idx*4+2),imgNumVec.get(idx*4+3));
-            bitmap.setPixel(idx,0,drawColor);
-            bitmap.setPixel(idx,1,drawColor);
+            bitmap.setPixel((int)i,0,drawColor);
+            bitmap.setPixel((int)i,1,drawColor);
         }
         return bitmap;
 
