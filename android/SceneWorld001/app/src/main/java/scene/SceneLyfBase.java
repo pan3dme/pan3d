@@ -126,8 +126,11 @@ public class SceneLyfBase extends AppCompatActivity  {
         });
         this.addButs("添2加50004", new CallBackFun() {
             @Override
+//            public void StateChange(boolean State) {
+//                addRoleToSceneByUrl("7505.txt");
+//            }
             public void StateChange(boolean State) {
-                addRoleToSceneByUrl("7505.txt");
+                addRoleToSceneByUrl("yezhuz.txt");
             }
         });
     }

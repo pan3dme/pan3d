@@ -1288,7 +1288,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "17E79624-1376-4FCD-AB13-EABF67B80468"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iosgl/bt/display/particle/locus/Display3DLocusShader.m"
