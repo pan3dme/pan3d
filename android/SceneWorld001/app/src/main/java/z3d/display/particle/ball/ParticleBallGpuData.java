@@ -7,7 +7,7 @@ import z3d.display.particle.ParticleGpuData;
 
 public class ParticleBallGpuData extends ParticleGpuData {
 
-    public FloatBuffer basePos;
+    public  Float[] basePos;
     public FloatBuffer basePosBuffer;
     public FloatBuffer speedBuffer;
     public List randomColor;

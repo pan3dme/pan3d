@@ -11,6 +11,7 @@ import z3d.display.particle.ParticleData;
 import z3d.display.particle.ctrl.TimeLine;
 import z3d.vo.Matrix3D;
 import z3d.vo.ParicleRandomColorVo;
+import z3d.vo.Vector2D;
 import z3d.vo.Vector3D;
 
 public class ParticleBallData extends ParticleData {
@@ -201,15 +202,18 @@ public class ParticleBallData extends ParticleData {
     private void uploadGpu() {
         this.objData =new ParticleBallGpuData() ;
         this.initBaseData();
-        this. initUV ();
-        this.initBasePos();
-        this. initSpeed();
+//        this. initUV ();
+//        this.initBasePos();
+//        this. initSpeed();
 
     }
 
+    private ParticleBallGpuData particleGpuData(){
+        return  (ParticleBallGpuData)this.objData;
+    }
     private void initBaseData() {
 
-        float ranScale = (float) Math.random() * (this._particleRandomScale.x - this._particleRandomScale.y) + this._particleRandomScale.y;
+        float ranScale = randomFloat() * (this._particleRandomScale.x - this._particleRandomScale.y) + this._particleRandomScale.y;
         float width=this._width;
         float height=this._height;
         float offsetX=this._originWidthScale;
@@ -254,12 +258,110 @@ public class ParticleBallData extends ParticleData {
         this.objData.vertexBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(attrArr));
         this.objData.indexBuffer= this.objData.upGpuIndexBuffer( ObjData.getListShortByArr(Indices));
 
-   
+
     }
     private void initUV() {
+        int lznum=this._totalNum;
+        Vector2D a=new Vector2D(0.0f,0.0f);
+        Vector2D b=new Vector2D(1.0f,0.0f);
+        Vector2D c=new Vector2D(1.0f,1.0f);
+        Vector2D d=new Vector2D(0.0f,1.0f);
+
+
+
+        Float[] uvArr=new Float[lznum*16];
+
+
+        for(int i=0;i<lznum;i++){
+            int skipAtt=i*12;
+            uvArr[skipAtt+0]=a.x;
+            uvArr[skipAtt+1]=a.y;
+            uvArr[skipAtt+2]=(float)i;
+
+            uvArr[skipAtt+3]=b.x;
+            uvArr[skipAtt+4]=b.y;
+            uvArr[skipAtt+5]=(float)i;
+
+            uvArr[skipAtt+6]=c.x;
+            uvArr[skipAtt+7]=c.y;
+            uvArr[skipAtt+8]=(float)i;
+
+            uvArr[skipAtt+9]=d.x;
+            uvArr[skipAtt+10]=d.y;
+            uvArr[skipAtt+11]=(float)i;
+
+        }
+        this.objData.uvBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(uvArr));
+
     }
     private void initBasePos() {
+        int lznum=this._totalNum;
+        Vector3D v3d =new Vector3D();
+        Matrix3D ma=new Matrix3D();
+        Vector3D roundv3d=new Vector3D();
 
+        Float[] basePos=new Float[lznum*16];
+        int idx=0;
+        for (int i=0; i<lznum; i++) {
+            if (this._isRandom) {
+                roundv3d=new Vector3D(this._round.x * this._round.w,this._round.y * this._round.w,this._round.z * this._round.w);
+                if (this._isEven) {//圆柱
+                    if (this._closeSurface) {//紧贴表面
+
+                        v3d =new Vector3D(0,0,roundv3d.z);
+                    } else {
+
+                        v3d =new Vector3D(0,0,roundv3d.z * randomFloat()* 2 - roundv3d.z);
+                    }
+                    ma.identity();
+
+                    ma.appendRotation(randomFloat()*360,Vector3D.Y_AXIS);
+                    v3d=ma.transformVector(v3d);
+                    v3d.y = roundv3d.y *  randomFloat()* 2 - roundv3d.y;
+                }else{
+                    if (this._closeSurface) {//只有xyz相等时候才能紧贴表面
+
+                        v3d =new Vector3D(0,0,roundv3d.z);
+                        ma.identity();
+                        if (this._halfCircle) {
+
+                            ma.appendRotation(randomFloat()*180,Vector3D.X_AXIS);
+                        } else {
+
+                            ma.appendRotation(randomFloat()*360,Vector3D.X_AXIS);
+                        }
+                     ma.appendRotation(randomFloat()*360,Vector3D.Y_AXIS);
+                        v3d=ma .transformVector(v3d);
+                    }else{
+                        if (this._halfCircle) {
+
+                            v3d=new Vector3D(roundv3d.x *  randomFloat() * 2 - roundv3d.x, roundv3d.y *  randomFloat() , roundv3d.y *  randomFloat());
+                        } else {
+                       v3d=new Vector3D(roundv3d.x * randomFloat() * 2 - roundv3d.x,roundv3d.y *randomFloat() * 2 - roundv3d.y,roundv3d.z * randomFloat()* 2 - roundv3d.z);
+                        }
+                    }
+                }
+            }else{
+                v3d =new Vector3D();
+            }
+            v3d =   v3d.add(this._basePositon);
+            v3d.w=i * this._shootSpeed;
+            for(int j=0;j<4;j++){
+                idx=16*i+j*4;
+                basePos[idx+0]=v3d.x;
+                basePos[idx+1]=v3d.y;
+                basePos[idx+2]=v3d.z;
+                basePos[idx+3]=v3d.w;
+            }
+        }
+
+        this.particleGpuData().basePos=basePos;
+        this.particleGpuData().basePosBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(basePos));
+
+
+    }
+    private float randomFloat(){
+        return (float)Math.random();
     }
     private void initSpeed() {
     }
