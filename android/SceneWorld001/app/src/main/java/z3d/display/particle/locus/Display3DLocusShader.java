@@ -73,7 +73,6 @@ public class Display3DLocusShader extends Shader3D {
                 "ft0 = ft2 * v2.w;\n"+
                 "ft1.xyz = ft0.xyz;\n"+
                 "ft1.w = ft0.w;\n"+
-                "ft1.w = 1.0;\n"+
                 "if(v2.x<fc[0].x){discard;}\n"+
                 "gl_FragColor = ft1;\n"+
 
