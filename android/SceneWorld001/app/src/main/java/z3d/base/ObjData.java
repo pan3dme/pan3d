@@ -1,6 +1,8 @@
 package z3d.base;
 
 
+import android.util.Log;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -15,6 +17,7 @@ import z3d.engine.ResCount;
 
 public class ObjData extends ResCount {
 
+    private static final String TAG = "ObjData";
     public List<Float> verticeslist;
     public List<Float> uvlist;
     public List<Short> indexs;

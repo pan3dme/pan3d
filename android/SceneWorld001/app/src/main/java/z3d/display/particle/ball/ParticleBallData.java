@@ -202,9 +202,9 @@ public class ParticleBallData extends ParticleData {
     private void uploadGpu() {
         this.objData =new ParticleBallGpuData() ;
         this.initBaseData();
-//        this. initUV ();
-//        this.initBasePos();
-//        this. initSpeed();
+        this. initUV ();
+        this.initBasePos();
+        this. initSpeed();
 
     }
 
@@ -269,7 +269,7 @@ public class ParticleBallData extends ParticleData {
 
 
 
-        Float[] uvArr=new Float[lznum*16];
+        Float[] uvArr=new Float[lznum*12];
 
 
         for(int i=0;i<lznum;i++){
@@ -363,7 +363,74 @@ public class ParticleBallData extends ParticleData {
     private float randomFloat(){
         return (float)Math.random();
     }
+    private float sin(double val){
+        return (float)Math.sin(val);
+    }
+    private float cos(double val){
+        return (float)Math.cos(val);
+    }
+    private float tan(double val){
+        return (float)Math.tan(val);
+    }
     private void initSpeed() {
+        float M_PI=(float) Math.PI;
+        int lznum=this._totalNum;
+        Vector3D resultv3d ;
+        Vector3D v3d ;
+        Matrix3D ma=new Matrix3D();
+        Float[] speedArr=new Float[lznum*12];
+        int idx=0;
+        for (int i=0; i<lznum; i++) {
+            resultv3d =new Vector3D();
+            v3d =new Vector3D();
+            if (this._shootAngly.x != 0 || this._shootAngly.y != 0 || this._shootAngly.z != 0) {//锥形速度
+                float r =  tan(this._shootAngly.w * M_PI / 180 *  randomFloat());
+                float a = 360 * M_PI/ 180 * randomFloat();
+                v3d = new Vector3D( sin(a)*r ,cos(a)*r ,1);
+                ma.identity();
+                ma.fromVtoV(Vector3D.Z_AXIS,new Vector3D(this._shootAngly.x,this._shootAngly.y,this._shootAngly.z));
+                v3d = ma.transformVector(v3d);
+                v3d.normalize();
+                resultv3d =resultv3d.add(v3d);
+
+            }
+            if (this._lixinForce.x != 0 || this._lixinForce.y != 0 || this._lixinForce.z != 0) {
+              v3d=new Vector3D(randomFloat()>0.5f?-this._lixinForce.x:this._lixinForce.x,randomFloat()>0.5f?-this._lixinForce.y : this._lixinForce.y,randomFloat()>0.5f?-this._lixinForce.z : this._lixinForce.z);
+                v3d.normalize();
+                resultv3d =resultv3d.add(v3d);
+            }
+            if (this._islixinAngly) {
+                if (this._isEven) {
+                    v3d=new Vector3D(this.particleGpuData().basePos[i*16],0,this.particleGpuData().basePos[i*16+2]);
+                } else {
+    v3d=new Vector3D(this.particleGpuData().basePos[i*16],this.particleGpuData().basePos[i*16+1],this.particleGpuData().basePos[i*16+2]);
+
+                }
+                v3d.normalize();
+                resultv3d =resultv3d.add(v3d);
+            }
+
+            resultv3d.normalize();
+
+            if (this._isSendRandom) {
+
+                resultv3d.scaleBy(this._speed * randomFloat());
+            } else {
+
+                resultv3d.scaleBy(this._speed  );
+            }
+
+            for(int j=0;j<4;j++){
+                idx=12*i+j*3;
+                speedArr[idx+0]=resultv3d.x;
+                speedArr[idx+1]=resultv3d.y;
+                speedArr[idx+2]=resultv3d.z;
+            }
+
+        }
+
+
+        this.particleGpuData().speedBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(speedArr));
     }
 
 

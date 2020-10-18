@@ -94,7 +94,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
                 moveUv = moveUv-(float) Math.ceil(moveUv/1)  ;
             }
         }
-        Log.d(TAG, "updateUV: "+moveUv);
+//        Log.d(TAG, "updateUV: "+moveUv);
         this.locusdata()._resultUvVec.x = moveUv;
     }
     @Override
