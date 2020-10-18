@@ -74,7 +74,7 @@ public class ProgrmaManager extends  ResGC {
         if (keyStr.indexOf("content/particleresources/materials/ef_path_byte.txt")!=-1) {
             this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
-         //   this.changeShader(shader);
+            this.changeShader(shader);
 
         }
         shader.encodeVstr(shader.vertex,shader.fragment);
@@ -133,7 +133,8 @@ public class ProgrmaManager extends  ResGC {
                         "ft0 = ft2 * v2.w;"+
                         "ft1.xyz = ft0.xyz;"+
                         "ft1.w = ft0.w;"+
-                        "if(v2.x<fc[0].x){discard;}"+
+
+//                        "if(v2.x<fc[0].x){discard;}"+
                         "gl_FragColor = ft1;"+
                         "}";
     }

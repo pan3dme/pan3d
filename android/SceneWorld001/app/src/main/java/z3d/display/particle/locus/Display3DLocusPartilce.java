@@ -2,11 +2,13 @@ package z3d.display.particle.locus;
 
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import scene.dis.TwoTextureShader;
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
 import z3d.base.Scene_data;
@@ -39,7 +41,13 @@ public class Display3DLocusPartilce extends Display3DParticle {
     {
         return this.locusdata().objData;
     }
+    public Display3DLocusPartilce()
+    {
+        super();
+        ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
 
+    }
     @Override
     public void update() {
 
@@ -86,6 +94,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
                 moveUv = moveUv-(float) Math.ceil(moveUv/1)  ;
             }
         }
+        Log.d(TAG, "updateUV: "+moveUv);
         this.locusdata()._resultUvVec.x = moveUv;
     }
     @Override
