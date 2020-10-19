@@ -80,8 +80,9 @@ public class Display3DBallPartilce extends Display3DParticle {
         Camera3D cam3d=this.scene3d.camera3D;
         cam3d.upFrame();
         if (this.ballData().facez) {
-            this.rotationMatrix3D.prependRotation(90.0F,Vector3D.X_AXIS);
+            this.rotationMatrix3D.prependRotation(90.0f,Vector3D.X_AXIS);
         } else if (this.ballData()._is3Dlizi) {
+
         } else if (this.ballData()._watchEye) {
             this.rotationMatrix3D.prependRotation(cam3d.rotationX,Vector3D.X_AXIS);
             this.rotationMatrix3D.prependRotation(cam3d.rotationY,Vector3D.Y_AXIS);
