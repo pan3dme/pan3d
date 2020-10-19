@@ -1,6 +1,8 @@
 package z3d.display.particle.model;
 
-public class Display3DModelShader {
+import z3d.program.Shader3D;
+
+public class Display3DModelShader extends Shader3D {
     public  static  String shaderNameStr="Display3DModelShader";
     public String getVertexShaderString() {
 

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
 import z3d.display.particle.ParticleData;
+import z3d.display.particle.facet.Display3DFacetShader;
+import z3d.program.ProgrmaManager;
 import z3d.res.BaseRes;
 
 public class ParticleModelData extends ParticleData {
@@ -36,6 +38,17 @@ public class ParticleModelData extends ParticleData {
 
         this.initVcData();
 
+
+    }
+    @Override
+    protected void regShader() {
+        super.regShader();
+        if (this.materialParam==null) {
+            return;
+        }
+
+        ProgrmaManager.getInstance().registe(Display3DModelShader.shaderNameStr,new Display3DModelShader());
+        this.materialParam.shader3D=ProgrmaManager.getInstance().getProgram(Display3DModelShader.shaderNameStr);
 
     }
     private void  initVcData()
