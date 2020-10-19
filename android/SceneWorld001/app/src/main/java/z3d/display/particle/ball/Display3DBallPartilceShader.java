@@ -50,7 +50,7 @@ public class Display3DBallPartilceShader extends Shader3D {
 //        "v0=vec2(texcoord.xy);\n"+
 //        "v1=vec2(ctime/vcmat50.z,0.0);\n"+
 
-                        "gl_Position =viewMatrix*camMatrix*modeMatrix* pos ;\n"+
+            "gl_Position =viewMatrix*camMatrix*modeMatrix* pos ;\n"+
 
         "}";
 
