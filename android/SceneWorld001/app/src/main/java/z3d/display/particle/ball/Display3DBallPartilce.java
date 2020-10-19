@@ -45,7 +45,7 @@ public class Display3DBallPartilce extends Display3DParticle {
         this. setViewCamModeMatr3d();
         Context3D ctx=this.scene3d.context3D;
         this.updateWatchCaramMatrix();
-        ctx.setVcMatrix4fv(this.shader3D,"rotMatrix",this._rotationMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,"rotMatrix",this.rotationMatrix3D.m);
         Vector3D  timeVec =   this.ballData()._timeVec;
         timeVec.x=this._time/ Scene_data.frameTime*this.ballData()._playSpeed;
         ctx.setVcUniform4f(this.shader3D,"vcmat50",timeVec.x,timeVec.y,timeVec.z,timeVec.w);
@@ -64,25 +64,25 @@ public class Display3DBallPartilce extends Display3DParticle {
         super.setVa();
 
         Context3D ctx=this.scene3d.context3D;
-        ObjData objData=  this.particleGpuObjData();
+        ParticleBallGpuData objData= (ParticleBallGpuData) this.particleGpuObjData();
         ctx.setVa(this.shader3D, "vPosition",4,objData.vertexBuffer);
         ctx.setVa(this.shader3D,"texcoord",3,objData.uvBuffer);
-        ctx.setVa(this.shader3D,"basePos",4,objData.normalsBuffer);
-        ctx.setVa(this.shader3D,"speed",3,objData.normalsBuffer);
+        ctx.setVa(this.shader3D,"basePos",4,objData.basePosBuffer);
+        ctx.setVa(this.shader3D,"speed",3,objData.speedBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
 
     }
 
     private void updateWatchCaramMatrix() {
-        this._rotationMatrix.identity();
+        this.rotationMatrix3D.identity();
         Camera3D cam3d=this.scene3d.camera3D;
         cam3d.upFrame();
         if (this.ballData().facez) {
-            this._rotationMatrix.prependRotation(90.0F,Vector3D.X_AXIS);
+            this.rotationMatrix3D.prependRotation(90.0F,Vector3D.X_AXIS);
         } else if (this.ballData()._is3Dlizi) {
         } else if (this.ballData()._watchEye) {
-            this._rotationMatrix.prependRotation(cam3d.rotationX,Vector3D.X_AXIS);
-            this._rotationMatrix.prependRotation(cam3d.rotationY,Vector3D.Y_AXIS);
+            this.rotationMatrix3D.prependRotation(cam3d.rotationX,Vector3D.X_AXIS);
+            this.rotationMatrix3D.prependRotation(cam3d.rotationY,Vector3D.Y_AXIS);
         }
     }
     public ParticleBallData ballData(){

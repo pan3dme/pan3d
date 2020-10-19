@@ -37,15 +37,16 @@ public class Display3DParticle extends Display3D {
     public Vector3D bindScale;
     public Matrix3D invertBindMatrix;
     public Matrix3D groupMatrix;
-    protected Matrix3D  _rotationMatrix;
+
     public Matrix3D  modelMatrix;
     public boolean isInGroup ;
     public Vector3D groupPos;
     public Vector3D groupScale;
     public Vector3D groupRotation;
+    public Matrix3D rotationMatrix3D;
 
     private String  TAG="Display3DParticle";
-    private Matrix3D rotationMatrix3D;
+
 
     public Display3DParticle()
     {

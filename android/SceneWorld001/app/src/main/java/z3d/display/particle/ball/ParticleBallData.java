@@ -9,6 +9,8 @@ import z3d.base.ObjData;
 import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
 import z3d.display.particle.ctrl.TimeLine;
+import z3d.display.particle.locus.Display3DLocusShader;
+import z3d.program.ProgrmaManager;
 import z3d.vo.Matrix3D;
 import z3d.vo.ParicleRandomColorVo;
 import z3d.vo.Vector2D;
@@ -57,7 +59,7 @@ public class ParticleBallData extends ParticleData {
 
     public boolean  _needAddSpeed;
 
-    public  float _uvType;
+    public  int _uvType;
 
     public Vector3D _timeVec;
     public Vector3D  _addSpeedVec;
@@ -68,7 +70,7 @@ public class ParticleBallData extends ParticleData {
     public Vector3D  _scaleCtrlVec;
 
     public Vector3D  _animCtrlVec;
-    public Vector3D _uvCtrlVec;
+    public Vector2D _uvCtrlVec;
 
     public Matrix3D _allRotationMatrix;
 
@@ -199,6 +201,55 @@ public class ParticleBallData extends ParticleData {
         this.uploadGpu();
 
     }
+    @Override
+    protected void regShader() {
+
+
+        if (this.materialParam==null) {
+            return;
+        }
+        this.getShaderParam();
+        List<Boolean>  shaderParameAry =this.getShaderParam();
+        this.materialParam.shader3D=   ProgrmaManager.getInstance().getMaterialProgram(Display3DBallPartilceShader.shaderNameStr,new Display3DBallPartilceShader(),this.materialParam.material,shaderParameAry,false);
+    }
+
+    private List<Boolean> getShaderParam() {
+
+        if (this._animRow != 1 || this._animLine != 1) {
+            this._uvType = 1;
+//            this._animCtrlVec = [[Vector3D alloc]x:this._animLine y:this._animRow z:this._animInterval];
+            this._animCtrlVec = new Vector3D(this._animLine,this._animRow,_animInterval);
+        } else if (this._uSpeed != 0 || this._vSpeed != 0) {
+            this._uvType = 2;
+//            this._uvCtrlVec = [[Vector2D alloc]x:this._uSpeed y:this._vSpeed];
+            this._uvCtrlVec =new Vector2D(this._uSpeed,this._vSpeed);
+        } else {
+            this._uvType = 0;
+        }
+        boolean hasParticleColor= this.materialParam.material.hasParticleColor;
+        this._needRandomColor = this.materialParam.material.hasVertexColor;
+
+
+
+        boolean hasParticle = hasParticleColor ? true : false;
+        boolean hasRandomClolr = this._needRandomColor ? true : false;
+        boolean  isMul = this._is3Dlizi ? true : false;
+        boolean  needRotation = this._needSelfRotation ? true : false;
+        boolean  needScale = this._needScale ? true : false;
+        boolean  needAddSpeed = this._needAddSpeed ? true : false;
+
+        List<Boolean> shaderParameAry=new ArrayList<>();
+        shaderParameAry.add(hasParticle );
+        shaderParameAry.add( hasRandomClolr);
+        shaderParameAry.add(isMul);
+        shaderParameAry.add(needRotation);
+        shaderParameAry.add(needScale);
+        shaderParameAry.add(needAddSpeed);
+        shaderParameAry.add(this._uvType==1);//需要匹配核对
+        return shaderParameAry;
+
+    }
+
     private void uploadGpu() {
         this.objData =new ParticleBallGpuData() ;
         this.initBaseData();
