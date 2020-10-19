@@ -303,11 +303,13 @@ z3d/filemodel/ParticleManager.java
  z3d.filemodel.ParticleManager
 z3d/display/particle/ctrl/ScaleAnim.java
  z3d.display.particle.ctrl.ScaleAnim
-z3d/display/particle/ball/ParticleBallData.java
- z3d.display.particle.ball.ParticleBallData
-z3d/display/particle/locusball/ParticleLocusballData.java
- z3d.display.particle.locusball.ParticleLocusballData
 z3d/display/particle/CombineParticleData.java
  z3d.display.particle.CombineParticleData
+z3d/display/particle/locusball/ParticleLocusballData.java
+ z3d.display.particle.locusball.ParticleLocusballData
+z3d/display/particle/ball/Display3DBallPartilceShader.java
+ z3d.display.particle.ball.Display3DBallPartilceShader
+z3d/display/particle/ball/ParticleBallData.java
+ z3d.display.particle.ball.ParticleBallData
 z3d/display/particle/ball/Display3DBallPartilce.java
  z3d.display.particle.ball.Display3DBallPartilce

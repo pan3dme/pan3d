@@ -1,19 +1,27 @@
 package z3d.display.particle.ball;
 
+import scene.dis.TwoTextureShader;
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
 import z3d.base.Scene_data;
 import z3d.core.Context3D;
 import z3d.display.particle.Display3DParticle;
+import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.vo.Vector3D;
 
 public class Display3DBallPartilce extends Display3DParticle {
 
 
+    public Display3DBallPartilce()
+    {
+        super();
+        ProgrmaManager.getInstance().registe(Display3DBallPartilceShader.shaderNameStr,new Display3DBallPartilceShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DBallPartilceShader.shaderNameStr);
+    }
     @Override
     public void update() {
-//        super.update();
+        super.update();
     }
 
     @Override
