@@ -1,44 +1,15 @@
 package z3d.display.particle.ball;
 
-import scene.dis.TwoTextureShader;
+
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
 import z3d.base.Scene_data;
 import z3d.core.Context3D;
 import z3d.display.particle.Display3DParticle;
-import z3d.program.ProgrmaManager;
-import z3d.program.Shader3D;
+
 import z3d.vo.Vector3D;
 
 public class Display3DBallPartilce extends Display3DParticle {
-
-
-    public Display3DBallPartilce()
-    {
-        super();
-        ProgrmaManager.getInstance().registe(Display3DBallPartilceShader.shaderNameStr,new Display3DBallPartilceShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DBallPartilceShader.shaderNameStr);
-    }
-    @Override
-    public void update()
-    {
-        if (this.visible&& this.data!=null&&this.scene3d!=null){
-            if( this.data.materialParam!=null &&this.data.materialParam.shader3D!=null){
-                this.shader3D=this.data.materialParam.shader3D;
-                Context3D ctx=this.scene3d.context3D;
-                ctx.setProgame(this.shader3D.program);
-                ctx.setBlendParticleFactors(this.data._alphaMode);
-                ctx.cullFaceBack(this.data.materialParam.material.backCull);
-                this.updateMatrix();
-                this.setMaterialVc();
-                this.setMaterialTexture();
-                this.setVc();
-                this.setVa();
-                this.resetVa();
-
-            }
-        }
-    }
 
     @Override
     public void setVc() {
@@ -56,7 +27,6 @@ public class Display3DBallPartilce extends Display3DParticle {
         ctx.setVcUniform4f(this.shader3D,"vcmat52",scaleCtrl.x,scaleCtrl.y,scaleCtrl.z,scaleCtrl.w);
         Vector3D addSpeedVec =   this.ballData()._addSpeedVec;
         ctx.setVcUniform4f(this.shader3D,"vcmat53",addSpeedVec.x,addSpeedVec.y,addSpeedVec.z,addSpeedVec.w);
-
 
     }
 
@@ -76,6 +46,7 @@ public class Display3DBallPartilce extends Display3DParticle {
     }
 
     private void updateWatchCaramMatrix() {
+
         this.rotationMatrix3D.identity();
         Camera3D cam3d=this.scene3d.camera3D;
         cam3d.upFrame();
