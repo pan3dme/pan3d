@@ -28,10 +28,8 @@ z3d/vo/Matrix3D.java
  z3d.vo.Matrix3D
 z3d/base/Camera3D.java
  z3d.base.Camera3D
-z3d/material/MaterialManager.java
- z3d.material.MaterialManager
- z3d.material.MaterialManager$1
- z3d.material.MaterialManager$2
+z3d/display/particle/ball/Display3DBallPartilceShader.java
+ z3d.display.particle.ball.Display3DBallPartilceShader
 z3d/display/particle/MaterialParamDataVo.java
  z3d.display.particle.MaterialParamDataVo
 z3d/display/role/Display3dMovie.java
@@ -260,17 +258,8 @@ z3d/display/particle/ctrl/SelfRotation.java
  z3d.display.particle.ctrl.SelfRotation
 z3d/material/TextureRes.java
  z3d.material.TextureRes
-scene/SceneLyfBase.java
- scene.SceneLyfBase
- scene.SceneLyfBase$1
- scene.SceneLyfBase$2
- scene.SceneLyfBase$3
- scene.SceneLyfBase$4
- scene.SceneLyfBase$5
- scene.SceneLyfBase$6
- scene.SceneLyfBase$7
- scene.SceneLyfBase$8
- scene.SceneLyfBase$9
+z3d/program/ProgrmaManager.java
+ z3d.program.ProgrmaManager
 z3d/material/DynamicConstItem.java
  z3d.material.DynamicConstItem
 z3d/display/particle/ParticleData.java
@@ -293,8 +282,8 @@ z3d/display/Display3DSprite.java
  z3d.display.Display3DSprite
  z3d.display.Display3DSprite$1
  z3d.display.Display3DSprite$2
-z3d/program/ProgrmaManager.java
- z3d.program.ProgrmaManager
+z3d/display/particle/ball/ParticleBallData.java
+ z3d.display.particle.ball.ParticleBallData
 z3d/display/line/LineDisplaySprite.java
  z3d.display.line.LineDisplaySprite
 scene/dis/TwoTextureSprite.java
@@ -307,9 +296,20 @@ z3d/display/particle/locus/ParticleLocusData.java
  z3d.display.particle.locus.ParticleLocusData
 z3d/display/basedis/DisplayBaseSprite.java
  z3d.display.basedis.DisplayBaseSprite
-z3d/display/particle/ball/ParticleBallData.java
- z3d.display.particle.ball.ParticleBallData
-z3d/display/particle/ball/Display3DBallPartilceShader.java
- z3d.display.particle.ball.Display3DBallPartilceShader
 z3d/display/particle/ball/Display3DBallPartilce.java
  z3d.display.particle.ball.Display3DBallPartilce
+z3d/material/MaterialManager.java
+ z3d.material.MaterialManager
+ z3d.material.MaterialManager$1
+ z3d.material.MaterialManager$2
+scene/SceneLyfBase.java
+ scene.SceneLyfBase
+ scene.SceneLyfBase$1
+ scene.SceneLyfBase$2
+ scene.SceneLyfBase$3
+ scene.SceneLyfBase$4
+ scene.SceneLyfBase$5
+ scene.SceneLyfBase$6
+ scene.SceneLyfBase$7
+ scene.SceneLyfBase$8
+ scene.SceneLyfBase$9

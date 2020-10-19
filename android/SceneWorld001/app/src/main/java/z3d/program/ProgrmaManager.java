@@ -79,9 +79,9 @@ public class ProgrmaManager extends  ResGC {
         }
         //椭球粒子
         if (keyStr.indexOf("content/particleresources/materials/m_ef_par_byte.txt")!=-1) {
-            this.outShader(shader.vertex,"vertex");
-            this.outShader(shader.fragment,"fragment");
-            this._changeBallShader(shader);
+//            this.outShader(shader.vertex,"vertex");
+//            this.outShader(shader.fragment,"fragment");
+//            this._changeBallShader(shader);
         }
 
         shader.encodeVstr(shader.vertex,shader.fragment);

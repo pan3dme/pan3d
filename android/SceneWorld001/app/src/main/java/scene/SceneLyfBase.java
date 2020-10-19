@@ -68,7 +68,7 @@ public class SceneLyfBase extends AppCompatActivity  {
                 scene3d.camera3D.fovw = width;
                 scene3d.camera3D.fovh = height;
                 scene3d.resizeScene();
-                scene3d.camera3D.distance=20;
+                scene3d.camera3D.distance=100;
             }
 
             @Override

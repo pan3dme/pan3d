@@ -86,12 +86,12 @@ public class Display3DBallPartilceShader extends Shader3D {
         "pos.y =0.0;\n"+//设置不可见
         "}else{\n"+
         "pos = S_POS(pos,stime);\n" + //缩放比例
-        "pos = rotMatrix* pos;\n"  + //面向视角
+        "pos = pos*rotMatrix;\n"  + //面向视角
         "vec3 addPos =ADD_POS(speed,ctime);\n" +//加速度
         "pos.xyz = pos.xyz + basePos.xyz + addPos.xyz;\n"+
         "}\n"+
 
-//                        "gl_Position =viewMatrix*camMatrix*modeMatrix* pos ;\n"+
+
         "gl_Position =IW(pos);\n"+
         "v0=vec2(texcoord.xy);\n"+
         "v1=vec2(ctime/vcmat50.z,0.0);\n"+
