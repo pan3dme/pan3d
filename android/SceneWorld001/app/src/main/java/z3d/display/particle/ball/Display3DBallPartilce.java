@@ -39,6 +39,7 @@ public class Display3DBallPartilce extends Display3DParticle {
             }
         }
     }
+
     @Override
     public void setVc() {
         super.setVc();
@@ -69,6 +70,7 @@ public class Display3DBallPartilce extends Display3DParticle {
         ctx.setVa(this.shader3D,"texcoord",3,objData.uvBuffer);
         ctx.setVa(this.shader3D,"basePos",4,objData.basePosBuffer);
         ctx.setVa(this.shader3D,"speed",3,objData.speedBuffer);
+
         ctx.drawCall(objData.indexBuffer,objData.treNum);
 
     }

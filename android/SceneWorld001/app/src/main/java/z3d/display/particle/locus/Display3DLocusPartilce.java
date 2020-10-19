@@ -51,7 +51,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
     @Override
     public void update() {
 
-       super.update();
+//       super.update();
     }
 
     @Override

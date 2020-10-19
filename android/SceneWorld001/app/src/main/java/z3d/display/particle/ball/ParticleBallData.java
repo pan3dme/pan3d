@@ -308,7 +308,7 @@ public class ParticleBallData extends ParticleData {
 
         this.objData.vertexBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(attrArr));
         this.objData.indexBuffer= this.objData.upGpuIndexBuffer( ObjData.getListShortByArr(Indices));
-
+        this.objData.treNum=this._totalNum*6;
 
     }
     private void initUV() {

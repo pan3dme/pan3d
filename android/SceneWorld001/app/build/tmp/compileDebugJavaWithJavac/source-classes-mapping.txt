@@ -25,19 +25,10 @@ scene/SceneWorldBase.java
  scene.SceneWorldBase$4
 z3d/vo/Matrix3D.java
  z3d.vo.Matrix3D
-z3d/display/particle/locusball/ParticleLocusballData.java
- z3d.display.particle.locusball.ParticleLocusballData
-scene/SceneLyfBase.java
- scene.SceneLyfBase
- scene.SceneLyfBase$1
- scene.SceneLyfBase$2
- scene.SceneLyfBase$3
- scene.SceneLyfBase$4
- scene.SceneLyfBase$5
- scene.SceneLyfBase$6
- scene.SceneLyfBase$7
- scene.SceneLyfBase$8
- scene.SceneLyfBase$9
+z3d/base/Camera3D.java
+ z3d.base.Camera3D
+z3d/display/particle/ball/Display3DBallPartilceShader.java
+ z3d.display.particle.ball.Display3DBallPartilceShader
 z3d/display/particle/MaterialParamDataVo.java
  z3d.display.particle.MaterialParamDataVo
 z3d/display/role/Display3dMovie.java
@@ -68,8 +59,8 @@ z3d/base/ResGC.java
  z3d.base.ResGC
 z3d/base/SkillBackFun.java
  z3d.base.SkillBackFun
-z3d/display/particle/ball/Display3DBallPartilceShader.java
- z3d.display.particle.ball.Display3DBallPartilceShader
+z3d/material/MaterialBackFun.java
+ z3d.material.MaterialBackFun
 z3d/material/MaterialManager.java
  z3d.material.MaterialManager
  z3d.material.MaterialManager$1
@@ -162,8 +153,8 @@ scene/dis/TwoTextureSprite.java
  scene.dis.TwoTextureSprite
  scene.dis.TwoTextureSprite$1
  scene.dis.TwoTextureSprite$2
-z3d/display/particle/locus/Display3DLocusPartilce.java
- z3d.display.particle.locus.Display3DLocusPartilce
+z3d/display/particle/locus/ParticleLocusData.java
+ z3d.display.particle.locus.ParticleLocusData
 z3d/display/line/LineDisplayShader.java
  z3d.display.line.LineDisplayShader
 z3d/material/MaterialBaseParam.java
@@ -266,8 +257,8 @@ z3d/display/BuildDisplay3DSprite.java
  z3d.display.BuildDisplay3DSprite$3
 z3d/program/Shader3D.java
  z3d.program.Shader3D
-z3d/display/particle/locus/ParticleLocusData.java
- z3d.display.particle.locus.ParticleLocusData
+z3d/display/particle/locus/Display3DLocusPartilce.java
+ z3d.display.particle.locus.Display3DLocusPartilce
 z3d/program/ProgrmaManager.java
  z3d.program.ProgrmaManager
 z3d/material/TextureRes.java
@@ -305,11 +296,20 @@ z3d/filemodel/ParticleManager.java
  z3d.filemodel.ParticleManager
 z3d/display/particle/ctrl/ScaleAnim.java
  z3d.display.particle.ctrl.ScaleAnim
-z3d/base/Camera3D.java
- z3d.base.Camera3D
-z3d/material/MaterialBackFun.java
- z3d.material.MaterialBackFun
+z3d/display/particle/locusball/ParticleLocusballData.java
+ z3d.display.particle.locusball.ParticleLocusballData
 z3d/display/particle/ball/ParticleBallData.java
  z3d.display.particle.ball.ParticleBallData
+scene/SceneLyfBase.java
+ scene.SceneLyfBase
+ scene.SceneLyfBase$1
+ scene.SceneLyfBase$2
+ scene.SceneLyfBase$3
+ scene.SceneLyfBase$4
+ scene.SceneLyfBase$5
+ scene.SceneLyfBase$6
+ scene.SceneLyfBase$7
+ scene.SceneLyfBase$8
+ scene.SceneLyfBase$9
 z3d/display/particle/ball/Display3DBallPartilce.java
  z3d.display.particle.ball.Display3DBallPartilce
