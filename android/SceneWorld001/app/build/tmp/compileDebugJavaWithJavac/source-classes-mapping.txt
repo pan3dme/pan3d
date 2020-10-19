@@ -311,13 +311,13 @@ z3d/display/Display3D.java
  z3d.display.Display3D
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
+z3d/display/particle/model/Display3DModelShader.java
+ z3d.display.particle.model.Display3DModelShader
+z3d/display/particle/facet/Display3DFacetParticle.java
+ z3d.display.particle.facet.Display3DFacetParticle
 z3d/display/particle/model/Display3DModelPartilce.java
  z3d.display.particle.model.Display3DModelPartilce
 z3d/display/particle/CombineParticleData.java
  z3d.display.particle.CombineParticleData
 z3d/display/particle/model/ParticleModelData.java
  z3d.display.particle.model.ParticleModelData
-z3d/display/particle/facet/Display3DFacetParticle.java
- z3d.display.particle.facet.Display3DFacetParticle
-z3d/display/particle/model/Display3DModelShader.java
- z3d.display.particle.model.Display3DModelShader

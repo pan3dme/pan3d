@@ -2,11 +2,13 @@ package z3d.display.particle.model;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
 import z3d.display.particle.ParticleData;
 import z3d.display.particle.facet.Display3DFacetShader;
+import z3d.display.particle.locus.Display3DLocusShader;
 import z3d.program.ProgrmaManager;
 import z3d.res.BaseRes;
 
@@ -36,21 +38,48 @@ public class ParticleModelData extends ParticleData {
         this.objData.stride = dataWidth * 4;
         super.setAllByteInfo($byte);
 
-        this.initVcData();
 
+
+
+
+        this.uploadGpu();
 
     }
+
+    private void uploadGpu() {
+//        self.objData.verticesBuffer=[self upGpuvertexBuffer:self.objData.vertices];
+//        self.objData.uvBuffer=[self upGpuvertexBuffer:self.objData.uvs];
+//        self.objData.indexBuffer=[self upGpuIndexBuffer:self.objData.indexs];
+
+        this.objData.vertexBuffer= this.objData.upGpuvertexBuffer(this.objData.verticeslist);
+        this.objData.uvBuffer= this.objData.upGpuvertexBuffer(this.objData.uvlist);
+        this.objData.indexBuffer= this.objData.upGpuIndexBuffer(this.objData.indexs);
+        this.objData.treNum=this.objData.indexs.size();
+
+    }
+
     @Override
     protected void regShader() {
         super.regShader();
         if (this.materialParam==null) {
             return;
         }
-
-        ProgrmaManager.getInstance().registe(Display3DModelShader.shaderNameStr,new Display3DModelShader());
-        this.materialParam.shader3D=ProgrmaManager.getInstance().getProgram(Display3DModelShader.shaderNameStr);
+        List<Boolean> shaderParameAry =this.getShaderParam();
+        this.materialParam.shader3D=   ProgrmaManager.getInstance().getMaterialProgram(Display3DModelShader.shaderNameStr,new Display3DModelShader(),this.materialParam.material,shaderParameAry,false);
 
     }
+
+    private List<Boolean> getShaderParam() {
+//        NSArray<NSNumber*>* shaderParameAry = [[NSArray alloc] initWithObjects:@1,@1,@1,@1,@1, nil];
+        List<Boolean> shaderParameAry=new ArrayList<>();
+        shaderParameAry.add(true );
+        shaderParameAry.add(true );
+        shaderParameAry.add(true );
+        shaderParameAry.add(true );
+        return shaderParameAry;
+
+    }
+
     private void  initVcData()
     {
 
