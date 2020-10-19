@@ -90,7 +90,7 @@ public class Display3DParticle extends Display3D {
     {
         if (this.visible&& this.data!=null&&this.scene3d!=null){
             if( this.data.materialParam!=null &&this.data.materialParam.shader3D!=null){
-//                this.shader3D=this.data.materialParam.shader3D;
+                this.shader3D=this.data.materialParam.shader3D;
                 Context3D ctx=this.scene3d.context3D;
                 ctx.setProgame(this.shader3D.program);
                 ctx.setBlendParticleFactors(this.data._alphaMode);

@@ -20,10 +20,25 @@ public class Display3DBallPartilce extends Display3DParticle {
         this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DBallPartilceShader.shaderNameStr);
     }
     @Override
-    public void update() {
-        super.update();
-    }
+    public void update()
+    {
+        if (this.visible&& this.data!=null&&this.scene3d!=null){
+            if( this.data.materialParam!=null &&this.data.materialParam.shader3D!=null){
+                this.shader3D=this.data.materialParam.shader3D;
+                Context3D ctx=this.scene3d.context3D;
+                ctx.setProgame(this.shader3D.program);
+                ctx.setBlendParticleFactors(this.data._alphaMode);
+                ctx.cullFaceBack(this.data.materialParam.material.backCull);
+                this.updateMatrix();
+                this.setMaterialVc();
+                this.setMaterialTexture();
+                this.setVc();
+                this.setVa();
+                this.resetVa();
 
+            }
+        }
+    }
     @Override
     public void setVc() {
         super.setVc();

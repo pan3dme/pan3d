@@ -44,8 +44,8 @@ public class Display3DLocusPartilce extends Display3DParticle {
     public Display3DLocusPartilce()
     {
         super();
-        ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
+//        ProgrmaManager.getInstance().registe(Display3DLocusShader.shaderNameStr,new Display3DLocusShader());
+//        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DLocusShader.shaderNameStr);
 
     }
     @Override
