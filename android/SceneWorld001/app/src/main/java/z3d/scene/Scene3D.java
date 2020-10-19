@@ -44,7 +44,8 @@ public class Scene3D extends ResGC {
         TextureManager.getInstance().upDataGenTextUserItem();
 
         Context3D ctx=this.context3D;
-        ctx.setBlendParticleFactors(2);
+
+        ctx.setBlendParticleFactors(0);
         ctx.cullFaceBack(false);
         this.camera3D.upFrame();
         updateFrameRole();

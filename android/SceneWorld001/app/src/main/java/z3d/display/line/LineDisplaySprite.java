@@ -16,7 +16,7 @@ import z3d.vo.Vector3D;
 
 public class LineDisplaySprite extends DisplayBaseSprite {
 
-    public Vector3D baseColor=new Vector3D(1,0,1);
+    public Vector3D baseColor;
     LineDisplaySprite(Scene3D val){
         super(val);
     }
@@ -36,7 +36,7 @@ public class LineDisplaySprite extends DisplayBaseSprite {
 
     protected void  initData()
     {
-
+        baseColor=new Vector3D(1.0f,0.0f,1.0f);
         this.objData =new ObjData();
         this.clearLine();
 

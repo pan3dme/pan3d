@@ -38,6 +38,7 @@ import z3d.scene.Scene3D;
 import z3d.units.ColorTransition;
 import z3d.units.LoaderThread;
 import z3d.vo.Vector2D;
+import z3d.vo.Vector3D;
 
 public class SceneLyfBase extends AppCompatActivity  {
 
@@ -74,7 +75,8 @@ public class SceneLyfBase extends AppCompatActivity  {
             @Override
             public void onDrawFrame(GL10 gl) {
 
-                GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 
                 scene3d.upFrame();
@@ -161,7 +163,9 @@ public class SceneLyfBase extends AppCompatActivity  {
     {
 
         this.scene3d =new Scene3D();
-        this.scene3d.addDisplay(new GridLineSprite(this.scene3d));
+        GridLineSprite  dic=new GridLineSprite(this.scene3d);
+        dic.changeColor(new Vector3D(1,1,1,1));
+        this.scene3d.addDisplay(dic);
 //        this.scene3D.addDisplay(new TwoTextureSprite(this.scene3D));
 //        this.scene3D.addDisplay(new DisplayTestSprite(this.scene3D));
 
@@ -182,7 +186,7 @@ public class SceneLyfBase extends AppCompatActivity  {
 
         private void   playLyf()
     {
-        String url="model/levelup_lyf.txt";
+        String url="model/10017_lyf.txt";
 
         //            [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
         //            [lyfItem addObject:@"model/levelup_lyf.txt"];
