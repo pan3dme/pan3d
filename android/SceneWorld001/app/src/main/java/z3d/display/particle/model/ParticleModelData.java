@@ -13,12 +13,9 @@ import z3d.program.ProgrmaManager;
 import z3d.res.BaseRes;
 
 public class ParticleModelData extends ParticleData {
-
     public float _maxAnimTime;
-
     public void setAllByteInfo(ByteArray $byte) {
         this.objData = new ObjData();
-
         this._maxAnimTime = $byte.readFloat();
         int vLen = $byte.getInt();
         int dataWidth = 5;
@@ -37,20 +34,10 @@ public class ParticleModelData extends ParticleData {
         }
         this.objData.stride = dataWidth * 4;
         super.setAllByteInfo($byte);
-
-
-
-
-
         this.uploadGpu();
-
     }
 
     private void uploadGpu() {
-//        self.objData.verticesBuffer=[self upGpuvertexBuffer:self.objData.vertices];
-//        self.objData.uvBuffer=[self upGpuvertexBuffer:self.objData.uvs];
-//        self.objData.indexBuffer=[self upGpuIndexBuffer:self.objData.indexs];
-
         this.objData.vertexBuffer= this.objData.upGpuvertexBuffer(this.objData.verticeslist);
         this.objData.uvBuffer= this.objData.upGpuvertexBuffer(this.objData.uvlist);
         this.objData.indexBuffer= this.objData.upGpuIndexBuffer(this.objData.indexs);
@@ -70,7 +57,6 @@ public class ParticleModelData extends ParticleData {
     }
 
     private List<Boolean> getShaderParam() {
-//        NSArray<NSNumber*>* shaderParameAry = [[NSArray alloc] initWithObjects:@1,@1,@1,@1,@1, nil];
         List<Boolean> shaderParameAry=new ArrayList<>();
         shaderParameAry.add(true );
         shaderParameAry.add(true );
@@ -80,10 +66,4 @@ public class ParticleModelData extends ParticleData {
 
     }
 
-    private void  initVcData()
-    {
-
-
-
-    }
 }
