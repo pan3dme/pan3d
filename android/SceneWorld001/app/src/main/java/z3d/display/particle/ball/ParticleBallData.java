@@ -173,10 +173,11 @@ public class ParticleBallData extends ParticleData {
 
 
 
-        if (this._acceleration != 0 || this._addforce.x != 0 || this._addforce.y != 0 || this._addforce.z != 0) {
+        if (this._acceleration != 0.0f || this._addforce.x != 0.0f || this._addforce.y !=  0.0f || this._addforce.z !=  0.0f) {
             this._needAddSpeed = true;
             this._addSpeedVec = new Vector3D(this._addforce.x, this._addforce.y, this._addforce.z);
         } else {
+            this._addSpeedVec=new Vector3D();
             this._needAddSpeed = false;
         }
 
@@ -187,6 +188,8 @@ public class ParticleBallData extends ParticleData {
 
             this._scaleCtrlVec = new Vector3D(this._widthFixed ? 0 : 1, this._heightFixed ? 0 : 1, this._paticleMaxScale - 1, this._paticleMinScale - 1);
         } else {
+            this._scaleVec=new Vector3D(1,1,1,1); //需核对
+            this._scaleCtrlVec=new Vector3D(1,1,1,1); //需核对
             this._needScale = false;
         }
         super.setAllByteInfo($byte);

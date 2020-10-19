@@ -258,10 +258,6 @@ scene/SceneWorldBase.java
  scene.SceneWorldBase$2
  scene.SceneWorldBase$3
  scene.SceneWorldBase$4
-z3d/display/particle/locusball/ParticleLocusballData.java
- z3d.display.particle.locusball.ParticleLocusballData
-z3d/display/line/LineDisplaySprite.java
- z3d.display.line.LineDisplaySprite
 scene/SceneLyfBase.java
  scene.SceneLyfBase
  scene.SceneLyfBase$1
@@ -273,6 +269,10 @@ scene/SceneLyfBase.java
  scene.SceneLyfBase$7
  scene.SceneLyfBase$8
  scene.SceneLyfBase$9
+z3d/display/line/LineDisplaySprite.java
+ z3d.display.line.LineDisplaySprite
+z3d/filemodel/ParticleManager.java
+ z3d.filemodel.ParticleManager
 z3d/display/particle/ParticleData.java
  z3d.display.particle.ParticleData
  z3d.display.particle.ParticleData$1
@@ -297,8 +297,8 @@ z3d/display/Display3DSprite.java
  z3d.display.Display3DSprite$2
 z3d/display/particle/Display3DParticle.java
  z3d.display.particle.Display3DParticle
-z3d/display/particle/CombineParticleData.java
- z3d.display.particle.CombineParticleData
+z3d/display/particle/model/Display3DModelPartilce.java
+ z3d.display.particle.model.Display3DModelPartilce
 scene/dis/TwoTextureSprite.java
  scene.dis.TwoTextureSprite
  scene.dis.TwoTextureSprite$1
@@ -313,11 +313,11 @@ z3d/display/particle/ctrl/TimeLine.java
  z3d.display.particle.ctrl.TimeLine
 z3d/display/particle/CombineParticle.java
  z3d.display.particle.CombineParticle
-z3d/filemodel/ParticleManager.java
- z3d.filemodel.ParticleManager
-z3d/display/particle/model/Display3DModelPartilce.java
- z3d.display.particle.model.Display3DModelPartilce
 z3d/display/particle/ball/ParticleBallData.java
  z3d.display.particle.ball.ParticleBallData
+z3d/display/particle/locusball/ParticleLocusballData.java
+ z3d.display.particle.locusball.ParticleLocusballData
+z3d/display/particle/CombineParticleData.java
+ z3d.display.particle.CombineParticleData
 z3d/display/particle/ball/Display3DBallPartilce.java
  z3d.display.particle.ball.Display3DBallPartilce

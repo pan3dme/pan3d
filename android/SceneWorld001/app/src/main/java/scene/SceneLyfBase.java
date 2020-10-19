@@ -182,7 +182,7 @@ public class SceneLyfBase extends AppCompatActivity  {
 
         private void   playLyf()
     {
-        String url="model/levelup_lyf.txt";
+        String url="model/10017_lyf.txt";
 
         //            [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
         //            [lyfItem addObject:@"model/levelup_lyf.txt"];
