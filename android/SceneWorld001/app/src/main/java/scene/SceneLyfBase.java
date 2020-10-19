@@ -182,7 +182,15 @@ public class SceneLyfBase extends AppCompatActivity  {
 
         private void   playLyf()
     {
-        String url="model/levelup_lyf.txt";
+        String url="model/10017_lyf.txt";
+
+        //            [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
+        //            [lyfItem addObject:@"model/levelup_lyf.txt"];
+        //            [lyfItem addObject:@"model/reviveeff_lyf.txt"];
+        //            [lyfItem addObject:@"model/10017_lyf.txt"];
+        //            [lyfItem addObject:@"model/10018_lyf.txt"];
+        //            [lyfItem addObject:@"model/13012_lyf.txt"];
+
         GroupDataManager.getInstance().getGroupData(url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {
