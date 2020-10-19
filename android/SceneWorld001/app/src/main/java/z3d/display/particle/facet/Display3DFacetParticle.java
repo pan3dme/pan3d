@@ -19,7 +19,7 @@ public class Display3DFacetParticle  extends Display3DParticle {
     public void setVa() {
         super.setVa();
         Context3D ctx=this.scene3d.context3D;
-        ObjData objData= this.ballData().objData;
+        ObjData objData= this.faceData().objData;
         ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2TexCoord",3,objData.uvBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
@@ -39,25 +39,26 @@ public class Display3DFacetParticle  extends Display3DParticle {
         Camera3D cam=this.scene3d.camera3D;
         this.rotationMatrix3D.identity();
         if (this.data._watchEye) {
-            if (!this.ballData()._locky && !this.ballData()._lockx) {
+            if (!this.faceData()._locky && !this.faceData()._lockx) {
                 this.inverBind();
             }
-            if (!this.ballData()._locky) {
+            if (!this.faceData()._locky) {
                 this.rotationMatrix3D.prependRotation(-cam.rotationY, Vector3D.Y_AXIS);
             }
-            if (!this.ballData()._lockx) {
+            if (!this.faceData()._lockx) {
                 this.rotationMatrix3D.prependRotation(-cam.rotationX, Vector3D.X_AXIS);
             }
         }
         if (this.data._isZiZhuan) {
-            // this.timeline.applySelfRotation(this._rotationMatrix, this.data._ziZhuanAngly);
+
+            this.timeline.applySelfRotation(this.rotationMatrix3D,this.data._ziZhuanAngly);
         }
     }
 
     private void inverBind() {
     }
 
-    public ParticleFacetData ballData(){
+    public ParticleFacetData faceData(){
         return (ParticleFacetData) this.data;
     }
 

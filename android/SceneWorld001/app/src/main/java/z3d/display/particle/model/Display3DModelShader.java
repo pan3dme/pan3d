@@ -1,9 +1,7 @@
-package z3d.display.particle.facet;
+package z3d.display.particle.model;
 
-import z3d.program.Shader3D;
-
-public class Display3DFacetShader extends Shader3D {
-    public  static  String shaderNameStr="Display3DFacetShader";
+public class Display3DModelShader {
+    public  static  String shaderNameStr="Display3DModelShader";
     public String getVertexShaderString() {
 
         String vertex=
@@ -26,7 +24,7 @@ public class Display3DFacetShader extends Shader3D {
         return vertex;
     }
     public String getFragmentShaderString() {
-        String fragment ="precision mediump float;\n"+
+        String fragment = "precision mediump float;\n"+
         "uniform sampler2D fs0;\n"+
         "varying vec2 v0;\n"+
         "void main()"+

@@ -212,4 +212,7 @@ public class TimeLine {
             this._scaleAnim.updata(this.time);
         }
     }
+
+    public void applySelfRotation(Matrix3D rotationMatrix3D, Vector3D ziZhuanAngly) {
+    }
 }

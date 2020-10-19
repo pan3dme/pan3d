@@ -32,7 +32,7 @@ public class Display3DBallPartilce extends Display3DParticle {
 
     @Override
     public void update() {
-//        super.update();
+        super.update();
     }
 
     @Override
