@@ -92,6 +92,13 @@ static ProgrmaManager *instance = nil;
     
     }
     
+    if ([keyStr rangeOfString:@"Display3DBallPartilceShader"].location != NSNotFound) {
+  
+ 
+        NSLog(@"------");
+    
+    }
+    
     [shader encodeVstr:shader.vertex encodeFstr:shader.fragment];
     
     self.dic[keyStr] = shader;

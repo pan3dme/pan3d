@@ -83,9 +83,9 @@ public class CombineParticleData extends ResCount {
         for (int i = 0; i < this.dataAry.size(); i++) {
             Display3DParticle display  = this.dataAry.get(i).creatPartilce();
             if (display instanceof Display3DBallPartilce) {
-
+                particle.addPrticleItem(display);
             }
-            particle.addPrticleItem(display);
+
         }
         particle.sourceData = this;
         return particle;

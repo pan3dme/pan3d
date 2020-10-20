@@ -17,10 +17,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/core/Context3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallGpuData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ball/ParticleBallGpuData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/ParticleData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/units/ColorTransition.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/ColorTransition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,42 +175,42 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1071" y="290" key="AndroidProcessChooserDialog/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602655454001" />
-    <state width="548" height="466" key="DebuggerActiveHint" timestamp="1603161508753">
+    <state width="548" height="466" key="DebuggerActiveHint" timestamp="1603196712193">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="548" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603161508753" />
-    <state width="1205" height="166" key="GridCell.Tab.0.bottom" timestamp="1603193738110">
+    <state width="548" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603196712193" />
+    <state width="1036" height="225" key="GridCell.Tab.0.bottom" timestamp="1603197928121">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1205" height="166" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603193738110" />
-    <state width="1205" height="166" key="GridCell.Tab.0.center" timestamp="1603193738110">
+    <state width="1036" height="225" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928121" />
+    <state width="1036" height="225" key="GridCell.Tab.0.center" timestamp="1603197928120">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1205" height="166" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603193738110" />
-    <state width="1205" height="166" key="GridCell.Tab.0.left" timestamp="1603193738109">
+    <state width="1036" height="225" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928120" />
+    <state width="1036" height="225" key="GridCell.Tab.0.left" timestamp="1603197928120">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1205" height="166" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603193738109" />
-    <state width="1205" height="166" key="GridCell.Tab.0.right" timestamp="1603193738110">
+    <state width="1036" height="225" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928120" />
+    <state width="1036" height="225" key="GridCell.Tab.0.right" timestamp="1603197928120">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1205" height="166" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603193738110" />
-    <state width="1042" height="336" key="GridCell.Tab.1.bottom" timestamp="1603177034237">
+    <state width="1036" height="225" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928120" />
+    <state width="1036" height="225" key="GridCell.Tab.1.bottom" timestamp="1603197928120">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1042" height="336" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603177034237" />
-    <state width="1042" height="336" key="GridCell.Tab.1.center" timestamp="1603177034236">
+    <state width="1036" height="225" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928120" />
+    <state width="1036" height="225" key="GridCell.Tab.1.center" timestamp="1603197928120">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1042" height="336" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603177034236" />
-    <state width="1042" height="336" key="GridCell.Tab.1.left" timestamp="1603177034236">
+    <state width="1036" height="225" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928120" />
+    <state width="1036" height="225" key="GridCell.Tab.1.left" timestamp="1603197928119">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1042" height="336" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603177034236" />
-    <state width="1042" height="336" key="GridCell.Tab.1.right" timestamp="1603177034236">
+    <state width="1036" height="225" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928119" />
+    <state width="1036" height="225" key="GridCell.Tab.1.right" timestamp="1603197928120">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1042" height="336" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603177034236" />
+    <state width="1036" height="225" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197928120" />
     <state x="-1339" y="175" key="SettingsEditor" timestamp="1602672697955">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -218,13 +219,13 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1171" y="387" key="edit.logcat.filter.dialog.dimensions/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603162635356" />
-    <state x="-713" y="495" width="615" height="490" key="find.popup" timestamp="1603194640718">
+    <state x="-731" y="444" width="615" height="490" key="find.popup" timestamp="1603197321148">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-713" y="495" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603194640718" />
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603194956536">
+    <state x="-731" y="444" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197321148" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603197624271">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603194956536" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603197624271" />
   </component>
 </project>

@@ -6,7 +6,9 @@ import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
+import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
+import z3d.display.particle.ball.Display3DBallPartilce;
 import z3d.display.particle.facet.Display3DFacetShader;
 import z3d.display.particle.locus.Display3DLocusShader;
 import z3d.program.ProgrmaManager;
@@ -44,7 +46,10 @@ public class ParticleModelData extends ParticleData {
         this.objData.treNum=this.objData.indexs.size();
 
     }
-
+    @Override
+    public Display3DParticle getParticle() {
+        return  new Display3DModelPartilce();
+    }
     @Override
     protected void regShader() {
         super.regShader();

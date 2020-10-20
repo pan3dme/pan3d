@@ -114,12 +114,14 @@ public class ParticleData {
     }
     public Display3DParticle getParticle()
     {
+
         return null;
     }
     public Display3DParticle creatPartilce()
     {
 
         Display3DParticle particle = this.getParticle();
+
         particle.data = this;
         TimeLine tl   = new TimeLine();
         tl.setAllDataInfo(this.timelineData);
