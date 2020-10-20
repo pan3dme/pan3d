@@ -4,17 +4,14 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.e.sceneworld001.R;
@@ -56,39 +53,42 @@ public class SceneAllMenu extends AppCompatActivity   {
 
 
     private static final String TAG ="SceneLyfBase" ;
-    private GLSurfaceView mGLView;
-    private Scene3D scene3d;
-    private SceneRes sceneRes;
+    private GLSurfaceView _mGLView;
+    private Scene3D _scene3d;
+    private SceneRes _sceneRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scene001_layout);
-        mGLView =   findViewById(R.id.mGLView);
-        mGLView.setEGLContextClientVersion(2);
+        _mGLView =   findViewById(R.id.mGLView);
+        _mGLView.setEGLContextClientVersion(2);
         Scene_data.fileRoot = "http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
         LoaderThread.fileContext = getApplicationContext();
-        mGLView.setRenderer(new GLSurfaceView.Renderer() {
+        _mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                loadSceneRes();
+                 _scene3d =new Scene3D();
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
                 GLES20.glViewport(0, 0, width, height);
-                scene3d.camera3D.fovw = width;
-                scene3d.camera3D.fovh = height;
-                scene3d.resizeScene();
-                scene3d.camera3D.distance=100;
+                _scene3d.camera3D.fovw = width;
+                _scene3d.camera3D.fovh = height;
+                _scene3d.resizeScene();
+                _scene3d.camera3D.distance=100;
+
+                loadSceneByUrl("str");
+
             }
             @Override
             public void onDrawFrame(GL10 gl) {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                scene3d.upFrame();
+                _scene3d.upFrame();
             }
         });
-        mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+        _mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
 
         _menuLayout=new LinearLayout(this);
@@ -102,10 +102,6 @@ public class SceneAllMenu extends AppCompatActivity   {
     LinearLayout _menuLayout;
     private  void addBaseMenuList(){
 
-
-        if(this.scene3d!=null){
-            this.scene3d.clearAll();;
-        }
         List<String> arr=new ArrayList<>();
         arr.add("场景");
         arr.add("角色");
@@ -114,7 +110,6 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("清理");
         arr.add("拉+");
         arr.add("推-");
-
         addButsByArr(arr, new CallBack() {
             @Override
             public void StateChange(Object val) {
@@ -143,7 +138,9 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("50011");
         arr.add("50014");
         arr.add("50015");
-        //yezhuz
+        arr.add("yezhuz");
+        arr.add("拉+");
+        arr.add("推-");
         arr.add("返回");
         addButsByArr(arr, new CallBack() {
             @Override
@@ -156,81 +153,56 @@ public class SceneAllMenu extends AppCompatActivity   {
                 }
             }
         });
-
     }
     private void addButsByArr(List<String> arr, CallBack bfun){
         _menuLayout.removeAllViews();
-        for(int i=0;i<arr.size();i++){
-          this.addTempBut(arr.get(i),bfun);
+        if(this._scene3d !=null){
+            this._scene3d.clearAll();;
+            GridLineSprite  dic=new GridLineSprite(this._scene3d);
+            dic.changeColor(new Vector3D(1,1,1,1));
+            this._scene3d.addDisplay(dic);
         }
-         addGridView();
+         addGridView(arr,bfun);
     }
-    private void  addGridView(){
-        gview =new GridView(this);
+    private void  addGridView(List<String> arr,CallBack bfun){
+        List<Map<String, Object>> data_list=new ArrayList<>();
+        for(int i=0;i<arr.size();i++){
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("image", R.drawable.my_cell_sz001);
+            map.put("text", arr.get(i));
+            data_list.add(map);
+        }
+        GridView  gview =new GridView(this);
         gview.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         gview.setNumColumns(4);
         _menuLayout.addView(gview);
-        //新建List
-        data_list = new ArrayList<Map<String, Object>>();
-        //获取数据
-        getData();
-        //新建适配器
         String [] from ={"image","text"};
         int [] to = {R.id.image,R.id.text};
-        sim_adapter = new SimpleAdapter(this, data_list, R.layout.item, from, to);
-        //配置适配器
+        SimpleAdapter sim_adapter = new SimpleAdapter(this,  data_list, R.layout.item, from, to);
         gview.setAdapter(sim_adapter);
         gview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("检查：","OnItemClick功能实现！"+id);
+                String str=arr.get(position);
+                if(str=="拉+"){
+                    _scene3d.camera3D.distance*=0.8;
+                }else  if(str=="推-"){
+                    _scene3d.camera3D.distance*=1.2;
+                }else  if(str=="清理"){
+                    _scene3d.clearAll();
+                }else
+                {
+                    bfun.StateChange(str);
+                }
+
             }
         });
 
     }
 
-    private GridView gview;
-    private List<Map<String, Object>> data_list;
-    private SimpleAdapter sim_adapter;
-
-    private int[] icon = { R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
-            R.drawable.my_cell_sz001, R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
-            R.drawable.my_cell_sz001, R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
-            R.drawable.my_cell_sz001, R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
-            R.drawable.my_cell_sz001 };
-    private String[] iconName = { "通讯录", "日历", "照相机", "时钟", "游戏", "短信", "铃声",
-            "设置", "语音", "天气", "浏览器", "视频" };
-    public List<Map<String, Object>> getData(){
-        //cion和iconName的长度是相同的，这里任选其一都可以
-        for(int i=0;i<icon.length;i++){
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("image", icon[i]);
-            map.put("text", iconName[i]);
-            data_list.add(map);
-        }
-
-        return data_list;
-    }
-
-
-    private void addTempBut(String val,CallBack bfun )
-    {
-
-        Button bn = new Button(this);
-        bn.setText(val);
-
-
-        _menuLayout.addView(bn);
-        bn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-        bfun.StateChange(val);
-            }
-        });
-    }
     private void _selectChangjing(){
         List<String> arr=new ArrayList<>();
         arr.add("1001");
@@ -274,22 +246,7 @@ public class SceneAllMenu extends AppCompatActivity   {
             }
         });
     }
-    private void addButs(String val,final CallBackFun backFun)
-    {
-        LinearLayout layout = (LinearLayout) findViewById(R.id.container);
-        Button bn = new Button(this);
-        bn.setText(val);
-        bn.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
-        layout.addView(bn);
-        bn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                backFun.StateChange(true);
-            }
-        });
-    }
+
     private void loadSceneByUrl(String val){
         try {
             InputStream in = getResources().openRawResource(R.raw.file2012);
@@ -299,8 +256,8 @@ public class SceneAllMenu extends AppCompatActivity   {
             byte[] buffer = new byte[lenght];
             //将文件中的数据读到byte数组中
             in.read(buffer);
-            this.sceneRes = new SceneRes();
-            this.sceneRes.loadComplete(new ByteArray(buffer) ,new CallBackFun() {
+            this._sceneRes = new SceneRes();
+            this._sceneRes.loadComplete(new ByteArray(buffer) ,new CallBackFun() {
                 @Override
                 public void StateChange(boolean State) {
                     Log.d("加载结算", "StateChange: ");
@@ -317,7 +274,7 @@ public class SceneAllMenu extends AppCompatActivity   {
     {
 
         try {
-            JSONArray buildItem=    this.sceneRes.sceneData.getJSONArray("buildItem");
+            JSONArray buildItem=    this._sceneRes.sceneData.getJSONArray("buildItem");
             for(int i=0;i<buildItem.length();i++){
                 this.parsingBuildItem((JSONObject)buildItem.get(i));
             }
@@ -340,9 +297,9 @@ public class SceneAllMenu extends AppCompatActivity   {
 
                     }
                     BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                    tempDis.scene3d=this.scene3d;
+                    tempDis.scene3d=this._scene3d;
                     tempDis.setInfo(obj);
-                    this.scene3d.addDisplay(tempDis);
+                    this._scene3d.addDisplay(tempDis);
 
                     break;
                 default:
@@ -355,22 +312,15 @@ public class SceneAllMenu extends AppCompatActivity   {
 
 
     }
-    private void loadSceneRes()
-    {
-        this.scene3d =new Scene3D();
-        GridLineSprite  dic=new GridLineSprite(this.scene3d);
-        dic.changeColor(new Vector3D(1,1,1,1));
-        this.scene3d.addDisplay(dic);
 
-    }
     private void  addRoleToSceneByUrl(String val)
     {
-        Display3dMovie sc=new Display3dMovie(this.scene3d);
+        Display3dMovie sc=new Display3dMovie(this._scene3d);
         sc.setRoleUrl("role/"+val);
         sc.scaleX=2;
         sc.scaleY=2;
         sc.scaleZ=2;
-        scene3d.addMovieDisplay(sc);
+        _scene3d.addMovieDisplay(sc);
     }
         private void   playLyf(String url)
     {
@@ -384,7 +334,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                     GroupItem item =  groupRes.dataAry.get(i);
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
 
-                        ParticleManager particleManager= scene3d.particleManager;
+                        ParticleManager particleManager= _scene3d.particleManager;
                         CombineParticle particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
                         particleManager.addParticle(particle);
                         Log.d("TAG", "Bfun: ");
@@ -416,18 +366,18 @@ public class SceneAllMenu extends AppCompatActivity   {
                     case "ACTION_DOWN":
                         _downPosV2d=new Vector2D( event.getX(), event.getY());
                         _oldPosV2d=new Object3D();
-                        _oldPosV2d.x= scene3d.camera3D.x;
-                        _oldPosV2d.y= scene3d.camera3D.y;
-                        _oldPosV2d.z= scene3d.camera3D.z;
-                        _oldPosV2d.rotationX= scene3d.camera3D.rotationX;
-                        _oldPosV2d.rotationY= scene3d.camera3D.rotationY;
+                        _oldPosV2d.x= _scene3d.camera3D.x;
+                        _oldPosV2d.y= _scene3d.camera3D.y;
+                        _oldPosV2d.z= _scene3d.camera3D.z;
+                        _oldPosV2d.rotationX= _scene3d.camera3D.rotationX;
+                        _oldPosV2d.rotationY= _scene3d.camera3D.rotationY;
 
                         break;
                     case "ACTION_MOVE":
                         if(_downPosV2d!=null){
                          Vector2D toV2d=   new Vector2D( event.getX(), event.getY());
-                         scene3d.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
-                         scene3d.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
+                         _scene3d.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
+                         _scene3d.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
 
                           //  Log.d(TAG+ TimeUtil.getTimer(), "滑动吧");
                         }

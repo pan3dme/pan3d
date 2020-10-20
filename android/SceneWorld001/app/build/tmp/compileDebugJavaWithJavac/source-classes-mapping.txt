@@ -326,7 +326,6 @@ z3d/base/GroupItem.java
 scene/SceneAllMenu.java
  scene.SceneAllMenu
  scene.SceneAllMenu$1
- scene.SceneAllMenu$10
  scene.SceneAllMenu$2
  scene.SceneAllMenu$3
  scene.SceneAllMenu$4
@@ -334,4 +333,3 @@ scene/SceneAllMenu.java
  scene.SceneAllMenu$6
  scene.SceneAllMenu$7
  scene.SceneAllMenu$8
- scene.SceneAllMenu$9
