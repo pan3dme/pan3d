@@ -5,6 +5,9 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.List;
 
+import z3d.base.ObjData;
+import z3d.core.Context3D;
+
 public class DualQuatFloat32Array {
 
 
@@ -17,23 +20,12 @@ public class DualQuatFloat32Array {
     public  void  upToGpu()
     {
         if(this.boneDarrBuff==null){
-            this.boneDarrBuff=this.upGpuvertexBufferbbb(this.quatArr);
+            this.boneDarrBuff=ObjData.upGpuvertexBuffer(this.quatArr);
         }
         if(this.boneQarrBuff==null){
-            this.boneQarrBuff=this.upGpuvertexBufferbbb(this.posArr);
+            this.boneQarrBuff= ObjData.upGpuvertexBuffer(this.posArr);
         }
 
     }
-    public FloatBuffer upGpuvertexBufferbbb(List<Float> data){
-        int size=data.size();
-        ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
-        buffer.order(ByteOrder.nativeOrder());
-        FloatBuffer verBuff=buffer.asFloatBuffer();
-        for (int i=0;i<size;i++){
-            verBuff.put(data.get(i));
-        }
-        verBuff.position(0);
-        return verBuff;
 
-    }
 }

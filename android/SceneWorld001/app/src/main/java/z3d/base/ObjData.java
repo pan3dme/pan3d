@@ -10,6 +10,7 @@ import java.nio.ShortBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import z3d.core.Context3D;
 import z3d.engine.ResCount;
 
 
@@ -87,12 +88,12 @@ public class ObjData extends ResCount {
     public void  upToGup()
     {
         if(!this.isCompile){
-            this.vertexBuffer=this.upGpuvertexBuffer(this.verticeslist);
+            this.vertexBuffer=ObjData.upGpuvertexBuffer(this.verticeslist);
             if(this.uvlist!=null&&this.uvlist.size()>0){
-                this.uvBuffer=this.upGpuvertexBuffer(this.uvlist);
+                this.uvBuffer=ObjData.upGpuvertexBuffer(this.uvlist);
             }
             if(this.normals!=null&&this.normals.size()>0){
-                this.normalsBuffer=this.upGpuvertexBuffer(this.normals);
+                this.normalsBuffer=ObjData.upGpuvertexBuffer(this.normals);
             }
 
             this.indexBuffer=this.upGpuIndexBuffer(this.indexs);
@@ -120,7 +121,8 @@ short Indexbuff
     /*
     float vertexBuff
      */
-    public  FloatBuffer upGpuvertexBuffer(List<Float> data){
+
+    public static   FloatBuffer upGpuvertexBuffer(List<Float> data){
         int size=data.size();
         ByteBuffer buffer=ByteBuffer.allocateDirect(size*4);
         buffer.order(ByteOrder.nativeOrder());
