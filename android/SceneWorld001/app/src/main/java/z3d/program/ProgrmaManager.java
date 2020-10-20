@@ -110,13 +110,12 @@ public class ProgrmaManager extends  ResGC {
                         "vec4 ft0 = texture2D(fs0,v0);"+
                         "ft0.xyz *= ft0.w;"+
                         "vec4 ft1 = texture2D(fs1,v1);"+
-                        "ft1.xyz = ft1.xyz * ft1.w;"+
-                        "vec4 ft2 = ft0 * fc[0];"+
-                        "ft0 = ft2 * ft1;"+
-                        "ft1.xyz = ft0.xyz;"+
-                        "ft1.w = ft0.w;"+
+//                        "ft1.xyz = ft1.xyz * ft1.w;"+
+//                        "vec4 ft2 = ft0 * fc[0];"+
+//                        "ft0 = ft2 * ft1;"+
+//                        "ft1.xyz = ft0.xyz;"+
+//                        "ft1.w = ft0.w;"+
                         "gl_FragColor = ft1;"+
-//                        "gl_FragColor = vec4(1,0,0,1);"+
                         "}";
     }
 

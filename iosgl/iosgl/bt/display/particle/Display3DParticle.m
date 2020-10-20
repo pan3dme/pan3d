@@ -178,6 +178,7 @@
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
+//    NSLog(@"%f   %f   %f   %f",fcDataGlArr[0],fcDataGlArr[1],fcDataGlArr[2],fcDataGlArr[3]);
     [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
 }
 

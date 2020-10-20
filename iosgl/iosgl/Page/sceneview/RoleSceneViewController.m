@@ -82,12 +82,20 @@
             [self.butItems removeObjectAtIndex:0];
 
     }
-    [self addEventLyfButBy:@"10017"];
-       [self addEventLyfButBy:@"10018"];
-    [self addEventLyfButBy:@"13012"];
     [self addEventLyfButBy:@"levelup"];
+       [self addEventLyfButBy:@"reviveeff"];
+    [self addEventLyfButBy:@"10018"];
+    [self addEventLyfButBy:@"10017"];
+    [self addEventLyfButBy:@"13012"];
+    [self addEventLyfButBy:@"diamondseffect"];
     
-    
+//    arr.add("levelup");
+//     arr.add("reviveeff");
+//     arr.add("10018");
+//     arr.add("10017");
+//     arr.add("13012");
+//     arr.add("13012");
+//     arr.add("diamondseffect");
     
     [self addEventButBy:@"清理"];
     [self addEventButBy:@"拉+"];

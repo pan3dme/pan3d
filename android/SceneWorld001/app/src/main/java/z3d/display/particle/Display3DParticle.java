@@ -188,7 +188,7 @@ public class Display3DParticle extends Display3D {
         Float32Array fcData= this.data.materialParam.material.fcData;
         Context3D ctx=this.scene3d.context3D;
         int fcNum=this.data.materialParam.material.fcNum;
-        Log.d(TAG, fcData.get(0)+" "+fcData.get(1)+" "+fcData.get(2)+" "+fcData.get(3));
+//        Log.d(TAG, fcData.get(0)+" "+fcData.get(1)+" "+fcData.get(2)+" "+fcData.get(3));
         ctx.setVc4fv(this.shader3D,"fc",fcNum, fcData.verBuff);
 
     }

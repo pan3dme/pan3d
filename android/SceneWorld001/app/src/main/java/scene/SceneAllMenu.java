@@ -246,7 +246,6 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("10018");
         arr.add("10017");
         arr.add("13012");
-        arr.add("13012");
         arr.add("diamondseffect");
         arr.add("拉+");
         arr.add("推-");
