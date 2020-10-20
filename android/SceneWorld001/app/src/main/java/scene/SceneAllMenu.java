@@ -4,12 +4,17 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.SimpleAdapter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.e.sceneworld001.R;
@@ -19,7 +24,9 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -44,7 +51,8 @@ import z3d.units.LoaderThread;
 import z3d.vo.Vector2D;
 import z3d.vo.Vector3D;
 
-public class SceneAllMenu extends AppCompatActivity  {
+
+public class SceneAllMenu extends AppCompatActivity   {
 
 
     private static final String TAG ="SceneLyfBase" ;
@@ -153,15 +161,68 @@ public class SceneAllMenu extends AppCompatActivity  {
     private void addButsByArr(List<String> arr, CallBack bfun){
         _menuLayout.removeAllViews();
         for(int i=0;i<arr.size();i++){
-            this.addTempBut(arr.get(i),bfun);
+          this.addTempBut(arr.get(i),bfun);
         }
+         addGridView();
     }
+    private void  addGridView(){
+        gview =new GridView(this);
+        gview.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+        gview.setNumColumns(4);
+        _menuLayout.addView(gview);
+        //新建List
+        data_list = new ArrayList<Map<String, Object>>();
+        //获取数据
+        getData();
+        //新建适配器
+        String [] from ={"image","text"};
+        int [] to = {R.id.image,R.id.text};
+        sim_adapter = new SimpleAdapter(this, data_list, R.layout.item, from, to);
+        //配置适配器
+        gview.setAdapter(sim_adapter);
+        gview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Log.d("检查：","OnItemClick功能实现！"+id);
+            }
+        });
+
+    }
+
+    private GridView gview;
+    private List<Map<String, Object>> data_list;
+    private SimpleAdapter sim_adapter;
+
+    private int[] icon = { R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
+            R.drawable.my_cell_sz001, R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
+            R.drawable.my_cell_sz001, R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
+            R.drawable.my_cell_sz001, R.drawable.my_cell_sz001, R.drawable.my_cell_sz001,
+            R.drawable.my_cell_sz001 };
+    private String[] iconName = { "通讯录", "日历", "照相机", "时钟", "游戏", "短信", "铃声",
+            "设置", "语音", "天气", "浏览器", "视频" };
+    public List<Map<String, Object>> getData(){
+        //cion和iconName的长度是相同的，这里任选其一都可以
+        for(int i=0;i<icon.length;i++){
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("image", icon[i]);
+            map.put("text", iconName[i]);
+            data_list.add(map);
+        }
+
+        return data_list;
+    }
+
+
     private void addTempBut(String val,CallBack bfun )
     {
-//        LinearLayout layout = (LinearLayout) findViewById(R.id.container);
+
         Button bn = new Button(this);
         bn.setText(val);
-//        bn.setLayoutParams(new ViewGroup.LayoutParams(    ViewGroup.LayoutParams.WRAP_CONTENT,   ViewGroup.LayoutParams.WRAP_CONTENT));
+
+
         _menuLayout.addView(bn);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -384,7 +445,6 @@ public class SceneAllMenu extends AppCompatActivity  {
     }
     Vector2D _downPosV2d;
     Object3D _oldPosV2d;
-
 
 
 }

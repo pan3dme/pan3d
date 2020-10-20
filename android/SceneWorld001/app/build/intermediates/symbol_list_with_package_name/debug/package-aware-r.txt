@@ -1398,6 +1398,12 @@ drawable mtrl_ic_error
 drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
+drawable my_cell_sz001
+drawable my_cell_szmx001
+drawable my_cell_wdbb001
+drawable my_cell_wdsy001
+drawable my_cell_yxjl001
+drawable my_cell_zskf001
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -1806,6 +1812,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_first
 layout fragment_second
+layout item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
