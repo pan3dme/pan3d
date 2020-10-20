@@ -87,35 +87,25 @@ public class Material extends ResCount {
 
     public void initFcData() {
         this.fcData = new Float32Array(this.fcNum * 4);
-
         if (this.fcNum <= 0) {
             return;
         }
-
         this.sceneNumId = 0;
-
         if (this.hasTime || this.useKill || this.fogMode != 0) {//fc0
-
             if (this.useKill) {
                 this.fcData.put(0,this.killNum);
             }
-
             if (this.fogMode != 0) {
-
-
                 this.fcData.put(2,Scene_data.fogData.x);
                 this.fcData.put(3,Scene_data.fogData.y);
             }
-
         }
-
         if (this.usePbr || this.fogMode == 1) {
             int idx = this.fcIDAry.get(0) * 4;
 //            this.fcData[0 + idx] = Scene_data.cam3D.x / 100;
 //            this.fcData[1 + idx] = Scene_data.cam3D.y / 100;
 //            this.fcData[2 + idx] = Scene_data.cam3D.z / 100;
         }
-
         if (this.fogMode != 0) {
 //            int idx = this.fcIDAry[1] * 4;
 //            this.fcData[0 + idx] = Scene_data.fogColor[0];
@@ -192,5 +182,15 @@ public class Material extends ResCount {
 
 
     public void update(float t) {
+
+
+    this.updateTime(t);
+    this.updateScene();
+    }
+
+    private void updateScene() {
+    }
+
+    private void updateTime(float t) {
     }
 }

@@ -87,8 +87,8 @@ public class ProgrmaManager extends  ResGC {
 
         if (keyStr.indexOf("Display3DBallPartilceShader")!=-1) {
 //            this.outShader(shader.vertex,"vertex");
-            this.outShader(shader.fragment,"fragment");
-            this._changeBallShader(shader);
+//            this.outShader(shader.fragment,"fragment");
+//            this._changeBallShader(shader);
         }
 
         shader.encodeVstr(shader.vertex,shader.fragment);

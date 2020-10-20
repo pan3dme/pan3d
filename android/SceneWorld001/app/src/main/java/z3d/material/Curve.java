@@ -2,7 +2,9 @@ package z3d.material;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
+import z3d.base.Scene_data;
 import z3d.vo.CurveItemVo;
 import z3d.vo.CurveVo;
 
@@ -14,9 +16,29 @@ public class Curve {
     public List<List<Float>> valueVec;
     public List<Float> valueV3d;
 
-    public List<Float> getValue(float t) {
+    public  Curve(){
+        valueV3d=new ArrayList<>();
+        valueV3d.add(1.0f);
+        valueV3d.add(1.0f);
+        valueV3d.add(1.0f);
+        valueV3d.add(1.0f);
 
-        return null;
+    }
+    public List<Float> getValue(float t) {
+        if (this.valueVec==null || this.begintFrame == -1) {
+            return this.valueV3d;
+        }
+        int flag =  float2int(t / Scene_data.frameTime - this.begintFrame);
+        if (flag < 0) {
+            flag = 0;
+        } else if (flag > this.maxFrame - this.begintFrame) {
+            flag = this.maxFrame - this.begintFrame;
+        }
+        return this.valueVec.get(flag);
+    }
+    private  int float2int(float val){
+
+        return  (int )val;
     }
 
     public void setData(CurveVo obj) {
