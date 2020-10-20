@@ -68,7 +68,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         _mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                 _scene3d =new Scene3D();
+                _scene3d =new Scene3D();
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -78,7 +78,6 @@ public class SceneAllMenu extends AppCompatActivity   {
                 _scene3d.resizeScene();
                 _scene3d.camera3D.distance=100;
 
-                loadSceneByUrl("str");
 
             }
             @Override
@@ -96,11 +95,11 @@ public class SceneAllMenu extends AppCompatActivity   {
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
 
-        this.addBaseMenuList();
+        selectTexiao();
 
     }
     LinearLayout _menuLayout;
-    private  void addBaseMenuList(){
+    private  void addRootMenu(){
 
         List<String> arr=new ArrayList<>();
         arr.add("场景");
@@ -108,6 +107,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("特效");
         arr.add("技能");
         arr.add("清理");
+        arr.add("网格");
         arr.add("拉+");
         arr.add("推-");
         addButsByArr(arr, new CallBack() {
@@ -139,15 +139,17 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("50014");
         arr.add("50015");
         arr.add("yezhuz");
+        arr.add("网格");
         arr.add("拉+");
         arr.add("推-");
+        arr.add("清理");
         arr.add("返回");
         addButsByArr(arr, new CallBack() {
             @Override
             public void StateChange(Object val) {
                 String str=(String) val;
                 if(str.equals("返回")){
-                    addBaseMenuList();
+                    addRootMenu();
                 }else{
                     addRoleToSceneByUrl(str+".txt");
                 }
@@ -162,7 +164,7 @@ public class SceneAllMenu extends AppCompatActivity   {
             dic.changeColor(new Vector3D(1,1,1,1));
             this._scene3d.addDisplay(dic);
         }
-         addGridView(arr,bfun);
+        addGridView(arr,bfun);
     }
     private void  addGridView(List<String> arr,CallBack bfun){
         List<Map<String, Object>> data_list=new ArrayList<>();
@@ -191,6 +193,11 @@ public class SceneAllMenu extends AppCompatActivity   {
                     _scene3d.camera3D.distance*=0.8;
                 }else  if(str=="推-"){
                     _scene3d.camera3D.distance*=1.2;
+                }else  if(str=="网格"){
+                    GridLineSprite  dic=new GridLineSprite( _scene3d);
+                    dic.changeColor(new Vector3D(1,1,1,1));
+                    _scene3d.addDisplay(dic);
+
                 }else  if(str=="清理"){
                     _scene3d.clearAll();
                 }else
@@ -208,16 +215,18 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("1001");
         arr.add("1002");
         arr.add("1003");
+        arr.add("网格");
+        arr.add("清理");
         arr.add("返回");
         addButsByArr(arr, new CallBack() {
             @Override
             public void StateChange(Object val) {
-               String str=(String) val;
-               if(str.equals("返回")){
-                   addBaseMenuList();
-               }else{
-                   loadSceneByUrl(str);
-               }
+                String str=(String) val;
+                if(str.equals("返回")){
+                    addRootMenu();
+                }else{
+                    loadSceneByUrl(str);
+                }
             }
         });
     }
@@ -232,13 +241,17 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("levelup");
         arr.add("reviveeff");
         arr.add("10017");
+        arr.add("拉+");
+        arr.add("推-");
+        arr.add("网格");
+        arr.add("清理");
         arr.add("返回");
         addButsByArr(arr, new CallBack() {
             @Override
             public void StateChange(Object val) {
                 String str=(String) val;
                 if(str.equals("返回")){
-                    addBaseMenuList();
+                    addRootMenu();
                 }else{
 
                     playLyf("model/"+str +"_lyf.txt");
@@ -322,7 +335,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         sc.scaleZ=2;
         _scene3d.addMovieDisplay(sc);
     }
-        private void   playLyf(String url)
+    private void   playLyf(String url)
     {
 
 
@@ -375,11 +388,11 @@ public class SceneAllMenu extends AppCompatActivity   {
                         break;
                     case "ACTION_MOVE":
                         if(_downPosV2d!=null){
-                         Vector2D toV2d=   new Vector2D( event.getX(), event.getY());
-                         _scene3d.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
-                         _scene3d.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
+                            Vector2D toV2d=   new Vector2D( event.getX(), event.getY());
+                            _scene3d.camera3D.rotationY= _oldPosV2d.rotationY-(toV2d.x-_downPosV2d.x);
+                            _scene3d.camera3D.rotationX= _oldPosV2d.rotationX-(toV2d.y-_downPosV2d.y)/10.0f;
 
-                          //  Log.d(TAG+ TimeUtil.getTimer(), "滑动吧");
+                            //  Log.d(TAG+ TimeUtil.getTimer(), "滑动吧");
                         }
                         break;
                     case "ACTION_UP":
