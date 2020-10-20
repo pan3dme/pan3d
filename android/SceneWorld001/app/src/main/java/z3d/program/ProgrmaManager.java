@@ -81,14 +81,14 @@ public class ProgrmaManager extends  ResGC {
         //椭球粒子
         if (keyStr.indexOf("content/particleresources/materials/m_ef_par_byte.txt")!=-1) {
 //            this.outShader(shader.vertex,"vertex");
-            this.outShader(shader.fragment,"fragment");
-            this._changeBallShader(shader);
+//            this.outShader(shader.fragment,"fragment");
+//            this._changeBallShader(shader);
         }
 
         if (keyStr.indexOf("Display3DBallPartilceShader")!=-1) {
 //            this.outShader(shader.vertex,"vertex");
-            this.outShader(shader.fragment,"fragment");
-            this._changeBallShader(shader);
+//            this.outShader(shader.fragment,"fragment");
+//            this._changeBallShader(shader);
         }
 
         shader.encodeVstr(shader.vertex,shader.fragment);
@@ -103,20 +103,17 @@ public class ProgrmaManager extends  ResGC {
                 "precision mediump float;"+
                         "uniform sampler2D fs0;"+
                         "uniform sampler2D fs1;"+
-                        "uniform vec4 fc[1];"+
                         "varying vec2 v0;"+
                         "varying vec2 v1;"+
                         "void main(void){"+
                         "vec4 ft0 = texture2D(fs0,v0);"+
-                        "ft0.xyz *= ft0.w;"+
                         "vec4 ft1 = texture2D(fs1,v1);"+
                         "ft1.xyz = ft1.xyz * ft1.w;"+
-//                        "vec4 ft2 = ft0 * fc[0];"+
-//                        "ft0 = ft2 * ft1;"+
-//                        "ft1.xyz = ft0.xyz;"+
-//                        "ft1.w = ft0.w;"+
-//                        "gl_FragColor = vec4(1,0,0,1);"+
-                        "gl_FragColor = ft1;"+
+                        "vec4 ft2 = ft0 * ft1;"+
+                        "ft0.xyz = ft2.xyz;"+
+                        "ft0.w = ft2.w;"+
+                        "ft0.xyz = ft0.xyz * ft0.w;"+
+                        "gl_FragColor = ft0;"+
                         "}";
     }
 
