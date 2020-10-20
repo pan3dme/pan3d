@@ -233,8 +233,8 @@ z3d/material/DynamicConstItem.java
  z3d.material.DynamicConstItem
 z3d/material/MaterialParam.java
  z3d.material.MaterialParam
-z3d/filemodel/ParticleManager.java
- z3d.filemodel.ParticleManager
+z3d/program/ProgrmaManager.java
+ z3d.program.ProgrmaManager
 scene/SceneAllMenu.java
  scene.SceneAllMenu
  scene.SceneAllMenu$1
@@ -299,12 +299,14 @@ scene/SceneRoleBase.java
  scene.SceneRoleBase$4
  scene.SceneRoleBase$5
  scene.SceneRoleBase$6
-z3d/display/particle/CombineParticle.java
- z3d.display.particle.CombineParticle
+z3d/display/basedis/DisplayBaseSprite.java
+ z3d.display.basedis.DisplayBaseSprite
 z3d/display/particle/Display3DParticle.java
  z3d.display.particle.Display3DParticle
-z3d/display/particle/CombineParticleData.java
- z3d.display.particle.CombineParticleData
+z3d/material/MaterialManager.java
+ z3d.material.MaterialManager
+ z3d.material.MaterialManager$1
+ z3d.material.MaterialManager$2
 z3d/display/Display3DSprite.java
  z3d.display.Display3DSprite
  z3d.display.Display3DSprite$1
@@ -325,11 +327,9 @@ z3d/display/basedis/DisplayTestSprite.java
  z3d.display.basedis.DisplayTestSprite
 z3d/display/particle/locus/ParticleLocusData.java
  z3d.display.particle.locus.ParticleLocusData
-z3d/display/basedis/DisplayBaseSprite.java
- z3d.display.basedis.DisplayBaseSprite
-z3d/material/MaterialManager.java
- z3d.material.MaterialManager
- z3d.material.MaterialManager$1
- z3d.material.MaterialManager$2
-z3d/program/ProgrmaManager.java
- z3d.program.ProgrmaManager
+z3d/filemodel/ParticleManager.java
+ z3d.filemodel.ParticleManager
+z3d/display/particle/CombineParticleData.java
+ z3d.display.particle.CombineParticleData
+z3d/display/particle/CombineParticle.java
+ z3d.display.particle.CombineParticle

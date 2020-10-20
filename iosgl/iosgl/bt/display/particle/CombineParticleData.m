@@ -88,9 +88,8 @@
     for (int i = 0; i < self.dataAry.count; i++) {
         Display3DParticle *display = [((ParticleData*)self.dataAry[i]) creatPartilce];
         if ([display isKindOfClass:[Display3DBallPartilce class]]) {
-            
-            [particle addPrticleItem:display];
         }
+        [particle addPrticleItem:display];
      
     }
     particle.sourceData = self;
