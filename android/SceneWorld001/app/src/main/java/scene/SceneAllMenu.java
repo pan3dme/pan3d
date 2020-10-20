@@ -69,6 +69,11 @@ public class SceneAllMenu extends AppCompatActivity   {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
+                GridLineSprite  dis=new GridLineSprite( _scene3d);
+                dis.changeColor(new Vector3D(1,1,1,1));
+                _scene3d.addDisplay(dis);
+
+
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -89,14 +94,15 @@ public class SceneAllMenu extends AppCompatActivity   {
         });
         _mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
+        initData();
 
+    }
+    private  void  initData(){
         _menuLayout=new LinearLayout(this);
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-
-        selectTexiao();
-
+        _selectTexiao();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -121,7 +127,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                         _selectRole();
                         break;
                     case "特效":
-                        selectTexiao();
+                        _selectTexiao();
                         break;
                     case "技能":
                         break;
@@ -158,11 +164,12 @@ public class SceneAllMenu extends AppCompatActivity   {
     }
     private void addButsByArr(List<String> arr, CallBack bfun){
         _menuLayout.removeAllViews();
+
         if(this._scene3d !=null){
             this._scene3d.clearAll();;
-            GridLineSprite  dic=new GridLineSprite(this._scene3d);
-            dic.changeColor(new Vector3D(1,1,1,1));
-            this._scene3d.addDisplay(dic);
+            GridLineSprite  dis=new GridLineSprite( _scene3d);
+            dis.changeColor(new Vector3D(1,1,1,1));
+            this._scene3d.addDisplay(dis);
         }
         addGridView(arr,bfun);
     }
@@ -229,18 +236,18 @@ public class SceneAllMenu extends AppCompatActivity   {
                 }
             }
         });
+
     }
-    private void  selectTexiao(){
-        //            [lyfItem addObject:@"model/diamondseffect_lyf.txt"];
-        //            [lyfItem addObject:@"model/levelup_lyf.txt"];
-        //            [lyfItem addObject:@"model/reviveeff_lyf.txt"];
-        //            [lyfItem addObject:@"model/10017_lyf.txt"];
-        //            [lyfItem addObject:@"model/10018_lyf.txt"];
-        //            [lyfItem addObject:@"model/13012_lyf.txt"];
+    private void _selectTexiao(){
+
         List<String> arr=new ArrayList<>();
         arr.add("levelup");
         arr.add("reviveeff");
+        arr.add("10018");
         arr.add("10017");
+        arr.add("13012");
+        arr.add("13012");
+        arr.add("diamondseffect");
         arr.add("拉+");
         arr.add("推-");
         arr.add("网格");
