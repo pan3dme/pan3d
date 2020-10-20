@@ -91,7 +91,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/zhao
 		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:15:9-51
 	android:networkSecurityConfig
 		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:12:9-69
-activity#scene.SceneLyfBase
+activity#scene.SceneAllMenu
 ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:16:9-23:20
 	android:launchMode
 		ADDED from /Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:18:13-48

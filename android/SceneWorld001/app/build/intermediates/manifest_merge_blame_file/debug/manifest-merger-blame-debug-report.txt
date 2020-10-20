@@ -43,7 +43,7 @@
 26-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:15:9-51
 27        <activity
 27-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:16:9-23:20
-28            android:name="scene.SceneLyfBase"
+28            android:name="scene.SceneAllMenu"
 28-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:17:13-46
 29            android:launchMode="singleInstance" >
 29-->/Users/zhao/Desktop/gitios/android/SceneWorld001/app/src/main/AndroidManifest.xml:18:13-48

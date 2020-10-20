@@ -36,6 +36,8 @@ public class Scene3D extends ResGC {
     public  void  clearAll()
     {
         this.displayRoleList=new ArrayList<>();
+        this.displayList=new ArrayList<>();
+        particleManager.clearAll();
     }
     public  void  upFrame()
     {
