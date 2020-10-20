@@ -2,7 +2,7 @@ package z3d.display.particle.ball;
 
 import z3d.program.Shader3D;
 
-public class Display3DBallPartilceShader extends Shader3D {
+public class Display3DBallShader extends Shader3D {
     public static int getVcSize()
     {
         return 4;

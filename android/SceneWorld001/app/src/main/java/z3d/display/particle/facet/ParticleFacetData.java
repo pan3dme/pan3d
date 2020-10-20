@@ -1,13 +1,9 @@
 package z3d.display.particle.facet;
 
-import java.util.List;
-
-import scene.dis.TwoTextureShader;
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
 import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
-import z3d.display.particle.ball.Display3DBallPartilceShader;
 import z3d.program.ProgrmaManager;
 
 public class ParticleFacetData extends ParticleData {

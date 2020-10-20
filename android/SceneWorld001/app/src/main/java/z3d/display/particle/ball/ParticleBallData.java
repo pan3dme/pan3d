@@ -1,15 +1,12 @@
 package z3d.display.particle.ball;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
 import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
-import z3d.display.particle.ctrl.TimeLine;
-import z3d.display.particle.locus.Display3DLocusShader;
 import z3d.program.ProgrmaManager;
 import z3d.vo.Matrix3D;
 import z3d.vo.ParicleRandomColorVo;
@@ -213,7 +210,7 @@ public class ParticleBallData extends ParticleData {
         }
         this.getShaderParam();
         List<Boolean>  shaderParameAry =this.getShaderParam();
-        this.materialParam.shader3D=   ProgrmaManager.getInstance().getMaterialProgram(Display3DBallPartilceShader.shaderNameStr,new Display3DBallPartilceShader(),this.materialParam.material,shaderParameAry,false);
+        this.materialParam.shader3D=   ProgrmaManager.getInstance().getMaterialProgram(Display3DBallShader.shaderNameStr,new Display3DBallShader(),this.materialParam.material,shaderParameAry,false);
     }
 
     private List<Boolean> getShaderParam() {
