@@ -126,9 +126,9 @@
         self._displayAry[i].scene3d=self.scene3d;
         
         if([ self._displayAry[i] isKindOfClass:[Display3DBallPartilce class ] ]){
-            [self._displayAry[i] update];
+         
         }
-       
+        [self._displayAry[i] update];
         
     }
 }
