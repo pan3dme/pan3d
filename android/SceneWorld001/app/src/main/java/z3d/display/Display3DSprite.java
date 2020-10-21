@@ -39,33 +39,18 @@ public   class Display3DSprite extends Display3D {
     public ObjData objData;
     public Matrix3D modeMatrix;
 
-    protected void makeBaseTexture()
-    {
-        //https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/reda.png
-        //https://pics7.baidu.com/feed/cefc1e178a82b901d513b1faf5a63e713812ef6b.jpeg?token=3f0024848c1eefcc4631f5433a577c6f
-        TextureManager.getInstance().getTexture("https://pics7.baidu.com/feed/cefc1e178a82b901d513b1faf5a63e713812ef6b.jpeg?token=3f0024848c1eefcc4631f5433a577c6f", new TexTuresBackFun() {
-            @Override
-            public void Bfun(TextureRes value) {
-                textureBase=value;
-            }
-        });
-
-    }
-    private int skipNum;
     public Display3DSprite(Scene3D val){
         super(val);
 
-        this.skipNum=0;
+        ProgrmaManager.getInstance().registe(Display3DShader.shaderNameStr,new Display3DShader());
+        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderNameStr);
         this.modeMatrix=new Matrix3D();
-        this.registetProgame();
         this.makeTempObjData();
     }
     protected void  makeTempObjData()
     {
         this.objData =new ObjData();
-
         ObjData od=this.objData;
-
         od.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
         od.verticeslist.add(0f);
         od.verticeslist.add(0f);
@@ -108,14 +93,6 @@ public   class Display3DSprite extends Display3D {
 
     }
 
-    protected void  registetProgame()
-    {
-
-        ProgrmaManager.getInstance().registe(Display3DShader.shaderNameStr,new Display3DShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderNameStr);
-
-    }
-
 
     public void upData(){
 
@@ -135,7 +112,6 @@ public   class Display3DSprite extends Display3D {
 
             }
         }
-
     }
     public  void  updateMaterial()
     {
@@ -164,26 +140,22 @@ public   class Display3DSprite extends Display3D {
         Context3D ctx=this.scene3d.context3D;
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-
     }
     protected void setBaseMaterialVc(Material material)
     {
 
     }
-
     protected void setMaterialVa()
     {
         Context3D ctx=this.scene3d.context3D;
         ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
         ctx.setVa(this.shader3D,"vTextCoord",2,this.objData.uvBuffer);
         ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
-
     }
     protected void resetVa()
     {
 
     }
-
     public void setMaterialUrl(String url, final List paramData)
     {
 
@@ -197,8 +169,6 @@ public   class Display3DSprite extends Display3D {
                 }
             }
         },true, MaterialShader.shaderNameStr,new MaterialShader());
-//} info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
-
     }
     protected void setMaterialVc(Material material,MaterialBaseParam mp)
     {

@@ -90,10 +90,11 @@ public class ProgrmaManager extends  ResGC {
 //            this.outShader(shader.fragment,"fragment");
 //            this._changeBallShader(shader);
         }
-        if (keyStr.indexOf("Display3DFacetShader")!=-1) {
-//            this.outShader(shader.vertex,"vertex");
+        if (keyStr.indexOf("particleresources/materials/m_ef_ver_byte")!=-1) {
+            this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
-//            this._changeBallShader(shader);
+//            this._changeShader(shader);
+
         }
 
         shader.encodeVstr(shader.vertex,shader.fragment);
@@ -102,85 +103,38 @@ public class ProgrmaManager extends  ResGC {
 
     }
 
-    private void _changeBallShader(Shader3D shader) {
-
-        shader.fragment=
-                "precision mediump float;"+
-                        "uniform sampler2D fs0;"+
-                        "uniform sampler2D fs1;"+
-                        "uniform vec4 fc[1];"+
-                        "varying vec2 v0;"+
-                        "varying vec2 v1;"+
-                        "void main(void){"+
-                        "vec4 ft0 = texture2D(fs0,v0);"+
-                        "ft0.xyz *= ft0.w;"+
-                        "vec4 ft1 = texture2D(fs1,v1);"+
-//                        "ft1.xyz = ft1.xyz * ft1.w;"+
-//                        "vec4 ft2 = ft0 * fc[0];"+
-//                        "ft0 = ft2 * ft1;"+
-//                        "ft1.xyz = ft0.xyz;"+
-//                        "ft1.w = ft0.w;"+
-                        "gl_FragColor = ft1;"+
-                        "}";
-    }
 
 
-    private void _changeLocusShader(Shader3D shader) {
+    private void _changeShader(Shader3D shader) {
         shader.vertex=
                 "attribute vec3 v3Position;"+
                         "attribute vec2 v2TexCoord;"+
-                        "attribute vec4 v3Normal;"+
                         "uniform mat4 viewMatrix;"+
                         "uniform mat4 camMatrix;"+
                         "uniform mat4 modeMatrix;"+
-                        "uniform vec4 vcmat30;"+
-                        "uniform vec4 v3CamPos;"+
+                        "uniform mat4 rotMatrix;"+
                         "varying vec2 v0;"+
-                        "varying vec2 v1;"+
-                        "varying vec4 v2;"+
-                        "void main(){"+
-                        "vec2 tempv0 = v2TexCoord;"+
-                        "tempv0.x -= vcmat30.x;"+
-                        "float alpha = tempv0.x/vcmat30.y;"+
-                        "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);"+
-                        "float kill = -tempv0.x;"+
-                        "kill *= tempv0.x - vcmat30.z;"+
-                        "v2 = vec4(kill,0.0,0.0,alpha);"+
-                        "v1 = v2TexCoord;"+
-                        "v0 = tempv0;"+
-                        "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);"+
-                        "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);"+
-                        "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);"+
-                        "mulPos = normalize(vec3(v3CamPos.xyz) - mulPos);"+
-                        "mulPos = cross(mulPos, normals);"+
-                        "mulPos = normalize(mulPos);"+
-                        "mulPos *= v3Normal.w*2.0  ;"+
-                        "tempPos.xyz = mulPos.xyz + v3Position.xyz;"+
-                        "gl_Position =viewMatrix*camMatrix*modeMatrix* tempPos ;"+
+                        "void main(){v0=v2TexCoord;"+
+                        "vec4 vPos = vec4(v3Position.xyz,1.0);"+
+                        "gl_Position =   (viewMatrix*camMatrix)*(modeMatrix*rotMatrix*vPos);"+
                         "}";
         shader.fragment=
                 "precision mediump float;"+
                         "uniform sampler2D fs0;"+
-                        "uniform sampler2D fs1;"+
                         "uniform vec4 fc[1];"+
                         "varying vec2 v0;"+
-                        "varying vec4 v2;"+
-                        "varying vec2 v1;"+
                         "void main(void){"+
                         "vec4 ft0 = texture2D(fs0,v0);"+
                         "ft0.xyz *= ft0.w;"+
-                        "vec4 ft1 = texture2D(fs1,v1);"+
-                        "ft1.xyz = ft1.xyz * ft1.w;"+
-                        "vec4 ft2 = ft0 * ft1;"+
-                        "ft0 = ft2 * v2.w;"+
-                        "ft1.xyz = ft0.xyz;"+
-                        "ft1.w = ft0.w;"+
-                        "if(v2.x<fc[0].x){discard;}"+
-                        "gl_FragColor = vec4(1,0,0,1);"+
+                        "vec4 ft1 = ft0 * fc[0];"+
+                        "ft0.xyz = ft1.xyz;"+
+                        "ft0.w = ft1.w;"+
+                        "ft0.xyz = ft0.xyz * ft0.w;"+
+                        "gl_FragColor = ft0;"+
                         "}";
     }
 
-    private void outShader(String value,String typeStr) {
+    public static void outShader(String value,String typeStr) {
 
         String[] item = value.split("\n");
         String outStr="";

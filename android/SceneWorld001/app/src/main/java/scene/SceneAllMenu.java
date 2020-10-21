@@ -89,7 +89,7 @@ public class SceneAllMenu extends AppCompatActivity   {
 
 //                _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
 
-                loadSceneByUrl("1001");
+                loadSceneByUrl("2012");
 
 
             }
@@ -246,10 +246,13 @@ public class SceneAllMenu extends AppCompatActivity   {
     private void _selectChangjing(){
         List<String> arr=new ArrayList<>();
         arr.add("1001");
-        arr.add("1002");
-        arr.add("1003");
+        arr.add("2012");
+        arr.add("2013");
+        arr.add("2014");
         arr.add("网格");
         arr.add("清理");
+        arr.add("拉+");
+        arr.add("推-");
         arr.add("返回");
         addButsByArr(arr, new CallBack() {
             @Override
@@ -293,7 +296,7 @@ public class SceneAllMenu extends AppCompatActivity   {
     }
     private void loadSceneByUrl(String val){
         this._sceneRes = new SceneRes();
-        this._sceneRes.load("map/2012.txt", new CallBackFun() {
+        this._sceneRes.load("map/"+val+".txt", new CallBackFun() {
                     @Override
                     public void StateChange(boolean State) {
                         makeOBjData();
@@ -319,7 +322,7 @@ public class SceneAllMenu extends AppCompatActivity   {
             switch ( type) {
                 case 1:
                     int id=obj.getInt("id");
-                    if( obj.getInt("id")==1){
+                    if( obj.getInt("id")==2){
 
                     }
                     BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();

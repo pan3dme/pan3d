@@ -92,6 +92,9 @@ public class ObjData extends ResCount {
             if(this.uvlist!=null&&this.uvlist.size()>0){
                 this.uvBuffer=ObjData.upGpuvertexBuffer(this.uvlist);
             }
+            if(this.lightuvs!=null&&this.lightuvs.size()>0){
+                this.lightUvBuffer=ObjData.upGpuvertexBuffer(this.lightuvs);
+            }
             if(this.normals!=null&&this.normals.size()>0){
                 this.normalsBuffer=ObjData.upGpuvertexBuffer(this.normals);
             }
