@@ -89,7 +89,7 @@ public class SceneAllMenu extends AppCompatActivity   {
 
 //                _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
 
-
+                loadSceneByUrl("1001");
 
 
             }
@@ -120,7 +120,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectTexiao();
+        _selectRole();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -163,19 +163,27 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("50014");
         arr.add("50015");
         arr.add("yezhuz");
+        arr.add("全部");
         arr.add("网格");
         arr.add("拉+");
         arr.add("推-");
+
         arr.add("清理");
         arr.add("返回");
         addButsByArr(arr, new CallBack() {
             @Override
             public void StateChange(Object val) {
                 String str=(String) val;
-                if(str.equals("返回")){
+                if(str.equals("全部")){
+                    addRoleToSceneByUrl("50011.txt",new Vector3D());
+                    addRoleToSceneByUrl("50014.txt",new Vector3D());
+                    addRoleToSceneByUrl("50015.txt",new Vector3D());
+                    addRoleToSceneByUrl("yezhuz.txt",new Vector3D());
+
+                }else if(str.equals("返回")){
                     addRootMenu();
                 }else{
-                    addRoleToSceneByUrl(str+".txt");
+                    addRoleToSceneByUrl(str+".txt",new Vector3D());
                 }
             }
         });
@@ -366,13 +374,16 @@ public class SceneAllMenu extends AppCompatActivity   {
 
     }
 
-    private void  addRoleToSceneByUrl(String val)
+    private void  addRoleToSceneByUrl(String val,Vector3D pos)
     {
         Display3dMovie sc=new Display3dMovie(this._scene3d);
         sc.setRoleUrl("role/"+val);
         sc.scaleX=2;
         sc.scaleY=2;
         sc.scaleZ=2;
+        sc.x=pos.x;
+        sc.y=pos.y;
+        sc.z=pos.z;
         _scene3d.addMovieDisplay(sc);
     }
     private void   playLyf(String url)

@@ -62,7 +62,17 @@ public class LoaderThread
     private void run(){
 
         if(this.loadInfo.type==LoadManager.IMG_TYPE){
-            loagImageByUrl(this.loadInfo.url);
+
+            UrlHttpUtil.getBitmap(Scene_data.fileRoot+this.loadInfo.url, new CallBackUtil.CallBackBitmap() {
+                @Override
+                public void onFailure(int code, String errorMessage) {
+                    Log.d("errorMessage", "onResponse: ");
+                }
+                @Override
+                public void onResponse(Bitmap bm) {
+                    loadImg(bm);
+                }
+            });
         }else{
             final   LoaderThread that=this;
             String localUrl=   this.loadInfo.url.replace(Scene_data.fileRoot,"");
@@ -86,6 +96,7 @@ public class LoaderThread
         }
 
     }
+
     private Bitmap loagImageByUrl(String url) {
         Bitmap bm = null;
         try {
