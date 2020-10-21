@@ -285,55 +285,24 @@ public class SceneAllMenu extends AppCompatActivity   {
                 if(str.equals("返回")){
                     addRootMenu();
                 }else{
-//                    _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
                      playLyf("model/"+str +"_lyf.txt");
-//                    initTextureData("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg");
-//                    initTextureData("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg");
                 }
 
             }
         });
     }
-    protected void  initTextureData(String url)
-    {
-        TextureManager.getInstance().getTexture(url, new TexTuresBackFun() {
-            @Override
-            public void Bfun(TextureRes value) {
-                oneTextureRes =value;
-            }
-        });
-
-    }
-    TextureRes oneTextureRes;
-
-
-
     private void loadSceneByUrl(String val){
-        try {
-            InputStream in = getResources().openRawResource(R.raw.file2012);
-            //获取文件的字节数
-            int lenght = in.available();
-            //创建byte数组byte[]  buffer = new byte[lenght];
-            byte[] buffer = new byte[lenght];
-            //将文件中的数据读到byte数组中
-            in.read(buffer);
-            this._sceneRes = new SceneRes();
-            this._sceneRes.loadComplete(new ByteArray(buffer) ,new CallBackFun() {
-                @Override
-                public void StateChange(boolean State) {
-                    Log.d("加载结算", "StateChange: ");
-                    makeOBjData();
+        this._sceneRes = new SceneRes();
+        this._sceneRes.load("map/2012.txt", new CallBackFun() {
+                    @Override
+                    public void StateChange(boolean State) {
+                        makeOBjData();
+                    }
                 }
-            });
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        );
     }
     private void makeOBjData()
     {
-
         try {
             JSONArray buildItem=    this._sceneRes.sceneData.getJSONArray("buildItem");
             for(int i=0;i<buildItem.length();i++){
@@ -342,17 +311,13 @@ public class SceneAllMenu extends AppCompatActivity   {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
-
     private  void parsingBuildItem(JSONObject obj)
     {
         try {
             int type = obj.getInt("type");
             switch ( type) {
                 case 1:
-                    //35 58  34 32 1 19 2
                     int id=obj.getInt("id");
                     if( obj.getInt("id")==1){
 

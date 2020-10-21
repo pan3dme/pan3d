@@ -24,7 +24,7 @@ public class SceneRes extends BaseRes {
             public void bfun(HashMap dic) {
                 if(dic!=null){
                     ByteArray temp=(ByteArray)dic.get("byte");
-                    loadComplete(null,bfun);
+                    loadComplete(temp,bfun);
                 }
             }
         },null);
