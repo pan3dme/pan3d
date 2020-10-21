@@ -31,7 +31,7 @@ public class Display3DModelShader extends Shader3D {
         "varying vec2 v0;\n"+
         "void main()"+
         "{"+
-        "vec4 infoUv   =texture2D(fs0,v0.xy);\n"+
+        "vec4 infoUv  =texture2D(fs0,v0.xy);\n"+
         "gl_FragColor =infoUv;\n"+
         "}";
 

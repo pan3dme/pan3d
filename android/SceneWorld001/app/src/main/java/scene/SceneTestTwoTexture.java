@@ -47,7 +47,7 @@ public class SceneTestTwoTexture extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.scene001_layout);
         mGLView =   findViewById(R.id.mGLView);
         mGLView.setEGLContextClientVersion(2);
-        Scene_data.fileRoot = "http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
+        Scene_data.fileRoot = "https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
         LoaderThread.fileContext = getApplicationContext();
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override

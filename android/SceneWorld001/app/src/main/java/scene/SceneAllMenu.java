@@ -28,18 +28,22 @@ import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import scene.dis.TwoTextureSprite;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
 import z3d.base.Object3D;
 import z3d.base.Scene_data;
+import z3d.base.TexTuresBackFun;
 import z3d.display.BuildDisplay3DSprite;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.ParticleManager;
+import z3d.filemodel.TextureManager;
+import z3d.material.TextureRes;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.res.SceneRes;
@@ -63,7 +67,8 @@ public class SceneAllMenu extends AppCompatActivity   {
         setContentView(R.layout.scene001_layout);
         _mGLView =   findViewById(R.id.mGLView);
         _mGLView.setEGLContextClientVersion(2);
-        Scene_data.fileRoot = "http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
+
+        Scene_data.fileRoot = "https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
         LoaderThread.fileContext = getApplicationContext();
         _mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
@@ -259,12 +264,25 @@ public class SceneAllMenu extends AppCompatActivity   {
                 if(str.equals("返回")){
                     addRootMenu();
                 }else{
-
+//                   _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
                     playLyf("model/"+str +"_lyf.txt");
+//                    _loadTexture();
                 }
+
             }
         });
     }
+    private  void _loadTexture(){
+
+        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                Log.d(TAG, "Bfun: ");
+            }
+        });
+    }
+
+
 
     private void loadSceneByUrl(String val){
         try {

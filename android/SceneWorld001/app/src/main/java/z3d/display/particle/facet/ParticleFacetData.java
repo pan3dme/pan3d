@@ -96,11 +96,13 @@ public class ParticleFacetData extends ParticleData {
         Indices[4]=2;
         Indices[5]=3;
 
-
-        this.objData.vertexBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(attrArr));
-        this.objData.uvBuffer= this.objData.upGpuvertexBuffer( ObjData.getListFoatByArr(uvArr));
-        this.objData.indexBuffer= this.objData.upGpuIndexBuffer( ObjData.getListShortByArr(Indices));
-        this.objData.treNum=Indices.length;
+        objData.verticeslist=ObjData.getListFoatByArr(attrArr);
+        objData.uvlist=ObjData.getListFoatByArr(uvArr);
+        objData.indexs=ObjData.getListShortByArr(Indices);
+        this.objData.vertexBuffer= this.objData.upGpuvertexBuffer( objData.verticeslist);
+        this.objData.uvBuffer= this.objData.upGpuvertexBuffer(    objData.uvlist);
+        this.objData.indexBuffer= this.objData.upGpuIndexBuffer(objData.indexs);
+        this.objData.treNum=objData.indexs.size();
 
 
 

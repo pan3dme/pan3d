@@ -6,6 +6,7 @@ import z3d.base.ByteArray;
 import z3d.base.Scene_data;
 import z3d.display.particle.ball.Display3DBallPartilce;
 import z3d.display.particle.ball.ParticleBallData;
+import z3d.display.particle.facet.Display3DFacetParticle;
 import z3d.display.particle.facet.ParticleFacetData;
 import z3d.display.particle.locus.ParticleLocusData;
 import z3d.display.particle.locusball.ParticleLocusballData;
@@ -82,10 +83,11 @@ public class CombineParticleData extends ResCount {
         particle.maxTime = this.maxTime;
         for (int i = 0; i < this.dataAry.size(); i++) {
             Display3DParticle display  = this.dataAry.get(i).creatPartilce();
-            if (display instanceof Display3DBallPartilce) {
+            if (display instanceof Display3DFacetParticle ) {
 
             }
             particle.addPrticleItem(display);
+
         }
         particle.sourceData = this;
         return particle;

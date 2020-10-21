@@ -90,6 +90,11 @@ public class ProgrmaManager extends  ResGC {
 //            this.outShader(shader.fragment,"fragment");
 //            this._changeBallShader(shader);
         }
+        if (keyStr.indexOf("Display3DFacetShader")!=-1) {
+//            this.outShader(shader.vertex,"vertex");
+            this.outShader(shader.fragment,"fragment");
+//            this._changeBallShader(shader);
+        }
 
         shader.encodeVstr(shader.vertex,shader.fragment);
         this.dic.put(keyStr,shader);

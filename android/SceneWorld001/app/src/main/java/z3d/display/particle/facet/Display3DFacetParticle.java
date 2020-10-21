@@ -1,20 +1,54 @@
 package z3d.display.particle.facet;
 
+import android.util.Log;
+
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
+import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ball.ParticleBallData;
 import z3d.display.particle.ball.ParticleBallGpuData;
+import z3d.filemodel.TextureManager;
+import z3d.material.TextureRes;
 import z3d.vo.Vector3D;
 
 public class Display3DFacetParticle  extends Display3DParticle {
 
 
+    private static final String TAG ="Display3DFacetParticle" ;
+
     @Override
     public void update() {
         super.update();
     }
+    public Display3DFacetParticle(){
+        super();
+
+
+        initTextureData();
+
+    }
+    protected void  initTextureData()
+    {
+
+        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                oneTextureRes =value;
+            }
+        });
+        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                twoTextureRes =value;
+            }
+        });
+
+    }
+    TextureRes oneTextureRes;
+    TextureRes twoTextureRes;
+
     @Override
     public void setVa() {
         super.setVa();
@@ -23,7 +57,6 @@ public class Display3DFacetParticle  extends Display3DParticle {
         ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2TexCoord",3,objData.uvBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
-
     }
 
     @Override
@@ -50,14 +83,12 @@ public class Display3DFacetParticle  extends Display3DParticle {
             }
         }
         if (this.data._isZiZhuan) {
-
-            this.timeline.applySelfRotation(this.rotationMatrix3D,this.data._ziZhuanAngly);
+           // this.timeline.applySelfRotation(this.rotationMatrix3D,this.data._ziZhuanAngly);
         }
     }
 
     private void inverBind() {
     }
-
     public ParticleFacetData faceData(){
         return (ParticleFacetData) this.data;
     }

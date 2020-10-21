@@ -39,7 +39,7 @@
     "void main()"
     "{"
         "vec4 infoUv   =texture2D(fs0,v0.xy);\n"
-        "gl_FragColor =infoUv;\n"
+        "gl_FragColor =vec4(1,0,0,1);\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
