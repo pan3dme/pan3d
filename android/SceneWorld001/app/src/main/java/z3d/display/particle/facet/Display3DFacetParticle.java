@@ -26,7 +26,6 @@ public class Display3DFacetParticle  extends Display3DParticle {
         super();
 
 
-        initTextureData();
 
     }
     protected void  initTextureData()

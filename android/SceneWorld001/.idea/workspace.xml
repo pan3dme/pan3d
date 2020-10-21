@@ -17,26 +17,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/CombineParticleData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/CombineParticleData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/facet/ParticleFacetData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/facet/ParticleFacetData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/program/ProgrmaManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/program/ProgrmaManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/CombineParticleData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/CombineParticleData.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/facet/ParticleFacetData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/facet/ParticleFacetData.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/program/ProgrmaManager.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/program/ProgrmaManager.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneTestTwoTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneTestTwoTexture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticleData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/Display3DFacetParticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/Display3DFacetParticle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/Display3DFacetShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/Display3DFacetShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/ParticleFacetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/ParticleFacetData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/Display3DModelShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/model/Display3DModelShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl/bt/display/particle/CombineParticleData.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl/bt/display/particle/CombineParticleData.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl/bt/display/particle/face/Display3DFacetShader.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl/bt/display/particle/face/Display3DFacetShader.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,42 +175,42 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1071" y="290" key="AndroidProcessChooserDialog/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602655454001" />
-    <state width="548" height="466" key="DebuggerActiveHint" timestamp="1603252992360">
+    <state width="548" height="466" key="DebuggerActiveHint" timestamp="1603263996782">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="548" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603252992360" />
-    <state width="1009" height="228" key="GridCell.Tab.0.bottom" timestamp="1603254088873">
+    <state width="548" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603263996782" />
+    <state width="1404" height="400" key="GridCell.Tab.0.bottom" timestamp="1603264836381">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088873" />
-    <state width="1009" height="228" key="GridCell.Tab.0.center" timestamp="1603254088873">
+    <state width="1404" height="400" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264836381" />
+    <state width="1404" height="400" key="GridCell.Tab.0.center" timestamp="1603264836380">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088873" />
-    <state width="1009" height="228" key="GridCell.Tab.0.left" timestamp="1603254088873">
+    <state width="1404" height="400" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264836380" />
+    <state width="1404" height="400" key="GridCell.Tab.0.left" timestamp="1603264836380">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088873" />
-    <state width="1009" height="228" key="GridCell.Tab.0.right" timestamp="1603254088873">
+    <state width="1404" height="400" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264836380" />
+    <state width="1404" height="400" key="GridCell.Tab.0.right" timestamp="1603264836381">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088873" />
-    <state width="1009" height="228" key="GridCell.Tab.1.bottom" timestamp="1603254088872">
+    <state width="1404" height="400" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264836381" />
+    <state width="1006" height="293" key="GridCell.Tab.1.bottom" timestamp="1603264671913">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088872" />
-    <state width="1009" height="228" key="GridCell.Tab.1.center" timestamp="1603254088872">
+    <state width="1006" height="293" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264671913" />
+    <state width="1006" height="293" key="GridCell.Tab.1.center" timestamp="1603264671912">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088872" />
-    <state width="1009" height="228" key="GridCell.Tab.1.left" timestamp="1603254088871">
+    <state width="1006" height="293" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264671912" />
+    <state width="1006" height="293" key="GridCell.Tab.1.left" timestamp="1603264671912">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088871" />
-    <state width="1009" height="228" key="GridCell.Tab.1.right" timestamp="1603254088872">
+    <state width="1006" height="293" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264671912" />
+    <state width="1006" height="293" key="GridCell.Tab.1.right" timestamp="1603264671913">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1009" height="228" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603254088872" />
+    <state width="1006" height="293" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603264671913" />
     <state x="-1339" y="175" key="SettingsEditor" timestamp="1602672697955">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -252,18 +237,13 @@
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureManager.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/Display3DFacetParticle.java</url>
-          <line>37</line>
+          <line>36</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/display/particle/facet/Display3DFacetParticle.java</url>
-          <line>43</line>
+          <line>42</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>

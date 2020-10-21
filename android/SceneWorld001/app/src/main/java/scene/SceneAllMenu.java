@@ -1,5 +1,7 @@
 package scene;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -19,7 +21,12 @@ import com.e.sceneworld001.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +36,8 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import scene.dis.TwoTextureSprite;
+import urlhttp.CallBackUtil;
+import urlhttp.UrlHttpUtil;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
@@ -77,6 +86,8 @@ public class SceneAllMenu extends AppCompatActivity   {
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
+
+
 
 
             }
@@ -265,8 +276,8 @@ public class SceneAllMenu extends AppCompatActivity   {
                     addRootMenu();
                 }else{
 //                   _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
-                    playLyf("model/"+str +"_lyf.txt");
-//                    _loadTexture();
+                     playLyf("model/"+str +"_lyf.txt");
+
                 }
 
             }
@@ -274,12 +285,34 @@ public class SceneAllMenu extends AppCompatActivity   {
     }
     private  void _loadTexture(){
 
-        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
+        new Thread(new Runnable(){
             @Override
-            public void Bfun(TextureRes value) {
-                Log.d(TAG, "Bfun: ");
+            public void run() {
+                TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
+                    @Override
+                    public void Bfun(TextureRes value) {
+                        Log.d(TAG, "Bfun: ");
+                    }
+                });
             }
-        });
+        }).start();
+
+
+    }
+    private void addddd(){
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                loagImageByUrl("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg");
+            }
+        }).start();
+    }
+    public Bitmap loagImageByUrl(String url) {
+        LoaderThread dd=new LoaderThread(1);
+        dd.loagImageByUrl(url);
+
+
+        return null;
     }
 
 

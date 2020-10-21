@@ -30,7 +30,7 @@ public class LoaderThread
     public boolean idle;
     public int id;
     public  LoadInfo loadInfo;
-    private String localUrl;
+
 
     public  static Context fileContext;
     public LoaderThread(int val)
@@ -43,14 +43,13 @@ public class LoaderThread
     {
         this.idle = false;
         this.loadInfo=value;
-        this. localUrl=  this.loadInfo.url.replace(Scene_data.fileRoot,"");
-        this. localUrl=   this. localUrl.replace("/","_");
-        String savePath = LoaderThread.fileContext.getFilesDir().getPath();
-        final   LoaderThread that=this;
-
         if(this.loadInfo.type==LoadManager.IMG_TYPE){
             loagImageByUrl(this.loadInfo.url);
         }else{
+            final   LoaderThread that=this;
+            String localUrl=   this.loadInfo.url.replace(Scene_data.fileRoot,"");
+            localUrl=    localUrl.replace("/","_");
+            String savePath = LoaderThread.fileContext.getFilesDir().getPath();
             UrlHttpUtil.downloadFile(this.loadInfo.url, new CallBackUtil.CallBackFile(savePath,localUrl) {
                 @Override
                 public void onFailure(int code, String errorMessage) {
