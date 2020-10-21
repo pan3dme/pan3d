@@ -28,26 +28,7 @@ public class Display3DFacetParticle  extends Display3DParticle {
     }
     public Display3DFacetParticle(){
         super();
-        new Thread(new Runnable(){
-            @Override
-            public void run() {
-                initTextureData();
-            }
-        }).start();
-
     }
-    protected void  initTextureData()
-    {
-        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
-            @Override
-            public void Bfun(TextureRes value) {
-                oneTextureRes =value;
-            }
-        });
-
-    }
-    TextureRes oneTextureRes;
-
 
     @Override
     public void setVa() {
@@ -55,19 +36,9 @@ public class Display3DFacetParticle  extends Display3DParticle {
         Context3D ctx=this.scene3d.context3D;
         ObjData objData= this.faceData().objData;
         ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"v2TexCoord",3,objData.uvBuffer);
+        ctx.setVa(this.shader3D,"v2TexCoord",2,objData.uvBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
     }
-    public void  setMaterialTexture()
-    {
-        super.setMaterialTexture();
-        if(oneTextureRes!=null){
-            Context3D ctx=this.scene3d.context3D;
-            ctx.setRenderTexture(this.shader3D,"fs0",oneTextureRes.textTureInt,0);
-        }
-
-    }
-
     @Override
     public void setVc() {
         super.setVc();
@@ -75,7 +46,6 @@ public class Display3DFacetParticle  extends Display3DParticle {
         this.setViewCamModeMatr3d();
         this.updateRotaionMatrix();
         ctx.setVcMatrix4fv(this.shader3D,"rotMatrix",this.rotationMatrix3D.m);
-
     }
     private void updateRotaionMatrix() {
         Camera3D cam=this.scene3d.camera3D;

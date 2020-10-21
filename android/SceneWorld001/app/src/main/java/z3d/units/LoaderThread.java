@@ -36,26 +36,27 @@ public class LoaderThread
 
 
 
-    private  Thread thread;
+//    private  Thread thread;
     public  static Context fileContext;
     public LoaderThread(int val)
     {
         this.id=val;
         this.idle = true;
         final LoaderThread that=this;
-        this.thread=new Thread(new Runnable(){
-            @Override
-            public void run() {
-                that. run();
-            }
-        });
+//        this.thread=new Thread(new Runnable(){
+//            @Override
+//            public void run() {
+//                that. run();
+//            }
+//        });
 
     }
     public  void  load(LoadInfo value)
     {
         this.idle = false;
         this.loadInfo=value;
-        this.thread.start();
+//        this.thread.start();
+        this.run();
 
     }
     private void run(){
