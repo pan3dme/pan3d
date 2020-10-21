@@ -18,7 +18,7 @@ public class Display3DModelShader extends Shader3D {
         "{"+
         "v0=v2TexCoord;\n"+
         "vec4 vPos = vec4(v3Position.xyz,1.0);\n"+
-        "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;\n"+
+                        "gl_Position =   (viewMatrix*camMatrix)*(modeMatrix*rotMatrix*vPos);\n"+
         "}";
 
 

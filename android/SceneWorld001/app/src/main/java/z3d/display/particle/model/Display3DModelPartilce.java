@@ -26,7 +26,7 @@ public class Display3DModelPartilce  extends Display3DParticle {
         Context3D ctx=this.scene3d.context3D;
         ObjData objData= this.modelData().objData;
         ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"v2TexCoord",3,objData.uvBuffer);
+        ctx.setVa(this.shader3D,"v2TexCoord",2,objData.uvBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
     }
     private void updateRotaionMatrix() {
