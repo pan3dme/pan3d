@@ -87,6 +87,8 @@ public class SceneAllMenu extends AppCompatActivity   {
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
 
+//                _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
+
 
 
 
@@ -275,45 +277,26 @@ public class SceneAllMenu extends AppCompatActivity   {
                 if(str.equals("返回")){
                     addRootMenu();
                 }else{
-//                   _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
+//                    _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
                      playLyf("model/"+str +"_lyf.txt");
-
+//                    initTextureData("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg");
+//                    initTextureData("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg");
                 }
 
             }
         });
     }
-    private  void _loadTexture(){
-
-        new Thread(new Runnable(){
+    protected void  initTextureData(String url)
+    {
+        TextureManager.getInstance().getTexture(url, new TexTuresBackFun() {
             @Override
-            public void run() {
-                TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
-                    @Override
-                    public void Bfun(TextureRes value) {
-                        Log.d(TAG, "Bfun: ");
-                    }
-                });
+            public void Bfun(TextureRes value) {
+                oneTextureRes =value;
             }
-        }).start();
-
+        });
 
     }
-    private void addddd(){
-        new Thread(new Runnable(){
-            @Override
-            public void run() {
-                loagImageByUrl("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg");
-            }
-        }).start();
-    }
-    public Bitmap loagImageByUrl(String url) {
-        LoaderThread dd=new LoaderThread(1);
-        dd.loagImageByUrl(url);
-
-
-        return null;
-    }
+    TextureRes oneTextureRes;
 
 
 

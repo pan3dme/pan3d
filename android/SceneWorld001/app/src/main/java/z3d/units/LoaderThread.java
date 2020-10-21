@@ -23,6 +23,9 @@ import urlhttp.UrlHttpUtil;
 import z3d.base.ByteArray;
 
 import z3d.base.Scene_data;
+import z3d.base.TexTuresBackFun;
+import z3d.filemodel.TextureManager;
+import z3d.material.TextureRes;
 
 
 public class LoaderThread
@@ -32,17 +35,31 @@ public class LoaderThread
     public  LoadInfo loadInfo;
 
 
+
+    private  Thread thread;
     public  static Context fileContext;
     public LoaderThread(int val)
     {
         this.id=val;
         this.idle = true;
+        final LoaderThread that=this;
+        this.thread=new Thread(new Runnable(){
+            @Override
+            public void run() {
+                that. run();
+            }
+        });
 
     }
     public  void  load(LoadInfo value)
     {
         this.idle = false;
         this.loadInfo=value;
+        this.thread.start();
+
+    }
+    private void run(){
+
         if(this.loadInfo.type==LoadManager.IMG_TYPE){
             loagImageByUrl(this.loadInfo.url);
         }else{
@@ -67,10 +84,8 @@ public class LoaderThread
             });
         }
 
-
-
     }
-    public Bitmap loagImageByUrl(String url) {
+    private Bitmap loagImageByUrl(String url) {
         Bitmap bm = null;
         try {
             URL iconUrl = new URL(url);
@@ -147,6 +162,7 @@ public class LoaderThread
         this.loadInfo.fun.bfun(dic);
         this.idle = true;
         this.loadInfo = null;
+
         LoadManager.getInstance().loadWaitList();
     }
 

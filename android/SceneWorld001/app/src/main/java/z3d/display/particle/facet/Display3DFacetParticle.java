@@ -2,6 +2,8 @@ package z3d.display.particle.facet;
 
 import android.util.Log;
 
+import java.util.List;
+
 import z3d.base.Camera3D;
 import z3d.base.ObjData;
 import z3d.base.TexTuresBackFun;
@@ -10,6 +12,8 @@ import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ball.ParticleBallData;
 import z3d.display.particle.ball.ParticleBallGpuData;
 import z3d.filemodel.TextureManager;
+import z3d.material.DynamicTexItem;
+import z3d.material.TexItem;
 import z3d.material.TextureRes;
 import z3d.vo.Vector3D;
 
@@ -24,29 +28,26 @@ public class Display3DFacetParticle  extends Display3DParticle {
     }
     public Display3DFacetParticle(){
         super();
-
-
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                initTextureData();
+            }
+        }).start();
 
     }
     protected void  initTextureData()
     {
-
         TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/xiezi.jpg", new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 oneTextureRes =value;
             }
         });
-        TextureManager.getInstance().getTexture("https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/brdf_ltu.jpg", new TexTuresBackFun() {
-            @Override
-            public void Bfun(TextureRes value) {
-                twoTextureRes =value;
-            }
-        });
 
     }
     TextureRes oneTextureRes;
-    TextureRes twoTextureRes;
+
 
     @Override
     public void setVa() {
@@ -56,6 +57,15 @@ public class Display3DFacetParticle  extends Display3DParticle {
         ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2TexCoord",3,objData.uvBuffer);
         ctx.drawCall(objData.indexBuffer,objData.treNum);
+    }
+    public void  setMaterialTexture()
+    {
+        super.setMaterialTexture();
+        if(oneTextureRes!=null){
+            Context3D ctx=this.scene3d.context3D;
+            ctx.setRenderTexture(this.shader3D,"fs0",oneTextureRes.textTureInt,0);
+        }
+
     }
 
     @Override
