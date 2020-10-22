@@ -264,10 +264,8 @@ z3d/display/particle/CombineParticleData.java
  z3d.display.particle.CombineParticleData
 z3d/display/particle/ball/Display3DBallPartilce.java
  z3d.display.particle.ball.Display3DBallPartilce
-scene/SceneTestTwoTexture.java
- scene.SceneTestTwoTexture
- scene.SceneTestTwoTexture$1
- scene.SceneTestTwoTexture$2
+z3d/display/basedis/DisplayTestSprite.java
+ z3d.display.basedis.DisplayTestSprite
 z3d/scene/Scene3D.java
  z3d.scene.Scene3D
 scene/dis/TwoTextureSprite.java
@@ -282,48 +280,14 @@ z3d/display/line/GridLineSprite.java
  z3d.display.line.GridLineSprite
 z3d/display/basedis/DisplayBaseSprite.java
  z3d.display.basedis.DisplayBaseSprite
-scene/SceneRoleBase.java
- scene.SceneRoleBase
- scene.SceneRoleBase$1
- scene.SceneRoleBase$2
- scene.SceneRoleBase$3
- scene.SceneRoleBase$4
- scene.SceneRoleBase$5
- scene.SceneRoleBase$6
-z3d/display/Display3D.java
- z3d.display.Display3D
-z3d/display/line/LineDisplaySprite.java
- z3d.display.line.LineDisplaySprite
-scene/SceneLyfBase.java
- scene.SceneLyfBase
- scene.SceneLyfBase$1
- scene.SceneLyfBase$2
- scene.SceneLyfBase$3
- scene.SceneLyfBase$4
- scene.SceneLyfBase$5
- scene.SceneLyfBase$6
- scene.SceneLyfBase$7
- scene.SceneLyfBase$8
- scene.SceneLyfBase$9
-z3d/filemodel/ParticleManager.java
- z3d.filemodel.ParticleManager
-scene/SceneWorldBase.java
- scene.SceneWorldBase
- scene.SceneWorldBase$1
- scene.SceneWorldBase$2
- scene.SceneWorldBase$3
- scene.SceneWorldBase$4
-z3d/display/particle/model/Display3DModelPartilce.java
- z3d.display.particle.model.Display3DModelPartilce
-z3d/display/role/Display3dMovie.java
- z3d.display.role.Display3dMovie
- z3d.display.role.Display3dMovie$1
-z3d/display/basedis/DisplayTestSprite.java
- z3d.display.basedis.DisplayTestSprite
 z3d/display/BuildDisplay3DSprite.java
  z3d.display.BuildDisplay3DSprite
  z3d.display.BuildDisplay3DSprite$1
  z3d.display.BuildDisplay3DSprite$2
+z3d/display/Display3D.java
+ z3d.display.Display3D
+z3d/display/line/LineDisplaySprite.java
+ z3d.display.line.LineDisplaySprite
 scene/SceneAllMenu.java
  scene.SceneAllMenu
  scene.SceneAllMenu$1
@@ -334,3 +298,10 @@ scene/SceneAllMenu.java
  scene.SceneAllMenu$6
  scene.SceneAllMenu$7
  scene.SceneAllMenu$8
+z3d/filemodel/ParticleManager.java
+ z3d.filemodel.ParticleManager
+z3d/display/role/Display3dMovie.java
+ z3d.display.role.Display3dMovie
+ z3d.display.role.Display3dMovie$1
+z3d/display/particle/model/Display3DModelPartilce.java
+ z3d.display.particle.model.Display3DModelPartilce
