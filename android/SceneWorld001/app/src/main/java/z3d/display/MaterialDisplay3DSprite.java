@@ -1,4 +1,5 @@
 package z3d.display;
+import android.opengl.GLES20;
 import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -76,6 +77,10 @@ public class MaterialDisplay3DSprite  extends Display3DSprite{
             ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
             this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderNameStr);
             Context3D ctx=this.scene3d.context3D;
+            GLES20.glFrontFace(GLES20.GL_CW);
+            ctx.setDepthTest(true);
+            ctx.setWriteDepth(true);
+
             ctx.setProgame(this.shader3D.program);
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
@@ -137,36 +142,7 @@ public class MaterialDisplay3DSprite  extends Display3DSprite{
         this.setMaterialVa();
 
     }
-    protected void setVc()
-    {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
-    }
-    protected void setMaterialVa()
-    {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVa(this.shader3D,"v3Position",3,this.objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"v2TexCoord",2,this.objData.uvBuffer);
-        ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
-
-    }
-    protected void setMaterialTexture(Material material, MaterialBaseParam mp)
-    {
-        super.setMaterialTexture(material,mp);
-        Context3D ctx=this.scene3d.context3D;
-        List<TexItem> texVec= mp.material.texList;
-        TexItem texItem=null;
-        for (int i   = 0; i < texVec.size(); i++) {
-            texItem=texVec.get(i);
-            if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null) {
-                ctx.setRenderTexture(material.shader,"fs0",this.lightTextureRes.textTureInt,0);
-                ctx.setRenderTexture(material.shader,texItem.name,this.lightTextureRes.textTureInt,texItem.get_id());
-            }
-        }
-
-    }
     @Override
     public void upData(){
         if(this.material!=null){

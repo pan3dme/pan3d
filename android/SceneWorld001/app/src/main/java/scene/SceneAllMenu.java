@@ -246,10 +246,10 @@ public class SceneAllMenu extends AppCompatActivity   {
 
     private void _selectChangjing(){
         List<String> arr=new ArrayList<>();
-        arr.add("1001");
         arr.add("2012");
         arr.add("2013");
         arr.add("2014");
+        arr.add("2015");
         arr.add("网格");
         arr.add("清理");
         arr.add("拉+");
