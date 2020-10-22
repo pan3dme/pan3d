@@ -84,9 +84,9 @@ public class SceneAllMenu extends AppCompatActivity   {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
-                GridLineSprite  dis=new GridLineSprite( _scene3d);
-                dis.changeColor(new Vector3D(1,1,1,1));
-                _scene3d.addDisplay(dis);
+//                GridLineSprite  dis=new GridLineSprite( _scene3d);
+//                dis.changeColor(new Vector3D(1,1,1,1));
+//                _scene3d.addDisplay(dis);
 
                 addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 

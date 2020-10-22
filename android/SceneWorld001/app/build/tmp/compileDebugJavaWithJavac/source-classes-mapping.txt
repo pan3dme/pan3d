@@ -99,8 +99,9 @@ z3d/core/Context3D.java
  z3d.core.Context3D
 z3d/display/basedis/DisplayTestShader.java
  z3d.display.basedis.DisplayTestShader
-z3d/base/RoleBackFun.java
- z3d.base.RoleBackFun
+z3d/filemodel/MeshDataManager.java
+ z3d.filemodel.MeshDataManager
+ z3d.filemodel.MeshDataManager$1
 z3d/filemodel/GroupDataManager.java
  z3d.filemodel.GroupDataManager
  z3d.filemodel.GroupDataManager$1
@@ -219,18 +220,17 @@ z3d/display/particle/ball/ParticleBallGpuData.java
  z3d.display.particle.ball.ParticleBallGpuData
 z3d/display/basedis/DisplayBaseShader.java
  z3d.display.basedis.DisplayBaseShader
+z3d/base/RoleBackFun.java
+ z3d.base.RoleBackFun
+z3d/base/MeshData.java
+ z3d.base.MeshData
+z3d/base/SkinMeshBackFun.java
+ z3d.base.SkinMeshBackFun
 z3d/res/RoleRes.java
  z3d.res.RoleRes
  z3d.res.RoleRes$1
  z3d.res.RoleRes$1$1
  z3d.res.RoleRes$2
-z3d/base/MeshData.java
- z3d.base.MeshData
-z3d/base/SkinMeshBackFun.java
- z3d.base.SkinMeshBackFun
-z3d/filemodel/MeshDataManager.java
- z3d.filemodel.MeshDataManager
- z3d.filemodel.MeshDataManager$1
 z3d/vo/SkinMesh.java
  z3d.vo.SkinMesh
  z3d.vo.SkinMesh$1

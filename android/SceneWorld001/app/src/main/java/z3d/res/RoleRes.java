@@ -61,6 +61,7 @@ public class RoleRes extends BaseRes {
     public void  loadComplete(ByteArray buff, RoleBackFun bfun)
     {
 
+
         this.bfun=bfun;
         this._byte =buff;
         this.version = this._byte.readInt();

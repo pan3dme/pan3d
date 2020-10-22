@@ -7,6 +7,7 @@ import z3d.base.SkinMeshBackFun;
 import z3d.core.Context3D;
 import z3d.display.Display3DSprite;
 import z3d.filemodel.MeshDataManager;
+import z3d.program.Shader3D;
 import z3d.scene.Scene3D;
 import z3d.vo.AnimData;
 import z3d.vo.DualQuatFloat32Array;
@@ -88,6 +89,10 @@ public class Display3dMovie extends Display3DSprite {
             Log.d(TAG, "没有: ");
             return;
         }
+        if (mesh.material.shader==null ) {
+            Log.d(TAG, "没有: ");
+            return;
+        }
         this.shader3D=mesh.material.shader;
         Context3D ctx=this.scene3d.context3D;
         ctx.setDepthTest(true);
@@ -102,15 +107,17 @@ public class Display3dMovie extends Display3DSprite {
         ctx.setVa(this.shader3D,"boneWeight",4,mesh.boneWeightBuffer);
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
 
+//        Log.d(TAG,"-----");
+
     }
 
     protected void setVc()
     {
         Context3D ctx=this.scene3d.context3D;
-        this.modeMatrix=new Matrix3D();
-        this.modeMatrix.appendScale(0.25f,0.25f,0.25f);
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
+        this.modeMatrix.identity();
+        this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
+        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,Shader3D.posMatrix,this.modeMatrix.m);
 
     }
     private AnimData  _getCurentAnimData(){
@@ -128,7 +135,7 @@ public class Display3dMovie extends Display3DSprite {
     private  void setMeshVc(MeshData mesh)
     {
         AnimData  animData=_getCurentAnimData();
-
+//        this.curentFrame=0;
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
         Context3D ctx=this.scene3d.context3D;
         ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);

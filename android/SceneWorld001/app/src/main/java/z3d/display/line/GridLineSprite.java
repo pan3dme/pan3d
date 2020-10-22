@@ -7,10 +7,9 @@ import z3d.vo.Vector3D;
 
 public class GridLineSprite  extends LineDisplaySprite {
     public GridLineSprite(Scene3D val){
-
         super(val);
-
     }
+
     protected void  initData()
     {
         baseColor=new Vector3D(1, 1, 1, 1);
