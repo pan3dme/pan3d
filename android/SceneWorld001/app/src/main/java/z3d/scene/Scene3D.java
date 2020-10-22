@@ -39,14 +39,17 @@ public class Scene3D extends ResGC {
         this.displayList=new ArrayList<>();
         particleManager.clearAll();
     }
+    private void  upToGpu(){
+        //纹理和着色
+        Shader3D.upDataProgramWaitIng();
+        TextureManager.getInstance().upDataGenTextUserItem();
+    }
     public  void  upFrame()
     {
 
-        Shader3D.upDataProgramWaitIng();
-        TextureManager.getInstance().upDataGenTextUserItem();
+        upToGpu();
 
         Context3D ctx=this.context3D;
-
         ctx.setBlendParticleFactors(0);
 
         this.camera3D.upFrame();
@@ -65,6 +68,8 @@ public class Scene3D extends ResGC {
 //        ctx.setDepthTest(false);
 //        ctx.setWriteDepth(false);
          this.particleManager.upFrame();
+
+
     }
     private void  updateFrameRole(){
         float _tempTime= TimeUtil.getTimer();
