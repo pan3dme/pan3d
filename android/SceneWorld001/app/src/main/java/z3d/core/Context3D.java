@@ -39,7 +39,7 @@ public class Context3D {
             GLES20.glEnable(GLES20.GL_DEPTH_TEST);
         }else
         {
-            GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+            GLES20.glDisable(GLES20.GL_DEPTH_TEST);
         }
     }
     public  void  setWriteDepth(boolean tf)

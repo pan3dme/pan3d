@@ -56,9 +56,9 @@ public class Scene3D extends ResGC {
 
         this.camera3D.upFrame();
         updateFrameRole();
-//        ctx.setFrontFace(true);
-//        ctx.setDepthTest(true);
-//        ctx.setWriteDepth(true);
+        ctx.setFrontFace(true);
+        ctx.setDepthTest(true);
+        ctx.setWriteDepth(true);
         for(int i=0;  i< displayList.size();i++){
              displayList.get(i).upData();
         }
@@ -66,10 +66,10 @@ public class Scene3D extends ResGC {
             displayRoleList.get(i).upData();
         }
         this.particleManager.scene3d=this;
-//        ctx.setFrontFace(false);
-//        ctx.setDepthTest(false);
-//        ctx.setWriteDepth(false);
-         this.particleManager.upFrame();
+        ctx.setFrontFace(true);
+        ctx.setDepthTest(false);
+        ctx.setWriteDepth(false);
+        this.particleManager.upFrame();
 
 
     }
