@@ -41,76 +41,28 @@ public   class Display3DSprite extends Display3D {
 
     public Display3DSprite(Scene3D val){
         super(val);
-
-        ProgrmaManager.getInstance().registe(Display3DShader.shaderNameStr,new Display3DShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Display3DShader.shaderNameStr);
         this.modeMatrix=new Matrix3D();
-        this.makeTempObjData();
-    }
-    protected void  makeTempObjData()
-    {
-        this.objData =new ObjData();
-        ObjData od=this.objData;
-        od.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
-        od.verticeslist.add(0f);
-        od.verticeslist.add(0f);
-        od.verticeslist.add(0f);
-
-        od.verticeslist.add(100f);
-        od.verticeslist.add(0f);
-        od.verticeslist.add(0f);
-
-        od.verticeslist.add(100f);
-        od.verticeslist.add(100f);
-        od.verticeslist.add(0f);
-
-
-        od.indexs=new ArrayList<Short>();
-        od.indexs.add((short)0);
-        od.indexs.add((short)1);
-        od.indexs.add((short)2);
-
-
-        for(int i=0;i<1;i++){
-
-            od.verticeslist.add(100f);
-            od.verticeslist.add(100f);
-            od.verticeslist.add(0f);
-
-        }
-
-        for(int i=0;i<1;i++){
-
-            od.indexs.add((short)i);
-            od.indexs.add((short)i);
-            od.indexs.add((short)i);
-
-        }
-
-
-        od.upToGup();
-
-
     }
 
-
-    public void upData(){
-
-
-        Context3D ctx=this.scene3d.context3D;
-        if(this.material!=null){
-
-            this.updateMaterial();
-        }else{
-            if(this.shader3D!=null){
-                this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
-                ctx.setProgame(this.shader3D.program);
-                ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-                ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-                ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
-                ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
-
+    protected TextureRes getMainTextureRes(){
+        TexItem texItem  =this.material.getMainTexItem();
+        if(texItem==null){
+            return  null;
+        }
+        List<DynamicBaseTexItem> texDynamicVec  =  this.materialParam.dynamicTexList;
+        for (int i   = 0; i < texDynamicVec.size(); i++) {
+            DynamicBaseTexItem dynamicBaseTexItem=texDynamicVec.get(i);
+            if(texItem.paramName.equals(dynamicBaseTexItem.paramName)){
+                return dynamicBaseTexItem.textureRes;
             }
+        }
+        return texItem.textureRes;
+    }
+
+    public void upData() {
+        Context3D ctx = this.scene3d.context3D;
+        if (this.material != null) {
+            this.updateMaterial();
         }
     }
     public  void  updateMaterial()
@@ -125,8 +77,8 @@ public   class Display3DSprite extends Display3D {
 //        this.updateBind();
         this.setVc();
 //        this.setBaseMaterialVc(this.material);
-          this.setMaterialTexture(this.material,this.materialParam);
-          this.setMaterialVc(this.material,this.materialParam);
+        this.setMaterialTexture(this.material,this.materialParam);
+        this.setMaterialVc(this.material,this.materialParam);
         this.setMaterialVa();
         this.resetVa();
     }

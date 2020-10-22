@@ -26,9 +26,6 @@ public class MaterialDisplay3DSprite  extends Display3DSprite{
     public MaterialDisplay3DSprite( ){
         super(null);
     }
-    public MaterialDisplay3DSprite(Scene3D val ){
-        super(val);
-    }
     public void  setInfo(JSONObject value)
     {
 
@@ -62,16 +59,8 @@ public class MaterialDisplay3DSprite  extends Display3DSprite{
                 lightTextureRes=value;
             }
         });
-        // this.loagTextTextureRes("https://cms-bucket.ws.126.net/2020/0526/1c932f5ej00qay0pi005vc000go00cic.jpg");
     }
 
-    @Override
-    protected void makeTempObjData() {
-    }
-    protected void  registetProgame()
-    {
-
-    }
     private void showBaseModelUpData(){
         if(this.lightTextureRes!=null){
             ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
@@ -100,20 +89,6 @@ public class MaterialDisplay3DSprite  extends Display3DSprite{
         }
 
     }
-    private TextureRes getMainTextureRes(){
-        TexItem texItem  =this.material.getMainTexItem();
-        if(texItem==null){
-            return  null;
-        }
-        List<DynamicBaseTexItem> texDynamicVec  =  this.materialParam.dynamicTexList;
-        for (int i   = 0; i < texDynamicVec.size(); i++) {
-            DynamicBaseTexItem dynamicBaseTexItem=texDynamicVec.get(i);
-            if(texItem.paramName.equals(dynamicBaseTexItem.paramName)){
-                return dynamicBaseTexItem.textureRes;
-            }
-        }
-        return texItem.textureRes;
-    }
     public void  setObjUrl(String value)
     {
         Log.d(TAG, "value: "+value);
@@ -125,28 +100,9 @@ public class MaterialDisplay3DSprite  extends Display3DSprite{
         });
 
     }
-
-    @Override
-    public void updateMaterial() {
-        if(this.material==null||this.objData==null)
-        {
-            return;
-        }
-        this.shader3D=this.material.shader;
-        ProgrmaManager.outShader(this.shader3D.vertex,"vertex");
-        ProgrmaManager.outShader(this.shader3D.fragment,"fragment");
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setProgame(this.shader3D.program);
-        this.setVc();
-        this.setMaterialTexture(this.material,this.materialParam);
-        this.setMaterialVa();
-
-    }
-
     @Override
     public void upData(){
         if(this.material!=null){
-//            updateMaterial();
             showBaseModelUpData();
         }
 
