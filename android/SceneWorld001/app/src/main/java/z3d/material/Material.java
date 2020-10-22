@@ -121,6 +121,14 @@ public class Material extends ResCount {
 
 
     }
+    public TexItem getMainTexItem(){
+        for(int i=0;i< this.texList.size();i++){
+            if( this.texList.get(i).isMain==true){
+                return this.texList.get(i);
+            }
+        }
+        return null;
+    }
     private void readTexList(ByteArray fs) {
         int texListLen = fs.readInt();
         this.texList = new ArrayList<>();

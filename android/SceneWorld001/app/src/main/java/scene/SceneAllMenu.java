@@ -46,6 +46,7 @@ import z3d.base.Object3D;
 import z3d.base.Scene_data;
 import z3d.base.TexTuresBackFun;
 import z3d.display.BuildDisplay3DSprite;
+import z3d.display.MaterialDisplay3DSprite;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
@@ -325,7 +326,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                     if( obj.getInt("id")==2){
 
                     }
-                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                    MaterialDisplay3DSprite tempDis=new MaterialDisplay3DSprite();
                     tempDis.scene3d=this._scene3d;
                     tempDis.setInfo(obj);
                     this._scene3d.addDisplay(tempDis);
