@@ -70,7 +70,7 @@ public class MeshDataManager extends ResGC {
     {
         String url= roleRes.roleUrl;
         SkinMesh skinMesh=(SkinMesh)this.dic.get(url);
-
+        skinMesh.loadMaterial();
         skinMesh.setAction(roleRes.actionAry,url);
         List<SkinMeshBackFun>  arr= (List<SkinMeshBackFun>) (this.loadDic.get(url));
         for (int i = 0; i <arr.size() ; i++) {
@@ -252,6 +252,8 @@ public class MeshDataManager extends ResGC {
         meshData.boneWeightOffsets = boneWeightOffsets * 4;
 
         meshData.stride = dataWidth * 4;
+
+        meshData.upToGup();
 
 
     }

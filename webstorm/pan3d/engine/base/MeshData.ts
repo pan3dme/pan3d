@@ -11,7 +11,7 @@
         public materialUrl: string;
         public materialParamData: Array<any>;
         public materialParam: MaterialBaseParam;
-        public material: Material;
+        public  : Material;
         public particleAry: Array<BindParticle> = new Array;
         public uid: number;
 

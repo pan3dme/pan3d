@@ -115,10 +115,7 @@ public class Display3dMovie extends Display3DSprite {
 
     protected void  updateMaterialMesh(MeshData mesh)
     {
-        if(!mesh.isCompile){
-            mesh.AsyncCxtDtata();
-            return;
-        }
+
         if (mesh.material==null ) {
             Log.d(TAG, "没有: ");
             return;
