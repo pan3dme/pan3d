@@ -116,7 +116,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectTexiao();
+        _selectRole();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -156,7 +156,7 @@ public class SceneAllMenu extends AppCompatActivity   {
     private void _selectRole() {
         List<String> arr=new ArrayList<>();
         arr.add("50011");
-        arr.add("50014");
+        arr.add("50013");
         arr.add("50015");
         arr.add("yezhuz");
         arr.add("全部");
@@ -171,14 +171,15 @@ public class SceneAllMenu extends AppCompatActivity   {
             public void StateChange(Object val) {
                 String str=(String) val;
                 if(str.equals("全部")){
-                    addRoleToSceneByUrl("50011.txt",new Vector3D());
-                    addRoleToSceneByUrl("50014.txt",new Vector3D());
-                    addRoleToSceneByUrl("50015.txt",new Vector3D());
-                    addRoleToSceneByUrl("yezhuz.txt",new Vector3D());
+                    addRoleToSceneByUrl("50011.txt",new Vector3D(500,0,0));
+                    addRoleToSceneByUrl("50013.txt",new Vector3D(0,0,0));
+                    addRoleToSceneByUrl("50015.txt",new Vector3D(-500,0,0));
+                    addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 
                 }else if(str.equals("返回")){
                     addRootMenu();
                 }else{
+
                     addRoleToSceneByUrl(str+".txt",new Vector3D());
                 }
             }
@@ -340,6 +341,10 @@ public class SceneAllMenu extends AppCompatActivity   {
 
     private void  addRoleToSceneByUrl(String val,Vector3D pos)
     {
+        GridLineSprite  dic=new GridLineSprite( _scene3d);
+        dic.changeColor(new Vector3D(1,1,1,1));
+        _scene3d.addDisplay(dic);
+
         Display3dMovie sc=new Display3dMovie(this._scene3d);
         sc.setRoleUrl("role/"+val);
         sc.scaleX=2;

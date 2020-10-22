@@ -58,11 +58,10 @@ public class MaterialBaseParam extends GC {
                     String targetName = (String)  obj.get("name");
                     ConstItem target=null ;
                     for (int j = 0; j < constList.size(); j++) {
-
-                        if (targetName == constList.get(j).paramName0
-                                || targetName == constList.get(j).paramName1
-                                || targetName == constList.get(j).paramName2
-                                || targetName == constList.get(j).paramName3) {
+                        if (targetName.equals( constList.get(j).paramName0)
+                                || targetName.equals( constList.get(j).paramName1)
+                                || targetName.equals(constList.get(j).paramName2)
+                                || targetName .equals(constList.get(j).paramName3)) {
 
                             target = constList.get(j);
                             break;
