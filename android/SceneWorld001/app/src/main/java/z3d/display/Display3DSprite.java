@@ -25,6 +25,7 @@ import z3d.program.MaterialShader;
 import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.scene.Scene3D;
+import z3d.units.TimeUtil;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
 
@@ -36,8 +37,10 @@ public   class Display3DSprite extends Display3D {
     public Shader3D shader3D;
     public ObjData objData;
     public Matrix3D modeMatrix;
+    public float time;
     public Display3DSprite(Scene3D val){
         super(val);
+        this.time=0;
         this.modeMatrix=new Matrix3D();
     }
     protected TextureRes getMainTextureRes(){
@@ -95,8 +98,11 @@ public   class Display3DSprite extends Display3D {
     protected void setMaterialVa()
     {
         Context3D ctx=this.scene3d.context3D;
-        ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"vTextCoord",2,this.objData.uvBuffer);
+        ctx.setVa(this.shader3D,"v3Position",3,this.objData.vertexBuffer);
+        ctx.setVa(this.shader3D,"v2CubeTexST",2,this.objData.uvBuffer);
+        if (!(this.material.directLight || this.material.noLight)) {
+            ctx.setVa(this.shader3D,"v2lightuv",2,this.objData.lightUvBuffer);
+        }
         ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
     }
 
@@ -116,10 +122,32 @@ public   class Display3DSprite extends Display3D {
     }
     protected void setMaterialVc(Material material,MaterialBaseParam mp)
     {
+        if (material.fcNum <= 0) {
+            return;
+        }
+        float t = 0;
+        if (material.hasTime) {
+            t =  (TimeUtil.getTimer() - this.time)% 100000 * 0.001f;
+        }
+        material.update(t);
+        this.setCamPos(material);
+        if (mp!=null) {
+            mp.update();
+        }
+        Context3D ctx=this.scene3d.context3D;
+        ctx.setVc4fv(material.shader, "fc",material.fcNum, material.fcData.verBuff);
 
     }
+
+    private void setCamPos(Material material) {
+
+        material.updateCam(scene3d.camera3D.x / 100, scene3d.camera3D.y / 100, scene3d.camera3D.z / 100);
+    }
+
+    public TextureRes lightTextureRes;
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
+
         Context3D ctx=this.scene3d.context3D;
         List<TexItem> texVec= mp.material.texList;
         TexItem texItem=null;
@@ -129,7 +157,9 @@ public   class Display3DSprite extends Display3D {
                 continue;
             }
             if (texItem.type == TexItem.LIGHTMAP) {
-              //  Log.d(TAG, "LIGHTMAP: ");
+                if(lightTextureRes!=null){
+                    ctx.setRenderTexture(material.shader,texItem.name,lightTextureRes.textTureInt,texItem.get_id());
+                }
             }
             else if (texItem.type == TexItem.LTUMAP   ) {
                 Log.d(TAG, "LTUMAP: ");

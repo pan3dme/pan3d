@@ -46,7 +46,7 @@ import z3d.vo.Vector3D;
 
 public class BuildDisplay3DSprite extends Display3DSprite {
     public static String TAG="Display3DSprite";
-    public TextureRes lightTextureRes;
+
     public BuildDisplay3DSprite( ){
         super(null);
     }
@@ -125,7 +125,8 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     @Override
     public void upData(){
         if(this.material!=null){
-            showBaseModelUpData();
+            super.upData();
+//            showBaseModelUpData();
         }
 
     }

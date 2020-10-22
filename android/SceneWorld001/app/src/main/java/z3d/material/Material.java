@@ -198,7 +198,14 @@ public class Material extends ResCount {
 
     private void updateScene() {
     }
-
     private void updateTime(float t) {
+    }
+    public void updateCam(float x, float y, float z) {
+        if (this.usePbr || this.fogMode == 1) {
+            int idx = this.fcIDAry.get(0) * 4;
+            this.fcData.put(0 + idx,x);
+            this.fcData.put(1 + idx,y);
+            this.fcData.put(2 + idx,z);
+        }
     }
 }

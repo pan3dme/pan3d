@@ -17,7 +17,7 @@ import z3d.filemodel.TextureManager;
 public class MaterialBaseParam extends GC {
     public Material material;
     public List<DynamicBaseTexItem> dynamicTexList ;
-    public List dynamicConstList ;
+    public List<DynamicBaseConstItem> dynamicConstList ;
 
 
     public void setData(   Material mater,  List<HashMap> ary )
@@ -89,4 +89,11 @@ public class MaterialBaseParam extends GC {
         }
     }
 
+    public void update() {
+        if (this.material!=null && this.dynamicConstList!=null) {
+            for (int i = 0; i < this.dynamicConstList.size(); i++) {
+                this.dynamicConstList.get(i).update();
+            }
+        }
+    }
 }

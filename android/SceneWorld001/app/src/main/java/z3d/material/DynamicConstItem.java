@@ -1,5 +1,7 @@
 package z3d.material;
 
+import android.util.Log;
+
 public class DynamicConstItem  extends DynamicBaseConstItem {
 
     public Curve curve ;
@@ -10,7 +12,11 @@ public class DynamicConstItem  extends DynamicBaseConstItem {
         this.target.setDynamic(this);
 
     }
-
+    public void update() {
+        if (this.target!=null) {
+            this.target.setDynamic(this);
+        }
+    }
 
     public void settype(int value) {
         this._type = value;

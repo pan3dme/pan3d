@@ -14,32 +14,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/MeshData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/MeshData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/ObjData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/ObjData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DShader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DSprite$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DSprite$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DSprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/ball/ParticleBallData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/ball/ParticleBallData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/facet/ParticleFacetData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/facet/ParticleFacetData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/locus/ParticleLocusData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/locus/ParticleLocusData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/model/ParticleModelData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/particle/model/ParticleModelData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/MeshData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/MeshData.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/ObjData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/ObjData.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DShader.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DShader.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DSprite$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DSprite$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DSprite.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DSprite.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/ball/ParticleBallData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/ball/ParticleBallData.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/facet/ParticleFacetData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/facet/ParticleFacetData.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/locus/ParticleLocusData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/locus/ParticleLocusData.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/model/ParticleModelData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/particle/model/ParticleModelData.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseConstItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicBaseConstItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicConstItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/DynamicConstItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,42 +187,42 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1071" y="290" key="AndroidProcessChooserDialog/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602655454001" />
-    <state width="597" height="466" key="DebuggerActiveHint" timestamp="1603362329618">
+    <state width="597" height="466" key="DebuggerActiveHint" timestamp="1603380958655">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="597" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603362329618" />
-    <state width="1427" height="217" key="GridCell.Tab.0.bottom" timestamp="1603373166492">
+    <state width="597" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603380958655" />
+    <state width="1412" height="339" key="GridCell.Tab.0.bottom" timestamp="1603381546863">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166492" />
-    <state width="1427" height="217" key="GridCell.Tab.0.center" timestamp="1603373166491">
+    <state width="1412" height="339" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546863" />
+    <state width="1412" height="339" key="GridCell.Tab.0.center" timestamp="1603381546863">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166491" />
-    <state width="1427" height="217" key="GridCell.Tab.0.left" timestamp="1603373166491">
+    <state width="1412" height="339" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546863" />
+    <state width="1412" height="339" key="GridCell.Tab.0.left" timestamp="1603381546863">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166491" />
-    <state width="1427" height="217" key="GridCell.Tab.0.right" timestamp="1603373166492">
+    <state width="1412" height="339" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546863" />
+    <state width="1412" height="339" key="GridCell.Tab.0.right" timestamp="1603381546863">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166492" />
-    <state width="1427" height="217" key="GridCell.Tab.1.bottom" timestamp="1603373166491">
+    <state width="1412" height="339" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546863" />
+    <state width="1412" height="339" key="GridCell.Tab.1.bottom" timestamp="1603381546862">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166491" />
-    <state width="1427" height="217" key="GridCell.Tab.1.center" timestamp="1603373166491">
+    <state width="1412" height="339" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546862" />
+    <state width="1412" height="339" key="GridCell.Tab.1.center" timestamp="1603381546862">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166491" />
-    <state width="1427" height="217" key="GridCell.Tab.1.left" timestamp="1603373166490">
+    <state width="1412" height="339" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546862" />
+    <state width="1412" height="339" key="GridCell.Tab.1.left" timestamp="1603381546862">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166490" />
-    <state width="1427" height="217" key="GridCell.Tab.1.right" timestamp="1603373166491">
+    <state width="1412" height="339" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546862" />
+    <state width="1412" height="339" key="GridCell.Tab.1.right" timestamp="1603381546862">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1427" height="217" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603373166491" />
+    <state width="1412" height="339" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603381546862" />
     <state x="-1339" y="175" key="SettingsEditor" timestamp="1602672697955">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -238,19 +231,20 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1171" y="387" key="edit.logcat.filter.dialog.dimensions/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603162635356" />
-    <state x="-714" y="435" width="615" height="490" key="find.popup" timestamp="1603371919942">
+    <state x="-714" y="435" width="615" height="490" key="find.popup" timestamp="1603380001733">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-714" y="435" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603371919942" />
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603372194811">
+    <state x="-714" y="435" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603380001733" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603380967656">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603372194811" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603380967656" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo typeName="z3d.material.Material" fieldName="constList" />
+        <PinnedItemInfo typeName="z3d.vo.Float32Array" fieldName="verBuff" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

@@ -72,9 +72,9 @@ public class SceneAllMenu extends AppCompatActivity   {
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
-
+                loadSceneByUrl("2014");
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
-                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
+//                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -307,13 +307,13 @@ public class SceneAllMenu extends AppCompatActivity   {
             switch ( type) {
                 case 1:
                     int id=obj.getInt("id");
-                    if( obj.getInt("id")==2){
-
+                    if( id==1){
+                        BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                        tempDis.scene3d=this._scene3d;
+                        tempDis.setInfo(obj);
+                        this._scene3d.addDisplay(tempDis);
                     }
-                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                    tempDis.scene3d=this._scene3d;
-                    tempDis.setInfo(obj);
-                    this._scene3d.addDisplay(tempDis);
+
 
                     break;
                 default:

@@ -3,6 +3,7 @@ package z3d.program;
 import android.util.Log;
 
 public class MaterialShader extends  Shader3D {
+    private static final String TAG ="MaterialShader" ;
     public  static  String shaderNameStr="MaterialShader";
     public String getVertexShaderString() {
 
@@ -136,9 +137,13 @@ public class MaterialShader extends  Shader3D {
             str=  str +addstr;
 
 
-            Log.d(  "str=>", str);
+          //  Log.d(  "str=>", str);
+
+            Log.d(TAG, str);
 
 
+            ProgrmaManager.outShader(str,"MaterialShader 顶点");
+            return str;
         }
 
 
