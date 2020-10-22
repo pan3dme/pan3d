@@ -50,9 +50,6 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     public BuildDisplay3DSprite( ){
         super(null);
     }
-    public BuildDisplay3DSprite(Scene3D val ){
-        super(val);
-    }
     public void  setInfo(JSONObject value)
     {
 
@@ -70,7 +67,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             JSONArray tempArr= value.getJSONArray("materialInfoArr");
             this.setMaterialUrl((value.getString("materialurl")), MathCore.ObjArrToList( value.getJSONArray("materialInfoArr")));
             if( value.has("lighturl")){
-              this.setLighturl(value.getString("lighturl"));
+                this.setLighturl(value.getString("lighturl"));
             }
 
         } catch (Exception e) {
@@ -83,27 +80,35 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         TextureManager.getInstance().getTexture(Scene_data.fileRoot+lighturl, new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
-                 lightTextureRes=value;
+                lightTextureRes=value;
             }
         });
-       // this.loagTextTextureRes("https://cms-bucket.ws.126.net/2020/0526/1c932f5ej00qay0pi005vc000go00cic.jpg");
     }
-
 
     private void showBaseModelUpData(){
         if(this.lightTextureRes!=null){
             ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
             this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderNameStr);
             Context3D ctx=this.scene3d.context3D;
+
+
             ctx.setProgame(this.shader3D.program);
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-            ctx.setRenderTexture(material.shader,"fs0",this.lightTextureRes.textTureInt,0);
             ctx.setVa(this.shader3D,"v3Position",3,this.objData.vertexBuffer);
-            ctx.setVa(this.shader3D,"v2TexCoord",2,this.objData.lightUvBuffer);
+
+            TextureRes mainTextureRes  =getMainTextureRes();
+            if(mainTextureRes!=null){
+                ctx.setRenderTexture(material.shader,"fs0",mainTextureRes.textTureInt,0);
+                ctx.setVa(this.shader3D,"v2TexCoord",2,this.objData.uvBuffer);
+            }else{
+                if(lightTextureRes!=null){
+                    ctx.setRenderTexture(material.shader,"fs0",this.lightTextureRes.textTureInt,0);
+                    ctx.setVa(this.shader3D,"v2TexCoord",2,this.objData.lightUvBuffer);
+                }
+            }
             ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
         }
-
 
     }
     public void  setObjUrl(String value)
@@ -117,58 +122,9 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         });
 
     }
-
-    @Override
-    public void updateMaterial() {
-        if(this.material==null||this.objData==null)
-        {
-            return;
-        }
-        this.shader3D=this.material.shader;
-        ProgrmaManager.outShader(this.shader3D.vertex,"vertex");
-        ProgrmaManager.outShader(this.shader3D.fragment,"fragment");
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setProgame(this.shader3D.program);
-        this.setVc();
-        this.setMaterialTexture(this.material,this.materialParam);
-        this.setMaterialVa();
-
-    }
-    protected void setVc()
-    {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
-
-    }
-    protected void setMaterialVa()
-    {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVa(this.shader3D,"v3Position",3,this.objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"v2TexCoord",2,this.objData.uvBuffer);
-//        ctx.setVa(this.shader3D,"v2lightuv",2,this.objData.lightUvBuffer);
-        ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
-
-    }
-    protected void setMaterialTexture(Material material, MaterialBaseParam mp)
-    {
-      super.setMaterialTexture(material,mp);
-        Context3D ctx=this.scene3d.context3D;
-        List<TexItem> texVec= mp.material.texList;
-        TexItem texItem=null;
-        for (int i   = 0; i < texVec.size(); i++) {
-            texItem=texVec.get(i);
-            if (texItem.type == TexItem.LIGHTMAP&&this.lightTextureRes!=null) {
-                ctx.setRenderTexture(material.shader,"fs0",this.lightTextureRes.textTureInt,0);
-                ctx.setRenderTexture(material.shader,texItem.name,this.lightTextureRes.textTureInt,texItem.get_id());
-            }
-        }
-
-    }
     @Override
     public void upData(){
         if(this.material!=null){
-//            updateMaterial();
             showBaseModelUpData();
         }
 

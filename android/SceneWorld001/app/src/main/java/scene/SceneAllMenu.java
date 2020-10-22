@@ -1,7 +1,5 @@
 package scene;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -21,12 +19,6 @@ import com.e.sceneworld001.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,26 +27,18 @@ import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import scene.dis.TwoTextureSprite;
-import urlhttp.CallBackUtil;
-import urlhttp.UrlHttpUtil;
-import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
 import z3d.base.Object3D;
 import z3d.base.Scene_data;
-import z3d.base.TexTuresBackFun;
 import z3d.display.BuildDisplay3DSprite;
-import z3d.display.MaterialDisplay3DSprite;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.MeshDataManager;
 import z3d.filemodel.ParticleManager;
-import z3d.filemodel.TextureManager;
-import z3d.material.TextureRes;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.res.SceneRes;
@@ -119,7 +103,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectRole();
+        _selectChangjing();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -326,7 +310,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                     if( obj.getInt("id")==2){
 
                     }
-                    MaterialDisplay3DSprite tempDis=new MaterialDisplay3DSprite();
+                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
                     tempDis.scene3d=this._scene3d;
                     tempDis.setInfo(obj);
                     this._scene3d.addDisplay(tempDis);
