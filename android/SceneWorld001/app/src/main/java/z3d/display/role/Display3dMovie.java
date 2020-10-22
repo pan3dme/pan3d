@@ -47,10 +47,7 @@ public class Display3dMovie extends Display3DSprite {
     }
     @Override
     public void upData() {
-        if(this.skinMesh==null){
-            return;
-        }
-        if(this.scene3d==null){
+        if(this.skinMesh==null||this.scene3d==null){
             return;
         }
         //this.updateBind();
@@ -118,6 +115,7 @@ public class Display3dMovie extends Display3DSprite {
     }
     private AnimData  _getCurentAnimData(){
         this.curentAction="walk";
+        this.curentAction=defaultAction;
         AnimData  animData = null;
         if (this.animDic.containsKey(this.curentAction)) {
             animData = (AnimData)this.animDic.get(this.curentAction);
@@ -130,13 +128,11 @@ public class Display3dMovie extends Display3DSprite {
     private  void setMeshVc(MeshData mesh)
     {
         AnimData  animData=_getCurentAnimData();
-        if (animData==null) {
-            return;
-        }
+
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
         Context3D ctx=this.scene3d.context3D;
-        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneDarrBuff);
-        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneQarrBuff);
+        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
+        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
 
     }
 

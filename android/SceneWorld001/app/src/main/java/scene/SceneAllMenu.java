@@ -88,6 +88,8 @@ public class SceneAllMenu extends AppCompatActivity   {
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
 
+                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
+
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -181,6 +183,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 }else{
 
                     addRoleToSceneByUrl(str+".txt",new Vector3D());
+
                 }
             }
         });

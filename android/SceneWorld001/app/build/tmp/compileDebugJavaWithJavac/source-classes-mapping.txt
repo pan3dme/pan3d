@@ -35,8 +35,8 @@ z3d/material/MaterialBaseParam.java
  z3d.material.MaterialBaseParam$1
 z3d/base/ByteArrayJava.java
  z3d.base.ByteArrayJava
-z3d/vo/DualQuatFloat32Array.java
- z3d.vo.DualQuatFloat32Array
+z3d/units/AnimManager.java
+ z3d.units.AnimManager
 z3d/program/ProgrmaManager.java
  z3d.program.ProgrmaManager
 z3d/units/LoadInfo.java
@@ -231,6 +231,13 @@ z3d/base/SkinMeshBackFun.java
 z3d/filemodel/MeshDataManager.java
  z3d.filemodel.MeshDataManager
  z3d.filemodel.MeshDataManager$1
+z3d/vo/SkinMesh.java
+ z3d.vo.SkinMesh
+ z3d.vo.SkinMesh$1
+z3d/vo/AnimData.java
+ z3d.vo.AnimData
+z3d/vo/DualQuatFloat32Array.java
+ z3d.vo.DualQuatFloat32Array
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
 scene/SceneAllMenu.java
@@ -292,8 +299,6 @@ z3d/display/role/Display3dMovie.java
  z3d.display.role.Display3dMovie$1
 z3d/display/basedis/DisplayTestSprite.java
  z3d.display.basedis.DisplayTestSprite
-z3d/units/AnimManager.java
- z3d.units.AnimManager
 scene/SceneRoleBase.java
  scene.SceneRoleBase
  scene.SceneRoleBase$1
@@ -307,9 +312,6 @@ z3d/display/Display3DSprite.java
  z3d.display.Display3DSprite$1
 z3d/display/particle/Display3DParticle.java
  z3d.display.particle.Display3DParticle
-z3d/vo/SkinMesh.java
- z3d.vo.SkinMesh
- z3d.vo.SkinMesh$1
 z3d/display/particle/CombineParticleData.java
  z3d.display.particle.CombineParticleData
 scene/dis/TwoTextureSprite.java
@@ -324,8 +326,6 @@ z3d/display/Display3D.java
  z3d.display.Display3D
 z3d/display/particle/ctrl/TimeLine.java
  z3d.display.particle.ctrl.TimeLine
-z3d/vo/AnimData.java
- z3d.vo.AnimData
 z3d/display/particle/ball/ParticleBallData.java
  z3d.display.particle.ball.ParticleBallData
 z3d/filemodel/ParticleManager.java
