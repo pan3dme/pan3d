@@ -13,6 +13,7 @@ import z3d.display.role.Display3dMovie;
 import z3d.filemodel.ParticleManager;
 import z3d.filemodel.TextureManager;
 import z3d.program.Shader3D;
+import z3d.res.RoleRes;
 import z3d.units.TimeUtil;
 
 public class Scene3D extends ResGC {
@@ -41,6 +42,7 @@ public class Scene3D extends ResGC {
     }
     private void  upToGpu(){
         //纹理和着色
+        RoleRes.upDataRoleResWaitIng();
         Shader3D.upDataProgramWaitIng();
         TextureManager.getInstance().upDataGenTextUserItem();
     }

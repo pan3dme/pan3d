@@ -24,7 +24,6 @@ public class ResManager extends ResGC {
 
         final RoleRes roleRes = new RoleRes();
         roleRes.meshBatchNum = batchNum;
-
         roleRes.load(url, new CallBackFun() {
             @Override
             public void StateChange(boolean State) {

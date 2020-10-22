@@ -67,7 +67,7 @@ public class MeshDataManager extends ResGC {
         ResManager.getInstance().loadRoleRes(Scene_data.fileRoot+ url, new RoleBackFun() {
             @Override
             public void Bfun(RoleRes value) {
-                roleResCom(value,bfun);
+               roleResCom(value,bfun);
             }
         },batchNum);
 
