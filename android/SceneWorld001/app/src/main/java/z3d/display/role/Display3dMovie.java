@@ -1,41 +1,18 @@
 package z3d.display.role;
-
-import android.opengl.GLES20;
 import android.util.Log;
-
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
-import z3d.base.CallBackFun;
 import z3d.base.MeshData;
-import z3d.base.ObjData;
 import z3d.base.Scene_data;
 import z3d.base.SkinMeshBackFun;
 import z3d.core.Context3D;
-import z3d.display.Display3DShader;
 import z3d.display.Display3DSprite;
-import z3d.display.basedis.DisplayBaseShader;
-import z3d.display.basedis.DisplayBaseSprite;
-import z3d.display.basedis.DisplayTestShader;
-import z3d.display.line.GridLineSprite;
 import z3d.filemodel.MeshDataManager;
-import z3d.program.MaterialAnimShader;
-import z3d.program.ProgrmaManager;
-import z3d.program.Shader3D;
 import z3d.scene.Scene3D;
-import z3d.units.TimeUtil;
 import z3d.vo.AnimData;
 import z3d.vo.DualQuatFloat32Array;
 import z3d.vo.Matrix3D;
 import z3d.vo.SkinMesh;
-import z3d.vo.Vector3D;
-
 public class Display3dMovie extends Display3DSprite {
-
     public static  String TAG="Display3dMovie";
     public SkinMesh skinMesh;
     public float fileScale;
@@ -46,7 +23,6 @@ public class Display3dMovie extends Display3DSprite {
     public  int curentFrame;
     public  float actionTime;
     public int  completeState;
-//    public Shader3D md5shader3D;
     public  Display3dMovie(Scene3D val)
     {
         super(val);
@@ -69,7 +45,6 @@ public class Display3dMovie extends Display3DSprite {
         }, 1);
 
     }
-
     @Override
     public void upData() {
         if(this.skinMesh==null){
@@ -86,7 +61,6 @@ public class Display3dMovie extends Display3DSprite {
         }
 
     }
-
     public void   updateFrame(float t){
         this.actionTime+=t;
         if(this.skinMesh==null){
@@ -111,11 +85,8 @@ public class Display3dMovie extends Display3DSprite {
         }
 
     }
-
-
     protected void  updateMaterialMesh(MeshData mesh)
     {
-
         if (mesh.material==null ) {
             Log.d(TAG, "没有: ");
             return;
@@ -146,9 +117,6 @@ public class Display3dMovie extends Display3DSprite {
 
     }
     private AnimData  _getCurentAnimData(){
-        //death -> {AnimData@9698}
-        //walk
-        //stand -> {AnimData@9702}
         this.curentAction="walk";
         AnimData  animData = null;
         if (this.animDic.containsKey(this.curentAction)) {
@@ -161,25 +129,18 @@ public class Display3dMovie extends Display3DSprite {
 
     private  void setMeshVc(MeshData mesh)
     {
-
         AnimData  animData=_getCurentAnimData();
         if (animData==null) {
             return;
         }
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
-        dualQuatFrame.upToGpu();
         Context3D ctx=this.scene3d.context3D;
         ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneDarrBuff);
         ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneQarrBuff);
 
     }
 
-    private  void setVaCompress(MeshData mesh)
-    {
 
-
-
-    }
 
 
 }

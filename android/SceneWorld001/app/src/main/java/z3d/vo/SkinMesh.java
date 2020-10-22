@@ -66,9 +66,7 @@ public class SkinMesh extends ResCount {
             }
         },true, MaterialAnimShader.shaderNameStr, new MaterialAnimShader());
 
-
     }
-
 
     public  void  setAction(List<String> actionAry,String roleUrl )
     {

@@ -77,6 +77,7 @@ public class AnimData {
                     posArr.add(pos[n]);
                 }
                 dualQuatFloat32Array.posArr=posArr;
+                dualQuatFloat32Array.upToGpu();
                 frameDualQuat.add(dualQuatFloat32Array);
 
             }
