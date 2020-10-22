@@ -30,20 +30,16 @@ import z3d.vo.Vector3D;
 
 
 public   class Display3DSprite extends Display3D {
-
-    private static final String TAG="Filter";
+    private static final String TAG="Display3DSprite";
     public Material material;
     public  MaterialBaseParam  materialParam;
-    protected TextureRes textureBase;
     public Shader3D shader3D;
     public ObjData objData;
     public Matrix3D modeMatrix;
-
     public Display3DSprite(Scene3D val){
         super(val);
         this.modeMatrix=new Matrix3D();
     }
-
     protected TextureRes getMainTextureRes(){
         TexItem texItem  =this.material.getMainTexItem();
         if(texItem==null){
@@ -80,7 +76,6 @@ public   class Display3DSprite extends Display3D {
         this.setMaterialTexture(this.material,this.materialParam);
         this.setMaterialVc(this.material,this.materialParam);
         this.setMaterialVa();
-        this.resetVa();
     }
 
     protected void updateBind()
@@ -104,10 +99,7 @@ public   class Display3DSprite extends Display3D {
         ctx.setVa(this.shader3D,"vTextCoord",2,this.objData.uvBuffer);
         ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
     }
-    protected void resetVa()
-    {
 
-    }
     public void setMaterialUrl(String url, final List paramData)
     {
 
