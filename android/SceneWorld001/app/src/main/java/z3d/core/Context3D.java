@@ -103,6 +103,10 @@ public class Context3D {
     {
         GLES20.glUniformMatrix4fv(GLES20.glGetUniformLocation(shader3d.program,name),1,false,m,0);
     }
+    public void  setVcMatrix3fv(Shader3D shader3d, String name , float[] m)
+    {
+        GLES20.glUniformMatrix3fv(GLES20.glGetUniformLocation(shader3d.program,name),1,false,m,0);
+    }
     public void  setVc4fv(Shader3D shader3d, String name,int count , FloatBuffer m)
     {
         GLES20.glUniform4fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);

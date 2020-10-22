@@ -37,11 +37,13 @@ public   class Display3DSprite extends Display3D {
     public Shader3D shader3D;
     public ObjData objData;
     public Matrix3D modeMatrix;
+    public Matrix3D rotationMatrix;
     public float time;
     public Display3DSprite(Scene3D val){
         super(val);
         this.time=0;
         this.modeMatrix=new Matrix3D();
+        this.rotationMatrix=new Matrix3D();
     }
     protected TextureRes getMainTextureRes(){
         TexItem texItem  =this.material.getMainTexItem();
@@ -89,7 +91,13 @@ public   class Display3DSprite extends Display3D {
     {
         Context3D ctx=this.scene3d.context3D;
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.modeMatrix.m);
+        if (this.material.usePbr || this.material.directLight) {
+            float[] m = new float[9];
+            this.rotationMatrix.getRotaion(m);
+             ctx.setVcMatrix3fv(this.shader3D,"rotationMatrix3D",m);
+
+        }
     }
     protected void setBaseMaterialVc(Material material)
     {

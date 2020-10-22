@@ -103,7 +103,7 @@ public class MaterialShader extends  Shader3D {
                 str=  str +addstr;
             }
             addstr=
-                    "vt0 = vt0*vpMatrix3D ;\n";
+                    "vt0 = vpMatrix3D*vt0 ;\n";
             str=  str +addstr;
             if (usePbr) {
                 if (!useNormal) {
@@ -137,7 +137,7 @@ public class MaterialShader extends  Shader3D {
             str=  str +addstr;
 
 
-          //  Log.d(  "str=>", str);
+            //  Log.d(  "str=>", str);
 
             Log.d(TAG, str);
 
