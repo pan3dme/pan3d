@@ -51,6 +51,7 @@ import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.GroupDataManager;
+import z3d.filemodel.MeshDataManager;
 import z3d.filemodel.ParticleManager;
 import z3d.filemodel.TextureManager;
 import z3d.material.TextureRes;
@@ -84,12 +85,12 @@ public class SceneAllMenu extends AppCompatActivity   {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
-//                GridLineSprite  dis=new GridLineSprite( _scene3d);
-//                dis.changeColor(new Vector3D(1,1,1,1));
-//                _scene3d.addDisplay(dis);
+                GridLineSprite  dis=new GridLineSprite( _scene3d);
+                dis.changeColor(new Vector3D(1,1,1,1));
+                _scene3d.addDisplay(dis);
 
-                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
-
+//                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
+                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {

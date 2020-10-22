@@ -43,6 +43,14 @@ public class MeshDataManager extends ResGC {
         super();
         this.loadDic=new HashMap();
     }
+    //预备加载
+    public void reloadRoleRes(String url){
+        getMeshData(url, new SkinMeshBackFun() {
+            @Override
+            public void Bfun(SkinMesh value) {
+            }
+        },1);
+    }
     public void getMeshData(String url, final SkinMeshBackFun bfun, int batchNum)
     {
 
