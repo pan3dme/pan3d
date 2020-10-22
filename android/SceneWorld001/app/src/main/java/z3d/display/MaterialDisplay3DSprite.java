@@ -66,9 +66,7 @@ public class MaterialDisplay3DSprite  extends Display3DSprite{
             ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
             this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderNameStr);
             Context3D ctx=this.scene3d.context3D;
-            GLES20.glFrontFace(GLES20.GL_CW);
-            ctx.setDepthTest(true);
-            ctx.setWriteDepth(true);
+
 
             ctx.setProgame(this.shader3D.program);
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);

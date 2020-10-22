@@ -89,7 +89,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
        // this.loagTextTextureRes("https://cms-bucket.ws.126.net/2020/0526/1c932f5ej00qay0pi005vc000go00cic.jpg");
     }
 
- 
+
     private void showBaseModelUpData(){
         if(this.lightTextureRes!=null){
             ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());

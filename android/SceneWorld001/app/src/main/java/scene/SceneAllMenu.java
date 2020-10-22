@@ -88,11 +88,6 @@ public class SceneAllMenu extends AppCompatActivity   {
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
 
-//                _scene3d.addDisplay(new TwoTextureSprite(_scene3d));
-
-                loadSceneByUrl("2012");
-
-
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -121,7 +116,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectRole();
+        _selectTexiao();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){

@@ -48,9 +48,12 @@ public class Scene3D extends ResGC {
         Context3D ctx=this.context3D;
 
         ctx.setBlendParticleFactors(0);
-        ctx.cullFaceBack(false);
+
         this.camera3D.upFrame();
         updateFrameRole();
+//        ctx.setFrontFace(true);
+//        ctx.setDepthTest(true);
+//        ctx.setWriteDepth(true);
         for(int i=0;  i< displayList.size();i++){
              displayList.get(i).upData();
         }
@@ -58,6 +61,9 @@ public class Scene3D extends ResGC {
             displayRoleList.get(i).upData();
         }
         this.particleManager.scene3d=this;
+//        ctx.setFrontFace(false);
+//        ctx.setDepthTest(false);
+//        ctx.setWriteDepth(false);
          this.particleManager.upFrame();
     }
     private void  updateFrameRole(){

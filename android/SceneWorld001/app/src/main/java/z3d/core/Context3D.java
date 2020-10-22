@@ -52,6 +52,17 @@ public class Context3D {
         }
     }
 
+
+    public  void  setFrontFace(boolean tf)
+    {
+        if(tf){
+            GLES20.glFrontFace(GLES20.GL_CW);
+        }else
+        {
+            GLES20.glFrontFace(GLES20.GL_CCW);
+        }
+    }
+
     public void  setRenderTexture(Shader3D shader3D,String name,int texTureId,int level)
     {
         int textureSlot= GLES20.glGetUniformLocation(shader3D.program,name);
