@@ -9,6 +9,8 @@ import java.util.List;
 
 
 import z3d.base.ObjData;
+import z3d.base.ObjDataBackFun;
+import z3d.base.ObjDataManager;
 import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 
@@ -114,20 +116,7 @@ public   class Display3DSprite extends Display3D {
         ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
     }
 
-    public void setMaterialUrl(String url, final List paramData)
-    {
 
-        MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
-            @Override
-            public void Bfun(Material value) {
-                material=value;
-                if(paramData!=null){
-                    materialParam=new MaterialBaseParam();
-                    materialParam.setData(material,paramData);
-                }
-            }
-        },true, MaterialShader.shaderNameStr,new MaterialShader());
-    }
     protected void setMaterialVc(Material material,MaterialBaseParam mp)
     {
         if (material.fcNum <= 0) {
@@ -143,8 +132,8 @@ public   class Display3DSprite extends Display3D {
             mp.update();
         }
         Context3D ctx=this.scene3d.context3D;
+//        material.fcData.printOut();
         ctx.setVc4fv(material.shader, "fc",material.fcNum, material.fcData.verBuff);
-
     }
 
     private void setCamPos(Material material) {

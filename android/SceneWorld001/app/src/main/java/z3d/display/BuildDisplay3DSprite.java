@@ -46,7 +46,6 @@ import z3d.vo.Vector3D;
 
 public class BuildDisplay3DSprite extends Display3DSprite {
     public static String TAG="Display3DSprite";
-
     public BuildDisplay3DSprite( ){
         super(null);
     }
@@ -75,7 +74,30 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         }
 
     }
-    private void setLighturl(String lighturl)
+    protected void setMaterialUrl(String url, final List paramData)
+    {
+        MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
+            @Override
+            public void Bfun(Material value) {
+                material=value;
+                if(paramData!=null){
+                    materialParam=new MaterialBaseParam();
+                    materialParam.setData(material,paramData);
+                }
+            }
+        },true, MaterialShader.shaderNameStr,new MaterialShader());
+    }
+    protected void  setObjUrl(String value)
+    {
+        Log.d(TAG, "value: "+value);
+        ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
+            @Override
+            public void Bfun(ObjData value) {
+                objData=value;
+            }
+        });
+    }
+    protected void setLighturl(String lighturl)
     {
         TextureManager.getInstance().getTexture(Scene_data.fileRoot+lighturl, new TexTuresBackFun() {
             @Override
@@ -84,13 +106,11 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             }
         });
     }
-
     private void showBaseModelUpData(){
         if(this.lightTextureRes!=null){
             ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
             this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderNameStr);
             Context3D ctx=this.scene3d.context3D;
-
 
             ctx.setProgame(this.shader3D.program);
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
@@ -111,25 +131,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         }
 
     }
-    public void  setObjUrl(String value)
-    {
-        Log.d(TAG, "value: "+value);
-        ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
-            @Override
-            public void Bfun(ObjData value) {
-                objData=value;
-            }
-        });
 
-    }
-    @Override
-    public void upData(){
-        if(this.material!=null){
-            super.upData();
-//            showBaseModelUpData();
-        }
-
-    }
 
 
 }

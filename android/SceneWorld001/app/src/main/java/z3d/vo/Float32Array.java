@@ -1,11 +1,14 @@
 package z3d.vo;
 
+import android.util.Log;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.List;
 
 public class Float32Array   {
+    private static final String TAG ="Float32Array" ;
     public FloatBuffer verBuff;
     public Float32Array(int num)
     {
@@ -16,6 +19,13 @@ public class Float32Array   {
             verBuff.put(0);
         }
         verBuff.position(0);
+    }
+    public void printOut(){
+        String str="";
+        for(int i=0;i<verBuff.limit();i++){
+            str+=verBuff.get(i)+" ";
+        }
+        Log.d(TAG, str);
     }
     public void put(int idx,float value)
     {

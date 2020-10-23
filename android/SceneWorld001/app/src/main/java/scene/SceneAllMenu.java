@@ -308,13 +308,12 @@ public class SceneAllMenu extends AppCompatActivity   {
                 case 1:
                     int id=obj.getInt("id");
                     if( id==1){
-                        BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                        tempDis.scene3d=this._scene3d;
-                        tempDis.setInfo(obj);
-                        this._scene3d.addDisplay(tempDis);
+
                     }
-
-
+                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                    tempDis.scene3d=this._scene3d;
+                    tempDis.setInfo(obj);
+                    this._scene3d.addDisplay(tempDis);
                     break;
                 default:
                     break;
