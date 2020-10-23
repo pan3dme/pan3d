@@ -2,11 +2,12 @@
     "x":0,
     "type":"Scene",
     "selectedBox":1,
+    "selecteID":14,
     "searchKey":"Scene,gameBox",
     "referenceLines":null,
-    "props":{"width":640,"sceneColor":"#000000","runtime":"script/GameUI.ts","name":"gameBox","height":1136},
+    "props":{"width":1136,"sceneColor":"#000000","runtime":"script/GameUI.ts","name":"gameBox","height":640},
     "nodeParent":-1,
-    "maxID":21,
+    "maxID":25,
     "label":"gameBox",
     "isOpen":true,
     "isDirectory":true,
@@ -18,7 +19,7 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,ground",
-            "props":{"y":1116,"x":-83,"width":805,"texture":"test/block.png","name":"ground","height":20},
+            "props":{"y":568,"x":216,"width":805,"texture":"test/block.png","name":"ground","height":20},
             "nodeParent":1,
             "label":"ground",
             "isOpen":false,
@@ -29,7 +30,9 @@
             "child":[
                 {
                     "type":"BoxCollider",
+                    "switchAble":true,
                     "searchKey":"BoxCollider",
+                    "removeAble":true,
                     "props":{"y":0,"x":0,"width":805,"label":"ground","height":20},
                     "nodeParent":3,
                     "label":"BoxCollider",
@@ -42,7 +45,9 @@
                 },
                 {
                     "type":"RigidBody",
+                    "switchAble":true,
                     "searchKey":"RigidBody",
+                    "removeAble":true,
                     "props":{"type":"static"},
                     "nodeParent":3,
                     "label":"RigidBody",
@@ -72,7 +77,7 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,UI",
-            "props":{"y":0,"x":0,"name":"UI"},
+            "props":{"y":0,"x":0,"width":1129,"name":"UI","height":640},
             "nodeParent":1,
             "label":"UI",
             "isOpen":true,
@@ -85,7 +90,7 @@
                     "x":30,
                     "type":"Label",
                     "searchKey":"Label,scoreLbl",
-                    "props":{"y":50,"x":158,"width":272,"var":"scoreLbl","height":47,"fontSize":40,"color":"#51c524","align":"center"},
+                    "props":{"y":90,"x":438,"width":272,"var":"scoreLbl","height":47,"fontSize":40,"color":"#51c524","align":"center"},
                     "nodeParent":14,
                     "label":"scoreLbl",
                     "isDirectory":false,
@@ -99,7 +104,7 @@
                     "x":30,
                     "type":"Label",
                     "searchKey":"Label,tipLbll",
-                    "props":{"y":0,"x":0,"width":640,"var":"tipLbll","valign":"middle","text":"别让箱子掉下来\\n\\n点击屏幕开始游戏","height":1136,"fontSize":40,"color":"#c6302e","align":"center"},
+                    "props":{"y":208,"x":285,"width":640,"var":"tipLbll","valign":"middle","text":"别让箱子掉下来\\n\\n点击屏幕开始游戏","rotation":0,"height":178,"fontSize":40,"color":"#c6302e","align":"center"},
                     "nodeParent":14,
                     "label":"tipLbll",
                     "isDirectory":false,
@@ -125,6 +130,65 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":20,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "selectedBox":1,
+            "selecteID":10,
+            "searchKey":"Sprite",
+            "props":{"y":128,"x":232,"presetID":1,"preset":"laya/pages/prefab/TopInfoPanel.prefab"},
+            "nodeParent":1,
+            "maxID":11,
+            "label":"bg",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":23,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image",
+                    "props":{"presetID":2,"preset":"laya/pages/prefab/TopInfoPanel.prefab"},
+                    "nodeParent":23,
+                    "label":"img",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
+                }],
+            "animations":[
+                {
+                    "nodes":[
+                        ],
+                    "name":"ani1",
+                    "id":1,
+                    "frameRate":24,
+                    "events":[
+                        ],
+                    "action":0
+                }]
+        },
+        {
+            "x":15,
+            "type":"Script",
+            "switchAble":true,
+            "source":"src/script/TopInfoPanel.ts",
+            "searchKey":"Script,TopInfoPanel",
+            "removeAble":true,
+            "props":{},
+            "nodeParent":1,
+            "label":"TopInfoPanel",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":24,
             "child":[
                 ]
         }],

@@ -1,5 +1,6 @@
 import { ui } from "./../ui/layaMaxUI";
 import GameControl from "./GameControl"
+import TopInfoPanel from "./TopInfoPanel";
 /**
  * 本示例采用非脚本的方式实现，而使用继承页面基类，实现页面逻辑。在IDE里面设置场景的Runtime属性即可和场景进行关联
  * 相比脚本方式，继承式页面类，可以直接使用页面定义的属性（通过IDE内var属性定义），比如this.tipLbll，this.scoreLbl，具有代码提示效果
@@ -12,7 +13,7 @@ export default class GameUI extends ui.test.TestSceneUI {
     private _score: number;
     /**游戏控制脚本引用，避免每次获取组件带来不必要的性能开销 */
     private _control: GameControl;
-
+ 
     constructor() {
         super();
         GameUI.instance = this;
@@ -21,16 +22,21 @@ export default class GameUI extends ui.test.TestSceneUI {
     }
 
     onEnable(): void {
+    
         this._control = this.getComponent(GameControl);
+  
         //点击提示文字，开始游戏
         this.tipLbll.on(Laya.Event.CLICK, this, this.onTipClick);
+ 
+    
+        
     }
 
     onTipClick(e: Laya.Event): void {
         this.tipLbll.visible = false;
         this._score = 0;
-        this.scoreLbl.text = "";
-        this._control.startGame();
+        this.scoreLbl.text = "走你";
+        // this._control.startGame();
     }
 
     /**增加分数 */

@@ -49,6 +49,8 @@ export default class GameControl extends Laya.Script {
         let flyer: Laya.Sprite = Laya.Pool.getItemByCreateFun("bullet", this.bullet.create, this.bullet);
         flyer.pos(Laya.stage.mouseX, Laya.stage.mouseY);
         this._gameBox.addChild(flyer);
+
+        console.log("来了");
     }
 
     /**开始游戏，通过激活本脚本方式开始游戏*/
