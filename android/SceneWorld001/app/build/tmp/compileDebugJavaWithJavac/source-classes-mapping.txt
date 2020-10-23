@@ -100,6 +100,8 @@ scene/CallBack.java
  scene.CallBack
 z3d/material/DynamicBaseConstItem.java
  z3d.material.DynamicBaseConstItem
+z3d/display/interfaces/IBind.java
+ z3d.display.interfaces.IBind
 z3d/vo/ParamDataVo.java
  z3d.vo.ParamDataVo
 z3d/base/Scene_data.java
@@ -180,6 +182,8 @@ z3d/units/LoaderThread.java
  z3d.units.LoaderThread$2
 z3d/base/CallBackFun.java
  z3d.base.CallBackFun
+z3d/display/interfaces/IMulBind.java
+ z3d.display.interfaces.IMulBind
 z3d/vo/DataObjTempVo.java
  z3d.vo.DataObjTempVo
 z3d/vo/ObjectBaseBone.java

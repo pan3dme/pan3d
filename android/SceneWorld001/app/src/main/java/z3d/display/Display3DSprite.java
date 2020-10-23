@@ -3,6 +3,7 @@ import android.util.Log;
 import java.util.List;
 import z3d.base.ObjData;
 import z3d.core.Context3D;
+import z3d.display.interfaces.IBind;
 import z3d.material.DynamicBaseTexItem;
 import z3d.material.Material;
 import z3d.material.MaterialBaseParam;
@@ -58,18 +59,41 @@ public   class Display3DSprite extends Display3D {
         this.shader3D=this.material.shader;
         Context3D ctx=this.scene3d.context3D;
         ctx.setProgame(this.shader3D.program);
-//        this.updateBind();
+        this.updateBind();
         this.setVc();
 //        this.setBaseMaterialVc(this.material);
         this.setMaterialTexture(this.material,this.materialParam);
         this.setMaterialVc(this.material,this.materialParam);
         this.setMaterialVa();
 
-     
-    }
 
+    }
+    public IBind bindTarget;
+    public Matrix3D groupMatrix;
+    public Matrix3D bindMatrix;
+    public Matrix3D groupRotationMatrix;
+    private boolean _isInGroup;
+    private String bindSocket;
     protected void updateBind()
     {
+
+        if (this.bindTarget!=null) {
+            this.posMatrix3d.identity();
+            this.posMatrix3d.appendScale(this.scaleX, this.scaleY, this.scaleX);
+            if (this._isInGroup) {
+                this.posMatrix3d.append(this.groupMatrix);
+
+            }
+            this.bindTarget.getSocket(this.bindSocket, this.bindMatrix);
+            this.posMatrix3d.append(this.bindMatrix);
+            this.bindMatrix.copyTo(this.rotationMatrix);
+            this.rotationMatrix.identityPostion();
+            if (this._isInGroup) {
+                this.rotationMatrix.prepend(this.groupRotationMatrix);
+            }
+
+//            this.sceneVisible = (<any>this.bindTarget).visible;
+        }
 
     }
     protected void setVc()
