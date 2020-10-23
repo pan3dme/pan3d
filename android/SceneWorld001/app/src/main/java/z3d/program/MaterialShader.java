@@ -91,7 +91,7 @@ public class MaterialShader extends  Shader3D {
                     "void main(void){\n"+
                             "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);\n"+
                             "vec4 vt0= vec4(v3Position, 1.0);\n"+
-                            "vt0 = vt0*posMatrix3D   ;\n";
+                            "vt0 =posMatrix3D* vt0   ;\n";
             str=  str +addstr;
             if (!(directLight || noLight)) {
                 addstr=  "v2 = vec2(v2lightuv.x, v2lightuv.y);\n";

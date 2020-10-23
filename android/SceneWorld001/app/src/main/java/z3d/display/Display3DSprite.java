@@ -65,7 +65,7 @@ public   class Display3DSprite extends Display3D {
         this.setMaterialVc(this.material,this.materialParam);
         this.setMaterialVa();
 
-        Log.d(TAG, this.x+" "+this.y+" "+this.z);
+     
     }
 
     protected void updateBind()
