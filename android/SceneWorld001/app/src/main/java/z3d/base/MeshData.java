@@ -3,6 +3,7 @@ import java.nio.FloatBuffer;
 import java.util.List;
 import z3d.material.Material;
 import z3d.material.MaterialBaseParam;
+import z3d.res.MaterialInfoVo;
 import z3d.vo.BindParticle;
 
 public class MeshData extends ObjData {
@@ -12,7 +13,7 @@ public class MeshData extends ObjData {
     public FloatBuffer boneIdBuffer ;
     public  List<Short>  boneNewIDAry;
     public String materialUrl;
-    public List materialParamData  ;
+    public List<MaterialInfoVo> materialParamData  ;
     public MaterialBaseParam materialParam;
     public List<BindParticle> particleAry;
     public int uid;

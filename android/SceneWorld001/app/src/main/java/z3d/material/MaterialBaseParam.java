@@ -13,6 +13,7 @@ import z3d.base.Scene_data;
 import z3d.base.TexTuresBackFun;
 import z3d.engine.GC;
 import z3d.filemodel.TextureManager;
+import z3d.res.MaterialInfoVo;
 
 public class MaterialBaseParam extends GC {
     public Material material;
@@ -20,7 +21,7 @@ public class MaterialBaseParam extends GC {
     public List<DynamicBaseConstItem> dynamicConstList ;
 
 
-    public void setData(   Material mater,  List<HashMap> ary )
+    public void setData(   Material mater,  List<MaterialInfoVo> ary )
     {
         this.material = mater;
         this.dynamicConstList = new ArrayList();
@@ -30,12 +31,12 @@ public class MaterialBaseParam extends GC {
         for (int i = 0; i < ary.size(); i++) {
             try {
 
-                HashMap obj = (HashMap) ary.get(i);
+                MaterialInfoVo obj = (MaterialInfoVo) ary.get(i);
 
-                int objType= (int) obj.get("type");
+                int objType= (int) obj.type;
                 if (objType== 0) {
                 final    DynamicBaseTexItem texItem = new DynamicBaseTexItem();
-                    texItem.paramName = (String) obj.get("name");
+                    texItem.paramName = (String) obj.name;
                     for (int j = 0; j < texList.size(); j++) {
                         if (texItem.paramName.equals(texList.get(j).paramName)) {
                             texItem.target = texList.get(j);
@@ -47,7 +48,7 @@ public class MaterialBaseParam extends GC {
                         mipmap = texItem.target.mipmap;
                     }
                     mipmap = 0;
-                    TextureManager.getInstance().getTexture(Scene_data.fileRoot+ obj.get("url"), new TexTuresBackFun() {
+                    TextureManager.getInstance().getTexture(Scene_data.fileRoot+ obj.url, new TexTuresBackFun() {
                         @Override
                         public void Bfun(TextureRes value) {
                             texItem.textureRes = value;
@@ -55,7 +56,7 @@ public class MaterialBaseParam extends GC {
                     });
                     this.dynamicTexList.add(texItem);
                 } else {
-                    String targetName = (String)  obj.get("name");
+                    String targetName = (String)  obj.name;
                     ConstItem target=null ;
                     for (int j = 0; j < constList.size(); j++) {
                         if (targetName.equals( constList.get(j).paramName0)
@@ -72,13 +73,13 @@ public class MaterialBaseParam extends GC {
                     constItem.setTargetInfo(target, targetName, (int)objType);
                     List<Float> valArr=new ArrayList<>();
                     if (objType>= 1) {
-                        valArr.add((float) obj.get("x"));
+                        valArr.add((float) obj.x);
                     }
                     if (objType >= 2) {
-                        valArr.add((float) obj.get("y"));
+                        valArr.add((float) obj.y);
                     }
                     if (objType >= 3) {
-                        valArr.add((float) obj.get("z"));
+                        valArr.add((float) obj.z);
                     }
                     constItem.setCurrentVal(valArr);
                     this.dynamicConstList.add(constItem);

@@ -105,32 +105,44 @@ public class BaseRes extends ResCount {
     }
 
     //读取材质参数
-    public  static  List<HashMap> readMaterialParamData(ByteArray _byte)
+    public  static  List<MaterialInfoVo> readMaterialParamData(ByteArray _byte)
     {
         int mpNum = _byte.readInt();
         if (mpNum > 0) {
 
 
-            List<HashMap> mpAry  = new ArrayList<>();
+            List<MaterialInfoVo> mpAry  = new ArrayList<>();
             for (int j = 0; j < mpNum; j++) {
-                HashMap obj = new HashMap();
-                obj.put("name",_byte.readUTF());
+                MaterialInfoVo obj = new MaterialInfoVo();
+//                obj.put("name",_byte.readUTF());
+                obj.name=_byte.readUTF();
                 int  objType=_byte.readByte();
                 if (objType == 0) {
-                    obj.put("type",0);
-                    obj.put("url", _byte.readUTF());
+//                    obj.put("type",0);
+//                    obj.put("url", _byte.readUTF());
+                    obj.type=0;
+                    obj.url=_byte.readUTF();
                 } else if (objType== 1) {
-                    obj.put("type",1);
-                    obj.put("x",_byte.readFloat());
+//                    obj.put("type",1);
+//                    obj.put("x",_byte.readFloat());
+                    obj.type=1;
+                    obj.x=_byte.readFloat();
                 } else if (objType== 2) {
-                    obj.put("type",2);
-                    obj.put("x", _byte.readFloat());
-                    obj.put("y",_byte.readFloat());
+//                    obj.put("type",2);
+//                    obj.put("x", _byte.readFloat());
+//                    obj.put("y",_byte.readFloat());
+                    obj.type=2;
+                    obj.x=_byte.readFloat();
+                    obj.y=_byte.readFloat();
                 } else if (objType == 3) {
-                    obj.put("type",3);
-                    obj.put("x", _byte.readFloat());
-                    obj.put("y", _byte.readFloat());
-                    obj.put("z",_byte.readFloat());
+//                    obj.put("type",3);
+//                    obj.put("x", _byte.readFloat());
+//                    obj.put("y", _byte.readFloat());
+//                    obj.put("z",_byte.readFloat());
+                    obj.type=3;
+                    obj.x=_byte.readFloat();
+                    obj.y=_byte.readFloat();
+                    obj.z=_byte.readFloat();
                 }
                 mpAry.add(obj);
             }

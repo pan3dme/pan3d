@@ -17,6 +17,7 @@ import z3d.material.TexItem;
 import z3d.material.TextureRes;
 import z3d.program.MaterialShader;
 import z3d.program.Shader3D;
+import z3d.res.MaterialInfoVo;
 import z3d.scene.Scene3D;
 import z3d.units.TimeUtil;
 import z3d.vo.Matrix3D;
@@ -63,7 +64,7 @@ public   class Display3DSprite extends Display3D {
             this.updateMaterial();
         }
     }
-    public void setMaterialUrl(String url, final List paramData)
+    public void setMaterialUrl(String url, final List<MaterialInfoVo> paramData)
     {
         MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
             @Override

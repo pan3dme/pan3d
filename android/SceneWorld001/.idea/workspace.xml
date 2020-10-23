@@ -17,12 +17,25 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/MathCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/MathCore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/MeshData.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/base/MeshData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/display/Display3DSprite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/material/MaterialBaseParam$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/material/MaterialBaseParam$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/material/MaterialBaseParam.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/material/MaterialBaseParam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/res/BaseRes.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/res/BaseRes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/MathCore.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/MathCore.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/MeshData.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/base/MeshData.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DSprite.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/display/Display3DSprite.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/material/MaterialBaseParam$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/material/MaterialBaseParam$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/material/MaterialBaseParam.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/material/MaterialBaseParam.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/res/BaseRes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/res/BaseRes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MathCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/BaseRes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,42 +194,42 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1071" y="290" key="AndroidProcessChooserDialog/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602655454001" />
-    <state width="597" height="466" key="DebuggerActiveHint" timestamp="1603470076733">
+    <state width="597" height="466" key="DebuggerActiveHint" timestamp="1603471237387">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="597" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470076733" />
-    <state width="1382" height="380" key="GridCell.Tab.0.bottom" timestamp="1603470022096">
+    <state width="597" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471237387" />
+    <state width="1374" height="491" key="GridCell.Tab.0.bottom" timestamp="1603471775310">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022096" />
-    <state width="1382" height="380" key="GridCell.Tab.0.center" timestamp="1603470022096">
+    <state width="1374" height="491" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775310" />
+    <state width="1374" height="491" key="GridCell.Tab.0.center" timestamp="1603471775309">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022096" />
-    <state width="1382" height="380" key="GridCell.Tab.0.left" timestamp="1603470022095">
+    <state width="1374" height="491" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775309" />
+    <state width="1374" height="491" key="GridCell.Tab.0.left" timestamp="1603471775309">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022095" />
-    <state width="1382" height="380" key="GridCell.Tab.0.right" timestamp="1603470022096">
+    <state width="1374" height="491" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775309" />
+    <state width="1374" height="491" key="GridCell.Tab.0.right" timestamp="1603471775310">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022096" />
-    <state width="1382" height="380" key="GridCell.Tab.1.bottom" timestamp="1603470022095">
+    <state width="1374" height="491" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775310" />
+    <state width="1374" height="491" key="GridCell.Tab.1.bottom" timestamp="1603471775309">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022095" />
-    <state width="1382" height="380" key="GridCell.Tab.1.center" timestamp="1603470022094">
+    <state width="1374" height="491" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775309" />
+    <state width="1374" height="491" key="GridCell.Tab.1.center" timestamp="1603471775308">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022094" />
-    <state width="1382" height="380" key="GridCell.Tab.1.left" timestamp="1603470022094">
+    <state width="1374" height="491" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775308" />
+    <state width="1374" height="491" key="GridCell.Tab.1.left" timestamp="1603471775308">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022094" />
-    <state width="1382" height="380" key="GridCell.Tab.1.right" timestamp="1603470022094">
+    <state width="1374" height="491" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775308" />
+    <state width="1374" height="491" key="GridCell.Tab.1.right" timestamp="1603471775309">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1382" height="380" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022094" />
+    <state width="1374" height="491" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603471775309" />
     <state x="-1339" y="175" key="SettingsEditor" timestamp="1602672697955">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -225,35 +238,16 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1171" y="387" key="edit.logcat.filter.dialog.dimensions/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603162635356" />
-    <state x="-944" y="341" width="615" height="490" key="find.popup" timestamp="1603468766026">
+    <state x="-944" y="341" width="615" height="490" key="find.popup" timestamp="1603470852645">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-944" y="341" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468766026" />
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603469294515">
+    <state x="-944" y="341" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470852645" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603470101431">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603469294515" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470101431" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo typeName="z3d.material.Material" fieldName="constList" />
