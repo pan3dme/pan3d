@@ -4,10 +4,8 @@ z3d/vo/ShockAryVo.java
  z3d.vo.ShockAryVo
 z3d/base/Camera3D.java
  z3d.base.Camera3D
-z3d/material/MaterialManager.java
- z3d.material.MaterialManager
- z3d.material.MaterialManager$1
- z3d.material.MaterialManager$2
+z3d/material/Material.java
+ z3d.material.Material
 scene/CallBack.java
  scene.CallBack
 z3d/filemodel/TextureLoad.java
@@ -75,8 +73,10 @@ z3d/vo/BoneSocketData.java
  z3d.vo.BoneSocketData
 z3d/display/BuildDisplay3DShader.java
  z3d.display.BuildDisplay3DShader
-z3d/program/ProgrmaManager.java
- z3d.program.ProgrmaManager
+z3d/filemodel/MeshDataManager.java
+ z3d.filemodel.MeshDataManager
+ z3d.filemodel.MeshDataManager$1
+ z3d.filemodel.MeshDataManager$2
 z3d/base/ObjDataBackFun.java
  z3d.base.ObjDataBackFun
 z3d/units/TimeUtil.java
@@ -121,11 +121,11 @@ z3d/base/ObjDataManager.java
  z3d.base.ObjDataManager
 z3d/base/ByteArray.java
  z3d.base.ByteArray
-z3d/program/MaterialAnimShader.java
- z3d.program.MaterialAnimShader
 z3d/vo/SkinMesh.java
  z3d.vo.SkinMesh
  z3d.vo.SkinMesh$1
+z3d/program/MaterialAnimShader.java
+ z3d.program.MaterialAnimShader
 z3d/units/AnimManager.java
  z3d.units.AnimManager
 z3d/vo/ParamDataConVo.java
@@ -206,8 +206,8 @@ z3d/display/particle/ctrl/KeyFrame.java
  z3d.display.particle.ctrl.KeyFrame
 z3d/display/particle/ctrl/AxisRotaion.java
  z3d.display.particle.ctrl.AxisRotaion
-z3d/program/MaterialShader.java
- z3d.program.MaterialShader
+z3d/material/Curve.java
+ z3d.material.Curve
 z3d/display/particle/ball/ParticleBallGpuData.java
  z3d.display.particle.ball.ParticleBallGpuData
 z3d/display/basedis/DisplayBaseShader.java
@@ -234,14 +234,14 @@ z3d/res/BaseRes.java
 z3d/filemodel/GroupDataManager.java
  z3d.filemodel.GroupDataManager
  z3d.filemodel.GroupDataManager$1
-z3d/filemodel/MeshDataManager.java
- z3d.filemodel.MeshDataManager
- z3d.filemodel.MeshDataManager$1
- z3d.filemodel.MeshDataManager$2
-z3d/material/Material.java
- z3d.material.Material
-z3d/material/Curve.java
- z3d.material.Curve
+z3d/program/MaterialShader.java
+ z3d.program.MaterialShader
+z3d/material/MaterialManager.java
+ z3d.material.MaterialManager
+ z3d.material.MaterialManager$1
+ z3d.material.MaterialManager$2
+z3d/program/ProgrmaManager.java
+ z3d.program.ProgrmaManager
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
 scene/SceneAllMenu.java
@@ -261,6 +261,7 @@ z3d/display/BuildDisplay3DSprite.java
 z3d/scene/Scene3D.java
  z3d.scene.Scene3D
  z3d.scene.Scene3D$1
+ z3d.scene.Scene3D$2
 z3d/display/role/SceneChar.java
  z3d.display.role.SceneChar
 z3d/display/particle/facet/Display3DFacetParticle.java

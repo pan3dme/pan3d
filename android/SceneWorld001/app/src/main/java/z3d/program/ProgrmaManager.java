@@ -91,8 +91,8 @@ public class ProgrmaManager extends  ResGC {
 //            this._changeBallShader(shader);
         }
         if (keyStr.indexOf("MaterialShader")!=-1) {
-//            this.outShader(shader.vertex,"vertex");
-//            this.outShader(shader.fragment,"fragment");
+            this.outShader(shader.vertex,"vertex");
+            this.outShader(shader.fragment,"fragment");
 //            this._changeShader(shader);
 //            Log.d(TAG, "-----------");
 

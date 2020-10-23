@@ -46,6 +46,13 @@ public class Scene3D extends ResGC {
                 Scene_data.pubLut =value;
             }
         });
+
+        TextureManager.getInstance().getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                Scene_data.pubLut =value;
+            }
+        });
     }
     public  void  clearAll()
     {

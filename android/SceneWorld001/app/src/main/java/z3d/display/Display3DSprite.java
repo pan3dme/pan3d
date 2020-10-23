@@ -202,10 +202,22 @@ public   class Display3DSprite extends Display3D {
                 }
             }
             else if (texItem.type == TexItem.LTUMAP   ) {
-                Log.d(TAG, "LTUMAP: ");
+
+                ctx.setRenderTexture(material.shader,texItem.name, Scene_data.pubLut.textTureInt,texItem.get_id());
             }
             else if (texItem.type == TexItem.CUBEMAP) {
-                ctx.setRenderTexture(material.shader,texItem.name, Scene_data.pubLut.textTureInt,texItem.get_id());
+               // Log.d(TAG, "CUBEMAP: ");
+
+                if (material.useDynamicIBL) {// && _reflectionTextureVo) {
+                    //_context.setTextureAt(texVec[i].id, _reflectionTextureVo.texture);
+                } else {
+                    float index   = (float)Math.floor(material.roughness * 5);
+//                    if (Scene_data.skyCubeMap) {
+//                        var cubeTexture: WebGLTexture = Scene_data.skyCubeMap[index];
+//                        Scene_data.context3D.setRenderTextureCube($material.program, texVec[i].name, cubeTexture, texVec[i].id);
+//                    }
+
+                }
             }
             else if (texItem.type == 0) {
                 ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.get_id());

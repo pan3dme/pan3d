@@ -19,9 +19,9 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/Scene_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/Scene_data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/MaterialAnimShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/program/ProgrmaManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,42 +181,42 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1071" y="290" key="AndroidProcessChooserDialog/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602655454001" />
-    <state width="597" height="466" key="DebuggerActiveHint" timestamp="1603468825786">
+    <state width="597" height="466" key="DebuggerActiveHint" timestamp="1603470076733">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="597" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468825786" />
-    <state width="1388" height="380" key="GridCell.Tab.0.bottom" timestamp="1603468880233">
+    <state width="597" height="466" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470076733" />
+    <state width="1382" height="380" key="GridCell.Tab.0.bottom" timestamp="1603470022096">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880233" />
-    <state width="1388" height="380" key="GridCell.Tab.0.center" timestamp="1603468880232">
+    <state width="1382" height="380" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022096" />
+    <state width="1382" height="380" key="GridCell.Tab.0.center" timestamp="1603470022096">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880232" />
-    <state width="1388" height="380" key="GridCell.Tab.0.left" timestamp="1603468880232">
+    <state width="1382" height="380" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022096" />
+    <state width="1382" height="380" key="GridCell.Tab.0.left" timestamp="1603470022095">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880232" />
-    <state width="1388" height="380" key="GridCell.Tab.0.right" timestamp="1603468880233">
+    <state width="1382" height="380" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022095" />
+    <state width="1382" height="380" key="GridCell.Tab.0.right" timestamp="1603470022096">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880233" />
-    <state width="1388" height="380" key="GridCell.Tab.1.bottom" timestamp="1603468880232">
+    <state width="1382" height="380" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022096" />
+    <state width="1382" height="380" key="GridCell.Tab.1.bottom" timestamp="1603470022095">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880232" />
-    <state width="1388" height="380" key="GridCell.Tab.1.center" timestamp="1603468880231">
+    <state width="1382" height="380" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022095" />
+    <state width="1382" height="380" key="GridCell.Tab.1.center" timestamp="1603470022094">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880231" />
-    <state width="1388" height="380" key="GridCell.Tab.1.left" timestamp="1603468880231">
+    <state width="1382" height="380" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022094" />
+    <state width="1382" height="380" key="GridCell.Tab.1.left" timestamp="1603470022094">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880231" />
-    <state width="1388" height="380" key="GridCell.Tab.1.right" timestamp="1603468880232">
+    <state width="1382" height="380" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022094" />
+    <state width="1382" height="380" key="GridCell.Tab.1.right" timestamp="1603470022094">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1388" height="380" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468880232" />
+    <state width="1382" height="380" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603470022094" />
     <state x="-1339" y="175" key="SettingsEditor" timestamp="1602672697955">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -229,12 +229,31 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-944" y="341" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468766026" />
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603468594273">
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603469294515">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603468594273" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603469294515" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/material/MaterialBaseParam.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/vo/SkinMesh.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo typeName="z3d.material.Material" fieldName="constList" />

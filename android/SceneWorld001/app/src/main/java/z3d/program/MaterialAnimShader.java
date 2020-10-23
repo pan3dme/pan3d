@@ -52,7 +52,7 @@ public class MaterialAnimShader extends Shader3D {
 
                     "v0=v2Uv;\n"+
                     "vec4 vt0 = getQDdata(vec3(pos.x,pos.y,pos.z));\n"+
-                    "gl_Position =posMatrix *vpMatrix3D*vec4(vt0.xyz,1);\n"+
+                    "gl_Position =vpMatrix3D*posMatrix *vec4(vt0.xyz,1);\n"+
 
                 "}";
 
