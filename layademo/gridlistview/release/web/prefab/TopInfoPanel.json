@@ -1,0 +1,1 @@
+{"type":"Sprite","props":{"y":0,"x":0,"texture":"test/b1.png","presetID":1,"pivotY":0,"pivotX":0,"name":"bg","isPresetRoot":true,"group":1,"gravityScale":0.5},"compId":1,"child":[{"type":"Image","props":{"y":0,"x":0,"width":131,"skin":"comp/image.png","presetID":2,"name":"img","height":103},"compId":10}],"loadList":["test/b1.png","comp/image.png"],"loadList3D":[]}

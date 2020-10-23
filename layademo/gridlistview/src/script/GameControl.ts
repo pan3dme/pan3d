@@ -50,7 +50,7 @@ export default class GameControl extends Laya.Script {
         flyer.pos(Laya.stage.mouseX, Laya.stage.mouseY);
         this._gameBox.addChild(flyer);
 
-        console.log("来了");
+        console.log("来了1");
     }
 
     /**开始游戏，通过激活本脚本方式开始游戏*/
