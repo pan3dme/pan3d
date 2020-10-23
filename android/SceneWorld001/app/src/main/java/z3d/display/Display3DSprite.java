@@ -1,41 +1,26 @@
 package z3d.display;
 
-import android.opengl.GLES20;
 import android.util.Log;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
-
 import z3d.base.ObjData;
-import z3d.base.ObjDataBackFun;
-import z3d.base.ObjDataManager;
-import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
-
-import z3d.filemodel.TextureManager;
+import z3d.display.Display3D;
 import z3d.material.DynamicBaseTexItem;
-import z3d.material.DynamicTexItem;
 import z3d.material.Material;
-import z3d.material.MaterialBackFun;
 import z3d.material.MaterialBaseParam;
-import z3d.material.MaterialManager;
 import z3d.material.TexItem;
 import z3d.material.TextureRes;
-import z3d.program.MaterialShader;
-import z3d.program.ProgrmaManager;
 import z3d.program.Shader3D;
 import z3d.scene.Scene3D;
 import z3d.units.TimeUtil;
 import z3d.vo.Matrix3D;
-import z3d.vo.Vector3D;
-
 
 public   class Display3DSprite extends Display3D {
     private static final String TAG="Display3DSprite";
     public Material material;
-    public  MaterialBaseParam  materialParam;
+    public MaterialBaseParam materialParam;
     public Shader3D shader3D;
     public ObjData objData;
     public Matrix3D modeMatrix;
@@ -97,7 +82,7 @@ public   class Display3DSprite extends Display3D {
         if (this.material.usePbr || this.material.directLight) {
             float[] m = new float[9];
             this.rotationMatrix.getRotaion(m);
-             ctx.setVcMatrix3fv(this.shader3D,"rotationMatrix3D",m);
+            ctx.setVcMatrix3fv(this.shader3D,"rotationMatrix3D",m);
 
         }
     }
@@ -165,8 +150,8 @@ public   class Display3DSprite extends Display3D {
                 Log.d(TAG, "CUBEMAP: ");
             }
             else if (texItem.type == 0) {
-                Log.d(TAG, "基础图: ");
-               // ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.id);
+//                Log.d(TAG, "基础图: ");
+                ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.get_id());
             }
         }
         List<DynamicBaseTexItem> texDynamicVec  =  mp.dynamicTexList;

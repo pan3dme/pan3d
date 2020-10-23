@@ -69,10 +69,12 @@ public class SceneAllMenu extends AppCompatActivity   {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
+                _scene3d.camera3D.distance=500;
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
                 loadSceneByUrl("2014");
+
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
             }
@@ -82,7 +84,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 _scene3d.camera3D.fovw = width;
                 _scene3d.camera3D.fovh = height;
                 _scene3d.resizeScene();
-                _scene3d.camera3D.distance=100;
+
 
 
             }

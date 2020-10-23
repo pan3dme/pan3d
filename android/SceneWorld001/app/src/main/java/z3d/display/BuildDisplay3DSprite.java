@@ -63,8 +63,11 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.rotationY=(float) value.getDouble("rotationY");
             this.rotationZ=(float) value.getDouble("rotationZ");
             this.setObjUrl(value.getString("objsurl"));
-            JSONArray tempArr= value.getJSONArray("materialInfoArr");
-            this.setMaterialUrl((value.getString("materialurl")), MathCore.ObjArrToList( value.getJSONArray("materialInfoArr")));
+
+            JSONArray tempArr= value.has("materialInfoArr")?value.getJSONArray("materialInfoArr"):null;
+
+            this.setMaterialUrl((value.getString("materialurl")), MathCore.ObjArrToList( tempArr));
+
             if( value.has("lighturl")){
                 this.setLighturl(value.getString("lighturl"));
             }

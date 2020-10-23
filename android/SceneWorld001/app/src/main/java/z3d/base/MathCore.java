@@ -18,7 +18,7 @@ public class MathCore {
     {
         List<HashMap> arr=new ArrayList();
         try {
-            for(int i=0;i<value.length();i++){
+            for(int i=0;value!=null&&i<value.length();i++){
 
                 HashMap dic=new HashMap();
                 JSONObject jsonObject= value.getJSONObject(i);
