@@ -73,7 +73,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
-                loadSceneByUrl("2014");
+                loadSceneByUrl("2013");
 
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");

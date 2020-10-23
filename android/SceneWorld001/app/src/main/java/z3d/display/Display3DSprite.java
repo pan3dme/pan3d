@@ -1,12 +1,8 @@
 package z3d.display;
-
 import android.util.Log;
-
 import java.util.List;
-
 import z3d.base.ObjData;
 import z3d.core.Context3D;
-import z3d.display.Display3D;
 import z3d.material.DynamicBaseTexItem;
 import z3d.material.Material;
 import z3d.material.MaterialBaseParam;
@@ -68,6 +64,8 @@ public   class Display3DSprite extends Display3D {
         this.setMaterialTexture(this.material,this.materialParam);
         this.setMaterialVc(this.material,this.materialParam);
         this.setMaterialVa();
+
+        Log.d(TAG, this.x+" "+this.y+" "+this.z);
     }
 
     protected void updateBind()
@@ -78,7 +76,7 @@ public   class Display3DSprite extends Display3D {
     {
         Context3D ctx=this.scene3d.context3D;
         ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.modeMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
         if (this.material.usePbr || this.material.directLight) {
             float[] m = new float[9];
             this.rotationMatrix.getRotaion(m);
