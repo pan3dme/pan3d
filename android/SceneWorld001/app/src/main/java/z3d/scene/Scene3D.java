@@ -7,12 +7,15 @@ import java.util.List;
 
 import z3d.base.Camera3D;
 import z3d.base.ResGC;
+import z3d.base.Scene_data;
+import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
 import z3d.display.Display3DSprite;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.ParticleManager;
 import z3d.filemodel.TextureManager;
+import z3d.material.TextureRes;
 import z3d.program.Shader3D;
 import z3d.res.RoleRes;
 import z3d.units.TimeUtil;
@@ -34,6 +37,15 @@ public class Scene3D extends ResGC {
         this.particleManager=new ParticleManager();
         this.camera3D.rotationX =-30;
         this.camera3D.rotationY=45;
+    }
+    public void  initData(){
+
+        TextureManager.getInstance().getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                Scene_data.pubLut =value;
+            }
+        });
     }
     public  void  clearAll()
     {

@@ -4,6 +4,7 @@ import java.util.List;
 import z3d.base.ObjData;
 import z3d.base.ObjDataBackFun;
 import z3d.base.ObjDataManager;
+import z3d.base.Scene_data;
 import z3d.core.Context3D;
 import z3d.display.interfaces.IBind;
 import z3d.display.role.Display3dMovie;
@@ -204,10 +205,9 @@ public   class Display3DSprite extends Display3D {
                 Log.d(TAG, "LTUMAP: ");
             }
             else if (texItem.type == TexItem.CUBEMAP) {
-                Log.d(TAG, "CUBEMAP: ");
+                ctx.setRenderTexture(material.shader,texItem.name, Scene_data.pubLut.textTureInt,texItem.get_id());
             }
             else if (texItem.type == 0) {
-//                Log.d(TAG, "基础图: ");
                 ctx.setRenderTexture(material.shader,texItem.name,texItem.textureRes.textTureInt,texItem.get_id());
             }
         }

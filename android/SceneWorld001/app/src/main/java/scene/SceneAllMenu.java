@@ -70,6 +70,7 @@ public class SceneAllMenu extends AppCompatActivity   {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
+                _scene3d.initData();
                 _scene3d.camera3D.distance=80;
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
