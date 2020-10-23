@@ -2,17 +2,24 @@ package z3d.display;
 import android.util.Log;
 import java.util.List;
 import z3d.base.ObjData;
+import z3d.base.ObjDataBackFun;
+import z3d.base.ObjDataManager;
 import z3d.core.Context3D;
 import z3d.display.interfaces.IBind;
+import z3d.display.role.Display3dMovie;
 import z3d.material.DynamicBaseTexItem;
 import z3d.material.Material;
+import z3d.material.MaterialBackFun;
 import z3d.material.MaterialBaseParam;
+import z3d.material.MaterialManager;
 import z3d.material.TexItem;
 import z3d.material.TextureRes;
+import z3d.program.MaterialShader;
 import z3d.program.Shader3D;
 import z3d.scene.Scene3D;
 import z3d.units.TimeUtil;
 import z3d.vo.Matrix3D;
+import z3d.vo.Vector3D;
 
 public   class Display3DSprite extends Display3D {
     private static final String TAG="Display3DSprite";
@@ -22,7 +29,12 @@ public   class Display3DSprite extends Display3D {
     public ObjData objData;
     public Matrix3D modeMatrix;
     public Matrix3D rotationMatrix;
+    public boolean dynamic;
     public float time;
+    private Vector3D _groupPos;
+    private Vector3D _groupRotation;
+    private Vector3D _groupScale;
+
     public Display3DSprite(Scene3D val){
         super(val);
         this.time=0;
@@ -49,6 +61,29 @@ public   class Display3DSprite extends Display3D {
         if (this.material != null) {
             this.updateMaterial();
         }
+    }
+    public void setMaterialUrl(String url, final List paramData)
+    {
+        MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
+            @Override
+            public void Bfun(Material value) {
+                material=value;
+                if(paramData!=null){
+                    materialParam=new MaterialBaseParam();
+                    materialParam.setData(material,paramData);
+                }
+            }
+        },true, MaterialShader.shaderNameStr,new MaterialShader());
+    }
+    public void  setObjUrl(String value)
+    {
+        Log.d(TAG, "value: "+value);
+        ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
+            @Override
+            public void Bfun(ObjData value) {
+                objData=value;
+            }
+        });
     }
     public  void  updateMaterial()
     {
@@ -188,5 +223,36 @@ public   class Display3DSprite extends Display3D {
     }
 
 
+    public void setBind(IBind $bindTarget, String $bindSocket) {
+        this.bindTarget = $bindTarget;
+        this.bindSocket = $bindSocket;
+        this.bindMatrix = new Matrix3D();
+    }
 
+    public void setGroup(Vector3D $pos, Vector3D $rotaion, Vector3D $scale) {
+
+        this._isInGroup = true;
+        this._groupPos = $pos;
+        this._groupRotation = $rotaion;
+        this._groupScale = $scale;
+
+        this.groupMatrix = new Matrix3D();
+        this.groupRotationMatrix = new Matrix3D();
+
+        this.groupMatrix.isIdentity = false;
+        this.groupMatrix.identity();
+
+        this.groupMatrix.appendScale($scale.x, $scale.y, $scale.z);
+        this.groupMatrix.appendRotation($rotaion.x, Vector3D.X_AXIS);
+        this.groupMatrix.appendRotation($rotaion.y, Vector3D.Y_AXIS);
+        this.groupMatrix.appendRotation($rotaion.z, Vector3D.Z_AXIS);
+        this.groupMatrix.appendTranslation($pos.x, $pos.y, $pos.z);
+
+        this.groupRotationMatrix.isIdentity = false;
+        this.groupRotationMatrix.identity();
+
+        this.groupRotationMatrix.prependRotation($rotaion.z, Vector3D.Z_AXIS);
+        this.groupRotationMatrix.prependRotation($rotaion.y, Vector3D.Y_AXIS);
+        this.groupRotationMatrix.prependRotation($rotaion.x, Vector3D.X_AXIS);
+    }
 }

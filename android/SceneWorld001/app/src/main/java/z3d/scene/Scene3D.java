@@ -9,6 +9,7 @@ import z3d.base.Camera3D;
 import z3d.base.ResGC;
 import z3d.core.Context3D;
 import z3d.display.Display3D;
+import z3d.display.Display3DSprite;
 import z3d.display.role.Display3dMovie;
 import z3d.filemodel.ParticleManager;
 import z3d.filemodel.TextureManager;
@@ -97,4 +98,7 @@ public class Scene3D extends ResGC {
     }
 
 
+    public void addSpriteDisplay(Display3DSprite display) {
+        addDisplay(display);
+    }
 }

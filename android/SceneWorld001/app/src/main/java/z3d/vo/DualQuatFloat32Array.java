@@ -32,7 +32,7 @@ public class DualQuatFloat32Array {
     private void outInfo(List<Float> arr){
         for(int i=0;i<arr.size();i++){
 
-            Log.d(TAG, arr.get(i).toString());
+//            Log.d(TAG, arr.get(i).toString());
 //            arr.set(i,0.0f);
 
         }

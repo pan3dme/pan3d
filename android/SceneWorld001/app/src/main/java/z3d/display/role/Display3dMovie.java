@@ -1,19 +1,34 @@
 package z3d.display.role;
 import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import z3d.base.GroupBackFun;
+import z3d.base.GroupItem;
 import z3d.base.MeshData;
 import z3d.base.Scene_data;
 import z3d.base.SkinMeshBackFun;
 import z3d.core.Context3D;
 import z3d.display.Display3DSprite;
+import z3d.display.interfaces.IBind;
+import z3d.display.particle.CombineParticle;
+import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.MeshDataManager;
+import z3d.filemodel.ParticleManager;
 import z3d.program.Shader3D;
+import z3d.res.BaseRes;
+import z3d.res.GroupRes;
 import z3d.scene.Scene3D;
 import z3d.vo.AnimData;
 import z3d.vo.DualQuatFloat32Array;
 import z3d.vo.Matrix3D;
 import z3d.vo.SkinMesh;
-public class Display3dMovie extends Display3DSprite {
+import z3d.vo.Vector3D;
+
+public class Display3dMovie extends Display3DSprite implements IBind {
     public static  String TAG="Display3dMovie";
     public SkinMesh skinMesh;
     public float fileScale;
@@ -24,6 +39,8 @@ public class Display3dMovie extends Display3DSprite {
     public  int curentFrame;
     public  float actionTime;
     public int  completeState;
+    protected HashMap _partDic;
+    protected HashMap _partUrl ;
     public  Display3dMovie(Scene3D val)
     {
         super(val);
@@ -31,6 +48,9 @@ public class Display3dMovie extends Display3DSprite {
         this.curentFrame=0;
         this.actionTime=0;
         this.completeState=0;
+        this._partDic=new HashMap();
+        this._partUrl=new HashMap();
+
     }
     public void  setRoleUrl(String url)
     {
@@ -143,7 +163,76 @@ public class Display3dMovie extends Display3DSprite {
 
     }
 
+    public void addPart(String key,String bindSocket, String url){
+        if ( this._partUrl.get(key)==url) {//如果相同则返回
+            return;
+        } else if (this._partUrl.containsKey(key)) {//如果不同则先移除
+            this.removePart(key);
+        }
+        if (!this._partDic.containsKey(key)) {
+            this._partDic.put(key,new ArrayList<>());
+        }
+        this._partUrl.put(key,url);
+        ArrayList ary= (ArrayList)this._partDic.get(key);
+        GroupDataManager.getInstance().getGroupData( url, new GroupBackFun() {
+            @Override
+            public void Bfun(GroupRes groupRes) {
+                loadPartRes(bindSocket, groupRes, ary);
+            }
+        });
+    }
+    private void  loadPartRes(String bindSocket,GroupRes groupRes,ArrayList ary){
+
+        for (int i = 0; i < groupRes.dataAry.size(); i++) {
+            GroupItem item   = groupRes.dataAry.get(i);
+
+            Vector3D posV3d = null;
+            Vector3D rotationV3d = null;
+            Vector3D scaleV3d = null;
+            if (item.isGroup) {
+                posV3d = new Vector3D(item.x, item.y, item.z);
+                rotationV3d = new Vector3D(item.rotationX, item.rotationY, item.rotationZ);
+                scaleV3d = new Vector3D(item.scaleX, item.scaleY, item.scaleZ);
+            }
+
+            if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
+                CombineParticle particle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
+                ary.add(particle);
+                particle.setBindTarget(this);
+                particle.bindSocket = bindSocket;
+                particle.dynamic = true;
+                ParticleManager.getInstance().addParticle(particle);
+                if (item.isGroup) {
+                    particle.setGroup(posV3d, rotationV3d, scaleV3d);
+                }
+            } else if (item.types == BaseRes.PREFAB_TYPE) {
+                Display3DSprite display   = new Display3DSprite(scene3d);
+                display.setObjUrl(item.objUrl);
+                display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
+                display.dynamic = true;
+                ary.add(display);
+                display.setBind(this, bindSocket);
+                scene3d.addSpriteDisplay(display);
+                if (item.isGroup) {
+                    display.setGroup(posV3d, rotationV3d, scaleV3d);
+                }
+
+            }
+
+        }
+
+    }
+    private void removePart(String key) {
+    }
 
 
+    @Override
+    public void getSocket(String socketName, Matrix3D resultMatrix) {
 
+    }
+
+    @Override
+    public int getSunType() {
+        return 0;
+    }
 }

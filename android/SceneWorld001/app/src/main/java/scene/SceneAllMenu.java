@@ -36,6 +36,7 @@ import z3d.display.BuildDisplay3DSprite;
 import z3d.display.line.GridLineSprite;
 import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
+import z3d.display.role.SceneChar;
 import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.MeshDataManager;
 import z3d.filemodel.ParticleManager;
@@ -69,13 +70,14 @@ public class SceneAllMenu extends AppCompatActivity   {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
-                _scene3d.camera3D.distance=500;
+                _scene3d.camera3D.distance=80;
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
-                loadSceneByUrl("2013");
+//                loadSceneByUrl("2013");
 
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
+                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
             }
             @Override
@@ -105,7 +107,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectChangjing();
+        _selectWuQi();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -115,6 +117,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("角色");
         arr.add("特效");
         arr.add("技能");
+        arr.add("武器");
         arr.add("清理");
         arr.add("网格");
         arr.add("拉+");
@@ -132,6 +135,9 @@ public class SceneAllMenu extends AppCompatActivity   {
                     case "特效":
                         _selectTexiao();
                         break;
+                    case "武器":
+                        _selectWuQi();
+                        break;
                     case "技能":
                         break;
                     default:
@@ -142,6 +148,45 @@ public class SceneAllMenu extends AppCompatActivity   {
 
         });
     }
+    private   SceneChar mainChar;
+    private void _selectWuQi() {
+        List<String> arr=new ArrayList<>();
+        arr.add("战士");
+        arr.add("枪");
+        arr.add("全部");
+        arr.add("网格");
+        arr.add("拉+");
+        arr.add("推-");
+        arr.add("清理");
+        arr.add("返回");
+        addButsByArr(arr, new CallBack() {
+            @Override
+            public void StateChange(Object val) {
+                String str=(String) val;
+                if(str.equals("战士")){
+
+                    SceneChar sc=new SceneChar(_scene3d);
+                    sc.setRoleUrl("role/50011.txt");
+                    sc.scaleX=2;
+                    sc.scaleY=2;
+                    sc.scaleZ=2;
+                    _scene3d.addMovieDisplay(sc);
+                    mainChar=sc;
+
+                }else if(str.equals("返回")){
+                    addRootMenu();
+                }else{
+                    if(mainChar!=null){
+
+                        mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+                    }
+
+                }
+            }
+        });
+
+    }
+
     private void _selectRole() {
         List<String> arr=new ArrayList<>();
         arr.add("50011");

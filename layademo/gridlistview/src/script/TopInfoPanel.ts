@@ -1,32 +1,28 @@
- 
 
- 
- import ZhaoBox from "./ZhaoBox";
- 
- 
+
+
+import ZhaoBox from "./ZhaoBox";
+
+
 export default class TopInfoPanel extends Laya.Script {
- /** @prop {name:zhaoBox,tips:"掉落容器预制体对象",type:Prefab}*/
+    /** @prop {name:zhaoBox,tips:"对象",type:Prefab}*/
     zhaoBox: Laya.Prefab;
-  
- 
+
+    moveBox:Laya.Sprite ;
+
     constructor() { super(); }
     onEnable(): void {
-        /**获得组件引用，避免每次获取组件带来不必要的查询开销 */
-     
-        
-        let box: Laya.Sprite = Laya.Pool.getItemByCreateFun("zhaoBox", this.zhaoBox.create, this.zhaoBox);
-        box.pos(100,100);
-   
-
-        this.owner.addChild(box);
+       this. moveBox= Laya.Pool.getItemByCreateFun("zhaoBox", this.zhaoBox.create, this.zhaoBox);
+       this. moveBox.pos(100, 100);
+        this.owner.addChild(  this. moveBox);
     }
     onUpdate(): void {
-        
-        console.log("来了TopInfoPanel");
-        // (this.owner as Laya.Sprite).rotation++;
+
+        console.log("来了3333");
+        this. moveBox.rotation++;
     }
-    
- 
- 
-    
+
+
+
+
 }

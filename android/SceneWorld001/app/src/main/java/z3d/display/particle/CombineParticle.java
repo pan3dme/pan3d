@@ -3,6 +3,8 @@ package z3d.display.particle;
 import java.util.ArrayList;
 import java.util.List;
 
+import z3d.display.interfaces.IBind;
+import z3d.display.role.Display3dMovie;
 import z3d.scene.Scene3D;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
@@ -10,6 +12,7 @@ import z3d.vo.Vector3D;
 public class CombineParticle {
     public CombineParticleData sourceData;
     public String url;
+    public IBind _bindTarget;
     private List<Display3DParticle> displayAry;
     public float _time;
     public float maxTime;
@@ -18,7 +21,7 @@ public class CombineParticle {
     public Vector3D bindVecter3d;
     public Vector3D bindScale;
     public Matrix3D invertBindMatrix;
-    private String _bindSocket;
+    public String bindSocket;
     private float _rotationX;
     private float _rotationY;
     private float _rotationZ;
@@ -33,6 +36,13 @@ public class CombineParticle {
     public boolean dynamic;
     public boolean hasDestory;
 
+    public IBind getBindTarget() {
+        return _bindTarget;
+    }
+
+    public void setBindTarget(IBind val) {
+        this._bindTarget = val;
+    }
 
     public  CombineParticle()
     {
@@ -72,4 +82,7 @@ public class CombineParticle {
         }
     }
 
+    public void setGroup(Vector3D posV3d, Vector3D rotationV3d, Vector3D scaleV3d) {
+
+    }
 }

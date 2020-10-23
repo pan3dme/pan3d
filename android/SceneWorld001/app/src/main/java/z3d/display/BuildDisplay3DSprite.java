@@ -79,29 +79,8 @@ public class BuildDisplay3DSprite extends Display3DSprite {
         }
 
     }
-    protected void setMaterialUrl(String url, final List paramData)
-    {
-        MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
-            @Override
-            public void Bfun(Material value) {
-                material=value;
-                if(paramData!=null){
-                    materialParam=new MaterialBaseParam();
-                    materialParam.setData(material,paramData);
-                }
-            }
-        },true, MaterialShader.shaderNameStr,new MaterialShader());
-    }
-    protected void  setObjUrl(String value)
-    {
-        Log.d(TAG, "value: "+value);
-        ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
-            @Override
-            public void Bfun(ObjData value) {
-                objData=value;
-            }
-        });
-    }
+
+
     protected void setLighturl(String lighturl)
     {
         TextureManager.getInstance().getTexture(Scene_data.fileRoot+lighturl, new TexTuresBackFun() {
