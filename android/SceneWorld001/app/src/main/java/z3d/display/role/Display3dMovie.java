@@ -140,7 +140,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
 
     }
     private AnimData  _getCurentAnimData(){
-        this.curentAction="walk";
+//        this.curentAction="walk";
 //        this.curentAction=defaultAction;
         AnimData  animData = null;
         if (this.animDic.containsKey(this.curentAction)) {

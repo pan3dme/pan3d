@@ -153,8 +153,9 @@ public class SceneAllMenu extends AppCompatActivity   {
     private void _selectWuQi() {
         List<String> arr=new ArrayList<>();
         arr.add("战士");
-        arr.add("枪");
-        arr.add("全部");
+        arr.add("武器");
+        arr.add("坐骑");
+        arr.add("行走");
         arr.add("网格");
         arr.add("拉+");
         arr.add("推-");
@@ -169,13 +170,22 @@ public class SceneAllMenu extends AppCompatActivity   {
                     sc.setRoleUrl("role/50011.txt");
                     _scene3d.addMovieDisplay(sc);
                     mainChar=sc;
+                }else if(str.equals("武器")){
+                    if(mainChar!=null){
+                        mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+                    }
+                }else if(str.equals("坐骑")){
+                    if(mainChar!=null){
+
+                    }
+                }else if(str.equals("行走")){
+                    if(mainChar!=null){
+                        mainChar.curentAction="walk";
+                    }
                 }else if(str.equals("返回")){
                     addRootMenu();
                 }else{
-                    if(mainChar!=null){
 
-                        mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
-                    }
 
                 }
             }
