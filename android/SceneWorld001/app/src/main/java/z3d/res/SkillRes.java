@@ -67,7 +67,10 @@ public class SkillRes extends BaseRes {
                 if (soundTime > 0) {
                     String soundName = $byte.readUTF();
                     // $obj.sound = { time: soundTime, name: soundName };
-                    $obj.sound=soundName;
+
+                    $obj.sound=new HashMap<>();
+                    $obj.sound.put("time",soundTime);
+                    $obj.sound.put("name",soundName);
                 }
             }
             if (this.version >= 33) {

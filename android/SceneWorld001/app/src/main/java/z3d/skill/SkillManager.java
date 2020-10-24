@@ -125,4 +125,7 @@ public class SkillManager extends ResGC {
 
     private void addSrc(String $url, SkillData skillData) {
     }
+
+    public void removeSkill(Skill skill) {
+    }
 }
