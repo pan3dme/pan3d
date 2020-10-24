@@ -44,7 +44,13 @@ public class SceneChar extends Display3dMovie {
         refrishmountPos();
         super.upData();
     }
-
+    public boolean play(String action,int complete,boolean needFollow){
+        boolean  temp=super.play(action,complete,needFollow);
+        if(this.mountChar!=null){
+            changeMountAction();
+        }
+        return temp;
+    }
     private void refrishmountPos() {
         if(this.mountChar!=null){
             this.mountChar.x=this.x;
@@ -56,16 +62,15 @@ public class SceneChar extends Display3dMovie {
     private void changeMountAction() {
         String action=this.curentAction;
         if(this.mountChar!=null){
-            action=action!=null?action:this.defaultAction;
             if( action.equals(CharAction_stand)||action.equals(CharAction_stand_mount_01)){
                 this.curentAction=CharAction_stand_mount;
-                this.mountChar.curentAction=CharAction_stand_mount_01;
+                this.mountChar.curentAction=CharAction_stand;
             }
         else if(action.equals(CharAction_walk)||action.equals(CharAction_walk_mount_01)){
                 this.curentAction=CharAction_walk_mount;
-                this.mountChar.curentAction=CharAction_walk_mount_01;
+                this.mountChar.curentAction=CharAction_walk;
             }else{
-                this.mountChar.curentAction=CharAction_stand_mount_01;
+                this.mountChar.curentAction=CharAction_stand;
             }
 
 

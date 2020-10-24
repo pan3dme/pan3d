@@ -156,6 +156,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("武器");
         arr.add("坐骑");
         arr.add("行走");
+        arr.add("站立");
         arr.add("网格");
         arr.add("拉+");
         arr.add("推-");
@@ -181,7 +182,11 @@ public class SceneAllMenu extends AppCompatActivity   {
                     }
                 }else if(str.equals("行走")){
                     if(mainChar!=null){
-                        mainChar.curentAction="walk";
+                        mainChar.play(SceneChar.CharAction_walk);
+                    }
+                }else if(str.equals("站立")){
+                    if(mainChar!=null){
+                        mainChar.play(SceneChar.CharAction_stand);
                     }
                 }else if(str.equals("返回")){
                     addRootMenu();

@@ -231,7 +231,6 @@ public   class Display3DSprite extends Display3D {
 
     }
 
-
     public void setBind(IBind $bindTarget, String $bindSocket) {
         this.bindTarget = $bindTarget;
         this.bindSocket = $bindSocket;

@@ -45,6 +45,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     public  Display3dMovie(Scene3D val)
     {
         super(val);
+        this.curentAction=this.defaultAction;
         this.meshVisible=true;
         this.curentFrame=0;
         this.actionTime=0;
@@ -141,8 +142,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
 
     }
     private AnimData  _getCurentAnimData(){
-//        this.curentAction="walk";
-//        this.curentAction=defaultAction;
+
         AnimData  animData = null;
         if (this.animDic.containsKey(this.curentAction)) {
             animData = (AnimData)this.animDic.get(this.curentAction);
@@ -151,11 +151,27 @@ public class Display3dMovie extends Display3DSprite implements IBind {
         }
         return animData;
     }
+    public boolean play(String $action){
+       return play($action,0,true);
+    }
+    public boolean play(String action,int complete,boolean needFollow){
+        if (this.curentAction.equals(action)) {
+            return true;
+        }
+        this.curentAction = action;
+        this.completeState = complete;
+        this.actionTime = 0;
+        this.updateFrame(0);
+        if (this.animDic.containsKey(action)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     private  void setMeshVc(MeshData mesh)
     {
         AnimData  animData=_getCurentAnimData();
-//        this.curentFrame=0;
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
         Context3D ctx=this.scene3d.context3D;
         ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
