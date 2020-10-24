@@ -177,6 +177,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 }else if(str.equals("坐骑")){
                     if(mainChar!=null){
 
+                        mainChar.setMountById("5104");
                     }
                 }else if(str.equals("行走")){
                     if(mainChar!=null){

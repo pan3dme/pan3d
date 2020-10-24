@@ -1,5 +1,6 @@
 package z3d.base;
 import java.nio.FloatBuffer;
+import java.util.ArrayList;
 import java.util.List;
 import z3d.material.Material;
 import z3d.material.MaterialBaseParam;
@@ -21,6 +22,10 @@ public class MeshData extends ObjData {
     public int boneWeightOffsets;
     public Material material;
 
+    public MeshData(){
+        super();
+        this.particleAry=new ArrayList<>();
+    }
     public void  upToGup()
     {
         this.vertexBuffer=this.upGpuvertexBuffer(this.verticeslist);
