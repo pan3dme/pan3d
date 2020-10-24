@@ -71,7 +71,7 @@ public class SceneAllMenu extends AppCompatActivity   {
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
                 _scene3d.initData();
-                _scene3d.camera3D.distance=80;
+                _scene3d.camera3D.distance=600;
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
@@ -165,15 +165,10 @@ public class SceneAllMenu extends AppCompatActivity   {
             public void StateChange(Object val) {
                 String str=(String) val;
                 if(str.equals("战士")){
-
                     SceneChar sc=new SceneChar(_scene3d);
                     sc.setRoleUrl("role/50011.txt");
-                    sc.scaleX=2;
-                    sc.scaleY=2;
-                    sc.scaleZ=2;
                     _scene3d.addMovieDisplay(sc);
                     mainChar=sc;
-
                 }else if(str.equals("返回")){
                     addRootMenu();
                 }else{

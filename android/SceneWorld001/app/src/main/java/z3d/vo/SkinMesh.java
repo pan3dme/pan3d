@@ -21,7 +21,7 @@ public class SkinMesh extends ResCount {
     public List<MeshData> meshAry ;
     public List<Matrix3D> bindPosMatrixAry;
     public List<Matrix3D> bindPosInvertMatrixAry;
-    public HashMap boneSocketDic;
+    public HashMap<String,BoneSocketData> boneSocketDic;
     public float fileScale ;
     public float tittleHeight ;
     public Vector2D hitBox ;

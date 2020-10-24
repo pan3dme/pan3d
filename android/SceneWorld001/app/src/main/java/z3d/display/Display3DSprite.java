@@ -98,7 +98,6 @@ public   class Display3DSprite extends Display3D {
         ctx.setProgame(this.shader3D.program);
         this.updateBind();
         this.setVc();
-//        this.setBaseMaterialVc(this.material);
         this.setMaterialTexture(this.material,this.materialParam);
         this.setMaterialVc(this.material,this.materialParam);
         this.setMaterialVa();
@@ -145,10 +144,7 @@ public   class Display3DSprite extends Display3D {
 
         }
     }
-    protected void setBaseMaterialVc(Material material)
-    {
 
-    }
     protected void setMaterialVa()
     {
         Context3D ctx=this.scene3d.context3D;

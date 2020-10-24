@@ -23,6 +23,7 @@ import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.scene.Scene3D;
 import z3d.vo.AnimData;
+import z3d.vo.BoneSocketData;
 import z3d.vo.DualQuatFloat32Array;
 import z3d.vo.Matrix3D;
 import z3d.vo.SkinMesh;
@@ -32,7 +33,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     public static  String TAG="Display3dMovie";
     public SkinMesh skinMesh;
     public float fileScale;
-    public HashMap animDic;
+    public HashMap<String,AnimData> animDic;
     public boolean meshVisible;
     public  String curentAction;
     public  String defaultAction="stand";
@@ -134,15 +135,13 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     protected void setVc()
     {
         Context3D ctx=this.scene3d.context3D;
-        this.modeMatrix.identity();
-        this.modeMatrix.appendScale(0.1f,0.1f,0.1f);
         ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,Shader3D.posMatrix,this.modeMatrix.m);
+        ctx.setVcMatrix4fv(this.shader3D,Shader3D.posMatrix,this.posMatrix3d.m);
 
     }
     private AnimData  _getCurentAnimData(){
         this.curentAction="walk";
-        this.curentAction=defaultAction;
+//        this.curentAction=defaultAction;
         AnimData  animData = null;
         if (this.animDic.containsKey(this.curentAction)) {
             animData = (AnimData)this.animDic.get(this.curentAction);
@@ -225,10 +224,48 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     private void removePart(String key) {
     }
 
-
     @Override
     public void getSocket(String socketName, Matrix3D resultMatrix) {
+        resultMatrix.identity();
+        if (this.skinMesh==null) {
+            resultMatrix.append(this.posMatrix3d);
+            return;
+        } else if ( this.skinMesh.boneSocketDic.get(socketName)==null) {
+            if (socketName.equals( "none")) {
+                resultMatrix.appendTranslation(this.x, this.y, this.z);
+            } else {
+                resultMatrix.append(this.posMatrix3d);
+            }
+            return;
+        }
+        BoneSocketData boneSocketData   = this.skinMesh.boneSocketDic.get(socketName);
+        Matrix3D testmatix;
+        int index = boneSocketData.index;
+        testmatix = this.getFrameMatrix(index);
+        resultMatrix.appendScale(1 / this.scaleX, 1 / this.scaleY, 1 / this.scaleZ);
+        resultMatrix.appendRotation(boneSocketData.rotationX, Vector3D.X_AXIS);
+        resultMatrix.appendRotation(boneSocketData.rotationY, Vector3D.Y_AXIS);
+        resultMatrix.appendRotation(boneSocketData.rotationZ, Vector3D.Z_AXIS);
+        resultMatrix.appendTranslation(boneSocketData.x, boneSocketData.y, boneSocketData.z);
+        if (testmatix!=null) {
+            resultMatrix.append(this.skinMesh.bindPosInvertMatrixAry.get(index));
+            resultMatrix.append(testmatix);
+        }
+        resultMatrix.append(this.posMatrix3d);
+    }
 
+    private Matrix3D getFrameMatrix(int index) {
+        if (this.animDic.containsKey(this.curentAction)) {
+            AnimData animData   = this.animDic.get(this.curentAction);
+            if (this.curentFrame >= animData.matrixAry.size()) {
+                return animData.matrixAry.get(0).get(index);
+            }
+            return animData.matrixAry.get(this.curentFrame).get(index);
+        } else if (this.animDic.containsKey(this.defaultAction)) {
+            AnimData animData   = this.animDic.get(this.defaultAction);
+            return animData.matrixAry.get(this.curentFrame).get(index);
+        }
+        return null;
     }
 
     @Override

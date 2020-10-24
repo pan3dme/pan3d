@@ -21,7 +21,7 @@ public class GridLineSprite  extends LineDisplaySprite {
 
         this.clearLine();
 
-        float w = 100;
+        float w = 1000;
         float n = 10;
         float skeep = w / n;
 
