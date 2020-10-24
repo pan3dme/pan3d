@@ -44,6 +44,8 @@ import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.res.SceneRes;
 import z3d.scene.Scene3D;
+import z3d.skill.Skill;
+import z3d.skill.SkillManager;
 import z3d.units.LoaderThread;
 import z3d.vo.Vector2D;
 import z3d.vo.Vector3D;
@@ -174,6 +176,8 @@ public class SceneAllMenu extends AppCompatActivity   {
 
                 }else if(str.equals("技能001")){
                     if(mainChar!=null){
+                        Skill skill= SkillManager.getInstance().getSkill("skill/jichu_1_byte.txt","m_skill_01",null);
+                       // Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
 
                     }
                 }else if(str.equals("返回")){

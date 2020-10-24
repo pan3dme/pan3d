@@ -522,7 +522,7 @@
                 this.processAnimByMesh($animData);
                 this._waitLoadActionDic[name] = false;
             })
-        }
+        }Skill
 
         public play($action: string, $completeState: number = 0, needFollow: boolean = true): boolean {
             //FpsMc.tipStr = "1" + $action + "," + this._curentAction;

@@ -6,26 +6,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import scene.CallBack;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 import z3d.base.ResGC;
 import z3d.base.SkillBackFun;
+import z3d.units.LoadBackFun;
+import z3d.units.LoadManager;
 import z3d.vo.DataObjTempVo;
 import z3d.vo.ShockAryVo;
 import z3d.vo.Vector3D;
 
 public class SkillRes extends BaseRes {
 
+    private static final String TAG = "SkillRes";
     public String skillUrl;
-
-    private SkillBackFun backFun;
+    private CallBack bfun;
     public int meshBatchNum;
     public HashMap data;
-
-    public void  loadComplete(byte[] buff, SkillBackFun bfun)
+    private void  loadComplete(ByteArray $byte )
     {
-this.backFun=bfun;
-        this._byte =new ByteArray(buff);
+        this._byte =$byte;
         this.version = this._byte.readInt();
         this.skillUrl = this._byte.readUTF();
         this.read(new CallBackFun() {
@@ -34,22 +35,17 @@ this.backFun=bfun;
                 readNext();
             }
         });;//readimg
-
     }
     public void readNext()
     {
         this.read();
         this.read();
-
-        Log.d("TAG", "readNext: ");
         this.data = this.readData(this._byte);
-
-        this.backFun.Bfun(this);
+        this.bfun.StateChange(this);
     }
     private HashMap readData(ByteArray $byte) {
         int len = $byte.readInt();
         HashMap byteData = new HashMap<>();
-
         for (int i = 0; i < len; i++) {
             HashMap $obj = new HashMap<>();
             String $name  = $byte.readUTF();
@@ -57,13 +53,10 @@ this.backFun=bfun;
             $obj.put("skillname",$name) ;
             $obj.put("action",$action) ;
             $obj.put("type",(int)$byte.readFloat()) ;
-
             if (this.version >= 26) {
-
                 $obj.put("blood",$byte.readInt()) ;
                 if ((int)$obj.get("blood") == 0) {
-                   // $obj.blood = SkillVo.defaultBloodTime;
-
+                    // $obj.blood = SkillVo.defaultBloodTime;
                 }
             } else {
                 //$obj.blood = SkillVo.defaultBloodTime;
@@ -72,13 +65,11 @@ this.backFun=bfun;
                 int soundTime = $byte.readInt();
                 if (soundTime > 0) {
                     String soundName = $byte.readUTF();
-                   // $obj.sound = { time: soundTime, name: soundName };
+                    // $obj.sound = { time: soundTime, name: soundName };
                     $obj.put("sound","timesoundName");
                 }
             }
-
             if (this.version >= 33) {
-
                 int shockLen = $byte.readInt();
                 if (shockLen>0) {
                     List<ShockAryVo>  shockAry= new ArrayList<>();
@@ -92,7 +83,6 @@ this.backFun=bfun;
                     $obj.put("shock",shockAry);
                 }
             }
-            // $obj.data=JSON.parse($byte.readUTF())
 
             $obj.put("data" , new ArrayList<>());
             int dLen = $byte.readInt();
@@ -100,10 +90,6 @@ this.backFun=bfun;
                 DataObjTempVo dataObj = new DataObjTempVo();
                 dataObj.url = $byte.readUTF();
                 dataObj.frame = $byte.readFloat();
-
-
-
-
                 switch ( (int)($obj.get("type"))) {
                     case 1:
                         dataObj.beginType = $byte.readInt();
@@ -151,19 +137,13 @@ this.backFun=bfun;
 
                         break;
                     default:
-
                         Log.d("",  "没有类型readData");
                         break;
                 }
 
-
-
                 ((List) $obj.get("data") ).add(dataObj);
             }
-
-
             byteData.put($name,$obj);
-
         }
         return byteData;
     }
@@ -176,4 +156,19 @@ this.backFun=bfun;
         return v3d;
     }
 
+    public void load(String $url, CallBack $fun) {
+        this.bfun = $fun;
+        LoadManager.getInstance().loadUrl($url, LoadManager.BYTE_TYPE, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap dic) {
+                if(dic!=null){
+                    ByteArray temp=(ByteArray)dic.get("byte");
+                    _byte=temp;
+                    loadComplete(_byte);
+                }else{
+                    Log.d(TAG, "bfun: 角色地址错误");
+                }
+            }
+        },null);
+    }
 }
