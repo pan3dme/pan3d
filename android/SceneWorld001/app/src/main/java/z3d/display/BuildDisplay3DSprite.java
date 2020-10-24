@@ -62,7 +62,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
             this.rotationX=(float) value.getDouble("rotationX");
             this.rotationY=(float) value.getDouble("rotationY");
             this.rotationZ=(float) value.getDouble("rotationZ");
-             updateMatrix();
+
             this.setObjUrl(value.getString("objsurl"));
 
             JSONArray tempArr= value.has("materialInfoArr")?value.getJSONArray("materialInfoArr"):null;

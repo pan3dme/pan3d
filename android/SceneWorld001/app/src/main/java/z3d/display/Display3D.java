@@ -19,6 +19,7 @@ public class Display3D<bool> extends Object3D {
     }
     public void upData()
     {
+        this.updateMatrix();
     }
     public void  updateMatrix()
     {

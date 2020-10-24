@@ -69,6 +69,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     }
     @Override
     public void upData() {
+        super.upData();
         if(this.skinMesh==null||this.scene3d==null){
             return;
         }

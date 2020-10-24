@@ -57,8 +57,8 @@ public   class Display3DSprite extends Display3D {
         }
         return texItem.textureRes;
     }
-
     public void upData() {
+        super.upData();
         Context3D ctx = this.scene3d.context3D;
         if (this.material != null) {
             this.updateMaterial();
