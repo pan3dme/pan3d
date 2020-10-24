@@ -16,6 +16,9 @@ public class SceneChar extends Display3dMovie {
     public static String CharAction_jump          ="jump";
     public static String CharAction_death         ="death";
     public static String CharAction_injured       ="injured";
+    public static String CharAction_stand_mount      ="stand_mount";
+    public static String CharAction_walk_mount      ="walk_mount";
+
 
     public static String CharAction_stand_mount_01         ="stand_mount_01";
     public static String CharAction_walk_mount_01          ="walk_mount_01";
@@ -35,6 +38,13 @@ public class SceneChar extends Display3dMovie {
         this.changeMountAction();
         this.refrishmountPos();
     }
+
+    @Override
+    public void upData() {
+        refrishmountPos();
+        super.upData();
+    }
+
     private void refrishmountPos() {
         if(this.mountChar!=null){
             this.mountChar.x=this.x;
@@ -48,14 +58,14 @@ public class SceneChar extends Display3dMovie {
         if(this.mountChar!=null){
             action=action!=null?action:this.defaultAction;
             if( action.equals(CharAction_stand)||action.equals(CharAction_stand_mount_01)){
-                this.curentAction=CharAction_stand_mount_01;
-                this.mountChar.curentAction=CharAction_stand;
+                this.curentAction=CharAction_stand_mount;
+                this.mountChar.curentAction=CharAction_stand_mount_01;
             }
         else if(action.equals(CharAction_walk)||action.equals(CharAction_walk_mount_01)){
-                this.curentAction=CharAction_walk_mount_01;
-                this.mountChar.curentAction=CharAction_walk;
+                this.curentAction=CharAction_walk_mount;
+                this.mountChar.curentAction=CharAction_walk_mount_01;
             }else{
-                this.mountChar.curentAction=CharAction_stand;
+                this.mountChar.curentAction=CharAction_stand_mount_01;
             }
 
 

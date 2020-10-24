@@ -244,17 +244,8 @@ z3d/display/interfaces/IBind.java
  z3d.display.interfaces.IBind
 z3d/display/particle/facet/ParticleFacetData.java
  z3d.display.particle.facet.ParticleFacetData
-scene/SceneAllMenu.java
- scene.SceneAllMenu
- scene.SceneAllMenu$1
- scene.SceneAllMenu$2
- scene.SceneAllMenu$3
- scene.SceneAllMenu$4
- scene.SceneAllMenu$5
- scene.SceneAllMenu$6
- scene.SceneAllMenu$7
- scene.SceneAllMenu$8
- scene.SceneAllMenu$9
+z3d/display/particle/CombineParticle.java
+ z3d.display.particle.CombineParticle
 z3d/display/BuildDisplay3DSprite.java
  z3d.display.BuildDisplay3DSprite
  z3d.display.BuildDisplay3DSprite$1
@@ -262,8 +253,8 @@ z3d/scene/Scene3D.java
  z3d.scene.Scene3D
  z3d.scene.Scene3D$1
  z3d.scene.Scene3D$2
-z3d/display/role/SceneChar.java
- z3d.display.role.SceneChar
+z3d/display/particle/ball/Display3DBallPartilce.java
+ z3d.display.particle.ball.Display3DBallPartilce
 z3d/display/particle/facet/Display3DFacetParticle.java
  z3d.display.particle.facet.Display3DFacetParticle
 z3d/display/particle/locus/ParticleLocusData.java
@@ -313,7 +304,16 @@ z3d/display/particle/model/Display3DModelPartilce.java
  z3d.display.particle.model.Display3DModelPartilce
 z3d/display/particle/model/ParticleModelData.java
  z3d.display.particle.model.ParticleModelData
-z3d/display/particle/ball/Display3DBallPartilce.java
- z3d.display.particle.ball.Display3DBallPartilce
-z3d/display/particle/CombineParticle.java
- z3d.display.particle.CombineParticle
+scene/SceneAllMenu.java
+ scene.SceneAllMenu
+ scene.SceneAllMenu$1
+ scene.SceneAllMenu$2
+ scene.SceneAllMenu$3
+ scene.SceneAllMenu$4
+ scene.SceneAllMenu$5
+ scene.SceneAllMenu$6
+ scene.SceneAllMenu$7
+ scene.SceneAllMenu$8
+ scene.SceneAllMenu$9
+z3d/display/role/SceneChar.java
+ z3d.display.role.SceneChar
