@@ -108,7 +108,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectWuQi();
+        _selectSkill();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -140,6 +140,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                         _selectWuQi();
                         break;
                     case "技能":
+                        _selectSkill();
                         break;
                     default:
                         break;
@@ -149,6 +150,42 @@ public class SceneAllMenu extends AppCompatActivity   {
 
         });
     }
+
+    private void _selectSkill() {
+
+        List<String> arr=new ArrayList<>();
+        arr.add("战士");
+        arr.add("技能001");
+        arr.add("网格");
+        arr.add("拉+");
+        arr.add("推-");
+        arr.add("清理");
+        arr.add("返回");
+        addButsByArr(arr, new CallBack() {
+            @Override
+            public void StateChange(Object val) {
+                String str=(String) val;
+                if(str.equals("战士")){
+                    SceneChar sc=new SceneChar(_scene3d);
+                    sc.setRoleUrl("role/50011.txt");
+                    sc.play(SceneChar.CharAction_stand);
+                    _scene3d.addMovieDisplay(sc);
+                    mainChar=sc;
+
+                }else if(str.equals("技能001")){
+                    if(mainChar!=null){
+
+                    }
+                }else if(str.equals("返回")){
+                    addRootMenu();
+                }else{
+
+
+                }
+            }
+        });
+    }
+
     private   SceneChar mainChar;
     private void _selectWuQi() {
         List<String> arr=new ArrayList<>();

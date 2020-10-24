@@ -304,9 +304,12 @@ z3d/display/particle/model/Display3DModelPartilce.java
  z3d.display.particle.model.Display3DModelPartilce
 z3d/display/particle/model/ParticleModelData.java
  z3d.display.particle.model.ParticleModelData
+z3d/display/role/SceneChar.java
+ z3d.display.role.SceneChar
 scene/SceneAllMenu.java
  scene.SceneAllMenu
  scene.SceneAllMenu$1
+ scene.SceneAllMenu$10
  scene.SceneAllMenu$2
  scene.SceneAllMenu$3
  scene.SceneAllMenu$4
@@ -315,5 +318,3 @@ scene/SceneAllMenu.java
  scene.SceneAllMenu$7
  scene.SceneAllMenu$8
  scene.SceneAllMenu$9
-z3d/display/role/SceneChar.java
- z3d.display.role.SceneChar
