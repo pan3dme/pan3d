@@ -120,7 +120,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("角色");
         arr.add("特效");
         arr.add("技能");
-        arr.add("武器");
+        arr.add("挂件");
         arr.add("清理");
         arr.add("网格");
         arr.add("拉+");
@@ -138,7 +138,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                     case "特效":
                         _selectTexiao();
                         break;
-                    case "武器":
+                    case "挂件":
                         _selectWuQi();
                         break;
                     case "技能":

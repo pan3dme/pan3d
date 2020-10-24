@@ -1,4 +1,6 @@
 package z3d.skill;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,8 @@ import z3d.base.ResGC;
 import z3d.base.Scene_data;
 import z3d.filemodel.ResManager;
 import z3d.program.ProgrmaManager;
+import z3d.res.SkillRes;
+
 public class SkillManager extends ResGC {
 
     public HashMap<String, List<Skill>> _skillDic;
@@ -81,10 +85,44 @@ public class SkillManager extends ResGC {
             @Override
             public void StateChange(Object val) {
 
+                SkillRes $skillRes=(SkillRes)val;
+
+                Log.d(TAG, "StateChange: ");
+                loadSkillCom($url, $skillRes);
             }
 
         });
         return skill;
 
+    }
+
+    private void loadSkillCom(String $url, SkillRes $skillRes) {
+
+
+        SkillData skillData  = new SkillData();
+        skillData.data = $skillRes.data;
+        for (int i = 0; i < this._loadDic.get($url).size(); i++) {
+            SkillLoadInfo obj = this._loadDic.get($url).get(i);
+            if (!obj.skill.hasDestory) {
+                obj.skill.setData(skillData.data.get(obj.name), skillData);
+                obj.skill.key = $url + obj.name;
+                skillData.useNum++;
+            }
+
+        }
+        this.dic.put($url,skillData);
+        this.addSrc($url, skillData);
+
+        for (int i = 0; i < this._loadDic.get($url).size(); i++) {
+            SkillLoadInfo obj = this._loadDic.get($url).get(i);
+            if (obj.callback!=null) {
+                obj.callback.StateChange(true);
+            }
+        }
+        this._loadDic.put($url,null);
+
+    }
+
+    private void addSrc(String $url, SkillData skillData) {
     }
 }

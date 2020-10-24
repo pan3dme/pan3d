@@ -23,7 +23,7 @@ public class SkillRes extends BaseRes {
     public String skillUrl;
     private CallBack bfun;
     public int meshBatchNum;
-    public HashMap data;
+    public HashMap<String,SkillActionVo> data;
     private void  loadComplete(ByteArray $byte )
     {
         this._byte =$byte;
@@ -43,19 +43,20 @@ public class SkillRes extends BaseRes {
         this.data = this.readData(this._byte);
         this.bfun.StateChange(this);
     }
-    private HashMap readData(ByteArray $byte) {
+    private HashMap<String,SkillActionVo>  readData(ByteArray $byte) {
         int len = $byte.readInt();
-        HashMap byteData = new HashMap<>();
+        HashMap<String,SkillActionVo>  byteData = new HashMap<>();
         for (int i = 0; i < len; i++) {
-            HashMap $obj = new HashMap<>();
+            SkillActionVo $obj = new SkillActionVo();
             String $name  = $byte.readUTF();
             String $action = $byte.readUTF();
-            $obj.put("skillname",$name) ;
-            $obj.put("action",$action) ;
-            $obj.put("type",(int)$byte.readFloat()) ;
+
+            $obj.skillname=$name;
+            $obj.action=$action;
+            $obj.type=(int)$byte.readFloat();
             if (this.version >= 26) {
-                $obj.put("blood",$byte.readInt()) ;
-                if ((int)$obj.get("blood") == 0) {
+                $obj.blood=$byte.readInt() ;
+                if ( $obj.blood== 0) {
                     // $obj.blood = SkillVo.defaultBloodTime;
                 }
             } else {
@@ -66,7 +67,7 @@ public class SkillRes extends BaseRes {
                 if (soundTime > 0) {
                     String soundName = $byte.readUTF();
                     // $obj.sound = { time: soundTime, name: soundName };
-                    $obj.put("sound","timesoundName");
+                    $obj.sound=soundName;
                 }
             }
             if (this.version >= 33) {
@@ -80,17 +81,17 @@ public class SkillRes extends BaseRes {
                         shobj.amp = $byte.readFloat();
                         shockAry.add(shobj);
                     }
-                    $obj.put("shock",shockAry);
+                    $obj.shock=shockAry;
                 }
             }
 
-            $obj.put("data" , new ArrayList<>());
+            $obj.data=new ArrayList<>();
             int dLen = $byte.readInt();
             for (int j = 0; j < dLen; j++) {
                 DataObjTempVo dataObj = new DataObjTempVo();
                 dataObj.url = $byte.readUTF();
                 dataObj.frame = $byte.readFloat();
-                switch ( (int)($obj.get("type"))) {
+                switch ( $obj.type) {
                     case 1:
                         dataObj.beginType = $byte.readInt();
 
@@ -141,7 +142,7 @@ public class SkillRes extends BaseRes {
                         break;
                 }
 
-                ((List) $obj.get("data") ).add(dataObj);
+               $obj.data.add(dataObj);
             }
             byteData.put($name,$obj);
         }
