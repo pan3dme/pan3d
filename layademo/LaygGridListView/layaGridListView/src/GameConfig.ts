@@ -7,13 +7,13 @@ import DropBox from "./script/DropBox"
 * 游戏初始化配置;
 */
 export default class GameConfig{
-    static width:number=1136;
-    static height:number=640;
+    static width:number=640;
+    static height:number=1136;
     static scaleMode:string="fixedwidth";
-    static screenMode:string="none";
+    static screenMode:string="vertical";
     static alignV:string="top";
     static alignH:string="left";
-    static startScene:any="test/TestScene.scene";
+    static startScene:any="page/LobbyPage.scene";
     static sceneRoot:string="";
     static debug:boolean=false;
     static stat:boolean=false;
