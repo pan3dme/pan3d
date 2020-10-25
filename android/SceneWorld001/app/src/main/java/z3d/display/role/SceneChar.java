@@ -1,6 +1,8 @@
 package z3d.display.role;
 
 import z3d.scene.Scene3D;
+import z3d.skill.Skill;
+import z3d.skill.SkillManager;
 
 public class SceneChar extends Display3dMovie {
 
@@ -75,5 +77,9 @@ public class SceneChar extends Display3dMovie {
 
 
         }
+    }
+
+    public void playSkill(Skill skill) {
+        SkillManager.getInstance().playSkill(skill);
     }
 }

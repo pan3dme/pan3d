@@ -1,9 +1,11 @@
 package z3d.skill;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import scene.CallBack;
 import z3d.base.Object3D;
+import z3d.display.role.SceneChar;
 import z3d.res.SkillActionVo;
 import z3d.skill.key.SkillFixEffect;
 import z3d.skill.key.SkillKey;
@@ -13,6 +15,7 @@ import z3d.skill.vo.SkillKeyVo;
 import z3d.skill.vo.SkillTrajectoryTargetKeyVo;
 import z3d.skill.vo.SkillType;
 import z3d.skill.vo.SkillVo;
+import z3d.vo.Vector3D;
 
 public class Skill {
     public boolean isDeath;
@@ -86,5 +89,30 @@ public class Skill {
             this.completeFun.StateChange(true);
         }
         this.idleTime = 0;
+    }
+
+    public void configFixEffect(SceneChar $active, CallBack $completeFun, List<Vector3D> $posObj) {
+
+        this.active = $active;
+        this.completeFun = $completeFun;
+        if (this.keyAry==null) {
+            return;
+        }
+        for (int i = 0; i < this.keyAry.size(); i++) {
+            if (this.skillVo.types != SkillType.FixEffect) {
+                continue;
+            }
+            SkillFixEffect skillFixEffect   = (SkillFixEffect)this.keyAry.get(i);
+            skillFixEffect.active = $active;
+            if ($posObj!=null && $posObj.size()>0) {
+                if (i > ($posObj.size() - 1)) {
+                    skillFixEffect.outPos = $posObj.get($posObj.size() - 1);
+                } else {
+                    skillFixEffect.outPos = $posObj.get(i);
+                }
+            } else {
+                skillFixEffect.outPos = null;
+            }
+        }
     }
 }

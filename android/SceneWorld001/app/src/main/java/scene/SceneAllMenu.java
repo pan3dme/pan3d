@@ -73,7 +73,7 @@ public class SceneAllMenu extends AppCompatActivity   {
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 _scene3d =new Scene3D();
                 _scene3d.initData();
-                _scene3d.camera3D.distance=600;
+                _scene3d.camera3D.distance=400;
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
@@ -180,8 +180,10 @@ public class SceneAllMenu extends AppCompatActivity   {
                 }else if(str.equals("技能001")){
                     Skill skill= SkillManager.getInstance().getSkill("skill/jichu_1_byte.txt","m_skill_01",null);
                     if(mainChar!=null){
+                        skill.reset();
+                        skill.configFixEffect(mainChar,null,null);
+                        mainChar.playSkill(skill);
 
-                       // Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
 
                     }
                 }else if(str.equals("返回")){

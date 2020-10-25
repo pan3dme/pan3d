@@ -22,6 +22,7 @@ import z3d.program.Shader3D;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
 import z3d.scene.Scene3D;
+import z3d.skill.Skill;
 import z3d.vo.AnimData;
 import z3d.vo.BoneSocketData;
 import z3d.vo.DualQuatFloat32Array;
@@ -289,4 +290,6 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     public int getSunType() {
         return 0;
     }
+
+
 }

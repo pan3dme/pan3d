@@ -145,4 +145,9 @@ public class SkillManager extends ResGC {
             }
         });
     }
+
+    public void playSkill(Skill skill) {
+
+
+    }
 }
