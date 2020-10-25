@@ -13,7 +13,8 @@ import z3d.vo.ShockAryVo;
 public class SkillVo {
     private static final String TAG ="SkillVo" ;
     public List keyAry;
-    private String action;
+
+    public String action;
     private String skillname;
     private int bloodTime;
     public int types;

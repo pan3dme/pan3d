@@ -25,7 +25,7 @@ public class SkillManager extends ResGC {
         _skillDic=new HashMap<>();
         _loadDic=new HashMap<>();
         _preLoadDic=new HashMap<>();
-
+        _skillAry=new ArrayList<>();
 
     }
 
@@ -141,13 +141,11 @@ public class SkillManager extends ResGC {
             public void StateChange(Object val) {
                 SkillRes $skillRes=(SkillRes)val;
                 loadSkillCom(url, $skillRes);
-
             }
         });
     }
-
     public void playSkill(Skill skill) {
-
-
+        this._skillAry.add(skill);
+        skill.play();
     }
 }

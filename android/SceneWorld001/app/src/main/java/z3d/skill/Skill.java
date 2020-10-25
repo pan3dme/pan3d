@@ -5,6 +5,8 @@ import java.util.List;
 
 import scene.CallBack;
 import z3d.base.Object3D;
+import z3d.display.particle.model.Display3DModelPartilce;
+import z3d.display.role.Display3dMovie;
 import z3d.display.role.SceneChar;
 import z3d.res.SkillActionVo;
 import z3d.skill.key.SkillFixEffect;
@@ -113,6 +115,16 @@ public class Skill {
             } else {
                 skillFixEffect.outPos = null;
             }
+        }
+    }
+    public void play() {
+        if (this.skillVo==null) {
+            this.skillComplete();
+            return;
+        }
+        if (this.active!=null && this.active instanceof Display3dMovie) {
+            Display3dMovie $movie3d = (Display3dMovie)this.active;
+            $movie3d.play(this.skillVo.action, 2, false);
         }
     }
 }
