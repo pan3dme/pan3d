@@ -22,7 +22,7 @@ public class SkillKey {
 
     public void setInfo(SkillKeyVo obj) {
         this.time = obj.frame * Scene_data.frameTime;
-        this.particle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + obj.url);
+        this.particle = ParticleManager.getInstance().getParticleByte( obj.url);
 
 
     }

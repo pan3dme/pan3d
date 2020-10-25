@@ -60,10 +60,8 @@ public class ParticleManager extends ResGC {
     }
     public void addParticle(CombineParticle particle )
     {
-
         this.particleList.add(particle);
         this.addRenderDic(particle);
-
     }
     public  void clearAll(){
         this.particleList=new ArrayList<>();
@@ -73,15 +71,11 @@ public class ParticleManager extends ResGC {
     private   void  addRenderDic(CombineParticle particle )
     {
         String url=particle.url;
-        List arr;
-       if( !this.renderDic.containsKey(url)){
-           arr =new ArrayList<CombineParticle>();
-           this.renderDic.put(url,arr);
-       }else
-       {
-           arr=   this.renderDic.get(url);
-       }
-        arr.add(particle);
+        if( !this.renderDic.containsKey(url)){
+            this.renderDic.put(url,new ArrayList<CombineParticle>());
+        }
+        this.renderDic.get(url).add(particle);
+
     }
     public  void  upFrame()
     {
