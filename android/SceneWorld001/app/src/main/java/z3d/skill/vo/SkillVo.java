@@ -7,11 +7,12 @@ import java.util.List;
 
 import z3d.base.Scene_data;
 import z3d.res.SkillActionVo;
+import z3d.vo.DataObjTempVo;
 import z3d.vo.ShockAryVo;
 
 public class SkillVo {
     private static final String TAG ="SkillVo" ;
-    public ArrayList<SkillKeyVo> keyAry;
+    public List keyAry;
     private String action;
     private String skillname;
     private int bloodTime;
@@ -35,7 +36,8 @@ public class SkillVo {
         }
         if ($info.sound!=null) {
             this.sound = new SkillKeyVo();
-            this.sound.frame =(float) $info.sound.get("time") * Scene_data.frameTime;
+            int aaa=(int)$info.sound.get("time");
+            this.sound.frame =aaa * Scene_data.frameTime;
             this.sound.url =(String) $info.sound.get("name");
         }
         if ($info.shock!=null) {
@@ -53,18 +55,26 @@ public class SkillVo {
         return keyAry;
     }
 
-    private ArrayList<SkillKeyVo> getTrajectoryDynamicTarget(ArrayList<Object> data) {
+    private List getTrajectoryDynamicTarget(ArrayList<DataObjTempVo> $ary) {
         List<SkillTrajectoryTargetKeyVo> keyAry = new ArrayList<>();
-//        for (var i: number = 0; i < $ary.length; i++) {
-//            var key: SkillTrajectoryTargetKeyVo = new SkillTrajectoryTargetKeyVo();
-//            key.setData($ary[i]);
-//            keyAry.push(key);
-//        }
-        return null;
+        for (int i    = 0; i < $ary.size() ; i++) {
+            SkillTrajectoryTargetKeyVo key = new SkillTrajectoryTargetKeyVo();
+            key.setData($ary.get(i));
+            keyAry.add(key);
+        }
+        return keyAry;
     }
 
-    private ArrayList<SkillKeyVo> getFixEffect(ArrayList<Object> data) {
-        return null;
+    private List getFixEffect(ArrayList<DataObjTempVo> $ary) {
+
+        List<SkillFixEffectKeyVo> keyAry  = new ArrayList<>();
+        for (int i    = 0; i < $ary.size() ; i++) {
+            SkillFixEffectKeyVo key  = new SkillFixEffectKeyVo();
+            key.setData($ary.get(i));
+            keyAry.add(key);
+        }
+
+        return keyAry;
     }
 
 }

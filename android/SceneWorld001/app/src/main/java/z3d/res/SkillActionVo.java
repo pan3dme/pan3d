@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import z3d.vo.DataObjTempVo;
 import z3d.vo.ShockAryVo;
 
 public class SkillActionVo {
@@ -15,5 +16,5 @@ public class SkillActionVo {
     public int type;
     public int blood;
     public List<ShockAryVo>  shock;
-    public ArrayList<Object> data;
+    public ArrayList<DataObjTempVo> data;
 }

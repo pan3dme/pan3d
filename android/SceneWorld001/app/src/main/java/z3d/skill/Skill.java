@@ -9,6 +9,7 @@ import z3d.skill.key.SkillFixEffect;
 import z3d.skill.key.SkillKey;
 import z3d.skill.key.SkillMulTrajectory;
 import z3d.skill.key.SkillTrajectory;
+import z3d.skill.vo.SkillKeyVo;
 import z3d.skill.vo.SkillTrajectoryTargetKeyVo;
 import z3d.skill.vo.SkillType;
 import z3d.skill.vo.SkillVo;
@@ -19,6 +20,7 @@ public class Skill {
     public String name;
     public boolean hasDestory;
     public String key;
+    public boolean src;
     private SkillVo skillVo;
     private ArrayList<Object> trajectoryAry;
     private SkillData skillData;
@@ -45,7 +47,7 @@ public class Skill {
         if (this.skillVo.types == SkillType.FixEffect) {
             for (int i = 0; i < this.skillVo.keyAry.size(); i++) {
                 SkillFixEffect keySkill  = new SkillFixEffect();
-                keySkill.setInfo(this.skillVo.keyAry.get(i));
+                keySkill.setInfo((SkillKeyVo)this.skillVo.keyAry.get(i));
                 keySkill.removeCallFun = new CallBack() {
                     @Override
                     public void StateChange(Object val) {
@@ -65,7 +67,7 @@ public class Skill {
                 } else {
                     trajectory = new SkillTrajectory();
                 }
-                trajectory.setInfo(this.skillVo.keyAry.get(i));
+                trajectory.setInfo((SkillKeyVo)this.skillVo.keyAry.get(i));
                 this.keyAry.add(trajectory);
             }
         }

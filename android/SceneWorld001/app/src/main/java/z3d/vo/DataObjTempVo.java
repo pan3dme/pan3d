@@ -11,7 +11,7 @@ public class DataObjTempVo {
     public  String hitSocket;
     public  String endParticle;
 
-    public  float multype;
+    public  int multype;
 
     public  float speed;
 

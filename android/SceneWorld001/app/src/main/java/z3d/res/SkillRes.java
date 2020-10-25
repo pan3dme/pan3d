@@ -117,7 +117,7 @@ public class SkillRes extends BaseRes {
                     case 3:
                         dataObj.beginSocket = $byte.readUTF();
                         dataObj.beginType = $byte.readFloat();
-                        dataObj.multype = $byte.readFloat();
+                        dataObj.multype = (int) $byte.readFloat();
                         dataObj.speed = $byte.readFloat();
 
                         break;

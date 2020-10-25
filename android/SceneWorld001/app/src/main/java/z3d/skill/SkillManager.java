@@ -63,42 +63,33 @@ public class SkillManager extends ResGC {
 //            skill.key = key;
 //            this._dic[$url].useNum++;
 //            return skill;
+            SkillData  skillData=  (SkillData)this.dic.get($url);
+            skill.setData(skillData.data.get(skill.name),skillData);
+            skill.key=key;
+            skillData.useNum++;
+            return skill;
         }
 
-        if (this._loadDic.containsKey($url)) {
-//            var obj: any = new Object;
-//            obj.name = $name;
-//            obj.skill = skill;
-//            obj.callback = $callback;
-//            this._loadDic[$url].push(obj);
-//            return skill;
-        }
-
-        this._loadDic.put($url,new ArrayList<>());
         SkillLoadInfo obj = new SkillLoadInfo();
         obj.name = $name;
         obj.skill = skill;
         obj.callback = $callback;
+        if (this._loadDic.containsKey($url)) {
+            this._loadDic.get($url).add(obj);
+            return skill;
+        }
+        this._loadDic.put($url,new ArrayList<>());
         this._loadDic.get($url).add(obj);
-
         ResManager.getInstance().loadSkillRes(Scene_data.fileRoot+ $url, new CallBack() {
             @Override
             public void StateChange(Object val) {
-
                 SkillRes $skillRes=(SkillRes)val;
-
-                Log.d(TAG, "StateChange: ");
                 loadSkillCom($url, $skillRes);
             }
-
         });
         return skill;
-
     }
-
     private void loadSkillCom(String $url, SkillRes $skillRes) {
-
-
         SkillData skillData  = new SkillData();
         skillData.data = $skillRes.data;
         for (int i = 0; i < this._loadDic.get($url).size(); i++) {
@@ -108,11 +99,9 @@ public class SkillManager extends ResGC {
                 obj.skill.key = $url + obj.name;
                 skillData.useNum++;
             }
-
         }
         this.dic.put($url,skillData);
         this.addSrc($url, skillData);
-
         for (int i = 0; i < this._loadDic.get($url).size(); i++) {
             SkillLoadInfo obj = this._loadDic.get($url).get(i);
             if (obj.callback!=null) {
@@ -120,10 +109,24 @@ public class SkillManager extends ResGC {
             }
         }
         this._loadDic.put($url,null);
-
     }
-
     private void addSrc(String $url, SkillData skillData) {
+
+        for (String key : skillData.data.keySet()) {
+            Skill skill = new Skill();
+            skill.name = key;
+            skill.isDeath = true;
+            skill.src = true;
+            skill.setData(skillData.data.get(key), skillData);
+            skillData.addSrcSkill(skill);
+            skillData.useNum++;
+            String dkey  = $url + key;
+            if (!this._skillDic.containsKey(dkey)) {
+                this._skillDic.put(dkey,new ArrayList<>());
+            }
+            this._skillDic.get(dkey).add(skill);
+
+        }
     }
 
     public void removeSkill(Skill skill) {
