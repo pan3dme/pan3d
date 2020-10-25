@@ -15,9 +15,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/particle/CombineParticle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/scene/Scene3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/Skill.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/SkillManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/SkillManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillFixEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillFixEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillTrajectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/key/SkillTrajectory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,10 +174,10 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1159" y="135" key="#app/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603382784792" />
-    <state x="-1027" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1603557120910">
+    <state x="-1027" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1603611032951">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-1027" y="250" key="#com.intellij.ide.util.MemberChooser/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603557120910" />
+    <state x="-1027" y="250" key="#com.intellij.ide.util.MemberChooser/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603611032951" />
     <state x="-1207" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603531633883">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -184,38 +190,38 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state width="613" height="694" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600817813" />
-    <state width="1336" height="414" key="GridCell.Tab.0.bottom" timestamp="1603609268058">
+    <state width="1336" height="414" key="GridCell.Tab.0.bottom" timestamp="1603609297240">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609268058" />
-    <state width="1336" height="414" key="GridCell.Tab.0.center" timestamp="1603609268058">
+    <state width="1336" height="414" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297240" />
+    <state width="1336" height="414" key="GridCell.Tab.0.center" timestamp="1603609297239">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609268058" />
-    <state width="1336" height="414" key="GridCell.Tab.0.left" timestamp="1603609268058">
+    <state width="1336" height="414" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297239" />
+    <state width="1336" height="414" key="GridCell.Tab.0.left" timestamp="1603609297239">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609268058" />
-    <state width="1336" height="414" key="GridCell.Tab.0.right" timestamp="1603609268058">
+    <state width="1336" height="414" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297239" />
+    <state width="1336" height="414" key="GridCell.Tab.0.right" timestamp="1603609297239">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609268058" />
-    <state width="1336" height="414" key="GridCell.Tab.1.bottom" timestamp="1603609260629">
+    <state width="1336" height="414" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297239" />
+    <state width="1336" height="414" key="GridCell.Tab.1.bottom" timestamp="1603609297239">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609260629" />
-    <state width="1336" height="414" key="GridCell.Tab.1.center" timestamp="1603609260629">
+    <state width="1336" height="414" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297239" />
+    <state width="1336" height="414" key="GridCell.Tab.1.center" timestamp="1603609297238">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609260629" />
-    <state width="1336" height="414" key="GridCell.Tab.1.left" timestamp="1603609260629">
+    <state width="1336" height="414" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297238" />
+    <state width="1336" height="414" key="GridCell.Tab.1.left" timestamp="1603609297238">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609260629" />
-    <state width="1336" height="414" key="GridCell.Tab.1.right" timestamp="1603609260629">
+    <state width="1336" height="414" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297238" />
+    <state width="1336" height="414" key="GridCell.Tab.1.right" timestamp="1603609297238">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1336" height="414" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609260629" />
+    <state width="1336" height="414" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603609297238" />
     <state x="-1339" y="175" key="SettingsEditor" timestamp="1602672697955">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
@@ -224,25 +230,16 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1171" y="387" key="edit.logcat.filter.dialog.dimensions/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603162635356" />
-    <state x="-909" y="343" width="615" height="490" key="find.popup" timestamp="1603548215934">
+    <state x="-909" y="343" width="615" height="490" key="find.popup" timestamp="1603611766922">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-909" y="343" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603548215934" />
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603596521234">
+    <state x="-909" y="343" width="615" height="490" key="find.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603611766922" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603612147841">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603596521234" />
+    <state x="-1175" y="187" width="670" height="676" key="search.everywhere.popup/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603612147841" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/skill/SkillManager.java</url>
-          <line>147</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo typeName="z3d.material.Material" fieldName="constList" />

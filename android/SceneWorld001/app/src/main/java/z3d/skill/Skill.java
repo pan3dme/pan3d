@@ -9,6 +9,7 @@ import z3d.display.particle.model.Display3DModelPartilce;
 import z3d.display.role.Display3dMovie;
 import z3d.display.role.SceneChar;
 import z3d.res.SkillActionVo;
+import z3d.scene.Scene3D;
 import z3d.skill.key.SkillFixEffect;
 import z3d.skill.key.SkillKey;
 import z3d.skill.key.SkillMulTrajectory;
@@ -29,11 +30,20 @@ public class Skill {
     private SkillVo skillVo;
     private ArrayList<Object> trajectoryAry;
     private SkillData skillData;
-    private ArrayList<Object> keyAry;
+    private ArrayList<SkillKey> keyAry;
     private Object3D active;
     private int completeNum;
     private CallBack completeFun;
     private int idleTime;
+    private float time;
+    private int targetFlag;
+    private Scene3D scene3D;
+
+    public  Skill(Scene3D val){
+        this.time=0;
+        this.targetFlag=0;
+        this.scene3D=val;
+    }
     public void reset() {
     }
     public void setData(SkillActionVo $data, SkillData $skillData) {
@@ -127,4 +137,49 @@ public class Skill {
             $movie3d.play(this.skillVo.action, 2, false);
         }
     }
+    public static float MaxTime = 1000 * 5;
+    public void update(float t) {
+
+        this.time += t;
+        if (this.time > Skill.MaxTime) {
+            //console.log("超时结束");
+            this.skillComplete();
+        }
+
+        this.getKeyTarget();
+        this.getShockTarget();
+        this.updateTrajector(t);
+
+    }
+    private void getKeyTarget() {
+        if (this.keyAry==null) {
+            return;
+        }
+        for (int i = this.targetFlag; i < this.keyAry.size(); i++) {
+            SkillKey temp=  this.keyAry.get(i);
+            if (temp.time < this.time) {
+                temp.addToRender(this.scene3D.particleManager);
+                if (this.skillVo.types == SkillType.TrajectoryDynamicTarget || this.skillVo.types == SkillType.TrajectoryDynamicPoint) {
+                    this.trajectoryAry.add(temp);
+                }
+                i++;
+                this.targetFlag = i;
+            } else {
+                break;
+            }
+        }
+        this.getSound();
+    }
+
+    private void getSound() {
+    }
+
+    private void getShockTarget() {
+    }
+    private void updateTrajector(float t) {
+    }
+
+
+
+
 }

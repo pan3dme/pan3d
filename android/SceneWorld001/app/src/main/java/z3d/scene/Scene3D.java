@@ -18,6 +18,7 @@ import z3d.filemodel.TextureManager;
 import z3d.material.TextureRes;
 import z3d.program.Shader3D;
 import z3d.res.RoleRes;
+import z3d.skill.SkillManager;
 import z3d.units.TimeUtil;
 
 public class Scene3D extends ResGC {
@@ -89,6 +90,7 @@ public class Scene3D extends ResGC {
         ctx.setFrontFace(true);
         ctx.setDepthTest(false);
         ctx.setWriteDepth(false);
+        SkillManager.getInstance().upData();
         this.particleManager.upFrame();
 
 

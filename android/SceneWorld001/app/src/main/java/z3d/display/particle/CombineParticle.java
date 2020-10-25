@@ -85,4 +85,7 @@ public class CombineParticle {
     public void setGroup(Vector3D posV3d, Vector3D rotationV3d, Vector3D scaleV3d) {
 
     }
+
+    public void reset() {
+    }
 }

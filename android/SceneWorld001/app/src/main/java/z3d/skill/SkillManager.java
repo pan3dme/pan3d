@@ -12,6 +12,8 @@ import z3d.base.Scene_data;
 import z3d.filemodel.ResManager;
 import z3d.program.ProgrmaManager;
 import z3d.res.SkillRes;
+import z3d.scene.Scene3D;
+import z3d.units.TimeUtil;
 
 public class SkillManager extends ResGC {
 
@@ -19,6 +21,9 @@ public class SkillManager extends ResGC {
     public HashMap<String,List<SkillLoadInfo>> _loadDic;
     public HashMap<String,String> _preLoadDic;
     public List<Skill> _skillAry ;
+    private float _time;
+
+    public Scene3D scene3D;
 
     public SkillManager( ){
         super();
@@ -52,7 +57,7 @@ public class SkillManager extends ResGC {
                 }
             }
         }
-        skill = new Skill();
+        skill = new Skill(this.scene3D);
         skill.name = $name;
         skill.isDeath = false;
         if (!this._skillDic.containsKey(key)) {
@@ -112,7 +117,7 @@ public class SkillManager extends ResGC {
     private void addSrc(String $url, SkillData skillData) {
 
         for (String key : skillData.data.keySet()) {
-            Skill skill = new Skill();
+            Skill skill = new Skill(this.scene3D);
             skill.name = key;
             skill.isDeath = true;
             skill.src = true;
@@ -147,5 +152,15 @@ public class SkillManager extends ResGC {
     public void playSkill(Skill skill) {
         this._skillAry.add(skill);
         skill.play();
+    }
+    public  void upData()
+    {
+        float _tempTime = TimeUtil.getTimer();
+        float t  = _tempTime - this._time;
+        for (int i = 0; i < this._skillAry.size(); i++) {
+            this._skillAry.get(i).update(t);
+        }
+        this._time=_tempTime;
+
     }
 }
