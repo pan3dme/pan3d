@@ -14,26 +14,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillFixEffectKeyVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/res/SkillRes.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/res/SkillRes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/vo/DataObjTempVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/z3d/vo/DataObjTempVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/res/SkillRes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/res/SkillRes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/vo/DataObjTempVo.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/z3d/vo/DataObjTempVo.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillActionVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillActionVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/res/SkillRes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/SkillData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/SkillData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/role/Display3dMovie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/SkillManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/SkillManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillKeyVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillKeyVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillTrajectoryTargetKeyVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillTrajectoryTargetKeyVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/skill/vo/SkillVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DataObjTempVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DataObjTempVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -197,42 +185,42 @@
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
     <state x="-1071" y="290" key="AndroidProcessChooserDialog/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1602655454001" />
-    <state width="613" height="694" key="DebuggerActiveHint" timestamp="1603596696958">
+    <state width="613" height="694" key="DebuggerActiveHint" timestamp="1603600733538">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="613" height="694" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603596696958" />
-    <state width="1343" height="414" key="GridCell.Tab.0.bottom" timestamp="1603599488031">
+    <state width="613" height="694" key="DebuggerActiveHint/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600733538" />
+    <state width="1338" height="414" key="GridCell.Tab.0.bottom" timestamp="1603600769370">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1343" height="414" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599488031" />
-    <state width="1343" height="414" key="GridCell.Tab.0.center" timestamp="1603599488029">
+    <state width="1338" height="414" key="GridCell.Tab.0.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769370" />
+    <state width="1338" height="414" key="GridCell.Tab.0.center" timestamp="1603600769368">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1343" height="414" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599488029" />
-    <state width="1343" height="414" key="GridCell.Tab.0.left" timestamp="1603599488028">
+    <state width="1338" height="414" key="GridCell.Tab.0.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769368" />
+    <state width="1338" height="414" key="GridCell.Tab.0.left" timestamp="1603600769367">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1343" height="414" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599488028" />
-    <state width="1343" height="414" key="GridCell.Tab.0.right" timestamp="1603599488030">
+    <state width="1338" height="414" key="GridCell.Tab.0.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769367" />
+    <state width="1338" height="414" key="GridCell.Tab.0.right" timestamp="1603600769369">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1343" height="414" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599488030" />
-    <state width="1342" height="414" key="GridCell.Tab.1.bottom" timestamp="1603599508596">
+    <state width="1338" height="414" key="GridCell.Tab.0.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769369" />
+    <state width="1338" height="414" key="GridCell.Tab.1.bottom" timestamp="1603600769541">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1342" height="414" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599508596" />
-    <state width="1342" height="414" key="GridCell.Tab.1.center" timestamp="1603599508594">
+    <state width="1338" height="414" key="GridCell.Tab.1.bottom/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769541" />
+    <state width="1338" height="414" key="GridCell.Tab.1.center" timestamp="1603600769540">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1342" height="414" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599508594" />
-    <state width="1342" height="414" key="GridCell.Tab.1.left" timestamp="1603599508593">
+    <state width="1338" height="414" key="GridCell.Tab.1.center/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769540" />
+    <state width="1338" height="414" key="GridCell.Tab.1.left" timestamp="1603600769539">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1342" height="414" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599508593" />
-    <state width="1342" height="414" key="GridCell.Tab.1.right" timestamp="1603599508595">
+    <state width="1338" height="414" key="GridCell.Tab.1.left/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769539" />
+    <state width="1338" height="414" key="GridCell.Tab.1.right" timestamp="1603600769541">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>
-    <state width="1342" height="414" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603599508595" />
+    <state width="1338" height="414" key="GridCell.Tab.1.right/0.23.3008.1669/-1680.23.1680.1027@-1680.23.1680.1027" timestamp="1603600769541" />
     <state x="-1339" y="175" key="SettingsEditor" timestamp="1602672697955">
       <screen x="-1680" y="23" width="1680" height="1027" />
     </state>

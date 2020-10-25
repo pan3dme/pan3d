@@ -162,7 +162,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
         this.completeState = complete;
         this.actionTime = 0;
         this.updateFrame(0);
-        if (this.animDic.containsKey(action)) {
+        if (this.animDic!=null&& this.animDic.containsKey(action)) {
             return true;
         } else {
             return false;

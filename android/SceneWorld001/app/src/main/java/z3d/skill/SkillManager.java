@@ -17,13 +17,14 @@ public class SkillManager extends ResGC {
 
     public HashMap<String, List<Skill>> _skillDic;
     public HashMap<String,List<SkillLoadInfo>> _loadDic;
-    public Map _preLoadDic;
+    public HashMap<String,String> _preLoadDic;
     public List<Skill> _skillAry ;
 
     public SkillManager( ){
         super();
         _skillDic=new HashMap<>();
         _loadDic=new HashMap<>();
+        _preLoadDic=new HashMap<>();
 
 
     }
@@ -59,10 +60,6 @@ public class SkillManager extends ResGC {
         }
         this._skillDic.get(key).add(skill);
         if (this.dic.containsKey($url)) {
-//            skill.setData(this._dic[$url].data[skill.name], this._dic[$url]);
-//            skill.key = key;
-//            this._dic[$url].useNum++;
-//            return skill;
             SkillData  skillData=  (SkillData)this.dic.get($url);
             skill.setData(skillData.data.get(skill.name),skillData);
             skill.key=key;
@@ -92,8 +89,9 @@ public class SkillManager extends ResGC {
     private void loadSkillCom(String $url, SkillRes $skillRes) {
         SkillData skillData  = new SkillData();
         skillData.data = $skillRes.data;
-        for (int i = 0; i < this._loadDic.get($url).size(); i++) {
-            SkillLoadInfo obj = this._loadDic.get($url).get(i);
+        List<SkillLoadInfo> arrInfo= this._loadDic.get($url);
+        for (int i = 0;arrInfo!=null&& i <arrInfo.size(); i++) {
+            SkillLoadInfo obj = arrInfo.get(i);
             if (!obj.skill.hasDestory) {
                 obj.skill.setData(skillData.data.get(obj.name), skillData);
                 obj.skill.key = $url + obj.name;
@@ -102,8 +100,9 @@ public class SkillManager extends ResGC {
         }
         this.dic.put($url,skillData);
         this.addSrc($url, skillData);
-        for (int i = 0; i < this._loadDic.get($url).size(); i++) {
-            SkillLoadInfo obj = this._loadDic.get($url).get(i);
+
+        for (int i = 0;arrInfo!=null&& i <arrInfo.size(); i++) {
+            SkillLoadInfo obj = arrInfo.get(i);
             if (obj.callback!=null) {
                 obj.callback.StateChange(true);
             }
@@ -130,5 +129,20 @@ public class SkillManager extends ResGC {
     }
 
     public void removeSkill(Skill skill) {
+    }
+
+    public void preLoadSkill(String url) {
+        if (this.dic.containsKey(url) || this._preLoadDic.containsKey(url)){
+            return;
+        }
+        this._preLoadDic.put(url,url);
+        ResManager.getInstance().loadSkillRes(Scene_data.fileRoot+ url, new CallBack() {
+            @Override
+            public void StateChange(Object val) {
+                SkillRes $skillRes=(SkillRes)val;
+                loadSkillCom(url, $skillRes);
+
+            }
+        });
     }
 }

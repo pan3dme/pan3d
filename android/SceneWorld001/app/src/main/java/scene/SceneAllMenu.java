@@ -80,7 +80,8 @@ public class SceneAllMenu extends AppCompatActivity   {
 //                loadSceneByUrl("2013");
 
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
-//                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
+                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
+                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
             }
             @Override
@@ -170,9 +171,11 @@ public class SceneAllMenu extends AppCompatActivity   {
                 if(str.equals("战士")){
                     SceneChar sc=new SceneChar(_scene3d);
                     sc.setRoleUrl("role/50011.txt");
-//                    sc.play(SceneChar.CharAction_stand);
+                     sc.play(SceneChar.CharAction_stand);
                     _scene3d.addMovieDisplay(sc);
                     mainChar=sc;
+
+                    SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 
                 }else if(str.equals("技能001")){
                     Skill skill= SkillManager.getInstance().getSkill("skill/jichu_1_byte.txt","m_skill_01",null);
