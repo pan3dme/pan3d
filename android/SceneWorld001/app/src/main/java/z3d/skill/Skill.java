@@ -38,6 +38,9 @@ public class Skill {
     private float time;
     private int targetFlag;
     private Scene3D scene3D;
+    private int targetShockFlag;
+    private boolean soundPlay;
+    private boolean needSound;
 
     public  Skill(Scene3D val){
         this.time=0;
@@ -45,6 +48,15 @@ public class Skill {
         this.scene3D=val;
     }
     public void reset() {
+        this.time = 0;
+        this.completeNum = 0;
+        this.active = null;
+        this.completeFun = null;
+        this.targetFlag = 0;
+        this.targetShockFlag = 0;
+        this.soundPlay = false;
+        this.needSound = false;
+        
     }
     public void setData(SkillActionVo $data, SkillData $skillData) {
         if (this.hasDestory) {

@@ -37,7 +37,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     public HashMap<String,AnimData> animDic;
     public boolean meshVisible;
     public  String curentAction;
-    public  String defaultAction="walk";
+    public  String defaultAction="stand";
     public  int curentFrame;
     public  float actionTime;
     public int  completeState;
@@ -102,11 +102,17 @@ public class Display3dMovie extends Display3DSprite implements IBind {
             } else if (this.completeState == 2) {
                 this.curentFrame = 0;
                 this.completeState = 0;
+                this.changeAction(this.curentAction);
             } else if (this.completeState == 3) {
             }
         }
 
     }
+
+    private void changeAction(String curentAction) {
+        this.curentAction = this.defaultAction;
+    }
+
     protected void  updateMaterialMesh(MeshData mesh)
     {
         if (mesh.material==null ) {
