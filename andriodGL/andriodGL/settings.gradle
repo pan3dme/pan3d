@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "SceneWorld001"
+rootProject.name = "andriodGL"
