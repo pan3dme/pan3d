@@ -142,6 +142,9 @@ public class Display3DParticle extends Display3D {
     }
     public void  reset()
     {
+        this.timeline.reset();
+        this.updateTime(0);
+
 
     }
     public void  setVa()

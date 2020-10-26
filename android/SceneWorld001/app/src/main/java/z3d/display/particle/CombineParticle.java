@@ -111,5 +111,9 @@ public class CombineParticle  extends EventDispatcher {
     }
 
     public void reset() {
+        this._time = 0;
+        for (int i = 0; i < this.displayAry.size(); i++) {
+            this.displayAry.get(i).reset();
+        }
     }
 }

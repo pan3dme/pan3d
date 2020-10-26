@@ -215,4 +215,11 @@ public class TimeLine {
 
     public void applySelfRotation(Matrix3D rotationMatrix3D, Vector3D ziZhuanAngly) {
     }
+
+    public void reset() {
+        this.time = 0;
+        this.currentKeyFrame = this.keyFrameAry.get(0);
+        this.visible = false;
+        this.targetFlag = -1;
+    }
 }
