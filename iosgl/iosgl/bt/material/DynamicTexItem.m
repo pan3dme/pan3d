@@ -163,12 +163,12 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
         c.z=a.z+(b.z-a.z)*bscale;
         c.w=a.w+(b.w-a.w)*bscale;
 
-        ptr[3] = c.w*0xff;
-        ptr[2] = c.z*0xff;
-        ptr[1] = c.y*0xff;
-        ptr[0] = c.x*0xff;
+        ptr[3] = c.x*0xff;
+        ptr[2] = c.y*0xff;
+        ptr[1] = c.z*0xff;
+        ptr[0] = c.w*0xff;
         
-   
+        
         
     }
        

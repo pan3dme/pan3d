@@ -82,20 +82,12 @@
             [self.butItems removeObjectAtIndex:0];
 
     }
-    [self addEventLyfButBy:@"levelup"];
-       [self addEventLyfButBy:@"reviveeff"];
-    [self addEventLyfButBy:@"10018"];
     [self addEventLyfButBy:@"10017"];
+       [self addEventLyfButBy:@"10018"];
     [self addEventLyfButBy:@"13012"];
-    [self addEventLyfButBy:@"diamondseffect"];
+    [self addEventLyfButBy:@"levelup"];
     
-//    arr.add("levelup");
-//     arr.add("reviveeff");
-//     arr.add("10018");
-//     arr.add("10017");
-//     arr.add("13012");
-//     arr.add("13012");
-//     arr.add("diamondseffect");
+    
     
     [self addEventButBy:@"清理"];
     [self addEventButBy:@"拉+"];
@@ -141,7 +133,7 @@
         [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
     }
     if([titleStr isEqualToString:@"特效"]){
-        self.sceneView.scene3D.camera3D.distance-=400;
+    
     //     Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
      [self showLyfItems];
         

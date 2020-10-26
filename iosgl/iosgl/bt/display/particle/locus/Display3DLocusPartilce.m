@@ -64,7 +64,6 @@
     if (self.locusdata._isEnd) {
         moveUv = MIN(1, moveUv);
     }
- 
     if (self.locusdata._isLoop) {
         if (self.locusdata._life) {
             moveUv = moveUv- ceilf(moveUv/(lifeRoundNum+1))*(lifeRoundNum+1) ;
