@@ -177,6 +177,7 @@ var Pan3d;
                 return;
             }
             this.setBaseTimeByte(ary, baseTime, baseValueAry);
+            random();
         };
         TimeLine.prototype.reset = function () {
             this._time = 0;

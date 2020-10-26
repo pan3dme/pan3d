@@ -199,6 +199,7 @@
             this.setBaseTimeByte(ary, baseTime, baseValueAry)
 
 
+            random()
 
         }
 

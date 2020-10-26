@@ -175,7 +175,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                      sc.play(SceneChar.CharAction_stand);
                     _scene3d.addMovieDisplay(sc);
                     mainChar=sc;
-
+                    mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
                     SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 
                 }else if(str.equals("技能001")){
