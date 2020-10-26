@@ -1,15 +1,17 @@
 package z3d.display.particle;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
-
 import z3d.display.interfaces.IBind;
-import z3d.display.role.Display3dMovie;
+import z3d.event.BaseEvent;
+import z3d.event.EventDispatcher;
 import z3d.scene.Scene3D;
 import z3d.vo.Matrix3D;
 import z3d.vo.Vector3D;
 
-public class CombineParticle {
+public class CombineParticle  extends EventDispatcher {
     public CombineParticleData sourceData;
     public String url;
     public IBind _bindTarget;
@@ -35,7 +37,7 @@ public class CombineParticle {
     public boolean sceneVisible;
     public boolean dynamic;
     public boolean hasDestory;
-
+    private String TAG="CombineParticle";
     public IBind getBindTarget() {
         return _bindTarget;
     }
@@ -62,13 +64,35 @@ public class CombineParticle {
         this.displayAry.add(dis);
 
     }
-    private String TAG="dd";
+
     public  void updateTime(float t)
     {
         this._time+=t;
         for(int i=0;i<this.displayAry.size();i++)
         {
             this.displayAry.get(i).updateTime(this._time);
+        }
+        this.updateBind();
+        if (this._time >= this.maxTime) {
+            Log.d(TAG, "updateTime: 播放技能结束");
+            this.dispatchEvent(new BaseEvent(BaseEvent.COMPLETE));
+        }
+    }
+
+    private void updateBind() {
+        if (this._bindTarget!=null) {
+            this._bindTarget.getSocket(this.bindSocket, this.bindMatrix);
+            this.bindVecter3d.setTo(this.bindMatrix.get_x(), this.bindMatrix.get_y(), this.bindMatrix.get_z());
+            this.bindMatrix.identityPostion();
+            if (!this.groupRotationMatrix.isIdentity) {
+                this.bindMatrix.copyTo(this.invertBindMatrix);
+                this.invertBindMatrix.prepend(this.groupRotationMatrix);
+                this.invertBindMatrix.invert();
+            } else {
+                this.bindMatrix.invertToMatrix(this.invertBindMatrix);
+            }
+
+
         }
     }
 

@@ -79,10 +79,11 @@ public class Display3DParticle extends Display3D {
         this.timeline.updateTime(t);
         this.visible = this.timeline.visible;
         this.posMatrix3d.identity();
+        float tempScale=0.1f;
         this.posMatrix3d.prependScale(
-                this.scaleX * 1.0f * this.bindScale.x * this.data.overAllScale,
-                this.scaleY * 1.0f * this.bindScale.y * this.data.overAllScale,
-                this.scaleZ * 1.0f * this.bindScale.z * this.data.overAllScale
+                this.scaleX * tempScale * this.bindScale.x * this.data.overAllScale,
+                this.scaleY * tempScale * this.bindScale.y * this.data.overAllScale,
+                this.scaleZ * tempScale * this.bindScale.z * this.data.overAllScale
         );
 
         this.timeline.updateMatrix(this.posMatrix3d, this);
