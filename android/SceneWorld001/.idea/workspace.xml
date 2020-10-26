@@ -13,19 +13,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/particle/ctrl/TimeLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/particle/ctrl/TimeLine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/particle/ctrl/TimeLine.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../webstorm/jsbin/pan3d/engine/particle/ctrl/TimeLine.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../webstorm/pan3d/engine/particle/ctrl/TimeLine.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../webstorm/pan3d/engine/particle/ctrl/TimeLine.ts" afterDir="false" />
-    </list>
+    <list default="true" id="b0c1e5db-6b08-46ca-a7e7-872e5444f491" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[8RBDU19427009929]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -63,7 +56,7 @@
     <property name="android-custom-view/Users/zhao/Library/Android/sdk/sources/android-30/android/widget/TextView.java_SELECTED" value="TextView" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="multi-representation-preview/Users/zhao/Library/Android/sdk/sources/android-29/android/opengl/GLSurfaceView.java_selected" value="Custom views" />
     <property name="multi-representation-preview/Users/zhao/Library/Android/sdk/sources/android-30/android/view/View.java_selected" value="Custom views" />
     <property name="multi-representation-preview/Users/zhao/Library/Android/sdk/sources/android-30/android/widget/AdapterView.java_selected" value="Custom views" />
