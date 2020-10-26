@@ -140,8 +140,6 @@
 		FE8FA502244F6F5300552A94 /* MaterialShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA501244F6F5300552A94 /* MaterialShader.m */; };
 		FE8FFF7D24504AC000EB79CE /* CubemapLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */; };
 		FE99B40925471C9800DEFA84 /* BaseEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99B40825471C9800DEFA84 /* BaseEvent.m */; };
-		FE99B40D25471CB400DEFA84 /* EventBindVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99B40C25471CB400DEFA84 /* EventBindVo.m */; };
-		FE99B41125471CC200DEFA84 /* EventCallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99B41025471CC200DEFA84 /* EventCallBack.m */; };
 		FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2C62451CA0700C458AC /* MountChar.m */; };
 		FE9EB2CE24522C7300C458AC /* RoleSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */; };
 		FE9EB2D12452EB5200C458AC /* BuildDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2D02452EB5200C458AC /* BuildDisplay3DSprite.m */; };
@@ -446,10 +444,6 @@
 		FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubemapLoad.m; sourceTree = "<group>"; };
 		FE99B40725471C9800DEFA84 /* BaseEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseEvent.h; sourceTree = "<group>"; };
 		FE99B40825471C9800DEFA84 /* BaseEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseEvent.m; sourceTree = "<group>"; };
-		FE99B40B25471CB400DEFA84 /* EventBindVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventBindVo.h; sourceTree = "<group>"; };
-		FE99B40C25471CB400DEFA84 /* EventBindVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventBindVo.m; sourceTree = "<group>"; };
-		FE99B40F25471CC200DEFA84 /* EventCallBack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventCallBack.h; sourceTree = "<group>"; };
-		FE99B41025471CC200DEFA84 /* EventCallBack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventCallBack.m; sourceTree = "<group>"; };
 		FE9EB2C52451CA0700C458AC /* MountChar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountChar.h; sourceTree = "<group>"; };
 		FE9EB2C62451CA0700C458AC /* MountChar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MountChar.m; sourceTree = "<group>"; };
 		FE9EB2CC24522C7300C458AC /* RoleSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoleSceneViewController.h; sourceTree = "<group>"; };
@@ -1132,10 +1126,6 @@
 			children = (
 				FE99B40725471C9800DEFA84 /* BaseEvent.h */,
 				FE99B40825471C9800DEFA84 /* BaseEvent.m */,
-				FE99B40B25471CB400DEFA84 /* EventBindVo.h */,
-				FE99B40C25471CB400DEFA84 /* EventBindVo.m */,
-				FE99B40F25471CC200DEFA84 /* EventCallBack.h */,
-				FE99B41025471CC200DEFA84 /* EventCallBack.m */,
 				FE3D4EE12401C15300185FD3 /* EventDispatcher.h */,
 				FE3D4EE22401C15300185FD3 /* EventDispatcher.m */,
 			);
@@ -1400,7 +1390,6 @@
 				FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */,
 				FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */,
 				FE1D8B522412903600A04FC4 /* DisplayBaseTriShader.m in Sources */,
-				FE99B41125471CC200DEFA84 /* EventCallBack.m in Sources */,
 				FE8788C4243273B9003E0EE7 /* ScaleNoise.m in Sources */,
 				FE8788CD243274AC003E0EE7 /* AxisMove.m in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
@@ -1476,7 +1465,6 @@
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */,
 				FE776AAF244731F700B8B5A4 /* ParticleFollowData.m in Sources */,
-				FE99B40D25471CB400DEFA84 /* EventBindVo.m in Sources */,
 				FEEF8BC02448E4FF001AFEB2 /* SkillKey.m in Sources */,
 				FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */,
 				FE642ACF242AACD20047E41F /* Display3DLocusPartilce.m in Sources */,

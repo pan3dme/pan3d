@@ -19,6 +19,8 @@ typedef void (^SuccessMaterial)(NSObject* obj);
  
  
 
+static NSString * const COMPLETE         =@"complete";
+
 static NSString * const CharAction_stand         =@"stand";
 static NSString * const CharAction_walk          =@"walk";
 static NSString * const CharAction_jump          =@"jump";

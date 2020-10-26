@@ -7,7 +7,11 @@
 //
 
 #import "BaseEvent.h"
-
+ 
 @implementation BaseEvent
-
+- (instancetype)init:(NSString*)val
+{
+    _type=val;
+    return self;
+}
 @end
