@@ -6,9 +6,7 @@ import java.util.function.Function;
 
 public class EventDispatcher {
     protected HashMap<String, List<EventBindVo>>  _eventsMap ;
-    public void addEventListeners(String types   , Function listener, Object thisObject) {
 
-    }
     public void addEventListener(String types   , EventCallBack listener, Object thisObject) {
         if (this._eventsMap==null) {
             this._eventsMap = new HashMap();

@@ -117,4 +117,26 @@ public class ParticleManager extends ResGC {
         }
 
     }
+
+    public void removeParticle(CombineParticle particle) {
+
+        int indexs = this.particleList.indexOf(particle);
+        if (indexs == -1) {
+            return;
+        }
+        this.particleList.remove(indexs);
+        this.removeRenderDic(particle);
+    }
+
+    private void removeRenderDic(CombineParticle $particle) {
+        String url = $particle.url;
+        int indexs = this.renderDic.get(url).indexOf($particle);
+        if (indexs == -1) {
+            return;
+        }
+        this.renderDic.get(url).remove(indexs);
+        if (this.renderDic.get(url).size() == 0) {
+             this.renderDic.remove(url);
+        }
+    }
 }

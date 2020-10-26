@@ -133,7 +133,11 @@ public class SkillManager extends ResGC {
         }
     }
 
-    public void removeSkill(Skill skill) {
+    public void removeSkill(Skill $skill) {
+        int index = this._skillAry.indexOf($skill);
+        if (index != -1) {
+            this._skillAry.remove(index);
+        }
     }
 
     public void preLoadSkill(String url) {

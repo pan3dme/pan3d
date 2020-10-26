@@ -1,5 +1,7 @@
 package z3d.skill;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import z3d.skill.vo.SkillVo;
 import z3d.vo.Vector3D;
 
 public class Skill {
+    private static final String TAG ="Skill" ;
     public boolean isDeath;
     public int useNum;
     public String name;
@@ -70,6 +73,7 @@ public class Skill {
     }
 
     private void setKeyAry() {
+
         this.keyAry = new ArrayList<>();
         if (this.skillVo.types == SkillType.FixEffect) {
             for (int i = 0; i < this.skillVo.keyAry.size(); i++) {
@@ -78,8 +82,8 @@ public class Skill {
                 keySkill.removeCallFun = new CallBack() {
                     @Override
                     public void StateChange(Object val) {
-                        SkillKey skillKey=(SkillKey)val;
-                         removeKey(skillKey) ;
+
+                         removeKey(val) ;
                     }
                 };
                 keySkill.active = this.active;
@@ -99,13 +103,12 @@ public class Skill {
             }
         }
     }
-    private void removeKey(SkillKey skillKey) {
+    private void removeKey(Object skillKey) {
         this.completeNum++;
         if (this.completeNum == this.keyAry.size()) {
             this.skillComplete();
         }
     }
-
     private void skillComplete() {
         SkillManager.getInstance().removeSkill(this);
         this.isDeath = true;

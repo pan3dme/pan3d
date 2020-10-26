@@ -10,14 +10,15 @@ public class SkillKey {
     public float time ;
     public CombineParticle particle;
     public CallBack removeCallFun;
-
-    public void addToRender(ParticleManager particleManager) {
+    protected ParticleManager _particleManager;
+    public void addToRender(ParticleManager val) {
         if (this.particle==null) {
             return;
         }
+        this._particleManager=val;
         this.particle.reset();
         this.particle.sceneVisible = true;
-        particleManager.addParticle(this.particle);
+        _particleManager.addParticle(this.particle);
     }
 
     public void setInfo(SkillKeyVo obj) {
