@@ -9,6 +9,9 @@
 #import "BaseEvent.h"
  
 @implementation BaseEvent
++ (NSString *)COMPLETE{
+    return @"complete";
+}
 - (instancetype)init:(NSString*)val
 {
     _type=val;

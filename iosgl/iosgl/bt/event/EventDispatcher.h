@@ -6,17 +6,17 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
  
-#import "GL_Header.h"
+ 
+#import "BaseEvent.h"
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventDispatcher : NSObject
-@property(nonatomic,strong)NSMutableDictionary* eventsMap;
+@property(nonatomic,strong)NSDictionary* eventsMap;
 
- 
 
--(void)addEventListener:(NSString*)types  fun:(SuccessBlock)fun info:(NSObject*)info;
+-(void)addEventListener:(NSString*)types  fun:(void (^)(NSObject* any ))fun info:(NSObject*)info;
 @end
 
 NS_ASSUME_NONNULL_END

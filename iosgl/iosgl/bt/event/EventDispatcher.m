@@ -7,12 +7,13 @@
 //
 #import "GL_Header.h"
 #import "EventDispatcher.h"
-
+ //Object val, BaseEvent event
 @implementation EventDispatcher
--(void)addEventListener:(NSString*)types  fun:(SuccessBlock)fun info:(NSObject*)info{
+-(void)addEventListener:(NSString*)types  fun:(void (^)(NSObject* any ))fun info:(NSObject*)info;
+{
  
     if(_eventsMap==nil){
-        _eventsMap=[[NSMutableDictionary alloc]init];
+        _eventsMap=[[NSDictionary alloc]init];
     }
     
 }

@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "EventDispatcher.h"
-
+@class EventDispatcher;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseEvent : NSObject
 @property(nonatomic,strong)NSString* type;
 @property(nonatomic,strong)EventDispatcher* target;
 - (instancetype)init:(NSString*)val  ;
++ (NSString *)COMPLETE;
 @end
 
 NS_ASSUME_NONNULL_END
