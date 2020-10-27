@@ -10,7 +10,9 @@
 #import "BaseEvent.h"
 
 @implementation SkillEffect
-- (void)addToRender{
+-(void)addToRender:(ParticleManager*)particleManager
+{
+    [super addToRender:particleManager];
     [self.particle addEventListener:BaseEvent.COMPLETE callback:^(NSObject * _Nonnull val, NSObject * _Nonnull event) {
          
     } taget:self ];

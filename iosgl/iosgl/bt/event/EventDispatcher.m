@@ -17,9 +17,5 @@
     }
     
 }
-- (void)productFool:(OnFoolCallback)callback
-{
-    NSLog(@"productFool | callback.");
-    callback(@"This is a block parameter: mark.",@"This is a block parameter: mark.");
-}
+ 
 @end
