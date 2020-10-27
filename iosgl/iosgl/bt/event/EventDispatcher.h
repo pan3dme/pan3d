@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 typedef void (^EventCallBack)(NSObject *val,NSObject* event);
 @interface EventDispatcher : NSObject
-@property(nonatomic,strong)NSDictionary* eventsMap;
+@property(nonatomic,strong)NSMutableDictionary* eventsMap;
 
  
 -(void)addEventListener:(NSString*)types  callback:(EventCallBack)callback taget:(NSObject*)taget;

@@ -27,9 +27,7 @@
                     Scene_data.context3D.setVaOffset(2, 4, this.data.objData.stride, 12);
                 }
             }
-
-
-
+ 
             // Scene_data.context3D.setVa(0, 3, this.data.objData.vertexBuffer);
             // Scene_data.context3D.setVa(1, 2, this.data.objData.uvBuffer);
             // if (this.data._watchEye){
