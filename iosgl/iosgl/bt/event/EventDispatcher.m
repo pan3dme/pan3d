@@ -9,12 +9,17 @@
 #import "EventDispatcher.h"
  //Object val, BaseEvent event
 @implementation EventDispatcher
--(void)addEventListener:(NSString*)types  fun:(void (^)(NSObject* any ))fun info:(NSObject*)info;
+-(void)addEventListener:(NSString*)types  callback:(EventCallBack)callback taget:(NSObject*)taget;
 {
  
     if(_eventsMap==nil){
         _eventsMap=[[NSDictionary alloc]init];
     }
     
+}
+- (void)productFool:(OnFoolCallback)callback
+{
+    NSLog(@"productFool | callback.");
+    callback(@"This is a block parameter: mark.",@"This is a block parameter: mark.");
 }
 @end

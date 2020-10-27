@@ -7,7 +7,12 @@
 //
 
 #import "SkillEffect.h"
+#import "BaseEvent.h"
 
 @implementation SkillEffect
-
+- (void)addToRender{
+    [self.particle addEventListener:BaseEvent.COMPLETE callback:^(NSObject * _Nonnull val, NSObject * _Nonnull event) {
+         
+    } taget:self ];
+}
 @end
