@@ -34,7 +34,6 @@ public class EventDispatcher {
         for (int i = 0; list!=null && i < list.size(); i++) {
             EventBindVo bin = list.get(i);
             if (bin.listener == listener && bin.thisObject == thisObject) {
-//                list.splice(i, 1);
                 list.remove(i);
                 return;
             }

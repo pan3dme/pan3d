@@ -68,7 +68,15 @@ static SkillManager *instance = nil;
         this.dic[url] = skillData;
     }];
 }
-
+-(void)removeSkill:(Skill*)skill;
+{
+    
+    NSInteger indexs=  [self._skillAry indexOfObject:skill];
+    if(indexs!=-1){
+        [self._skillAry removeObjectAtIndex:indexs];
+    }
+ 
+}
 -(void)playSkill:(Skill*)skill
 {
     [self._skillAry addObject:skill];
