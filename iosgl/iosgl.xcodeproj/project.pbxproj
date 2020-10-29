@@ -54,6 +54,7 @@
 		FE1E1BB3254A742F009590DB /* DataObjTempVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BB2254A742F009590DB /* DataObjTempVo.m */; };
 		FE1E1BB8254A7695009590DB /* SkillActionVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BB7254A7695009590DB /* SkillActionVo.m */; };
 		FE1E1BBC254A773F009590DB /* ShockAryVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBB254A773F009590DB /* ShockAryVo.m */; };
+		FE1E1BC0254A7E9A009590DB /* SkillLoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -281,6 +282,8 @@
 		FE1E1BB7254A7695009590DB /* SkillActionVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillActionVo.m; sourceTree = "<group>"; };
 		FE1E1BBA254A773F009590DB /* ShockAryVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShockAryVo.h; sourceTree = "<group>"; };
 		FE1E1BBB254A773F009590DB /* ShockAryVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShockAryVo.m; sourceTree = "<group>"; };
+		FE1E1BBE254A7E9A009590DB /* SkillLoadInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillLoadInfo.h; sourceTree = "<group>"; };
+		FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillLoadInfo.m; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -1194,6 +1197,8 @@
 				FEEF8BEC2449D2F5001AFEB2 /* SkillType.m */,
 				FEEF8BBA2448E4D4001AFEB2 /* Skill.h */,
 				FEEF8BBB2448E4D4001AFEB2 /* Skill.m */,
+				FE1E1BBE254A7E9A009590DB /* SkillLoadInfo.h */,
+				FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */,
 				FEEF8BB42448E4A8001AFEB2 /* SkillManager.h */,
 				FEEF8BB52448E4A8001AFEB2 /* SkillManager.m */,
 			);
@@ -1396,6 +1401,7 @@
 			files = (
 				FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
+				FE1E1BC0254A7E9A009590DB /* SkillLoadInfo.m in Sources */,
 				FEEF8BC32448E6DC001AFEB2 /* SkillEffect.m in Sources */,
 				FEEF8BED2449D2F5001AFEB2 /* SkillType.m in Sources */,
 				FE2F2FD12418BE7A0005F686 /* LoaderThread.m in Sources */,
