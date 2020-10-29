@@ -151,10 +151,10 @@
     for(int i=0;i<self._displayAry.count;i++)
     {
         self._displayAry[i].scene3d=self.scene3d;
-   
         if ([self._displayAry[i]  isKindOfClass:[Display3DModelPartilce class]]) {
-            [self._displayAry[i] update];
+
         }
+        [self._displayAry[i] update];
     }
 }
 -(void)updateItem:(int)idx;
