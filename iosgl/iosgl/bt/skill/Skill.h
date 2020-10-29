@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)reset;
 -(void)play;
 -(void)update:(float)t;
--(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
+-(void)setData:(SkillActionVo*)data skillData:(SkillData*)skillData;
 -(void)configFixEffect:(Object3D*)active  completeFun:(SuccessBlock)completeFun posObj:(NSArray<Vector3D*>*)posObj;
 @end
 

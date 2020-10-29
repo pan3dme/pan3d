@@ -41,7 +41,7 @@
     this.soundPlay = NO;
     this.needSound = NO;
 }
--(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
+-(void)setData:(SkillActionVo*)data skillData:(SkillData*)skillData;
 {
     Skill* this=self;
     this.skillVo=[[SkillVo alloc]init];

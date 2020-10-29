@@ -9,6 +9,8 @@
 #import "SkillRes.h"
 #import "ByteArray.h"
 #import "LoadManager.h"
+#import "SkillActionVo.h"
+#import "DataObjTempVo.h"
 @interface SkillRes()
 
 
@@ -52,64 +54,65 @@
     NSMutableDictionary* byteData=[[NSMutableDictionary alloc]init];
     int len= [self.byte readInt];
     for (int i    = 0; i < len; i++) {
-        NSMutableDictionary* obj=[[NSMutableDictionary alloc]init];
+        SkillActionVo* obj=[[SkillActionVo alloc]init];
         NSString* name  = [byte readUTF];
         NSString*   action =[byte readUTF];
-        obj[@"skillname"] = name;
-        obj[@"action"] = action;
-        obj[@"type"] = [NSNumber numberWithFloat:[byte readFloat]];
-        obj[@"blood"] = [NSNumber numberWithInt:[byte readInt]];
-        if ( obj[@"blood"] == 0) {
+        obj.skillname = name;
+        obj.action = action;
+        obj.type = [[NSNumber numberWithFloat:[byte readFloat]] intValue];
+        obj.blood =  [byte readInt];
+        if ( obj.blood == 0) {
         }
         int soundTime =  [byte readInt];
         if(soundTime > 0){
             NSString*  soundName =  [byte readUTF];
-            obj[@"sound"] = @{@"time":[NSNumber numberWithInt:soundTime],@"name":soundName};
+            obj.sound = @{@"time":[NSNumber numberWithInt:soundTime],@"name":soundName};
         }
-        obj[@"data"] = [[NSMutableArray alloc]init];
+        obj.data = [[NSMutableArray alloc]init];
         int dLen =  [byte readInt];
         for (int j = 0; j < dLen; j++) {
-            NSMutableDictionary* dataObj=[[NSMutableDictionary alloc]init];
-            dataObj[@"url"] =  [byte readUTF];
-            dataObj[@"frame"] =  [NSNumber numberWithFloat:[byte readFloat ]];
-            switch ([obj[@"type"]intValue]) {
+            DataObjTempVo* dataObj=[[DataObjTempVo alloc]init];
+            dataObj.url =  [byte readUTF];
+            dataObj.frame =   [byte readFloat ];
+            switch (obj.type ) {
                 case 1:
-                    dataObj[@"beginType"] =[NSNumber numberWithInt:[byte readInt]];
-                    if ([dataObj[@"beginType"]intValue] == 0) {
+                    dataObj.beginType = [byte readInt];
+                    if (dataObj.beginType == 0) {
                         Vector3D* beginPos=[[Vector3D alloc]init];
-                        dataObj[@"beginPos"] = beginPos;
+                        dataObj.beginPos = beginPos;
                         beginPos.x =  [byte readFloat];
                         beginPos.y =  [byte readFloat];
                         beginPos.z =  [byte readFloat];
-                    } else if ([dataObj[@"beginType"]intValue] == 1) {
-                        dataObj[@"beginSocket"] =  [byte readUTF];
+                    } else if (dataObj.beginType == 1) {
+                        dataObj.beginSocket=  [byte readUTF];
                     }
-                    dataObj[@"hitSocket"] =  [byte readUTF];
-                    dataObj[@"endParticle"] =  [byte readUTF] ;
-                    dataObj[@"multype"] = [NSNumber numberWithInt:[byte readInt]];
-                    dataObj[@"speed"] = [NSNumber numberWithInt:[byte readFloat]];
+                    dataObj.hitSocket=  [byte readUTF];
+                    dataObj.endParticle =  [byte readUTF] ;
+                    dataObj.multype =  [byte readInt];
+                    dataObj.speed = [byte readFloat];
                     
                     break;
                 case 3:
-                    dataObj[@"beginSocket"] = [byte readUTF];
-                    dataObj[@"beginType"] =[NSNumber numberWithInt:[byte readFloat]];
-                    dataObj[@"multype"] =[NSNumber numberWithInt:[byte readFloat]];
-                    dataObj[@"speed"] =[NSNumber numberWithInt:[byte readFloat]];
+                    dataObj.beginSocket = [byte readUTF];
+                    dataObj.beginType = [byte readFloat];
+                    dataObj.multype = [byte readFloat];
+                    dataObj.speed =  [byte readFloat];
                     break;
                 case 4:
-                    dataObj[@"hasSocket"]=  [NSNumber numberWithBool:[byte readBoolean]];
-                    if ([dataObj[@"hasSocket"]boolValue]) {
-                        dataObj[@"socket"] =  [byte readUTF];
+                    dataObj.hasSocket=  [byte readBoolean];
+                    if (dataObj.hasSocket) {
+                        dataObj.socket =  [byte readUTF];
                     } else {
-                        dataObj[@"pos"] = [self readV3d:byte];
-                        dataObj[@"rotation"] = [self readV3d:byte];
+                        dataObj.pos = [self readV3d:byte];
+                        dataObj.rotation = [self readV3d:byte];
                     }
                     break;
                 default:
                     NSLog(@"没有类型readData");
                     break;
             }
-            [obj[@"data"]addObject:dataObj];
+ 
+            [obj.data addObject:dataObj];
         }
         byteData[name]=obj;
         

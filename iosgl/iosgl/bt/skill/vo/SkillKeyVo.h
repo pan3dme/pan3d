@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataObjTempVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  
 @property(nonatomic,assign)int frame ;
 @property(nonatomic,strong)NSString* url;
--(void)setData:(NSDictionary*)data;
+-(void)setData:(DataObjTempVo*)data;
  
 @end
 

@@ -9,9 +9,9 @@
 #import "SkillKeyVo.h"
 
 @implementation SkillKeyVo
--(void)setData:(NSDictionary*)data;
+-(void)setData:(DataObjTempVo*)data;
 {
-    self.frame = [data[@"frame"]intValue];
-    self.url = data[@"url"];
+    self.frame =data.frame ;
+    self.url = data.url;
 }
 @end

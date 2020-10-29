@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DataObjTempVo : NSObject
 @property(nonatomic,strong)NSString* url;
-@property(nonatomic,assign)float frame;
-@property(nonatomic,strong)NSString* beginPos;
+@property(nonatomic,assign) float frame;
+@property(nonatomic,strong)Vector3D* beginPos;
 @property(nonatomic,assign)float beginType ;
 @property(nonatomic,strong)NSString* beginSocket;
 @property(nonatomic,strong)NSString* hitSocket;
