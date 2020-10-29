@@ -288,7 +288,11 @@ public class TimeLine {
         }
     }
 
-    public void applySelfRotation(Matrix3D rotationMatrix3D, Vector3D ziZhuanAngly) {
+    public void applySelfRotation(Matrix3D $targetMatrix, Vector3D $axis) {
+
+        if (this._selfRotaion!=null) {
+            $targetMatrix.prependRotation(this._selfRotaion.num, $axis);
+        }
     }
 
     public void reset() {

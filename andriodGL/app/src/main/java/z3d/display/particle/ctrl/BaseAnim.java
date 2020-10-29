@@ -16,8 +16,34 @@ public class BaseAnim {
     public boolean isDeath;
     protected boolean _isActiva;
     protected boolean _isDeath;
-
-    public void updata(float time) {
+    public void updata(float t) {
+        if (this._isDeath) {
+            return;
+        }
+        this.time = t - this.baseTime;
+        if (this._isActiva) {
+            this.time = this.time - this.beginTime;
+            if (this.time > this.lastTime) {
+                this.time = this.lastTime - this.beginTime;
+                this._isDeath = true;
+            }
+            this.coreCalculate();
+        } else {
+            if (this.time >= this.beginTime) {
+                if (this.time >= this.lastTime) {
+                    this.time = this.lastTime - this.beginTime;
+                    this.coreCalculate();
+                    this._isDeath = true;
+                } else {
+                    this.time = this.time - this.beginTime;
+                    this.coreCalculate();
+                }
+                this._isActiva = true;
+            }
+        }
+    }
+    private void coreCalculate() {
+        this.num = this.speed * this.time + this.aSpeed * this.time * this.time + this.baseNum;
     }
 
     public void reset() {

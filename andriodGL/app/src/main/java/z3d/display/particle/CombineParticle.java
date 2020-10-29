@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import z3d.display.interfaces.IBind;
+import z3d.display.particle.model.Display3DModelPartilce;
 import z3d.event.BaseEvent;
 import z3d.event.EventDispatcher;
 import z3d.scene.Scene3D;
@@ -101,8 +102,11 @@ public class CombineParticle  extends EventDispatcher {
 
         for(int i=0;i<this.displayAry.size();i++)
         {
-            this.displayAry.get(i).scene3d=val;
-            this.displayAry.get(i).update();
+            Display3DParticle display3DParticle= this.displayAry.get(i);
+            display3DParticle.scene3d=val;
+            if(display3DParticle instanceof Display3DModelPartilce){
+            }
+            display3DParticle.update();
         }
     }
 
