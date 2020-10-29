@@ -7,6 +7,8 @@
 //
 
 #import "CombineParticle.h"
+#import "Display3DLocusPartilce.h"
+#import "Display3DModelPartilce.h"
 #import "Display3DParticle.h"
 #import "IBind.h"
 
@@ -139,6 +141,8 @@
     self._time=0;
     for (int i = 0; i < self._displayAry.count; i++) {
         [self._displayAry[i] reset];
+        
+    
     }
     
 }
@@ -147,7 +151,10 @@
     for(int i=0;i<self._displayAry.count;i++)
     {
         self._displayAry[i].scene3d=self.scene3d;
-        [self._displayAry[i] update];
+   
+        if ([self._displayAry[i]  isKindOfClass:[Display3DModelPartilce class]]) {
+            [self._displayAry[i] update];
+        }
     }
 }
 -(void)updateItem:(int)idx;

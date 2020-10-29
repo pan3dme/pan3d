@@ -272,67 +272,10 @@
         baseAnim.baseTime = baseTime;
   
     }
-    /*
-     for (int i = 0; i < ary.count; i++) {
-           int type=[ary[i][@"type"]intValue];
-           BaseAnim* baseAnim;
-           if (type== 1) {
-               if (!this.selfRotaion) {
-                   this.selfRotaion = [[SelfRotation alloc]init] ;
-               } else {
-                   [this.selfRotaion reset];
-               }
-       
-               [this.selfRotaion dataByte:ary[i][@"data"] arr:ary[i][@"dataByte"]];
-               this.selfRotaion.baseTime = baseTime;
-           } else if (type == 2) {
-               if (!this.axisRotaion) {
-                   this.axisRotaion = [[AxisRotaion alloc]init];
-               } else {
-                   [this.axisRotaion reset];
-               }
-               [this.axisRotaion dataByte: ary[i][@"data"] arr:ary[i][@"dataByte"]];
-               this.axisRotaion.baseTime = baseTime;
-           } else if (type == 6) {
-               if (!this.scaleChange) {
-                   this.scaleChange = [[ScaleChange alloc]init];
-               } else {
-                   [this.scaleChange reset];
-               }
-               [this.scaleChange dataByte: ary[i][@"data"] arr:ary[i][@"dataByte"]];
-               this.scaleChange.baseTime = baseTime;
-           } else if (type == 7) {
-               if (!this.scaleAnim) {
-                   this.scaleAnim = [[ScaleAnim alloc]init];
-               } else {
-                   [this.scaleAnim reset];
-               }
-               [this.scaleAnim dataByte: ary[i][@"data"] arr:ary[i][@"dataByte"]];
-               this.scaleAnim.baseTime = baseTime;
-           } else if (type == 8) {
-               if (!this.scaleNosie) {
-                   this.scaleNosie = [[ScaleNoise alloc]init];
-               } else {
-                   [this.scaleNosie reset];
-               }
-               [this.scaleNosie dataByte: ary[i][@"data"] arr:ary[i][@"dataByte"]];
-               this.scaleNosie.baseTime = baseTime;
-           } else if (type == 9) {
-               if (!this.axisMove) {
-                   this.axisMove =[[AxisMove alloc]init];
-               } else {
-                   [this.axisMove reset];
-               }
-               [this.axisMove dataByte: ary[i][@"data"] arr:ary[i][@"dataByte"]];
-               this.axisMove.baseTime = baseTime;
-           }
-     
-       }
-     */
+    
     
 }
-//  private setBaseTimeByte(ary: Array<any>, baseTime: number = 0, baseValueAry: Array<number> = null): void
-//public enterKeyFrame(ary: Array<any>, baseTime: number = 0, baseValueAry: Array<number> = null): void {
+ 
 -(KeyFrame*)addKeyFrame:(int)num
 {
     KeyFrame *keyframe=[[KeyFrame alloc]init];

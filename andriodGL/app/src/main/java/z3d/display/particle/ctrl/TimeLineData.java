@@ -54,8 +54,8 @@ public class TimeLineData {
         this.dataAry.add(keyframe);
         return keyframe;
     }
-    private HashMap getByteDataTemp(ByteArray $byte) {
-        HashMap obj = new HashMap();
+    private TimeLineAnimDataVo getByteDataTemp(ByteArray $byte) {
+        TimeLineAnimDataVo obj = new TimeLineAnimDataVo();
         int animType = $byte.readInt();
         int dataLen  = $byte.readInt();
         List dataByte=new ArrayList();
@@ -74,8 +74,9 @@ public class TimeLineData {
             }
 
         }
-        obj.put("dataByte",dataByte);
-        obj.put("type",animType);
+        obj.dataByte=dataByte;
+        obj.type=animType;
+
         return obj;
     }
 }

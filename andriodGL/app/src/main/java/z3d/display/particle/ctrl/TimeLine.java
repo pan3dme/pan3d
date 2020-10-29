@@ -1,5 +1,7 @@
 package z3d.display.particle.ctrl;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,8 @@ import z3d.vo.Vector3D;
 
 public class TimeLine {
 
-     private List<KeyFrame> keyFrameAry;
+    private static final String TAG ="TimeLine" ;
+    private List<KeyFrame> keyFrameAry;
     public float maxFrameNum;
     private KeyFrame currentKeyFrame;//当前操作的关键帧
     private float _currentFrameNum;//当前帧数
@@ -122,40 +125,50 @@ public class TimeLine {
             return;
         }
         for (int i = 0; i < 10; i++) {
-
             if (baseValueAry.get(i)==0) {
                 continue;
             }
-
             switch (i) {
                 case 1:
                     if (this._selfRotaion!=null)
+                    {
                         this._selfRotaion = new SelfRotation();
+                    }
                     this._selfRotaion.num = this._selfRotaion.baseNum = baseValueAry.get(i);
                     break;
                 case 2:
                     if (this._axisRotaion!=null)
+                    {
                         this._axisRotaion = new AxisRotaion();
+                    }
                     this._axisRotaion.num = this._axisRotaion.baseNum = baseValueAry.get(i);
                     break;
                 case 6:
                     if (this._scaleChange!=null)
+                    {
                         this._scaleChange = new ScaleChange();
+                    }
                     this._scaleChange.num = this._scaleChange.baseNum = baseValueAry.get(i);
                     break;
                 case 7:
                     if (this._scaleAnim!=null)
+                    {
                         this._scaleAnim = new ScaleAnim();
+                    }
                     this._scaleAnim.num = this._scaleAnim.baseNum =baseValueAry.get(i);
                     break;
                 case 8:
                     if (this._scaleNosie!=null)
+                    {
                         this._scaleNosie = new ScaleNoise();
+                    }
                     this._scaleNosie.num = this._scaleNosie.baseNum = baseValueAry.get(i);
                     break;
                 case 9:
                     if (this._axisMove!=null)
+                    {
                         this._axisMove = new AxisMove();
+                    }
                     this._axisMove.num = this._axisMove.baseNum = baseValueAry.get(i);
                     break;
             }
@@ -163,28 +176,90 @@ public class TimeLine {
         }
 
         if (this._selfRotaion!=null)
+        {
             this._selfRotaion.isDeath = true;
+        }
         if (this._axisRotaion!=null)
+        {
             this._axisRotaion.isDeath = true;
+        }
         if (this._scaleChange!=null)
+        {
             this._scaleChange.isDeath = true;
+        }
         if (this._scaleAnim!=null)
+        {
             this._scaleAnim.isDeath = true;
+        }
         if (this._scaleNosie!=null)
+        {
             this._scaleNosie.isDeath = true;
+        }
         if (this._axisMove!=null)
+        {
             this._axisMove.isDeath = true;
-
-        if (ary!=null) {
+        }
+        if (ary==null) {
             return;
         }
-
         this.setBaseTimeByte(ary, baseTime, baseValueAry);
-
-
     }
 
-    private void setBaseTimeByte(List ary, float baseTime, List<Float> baseValueAry) {
+    private void setBaseTimeByte(List<TimeLineAnimDataVo> ary, float baseTime, List<Float> baseValueAry) {
+
+        for (int i = 0; i < ary.size(); i++) {
+            TimeLineAnimDataVo arrIdx= ary.get(i);
+            if (arrIdx.type == 1) {
+                if (this._selfRotaion==null) {
+                    this._selfRotaion = new SelfRotation();
+                } else {
+                    this._selfRotaion.reset();
+                }
+                this._selfRotaion.dataByte(arrIdx.data, arrIdx.dataByte);
+                this._selfRotaion.baseTime = baseTime;
+            } else if (arrIdx.type == 2) {
+                if (this._axisRotaion==null) {
+                    this._axisRotaion = new AxisRotaion();
+                } else {
+                    this._axisRotaion.reset();
+                }
+                this._axisRotaion.baseTime = baseTime;
+            } else if (arrIdx.type == 6) {
+                if (this._scaleChange==null) {
+                    this._scaleChange = new ScaleChange();
+                } else {
+                    this._scaleChange.reset();
+                }
+                this._scaleChange.dataByte(arrIdx.data, arrIdx.dataByte);
+                this._scaleChange.baseTime = baseTime;
+            } else if (arrIdx.type == 7) {
+                if (this._scaleAnim==null) {
+                    this._scaleAnim = new ScaleAnim();
+                } else {
+                    this._scaleAnim.reset();
+                }
+                this._scaleAnim.dataByte(arrIdx.data, arrIdx.dataByte);
+                this._scaleAnim.baseTime = baseTime;
+            } else if (arrIdx.type == 8) {
+                if (this._scaleNosie==null) {
+                    this._scaleNosie = new ScaleNoise();
+                } else {
+                    this._scaleNosie.reset();
+                }
+                this._scaleNosie.dataByte(arrIdx.data, arrIdx.dataByte);
+                this._scaleNosie.baseTime = baseTime;
+            } else if (arrIdx.type == 9) {
+                if (this._axisMove==null) {
+                    this._axisMove = new AxisMove();
+                } else {
+                    this._axisMove.reset();
+                }
+                this._axisMove.dataByte(arrIdx.data, arrIdx.dataByte);
+                this._axisMove.baseTime = baseTime;
+            }
+        }
+
+
     }
 
     public void updateTime(float t) {

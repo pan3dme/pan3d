@@ -22,19 +22,10 @@
 @property (nonatomic, assign)  BOOL  isTrue;
 @end
 
-
 @implementation Display3DModelPartilce
-
-- (void)update;
-{
-    [super update];
-}
- 
- 
 - (void)setVc;
 {
       [self setViewCamModeMatr3d];
-   
       [self updateRotaionMatrix];
       Context3D *ctx=self.scene3d.context3D;
       [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
@@ -43,14 +34,11 @@
 {
     Context3D *ctx=self.scene3d.context3D;
     ObjData* temp=self.facetdata.objData;
-    
     [ctx pushVa: temp.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
     [ctx pushVa: temp.uvBuffer];
     [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
-     
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
-    
 }
 - (void)resetVa;
 {
@@ -70,7 +58,8 @@
         //        this._rotationMatrix.prependRotation(-Scene_data.cam3D.rotationX, Vector3D.X_AXIS);
     }
     if (this.data._isZiZhuan) {
-        [this.timeLine applySelfRotation:this.rotationMatrix3D axis:this.data._ziZhuanAngly];
+        NSLog(@"%f    %f     %f",this.data._ziZhuanAngly.x ,this.data._ziZhuanAngly.y,this.data._ziZhuanAngly.z);
+         [this.timeLine applySelfRotation:this.rotationMatrix3D axis:this.data._ziZhuanAngly];
     }
  
      

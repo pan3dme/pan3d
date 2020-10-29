@@ -4,6 +4,6 @@ import java.util.List;
 
 public class KeyFrame {
     public float frameNum;
-    public List animData ;
+    public List<TimeLineAnimDataVo> animData ;
     public List<Float> baseValue;
 }
