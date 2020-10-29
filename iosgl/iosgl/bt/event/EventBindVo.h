@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseEvent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventBindVo : NSObject
-@property(nonatomic,strong)NSObject* bfun;
+@property (nonatomic, strong) EventCallBack  bfun;
 @property(nonatomic,strong)NSObject* thisObject;
-- (instancetype)init:(NSObject*)a b:(NSObject*)b ;
+- (instancetype)init:(EventCallBack)a b:(NSObject*)b ;
 @end
 
 NS_ASSUME_NONNULL_END

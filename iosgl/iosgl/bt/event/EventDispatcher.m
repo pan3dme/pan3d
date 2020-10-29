@@ -16,26 +16,68 @@
     if(_eventsMap==nil){
         _eventsMap=[[NSMutableDictionary alloc]init];
     }
-    NSArray *list = [_eventsMap objectForKey:types];
+    NSMutableArray *list = [_eventsMap objectForKey:types];
     if(list==nil){
-        list=[[NSArray alloc]init];
-        [_eventsMap setValue:types forKey:list];
+        list=[[NSMutableArray alloc]init];
+        [_eventsMap setValue:list forKey:types];
     }
     EventBindVo* eventBindVo=[[EventBindVo alloc]init:callback b:taget];
     
+    for (int i=0; i<list.count; i++) {
+        EventBindVo* bin=list[i];
+        if(bin.bfun==callback&&bin.thisObject==taget){
+            return;
+        }
+    }
+    [list addObject:eventBindVo];
     
-    
-    
-    /*
-    EventBindVo eventBin=new EventBindVo(listener,thisObject);
-           for (int i= 0; i < list.size(); i++) {
-               EventBindVo bin = list.get(i);
-               if (bin.listener == listener && bin.thisObject == thisObject) {
-                   return;
-               }
-           }
-           list.add(eventBin);
-    */
+ 
 }
+-(void)removeEventListener:(NSString*)types  callback:(EventCallBack)callback taget:(NSObject*)taget;
+{
+    if(_eventsMap==nil){
+        return;
+    }
+    NSMutableArray *list = [_eventsMap objectForKey:types];
+    for (int i=0;list!=nil&& i<list.count; i++) {
+        EventBindVo* bin=list[i];
+        if(bin.bfun==callback&&bin.thisObject==taget){
+            [list removeObjectAtIndex:i];
+            return;
+        }
+    }
+}
+-(void)dispatchEvent:(BaseEvent*)event;
+{
+    if(_eventsMap==nil){
+        return;
+    }
+    NSMutableArray *list = [_eventsMap objectForKey:event.type];
+    for (int i=0;list!=nil&& i<list.count; i++) {
+        EventBindVo* bin=list[i];
+        bin.bfun(bin.thisObject,event);
+  
+ 
+    }
+    
+}
+  
+//public void dispatchEvent(BaseEvent event) {
+//     HashMap<String, List<EventBindVo>> eventMap = this._eventsMap;
+//     if (eventMap == null) {
+//         return  ;
+//     }
+//     List<EventBindVo> list = eventMap.get(event.type);
+//
+//     if (list == null || list.size() == 0) {
+//         return  ;
+//     }
+//     event.target = this;
+//     for (int i = 0; i < list.size(); i++) {
+//         EventBindVo eventBin = list.get(i);
+//         eventBin.listener.call(eventBin.thisObject, event);
+//     }
+//
+// }
  
 @end

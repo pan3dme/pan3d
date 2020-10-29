@@ -12,9 +12,16 @@
 @implementation SkillEffect
 -(void)addToRender:(ParticleManager*)particleManager
 {
+    SkillEffect* this=self;
     [super addToRender:particleManager];
-    [self.particle addEventListener:BaseEvent.COMPLETE callback:^(NSObject * _Nonnull val, NSObject * _Nonnull event) {
-         
-    } taget:self ];
+      self.eventCallBack=^(NSObject * _Nonnull val, NSObject * _Nonnull event) {
+ 
+          [this removeEvents];
+    };
+    
+    [self.particle addEventListener:BaseEvent.COMPLETE callback: self.eventCallBack taget:self ];
+}
+-(void)removeEvents{
+    [self.particle removeEventListener:BaseEvent.COMPLETE callback: self.eventCallBack taget:self ];
 }
 @end

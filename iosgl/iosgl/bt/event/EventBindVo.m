@@ -9,9 +9,10 @@
 #import "EventBindVo.h"
 
 @implementation EventBindVo
-- (instancetype)init:(NSObject*)a b:(NSObject*)b
+- (instancetype)init:(EventCallBack)a b:(NSObject*)b
 {
-    _bfun=a;
+    
+    self.bfun=a;
     _thisObject=b;
     return self;
 }

@@ -103,11 +103,41 @@
 }
 -(void)updateTime:(float)t;
 {
-    self._time += t;
-    for(int i=0;i<self._displayAry.count;i++)
+    CombineParticle* this=self;
+    this._time += t;
+    for(int i=0;i<this._displayAry.count;i++)
     {
-        [self._displayAry[i] updateTime:self._time];
+        [this._displayAry[i] updateTime:this._time];
     }
+    [this updateBind];
+    if (this._time >= this.maxTime) {
+//        this.dispatchEvent(new BaseEvent(BaseEvent.COMPLETE));
+        [this dispatchEvent:  [[BaseEvent alloc]init:BaseEvent.COMPLETE]];
+    }
+    
+ 
+//          if (this._time >= this.maxTime) {
+//              Log.d(TAG, "updateTime: 播放技能结束");
+//              this.dispatchEvent(new BaseEvent(BaseEvent.COMPLETE));
+//          }
+}
+-(void)updateBind;
+{
+    CombineParticle* this=self;
+    if (this._bindTarget!=nil) {
+//                this._bindTarget.getSocket(this.bindSocket, this.bindMatrix);
+//                this.bindVecter3d.setTo(this.bindMatrix.get_x(), this.bindMatrix.get_y(), this.bindMatrix.get_z());
+//                this.bindMatrix.identityPostion();
+//                if (!this.groupRotationMatrix.isIdentity) {
+//                    this.bindMatrix.copyTo(this.invertBindMatrix);
+//                    this.invertBindMatrix.prepend(this.groupRotationMatrix);
+//                    this.invertBindMatrix.invert();
+//                } else {
+//                    this.bindMatrix.invertToMatrix(this.invertBindMatrix);
+//                }
+
+
+            }
 }
 -(void)reset;
 {
