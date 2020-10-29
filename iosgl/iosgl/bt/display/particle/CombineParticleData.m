@@ -5,7 +5,7 @@
 //  Created by zhao on 23/2/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
-
+#import "Scene_data.h"
 #import "CombineParticleData.h"
 #import "ParticleData.h"
 #import "ParticleFacetData.h"
@@ -41,7 +41,8 @@
         }
         
     }
-    
+    self.maxTime *= [Scene_data default].frameTime;
+ 
 }
 -(ParticleData*)getParticleDataType:(int)type;
 {

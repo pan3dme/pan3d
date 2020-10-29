@@ -69,7 +69,46 @@ static NSMutableDictionary* _dic;
     [self updateTime];
     [self updateRenderDic];
 }
+-(void)removeParticle:(CombineParticle*)particle;
+{
+    
+    NSUInteger  indexs=  [self._particleList indexOfObject:particle];
+    if(indexs==-1){
+        return;
+    }
+    [self._particleList removeObjectAtIndex:indexs];
+    [self removeRenderDic:particle];
+ 
+}
+-(void)removeRenderDic:(CombineParticle*)particle
+{
+    
+    NSString* url = particle.url;
+    NSMutableArray* arr= [self._renderDic objectForKey:url];
+    if(arr!=nil){
+        NSUInteger  indexs=  [arr indexOfObject:particle];
+        if(indexs==-1){
+            return;
+        }
+        [arr removeObjectAtIndex:indexs];
+        
+        if(arr.count==0){
+            [self._renderDic removeObjectForKey:url];
+        }
+        
+    }
 
+    
+    
+//            int indexs = this.renderDic.get(url).indexOf($particle);
+//            if (indexs == -1) {
+//                return;
+//            }
+//            this.renderDic.get(url).remove(indexs);
+//            if (this.renderDic.get(url).size() == 0) {
+//                 this.renderDic.remove(url);
+//            }
+}
 -(void)registerUrl:(NSString*)url;
 {
     /*

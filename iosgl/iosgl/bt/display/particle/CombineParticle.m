@@ -111,15 +111,10 @@
     }
     [this updateBind];
     if (this._time >= this.maxTime) {
-//        this.dispatchEvent(new BaseEvent(BaseEvent.COMPLETE));
         [this dispatchEvent:  [[BaseEvent alloc]init:BaseEvent.COMPLETE]];
     }
     
  
-//          if (this._time >= this.maxTime) {
-//              Log.d(TAG, "updateTime: 播放技能结束");
-//              this.dispatchEvent(new BaseEvent(BaseEvent.COMPLETE));
-//          }
 }
 -(void)updateBind;
 {
