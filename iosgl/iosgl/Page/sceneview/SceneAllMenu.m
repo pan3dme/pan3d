@@ -1,13 +1,13 @@
 //
-//  RoleSceneViewController.m
+//  SceneAllMenu.m
 //  iosgl
 //
-//  Created by zhao on 24/4/2020.
+//  Created by zhao on 30/10/2020.
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
+#import "SceneAllMenu.h"
 #import "GL_Header.h"
-#import "RoleSceneViewController.h"
 #import "SceneView.h"
 #import "SceneChar.h"
 #import "GroupItem.h"
@@ -17,16 +17,14 @@
 #import "GridLineSprite.h"
 #import <AlipaySDK/AlipaySDK.h>
 
-@interface RoleSceneViewController ()
-
+@interface SceneAllMenu ()
 @property (nonatomic, strong) SceneView *sceneView;
 @property (nonatomic, strong) SceneChar *mainChar;
 @property (nonatomic, strong) NSMutableArray<UIButton*>* butItems;
 @property (nonatomic, assign) int lyfPlayIdx;
-
 @end
 
-@implementation RoleSceneViewController
+@implementation SceneAllMenu
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,23 +36,121 @@
     [self.sceneView makeEemptyScene];
     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     
-    
-    
     [self addMenuList];
 }
 -(void)addMenuList;
 {
-    self.butItems=[[NSMutableArray alloc]init];
-    [self addEventButBy:@"场景"];
-    [self addEventButBy:@"角色"];
-    [self addEventButBy:@"特效"];
-    [self addEventButBy:@"技能"];
-    [self addEventButBy:@"清理"];
-    [self addEventButBy:@"拉+"];
-    [self addEventButBy:@"推-"];
-    [self addEventButBy:@"新加"];
-    [self addEventButBy:@"野猪"];
+    NSMutableArray* arr=[[NSMutableArray alloc]init];
+    [arr addObject:@"场景"];
+    [arr addObject:@"角色"];
+    [arr addObject:@"特效"];
+    [arr addObject:@"技能"];
+    [arr addObject:@"挂件"];
+    [arr addObject:@"清理"];
+    [arr addObject:@"网格"];
+    [arr addObject:@"拉+"];
+    [arr addObject:@"推-"];
+    [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
     
+}
+- (void) addMenuListClikEvent:(UIButton *) btn
+{
+    NSString* titleStr=btn.titleLabel.text;
+    if([self selectBaseButByName:titleStr]){
+        return;
+    }
+    if([titleStr isEqualToString:@"场景"]){
+        [self addSceneMenuList];
+    }else if([titleStr isEqualToString:@"角色"]){
+        [self addRoleMenuList];
+        
+    }else if([titleStr isEqualToString:@"特效"]){
+ 
+        
+    }else if([titleStr isEqualToString:@"技能"]){
+        
+    }else if([titleStr isEqualToString:@"挂件"]){
+    }
+    
+}
+-(BOOL)selectBaseButByName:(NSString*)str;
+{
+    if([str isEqualToString:@"清理"]){
+        [self.sceneView.scene3D clearAll];
+        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    }else if([str isEqualToString:@"网格"]){
+        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    }else if([str isEqualToString:@"拉+"]){
+        self.sceneView.scene3D.camera3D.distance*=0.8;
+    }else if([str isEqualToString:@"推-"]){
+        self.sceneView.scene3D.camera3D.distance*=1.2;
+    }else if([str isEqualToString:@"返回"]){
+        [self addMenuList];
+    }else{
+        return false;
+    }
+    return  true;
+}
+
+-(void)addSceneMenuList;
+{
+    NSMutableArray* arr=[[NSMutableArray alloc]init];
+    [arr addObject:@"2012"];
+    [arr addObject:@"2013"];
+    [arr addObject:@"2014"];
+    [arr addObject:@"2015"];
+    [arr addObject:@"清理"];
+    [arr addObject:@"网格"];
+    [arr addObject:@"拉+"];
+    [arr addObject:@"推-"];
+    [arr addObject:@"返回"];
+    [self addButsByArr:arr  action: @selector(selectSceneClikEvent:)];
+    
+    
+}
+- (void) selectSceneClikEvent:(UIButton *) btn
+{
+    NSString* titleStr=btn.titleLabel.text;
+    if([self selectBaseButByName:titleStr]){
+        return;
+    }
+    [self.sceneView loadSeceneByUrl:titleStr];
+}
+
+-(void)addRoleMenuList;
+{
+    NSMutableArray* arr=[[NSMutableArray alloc]init];
+    [arr addObject:@"50011"];
+    [arr addObject:@"50013"];
+    [arr addObject:@"50015"];
+    [arr addObject:@"yezhuz"];
+    [arr addObject:@"清理"];
+    [arr addObject:@"网格"];
+    [arr addObject:@"拉+"];
+    [arr addObject:@"推-"];
+    [arr addObject:@"返回"];
+    [self addButsByArr:arr  action: @selector(selectRoleClikEvent:)];
+    
+    
+}
+- (void) selectRoleClikEvent:(UIButton *) btn
+{
+    NSString* titleStr=btn.titleLabel.text;
+    if([self selectBaseButByName:titleStr]){
+        return;
+    }
+    [self addRoleToScene:titleStr pos:[[Vector3D alloc]x:0 y:0 z:0]];
+}
+
+-(void)addButsByArr:(NSMutableArray*)arr action:(SEL)action
+{
+    self.butItems=[[NSMutableArray alloc]init];
+    for(int i=0;i<arr.count;i++){
+        UIButton* oneBut=[self makeButtion];
+        [oneBut setTitle:arr[i] forState:UIControlStateNormal];
+        [oneBut addTarget:self action:action forControlEvents:UIControlEventTouchUpInside] ;
+        [self.butItems addObject:oneBut];
+    }
 }
 
 -(void)addEventButBy:(NSString*)tittle;
@@ -64,6 +160,7 @@
     [oneBut addTarget:self action:@selector(oneButClikEvent:) forControlEvents:UIControlEventTouchUpInside] ;
     [self.butItems addObject:oneBut];
 }
+
 - (void)viewDidLayoutSubviews
 {
     for (int i=0; i< self.butItems.count; i++) {
@@ -77,7 +174,6 @@
 -(void)showLyfItems;
 {
     [self clearButs];
-    
     [self addEventLyfButBy:@"10017"];
     [self addEventLyfButBy:@"10018"];
     [self addEventLyfButBy:@"13012"];

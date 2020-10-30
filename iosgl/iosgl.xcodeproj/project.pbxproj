@@ -55,6 +55,7 @@
 		FE1E1BB8254A7695009590DB /* SkillActionVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BB7254A7695009590DB /* SkillActionVo.m */; };
 		FE1E1BBC254A773F009590DB /* ShockAryVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBB254A773F009590DB /* ShockAryVo.m */; };
 		FE1E1BC0254A7E9A009590DB /* SkillLoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */; };
+		FE1E1BC9254C7923009590DB /* SceneAllMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BC8254C7923009590DB /* SceneAllMenu.m */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -284,6 +285,8 @@
 		FE1E1BBB254A773F009590DB /* ShockAryVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShockAryVo.m; sourceTree = "<group>"; };
 		FE1E1BBE254A7E9A009590DB /* SkillLoadInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillLoadInfo.h; sourceTree = "<group>"; };
 		FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillLoadInfo.m; sourceTree = "<group>"; };
+		FE1E1BC7254C7923009590DB /* SceneAllMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneAllMenu.h; sourceTree = "<group>"; };
+		FE1E1BC8254C7923009590DB /* SceneAllMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneAllMenu.m; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -1161,6 +1164,8 @@
 			children = (
 				FE9EB2CC24522C7300C458AC /* RoleSceneViewController.h */,
 				FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */,
+				FE1E1BC7254C7923009590DB /* SceneAllMenu.h */,
+				FE1E1BC8254C7923009590DB /* SceneAllMenu.m */,
 			);
 			path = sceneview;
 			sourceTree = "<group>";
@@ -1484,6 +1489,7 @@
 				FEF3D4C52436B5A00055AB31 /* DualQuatFloat32Array.m in Sources */,
 				FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */,
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
+				FE1E1BC9254C7923009590DB /* SceneAllMenu.m in Sources */,
 				FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */,
 				FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */,
 				FE9EB2D42452ECC600C458AC /* BuildSceneVo.m in Sources */,
