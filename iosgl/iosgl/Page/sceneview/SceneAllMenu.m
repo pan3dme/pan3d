@@ -35,7 +35,7 @@
     [self.view addSubview:  self.sceneView];
     [self.sceneView makeEemptyScene];
     [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
-    
+    self.butItems=[[NSMutableArray alloc]init];
     [self addMenuList];
 }
 -(void)addMenuList;
@@ -60,12 +60,11 @@
         [self addSceneMenuList];
     }else if([titleStr isEqualToString:@"角色"]){
         [self addRoleMenuList];
-        
     }else if([titleStr isEqualToString:@"特效"]){
         [self addLyfMenuList];
         
     }else if([titleStr isEqualToString:@"技能"]){
-        
+        [self addSkillMenuList];
     }else if([titleStr isEqualToString:@"挂件"]){
         [self addGujianMenuList];
     }
@@ -75,7 +74,8 @@
 {
     if([str isEqualToString:@"清理"]){
         [self.sceneView.scene3D clearAll];
-        self.mainChar=nil;
+         self.mainChar=nil;
+        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     }else if([str isEqualToString:@"网格"]){
         [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     }else if([str isEqualToString:@"拉+"]){
@@ -127,7 +127,39 @@
     }
     [self addRoleToScene:titleStr pos:[[Vector3D alloc]x:0 y:0 z:0]];
 }
-
+-(void)addSkillMenuList;
+{
+    NSMutableArray* arr=[[NSMutableArray alloc]init];
+    [arr addObject:@"战士"];
+    [arr addObject:@"jichu_1"];
+    [self addBaseMenuButs:arr];
+    [self addButsByArr:arr  action: @selector(selectSkillClikEvent:)];
+}
+- (void) selectSkillClikEvent:(UIButton *) btn
+{
+    NSString* titleStr=btn.titleLabel.text;
+    if([self selectBaseButByName:titleStr]){
+        return;
+    }
+    if([titleStr isEqualToString:@"战士"]){
+        if(!self.mainChar){
+            self.mainChar=[[SceneChar alloc]init];
+            [self.mainChar setRoleUrl: getRoleUrl(@"50001")];
+            [self.sceneView.scene3D addMovieDisplay:self.mainChar] ;
+            [self.mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+        }
+        
+    }else if([titleStr isEqualToString:@"jichu_1"]){
+        if(self.mainChar){
+            Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+            skill.scene3D=self.sceneView.scene3D;
+            [skill reset];
+            [skill configFixEffect:self.mainChar completeFun:nil posObj:nil ];
+            [self.mainChar playSkill:skill];
+            NSLog(@"播放技能");
+        }
+    }
+}
 -(void)addLyfMenuList;
 {
     NSMutableArray* arr=[[NSMutableArray alloc]init];
@@ -212,12 +244,21 @@
 }
 -(void)addButsByArr:(NSMutableArray*)arr action:(SEL)action
 {
-    self.butItems=[[NSMutableArray alloc]init];
+    [self clearButs];
+
     for(int i=0;i<arr.count;i++){
         UIButton* oneBut=[self makeButtion];
         [oneBut setTitle:arr[i] forState:UIControlStateNormal];
         [oneBut addTarget:self action:action forControlEvents:UIControlEventTouchUpInside] ;
         [self.butItems addObject:oneBut];
+    }
+}
+-(void)clearButs;
+{
+    while (self.butItems.count) {
+        [self.butItems[0] removeFromSuperview];
+        [self.butItems removeObjectAtIndex:0];
+        
     }
 }
 - (void)viewDidLayoutSubviews
