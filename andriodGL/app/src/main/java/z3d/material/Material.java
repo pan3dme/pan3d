@@ -9,6 +9,7 @@ import z3d.base.Scene_data;
 import z3d.engine.ResCount;
 import z3d.program.Shader3D;
 import z3d.vo.Float32Array;
+import z3d.vo.Vector2D;
 import z3d.vo.Vector3D;
 
 public class Material extends ResCount {
@@ -102,25 +103,41 @@ public class Material extends ResCount {
         }
         if (this.usePbr || this.fogMode == 1) {
             int idx = this.fcIDAry.get(0) * 4;
-//            this.fcData[0 + idx] = Scene_data.cam3D.x / 100;
-//            this.fcData[1 + idx] = Scene_data.cam3D.y / 100;
-//            this.fcData[2 + idx] = Scene_data.cam3D.z / 100;
+            this.fcData.put(0 + idx,0);
+            this.fcData.put(1 + idx,0);
+            this.fcData.put(2 + idx,0);
         }
         if (this.fogMode != 0) {
-//            int idx = this.fcIDAry[1] * 4;
-//            this.fcData[0 + idx] = Scene_data.fogColor[0];
-//            this.fcData[1 + idx] = Scene_data.fogColor[1];
-//            this.fcData[2 + idx] = Scene_data.fogColor[2];
+            int idx = this.fcIDAry.get(1) * 4;
+            this.fcData.put(0 + idx,0);
+            this.fcData.put(1 + idx,0);
+            this.fcData.put(2 + idx,0);
         }
 
         if (this.scaleLightMap) {
-//            int idx = this.fcIDAry[2] * 4;
-//            this.fcData[0 + idx] = Scene_data.scaleLight[0];
+            int idx = this.fcIDAry.get(2) * 4;
+            this.fcData.put(0 + idx,0);
         }
 
 
 
     }
+    public void updateFogDagtga(Vector3D  fogcolor, Vector2D fogData){
+        if (this.hasTime || this.useKill || this.fogMode != 0) {//fc0
+            if (this.fogMode != 0) {
+                this.fcData.put(2,fogData.x);
+                this.fcData.put(3,fogData.y);
+            }
+        }
+        if(this.fogMode!=0){
+            int idx = this.fcIDAry.get(1) * 4;
+            this.fcData.put(0 + idx,fogcolor.x);
+            this.fcData.put(1 + idx,fogcolor.y);
+            this.fcData.put(2 + idx,fogcolor.z);
+        }
+
+    }
+
     public TexItem getMainTexItem(){
         for(int i=0;i< this.texList.size();i++){
             if( this.texList.get(i).isMain==true){

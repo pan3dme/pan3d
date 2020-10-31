@@ -34,7 +34,6 @@
     self.sceneView.frame=CGRectMake(5, 100, 360, 360);
     [self.view addSubview:  self.sceneView];
     [self.sceneView makeEemptyScene];
-    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     self.butItems=[[NSMutableArray alloc]init];
     [self addMenuList];
 }
@@ -75,7 +74,7 @@
     if([str isEqualToString:@"清理"]){
         [self.sceneView.scene3D clearAll];
          self.mainChar=nil;
-        [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+     
     }else if([str isEqualToString:@"网格"]){
         [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
     }else if([str isEqualToString:@"拉+"]){
@@ -179,11 +178,7 @@
         return;
     }
     [self playLyfByUrl:[NSString stringWithFormat:@"model/%@_lyf.txt",titleStr]];
-    self.mainChar=[[SceneChar alloc]init];
-    [self.sceneView.scene3D addMovieDisplay:self.mainChar] ;
-    [self.mainChar setRoleUrl: getRoleUrl(@"50001")];
-    [self.mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
-    [self.sceneView.scene3D.skillManager preLoadSkill:getSkillUrl(@"jichu_1")];
+ 
 }
 -(void)addGujianMenuList;
 {
@@ -252,6 +247,7 @@
         [oneBut addTarget:self action:action forControlEvents:UIControlEventTouchUpInside] ;
         [self.butItems addObject:oneBut];
     }
+    [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
 }
 -(void)clearButs;
 {

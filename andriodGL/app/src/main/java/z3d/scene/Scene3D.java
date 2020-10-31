@@ -20,13 +20,18 @@ import z3d.program.Shader3D;
 import z3d.res.RoleRes;
 import z3d.skill.SkillManager;
 import z3d.units.TimeUtil;
+import z3d.vo.Vector2D;
+import z3d.vo.Vector3D;
 
 public class Scene3D extends ResGC {
     public Context3D context3D;
     public Camera3D camera3D;
+    public Vector2D fogData;
+    public Vector3D fogColor;
     public List<Display3D> displayList;
     public List<Display3dMovie> displayRoleList;
     public ParticleManager particleManager;
+
     private float time;
 
     public Scene3D( ){

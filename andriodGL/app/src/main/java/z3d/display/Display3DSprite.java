@@ -167,13 +167,21 @@ public   class Display3DSprite extends Display3D {
             t =  (TimeUtil.getTimer() - this.time)% 100000 * 0.001f;
         }
         material.update(t);
-        this.setCamPos(material);
+        this.setSceneFcData(material);
         if (mp!=null) {
             mp.update();
         }
         Context3D ctx=this.scene3d.context3D;
 //        material.fcData.printOut();
         ctx.setVc4fv(material.shader, "fc",material.fcNum, material.fcData.verBuff);
+    }
+
+    private void setSceneFcData(Material material) {
+
+        if (scene3d.fogColor!=null&&scene3d.fogData!=null){
+            material.updateFogDagtga(scene3d.fogColor,scene3d.fogData);
+            this.setCamPos(material);
+        }
     }
 
     private void setCamPos(Material material) {
@@ -203,7 +211,7 @@ public   class Display3DSprite extends Display3D {
                 ctx.setRenderTexture(material.shader,texItem.name, Scene_data.pubLut.textTureInt,texItem.get_id());
             }
             else if (texItem.type == TexItem.CUBEMAP) {
-               // Log.d(TAG, "CUBEMAP: ");
+                // Log.d(TAG, "CUBEMAP: ");
 
                 if (material.useDynamicIBL) {// && _reflectionTextureVo) {
                     //_context.setTextureAt(texVec[i].id, _reflectionTextureVo.texture);

@@ -98,6 +98,7 @@ public class SceneAllMenu extends AppCompatActivity   {
             @Override
             public void onDrawFrame(GL10 gl) {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 _scene3d.upFrame();
             }
@@ -112,7 +113,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectSkill();
+        _selectChangjing();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -403,10 +404,22 @@ public class SceneAllMenu extends AppCompatActivity   {
             for(int i=0;i<buildItem.length();i++){
                 this.parsingBuildItem((JSONObject)buildItem.get(i));
             }
+
+            JSONObject fogColor=  this._sceneRes.sceneData.getJSONObject("fogColor");
+            float d= (float) this._sceneRes.sceneData.getDouble("fogDistance");
+            float s=  (float)  this._sceneRes.sceneData.getDouble("fogAttenuation");
+            this._scene3d.fogColor=new Vector3D();
+            this._scene3d.fogColor.x=fogColor.getLong("x")/255.0f;
+            this._scene3d.fogColor.y=fogColor.getLong("y")/255.0f;
+            this._scene3d.fogColor.z=fogColor.getLong("z")/255.0f;
+            this._scene3d.fogData=new Vector2D(d * s,1 / ((1 - s) * d));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     private  void parsingBuildItem(JSONObject obj)
     {
         try {
@@ -414,13 +427,14 @@ public class SceneAllMenu extends AppCompatActivity   {
             switch ( type) {
                 case 1:
                     int id=obj.getInt("id");
-                    if( id==1){
+                    if( id==2){
 
                     }
                     BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
                     tempDis.scene3d=this._scene3d;
                     tempDis.setInfo(obj);
                     this._scene3d.addDisplay(tempDis);
+
                     break;
                 default:
                     break;

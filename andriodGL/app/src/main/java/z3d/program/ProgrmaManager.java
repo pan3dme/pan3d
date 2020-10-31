@@ -63,7 +63,7 @@ public class ProgrmaManager extends  ResGC {
         if (parmaByFragmet) {
             paramAry= new ArrayList<Boolean>(Arrays.asList((Boolean)material.usePbr,(Boolean) material.useNormal,(Boolean) material.hasFresnel,
                     (Boolean)material.useDynamicIBL, (Boolean)material.lightProbe, (Boolean)material.directLight,
-                    (Boolean)  material.noLight,  material.fogMode==1));
+                    (Boolean)  material.noLight,  material.fogMode!=0));
 
         }
         Shader3D  shader=shaderCls;
@@ -91,6 +91,7 @@ public class ProgrmaManager extends  ResGC {
 //            this._changeBallShader(shader);
         }
         if (keyStr.indexOf("MaterialShader")!=-1) {
+            Log.d(TAG, keyStr);
             this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
 //            this._changeShader(shader);
@@ -103,55 +104,37 @@ public class ProgrmaManager extends  ResGC {
 
     }
 
-/*
-"attribute vec3 v3Position;"+
-    "attribute vec2 v2CubeTexST;"+
-    "varying vec2 v0;"+
-    "attribute vec2 v2lightuv;"+
-    "varying vec2 v2;"+
-    "varying vec3 v1;"+
-    "uniform mat4 vpMatrix3D;"+
-    "uniform mat4 posMatrix3D;"+
-    "uniform mat3 rotationMatrix3D;"+
-    "void main(void){"+
-    "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
-    "vec4 vt0= vec4(v3Position, 1.0);"+
-    "vt0 = vt0*posMatrix3D   ;"+
-    "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
-    "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
-    "vt0 = vpMatrix3D*vt0 ;"+
-    "gl_Position = vt0; }";
- */
+
 
     private void _changeShader(Shader3D shader) {
-//        shader.vertex=
-//                "attribute vec3 v3Position;"+
-//                        "attribute vec2 v2CubeTexST;"+
-//                        "varying vec2 v0;"+
-//                        "attribute vec2 v2lightuv;"+
-//                        "varying vec2 v2;"+
-//                        "varying vec3 v1;"+
-//                        "uniform mat4 vpMatrix3D;"+
-//                        "uniform mat4 posMatrix3D;"+
-//                        "uniform mat3 rotationMatrix3D;"+
-//                        "void main(void){"+
-//                        "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
-//                        "vec4 vt0= vec4(v3Position, 1.0);"+
-//                        "vt0 = vt0*posMatrix3D   ;"+
-//                        "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
-//                        "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
-//                        "vt0 = vpMatrix3D*vt0 ;"+
-//                        "gl_Position = vt0; }";
+
+        shader.vertex=  "attribute vec3 v3Position;"+
+                "attribute vec2 v2CubeTexST;"+
+                "varying vec2 v0;"+
+                "attribute vec2 v2lightuv;"+
+                "varying vec2 v2;"+
+                "varying vec3 v1;"+
+                "uniform mat4 vpMatrix3D;"+
+                "uniform mat4 posMatrix3D;"+
+                "uniform mat3 rotationMatrix3D;"+
+                "void main(void){"+
+                "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
+                "vec4 vt0= vec4(v3Position, 1.0);"+
+                "vt0 =posMatrix3D* vt0   ;"+
+                "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
+                "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
+                "vt0 = vpMatrix3D*vt0 ;"+
+                "gl_Position = vt0; }";
+
         shader.fragment=
-                "precision mediump float;\n"+
+                "precision mediump float;"+
                         "uniform sampler2D fs0;"+
                         "uniform sampler2D fs1;"+
-                        "uniform vec4 fc[3];"+
+                        "uniform vec4 fc[2];"+
                         "varying vec2 v0;"+
                         "varying vec2 v2;"+
                         "varying vec3 v1;"+
-                        "void main()"+
-                        "{"+
+                        "void main(void){"+
                         "vec4 ft0 = texture2D(fs0,v0);"+
                         "vec4 ft1 = texture2D(fs1,v2);"+
                         "ft1.xyz = ft1.xyz * 2.0;"+
@@ -159,37 +142,17 @@ public class ProgrmaManager extends  ResGC {
                         "vec4 ft2 = vec4(0,0,0,1);"+
                         "ft2.xyz = ft1.xyz;"+
                         "ft2.w = 1.0;"+
-                        "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;"+
-                        "ft1.x = ft1.x - fc[0].z;"+
-                        "ft1.x = fc[0].w * ft1.x;"+
+                        "ft1.x = v1.y - fc[0].z;"+
+                        "ft1.x = ft1.x * fc[0].w;"+
+                        "ft1.x = ft1.x + 1.0;"+
                         "ft1.x = clamp(ft1.x,0.0,1.0);"+
-                        "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"+
+                        "ft2.xyz = mix(fc[1].xyz,ft2.xyz,ft1.x);"+
                         "gl_FragColor = ft2;"+
                         "}";
+
+
     }
-    /*
-    "uniform sampler2D fs0;"+
-    "uniform sampler2D fs1;"+
-    "uniform vec4 fc[3];"+
-    "varying vec2 v0;"+
-    "varying vec2 v2;"+
-    "varying vec3 v1;"+
-    "void main(void){"+
-    "vec4 ft0 = texture2D(fs0,v0);"+
-    "vec4 ft1 = texture2D(fs1,v2);"+
-    "ft1.xyz = ft1.xyz * 2.0;"+
-    "ft1.xyz = ft1.xyz * ft0.xyz;"+
-    "vec4 ft2 = vec4(0,0,0,1);"+
-    "ft2.xyz = ft1.xyz;"+
-    "ft2.w = 1.0;"+
-    "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;"+
-    "ft1.x = ft1.x - fc[0].z;"+
-    "ft1.x = fc[0].w * ft1.x;"+
-    "ft1.x = clamp(ft1.x,0.0,1.0);"+
-    "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"+
-    "gl_FragColor = ft2;"+
-    "}";
-     */
+
 
     public static void outShader(String value,String typeStr) {
 
