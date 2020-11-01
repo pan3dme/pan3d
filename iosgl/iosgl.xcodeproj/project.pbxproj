@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF4333254F1F68009472D9 /* ScaleAnim.m */; };
 		E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */; };
 		FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B85241EE1DD00AD44BE /* MaterialParamData.m */; };
 		FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2392395104700D2483A /* AppDelegate.m */; };
@@ -122,7 +123,6 @@
 		FE805728240698DD000F6D17 /* Display3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE805727240698DD000F6D17 /* Display3DShader.m */; };
 		FE8788BB24327334003E0EE7 /* BaseAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788BA24327334003E0EE7 /* BaseAnim.m */; };
 		FE8788BE24327359003E0EE7 /* ScaleChange.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788BD24327359003E0EE7 /* ScaleChange.m */; };
-		FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C024327372003E0EE7 /* ScaleAnim.m */; };
 		FE8788C4243273B9003E0EE7 /* ScaleNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C3243273B9003E0EE7 /* ScaleNoise.m */; };
 		FE8788C7243273C7003E0EE7 /* SelfRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C6243273C7003E0EE7 /* SelfRotation.m */; };
 		FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C924327429003E0EE7 /* AxisRotaion.m */; };
@@ -199,6 +199,8 @@
 		341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.debug.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.debug.xcconfig"; sourceTree = "<group>"; };
 		6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.release.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.release.xcconfig"; sourceTree = "<group>"; };
 		763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosgl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFF4333254F1F68009472D9 /* ScaleAnim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleAnim.m; sourceTree = "<group>"; };
+		9CFF4336254F1F75009472D9 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleAnim.h; sourceTree = "<group>"; };
 		FE064B84241EE1DD00AD44BE /* MaterialParamData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialParamData.h; sourceTree = "<group>"; };
 		FE064B85241EE1DD00AD44BE /* MaterialParamData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialParamData.m; sourceTree = "<group>"; };
 		FE0FC2352395104700D2483A /* iosgl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosgl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,8 +416,6 @@
 		FE8788BA24327334003E0EE7 /* BaseAnim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAnim.m; sourceTree = "<group>"; };
 		FE8788BC24327359003E0EE7 /* ScaleChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleChange.h; sourceTree = "<group>"; };
 		FE8788BD24327359003E0EE7 /* ScaleChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleChange.m; sourceTree = "<group>"; };
-		FE8788BF24327372003E0EE7 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScaleAnim.h; path = /Users/zhao/Desktop/gitios/iosgl/iosgl/bt/display/particle/ctrl/ScaleAnim.h; sourceTree = "<absolute>"; };
-		FE8788C024327372003E0EE7 /* ScaleAnim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ScaleAnim.m; path = /Users/zhao/Desktop/gitios/iosgl/iosgl/bt/display/particle/ctrl/ScaleAnim.m; sourceTree = "<absolute>"; };
 		FE8788C2243273B9003E0EE7 /* ScaleNoise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleNoise.h; sourceTree = "<group>"; };
 		FE8788C3243273B9003E0EE7 /* ScaleNoise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleNoise.m; sourceTree = "<group>"; };
 		FE8788C5243273C7003E0EE7 /* SelfRotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelfRotation.h; sourceTree = "<group>"; };
@@ -838,8 +838,8 @@
 				FE8788BA24327334003E0EE7 /* BaseAnim.m */,
 				FE8788BC24327359003E0EE7 /* ScaleChange.h */,
 				FE8788BD24327359003E0EE7 /* ScaleChange.m */,
-				FE8788BF24327372003E0EE7 /* ScaleAnim.h */,
-				FE8788C024327372003E0EE7 /* ScaleAnim.m */,
+				9CFF4336254F1F75009472D9 /* ScaleAnim.h */,
+				9CFF4333254F1F68009472D9 /* ScaleAnim.m */,
 				FE8788C2243273B9003E0EE7 /* ScaleNoise.h */,
 				FE8788C3243273B9003E0EE7 /* ScaleNoise.m */,
 				FE8788C5243273C7003E0EE7 /* SelfRotation.h */,
@@ -1300,7 +1300,7 @@
 		FE0FC22D2395104700D2483A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = zhao;
 				TargetAttributes = {
 					FE0FC2342395104700D2483A = {
@@ -1522,7 +1522,6 @@
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE887D502416731200025A74 /* CurveVo.m in Sources */,
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
-				FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */,
 				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
 				FEEF8BD32448E78A001AFEB2 /* SkillPath.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,
@@ -1534,6 +1533,7 @@
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
+				9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */,
 				FEEF8BD92448E7AC001AFEB2 /* SkillMulPath.m in Sources */,
 				FE9EB2CE24522C7300C458AC /* RoleSceneViewController.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
@@ -1619,6 +1619,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1643,7 +1644,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1677,6 +1678,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1695,7 +1697,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1708,15 +1710,17 @@
 			baseConfigurationReference = 341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 855NL5R63P;
+				DEVELOPMENT_TEAM = B48R9F9449;
 				INFOPLIST_FILE = iosgl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-88.iosgl";
+				PRODUCT_BUNDLE_IDENTIFIER = ccav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1726,8 +1730,8 @@
 			baseConfigurationReference = 6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XR8B28QY58;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iosgl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1735,6 +1739,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-88.iosgl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
