@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setRoleUrl:(NSString*)value;
 - (void)updateFrame:(float)t;
+-(BOOL)play:(NSString*)action;
 -(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
 -(void)addPart:(NSString*)key bindSocket:(NSString*)bindSocket url:(NSString*)url;
 @end

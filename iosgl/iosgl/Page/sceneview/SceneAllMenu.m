@@ -227,12 +227,14 @@
         
     }else if([titleStr isEqualToString:@"行走"]){
         if(self.mainChar){
-      
+ 
+            [self.mainChar play:SceneChar.CharAction_walk];
+                      
         }
         
     }else if([titleStr isEqualToString:@"站立"]){
         if(self.mainChar){
-       
+            [self.mainChar play:SceneChar.CharAction_stand];
         }
     }
   

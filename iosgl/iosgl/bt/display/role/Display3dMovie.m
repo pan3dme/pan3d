@@ -169,6 +169,10 @@
     }
     
 }
+-(BOOL)play:(NSString*)action
+{
+    return [self play:action completeState:0 needFollow:true];
+}
 /*
  播放动作  播放完状态  0c持续  1播完听 2 播放返回
  */
