@@ -45,6 +45,7 @@
 -(void)addMenuList;
 {
     self.butItems=[[NSMutableArray alloc]init];
+    [self addEventButBy:@"场景"];
     [self addEventButBy:@"角色"];
     [self addEventButBy:@"特效"];
     [self addEventButBy:@"技能"];
@@ -52,8 +53,7 @@
     [self addEventButBy:@"拉+"];
     [self addEventButBy:@"推-"];
     [self addEventButBy:@"新加"];
-     [self addEventButBy:@"场景"];
-     [self addEventButBy:@"野猪"];
+    [self addEventButBy:@"野猪"];
     
 }
 
@@ -69,40 +69,33 @@
     for (int i=0; i< self.butItems.count; i++) {
         double tx=    fmod (i, 5);
         int ty= float2int(i/5.0f);
-     
+        
         self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.sceneView.frame)+55+ty*50, 60, 30);
     }
 }
 
 -(void)showLyfItems;
 {
- 
-    while (self.butItems.count) {
-            [self.butItems[0] removeFromSuperview];
-            [self.butItems removeObjectAtIndex:0];
-
-    }
-    [self addEventLyfButBy:@"levelup"];
-       [self addEventLyfButBy:@"reviveeff"];
-    [self addEventLyfButBy:@"10018"];
+    [self clearButs];
+    
     [self addEventLyfButBy:@"10017"];
+    [self addEventLyfButBy:@"10018"];
     [self addEventLyfButBy:@"13012"];
-    [self addEventLyfButBy:@"diamondseffect"];
-    
-//    arr.add("levelup");
-//     arr.add("reviveeff");
-//     arr.add("10018");
-//     arr.add("10017");
-//     arr.add("13012");
-//     arr.add("13012");
-//     arr.add("diamondseffect");
-    
+    [self addEventLyfButBy:@"levelup"];
     [self addEventButBy:@"清理"];
     [self addEventButBy:@"拉+"];
     [self addEventButBy:@"推-"];
-    
     [self viewDidLayoutSubviews];
-   
+    
+}
+
+-(void)clearButs;
+{
+    while (self.butItems.count) {
+        [self.butItems[0] removeFromSuperview];
+        [self.butItems removeObjectAtIndex:0];
+        
+    }
 }
 -(void)addEventLyfButBy:(NSString*)tittle;
 {
@@ -141,9 +134,9 @@
         [self addRoleToScene:@"50006" pos:[[Vector3D alloc]x:-80 y:0 z:0]];
     }
     if([titleStr isEqualToString:@"特效"]){
-        self.sceneView.scene3D.camera3D.distance-=400;
-    //     Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
-     [self showLyfItems];
+        
+        //     Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+        [self showLyfItems];
         
     }
     if([titleStr isEqualToString:@"技能"]){
@@ -179,7 +172,7 @@
         self.sceneView.scene3D.camera3D.distance+=20;
     }
     if([titleStr isEqualToString:@"新加"]){
-          [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
+        [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:-20 y:0 z:0]];
     }
     
     if([titleStr isEqualToString:@"场景"]){
@@ -190,15 +183,15 @@
         [self addRoleToScene:@"50001" pos:[[Vector3D alloc]x:0 y:0 z:0]];
     }
     if([titleStr isEqualToString:@"野猪"]){
-           [self addRoleToScene:@"yezhuz" pos:[[Vector3D alloc]x:0 y:0 z:0]];
-       }
+        [self addRoleToScene:@"yezhuz" pos:[[Vector3D alloc]x:0 y:0 z:0]];
+    }
     
     //
 }
- 
+
 -(void)playLyfByUrl:(NSString*)value
 {
- 
+    
     ParticleManager* particleManager=  self.sceneView.scene3D.particleManager;
     NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:value];
     [[GroupDataManager default] getGroupData:modeurl Block:^(GroupRes *groupRes) {

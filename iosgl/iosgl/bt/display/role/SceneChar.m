@@ -40,6 +40,41 @@
     return @"none";
 }
 
+
++(NSString*)CharAction_stand;
+{
+    return @"stand";
+}
++(NSString*)CharAction_walk;
+{
+    return @"walk";
+}
++(NSString*)CharAction_jump;
+{
+    return @"jump";
+}
++(NSString*)CharAction_death;
+{
+    return @"death";
+}
++(NSString*)CharAction_injured;
+{
+    return @"injured";
+}
++(NSString*)CharAction_stand_mount;
+{
+    return @"walk_mount";
+}
+
++(NSString*)CharAction_stand_mount_01;
+{
+    return @"stand_mount_01";
+}
++(NSString*)CharAction_walk_mount_01;
+{
+    return @"walk_mount_01";
+}
+ 
 -(void)playSkill:(Skill*)skill;
 {
     [self.scene3d.skillManager  playSkill:skill];

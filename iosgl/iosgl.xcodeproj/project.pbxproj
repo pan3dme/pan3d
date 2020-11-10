@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF4333254F1F68009472D9 /* ScaleAnim.m */; };
 		E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */; };
 		FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B85241EE1DD00AD44BE /* MaterialParamData.m */; };
 		FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2392395104700D2483A /* AppDelegate.m */; };
@@ -50,6 +51,12 @@
 		FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1D8B4E2412902200A04FC4 /* DisplayBaseTriSprite.m */; };
 		FE1D8B522412903600A04FC4 /* DisplayBaseTriShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1D8B512412903600A04FC4 /* DisplayBaseTriShader.m */; };
 		FE1D8B552412A64E00A04FC4 /* GridLineSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1D8B542412A64E00A04FC4 /* GridLineSprite.m */; };
+		FE1E1BAE254A59F5009590DB /* EventCallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BAD254A59F5009590DB /* EventCallBack.m */; };
+		FE1E1BB3254A742F009590DB /* DataObjTempVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BB2254A742F009590DB /* DataObjTempVo.m */; };
+		FE1E1BB8254A7695009590DB /* SkillActionVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BB7254A7695009590DB /* SkillActionVo.m */; };
+		FE1E1BBC254A773F009590DB /* ShockAryVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBB254A773F009590DB /* ShockAryVo.m */; };
+		FE1E1BC0254A7E9A009590DB /* SkillLoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */; };
+		FE1E1BC9254C7923009590DB /* SceneAllMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BC8254C7923009590DB /* SceneAllMenu.m */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -116,7 +123,6 @@
 		FE805728240698DD000F6D17 /* Display3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE805727240698DD000F6D17 /* Display3DShader.m */; };
 		FE8788BB24327334003E0EE7 /* BaseAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788BA24327334003E0EE7 /* BaseAnim.m */; };
 		FE8788BE24327359003E0EE7 /* ScaleChange.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788BD24327359003E0EE7 /* ScaleChange.m */; };
-		FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C024327372003E0EE7 /* ScaleAnim.m */; };
 		FE8788C4243273B9003E0EE7 /* ScaleNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C3243273B9003E0EE7 /* ScaleNoise.m */; };
 		FE8788C7243273C7003E0EE7 /* SelfRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C6243273C7003E0EE7 /* SelfRotation.m */; };
 		FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8788C924327429003E0EE7 /* AxisRotaion.m */; };
@@ -139,6 +145,8 @@
 		FE8FA4FE244F315600552A94 /* DisplayBaseSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA4FD244F315600552A94 /* DisplayBaseSprite.m */; };
 		FE8FA502244F6F5300552A94 /* MaterialShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FA501244F6F5300552A94 /* MaterialShader.m */; };
 		FE8FFF7D24504AC000EB79CE /* CubemapLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */; };
+		FE99B40925471C9800DEFA84 /* BaseEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99B40825471C9800DEFA84 /* BaseEvent.m */; };
+		FE99B41E2547BEB500DEFA84 /* EventBindVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99B41D2547BEB500DEFA84 /* EventBindVo.m */; };
 		FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2C62451CA0700C458AC /* MountChar.m */; };
 		FE9EB2CE24522C7300C458AC /* RoleSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */; };
 		FE9EB2D12452EB5200C458AC /* BuildDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2D02452EB5200C458AC /* BuildDisplay3DSprite.m */; };
@@ -191,6 +199,8 @@
 		341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.debug.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.debug.xcconfig"; sourceTree = "<group>"; };
 		6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.release.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.release.xcconfig"; sourceTree = "<group>"; };
 		763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosgl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFF4333254F1F68009472D9 /* ScaleAnim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleAnim.m; sourceTree = "<group>"; };
+		9CFF4336254F1F75009472D9 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleAnim.h; sourceTree = "<group>"; };
 		FE064B84241EE1DD00AD44BE /* MaterialParamData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialParamData.h; sourceTree = "<group>"; };
 		FE064B85241EE1DD00AD44BE /* MaterialParamData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialParamData.m; sourceTree = "<group>"; };
 		FE0FC2352395104700D2483A /* iosgl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosgl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +277,18 @@
 		FE1D8B512412903600A04FC4 /* DisplayBaseTriShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayBaseTriShader.m; sourceTree = "<group>"; };
 		FE1D8B532412A64E00A04FC4 /* GridLineSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLineSprite.h; sourceTree = "<group>"; };
 		FE1D8B542412A64E00A04FC4 /* GridLineSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLineSprite.m; sourceTree = "<group>"; };
+		FE1E1BAC254A59F5009590DB /* EventCallBack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventCallBack.h; sourceTree = "<group>"; };
+		FE1E1BAD254A59F5009590DB /* EventCallBack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventCallBack.m; sourceTree = "<group>"; };
+		FE1E1BB1254A742F009590DB /* DataObjTempVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataObjTempVo.h; sourceTree = "<group>"; };
+		FE1E1BB2254A742F009590DB /* DataObjTempVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataObjTempVo.m; sourceTree = "<group>"; };
+		FE1E1BB6254A7695009590DB /* SkillActionVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillActionVo.h; sourceTree = "<group>"; };
+		FE1E1BB7254A7695009590DB /* SkillActionVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillActionVo.m; sourceTree = "<group>"; };
+		FE1E1BBA254A773F009590DB /* ShockAryVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShockAryVo.h; sourceTree = "<group>"; };
+		FE1E1BBB254A773F009590DB /* ShockAryVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShockAryVo.m; sourceTree = "<group>"; };
+		FE1E1BBE254A7E9A009590DB /* SkillLoadInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillLoadInfo.h; sourceTree = "<group>"; };
+		FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillLoadInfo.m; sourceTree = "<group>"; };
+		FE1E1BC7254C7923009590DB /* SceneAllMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneAllMenu.h; sourceTree = "<group>"; };
+		FE1E1BC8254C7923009590DB /* SceneAllMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneAllMenu.m; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -394,8 +416,6 @@
 		FE8788BA24327334003E0EE7 /* BaseAnim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAnim.m; sourceTree = "<group>"; };
 		FE8788BC24327359003E0EE7 /* ScaleChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleChange.h; sourceTree = "<group>"; };
 		FE8788BD24327359003E0EE7 /* ScaleChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleChange.m; sourceTree = "<group>"; };
-		FE8788BF24327372003E0EE7 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScaleAnim.h; path = /Users/zhao/Desktop/gitios/iosgl/iosgl/bt/display/particle/ctrl/ScaleAnim.h; sourceTree = "<absolute>"; };
-		FE8788C024327372003E0EE7 /* ScaleAnim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ScaleAnim.m; path = /Users/zhao/Desktop/gitios/iosgl/iosgl/bt/display/particle/ctrl/ScaleAnim.m; sourceTree = "<absolute>"; };
 		FE8788C2243273B9003E0EE7 /* ScaleNoise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleNoise.h; sourceTree = "<group>"; };
 		FE8788C3243273B9003E0EE7 /* ScaleNoise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleNoise.m; sourceTree = "<group>"; };
 		FE8788C5243273C7003E0EE7 /* SelfRotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelfRotation.h; sourceTree = "<group>"; };
@@ -441,6 +461,10 @@
 		FE8FA501244F6F5300552A94 /* MaterialShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialShader.m; sourceTree = "<group>"; };
 		FE8FFF7B24504AC000EB79CE /* CubemapLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubemapLoad.h; sourceTree = "<group>"; };
 		FE8FFF7C24504AC000EB79CE /* CubemapLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubemapLoad.m; sourceTree = "<group>"; };
+		FE99B40725471C9800DEFA84 /* BaseEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseEvent.h; sourceTree = "<group>"; };
+		FE99B40825471C9800DEFA84 /* BaseEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseEvent.m; sourceTree = "<group>"; };
+		FE99B41C2547BEB500DEFA84 /* EventBindVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventBindVo.h; sourceTree = "<group>"; };
+		FE99B41D2547BEB500DEFA84 /* EventBindVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventBindVo.m; sourceTree = "<group>"; };
 		FE9EB2C52451CA0700C458AC /* MountChar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountChar.h; sourceTree = "<group>"; };
 		FE9EB2C62451CA0700C458AC /* MountChar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MountChar.m; sourceTree = "<group>"; };
 		FE9EB2CC24522C7300C458AC /* RoleSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoleSceneViewController.h; sourceTree = "<group>"; };
@@ -590,13 +614,6 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		FE064B87241EE59F00AD44BE /* Catgoriy */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Catgoriy;
-			sourceTree = "<group>";
-		};
 		FE0FC22C2395104700D2483A = {
 			isa = PBXGroup;
 			children = (
@@ -642,8 +659,8 @@
 		FE0FC254239511AC00D2483A /* bt */ = {
 			isa = PBXGroup;
 			children = (
+				FE99B3F825471C1100DEFA84 /* event */,
 				FEEF8BB32448E485001AFEB2 /* skill */,
-				FE064B87241EE59F00AD44BE /* Catgoriy */,
 				FE1D8B4024118B2700A04FC4 /* utils */,
 				FE515FB323A2800500C49DA5 /* res */,
 				FE13769E239E908100755136 /* filemode */,
@@ -813,8 +830,8 @@
 				FE8788BA24327334003E0EE7 /* BaseAnim.m */,
 				FE8788BC24327359003E0EE7 /* ScaleChange.h */,
 				FE8788BD24327359003E0EE7 /* ScaleChange.m */,
-				FE8788BF24327372003E0EE7 /* ScaleAnim.h */,
-				FE8788C024327372003E0EE7 /* ScaleAnim.m */,
+				9CFF4336254F1F75009472D9 /* ScaleAnim.h */,
+				9CFF4333254F1F68009472D9 /* ScaleAnim.m */,
 				FE8788C2243273B9003E0EE7 /* ScaleNoise.h */,
 				FE8788C3243273B9003E0EE7 /* ScaleNoise.m */,
 				FE8788C5243273C7003E0EE7 /* SelfRotation.h */,
@@ -989,6 +1006,8 @@
 				FED0DA4C24016395009F6575 /* GroupRes.m */,
 				FE15ACB524357F920062741F /* RoleRes.h */,
 				FE15ACB624357F920062741F /* RoleRes.m */,
+				FE1E1BB6254A7695009590DB /* SkillActionVo.h */,
+				FE1E1BB7254A7695009590DB /* SkillActionVo.m */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -1047,8 +1066,6 @@
 				FE36BBE323A53D3A00180D7C /* MetalMatrixUtilities.m */,
 				FED0DA5824017531009F6575 /* GroupItem.h */,
 				FED0DA5924017531009F6575 /* GroupItem.m */,
-				FE3D4EE12401C15300185FD3 /* EventDispatcher.h */,
-				FE3D4EE22401C15300185FD3 /* EventDispatcher.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1119,11 +1136,28 @@
 			path = display3d;
 			sourceTree = "<group>";
 		};
+		FE99B3F825471C1100DEFA84 /* event */ = {
+			isa = PBXGroup;
+			children = (
+				FE1E1BAC254A59F5009590DB /* EventCallBack.h */,
+				FE1E1BAD254A59F5009590DB /* EventCallBack.m */,
+				FE99B40725471C9800DEFA84 /* BaseEvent.h */,
+				FE99B40825471C9800DEFA84 /* BaseEvent.m */,
+				FE99B41C2547BEB500DEFA84 /* EventBindVo.h */,
+				FE99B41D2547BEB500DEFA84 /* EventBindVo.m */,
+				FE3D4EE12401C15300185FD3 /* EventDispatcher.h */,
+				FE3D4EE22401C15300185FD3 /* EventDispatcher.m */,
+			);
+			path = event;
+			sourceTree = "<group>";
+		};
 		FE9EB2C824522C0F00C458AC /* sceneview */ = {
 			isa = PBXGroup;
 			children = (
 				FE9EB2CC24522C7300C458AC /* RoleSceneViewController.h */,
 				FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */,
+				FE1E1BC7254C7923009590DB /* SceneAllMenu.h */,
+				FE1E1BC8254C7923009590DB /* SceneAllMenu.m */,
 			);
 			path = sceneview;
 			sourceTree = "<group>";
@@ -1160,6 +1194,8 @@
 				FEEF8BEC2449D2F5001AFEB2 /* SkillType.m */,
 				FEEF8BBA2448E4D4001AFEB2 /* Skill.h */,
 				FEEF8BBB2448E4D4001AFEB2 /* Skill.m */,
+				FE1E1BBE254A7E9A009590DB /* SkillLoadInfo.h */,
+				FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */,
 				FEEF8BB42448E4A8001AFEB2 /* SkillManager.h */,
 				FEEF8BB52448E4A8001AFEB2 /* SkillManager.m */,
 			);
@@ -1201,10 +1237,14 @@
 		FEEF8BDA2448E7C0001AFEB2 /* vo */ = {
 			isa = PBXGroup;
 			children = (
+				FE1E1BB1254A742F009590DB /* DataObjTempVo.h */,
+				FE1E1BB2254A742F009590DB /* DataObjTempVo.m */,
 				FEEF8BDB2448E7CD001AFEB2 /* SkillKeyVo.h */,
 				FEEF8BDC2448E7CD001AFEB2 /* SkillKeyVo.m */,
 				FEEF8BDE2448E7DF001AFEB2 /* SkillVo.h */,
 				FEEF8BDF2448E7DF001AFEB2 /* SkillVo.m */,
+				FE1E1BBA254A773F009590DB /* ShockAryVo.h */,
+				FE1E1BBB254A773F009590DB /* ShockAryVo.m */,
 				FEEF8BEE2449D90B001AFEB2 /* SkillFixEffectKeyVo.h */,
 				FEEF8BEF2449D90B001AFEB2 /* SkillFixEffectKeyVo.m */,
 				FEEF8BF12449D918001AFEB2 /* SkillTrajectoryTargetKeyVo.h */,
@@ -1252,7 +1292,7 @@
 		FE0FC22D2395104700D2483A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = zhao;
 				TargetAttributes = {
 					FE0FC2342395104700D2483A = {
@@ -1358,6 +1398,7 @@
 			files = (
 				FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
+				FE1E1BC0254A7E9A009590DB /* SkillLoadInfo.m in Sources */,
 				FEEF8BC32448E6DC001AFEB2 /* SkillEffect.m in Sources */,
 				FEEF8BED2449D2F5001AFEB2 /* SkillType.m in Sources */,
 				FE2F2FD12418BE7A0005F686 /* LoaderThread.m in Sources */,
@@ -1373,9 +1414,11 @@
 				FE15ACB124357BFE0062741F /* MeshDataManager.m in Sources */,
 				FE887D5F2416768700025A74 /* DynamicConstItem.m in Sources */,
 				FE15ACB724357F920062741F /* RoleRes.m in Sources */,
+				FE99B40925471C9800DEFA84 /* BaseEvent.m in Sources */,
 				FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */,
 				FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */,
 				FE1D8B522412903600A04FC4 /* DisplayBaseTriShader.m in Sources */,
+				FE1E1BAE254A59F5009590DB /* EventCallBack.m in Sources */,
 				FE8788C4243273B9003E0EE7 /* ScaleNoise.m in Sources */,
 				FE8788CD243274AC003E0EE7 /* AxisMove.m in Sources */,
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
@@ -1404,6 +1447,7 @@
 				FE15ACAE243576940062741F /* MeshData.m in Sources */,
 				FE8788C7243273C7003E0EE7 /* SelfRotation.m in Sources */,
 				FE8788BB24327334003E0EE7 /* BaseAnim.m in Sources */,
+				FE1E1BBC254A773F009590DB /* ShockAryVo.m in Sources */,
 				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
 				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */,
@@ -1437,6 +1481,7 @@
 				FEF3D4C52436B5A00055AB31 /* DualQuatFloat32Array.m in Sources */,
 				FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */,
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
+				FE1E1BC9254C7923009590DB /* SceneAllMenu.m in Sources */,
 				FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */,
 				FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */,
 				FE9EB2D42452ECC600C458AC /* BuildSceneVo.m in Sources */,
@@ -1446,11 +1491,13 @@
 				FE8FA4FE244F315600552A94 /* DisplayBaseSprite.m in Sources */,
 				FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
+				FE1E1BB8254A7695009590DB /* SkillActionVo.m in Sources */,
 				FEEF8BC62448E702001AFEB2 /* SkillFixEffect.m in Sources */,
 				FE887D6E241676CC00025A74 /* TexItem.m in Sources */,
 				FE74C8882396C85D0069A551 /* Base3dView.m in Sources */,
 				FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */,
 				FE776AAF244731F700B8B5A4 /* ParticleFollowData.m in Sources */,
+				FE99B41E2547BEB500DEFA84 /* EventBindVo.m in Sources */,
 				FEEF8BC02448E4FF001AFEB2 /* SkillKey.m in Sources */,
 				FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */,
 				FE642ACF242AACD20047E41F /* Display3DLocusPartilce.m in Sources */,
@@ -1467,7 +1514,6 @@
 				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE887D502416731200025A74 /* CurveVo.m in Sources */,
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
-				FE8788C124327372003E0EE7 /* ScaleAnim.m in Sources */,
 				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
 				FEEF8BD32448E78A001AFEB2 /* SkillPath.m in Sources */,
 				FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */,
@@ -1475,9 +1521,11 @@
 				FE1D8B552412A64E00A04FC4 /* GridLineSprite.m in Sources */,
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,
 				FE887D562416765600025A74 /* ConstItem.m in Sources */,
+				FE1E1BB3254A742F009590DB /* DataObjTempVo.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
+				9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */,
 				FEEF8BD92448E7AC001AFEB2 /* SkillMulPath.m in Sources */,
 				FE9EB2CE24522C7300C458AC /* RoleSceneViewController.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
@@ -1563,6 +1611,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1587,7 +1636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1621,6 +1670,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1639,7 +1689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1652,15 +1702,17 @@
 			baseConfigurationReference = 341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 855NL5R63P;
+				DEVELOPMENT_TEAM = B48R9F9449;
 				INFOPLIST_FILE = iosgl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-88.iosgl";
+				PRODUCT_BUNDLE_IDENTIFIER = ccav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1670,8 +1722,8 @@
 			baseConfigurationReference = 6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XR8B28QY58;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iosgl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1679,6 +1731,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-88.iosgl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

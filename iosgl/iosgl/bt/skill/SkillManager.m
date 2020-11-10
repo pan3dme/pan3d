@@ -11,6 +11,7 @@
 #import "TimeUtil.h"
 #import "SkillRes.h"
 #import "Scene_data.h"
+#import "SkillLoadInfo.h"
 #import "ResManager.h"
 
 @implementation SkillManager
@@ -68,7 +69,15 @@ static SkillManager *instance = nil;
         this.dic[url] = skillData;
     }];
 }
-
+-(void)removeSkill:(Skill*)skill;
+{
+    
+    NSInteger indexs=  [self._skillAry indexOfObject:skill];
+    if(indexs!=-1){
+        [self._skillAry removeObjectAtIndex:indexs];
+    }
+ 
+}
 -(void)playSkill:(Skill*)skill
 {
     [self._skillAry addObject:skill];
@@ -116,9 +125,10 @@ static SkillManager *instance = nil;
     }
     
     this._loadDic[url] =[[NSMutableArray alloc]init];
-    NSMutableDictionary* obj = [[NSMutableDictionary alloc]init];
-    obj[@"name"] = name;
-    obj[@"skill"] = skill;
+    SkillLoadInfo* obj = [[SkillLoadInfo alloc]init];
+    obj.name = name;
+    obj.skill= skill;
+
     [this._loadDic[url] addObject:obj];
     [[ResManager default]loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
         [self loadSkillCom:url skillRes:skillRes];
@@ -126,7 +136,7 @@ static SkillManager *instance = nil;
      
     return skill;
 }
-//  private loadSkillCom($url: string, $skillRes: SkillRes): void {
+ 
 -(void)loadSkillCom:(NSString*)url  skillRes:(SkillRes*)skillRes;
 {
     SkillManager* this=self;
@@ -134,9 +144,9 @@ static SkillManager *instance = nil;
     skillData.data=skillRes.data;
     NSMutableArray* urlArr=  (NSMutableArray*)this._loadDic[url];
     for (int i = 0; i < urlArr.count; i++) {
-           NSDictionary* obj = urlArr[i];
-            Skill* vo= obj[@"skill"];
-            [vo setData:skillData.data[obj[@"name"]] skillData:skillData];
+        SkillLoadInfo* obj = urlArr[i];
+            Skill* vo= obj.skill;
+            [vo setData:skillData.data[obj.name] skillData:skillData];
             skillData.useNum++;
     }
     [this._loadDic removeObjectForKey: url];

@@ -7,9 +7,9 @@
 //
 
 #import "CombineParticle.h"
-#import "Display3DParticle.h"
 #import "Display3DLocusPartilce.h"
-#import "Display3DBallPartilce.h"
+#import "Display3DModelPartilce.h"
+#import "Display3DParticle.h"
 #import "IBind.h"
 
 
@@ -105,17 +105,44 @@
 }
 -(void)updateTime:(float)t;
 {
-    self._time += t;
-    for(int i=0;i<self._displayAry.count;i++)
+    CombineParticle* this=self;
+    this._time += t;
+    for(int i=0;i<this._displayAry.count;i++)
     {
-        [self._displayAry[i] updateTime:self._time];
+        [this._displayAry[i] updateTime:this._time];
     }
+    [this updateBind];
+    if (this._time >= this.maxTime) {
+        [this dispatchEvent:  [[BaseEvent alloc]init:BaseEvent.COMPLETE]];
+    }
+    
+ 
+}
+-(void)updateBind;
+{
+    CombineParticle* this=self;
+    if (this._bindTarget!=nil) {
+//                this._bindTarget.getSocket(this.bindSocket, this.bindMatrix);
+//                this.bindVecter3d.setTo(this.bindMatrix.get_x(), this.bindMatrix.get_y(), this.bindMatrix.get_z());
+//                this.bindMatrix.identityPostion();
+//                if (!this.groupRotationMatrix.isIdentity) {
+//                    this.bindMatrix.copyTo(this.invertBindMatrix);
+//                    this.invertBindMatrix.prepend(this.groupRotationMatrix);
+//                    this.invertBindMatrix.invert();
+//                } else {
+//                    this.bindMatrix.invertToMatrix(this.invertBindMatrix);
+//                }
+
+
+            }
 }
 -(void)reset;
 {
     self._time=0;
     for (int i = 0; i < self._displayAry.count; i++) {
         [self._displayAry[i] reset];
+        
+    
     }
     
 }
@@ -123,13 +150,12 @@
 {
     for(int i=0;i<self._displayAry.count;i++)
     {
-        self._displayAry[i].scene3d=self.scene3d;
         
-        if([ self._displayAry[i] isKindOfClass:[Display3DBallPartilce class ] ]){
-         
+        self._displayAry[i].scene3d=self.scene3d;
+        if ([self._displayAry[i]  isKindOfClass:[Display3DModelPartilce class]]) {
+   
         }
         [self._displayAry[i] update];
-        
     }
 }
 -(void)updateItem:(int)idx;

@@ -7,7 +7,19 @@
 //
 
 #import "SkillEffect.h"
+#import "BaseEvent.h"
 
 @implementation SkillEffect
-
+-(void)addToRender:(ParticleManager*)particleManager
+{
+    SkillEffect* this=self;
+    [super addToRender:particleManager];
+    self.eventCallBack=^(NSObject * _Nonnull val, NSObject * _Nonnull event) {
+        [this.particle removeEventListener:BaseEvent.COMPLETE callback: this.eventCallBack taget:this ];
+        [particleManager removeParticle:this.particle ];
+        this.removeCallFun(this);
+    };
+    [self.particle addEventListener:BaseEvent.COMPLETE callback: self.eventCallBack taget:self ];
+}
+ 
 @end

@@ -13,9 +13,10 @@
 #import "ThirdPageView.h"
 #import "FourPageView.h"
 #import "GlkView.h"
- 
- #import "FivePageView.h"
+
+#import "FivePageView.h"
 #import "TokenSceneView.h"
+#import "SceneAllMenu.h"
 #import "RoleSceneViewController.h"
 
 
@@ -28,13 +29,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title=@"页面";
+    self.title=@"主菜单";
     [self addView];
-     NSLog(@" mainScreen%f",     [UIScreen mainScreen].bounds.size.height);
+    NSLog(@" mainScreen%f",     [UIScreen mainScreen].bounds.size.height);
     NSLog(@"   self.view.window.bounds%f",   self.view.window.bounds.size.height);
-       NSLog(@"   self.view.bounds%f",   self.view.bounds.size.height);
+    NSLog(@"   self.view.bounds%f",   self.view.bounds.size.height);
     
-  
+    
     NSLog(@"-----------");
 }
 
@@ -45,12 +46,12 @@
 }
 -(void)addView{
     OnePageView *vc01=[[OnePageView alloc] init];
-    RoleSceneViewController *vc02=[[RoleSceneViewController alloc] init];
-    OnePageView *vc03=[[OnePageView alloc]init];
+    SceneAllMenu *vc02=[[SceneAllMenu alloc] init];
+    RoleSceneViewController *vc03=[[RoleSceneViewController alloc]init];
     OnePageView *vc04=[[OnePageView alloc] init];
-  TokenSceneView *vc05=[[TokenSceneView alloc] init];
-   // FivePageView *vc05=[[FivePageView alloc] init];
- 
+    TokenSceneView *vc05=[[TokenSceneView alloc] init];
+    // FivePageView *vc05=[[FivePageView alloc] init];
+    
     
     
     [self setTabItemInfo:@"red_tabbar_home" VC:vc01];
@@ -66,7 +67,7 @@
     vc04.tabBarItem.title = @"消息";
     vc05.tabBarItem.title = @"其他";
     
-   vc03.tabBarItem.imageInsets = UIEdgeInsetsMake(-10, -5, 0,-5);
+    vc03.tabBarItem.imageInsets = UIEdgeInsetsMake(-10, -5, 0,-5);
     
     
     BaseNavigationViewController *nav001 = [[BaseNavigationViewController alloc] initWithRootViewController:vc01];

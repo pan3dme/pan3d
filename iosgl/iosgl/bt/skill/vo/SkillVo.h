@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SkillKeyVo.h"
+#import "SkillActionVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)float bloodTime;
 @property(nonatomic,strong)SkillKeyVo* sound;
 
--(void)setData:(NSMutableDictionary*)info;
+-(void)setData:(SkillActionVo*)info;
 +(float)defaultBloodTime;
 
 @end

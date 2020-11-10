@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SkillEffect : SkillKey
 @property(nonatomic,strong)Object3D*    active;
+@property(nonatomic,strong)EventCallBack     eventCallBack;
+ 
+
 @end
 
 NS_ASSUME_NONNULL_END

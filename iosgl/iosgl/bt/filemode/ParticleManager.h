@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, strong)  NSMutableDictionary *_renderDic;
-@property (nonatomic, strong)  NSMutableArray *_particleList;
+@property (nonatomic, strong)  NSMutableArray<CombineParticle*> *_particleList;
 @property (nonatomic, strong)  Scene3D *scene3d;
 @property (nonatomic, assign)  double time;
  
@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)updateTime;
 -(void)update;
 -(void)removeAll;
+-(void)removeParticle:(CombineParticle*)particle;
 
 @end
 

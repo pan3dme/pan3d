@@ -1,6 +1,0 @@
-framework module flutter_svga {
-  umbrella header "flutter_svga-umbrella.h"
-
-  export *
-  module * { export * }
-}

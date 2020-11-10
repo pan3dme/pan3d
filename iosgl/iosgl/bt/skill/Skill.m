@@ -10,6 +10,7 @@
 #import "Skill.h"
 #import "SkillType.h"
 #import "SkillData.h"
+#import "SkillManager.h"
 #import "Display3dMovie.h"
 #import "SkillMulTrajectory.h"
 #import "SkillTrajectoryTargetKeyVo.h"
@@ -40,7 +41,7 @@
     this.soundPlay = NO;
     this.needSound = NO;
 }
--(void)setData:(NSMutableDictionary*)data skillData:(SkillData*)skillData;
+-(void)setData:(SkillActionVo*)data skillData:(SkillData*)skillData;
 {
     Skill* this=self;
     this.skillVo=[[SkillVo alloc]init];
@@ -199,12 +200,29 @@
  
 -(void)skillComplete;
 {
+    NSLog(@"skillComplete");
+    Skill* this=self;
+    [this.scene3D.skillManager removeSkill:this];
     
+    this.isDeath=true;
+    if(this.completeFun!=nil){
+        this.completeFun(@"true");
+    }
+ 
+ 
+//           if (this.completeFun!=null) {
+//               this.completeFun.StateChange(true);
+//           }
+//           this.idleTime = 0;
 }
  
 -(void)removeKey:(SkillKey*)key;
 {
-    
+    Skill* this=self;
+    this.completeNum++;
+          if (this.completeNum == this.keyAry.count) {
+              [this skillComplete];
+          }
 }
 
 

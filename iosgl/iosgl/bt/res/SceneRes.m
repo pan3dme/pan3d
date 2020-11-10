@@ -23,22 +23,22 @@
 {
     
     self.bfun=bfun;
-     //本地文件读取
-   /*
-    NSString *path=  [[NSBundle mainBundle]pathForResource:@"5555_base" ofType:@"txt"];
-    NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
-    NSLog(@"-----length----%lu",   reader.length);
-    self.byte=[[ByteArray alloc]init:reader];
-    [self loadComplete:self.byte];
-  */
-
+    //本地文件读取
+    /*
+     NSString *path=  [[NSBundle mainBundle]pathForResource:@"5555_base" ofType:@"txt"];
+     NSData *reader = [[NSData alloc] initWithContentsOfFile:path];
+     NSLog(@"-----length----%lu",   reader.length);
+     self.byte=[[ByteArray alloc]init:reader];
+     [self loadComplete:self.byte];
+     */
+    
     
     [[LoadManager default] loadUrl:url type: LoadManager.IMG_TYPE fun:^(NSObject* value) {
         NSDictionary* bvalue=(NSDictionary*)value;
         NSData* netNsData = [[NSData alloc] initWithContentsOfFile:bvalue[@"data"]];
         self.byte=[[ByteArray alloc]init:netNsData];
         [self loadComplete:self.byte];
-   
+        
     }];
     
 }
@@ -65,7 +65,7 @@
     [self readAstat];
     if (self.version >= 28) {
         [self readTerrainIdInfoBitmapData:self.byte];
-     }
+    }
     int sceneInfosize   = [self.byte readInt];
     NSString *jsonStr= [self.byte readUTFBytes:sceneInfosize];
     NSData *data=[jsonStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -85,15 +85,30 @@
         
         NSLog(@"%d=%d",tw,th);
         
-        float heightScaleNum= [self.byte readFloat];
-        [self readAstarFromByte:self.byte];
-        [self readAstarFromByte:self.byte];
-        for (int i = 0; i < th; i++) {
-            for (int j = 0; j < tw; j++) {
-                [self.byte readShort ];
+        if (self.version < 25) {
+            for (int i = 0; i < th; i++) {
+                for (int j = 0; j < tw; j++) {
+                    [self.byte readFloat];
+                }
             }
-            
+            for (int i = 0; i < th; i++) {
+                for (int j = 0; j < tw; j++) {
+                    [self.byte readFloat];
+                }
+            }
+        } else{
+            float heightScaleNum= [self.byte readFloat];
+            [self readAstarFromByte:self.byte];
+            [self readAstarFromByte:self.byte];
+            for (int i = 0; i < th; i++) {
+                for (int j = 0; j < tw; j++) {
+                    [self.byte readShort ];
+                }
+                
+            }
         }
+        
+        
     }
     
 }
@@ -106,7 +121,7 @@
     }
     
 }
- 
+
 -(void)readAstarFromByte:(ByteArray *)byteSrc
 {
     int  len = [byteSrc readUnsignedInt];
