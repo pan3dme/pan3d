@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/+2HRks1O1iNNX4RnlhtyIFGKQCg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/+2HRks1O1iNNX4RnlhtyIFGKQCg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/+FOiMDfvgJXnFyfdth3cL+ULXK0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/+FOiMDfvgJXnFyfdth3cL+ULXK0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/+WJGgbiFJ3KOYA0SF745EQICdg0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/+WJGgbiFJ3KOYA0SF745EQICdg0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/1eDPx0+7XGAZrh6OTPPNC_rKOCU=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/1eDPx0+7XGAZrh6OTPPNC_rKOCU=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/2mpNx+8ss9kHwrkEQZ1L1hnxrxs=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/3T7oN_kmBi65spX_4M2pkRtLQS0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/5zpcTdb8I0EXb7EA4Lw1_qhcKnE=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/7_iB4pUH_7czC4xsXO10MmCNj_A=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/A2y6mlvxXMlJARKvPW+Hy2J5CyE=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/AtS8mStPu2TnsLZU3S+++YGA2Vg=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/DBT1elV6GnohMk88NphLnJJZNN0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/DBT1elV6GnohMk88NphLnJJZNN0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/DEFpfm4KUREWli4vO6AY8f74rpA=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/DEFpfm4KUREWli4vO6AY8f74rpA=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/DKtek8nC2BKgefDzHtlK4ifhZFw=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/DKtek8nC2BKgefDzHtlK4ifhZFw=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/HK6aHOlplbeEsM_SGB+H305T9FY=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/HK6aHOlplbeEsM_SGB+H305T9FY=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ISyTh1Eg8VM5eBIXPe4X6uhUruw=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ISyTh1Eg8VM5eBIXPe4X6uhUruw=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/JOpDjCc52wNKapdFs+Aam_Yf8qo=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/JOpDjCc52wNKapdFs+Aam_Yf8qo=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/K4EMBY8Aqi7mYMUiMtKwH1w9tXE=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/K4EMBY8Aqi7mYMUiMtKwH1w9tXE=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/MyWKVLfPnFd_+iPtfIrfPvSOtEY=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/MyjpBf2ZE2voTpSq866O3NpRtl0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/NoDmNKU+pYdQXyuOfEEuN_7n4YM=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/SCJzkNtKs8hzc7724XBRVn_o6Cg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/SCJzkNtKs8hzc7724XBRVn_o6Cg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/SGuSX1077y5SxaoP2O7WcBh6S1I=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/SGuSX1077y5SxaoP2O7WcBh6S1I=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/TnXbRq9l+_Ib2ie1JYXa39TNm4k=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/UDYW6uNMSSFRQHgW1NThC54Ayj0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/VNNFU9wA+iHIiiOWSvb0RGUoJ0U=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/VtKqvU5xRkmMAnQGffyxD7xvOhY=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/VtKqvU5xRkmMAnQGffyxD7xvOhY=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/YJGd2I5I0_ZZ6_ejyC_aSYTq2XE=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/YJGd2I5I0_ZZ6_ejyC_aSYTq2XE=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Ygwe1jusftcdG3YiFsXJRTl2vzg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Ygwe1jusftcdG3YiFsXJRTl2vzg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Yq2Yt7vwDybI2eNSVGMq_QNdbd4=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Yzo7jXHzuQV2UQPVssZ9OO5AMpI=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/_nTJbLBrE5YkfBTCR8I2a1i8YmE=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/_nTJbLBrE5YkfBTCR8I2a1i8YmE=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/aGkz44TPuz1RnXNwFBl7vH4DRIQ=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ajpO+gf2wNWyJExgGV439Fh+uFg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ajpO+gf2wNWyJExgGV439Fh+uFg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/bGFS3L7sptHmzatMvv7m_xkuPwQ=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/bGFS3L7sptHmzatMvv7m_xkuPwQ=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/cRLNhHMw2C5_2+M1XIpvvvYUULY=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/cRLNhHMw2C5_2+M1XIpvvvYUULY=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/cS7FhoC2QaMhK8D+GRwru3+6PUg=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/dolkBDBvBbxm4xSHz9QYNaCTlJ8=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/dolkBDBvBbxm4xSHz9QYNaCTlJ8=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ftYVlKdAHELgqR21a1GEqe9r9gI=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ftYVlKdAHELgqR21a1GEqe9r9gI=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/g3Sz9WMEQ22E1zLD7pqIuOE4dco=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/g3Sz9WMEQ22E1zLD7pqIuOE4dco=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/g_OJ30fal4wl41GOllFptKTClzg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/g_OJ30fal4wl41GOllFptKTClzg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/iFSe4QHlRxaHwTKcRTXJmaPACeA=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/iRF1QXh4Uuvt1nwW1r_tJWpDXGw=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/iRF1QXh4Uuvt1nwW1r_tJWpDXGw=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/iYsyPUhS4b4E77vPgft_TZyPnAQ=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/iYsyPUhS4b4E77vPgft_TZyPnAQ=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ijDz6ishEn_n1e4JOtBx7wvrt+s=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/jfXgaaOb9Vb8hbmw75z6+4edgeU=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/jfXgaaOb9Vb8hbmw75z6+4edgeU=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/k5Fg6_j1GGLubKOtdBMSsidiHdk=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/k5Fg6_j1GGLubKOtdBMSsidiHdk=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/lYPRVJAsrZK+eRMOtt+Avwh8DWg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/lYPRVJAsrZK+eRMOtt+Avwh8DWg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/nl8otcHN8fXtRUu+kBaXYFWMad8=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/qFBDdNEXJILFDXC44_VMsqMU+fU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/sjD6xkeLlUqIIviZ2hBixX9Y+l4=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tWmYqgF+X9igDJKIsCVY40JXURg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tWmYqgF+X9igDJKIsCVY40JXURg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ta0SuqW6G5Upff5rRzUygRITE4A=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ta0SuqW6G5Upff5rRzUygRITE4A=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tu5oqnxWR8Ehq1q31vXiqFiOy1k=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tu5oqnxWR8Ehq1q31vXiqFiOy1k=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tvCQkwlXRB42Kl1wBouJKuwIRb0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tvCQkwlXRB42Kl1wBouJKuwIRb0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ux+tBHSL0ApEA6ViVmYE1KpkBeM=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/v_sLb8tmvL+c3WWA4Auo1cAepFU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/wtXYenGMolv7CUSiGqf5qC5bKdU=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/wtXYenGMolv7CUSiGqf5qC5bKdU=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/xP1SUM1fV8XBX4kz2XDWRmhlpnI=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/xP1SUM1fV8XBX4kz2XDWRmhlpnI=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/zPQjlm+jJd1YOwA5NREF8cLpR+k=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/zPQjlm+jJd1YOwA5NREF8cLpR+k=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/+2HRks1O1iNNX4RnlhtyIFGKQCg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/+2HRks1O1iNNX4RnlhtyIFGKQCg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/+FOiMDfvgJXnFyfdth3cL+ULXK0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/+FOiMDfvgJXnFyfdth3cL+ULXK0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/+WJGgbiFJ3KOYA0SF745EQICdg0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/+WJGgbiFJ3KOYA0SF745EQICdg0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/1eDPx0+7XGAZrh6OTPPNC_rKOCU=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/1eDPx0+7XGAZrh6OTPPNC_rKOCU=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/2mpNx+8ss9kHwrkEQZ1L1hnxrxs=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/3T7oN_kmBi65spX_4M2pkRtLQS0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/5zpcTdb8I0EXb7EA4Lw1_qhcKnE=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/7_iB4pUH_7czC4xsXO10MmCNj_A=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/A2y6mlvxXMlJARKvPW+Hy2J5CyE=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/AtS8mStPu2TnsLZU3S+++YGA2Vg=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/DBT1elV6GnohMk88NphLnJJZNN0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/DBT1elV6GnohMk88NphLnJJZNN0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/DEFpfm4KUREWli4vO6AY8f74rpA=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/DEFpfm4KUREWli4vO6AY8f74rpA=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/DKtek8nC2BKgefDzHtlK4ifhZFw=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/DKtek8nC2BKgefDzHtlK4ifhZFw=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/HK6aHOlplbeEsM_SGB+H305T9FY=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/HK6aHOlplbeEsM_SGB+H305T9FY=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ISyTh1Eg8VM5eBIXPe4X6uhUruw=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ISyTh1Eg8VM5eBIXPe4X6uhUruw=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/JOpDjCc52wNKapdFs+Aam_Yf8qo=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/JOpDjCc52wNKapdFs+Aam_Yf8qo=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/K4EMBY8Aqi7mYMUiMtKwH1w9tXE=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/K4EMBY8Aqi7mYMUiMtKwH1w9tXE=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/MyWKVLfPnFd_+iPtfIrfPvSOtEY=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/MyjpBf2ZE2voTpSq866O3NpRtl0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/NoDmNKU+pYdQXyuOfEEuN_7n4YM=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/SCJzkNtKs8hzc7724XBRVn_o6Cg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/SCJzkNtKs8hzc7724XBRVn_o6Cg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/SGuSX1077y5SxaoP2O7WcBh6S1I=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/SGuSX1077y5SxaoP2O7WcBh6S1I=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/TnXbRq9l+_Ib2ie1JYXa39TNm4k=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/UDYW6uNMSSFRQHgW1NThC54Ayj0=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/VNNFU9wA+iHIiiOWSvb0RGUoJ0U=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/VtKqvU5xRkmMAnQGffyxD7xvOhY=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/VtKqvU5xRkmMAnQGffyxD7xvOhY=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/YJGd2I5I0_ZZ6_ejyC_aSYTq2XE=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/YJGd2I5I0_ZZ6_ejyC_aSYTq2XE=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/Ygwe1jusftcdG3YiFsXJRTl2vzg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/Ygwe1jusftcdG3YiFsXJRTl2vzg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/Yq2Yt7vwDybI2eNSVGMq_QNdbd4=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/Yzo7jXHzuQV2UQPVssZ9OO5AMpI=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/_nTJbLBrE5YkfBTCR8I2a1i8YmE=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/_nTJbLBrE5YkfBTCR8I2a1i8YmE=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/aGkz44TPuz1RnXNwFBl7vH4DRIQ=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ajpO+gf2wNWyJExgGV439Fh+uFg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ajpO+gf2wNWyJExgGV439Fh+uFg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/bGFS3L7sptHmzatMvv7m_xkuPwQ=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/bGFS3L7sptHmzatMvv7m_xkuPwQ=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/cRLNhHMw2C5_2+M1XIpvvvYUULY=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/cRLNhHMw2C5_2+M1XIpvvvYUULY=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/cS7FhoC2QaMhK8D+GRwru3+6PUg=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/dolkBDBvBbxm4xSHz9QYNaCTlJ8=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/dolkBDBvBbxm4xSHz9QYNaCTlJ8=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ftYVlKdAHELgqR21a1GEqe9r9gI=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ftYVlKdAHELgqR21a1GEqe9r9gI=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/g3Sz9WMEQ22E1zLD7pqIuOE4dco=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/g3Sz9WMEQ22E1zLD7pqIuOE4dco=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/g_OJ30fal4wl41GOllFptKTClzg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/g_OJ30fal4wl41GOllFptKTClzg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/iFSe4QHlRxaHwTKcRTXJmaPACeA=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/iRF1QXh4Uuvt1nwW1r_tJWpDXGw=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/iRF1QXh4Uuvt1nwW1r_tJWpDXGw=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/iYsyPUhS4b4E77vPgft_TZyPnAQ=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/iYsyPUhS4b4E77vPgft_TZyPnAQ=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ijDz6ishEn_n1e4JOtBx7wvrt+s=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/jfXgaaOb9Vb8hbmw75z6+4edgeU=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/jfXgaaOb9Vb8hbmw75z6+4edgeU=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/k5Fg6_j1GGLubKOtdBMSsidiHdk=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/k5Fg6_j1GGLubKOtdBMSsidiHdk=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/lYPRVJAsrZK+eRMOtt+Avwh8DWg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/lYPRVJAsrZK+eRMOtt+Avwh8DWg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/nl8otcHN8fXtRUu+kBaXYFWMad8=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/qFBDdNEXJILFDXC44_VMsqMU+fU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/sjD6xkeLlUqIIviZ2hBixX9Y+l4=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/tWmYqgF+X9igDJKIsCVY40JXURg=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/tWmYqgF+X9igDJKIsCVY40JXURg=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ta0SuqW6G5Upff5rRzUygRITE4A=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ta0SuqW6G5Upff5rRzUygRITE4A=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/tu5oqnxWR8Ehq1q31vXiqFiOy1k=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/tu5oqnxWR8Ehq1q31vXiqFiOy1k=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/tvCQkwlXRB42Kl1wBouJKuwIRb0=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/tvCQkwlXRB42Kl1wBouJKuwIRb0=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ux+tBHSL0ApEA6ViVmYE1KpkBeM=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/v_sLb8tmvL+c3WWA4Auo1cAepFU=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/wtXYenGMolv7CUSiGqf5qC5bKdU=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/wtXYenGMolv7CUSiGqf5qC5bKdU=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/xP1SUM1fV8XBX4kz2XDWRmhlpnI=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/xP1SUM1fV8XBX4kz2XDWRmhlpnI=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/zPQjlm+jJd1YOwA5NREF8cLpR+k=" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/zPQjlm+jJd1YOwA5NREF8cLpR+k=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/merged_java_res/debug/out.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/merged_java_res/debug/out.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/merged_res_blame_folder/debug/out/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/intermediates/merged_res_blame_folder/debug/out/single/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../android/SceneWorld001/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../android/SceneWorld001/app/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/androidTest/java/com/e/sceneworld001/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/scene/CallBack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/scene/dis/TwoTextureShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/scene/dis/TwoTextureSprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/urlhttp/CallBackUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/urlhttp/RealRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/urlhttp/RealResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/urlhttp/RequestUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/urlhttp/UrlHttpUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/ByteArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/ByteArrayJava.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/CallBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/Camera3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/GroupBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/GroupItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/MathCore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/MeshData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/ObjData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/ObjDataBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/ObjDataManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/Object3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/ResGC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/RoleBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/Scene_data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/SkillBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/SkinMeshBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/base/TexTuresBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/core/Context3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/BuildDisplay3DShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/BuildDisplay3DSprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/Display3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/Display3DShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/basedis/DisplayBaseShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/basedis/DisplayBaseSprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/basedis/DisplayTestShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/basedis/DisplayTestSprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/interfaces/IBind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/interfaces/IMulBind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/line/GridLineSprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/line/LineDisplayShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/line/LineDisplaySprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/CombineParticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/CombineParticleData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/Display3DParticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/MaterialParamDataVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ParticleData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ParticleGpuData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ball/Display3DBallPartilce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ball/Display3DBallShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ball/ParticleBallData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ball/ParticleBallGpuData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/AxisMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/AxisRotaion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/BaseAnim.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/KeyFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/ScaleAnim.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/ScaleChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/ScaleNoise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/SelfRotation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/TimeLine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/ctrl/TimeLineData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/facet/Display3DFacetParticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/facet/Display3DFacetShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/facet/ParticleFacetData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/locus/Display3DLocusPartilce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/locus/Display3DLocusShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/locus/ParticleLocusData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/locusball/ParticleLocusballData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/model/Display3DModelPartilce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/model/Display3DModelShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/particle/model/ParticleModelData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/role/Display3dMovie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/role/MountChar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/display/role/SceneChar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/engine/GC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/engine/ResCount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/event/BaseEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/event/EventBindVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/event/EventCallBack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/event/EventDispatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/filemodel/GroupDataManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/filemodel/MeshDataManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/filemodel/ParticleManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/filemodel/ResManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/filemodel/TextureLoad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/filemodel/TextureManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/ConstItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/Curve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/DynamicBaseConstItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/DynamicBaseTexItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/DynamicConstItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/DynamicTexItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/Material.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/MaterialBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/MaterialBaseParam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/MaterialLoad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/MaterialManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/MaterialParam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/TexItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/material/TextureRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/program/MaterialAnimShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/program/MaterialShader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/program/ProgrmaManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/program/Shader3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/res/BaseRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/res/GroupRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/res/MaterialInfoVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/res/RoleRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/res/SceneRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/res/SkillActionVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/res/SkillRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/scene/Scene3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/Skill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/SkillData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/SkillLoadInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/SkillManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/key/SkillEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/key/SkillFixEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/key/SkillKey.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/key/SkillMulTrajectory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/key/SkillTrajectory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/path/PathManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/path/SkillMulPath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/path/SkillPath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/path/SkillSinPath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/vo/SkillFixEffectKeyVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/vo/SkillKeyVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/vo/SkillShockVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/vo/SkillTrajectoryTargetKeyVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/vo/SkillType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/skill/vo/SkillVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/units/AnimManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/units/ColorTransition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/units/LoadBackFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/units/LoadInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/units/LoadManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/units/LoaderThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/units/TimeUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/AnimData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/BindParticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/BoneSocketData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/CurveItemVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/CurveVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/DataObjTempVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/Float32Array.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/Matrix3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/ObjectBaseBone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/ObjectBone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/ParamDataConVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/ParamDataVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/ParicleRandomColorVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/Quaternion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/ShockAryVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/SkinMesh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/Vector2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/java/z3d/vo/Vector3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable/my_cell_sz001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable/my_cell_szmx001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable/my_cell_wdbb001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable/my_cell_wdsy001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable/my_cell_yxjl001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/drawable/my_cell_zskf001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/layout/content_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/layout/fragment_first.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/layout/fragment_second.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/layout/item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/layout/scene001_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/menu/menu_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/raw/file2012.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/main/res/xml/network_security_config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/app/src/test/java/com/e/sceneworld001/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../baseSrc/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../charskill/charskill/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../charskill/charskill/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../charskill/charskill/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../charskill/charskill/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/zhao.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/RoleSceneViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/ViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/GL_Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/GL_Header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/SceneView.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/SceneView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/base/EventDispatcher.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/base/EventDispatcher.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/CombineParticle.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/CombineParticle.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/CombineParticleData.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/CombineParticleData.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/Display3DParticle.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/Display3DParticle.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/ctrl/TimeLine.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/ctrl/TimeLine.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/locus/Display3DLocusPartilce.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/locus/Display3DLocusPartilce.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/model/Display3DModelPartilce.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/particle/model/Display3DModelPartilce.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/Display3dMovie.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/Display3dMovie.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/Display3dMovie.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/Display3dMovie.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/SceneChar.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/SceneChar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/SceneChar.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/SceneChar.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/filemode/ParticleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/filemode/ParticleManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/filemode/ParticleManager.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/filemode/ParticleManager.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/material/DynamicTexItem.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/material/DynamicTexItem.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/program/ProgrmaManager.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/program/ProgrmaManager.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/res/SceneRes.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/res/SceneRes.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/Skill.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/Skill.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/Skill.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/Skill.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/SkillManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/SkillManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/SkillManager.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/SkillManager.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/SkillRes.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/SkillRes.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/key/SkillEffect.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/key/SkillEffect.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/key/SkillEffect.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/key/SkillEffect.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/key/SkillKey.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/key/SkillKey.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillKeyVo.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillKeyVo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillKeyVo.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillKeyVo.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillVo.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillVo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillVo.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/skill/vo/SkillVo.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/particle/locus/Display3DLocusPartilce.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/jsbin/pan3d/engine/particle/locus/Display3DLocusPartilce.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webstorm/pan3d/engine/particle/locus/Display3DLocusPartilce.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webstorm/pan3d/engine/particle/locus/Display3DLocusPartilce.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jhFaLdn0PhpQzrsycnHyYO9bi3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_30_x86" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-02T10:08:13.604Z" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SelectDeploymentTargetsDialog.selectedDevices" value="Pixel_3a_API_30_x86" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1604249489799" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="andriodGL.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="" />
+      <created>1604248479021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604248479021</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="328" y="112" key="#Inspections" timestamp="1604274116809">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="328" y="112" key="#Inspections/0.23.1440.877@0.23.1440.877" timestamp="1604274116809" />
+    <state x="245" y="159" key="#PSD" timestamp="1604251706889">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="245" y="159" key="#PSD/0.23.1440.877@0.23.1440.877" timestamp="1604251706889" />
+    <state x="158" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604273831456">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="158" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604273831456" />
+    <state x="574" y="322" width="489" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604943947048">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="574" y="322" width="489" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1440.877@0.23.1440.877" timestamp="1604943947048" />
+    <state x="226" y="165" width="1016" height="557" key="AVDManager" timestamp="1604274453498">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="226" y="165" width="1016" height="557" key="AVDManager/0.23.1440.877@0.23.1440.877" timestamp="1604274453498" />
+    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605003195734">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605003195734" />
+    <state width="1174" height="188" key="GridCell.Tab.0.bottom" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="188" key="GridCell.Tab.0.center" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="188" key="GridCell.Tab.0.left" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="188" key="GridCell.Tab.0.right" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="188" key="GridCell.Tab.1.bottom" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="188" key="GridCell.Tab.1.center" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="188" key="GridCell.Tab.1.left" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="188" key="GridCell.Tab.1.right" timestamp="1605012061558">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1174" height="188" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state x="221" y="59" key="SettingsEditor" timestamp="1604251431408">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="221" y="59" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1604251431408" />
+    <state x="338" y="236" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog" timestamp="1604274093407">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="338" y="236" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.23.1440.877@0.23.1440.877" timestamp="1604274093407" />
+    <state x="364" y="64" width="615" height="735" key="find.popup" timestamp="1604943432508">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="364" y="64" width="615" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1604943432508" />
+    <state x="359" y="193" key="run.anything.popup" timestamp="1604273789465">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="359" y="193" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1604273789465" />
+    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1604947851779">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1604947851779" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="java.lang.String" fieldName="count" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
