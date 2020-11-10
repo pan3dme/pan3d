@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import z3d.vo.Matrix3D;
 import z3d.vo.ObjectBone;
@@ -56,24 +57,25 @@ public class Md5animAnalysis {
         boolean isbig = false;
         //var t:int = getTimer();
         for (int i = 0; i < len; i++) {
-            int dindex =  (arr[i]).indexOf("//");
+            String arrIndStr=arr[i];
+            int dindex =  arrIndStr.indexOf("//");
             if (dindex == 0) {
                 //注释行
                 continue;
             }
             if (dindex != -1) {
                 //包含注释
-                arr[i] =  arr[i].substring(0, dindex);
+                arrIndStr =  arrIndStr.substring(0, dindex);
                 //删除注释
             }
-            if (arr[i].indexOf("{") != -1) {
+            if (arrIndStr.indexOf("{") != -1) {
                 isbig = true;
             }
             if (isbig) {
 
-                tempStr += arr[i] + "\n\r";
+                tempStr +=arrIndStr + "\n\r";
 
-                if ( arr[i].indexOf("}") != -1) {
+                if ( arrIndStr.indexOf("}") != -1) {
                     isbig = false;
                     this.bigArr.add(tempStr);
                     tempStr = "";
@@ -81,9 +83,9 @@ public class Md5animAnalysis {
 
             } else {
 
-                if (arr[i] != "") {
+                if (!arrIndStr.equals("")) {
 
-                    String[] arr2  =  arr[i].split(" ");
+                    String[] arr2  =  arrIndStr.split(" ");
 
                     this._dir.put(arr2[0],arr2[1]);
 
@@ -175,11 +177,25 @@ public class Md5animAnalysis {
         return  outArr;
 
     }
+    Pattern pattern =Pattern.compile("[0-9]*");
+    private String getOnlyNumByStrArr(String str)
+    {
+        String[]  matcchArr=   str.split(" ");
+        for (int i=0;i<matcchArr.length;i++){
+            if(pattern.matcher(matcchArr[i]).matches()){
+                return matcchArr[i];
+            }
+        }
+        return str;
+    }
     private void handleBigWord(String str) {
-//        var reg: RegExp = /\d+/;
+
         List<String>  arr;
+        str=str.replace("\t","");
+        str=str.replace("\r","");
+        arr=getArrayByStr(str.split("\n"));
         if (str.indexOf("hierarchy") != -1) {
-            arr=getArrayByStr(str.split("[\n\t]"));
+
             for (int i = 0; i < arr.size(); i++) {
                 if ( arr.get(i).indexOf("{") == -1 &&  arr.get(i).indexOf("}") == -1 && arr.get(i) != "") {
                     this._hierarchy.add(arr.get(i));
@@ -188,7 +204,6 @@ public class Md5animAnalysis {
         }
         if (str.indexOf("bounds") != -1) {
 
-            arr=getArrayByStr(str.split("[\n\t]"));
 
             for (int m = 0; m < arr.size(); m++) {
 
@@ -200,7 +215,7 @@ public class Md5animAnalysis {
         }
 
         if (str.indexOf("baseframe") != -1) {
-            arr=getArrayByStr(str.split("[\n\t]"));
+
             for (int k = 0; k < arr.size(); k++) {
 
                 if (arr.get(k).indexOf("{") == -1 && arr.get(k).indexOf("}") == -1 && arr.get(k) != "") {
@@ -211,12 +226,13 @@ public class Md5animAnalysis {
         }
 
         if (str.indexOf("frame") != -1 && str.indexOf("baseframe") == -1 && str.indexOf("BoneScale") == -1) {
-            arr=getArrayByStr(str.split("[\n\t]"));
+
             int arrsign=0;
             List tempArray  = new ArrayList();
             for (int w = 0; w < arr.size(); w++) {
                 if (arr.get(w).indexOf("frame") != -1) {
-                    arrsign=Integer.parseInt(arr.get(w));
+                    String frameNum=  arr.get(w);
+                    arrsign=Integer.parseInt(getOnlyNumByStrArr(frameNum));
                 }
                 if (arr.get(w).indexOf("{") == -1 && arr.get(w).indexOf("}") == -1 && arr.get(w) != "") {
                     tempArray.add(arr.get(w));
@@ -225,6 +241,7 @@ public class Md5animAnalysis {
                 this._frame.add(arrsign,tempArray);
             }
         }
+
     }
 
 }
