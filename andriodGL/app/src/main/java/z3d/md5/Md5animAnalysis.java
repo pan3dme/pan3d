@@ -48,8 +48,8 @@ public class Md5animAnalysis {
         this._frame = new ArrayList<>();
         this.bigArr = new ArrayList<>();
         //var ini:String = urlloader.data;
-
-        String[] arr  = ini.split("\r\n");
+        ini=ini.replace("\t","");
+        String[] arr  = ini.split("\n");
 
         int len = arr.length;
         String tempStr = "";

@@ -31,13 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/MeshItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/MeshData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/base/ObjData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/ObjectBone.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/ObjectBone.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +64,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_30_x86" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-02T10:08:13.604Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -172,6 +168,9 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="328" y="112" key="#Inspections" timestamp="1604274116809">
       <screen x="0" y="23" width="1440" height="877" />
@@ -193,42 +192,42 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="226" y="165" width="1016" height="557" key="AVDManager/0.23.1440.877@0.23.1440.877" timestamp="1604274453498" />
-    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605003195734">
+    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605015401679">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605003195734" />
-    <state width="1174" height="188" key="GridCell.Tab.0.bottom" timestamp="1605012061558">
+    <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605015401679" />
+    <state width="1174" height="240" key="GridCell.Tab.0.bottom" timestamp="1605015280229">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
-    <state width="1174" height="188" key="GridCell.Tab.0.center" timestamp="1605012061558">
+    <state width="1174" height="240" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605015280229" />
+    <state width="1174" height="240" key="GridCell.Tab.0.center" timestamp="1605015280228">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
-    <state width="1174" height="188" key="GridCell.Tab.0.left" timestamp="1605012061558">
+    <state width="1174" height="240" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605015280228" />
+    <state width="1174" height="240" key="GridCell.Tab.0.left" timestamp="1605015280227">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
-    <state width="1174" height="188" key="GridCell.Tab.0.right" timestamp="1605012061558">
+    <state width="1174" height="240" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605015280227" />
+    <state width="1174" height="240" key="GridCell.Tab.0.right" timestamp="1605015280228">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
-    <state width="1174" height="188" key="GridCell.Tab.1.bottom" timestamp="1605012061558">
+    <state width="1174" height="240" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605015280228" />
+    <state width="1174" height="240" key="GridCell.Tab.1.bottom" timestamp="1605015290469">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
-    <state width="1174" height="188" key="GridCell.Tab.1.center" timestamp="1605012061558">
+    <state width="1174" height="240" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605015290469" />
+    <state width="1174" height="240" key="GridCell.Tab.1.center" timestamp="1605015290468">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
-    <state width="1174" height="188" key="GridCell.Tab.1.left" timestamp="1605012061558">
+    <state width="1174" height="240" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605015290468" />
+    <state width="1174" height="240" key="GridCell.Tab.1.left" timestamp="1605015290468">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
-    <state width="1174" height="188" key="GridCell.Tab.1.right" timestamp="1605012061558">
+    <state width="1174" height="240" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605015290468" />
+    <state width="1174" height="240" key="GridCell.Tab.1.right" timestamp="1605015290468">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="188" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605012061558" />
+    <state width="1174" height="240" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605015290468" />
     <state x="221" y="59" key="SettingsEditor" timestamp="1604251431408">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -257,6 +256,26 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java</url>
           <line>85</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
