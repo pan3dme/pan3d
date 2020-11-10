@@ -16,13 +16,23 @@ import z3d.md5.vo.ObjectWeight;
 
 public class Md5Analysis {
     private static final String TAG = "Md5Analysis";
-    private List<String> getArrayByStr(String[] baseArr)
+    private List<String> listChatCHnageListString(String[] baseArr)
+    {
+        List<String> outArr=new ArrayList<>();
+        for(int i=0;i<baseArr.length;i++){
+            outArr.add(baseArr[i]);
+        }
+        return  outArr;
+
+    }
+    private List<String> getArrayByStrNoEmpty(String[] baseArr)
     {
         List<String> outArr=new ArrayList<>();
         for(int i=0;i<baseArr.length;i++){
             if(baseArr[i].length()>0){
                 outArr.add(baseArr[i]);
             }
+
         }
         return  outArr;
 
@@ -32,9 +42,9 @@ public class Md5Analysis {
         if (str.indexOf("mesh") != -1) {
             Md5MeshData meshData = new Md5MeshData();
             HashMap meshSmaple = new HashMap();
-            arr=getArrayByStr(str.split("[\n\t]"));
+            str=str.replace("\t","");
+            arr=listChatCHnageListString(str.split("\n"));
             //调用方式
-
             boolean numverts = false;
             int numvertsIndex = 0;
             int currentnumvertsIndex = 0;
@@ -130,7 +140,7 @@ public class Md5Analysis {
 
     private String getBoneNameByStr(String str)
     {
-     List<String> arr= getArrayByStr( str.split("[\"]"));
+     List<String> arr= getArrayByStrNoEmpty( str.split("[\"]"));
       return arr.get(0);
     }
     private void joinJoints(Md5MeshData meshData) {
@@ -142,10 +152,10 @@ public class Md5Analysis {
             if (line.length() < 9) {
                 break;
             }
-            getBoneNameByStr(line);
+
             String boneName=getBoneNameByStr(line);
-            line = getArrayByStr( line.split("[\"]")).get(1);
-            List<String> boneNameAry= getArrayByStr(line.split("[\\s+]"));
+            line = getArrayByStrNoEmpty( line.split("[\"]")).get(1);
+            List<String> boneNameAry= getArrayByStrNoEmpty(line.split("[\\s+]"));
             if (boneNameAry.size() <9) {
                 break;
             }
@@ -237,6 +247,7 @@ public class Md5Analysis {
 
 
         }
+        Log.d(TAG, "joinTri: ");
 
     }
 
