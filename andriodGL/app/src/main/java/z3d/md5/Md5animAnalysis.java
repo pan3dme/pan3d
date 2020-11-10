@@ -3,6 +3,7 @@ package z3d.md5;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -107,25 +108,119 @@ public class Md5animAnalysis {
 
     private void _pushhierarchyitem() {
         String _str = "";
-        List _arr = new ArrayList();
- 
+        String[] _arr;
         for (int i = 0; i < this._hierarchy.size(); i++) {
-            //_str=_genewStr(_hierarchy[i]);
             List<String> tempary = this.getBoneFilterStr(this._hierarchy.get(i));
-//            _arr = tempary.get(1).split(" ");
-//            var _temp: ObjectBone = new ObjectBone();
-//            _temp.father = Number(_arr[0]);
-//            _temp.changtype = Number(_arr[1]);
-//            _temp.startIndex = Number(_arr[2]);
-//            _temp.name = tempary[0];
-//            this._hierarchyitem.push(_temp);
+            _arr = tempary.get(1).split(" ");
+            ObjectBone _temp = new ObjectBone();
+            _temp.father =Integer.parseInt(_arr[0]);
+            _temp.changtype =Integer.parseInt(_arr[1]);
+            _temp.startIndex =Integer.parseInt(_arr[2]);
+            _temp.name = tempary.get(0);
+            this._hierarchyitem.add(_temp);
 
         }
+        Log.d(TAG, "_pushhierarchyitem: ");
+        this._pushbasefamer();
+    }
+    public  List<String>  getArrByStr(String str ) {
+        List<String> outArr=new ArrayList<>();
+        String[] arr= str.split(" ");
+        for (int i = 0;i<arr.length; i++) {
+            if(arr[i].length()>0){
+                outArr.add(arr[i]);
+            }
+        }
+        return outArr;
+    }
+    private void _pushbasefamer() {
 
-//        this._pushbasefamer();
+        for (int i = 0; i < this._baseframe.size(); i++) {
+            String[] _arr  = this._baseframe.get(i).split(" ");
+            this._hierarchyitem.get(i).tx = Float.parseFloat(_arr[1]);
+            this._hierarchyitem.get(i).ty = Float.parseFloat(_arr[2]);
+            this._hierarchyitem.get(i).tz =Float.parseFloat(_arr[3]);
+            this._hierarchyitem.get(i).qx = Float.parseFloat(_arr[6]);
+            this._hierarchyitem.get(i).qy = Float.parseFloat(_arr[7]);
+            this._hierarchyitem.get(i).qz = Float.parseFloat(_arr[8]);
+            Log.d(TAG, "_pushbasefamer: ");
+        }
+       this._pushfamers();
     }
 
-    private List<String> getBoneFilterStr(String _str) {
+    private void _pushfamers() {
+
+        for (int i = 0; i < this._frame.size(); i++) {
+            if (this._frame.get(i)!=null) {
+                this.allFrames.add(this._getsamplefamer(this._frame.get(i)));
+            }
+        }
+        this.framesok = true;
+    }
+
+    private List<ObjectBone> _getsamplefamer(List<String> _framesample) {
+
+        int i = 0;
+        List<ObjectBone> _arr = new ArrayList<>();
+        List<Float> _arrframesample  = new ArrayList<>();
+
+        for (int js = 0; js < _framesample.size(); js++) {
+            List<String> aar  =getArrByStr( _framesample.get(js));
+            if (aar.size()>0 && aar.get(aar.size() - 1).length()==0 ) {
+                aar.remove(aar.size()-1);
+            }
+
+            for(int linkId=0;linkId<aar.size();linkId++){
+                _arrframesample.add(Float.parseFloat(aar.get(linkId)));
+            }
+
+
+
+        }
+        for (i = 0; i < this._hierarchyitem.size(); i++) {
+            ObjectBone _temp = new ObjectBone();
+            ObjectBone _objectBone = this._hierarchyitem.get(i);
+            _temp.father = _objectBone.father;
+            _temp.name = _objectBone.name;
+            _temp.tx = _objectBone.tx;
+            _temp.ty = _objectBone.ty;
+            _temp.tz = _objectBone.tz;
+            _temp.qx =_objectBone.qx;
+            _temp.qy = _objectBone.qy;
+            _temp.qz = _objectBone.qz;
+
+            int k=0;
+            if ((_objectBone.changtype & 1) !=0) {
+                _temp.tx = _arrframesample.get(_objectBone.startIndex + k);
+                k++;
+            }
+            if ((_objectBone.changtype & 2) !=0) {
+                _temp.ty = _arrframesample.get(_objectBone.startIndex + k);
+                k++;
+            }
+            if ((_objectBone.changtype & 4) !=0) {
+                _temp.tz = _arrframesample.get(_objectBone.startIndex + k);
+                k++;
+            }
+            if ((_objectBone.changtype & 8) !=0) {
+                _temp.qx = _arrframesample.get(_objectBone.startIndex + k);
+                k++;
+            }
+            if ((_objectBone.changtype & 16) !=0) {
+                _temp.qy =_arrframesample.get(_objectBone.startIndex + k);
+                k++;
+            }
+            if ((_objectBone.changtype & 32) !=0) {
+                _temp.qz =_arrframesample.get(_objectBone.startIndex + k);
+                k++;
+            }
+            _arr.add(_temp);
+        }
+        return _arr;
+    }
+
+
+        private List<String> getBoneFilterStr(String _str) {
         String _s = "";
         String _t ;
         String _e = " ";
@@ -157,12 +252,14 @@ public class Md5animAnalysis {
 
             i++;
         }
+        int begin = _s.indexOf("\"", 0);
         int index = _s.indexOf("\"", 1);
-        String name = _s.split(" ")[0];
-        String num = _s.split(" ")[1];
+        String name = _s.substring(begin+1,index-begin);
+        String num = _s.substring(index+1);
+
         List<String> outArr=new ArrayList<>();
         outArr.add(name);
-        outArr.add(num);
+        outArr.add( num.trim());
         return outArr;
     }
 
@@ -187,6 +284,19 @@ public class Md5animAnalysis {
             }
         }
         return str;
+    }
+    public static <T> T[] concatAll(T[] first, T[]... rest) {
+        int totalLength = first.length;
+        for (T[] array : rest) {
+            totalLength += array.length;
+        }
+        T[] result = Arrays.copyOf(first, totalLength);
+        int offset = first.length;
+        for (T[] array : rest) {
+            System.arraycopy(array, 0, result, offset, array.length);
+            offset += array.length;
+        }
+        return result;
     }
     private void handleBigWord(String str) {
 
@@ -226,7 +336,6 @@ public class Md5animAnalysis {
         }
 
         if (str.indexOf("frame") != -1 && str.indexOf("baseframe") == -1 && str.indexOf("BoneScale") == -1) {
-
             int arrsign=0;
             List tempArray  = new ArrayList();
             for (int w = 0; w < arr.size(); w++) {
@@ -237,9 +346,15 @@ public class Md5animAnalysis {
                 if (arr.get(w).indexOf("{") == -1 && arr.get(w).indexOf("}") == -1 && arr.get(w) != "") {
                     tempArray.add(arr.get(w));
                 }
+                Log.d(arrsign+"", "handleBigWord: ");
+                this._frame.add(0,tempArray);
 
-                this._frame.add(arrsign,tempArray);
+
+
+//
             }
+
+            Log.d(TAG, "handleBigWord: ");
         }
 
     }
