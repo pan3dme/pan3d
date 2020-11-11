@@ -32,8 +32,12 @@
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshImportSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshImportSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/Md5MeshData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/Md5MeshData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/MeshItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/MeshItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

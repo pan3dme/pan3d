@@ -46,7 +46,6 @@ public class Md5MoveShader extends Shader3D {
                         "}" +
                         " void main(void){" +
                         "    v0 = v2Uv;" +
-//                        "    vec4 vt0 = vec4(pos.x , pos.y, pos.z,1.0);" +
                         "    vec4 vt0 = getQDdata(vec3(pos.x, pos.y, pos.z));" +
                         "    vt0.xyz = vt0.xyz * 1.0;" +
 

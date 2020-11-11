@@ -31,13 +31,10 @@ public class MeshToObjUtils {
         objData.uvlist = new ArrayList<>();
         objData.normals = new ArrayList<>();
         objData.indexs = new ArrayList<>();
-
         List<Matrix3D> bindPosAry  = new ArrayList<>();
         List<Matrix3D>  invertAry = new ArrayList<>();
-
         List<MeshItem> meshItemAry = new ArrayList<>();
         List<ObjectBone> boneItemAry = this.processBoneNew(mesh.boneItem);
-
         for (int i = 0; i < boneItemAry.size(); i++) {
             ObjectBone objbone = boneItemAry.get(i);
             Quaternion OldQ = new Quaternion(objbone.qx, objbone.qy, objbone.qz);
@@ -54,9 +51,7 @@ public class MeshToObjUtils {
         for (int i = 0; i < mesh.uvItem.size(); i++) {
             ObjectUv objuv = mesh.uvItem.get(i);
             Vector3D v3d  = new Vector3D();
-
             List<Float> wAry = new ArrayList<>();
-
             for (int j = 0; j < objuv.b; j++) {
                 int weightID = objuv.a + j;
                 ObjectWeight objWeight = mesh.weightItem.get(weightID);
@@ -76,10 +71,8 @@ public class MeshToObjUtils {
             MeshItem meshitem = new MeshItem();
             meshitem.verts = new Vector3D(v3d.x, v3d.y, v3d.z);
             meshitem.uvInfo = objuv;
-
             meshItemAry.add(meshitem);
         }
-
         for (int i = 0; i < mesh.triItem.size(); i++) {
             objData.indexs.add((short)mesh.triItem.get(i).t0);
             objData.indexs.add((short)mesh.triItem.get(i).t1);

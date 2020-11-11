@@ -104,17 +104,11 @@ public class MeshImportSort {
     }
 
     private void uplodToGpu(Md5MeshData meshData, List<Float> uvArray, List<List<Float>> ary, List<Float> boneWeightAry, List<Integer> bonetIDAry, List<Short> indexAry) {
-
-
         meshData.boneWeightAry = boneWeightAry;
-//        meshData.indexAry=indexAry;
-//      meshData.boneWeightBuffer =  ObjData.upGpuvertexBuffer(boneWeightAry);
         meshData.boneIDAry  = new ArrayList<>();
         for (int i = 0; i < bonetIDAry.size(); i++) {
             meshData.boneIDAry .add(Math.max(bonetIDAry.get(i), 0f));
         }
-//      meshData.boneIdBuffer = ObjData.upGpuvertexBuffer(arrA);
-//      meshData.indexBuffer = ObjData.upGpuIndexBuffer(indexAry);
     }
 
 

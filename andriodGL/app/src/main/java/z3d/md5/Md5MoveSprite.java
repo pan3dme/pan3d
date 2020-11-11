@@ -191,7 +191,7 @@ public class Md5MoveSprite extends Display3DSprite {
         float t =  TimeUtil.getTimer() - this.lastTm;
         this.lastTm = TimeUtil.getTimer();
         this._actionTime += t;
-        int _curentFrame = (int) (this._actionTime / (Scene_data.frameTime * 2));
+        int _curentFrame = (int) (this._actionTime / (Scene_data.frameTime * 1));
         int $len = this.frameQuestArr.size();
         return  _curentFrame % $len;
     }
