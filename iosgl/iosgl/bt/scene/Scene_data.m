@@ -27,7 +27,7 @@ static Scene_data *instance = nil;
 }
 -(NSString*)getWorkUrlByFilePath:(NSString*)value;
 {
-    NSString* rootUrl=@"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res";
+    NSString*   rootUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res";
     return [NSString stringWithFormat:@"%@/%@",rootUrl,value];
 }
 @end

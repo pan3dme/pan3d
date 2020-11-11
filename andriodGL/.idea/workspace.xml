@@ -32,19 +32,20 @@
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshImportSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshImportSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/Md5MeshData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/Md5MeshData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/MeshItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/vo/MeshItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBone.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/ObjectBone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/ViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/scene/Scene_data.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/scene/Scene_data.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -253,10 +254,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="359" y="193" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1604273789465" />
-    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1605097745783">
+    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1605119630802">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605097745783" />
+    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605119630802" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

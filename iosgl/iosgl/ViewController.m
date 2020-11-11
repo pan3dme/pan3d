@@ -45,8 +45,8 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    OnePageView *vc01=[[OnePageView alloc] init];
-    SceneAllMenu *vc02=[[SceneAllMenu alloc] init];
+    SceneAllMenu *vc01=[[SceneAllMenu alloc] init];
+    RoleSceneViewController *vc02=[[RoleSceneViewController alloc] init];
     RoleSceneViewController *vc03=[[RoleSceneViewController alloc]init];
     OnePageView *vc04=[[OnePageView alloc] init];
     TokenSceneView *vc05=[[TokenSceneView alloc] init];

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C1DA44F255C648D00FAE501 /* Md5animAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA436255C648D00FAE501 /* Md5animAnalysis.m */; };
+		9C1DA456255C648D00FAE501 /* Md5Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA445255C648D00FAE501 /* Md5Analysis.m */; };
+		9C1DA457255C648D00FAE501 /* MeshToObjUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA446255C648D00FAE501 /* MeshToObjUtils.m */; };
+		9C1DA458255C648D00FAE501 /* MeshImportSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA447255C648D00FAE501 /* MeshImportSort.m */; };
+		9C1DA459255C648D00FAE501 /* Md5MoveSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA448255C648D00FAE501 /* Md5MoveSprite.m */; };
+		9C1DA45A255C648D00FAE501 /* Md5MeshShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA44A255C648D00FAE501 /* Md5MeshShader.m */; };
+		9C1DA48D255C654600FAE501 /* MeshItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA487255C654600FAE501 /* MeshItem.m */; };
+		9C1DA48E255C654600FAE501 /* Md5MeshData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA488255C654600FAE501 /* Md5MeshData.m */; };
+		9C1DA498255C655E00FAE501 /* ObjectTri.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA493255C655E00FAE501 /* ObjectTri.m */; };
+		9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA495255C655E00FAE501 /* ObjectUv.m */; };
+		9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA497255C655E00FAE501 /* ObjectWeight.m */; };
 		9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF4333254F1F68009472D9 /* ScaleAnim.m */; };
 		E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */; };
 		FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B85241EE1DD00AD44BE /* MaterialParamData.m */; };
@@ -199,6 +210,28 @@
 		341EE0E46673E129BA2F1F73 /* Pods-iosgl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.debug.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.debug.xcconfig"; sourceTree = "<group>"; };
 		6445661AF90F6974C52DB7AF /* Pods-iosgl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosgl.release.xcconfig"; path = "Target Support Files/Pods-iosgl/Pods-iosgl.release.xcconfig"; sourceTree = "<group>"; };
 		763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosgl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C1DA436255C648D00FAE501 /* Md5animAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Md5animAnalysis.m; sourceTree = "<group>"; };
+		9C1DA444255C648D00FAE501 /* Md5MeshShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md5MeshShader.h; sourceTree = "<group>"; };
+		9C1DA445255C648D00FAE501 /* Md5Analysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Md5Analysis.m; sourceTree = "<group>"; };
+		9C1DA446255C648D00FAE501 /* MeshToObjUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeshToObjUtils.m; sourceTree = "<group>"; };
+		9C1DA447255C648D00FAE501 /* MeshImportSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeshImportSort.m; sourceTree = "<group>"; };
+		9C1DA448255C648D00FAE501 /* Md5MoveSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Md5MoveSprite.m; sourceTree = "<group>"; };
+		9C1DA449255C648D00FAE501 /* Md5animAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md5animAnalysis.h; sourceTree = "<group>"; };
+		9C1DA44A255C648D00FAE501 /* Md5MeshShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Md5MeshShader.m; sourceTree = "<group>"; };
+		9C1DA44B255C648D00FAE501 /* Md5Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md5Analysis.h; sourceTree = "<group>"; };
+		9C1DA44C255C648D00FAE501 /* Md5MoveSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md5MoveSprite.h; sourceTree = "<group>"; };
+		9C1DA44D255C648D00FAE501 /* MeshToObjUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshToObjUtils.h; sourceTree = "<group>"; };
+		9C1DA44E255C648D00FAE501 /* MeshImportSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshImportSort.h; sourceTree = "<group>"; };
+		9C1DA487255C654600FAE501 /* MeshItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeshItem.m; sourceTree = "<group>"; };
+		9C1DA488255C654600FAE501 /* Md5MeshData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Md5MeshData.m; sourceTree = "<group>"; };
+		9C1DA489255C654600FAE501 /* Md5MeshData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md5MeshData.h; sourceTree = "<group>"; };
+		9C1DA48A255C654600FAE501 /* MeshItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshItem.h; sourceTree = "<group>"; };
+		9C1DA492255C655E00FAE501 /* ObjectTri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectTri.h; sourceTree = "<group>"; };
+		9C1DA493255C655E00FAE501 /* ObjectTri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectTri.m; sourceTree = "<group>"; };
+		9C1DA494255C655E00FAE501 /* ObjectUv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectUv.h; sourceTree = "<group>"; };
+		9C1DA495255C655E00FAE501 /* ObjectUv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectUv.m; sourceTree = "<group>"; };
+		9C1DA496255C655E00FAE501 /* ObjectWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWeight.h; sourceTree = "<group>"; };
+		9C1DA497255C655E00FAE501 /* ObjectWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWeight.m; sourceTree = "<group>"; };
 		9CFF4333254F1F68009472D9 /* ScaleAnim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleAnim.m; sourceTree = "<group>"; };
 		9CFF4336254F1F75009472D9 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleAnim.h; sourceTree = "<group>"; };
 		FE064B84241EE1DD00AD44BE /* MaterialParamData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialParamData.h; sourceTree = "<group>"; };
@@ -578,6 +611,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9C1DA435255C648D00FAE501 /* md5 */ = {
+			isa = PBXGroup;
+			children = (
+				9C1DA45E255C64C600FAE501 /* vo */,
+				9C1DA436255C648D00FAE501 /* Md5animAnalysis.m */,
+				9C1DA444255C648D00FAE501 /* Md5MeshShader.h */,
+				9C1DA445255C648D00FAE501 /* Md5Analysis.m */,
+				9C1DA446255C648D00FAE501 /* MeshToObjUtils.m */,
+				9C1DA447255C648D00FAE501 /* MeshImportSort.m */,
+				9C1DA448255C648D00FAE501 /* Md5MoveSprite.m */,
+				9C1DA449255C648D00FAE501 /* Md5animAnalysis.h */,
+				9C1DA44A255C648D00FAE501 /* Md5MeshShader.m */,
+				9C1DA44B255C648D00FAE501 /* Md5Analysis.h */,
+				9C1DA44C255C648D00FAE501 /* Md5MoveSprite.h */,
+				9C1DA44D255C648D00FAE501 /* MeshToObjUtils.h */,
+				9C1DA44E255C648D00FAE501 /* MeshImportSort.h */,
+			);
+			path = md5;
+			sourceTree = "<group>";
+		};
+		9C1DA45E255C64C600FAE501 /* vo */ = {
+			isa = PBXGroup;
+			children = (
+				9C1DA492255C655E00FAE501 /* ObjectTri.h */,
+				9C1DA493255C655E00FAE501 /* ObjectTri.m */,
+				9C1DA494255C655E00FAE501 /* ObjectUv.h */,
+				9C1DA495255C655E00FAE501 /* ObjectUv.m */,
+				9C1DA496255C655E00FAE501 /* ObjectWeight.h */,
+				9C1DA497255C655E00FAE501 /* ObjectWeight.m */,
+				9C1DA489255C654600FAE501 /* Md5MeshData.h */,
+				9C1DA488255C654600FAE501 /* Md5MeshData.m */,
+				9C1DA48A255C654600FAE501 /* MeshItem.h */,
+				9C1DA487255C654600FAE501 /* MeshItem.m */,
+			);
+			path = vo;
+			sourceTree = "<group>";
+		};
 		D04E05D8DC2E1F6A8ECDF73F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +729,7 @@
 		FE0FC254239511AC00D2483A /* bt */ = {
 			isa = PBXGroup;
 			children = (
+				9C1DA435255C648D00FAE501 /* md5 */,
 				FE99B3F825471C1100DEFA84 /* event */,
 				FEEF8BB32448E485001AFEB2 /* skill */,
 				FE1D8B4024118B2700A04FC4 /* utils */,
@@ -1403,7 +1474,9 @@
 				FEEF8BED2449D2F5001AFEB2 /* SkillType.m in Sources */,
 				FE2F2FD12418BE7A0005F686 /* LoaderThread.m in Sources */,
 				FE2F1BA02409EEE0005E287F /* Vector2D.m in Sources */,
+				9C1DA498255C655E00FAE501 /* ObjectTri.m in Sources */,
 				FEEF8BB62448E4A8001AFEB2 /* SkillManager.m in Sources */,
+				9C1DA459255C648D00FAE501 /* Md5MoveSprite.m in Sources */,
 				FE2BB2D62397F38A00597658 /* GlkView.m in Sources */,
 				FE887D532416733900025A74 /* ParamDataVo.m in Sources */,
 				FEEF8BE32448F537001AFEB2 /* SkillRes.m in Sources */,
@@ -1411,6 +1484,7 @@
 				FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */,
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
+				9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */,
 				FE15ACB124357BFE0062741F /* MeshDataManager.m in Sources */,
 				FE887D5F2416768700025A74 /* DynamicConstItem.m in Sources */,
 				FE15ACB724357F920062741F /* RoleRes.m in Sources */,
@@ -1427,6 +1501,7 @@
 				FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
 				FE0FC23A2395104700D2483A /* AppDelegate.m in Sources */,
+				9C1DA458255C648D00FAE501 /* MeshImportSort.m in Sources */,
 				FE2A61C4239D04FD0011BF9E /* Context3D.m in Sources */,
 				FE515FAE23A2177A00C49DA5 /* ByteArray.m in Sources */,
 				FE33B1892424C69E009139C2 /* ArrayNum.m in Sources */,
@@ -1453,6 +1528,7 @@
 				FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */,
 				FE642AD2242AACE60047E41F /* Display3DLocusShader.m in Sources */,
 				FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */,
+				9C1DA456255C648D00FAE501 /* Md5Analysis.m in Sources */,
 				FE2F1BAC240BF2D0005E287F /* Scene_data.m in Sources */,
 				FE3D4EE32401C15300185FD3 /* EventDispatcher.m in Sources */,
 				FE642ACC242AACAC0047E41F /* ParticleLocusData.m in Sources */,
@@ -1476,6 +1552,7 @@
 				FEEF8BE02448E7DF001AFEB2 /* SkillVo.m in Sources */,
 				FEEF8BCC2448E743001AFEB2 /* SkillMulTrajectory.m in Sources */,
 				FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */,
+				9C1DA45A255C648D00FAE501 /* Md5MeshShader.m in Sources */,
 				FE678843239B980200262B53 /* SceneView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FEF3D4C52436B5A00055AB31 /* DualQuatFloat32Array.m in Sources */,
@@ -1489,6 +1566,7 @@
 				FE3D4EDF2401BF5A00185FD3 /* ParticleManager.m in Sources */,
 				FEEF8BE72449A157001AFEB2 /* ParticleLocusballData.m in Sources */,
 				FE8FA4FE244F315600552A94 /* DisplayBaseSprite.m in Sources */,
+				9C1DA44F255C648D00FAE501 /* Md5animAnalysis.m in Sources */,
 				FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FE1E1BB8254A7695009590DB /* SkillActionVo.m in Sources */,
@@ -1502,11 +1580,13 @@
 				FEF3D4BC2436B11A0055AB31 /* BoneSocketData.m in Sources */,
 				FE642ACF242AACD20047E41F /* Display3DLocusPartilce.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
+				9C1DA457255C648D00FAE501 /* MeshToObjUtils.m in Sources */,
 				FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */,
 				FE3D4EF32401C79000185FD3 /* ParticleFacetData.m in Sources */,
 				FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */,
 				FEEF8BF32449D918001AFEB2 /* SkillTrajectoryTargetKeyVo.m in Sources */,
 				FED0DA4A240162F8009F6575 /* GroupDataManager.m in Sources */,
+				9C1DA48D255C654600FAE501 /* MeshItem.m in Sources */,
 				FE515FB923A2803C00C49DA5 /* SceneRes.m in Sources */,
 				FE776AB52447323000B8B5A4 /* Display3DFollowPartilce.m in Sources */,
 				FE2F3016241C28490005F686 /* Curve.m in Sources */,
@@ -1521,6 +1601,7 @@
 				FE1D8B552412A64E00A04FC4 /* GridLineSprite.m in Sources */,
 				FE678839239B948D00262B53 /* ObjData.m in Sources */,
 				FE887D562416765600025A74 /* ConstItem.m in Sources */,
+				9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */,
 				FE1E1BB3254A742F009590DB /* DataObjTempVo.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
@@ -1538,6 +1619,7 @@
 				FE189B2524049C2E008E2FF6 /* TimeLine.m in Sources */,
 				FE6ECE682437FCA800EF805A /* MaterialAnimShader.m in Sources */,
 				FE887D65241676A200025A74 /* Material.m in Sources */,
+				9C1DA48E255C654600FAE501 /* Md5MeshData.m in Sources */,
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
 				FEEF8BDD2448E7CD001AFEB2 /* SkillKeyVo.m in Sources */,
 				FEEF8BD02448E777001AFEB2 /* PathManager.m in Sources */,
