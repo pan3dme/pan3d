@@ -178,6 +178,7 @@ public class Md5MoveSprite extends Display3DSprite {
 
         DualQuatFloat32Array dualQuatFrame = this.frameQuestArr.get(_curentFrame);
         dualQuatFrame.upToGpu();
+
         ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
         ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
         ctx.drawCall(md5MeshData.indexBuffer,md5MeshData.treNum);
