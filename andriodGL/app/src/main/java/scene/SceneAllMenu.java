@@ -38,9 +38,7 @@ import z3d.display.particle.CombineParticle;
 import z3d.display.role.Display3dMovie;
 import z3d.display.role.SceneChar;
 import z3d.filemodel.GroupDataManager;
-import z3d.filemodel.MeshDataManager;
 import z3d.filemodel.ParticleManager;
-import z3d.md5.Md5MeshSprite;
 import z3d.md5.Md5MoveSprite;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
@@ -116,6 +114,8 @@ public class SceneAllMenu extends AppCompatActivity   {
         Md5MoveSprite $sc = new Md5MoveSprite(_scene3d);
         https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg
        $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "base/chuan.jpg");
+
+        this._scene3d.addDisplay($sc);
     }
     private  void  initData(){
         _menuLayout=new LinearLayout(this);

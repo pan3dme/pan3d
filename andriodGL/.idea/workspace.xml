@@ -31,8 +31,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MeshSprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5MoveSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshImportSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshImportSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/md5/MeshToObjUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/vo/DualQuatFloat32Array.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +73,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_30_x86" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-02T10:08:13.604Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-11T09:54:54.214Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SelectDeploymentTargetsDialog.selectedDevices" value="Pixel_3a_API_30_x86" />
@@ -192,42 +199,42 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="226" y="165" width="1016" height="557" key="AVDManager/0.23.1440.877@0.23.1440.877" timestamp="1604274453498" />
-    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605023914271">
+    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605085647536">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605023914271" />
-    <state width="1174" height="248" key="GridCell.Tab.0.bottom" timestamp="1605027861997">
+    <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605085647536" />
+    <state width="1174" height="248" key="GridCell.Tab.0.bottom" timestamp="1605089000824">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605027861997" />
-    <state width="1174" height="248" key="GridCell.Tab.0.center" timestamp="1605027861996">
+    <state width="1174" height="248" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605089000824" />
+    <state width="1174" height="248" key="GridCell.Tab.0.center" timestamp="1605089000824">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605027861996" />
-    <state width="1174" height="248" key="GridCell.Tab.0.left" timestamp="1605027861996">
+    <state width="1174" height="248" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605089000824" />
+    <state width="1174" height="248" key="GridCell.Tab.0.left" timestamp="1605089000823">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605027861996" />
-    <state width="1174" height="248" key="GridCell.Tab.0.right" timestamp="1605027861997">
+    <state width="1174" height="248" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605089000823" />
+    <state width="1174" height="248" key="GridCell.Tab.0.right" timestamp="1605089000824">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605027861997" />
-    <state width="1174" height="248" key="GridCell.Tab.1.bottom" timestamp="1605027861998">
+    <state width="1174" height="248" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605089000824" />
+    <state width="1174" height="248" key="GridCell.Tab.1.bottom" timestamp="1605088997608">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605027861998" />
-    <state width="1174" height="248" key="GridCell.Tab.1.center" timestamp="1605027861997">
+    <state width="1174" height="248" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605088997608" />
+    <state width="1174" height="248" key="GridCell.Tab.1.center" timestamp="1605088997607">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605027861997" />
-    <state width="1174" height="248" key="GridCell.Tab.1.left" timestamp="1605027861997">
+    <state width="1174" height="248" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605088997607" />
+    <state width="1174" height="248" key="GridCell.Tab.1.left" timestamp="1605088997606">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605027861997" />
-    <state width="1174" height="248" key="GridCell.Tab.1.right" timestamp="1605027861998">
+    <state width="1174" height="248" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605088997606" />
+    <state width="1174" height="248" key="GridCell.Tab.1.right" timestamp="1605088997607">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1174" height="248" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605027861998" />
+    <state width="1174" height="248" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605088997607" />
     <state x="221" y="59" key="SettingsEditor" timestamp="1604251431408">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -240,18 +247,18 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="338" y="236" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.23.1440.877@0.23.1440.877" timestamp="1604274093407" />
-    <state x="364" y="64" width="615" height="735" key="find.popup" timestamp="1605018353142">
+    <state x="364" y="64" width="615" height="735" key="find.popup" timestamp="1605085940218">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="364" y="64" width="615" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1605018353142" />
+    <state x="364" y="64" width="615" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1605085940218" />
     <state x="359" y="193" key="run.anything.popup" timestamp="1604273789465">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="359" y="193" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1604273789465" />
-    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1604947851779">
+    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1605088257524">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1604947851779" />
+    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605088257524" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -260,11 +267,6 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java</url>
           <line>85</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/md5/Md5animAnalysis.java</url>
-          <line>152</line>
-          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

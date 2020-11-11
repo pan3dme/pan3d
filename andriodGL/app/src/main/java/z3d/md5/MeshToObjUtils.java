@@ -25,7 +25,7 @@ public class MeshToObjUtils {
         return newTargetAry;
     }
 
-    public ObjData getObj(Md5MeshData mesh) {
+    public MeshData getObj(Md5MeshData mesh) {
         MeshData objData = new MeshData();
         objData.verticeslist = new ArrayList<>();
         objData.uvlist = new ArrayList<>();

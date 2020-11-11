@@ -65,7 +65,6 @@ public class MeshImportSort {
                 }
             }
         }
-
         boneUseAry = this.getboneNum(boneUseAry);
 
         for (int i = 0; i < uvItem.size(); i++) {

@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import z3d.vo.Matrix3D;
+import z3d.vo.ObjectBaseBone;
 import z3d.vo.ObjectBone;
+import z3d.vo.Quaternion;
 import z3d.vo.Vector3D;
 
 public class Md5animAnalysis {
@@ -22,7 +24,7 @@ public class Md5animAnalysis {
     private List<String> _hierarchy ;
     private List<String> _baseframe ;
     private List _bounds ;
-    private List<List<String>> _frame ;
+    private HashMap<Integer,List<String>> _frame ;
     public List<String> bigArr ;
 
     public HashMap resultInfo;
@@ -47,7 +49,7 @@ public class Md5animAnalysis {
         this._hierarchy = new ArrayList<>();
         this._baseframe = new ArrayList<>();
         this._bounds = new ArrayList<>();
-        this._frame = new ArrayList<>();
+        this._frame = new HashMap<>();
         this.bigArr = new ArrayList<>();
         //var ini:String = urlloader.data;
         ini=ini.replace("\t","");
@@ -100,10 +102,67 @@ public class Md5animAnalysis {
         for (int p = 0; p < this.bigArr.size(); p++) {
              this.handleBigWord(this.bigArr.get(p));
         }
-
          this._pushhierarchyitem();
-//        return this.setFrameToMatrix(this.allFrames);
-        return null;
+         return this.setFrameToMatrix(this.allFrames);
+
+    }
+
+    private List<List<Matrix3D>> setFrameToMatrix(List<List<ObjectBone>> frameAry) {
+        List<List<Matrix3D>> matrixAry = new ArrayList<>();
+
+        for (int j = 0; j < frameAry.size(); j++) {
+            List<ObjectBone> boneAry = frameAry.get(j);
+
+            Quaternion Q0 = new Quaternion();
+            Matrix3D newM = new Matrix3D();
+
+            List<Matrix3D> frameMatrixAry = new ArrayList<>();
+            matrixAry.add(frameMatrixAry);
+
+            for (int i = 0; i < boneAry.size(); i++) {
+
+                ObjectBaseBone xyzfarme0 = boneAry.get(i);
+                Q0 = new Quaternion(xyzfarme0.qx, xyzfarme0.qy, xyzfarme0.qz);
+                Q0.w = this.getW(Q0.x, Q0.y, Q0.z);
+
+                if (xyzfarme0.father == -1) {
+                    newM = Q0.toMatrix3D();
+                    newM.appendTranslation(xyzfarme0.tx, xyzfarme0.ty, xyzfarme0.tz);
+                    newM.appendRotation(-90, Vector3D.X_AXIS);
+                    //xyzfarme0.matrix = newM;
+                    frameMatrixAry.add(newM);
+                } else {
+                    ObjectBaseBone fatherBone = boneAry.get(xyzfarme0.father);
+
+                    newM = Q0.toMatrix3D();
+                    newM.appendTranslation(xyzfarme0.tx, xyzfarme0.ty, xyzfarme0.tz);
+                    //newM.append(fatherBone.matrix);
+                    newM.append(frameMatrixAry.get(xyzfarme0.father));
+                    frameMatrixAry.add(newM);
+                    //xyzfarme0.matrix = newM;
+
+                }
+            }
+            for (int i = 0; i < frameMatrixAry.size(); i++) {
+                frameMatrixAry.get(i).appendScale(-1, 1, 1);  //特别标记，因为四元数和矩阵运算结果不一  先存正确的矩阵
+                //xyzfarme0.matrix.appendScale(-1, 1, 1);
+            }
+
+        }
+
+        return matrixAry;
+
+    }
+
+    private float getW(float x,float y,float z) {
+        float t = 1 - (x * x + y * y + z * z);
+        if (t < 0) {
+            t = 0;
+        } else {
+
+            t = -(float) Math.sqrt(t);
+        }
+        return t;
     }
 
     private void _pushhierarchyitem() {
@@ -335,6 +394,7 @@ public class Md5animAnalysis {
             }
         }
 
+
         if (str.indexOf("frame") != -1 && str.indexOf("baseframe") == -1 && str.indexOf("BoneScale") == -1) {
             int arrsign=0;
             List tempArray  = new ArrayList();
@@ -346,12 +406,10 @@ public class Md5animAnalysis {
                 if (arr.get(w).indexOf("{") == -1 && arr.get(w).indexOf("}") == -1 && arr.get(w) != "") {
                     tempArray.add(arr.get(w));
                 }
-                Log.d(arrsign+"", "handleBigWord: ");
-                this._frame.add(0,tempArray);
 
 
+                this._frame.put(arrsign,tempArray);
 
-//
             }
 
             Log.d(TAG, "handleBigWord: ");
