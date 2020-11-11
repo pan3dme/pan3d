@@ -167,9 +167,8 @@ public class Md5MoveSprite extends Display3DSprite {
         ctx.setRenderTexture(this.shader3D,"fs0",uvTextureRes.textTureInt,0);
 
         DualQuatFloat32Array dualQuatFrame = this.frameQuestArr.get(0);
-//        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
-//        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
-
+//        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.quat.verBuff);
+//        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.pos.verBuff);
 
         ctx.drawCall(md5MeshData.indexBuffer,md5MeshData.treNum);
 
