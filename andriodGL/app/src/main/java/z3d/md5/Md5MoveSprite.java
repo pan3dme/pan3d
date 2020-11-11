@@ -74,7 +74,7 @@ public class Md5MoveSprite extends Display3DSprite {
                     String txt=  dic.get("txt").toString();
                     md5MeshData = new Md5Analysis().addMesh(txt);
                     new MeshImportSort().processMesh(md5MeshData);
-                     new MeshToObjUtils().getObj( md5MeshData);
+                    new MeshToObjUtils().getObj( md5MeshData);
                     loadAnimFrame();
                 }else{
 
@@ -90,7 +90,7 @@ public class Md5MoveSprite extends Display3DSprite {
                 if(dic!=null){
                     String txt=  dic.get("txt").toString();
                     List<List<Matrix3D>> $matrixAry = new Md5animAnalysis().addAnim(txt);
-                     frameQuestArr = new ArrayList<>();
+                    frameQuestArr = new ArrayList<>();
                     for (int i = 0; i < $matrixAry.size(); i++) {
                         List<Matrix3D> $frameAry = $matrixAry.get(i);
                         for (int j = 0; j < $frameAry.size(); j++) {
@@ -148,7 +148,7 @@ public class Md5MoveSprite extends Display3DSprite {
     {
         Context3D ctx=this.scene3d.context3D;
         ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
-        ctx.setVcMatrix4fv(this.shader3D,Shader3D.posMatrix,this.posMatrix3d.m);
+        ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
 
     }
     private void updateMaterialMeshCopy() {
@@ -156,13 +156,16 @@ public class Md5MoveSprite extends Display3DSprite {
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         if(md5MeshData.vertexBuffer==null){
+
             md5MeshData.upToGup();
+            md5MeshData.boneIdBuffer=ObjData.upGpuvertexBuffer(md5MeshData.boneIDAry);
+            md5MeshData.boneWeightBuffer=ObjData.upGpuvertexBuffer(md5MeshData.boneWeightAry);
             return;
         }
         ctx.setVa(this.shader3D,"pos",3,md5MeshData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2Uv",2,md5MeshData.uvBuffer);
-//        ctx.setVa(this.shader3D,"boneID",4,md5objData.boneIdBuffer);
-//        ctx.setVa(this.shader3D,"boneWeight",4,md5objData.boneWeightBuffer);
+//        ctx.setVa(this.shader3D,"boneID",4,md5MeshData.boneIdBuffer);
+//        ctx.setVa(this.shader3D,"boneWeight",4,md5MeshData.boneWeightBuffer);
         ctx.setRenderTexture(this.shader3D,"fs0",uvTextureRes.textTureInt,0);
         ctx.drawCall(md5MeshData.indexBuffer,md5MeshData.treNum);
 

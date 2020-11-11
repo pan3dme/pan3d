@@ -36,21 +36,22 @@ public class MeshData extends ObjData {
        }
         this.isCompile=true;
         if(this.verticeslist!=null){
-            this.vertexBuffer=this.upGpuvertexBuffer(this.verticeslist);
+            this.vertexBuffer=ObjData.upGpuvertexBuffer(this.verticeslist);
         }
         if(this.uvlist!=null){
-            this.uvBuffer=this.upGpuvertexBuffer(this.uvlist);
+            this.uvBuffer=ObjData.upGpuvertexBuffer(this.uvlist);
         }
-        if(this.boneIDAry!=null){
-            this.boneIdBuffer=this.upGpuvertexBuffer(this.boneIDAry);
-        }
-        if(this.boneWeightAry!=null){
-            this.boneWeightBuffer=this.upGpuvertexBuffer(this.boneWeightAry);
-        }
+//        if(this.boneIDAry!=null){
+//            this.boneIdBuffer=ObjData.upGpuvertexBuffer(this.boneIDAry);
+//        }
+//        if(this.boneWeightAry!=null){
+//            this.boneWeightBuffer=ObjData.upGpuvertexBuffer(this.boneWeightAry);
+//        }
         if(this.indexs!=null){
-            this.indexBuffer=this.upGpuIndexBuffer(this.indexs);
+            this.indexBuffer=ObjData.upGpuIndexBuffer(this.indexs);
             this.treNum= this.indexs.size();
         }
+
 
     }
 

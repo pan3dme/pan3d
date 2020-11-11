@@ -14,9 +14,9 @@ public class Md5MeshData extends MeshData {
     public List<ObjectBone>  boneItem;
     public int faceNum;
 
-    public List<Float>  dataAry;
-    public List<Float>  uvArray;
-    public List<Float>  boneWeightAry;
-    public List<Float>  bonetIDAry;
-    public List<Float>  indexAry;
+//    public List<Float>  dataAry;
+//    public List<Float>  uvArray;
+//    public List<Float>  boneWeightAry;
+//    public List<Float>  bonetIDAry;
+//    public List<Float>  indexAry;
 }
