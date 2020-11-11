@@ -80,7 +80,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
 //                loadSceneByUrl("2013");
-                addLocaMd5();
+
 
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 //                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
@@ -122,12 +122,13 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        _selectChangjing();
+        addRootMenu();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
 
         List<String> arr=new ArrayList<>();
+        arr.add("MD5");
         arr.add("场景");
         arr.add("角色");
         arr.add("特效");
@@ -155,6 +156,9 @@ public class SceneAllMenu extends AppCompatActivity   {
                         break;
                     case "技能":
                         _selectSkill();
+                        break;
+                    case "MD5":
+                        addLocaMd5();
                         break;
                     default:
                         break;

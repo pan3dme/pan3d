@@ -41,12 +41,12 @@ public class MeshData extends ObjData {
         if(this.uvlist!=null){
             this.uvBuffer=ObjData.upGpuvertexBuffer(this.uvlist);
         }
-//        if(this.boneIDAry!=null){
-//            this.boneIdBuffer=ObjData.upGpuvertexBuffer(this.boneIDAry);
-//        }
-//        if(this.boneWeightAry!=null){
-//            this.boneWeightBuffer=ObjData.upGpuvertexBuffer(this.boneWeightAry);
-//        }
+        if(this.boneIDAry!=null){
+            this.boneIdBuffer=ObjData.upGpuvertexBuffer(this.boneIDAry);
+        }
+        if(this.boneWeightAry!=null){
+            this.boneWeightBuffer=ObjData.upGpuvertexBuffer(this.boneWeightAry);
+        }
         if(this.indexs!=null){
             this.indexBuffer=ObjData.upGpuIndexBuffer(this.indexs);
             this.treNum= this.indexs.size();

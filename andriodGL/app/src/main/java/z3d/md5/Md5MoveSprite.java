@@ -156,17 +156,21 @@ public class Md5MoveSprite extends Display3DSprite {
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         if(md5MeshData.vertexBuffer==null){
-
             md5MeshData.upToGup();
-            md5MeshData.boneIdBuffer=ObjData.upGpuvertexBuffer(md5MeshData.boneIDAry);
-            md5MeshData.boneWeightBuffer=ObjData.upGpuvertexBuffer(md5MeshData.boneWeightAry);
             return;
         }
         ctx.setVa(this.shader3D,"pos",3,md5MeshData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2Uv",2,md5MeshData.uvBuffer);
-//        ctx.setVa(this.shader3D,"boneID",4,md5MeshData.boneIdBuffer);
-//        ctx.setVa(this.shader3D,"boneWeight",4,md5MeshData.boneWeightBuffer);
+        ctx.setVa(this.shader3D,"boneID",4,md5MeshData.boneIdBuffer);
+        ctx.setVa(this.shader3D,"boneWeight",4,md5MeshData.boneWeightBuffer);
+
         ctx.setRenderTexture(this.shader3D,"fs0",uvTextureRes.textTureInt,0);
+
+        DualQuatFloat32Array dualQuatFrame = this.frameQuestArr.get(0);
+//        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
+//        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
+
+
         ctx.drawCall(md5MeshData.indexBuffer,md5MeshData.treNum);
 
         /*

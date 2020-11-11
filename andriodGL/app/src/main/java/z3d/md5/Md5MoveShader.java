@@ -13,8 +13,8 @@ public class Md5MoveShader extends Shader3D {
                         "attribute vec4 boneID;" +
                         "attribute vec4 boneWeight;" +
                         "varying vec2 v0;" +
-                        "uniform vec4 boneQ[70];" +
-                        "uniform vec3 boneD[70];" +
+                        "uniform vec4 boneQ[54];" +
+                        "uniform vec3 boneD[54];" +
                         "uniform mat4 vpMatrix3D;" +
                         "uniform mat4 posMatrix3D;" +
                         "vec4 qdv(vec4 q, vec3 d, vec3 v ){" +
@@ -46,7 +46,7 @@ public class Md5MoveShader extends Shader3D {
                         "}" +
                         " void main(void){" +
                         "    v0 = v2Uv;" +
-                        "    vec4 vt0 = vec4(pos.x, pos.y, pos.z,1.0);" +
+                        "    vec4 vt0 = vec4(pos.x , pos.y, pos.z,1.0);" +
                          "    vt0 = posMatrix3D * vt0;" +
                         "    vt0 = vpMatrix3D * vt0;" +
                         "    gl_Position = vt0;\n" +
