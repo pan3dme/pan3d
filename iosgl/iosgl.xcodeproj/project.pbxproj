@@ -615,18 +615,18 @@
 			isa = PBXGroup;
 			children = (
 				9C1DA45E255C64C600FAE501 /* vo */,
+				9C1DA44B255C648D00FAE501 /* Md5Analysis.h */,
+				9C1DA445255C648D00FAE501 /* Md5Analysis.m */,
+				9C1DA44D255C648D00FAE501 /* MeshToObjUtils.h */,
+				9C1DA446255C648D00FAE501 /* MeshToObjUtils.m */,
+				9C1DA449255C648D00FAE501 /* Md5animAnalysis.h */,
 				9C1DA436255C648D00FAE501 /* Md5animAnalysis.m */,
 				9C1DA444255C648D00FAE501 /* Md5MeshShader.h */,
-				9C1DA445255C648D00FAE501 /* Md5Analysis.m */,
-				9C1DA446255C648D00FAE501 /* MeshToObjUtils.m */,
-				9C1DA447255C648D00FAE501 /* MeshImportSort.m */,
-				9C1DA448255C648D00FAE501 /* Md5MoveSprite.m */,
-				9C1DA449255C648D00FAE501 /* Md5animAnalysis.h */,
 				9C1DA44A255C648D00FAE501 /* Md5MeshShader.m */,
-				9C1DA44B255C648D00FAE501 /* Md5Analysis.h */,
 				9C1DA44C255C648D00FAE501 /* Md5MoveSprite.h */,
-				9C1DA44D255C648D00FAE501 /* MeshToObjUtils.h */,
+				9C1DA448255C648D00FAE501 /* Md5MoveSprite.m */,
 				9C1DA44E255C648D00FAE501 /* MeshImportSort.h */,
+				9C1DA447255C648D00FAE501 /* MeshImportSort.m */,
 			);
 			path = md5;
 			sourceTree = "<group>";

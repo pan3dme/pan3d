@@ -31,8 +31,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/ObjectTri.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/ObjectTri.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5MoveSprite.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5MoveSprite.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

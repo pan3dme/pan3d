@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Display3DSprite.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Md5MoveSprite : NSObject
+@interface Md5MoveSprite : Display3DSprite
 
 @end
 
