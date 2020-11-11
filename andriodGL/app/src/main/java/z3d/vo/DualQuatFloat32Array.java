@@ -13,8 +13,7 @@ public class DualQuatFloat32Array {
     private static final String TAG ="DualQuatFloat32Array" ;
     public List<Float> quatArr;
     public List<Float> posArr;
-    public Float32Array quat;
-    public Float32Array pos;
+
 
     public FloatBuffer boneDarrBuff;
     public FloatBuffer boneQarrrBuff;
@@ -31,6 +30,7 @@ public class DualQuatFloat32Array {
         }
 
     }
+
     private void outInfo(List<Float> arr){
         for(int i=0;i<arr.size();i++){
 

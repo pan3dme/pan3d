@@ -109,9 +109,11 @@ public class Md5MoveSprite extends Display3DSprite {
     private DualQuatFloat32Array makeDualQuatFloat32Array(List<Matrix3D> $frameAry) {
         List<Short> newIDBoneArr = this.md5MeshData.boneNewIDAry;
         List<Matrix3D> baseBone  = $frameAry;
-        DualQuatFloat32Array $tempDq = new DualQuatFloat32Array();
-        $tempDq.quat = new Float32Array(newIDBoneArr.size() * 4);
-        $tempDq.pos = new Float32Array(newIDBoneArr.size() * 3);
+
+//        float quat[]=new float[newIDBoneArr.size() * 4];
+//        float pos[]=new float[newIDBoneArr.size() * 3];//
+        float quat[]=new float[54 * 4];
+        float pos[]=new float[54* 3];
 
         for (int k = 0; k < newIDBoneArr.size(); k++) {
             Matrix3D $m = baseBone.get(newIDBoneArr.get(k)).clone();
@@ -120,19 +122,24 @@ public class Md5MoveSprite extends Display3DSprite {
             $q.fromMatrix($m);
             Vector3D $p = $m.position();
 
+            quat[k * 4 + 0] = $q.x;
+            quat[k * 4 + 1] = $q.y;
+            quat[k * 4 + 2] = $q.z;
+            quat[k * 4 + 3] = $q.w;
 
-            $tempDq.quat.put(k * 4 + 0,$q.x);
-            $tempDq.quat.put(k * 4 + 1,$q.y);
-            $tempDq.quat.put(k * 4 + 2,$q.z);
-            $tempDq.quat.put(k * 4 + 3,$q.w);
+            pos[k * 3 + 0] = $p.x;
+            pos[k * 3 + 1] = $p.y;
+            pos[k * 3 + 2] = $p.z;
 
-
-            $tempDq.quat.put(k * 3 + 0,$p.x);
-            $tempDq.quat.put(k * 3 + 1,$p.y);
-            $tempDq.quat.put(k * 3 + 2,$p.z);
-
-
-
+        }
+        DualQuatFloat32Array $tempDq = new DualQuatFloat32Array();
+        $tempDq.quatArr=new ArrayList<>();
+        $tempDq.posArr=new ArrayList<>();
+        for(int i=0;i<quat.length;i++){
+            $tempDq.quatArr.add(quat[i]);
+        }
+        for(int i=0;i<pos.length;i++){
+            $tempDq.posArr.add(pos[i]);
         }
         return $tempDq;
 
@@ -151,6 +158,8 @@ public class Md5MoveSprite extends Display3DSprite {
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
 
     }
+    private float lastTm=0;
+    private float _actionTime=0;
     private void updateMaterialMeshCopy() {
         Context3D ctx=this.scene3d.context3D;
         ctx.setProgame(this.shader3D.program);
@@ -165,38 +174,25 @@ public class Md5MoveSprite extends Display3DSprite {
         ctx.setVa(this.shader3D,"boneWeight",4,md5MeshData.boneWeightBuffer);
 
         ctx.setRenderTexture(this.shader3D,"fs0",uvTextureRes.textTureInt,0);
+        int _curentFrame=getPlayFrameIdx();
 
-        DualQuatFloat32Array dualQuatFrame = this.frameQuestArr.get(0);
-//        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.quat.verBuff);
-//        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.pos.verBuff);
-
+        DualQuatFloat32Array dualQuatFrame = this.frameQuestArr.get(_curentFrame);
+        dualQuatFrame.upToGpu();
+        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
+        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
         ctx.drawCall(md5MeshData.indexBuffer,md5MeshData.treNum);
 
-        /*
-
-            Scene_data.context3D.setVpMatrix(this.baseShder, Scene_data.vpMatrix.m);
-            Scene_data.context3D.setVcMatrix4fv(this.baseShder, "posMatrix3D", this.posMatrix.m);
-            Scene_data.context3D.setRenderTexture(this.baseShder, "fc0", this.uvTextureRes.texture, 0);
-            Scene_data.context3D.setVa(0, 3, this.md5objData.vertexBuffer);
-            Scene_data.context3D.setVa(1, 2, this.md5MeshData.uvBuffer);
-            Scene_data.context3D.setVa(2, 4, this.md5MeshData.boneIdBuffer);
-            Scene_data.context3D.setVa(3, 4, this.md5MeshData.boneWeightBuffer);
+        Log.d(TAG, _curentFrame+"");
 
 
-            var t: number = Pan3d.TimeUtil.getTimer() - this.lastTm;
-            this.lastTm = Pan3d.TimeUtil.getTimer()
-            this._actionTime += t;
-
-
-            var _curentFrame: number = float2int(this._actionTime / (Scene_data.frameTime * 2));
-
-            var $len: number = this.frameQuestArr.length;
-            var $dualQuatFloat32Array: DualQuatFloat32Array = this.frameQuestArr[_curentFrame % $len]
-
-            Scene_data.context3D.setVc4fv(this.baseShder, "boneQ", $dualQuatFloat32Array.quat); //旋转
-            Scene_data.context3D.setVc3fv(this.baseShder, "boneD", $dualQuatFloat32Array.pos);  //所有的位移
-
-            Scene_data.context3D.drawCall(this.md5MeshData.indexBuffer, this.md5MeshData.treNum);
-         */
     }
+    private int getPlayFrameIdx(){
+        float t =  TimeUtil.getTimer() - this.lastTm;
+        this.lastTm = TimeUtil.getTimer();
+        this._actionTime += t;
+        int _curentFrame = (int) (this._actionTime / (Scene_data.frameTime * 2));
+        int $len = this.frameQuestArr.size();
+        return  _curentFrame % $len;
+    }
+
 }
