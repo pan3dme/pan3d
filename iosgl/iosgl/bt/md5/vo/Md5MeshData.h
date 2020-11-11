@@ -11,7 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Md5MeshData : NSObject
-
+@property(nonatomic,strong)NSDictionary*  mesh  ;
+@property(nonatomic,strong)NSArray* triItem;
+@property(nonatomic,strong)NSArray*  weightItem;
+@property(nonatomic,strong)NSArray*  uvItem;
+@property(nonatomic,strong)NSArray*  boneItem;
+@property(nonatomic,assign)int faceNum;
 @end
 
 NS_ASSUME_NONNULL_END

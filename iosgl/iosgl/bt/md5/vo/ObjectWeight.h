@@ -11,6 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjectWeight : NSObject
+@property(nonatomic,assign)float x;
+@property(nonatomic,assign)float y;
+@property(nonatomic,assign)float z;
+@property(nonatomic,assign)float w;
+@property(nonatomic,assign)float  weight;
+@property(nonatomic,assign)int  boneId;
+@property(nonatomic,assign)int id;
 
 @end
 

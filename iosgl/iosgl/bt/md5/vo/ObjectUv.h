@@ -11,7 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ObjectUv : NSObject
-
+@property(nonatomic,assign)float x ;
+@property(nonatomic,assign)float y;
+@property(nonatomic,assign)float  z;
+@property(nonatomic,assign)float  w;
+@property(nonatomic,assign)int a;
+@property(nonatomic,assign)int  b;
+@property(nonatomic,assign)int id;
 @end
 
 NS_ASSUME_NONNULL_END

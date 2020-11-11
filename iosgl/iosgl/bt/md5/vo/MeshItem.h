@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Vector3D.h"
+#import "ObjectUv.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MeshItem : NSObject
-
+@property(nonatomic,strong)  Vector3D* verts;
+@property(nonatomic,strong)  ObjectUv* uvInfo;
+@property(nonatomic,assign)  int num;
 @end
 
 NS_ASSUME_NONNULL_END
