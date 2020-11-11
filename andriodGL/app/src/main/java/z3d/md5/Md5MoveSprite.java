@@ -63,7 +63,7 @@ public class Md5MoveSprite extends Display3DSprite {
         this.loadBodyMesh();
     }
     public Md5MeshData md5MeshData;
-    public ObjData md5objData;
+
     private void loadBodyMesh() {
 
 
@@ -74,7 +74,7 @@ public class Md5MoveSprite extends Display3DSprite {
                     String txt=  dic.get("txt").toString();
                     md5MeshData = new Md5Analysis().addMesh(txt);
                     new MeshImportSort().processMesh(md5MeshData);
-                    md5objData = new MeshToObjUtils().getObj( md5MeshData);
+                     new MeshToObjUtils().getObj( md5MeshData);
                     loadAnimFrame();
                 }else{
 
@@ -94,7 +94,7 @@ public class Md5MoveSprite extends Display3DSprite {
                     for (int i = 0; i < $matrixAry.size(); i++) {
                         List<Matrix3D> $frameAry = $matrixAry.get(i);
                         for (int j = 0; j < $frameAry.size(); j++) {
-                            $frameAry.get(j).prepend(md5objData.invertAry.get(j));
+                            $frameAry.get(j).prepend(md5MeshData.invertAry.get(j));
                         }
                         frameQuestArr.add(makeDualQuatFloat32Array($matrixAry.get(i)));
                     }
@@ -140,7 +140,7 @@ public class Md5MoveSprite extends Display3DSprite {
 
     @Override
     public void upData() {
-        if (this.md5objData!=null && this.frameQuestArr!=null) {
+        if (this.md5MeshData!=null && this.frameQuestArr!=null&&uvTextureRes!=null) {
             this.updateMaterialMeshCopy();
         }
     }
@@ -152,27 +152,23 @@ public class Md5MoveSprite extends Display3DSprite {
 
     }
     private void updateMaterialMeshCopy() {
-
         Context3D ctx=this.scene3d.context3D;
         ctx.setProgame(this.shader3D.program);
         this.setVc();
-        ctx.setVa(this.shader3D,"pos",3,md5objData.vertexBuffer);
+        if(md5MeshData.vertexBuffer==null){
+            md5MeshData.upToGup();
+            return;
+        }
+        ctx.setVa(this.shader3D,"pos",3,md5MeshData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2Uv",2,md5MeshData.uvBuffer);
 //        ctx.setVa(this.shader3D,"boneID",4,md5objData.boneIdBuffer);
 //        ctx.setVa(this.shader3D,"boneWeight",4,md5objData.boneWeightBuffer);
-
-        ctx.drawCall(md5objData.indexBuffer,md5MeshData.treNum);
-
-
+        ctx.setRenderTexture(this.shader3D,"fs0",uvTextureRes.textTureInt,0);
+        ctx.drawCall(md5MeshData.indexBuffer,md5MeshData.treNum);
 
         /*
 
-
-
             Scene_data.context3D.setVpMatrix(this.baseShder, Scene_data.vpMatrix.m);
-
-
-
             Scene_data.context3D.setVcMatrix4fv(this.baseShder, "posMatrix3D", this.posMatrix.m);
             Scene_data.context3D.setRenderTexture(this.baseShder, "fc0", this.uvTextureRes.texture, 0);
             Scene_data.context3D.setVa(0, 3, this.md5objData.vertexBuffer);

@@ -31,6 +31,10 @@ public class MeshData extends ObjData {
     }
     public void  upToGup()
     {
+       if( this.isCompile){
+           return;
+       }
+        this.isCompile=true;
         if(this.verticeslist!=null){
             this.vertexBuffer=this.upGpuvertexBuffer(this.verticeslist);
         }

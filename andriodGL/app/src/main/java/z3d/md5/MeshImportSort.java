@@ -107,14 +107,14 @@ public class MeshImportSort {
 
             meshData.uvBuffer = ObjData.upGpuvertexBuffer(uvArray);
             meshData.boneWeightAry = boneWeightAry;
-            meshData.boneWeightBuffer =  ObjData.upGpuvertexBuffer(boneWeightAry);
+//            meshData.boneWeightBuffer =  ObjData.upGpuvertexBuffer(boneWeightAry);
             List<Float> arrA = new ArrayList<>();
             for (int i = 0; i < bonetIDAry.size(); i++) {
                 arrA.add(Math.max(bonetIDAry.get(i), 0f));
             }
             meshData.boneIDAry = arrA;
-            meshData.boneIdBuffer = ObjData.upGpuvertexBuffer(arrA);
-            meshData.indexBuffer = ObjData.upGpuIndexBuffer(indexAry);
+//            meshData.boneIdBuffer = ObjData.upGpuvertexBuffer(arrA);
+//            meshData.indexBuffer = ObjData.upGpuIndexBuffer(indexAry);
     }
 
 

@@ -26,7 +26,7 @@ public class MeshToObjUtils {
     }
 
     public MeshData getObj(Md5MeshData mesh) {
-        MeshData objData = new MeshData();
+        MeshData objData = mesh;
         objData.verticeslist = new ArrayList<>();
         objData.uvlist = new ArrayList<>();
         objData.normals = new ArrayList<>();
@@ -87,8 +87,8 @@ public class MeshToObjUtils {
         }
         objData.bindPosAry = bindPosAry;
         objData.invertAry = invertAry;
-        objData.upToGup();
-        
+
+
         return objData;
     }
 

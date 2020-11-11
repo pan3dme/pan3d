@@ -113,7 +113,7 @@ public class SceneAllMenu extends AppCompatActivity   {
     private void addLocaMd5(){
         Md5MoveSprite $sc = new Md5MoveSprite(_scene3d);
         https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg
-       $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "base/chuan.jpg");
+       $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
 
         this._scene3d.addDisplay($sc);
     }
