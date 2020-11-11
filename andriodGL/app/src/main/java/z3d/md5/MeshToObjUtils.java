@@ -85,15 +85,10 @@ public class MeshToObjUtils {
             objData.indexs.add((short)mesh.triItem.get(i).t1);
             objData.indexs.add((short)mesh.triItem.get(i).t2);
         }
-
-        objData.vertexBuffer = ObjData.upGpuvertexBuffer(objData.verticeslist);
-        objData.uvBuffer = ObjData.upGpuvertexBuffer(objData.uvlist);
-        objData.indexBuffer = ObjData.upGpuIndexBuffer(objData.indexs);
         objData.bindPosAry = bindPosAry;
         objData.invertAry = invertAry;
-
-
-
+        objData.upToGup();
+        
         return objData;
     }
 

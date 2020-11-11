@@ -24,6 +24,7 @@ import z3d.res.RoleRes;
 import z3d.scene.Scene3D;
 import z3d.units.LoadBackFun;
 import z3d.units.LoadManager;
+import z3d.units.TimeUtil;
 import z3d.vo.DualQuatFloat32Array;
 import z3d.vo.Float32Array;
 import z3d.vo.Matrix3D;
@@ -62,7 +63,7 @@ public class Md5MoveSprite extends Display3DSprite {
         this.loadBodyMesh();
     }
     public Md5MeshData md5MeshData;
-    public MeshData md5objData;
+    public ObjData md5objData;
     private void loadBodyMesh() {
 
 
@@ -156,11 +157,12 @@ public class Md5MoveSprite extends Display3DSprite {
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         ctx.setVa(this.shader3D,"pos",3,md5objData.vertexBuffer);
-        ctx.setVa(this.shader3D,"v2Uv",2,md5objData.uvBuffer);
-        ctx.setVa(this.shader3D,"boneID",4,md5objData.boneIdBuffer);
-        ctx.setVa(this.shader3D,"boneWeight",4,md5objData.boneWeightBuffer);
+        ctx.setVa(this.shader3D,"v2Uv",2,md5MeshData.uvBuffer);
+//        ctx.setVa(this.shader3D,"boneID",4,md5objData.boneIdBuffer);
+//        ctx.setVa(this.shader3D,"boneWeight",4,md5objData.boneWeightBuffer);
 
-//        ctx.drawCall(this.objData.indexBuffer,this.md5MeshData.treNum);
+        ctx.drawCall(md5objData.indexBuffer,md5MeshData.treNum);
+
 
 
         /*
