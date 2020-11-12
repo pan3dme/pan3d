@@ -32,20 +32,11 @@
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/vo/ObjectBone.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/display/role/vo/ObjectBone.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5Analysis.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5Analysis.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5Analysis.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5Analysis.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5MoveSprite.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5MoveSprite.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshImportSort.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshImportSort.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshImportSort.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshImportSort.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshToObjUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshToObjUtils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshToObjUtils.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/MeshToObjUtils.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/Md5MeshData.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/Md5MeshData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/ObjectWeight.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/ObjectWeight.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/ObjectWeight.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/vo/ObjectWeight.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5animAnalysis.h" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5animAnalysis.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5animAnalysis.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/md5/Md5animAnalysis.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

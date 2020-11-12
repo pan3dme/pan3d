@@ -180,6 +180,7 @@
         NSArray* boneArr=  [line componentsSeparatedByString:@"\""];
         NSString* boneName=  boneArr[1];
         line=boneArr[2];
+        //去掉收尾空格
         NSString* finnalStr=[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         NSArray* boneNameAry=  [finnalStr componentsSeparatedByString:@" "];
         
@@ -257,6 +258,7 @@
     _str= [_str stringByReplacingOccurrencesOfString:@"("withString:@""];
     _str= [_str stringByReplacingOccurrencesOfString:@")"withString:@""];
     _str= [_str stringByReplacingOccurrencesOfString:@"\""withString:@""];
+    //去掉两个空格
     NSCharacterSet *whitespaces = [NSCharacterSet whitespaceCharacterSet];
     NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
     NSArray *parts = [_str componentsSeparatedByCharactersInSet:whitespaces];

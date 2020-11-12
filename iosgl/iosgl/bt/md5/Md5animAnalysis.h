@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Md5animAnalysis : NSObject
 
+-(NSArray*)addAnim:(NSString*)ini;
 @end
 
 NS_ASSUME_NONNULL_END
