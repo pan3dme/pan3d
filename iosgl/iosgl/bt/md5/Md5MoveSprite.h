@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Md5MoveSprite : Display3DSprite
-
+@property(nonatomic,strong)NSString* bodyurl;
+@property(nonatomic,strong)NSString* animurl;
+@property(nonatomic,strong)NSString* picurl;
+-(void)setMd5url:(NSString*)body_url animurl:(NSString*)anim_url picurl:(NSString*)pic_url ;
 @end
 
 NS_ASSUME_NONNULL_END

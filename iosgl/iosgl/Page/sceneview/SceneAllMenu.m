@@ -13,6 +13,7 @@
 #import "GroupItem.h"
 #import "Scene_data.h"
 #import "SceneRes.h"
+#import "Md5MoveSprite.h"
 #import "GroupDataManager.h"
 #import "GridLineSprite.h"
 #import <AlipaySDK/AlipaySDK.h>
@@ -47,6 +48,12 @@
     [arr addObject:@"挂件"];
     [self addBaseMenuButs:arr];
     [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
+    
+    Md5MoveSprite *sc=[[Md5MoveSprite alloc]init];
+ 
+    [sc setMd5url:@"2/body.md5mesh"  animurl:@"2/stand.md5anim"  picurl:@"shuangdaonv.jpg"  ];
+    [self.sceneView.scene3D addDisplay:sc];
+    
     
 }
 - (void) addMenuListClikEvent:(UIButton *) btn

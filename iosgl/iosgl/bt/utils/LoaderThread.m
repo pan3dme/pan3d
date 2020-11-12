@@ -96,19 +96,12 @@
     NSLog(@"didCompleteWithError");
 
     dispatch_async(dispatch_get_main_queue(), ^{  });
-    
-       [self loadImg];
-}
 
--(void)loadImg;
-{
+ 
    
     LoadInfo* temp=  self.loadInfo;
-    
-    NSLog(@"loadImg   %@",temp.url)
-    
+    NSLog(@"loadfile   %@",temp.url)
     if (self.loadInfo.info) {
-        //self.loadInfo.fun(  self.localPath);
          self.loadInfo.fun(@{@"data":self.localPath,@"info":self.loadInfo.info});
     }else{
         self.loadInfo.fun(  self.localPath);
