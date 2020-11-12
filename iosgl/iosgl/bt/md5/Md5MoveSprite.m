@@ -9,7 +9,14 @@
 #import "Md5MoveSprite.h"
 #import "Scene_data.h"
 #import "LoadManager.h"
+#import "Md5Analysis.h"
+#import "Md5MeshData.h"
+#import "MeshImportSort.h"
 #import "TextureManager.h"
+
+@interface Md5MoveSprite ()
+@property(nonatomic,strong)Md5MeshData* md5MeshData;
+@end
 
 @implementation Md5MoveSprite
 
@@ -30,13 +37,18 @@
 -(void)loadBodyMesh{
   
     NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.bodyurl];
-//    netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/2/body.md5mesh";
+    netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/2/body.md5mesh";
+    netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/body001.txt";
+    
+
 
     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
         NSDictionary* dic=(NSDictionary*)value;
         NSString* path=  dic[@"data"];
-        NSString *out1=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
-               NSLog(@"%@",out1);
+        NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+        self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
+        [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
+ 
  
     }];
 }

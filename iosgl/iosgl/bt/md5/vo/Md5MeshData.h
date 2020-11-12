@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MeshData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Md5MeshData : NSObject
-@property(nonatomic,strong)NSDictionary*  mesh  ;
-@property(nonatomic,strong)NSArray* triItem;
-@property(nonatomic,strong)NSArray*  weightItem;
-@property(nonatomic,strong)NSArray*  uvItem;
-@property(nonatomic,strong)NSArray*  boneItem;
+@interface Md5MeshData : MeshData
+@property(nonatomic,strong)NSMutableDictionary*  mesh  ;
+@property(nonatomic,strong)NSMutableArray* triItem;
+@property(nonatomic,strong)NSMutableArray*  weightItem;
+@property(nonatomic,strong)NSMutableArray*  uvItem;
+@property(nonatomic,strong)NSMutableArray*  boneItem;
 @property(nonatomic,assign)int faceNum;
 @end
 

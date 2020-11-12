@@ -7,143 +7,143 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "618404D7-9232-435E-97B4-FFD31D86B0C2"
+            uuid = "EFA7141B-EBB2-42EF-A571-30EC9D94A41C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoadManager.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-loadUrl:type:fun:info:progressFun:"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-processForAgal:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "787DAA13-393E-41BF-AA3A-DC041219784F"
+            uuid = "D253832F-CC89-4D62-975C-3CAE1E4BB30F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoadManager.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-loadWaitList"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-getboneNum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "42F071C8-CA85-4D5F-A299-6C5D04130BBA"
+            uuid = "596AB1CF-E2AD-483E-B6E9-0C44F58F81E0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoaderThread.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-load:"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-processForAgal:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "63FABDA2-9A9E-4154-BEAC-56E9A4208B4A"
+            uuid = "8B7FF61C-9891-43B9-82CA-F14948460CB1"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoaderThread.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-URLSession:task:didCompleteWithError:"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-processForAgal:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "93B05C37-A422-43A4-A490-43B6E39E6FB6"
+            uuid = "2897CFB8-20F2-4B5A-95CA-0F9A3DD6EA79"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoaderThread.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-URLSession:downloadTask:didFinishDownloadingToURL:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5591CB7D-4AFB-4FA5-AF00-0E118A16642A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoaderThread.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "-URLSession:task:didCompleteWithError:"
+            landmarkName = "-processForAgal:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "886F497C-0AC4-43A6-8D31-C113A2602945"
+            uuid = "EC122AE4-05AC-41F5-BE77-895ECFC43C56"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/md5/Md5MoveSprite.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-loadBodyMesh"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-processForAgal:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4973892-46A2-49D6-8BC4-C373CEF2E902"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-uplodToGpu:uvArray:ary:boneWeightAry:bonetIDAry:indexAry:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "886F497C-0AC4-43A6-8D31-C113A2602945 - 7ff21a6072721834"
+                  uuid = "C4973892-46A2-49D6-8BC4-C373CEF2E902 - 1804535cf51a0004"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[Md5MoveSprite loadBodyMesh]"
+                  symbolName = "-[MeshImportSort uplodToGpu:uvArray:ary:boneWeightAry:bonetIDAry:indexAry:]"
                   moduleName = "iosgl"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pan3dme/pan3dall/iosgl/iosgl/bt/md5/Md5MoveSprite.m"
+                  urlString = "file:///Users/pan3dme/pan3dall/iosgl/iosgl/bt/md5/MeshImportSort.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "144">
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "318">
                </Location>
                <Location
-                  uuid = "886F497C-0AC4-43A6-8D31-C113A2602945 - b9f7d00f72cfa564"
+                  uuid = "C4973892-46A2-49D6-8BC4-C373CEF2E902 - 1804535cf51a0004"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__29-[Md5MoveSprite loadBodyMesh]_block_invoke"
+                  symbolName = "-[MeshImportSort uplodToGpu:uvArray:ary:boneWeightAry:bonetIDAry:indexAry:]"
                   moduleName = "iosgl"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pan3dme/pan3dall/iosgl/iosgl/bt/md5/Md5MoveSprite.m"
+                  urlString = "file:///Users/pan3dme/pan3dall/iosgl/iosgl/bt/md5/MeshImportSort.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "47">
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "329">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -151,64 +151,128 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6B60C39C-60CF-4E30-9805-229F7C6868FC"
+            uuid = "7E0A3EC4-F24B-4192-9F76-3A7059456008"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoadManager.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-loadUrl:type:fun:"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "-uplodToGpu:uvArray:ary:boneWeightAry:bonetIDAry:indexAry:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C177CC6C-2E1D-4430-8ABE-B17E37F46B19"
+            uuid = "FFE6E3A1-E1FC-4B95-89A7-970C5D61E2BB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/utils/LoaderThread.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-URLSession:downloadTask:didFinishDownloadingToURL:"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-processForAgal:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "943F8261-7D46-40C3-9EDE-AF27A6008A1C"
+            uuid = "6DF92DB6-FCB6-4554-9E58-B2898674D61D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/md5/Md5MoveSprite.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-loadBodyMesh"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-processForAgal:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "07BF72F1-DD40-4BD2-B556-B8DF88EA63C9"
+            uuid = "41AE1935-F002-4112-97A0-B2458A7C01A1"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/bt/md5/Md5MoveSprite.m"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-loadBodyMesh"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-processForAgal:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6747056-FE41-4AB9-BE83-48060BD535D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-processForAgal:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08F881D9-4DF6-4F37-9161-D5C5C97D70DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-processForAgal:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FCB5445-8180-47CA-A5FB-A894C7A003C6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-processForAgal:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE5E694E-4CA5-481F-B24B-FACC658710EA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/md5/MeshImportSort.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-processForAgal:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

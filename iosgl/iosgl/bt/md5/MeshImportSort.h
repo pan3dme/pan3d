@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Md5MeshData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MeshImportSort : NSObject
-
+-(void)processMesh:(Md5MeshData*)meshData;
 @end
 
 NS_ASSUME_NONNULL_END

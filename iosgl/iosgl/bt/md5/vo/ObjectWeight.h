@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)float  weight;
 @property(nonatomic,assign)int  boneId;
 @property(nonatomic,assign)int id;
-
+-(ObjectWeight*)clone;
 @end
 
 NS_ASSUME_NONNULL_END
