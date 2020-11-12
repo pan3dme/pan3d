@@ -51,7 +51,7 @@
     
     Md5MoveSprite *sc=[[Md5MoveSprite alloc]init];
  
-    [sc setMd5url:@"2/body.md5mesh"  animurl:@"2/stand.md5anim"  picurl:@"shuangdaonv.jpg"  ];
+    [sc setMd5url:@"pan/expmd5/2/body.md5mesh"  animurl:@"pan/expmd5/2/body.md5mesh"  picurl:@"pan/expmd5/shuangdaonv.jpg"  ];
     [self.sceneView.scene3D addDisplay:sc];
     
     

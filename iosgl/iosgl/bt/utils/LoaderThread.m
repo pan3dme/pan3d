@@ -35,9 +35,7 @@
     self.loadInfo=loadInfo;
     self.idle=NO;
     self.url=self.loadInfo.url;
-    //_url    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/base/cube/e01.jpg"    0x000000028310e460
-    //  @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/%08zhao/RedbagApp/res/model/levelup_base.txt"    0x00000002803ad680
-    
+ 
     NSURLRequest *request = [NSURLRequest requestWithURL: [NSURL URLWithString:  self.url]];
     self.downloadTask = [self.session downloadTaskWithRequest:request];
     [self.downloadTask resume];

@@ -80,7 +80,7 @@ static LoadManager *instance = nil;
 }
 -(void)load:(NSString*)url type:(int)type fun:(void (^)(NSObject* any))fun info:(NSObject*)info progressFun:(ProceeseBlock)progressFun;
 {
-    //url    __NSCFString *    @"http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/materialinstance/changjingjiaose/roletransstandard_byte.txt"     
+ 
    LoadInfo* loadInfo= [[LoadInfo alloc]initUrl:url type:type  fun:fun info:info progressFun:progressFun];
        for (int i = 0; i < self.loadThreadList.count; i++) {
            if (self.loadThreadList[i].idle) {
