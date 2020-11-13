@@ -15,9 +15,14 @@
 #import "Quaternion.h"
 #import "Vector3D.h"
 #import "Matrix3D.h"
+#import "Scene3D.h"
+#import "Context3D.h"
 #import "MeshImportSort.h"
 #import "DualQuatFloat32Array.h"
 #import "Md5animAnalysis.h"
+#import "Md5MeshShader.h"
+#import "Md5MeshShader.h"
+#import "ProgrmaManager.h"
 #import "TextureManager.h"
 
 @interface Md5MoveSprite ()
@@ -27,6 +32,20 @@
 @end
 
 @implementation Md5MoveSprite
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self inidShader];
+    }
+    return self;
+}
+-(void)inidShader
+{
+    [[ProgrmaManager default] registe:Md5MeshShader.shaderStr shader3d: [[Md5MeshShader alloc]init]];
+    self.shader3d=  [[ProgrmaManager default] getProgram:Md5MeshShader.shaderStr];
+}
 
 - (void)setMd5url:(NSString *)body_url animurl:(NSString *)anim_url picurl:(NSString *)pic_url{
     self.bodyurl=body_url;
@@ -138,6 +157,24 @@
     
     
     return $tempDq;
+}
+- (void)upFrame
+{
+    if(self.md5MeshData){
+        [self updateMaterialMeshCopy];
+    }
+}
+-(void)updateMaterialMeshCopy
+{
+    
+    
+}
+- (void)setVc;
+{
+    Md5MoveSprite* this=self;
+    Context3D *context3D=this.scene3d.context3D;
+    [context3D setVcMatrix4fv:this.shader3d name:"viewMatrix" data:this.viewMatrix.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix" data:this.posMatrix3d.m];
 }
 
 @end
