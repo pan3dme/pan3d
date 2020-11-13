@@ -86,7 +86,7 @@
     [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
     [[[MeshToObjUtils alloc]init]getObj:self.md5MeshData];
     
-    [self.md5MeshData upToGpu];
+   
     
     [self loadAnimFrame];
     
@@ -166,16 +166,27 @@
 }
 -(void)updateMaterialMeshCopy
 {
-    
-    
+    [self.md5MeshData upToGpu];
+    Md5MoveSprite* this=self;
+    Md5MeshData* mesh= this.md5MeshData;
+    Context3D *ctx=this.scene3d.context3D;
+    GLuint progame= self.shader3d.program;
+    glUseProgram(progame);
+    [self setVc];
+    [ctx pushVa:mesh.verticesBuffer];
+    [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
+    [ctx pushVa:mesh.uvBuffer];
+    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
 }
 - (void)setVc;
 {
     Md5MoveSprite* this=self;
     Context3D *context3D=this.scene3d.context3D;
-    [context3D setVcMatrix4fv:this.shader3d name:"viewMatrix" data:this.viewMatrix.m];
-    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix" data:this.posMatrix3d.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:this.viewMatrix.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
 }
 
 @end
 
+ 
