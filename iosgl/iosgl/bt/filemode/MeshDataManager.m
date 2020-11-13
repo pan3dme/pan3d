@@ -100,7 +100,7 @@ static MeshDataManager *instance = nil;
        MeshData* meshData =[[MeshData alloc]init];
                       if (version >= 35) {
                           meshData.bindPosAry = [self readBindPosByte:byte];
-                         // meshData.getBindPosMatrix();
+                   ;
                       }
         
         

@@ -10,6 +10,7 @@
 #import "Scene_data.h"
 #import "LoadManager.h"
 #import "Md5Analysis.h"
+#import "MeshToObjUtils.h"
 #import "Md5MeshData.h"
 #import "MeshImportSort.h"
 #import "Md5animAnalysis.h"
@@ -17,6 +18,8 @@
 
 @interface Md5MoveSprite ()
 @property(nonatomic,strong)Md5MeshData* md5MeshData;
+@property(nonatomic,strong)NSMutableArray* frameQuestArr;
+
 @end
 
 @implementation Md5MoveSprite
@@ -58,10 +61,12 @@
     NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
     self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
     [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
+    [[[MeshToObjUtils alloc]init]getObj:self.md5MeshData];
     [self loadAnimFrame];
     
     
 }
+ 
 -(void)loadAnimFrame
 {
     /*
@@ -78,6 +83,17 @@
     NSString *path=  [[NSBundle mainBundle]pathForResource:@"standmd5anim" ofType:@"txt"];
     NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
     NSArray* matrixAry=  [[[Md5animAnalysis alloc]init]addAnim:str];
+    
+    self.frameQuestArr=[[NSMutableArray alloc] init];
+                 for (int i = 0; i < matrixAry.count; i++) {
+                     NSArray* frameAry  =matrixAry[i];
+              
+                     for (int j = 0; j < frameAry.count; j++) {
+//                         Matrix3D* invertAryM=self.md5MeshData.invertAry[j];
+//                         $frameAry[j].prepend(this.md5MeshData.invertAry[j]);
+                     }
+//                     this.frameQuestArr.push(this.makeDualQuatFloat32Array($matrixAry[i]));
+                 }
     
 }
 

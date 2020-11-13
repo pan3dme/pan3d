@@ -67,14 +67,14 @@ public class MeshDataManager extends ResGC {
         ResManager.getInstance().loadRoleRes(Scene_data.fileRoot+ url, new RoleBackFun() {
             @Override
             public void Bfun(RoleRes value) {
-               roleResCom(value,bfun);
+                roleResCom(value,bfun);
             }
         },batchNum);
 
 
     }
 
-  final   private void roleResCom(RoleRes roleRes ,SkinMeshBackFun bfun )
+    final   private void roleResCom(RoleRes roleRes ,SkinMeshBackFun bfun )
     {
         String url= roleRes.roleUrl;
         SkinMesh skinMesh=(SkinMesh)this.dic.get(url);
@@ -108,7 +108,6 @@ public class MeshDataManager extends ResGC {
         HashMap allParticleDic = new HashMap();
         for (int i = 0; i < meshNum; i++) {
             MeshData meshData = new MeshData();
-
             if ($version >= 21) {
                 this.readMesh2OneBuffer(_byte, meshData);
             }

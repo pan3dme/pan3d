@@ -6,7 +6,7 @@ public class ObjectBaseBone {
     public float tx;
     public  float ty;
     public  float tz;
-    public  float tw;
+//    public  float tw;
 
     public  float qx;
     public  float qy;

@@ -7,6 +7,8 @@
 //
 
 #import "ObjectBaseBone.h"
+#import "Matrix3D.h"
+ 
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString*   name;
 @property(nonatomic,assign)int   changtype;
 @property(nonatomic,assign)int   startIndex;
+@property(nonatomic,strong)Matrix3D*   matrix;
+-(ObjectBone*)clone;
 @end
 
 NS_ASSUME_NONNULL_END

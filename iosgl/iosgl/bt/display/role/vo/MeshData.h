@@ -8,6 +8,7 @@
 
 #import "ObjData.h"
 #import "Material.h"
+#import "Matrix3D.h"
 #import "MaterialBaseParam.h"
 #import "BindParticle.h"
 
@@ -19,13 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSArray  *boneIDAry;
 @property (nonatomic, copy)  NSArray  *boneWeightAry;
 @property (nonatomic, copy)  NSArray<NSNumber*>* boneNewIDAry;
-@property (nonatomic, strong)  NSArray<NSArray<NSNumber*>*>* bindPosAry;
+@property (nonatomic, strong)  NSArray<Matrix3D*>* bindPosAry;
   
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property(nonatomic,strong)NSString* materialUrl;
 @property(nonatomic,strong)Material* material;
 
 @property(nonatomic,strong)NSArray<NSDictionary*>* materialParamData;
+@property(nonatomic,strong)NSArray<Matrix3D*>* invertAry;
 
 @property(nonatomic,assign)GLuint boneWeightBuffer ;
 @property(nonatomic,assign)GLuint boneIdBuffer ;

@@ -183,7 +183,7 @@ public class Md5MoveSprite extends Display3DSprite {
         ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
         ctx.drawCall(md5MeshData.indexBuffer,md5MeshData.treNum);
 
-        Log.d(TAG, _curentFrame+"");
+//        Log.d(TAG, _curentFrame+"");
 
 
     }

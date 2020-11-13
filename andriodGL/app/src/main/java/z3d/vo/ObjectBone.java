@@ -12,7 +12,7 @@ public class ObjectBone extends ObjectBaseBone{
         newBone.tx = this.tx;
         newBone.ty = this.ty;
         newBone.tz = this.tz;
-        newBone.tw = this.tw;
+//        newBone.tw = this.tw;
         newBone.qx = this.qx;
         newBone.qy = this.qy;
         newBone.qz = this.qz;
