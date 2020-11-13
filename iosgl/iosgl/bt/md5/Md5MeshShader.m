@@ -28,7 +28,7 @@
     "    v0 = v2Uv;"
     "    vec4 vt0 =  vec4(pos.x, pos.y, pos.z,1.0);"
     "    vt0 = posMatrix3D * vt0;"
-    "    vt0 = vpMatrix3D * vt0;"
+    "    vt0 =vt0* vpMatrix3D ;"
     "    gl_Position = vt0;\n"
     "  }";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
