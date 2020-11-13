@@ -97,11 +97,10 @@ static MeshDataManager *instance = nil;
     
     for (int i = 0; i < meshNum; i++) {
         
-       MeshData* meshData =[[MeshData alloc]init];
-                      if (version >= 35) {
-                          meshData.bindPosAry = [self readBindPosByte:byte];
-                   ;
-                      }
+        MeshData* meshData =[[MeshData alloc]init];
+                       if (version >= 35) {
+                           meshData.bindPosAry = [self readBindPosByte:byte];
+                       }
         
         
        

@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)inputStrData:(NSString*)str;
 -(void)identityPostion;
  
+ 
 @end
 
 NS_ASSUME_NONNULL_END

@@ -139,7 +139,7 @@
 {
      target.matrix4x4=Matrix4x4clone(self.matrix4x4);
 }
-
+ 
 -(Matrix3D*)Invert;
 {
     Matrix3D *tempM= [[Matrix3D alloc]init];

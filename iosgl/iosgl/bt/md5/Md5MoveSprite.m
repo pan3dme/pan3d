@@ -12,7 +12,11 @@
 #import "Md5Analysis.h"
 #import "MeshToObjUtils.h"
 #import "Md5MeshData.h"
+#import "Quaternion.h"
+#import "Vector3D.h"
+#import "Matrix3D.h"
 #import "MeshImportSort.h"
+#import "DualQuatFloat32Array.h"
 #import "Md5animAnalysis.h"
 #import "TextureManager.h"
 
@@ -30,9 +34,9 @@
     self.picurl=pic_url;
     
     
-//    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:pic_url] fun:^(NSObject * _Nonnull any) {
-//        self.textureRes=(TextureRes*)any;
-//    } wrapType:0 info:nil filteType:0 mipmapType:0];
+    //    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:pic_url] fun:^(NSObject * _Nonnull any) {
+    //        self.textureRes=(TextureRes*)any;
+    //    } wrapType:0 info:nil filteType:0 mipmapType:0];
     
     
     [self loadBodyMesh];
@@ -62,11 +66,13 @@
     self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
     [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
     [[[MeshToObjUtils alloc]init]getObj:self.md5MeshData];
+    
+    
     [self loadAnimFrame];
     
     
 }
- 
+
 -(void)loadAnimFrame
 {
     /*
@@ -83,18 +89,54 @@
     NSString *path=  [[NSBundle mainBundle]pathForResource:@"standmd5anim" ofType:@"txt"];
     NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
     NSArray* matrixAry=  [[[Md5animAnalysis alloc]init]addAnim:str];
-    
     self.frameQuestArr=[[NSMutableArray alloc] init];
-                 for (int i = 0; i < matrixAry.count; i++) {
-                     NSArray* frameAry  =matrixAry[i];
-              
-                     for (int j = 0; j < frameAry.count; j++) {
-//                         Matrix3D* invertAryM=self.md5MeshData.invertAry[j];
-//                         $frameAry[j].prepend(this.md5MeshData.invertAry[j]);
-                     }
-//                     this.frameQuestArr.push(this.makeDualQuatFloat32Array($matrixAry[i]));
-                 }
+    for (int i = 0; i < matrixAry.count; i++) {
+        NSArray<Matrix3D*>* frameAry  =matrixAry[i];
+        for (int j = 0; j < frameAry.count; j++) {
+            Matrix3D* invertAryM=self.md5MeshData.invertAry[j];
+            [frameAry[j] prepend:invertAryM];
+        }
+        [self.frameQuestArr  addObject: [self makeDualQuatFloat32Array: matrixAry[i]]];
+    }
     
+}
+-(DualQuatFloat32Array*) makeDualQuatFloat32Array:(NSArray<Matrix3D*>*)$frameAry {
+    Md5MoveSprite* this=self;
+    NSArray<NSNumber*>* newIDBoneArr = this.md5MeshData.boneNewIDAry;
+    NSArray<Matrix3D*>* baseBone = $frameAry;
+    DualQuatFloat32Array* $tempDq = [[DualQuatFloat32Array alloc] init];
+    GLfloat quat[newIDBoneArr.count * 4];
+    GLfloat pos[newIDBoneArr.count * 3];
+    for (int k = 0; k < newIDBoneArr.count; k++) {
+        Matrix3D* $m=  [baseBone[[newIDBoneArr[k]intValue]] clone] ;
+        [$m appendScale:-1 y:1 z:1]; //特别标记，因为四元数和矩阵运算结果不一
+        Quaternion* $q = [[Quaternion alloc] init];
+        [$q fromMatrix:$m];
+        Vector3D* $p = [$m position];
+        quat[k * 4 + 0] = $q.x;
+        quat[k * 4 + 1] = $q.y;
+        quat[k * 4 + 2] = $q.z;
+        quat[k * 4 + 3] = $q.w;
+        
+        pos[k * 3 + 0] = $p.x;
+        pos[k * 3 + 1] = $p.y;
+        pos[k * 3 + 2] = $p.z;
+    }
+    
+    NSMutableArray<NSNumber*>* quatArr=[[NSMutableArray alloc]init];
+    for(int m=0;m<newIDBoneArr.count * 4;m++){
+        [quatArr addObject:[NSNumber numberWithFloat:quat[m]]];
+    }
+    $tempDq.quatArr=[[NSArray alloc]initWithArray:quatArr];
+    
+    NSMutableArray<NSNumber*>* posArr=[[NSMutableArray alloc]init];
+    for(int n=0;n<newIDBoneArr.count * 3;n++){
+        [posArr addObject:[NSNumber numberWithFloat:pos[n]]];
+    }
+    $tempDq.posArr=[[NSArray alloc]initWithArray:posArr];
+    
+    
+    return $tempDq;
 }
 
 @end
