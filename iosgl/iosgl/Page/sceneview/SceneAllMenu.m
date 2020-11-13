@@ -54,7 +54,7 @@
     [sc setMd5url:@"pan/expmd5/2/body.md5mesh"  animurl:@"pan/expmd5/2/body.md5mesh"  picurl:@"pan/expmd5/shuangdaonv.jpg"  ];
     [self.sceneView.scene3D addDisplay:sc];
     
-    
+    self.sceneView.scene3D.camera3D.distance=200;
 }
 - (void) addMenuListClikEvent:(UIButton *) btn
 {

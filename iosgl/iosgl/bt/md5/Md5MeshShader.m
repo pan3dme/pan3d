@@ -37,10 +37,12 @@
 -(NSString *)getFragmentShaderString;{
     char* relplayChat =
     "precision mediump float;\n"
+    "uniform sampler2D fs0;\n"
     "varying vec2 v0;\n"
     "void main(void)\n"
     "{\n"
-    "gl_FragColor =vec4(0,1,0,1);\n"
+    "vec4 infoUv = texture2D(fs0, v0.xy);\n"
+    "gl_FragColor =infoUv;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

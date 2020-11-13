@@ -53,9 +53,9 @@
     self.picurl=pic_url;
     
     
-    //    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:pic_url] fun:^(NSObject * _Nonnull any) {
-    //        self.textureRes=(TextureRes*)any;
-    //    } wrapType:0 info:nil filteType:0 mipmapType:0];
+        [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:pic_url] fun:^(NSObject * _Nonnull any) {
+            self.textureRes=(TextureRes*)any;
+        } wrapType:0 info:nil filteType:0 mipmapType:0];
     
     
     [self loadBodyMesh];
@@ -160,7 +160,7 @@
 }
 - (void)upFrame
 {
-    if(self.md5MeshData){
+    if(self.md5MeshData&&self.textureRes){
         [self updateMaterialMeshCopy];
     }
 }
@@ -178,6 +178,9 @@
     [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:mesh.uvBuffer];
     [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+    
+    [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:self.textureRes.textTureLuint level:0];
+    
     [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
 }
 - (void)setVc;
