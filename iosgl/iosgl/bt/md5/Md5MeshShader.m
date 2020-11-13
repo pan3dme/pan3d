@@ -26,7 +26,7 @@
     "uniform mat4 posMatrix3D;"
     " void main(void){"
     "    v0 = v2Uv;"
-    "    vec4 vt0 =  vec4(pos.x, pos.y, pos.z,1.0));"
+    "    vec4 vt0 =  vec4(pos.x, pos.y, pos.z,1.0);"
     "    vt0 = posMatrix3D * vt0;"
     "    vt0 = vpMatrix3D * vt0;"
     "    gl_Position = vt0;\n"
@@ -40,7 +40,7 @@
     "varying vec2 v0;\n"
     "void main(void)\n"
     "{\n"
-    "gl_FragColor =vec4(1.0,0,0,1.0);\n"
+    "gl_FragColor =vec4(0,1,0,1);\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

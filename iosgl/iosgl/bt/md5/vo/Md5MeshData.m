@@ -19,8 +19,8 @@
     if( self.vertices&&self.vertices.count){
         self.verticesBuffer=  [self upGpuvertexBuffer:self.vertices];
         self.uvBuffer=  [self upGpuvertexBuffer:self.uvs];
-//        self.boneIdBuffer=  [self upGpuvertexBuffer:self.boneIDAry];
-//        self.boneWeightBuffer=  [self upGpuvertexBuffer:self.boneWeightAry];
+        self.boneIdBuffer=  [self upGpuvertexBuffer:self.boneIDAry];
+        self.boneWeightBuffer=  [self upGpuvertexBuffer:self.boneWeightAry];
         self.indexBuffer=  [self upGpuIndexBuffer:self.indexs];
         self.trinum=(int)self.indexs.count;
     }
