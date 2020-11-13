@@ -178,6 +178,10 @@
     [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:mesh.uvBuffer];
     [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+    [ctx pushVa: mesh.boneIdBuffer];
+    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
+    [ctx pushVa: mesh.boneWeightBuffer];
+    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
     
     [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:self.textureRes.textTureLuint level:0];
     
