@@ -67,6 +67,7 @@
     [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
     [[[MeshToObjUtils alloc]init]getObj:self.md5MeshData];
     
+    [self.md5MeshData upToGpu];
     
     [self loadAnimFrame];
     

@@ -75,6 +75,8 @@ public class Md5MoveSprite extends Display3DSprite {
                     md5MeshData = new Md5Analysis().addMesh(txt);
                     new MeshImportSort().processMesh(md5MeshData);
                     new MeshToObjUtils().getObj( md5MeshData);
+
+
                     loadAnimFrame();
                 }else{
 

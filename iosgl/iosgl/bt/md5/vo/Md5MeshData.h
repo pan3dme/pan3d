@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableArray*  uvItem;
 @property(nonatomic,strong)NSMutableArray*  boneItem;
 @property(nonatomic,assign)int faceNum;
+-(void)upToGpu;
 @end
 
 NS_ASSUME_NONNULL_END

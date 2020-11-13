@@ -35,7 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLuint indexBuffer ;
 @property (nonatomic, strong) NSMutableData *dataView ;
 @property (nonatomic, assign) GLuint dataViewBuffer ;
-
+-(GLuint)upGpuIndexBuffer:(NSArray*)arr;
+-(GLuint)upGpuvertexBuffer:(NSArray*)arr;
 -(void)upToGpu;
 @end
 
