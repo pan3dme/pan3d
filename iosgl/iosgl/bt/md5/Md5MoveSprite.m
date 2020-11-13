@@ -28,6 +28,10 @@
 @interface Md5MoveSprite ()
 @property(nonatomic,strong)Md5MeshData* md5MeshData;
 @property(nonatomic,strong)NSMutableArray* frameQuestArr;
+@property(nonatomic,assign)NSInteger skipNum;
+@property(nonatomic,assign)bool useLocalFile;
+
+
 
 @end
 
@@ -37,6 +41,8 @@
 {
     self = [super init];
     if (self) {
+        self.useLocalFile=true;
+        self.skipNum=0;
         [self inidShader];
     }
     return self;
@@ -51,63 +57,66 @@
     self.bodyurl=body_url;
     self.animurl=anim_url;
     self.picurl=pic_url;
-    
-    
-        [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:pic_url] fun:^(NSObject * _Nonnull any) {
-            self.textureRes=(TextureRes*)any;
-        } wrapType:0 info:nil filteType:0 mipmapType:0];
-    
-    
     [self loadBodyMesh];
+    [self loadTextureBase];
 }
 
 -(void)loadBodyMesh{
     
-    /*
-     NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.bodyurl];
-     
-     netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/bodymd5mesh.txt";
-     
-     
-     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
-     NSDictionary* dic=(NSDictionary*)value;
-     NSString* path=  dic[@"data"];
-     NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
-     self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
-     [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
-     [self loadAnimFrame];
-     }];
-     
-     */
     
-    NSString *path=  [[NSBundle mainBundle]pathForResource:@"bodymd5mesh" ofType:@"txt"];
-    NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+    
+    if(self.useLocalFile){
+        NSString *path=  [[NSBundle mainBundle]pathForResource:@"bodymd5mesh" ofType:@"txt"];
+        NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+        [self jiexieBodyMeshMd5:str];
+    }else{
+        NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.bodyurl];
+        netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/bodymd5mesh.txt";
+        [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
+            NSDictionary* dic=(NSDictionary*)value;
+            NSString *str=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSASCIIStringEncoding error:nil];
+            [self jiexieBodyMeshMd5:str];
+        }];
+        
+    }
+}
+-(void)jiexieBodyMeshMd5:(NSString*)str
+{
     self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
     [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
     [[[MeshToObjUtils alloc]init]getObj:self.md5MeshData];
-    
-   
-    
     [self loadAnimFrame];
-    
-    
 }
 
 -(void)loadAnimFrame
 {
+    if(!self.md5MeshData)
+    {
+        NSLog(@"需要MESH先加载");
+        return;
+    }
+    if(self.useLocalFile){
+        NSString *path=  [[NSBundle mainBundle]pathForResource:@"standmd5anim" ofType:@"txt"];
+        NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+        [self jiexieAnimMd5:str];
+    }else{
+        NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.animurl];
+        netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/standmd5anim.txt";
+        [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
+            NSDictionary* dic=(NSDictionary*)value;
+            NSString *str=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSASCIIStringEncoding error:nil];
+            [self jiexieAnimMd5:str];
+        }];
+    }
+    
+    
     /*
-     NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.animurl];
-     netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/standmd5anim.txt";
-     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
-     NSDictionary* dic=(NSDictionary*)value;
-     NSString* path=  dic[@"data"];
-     NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
-     NSLog(str);
-     NSArray* matrixAry=  [[[Md5animAnalysis alloc]init]addAnim:str];
-     }];
+     
      */
-    NSString *path=  [[NSBundle mainBundle]pathForResource:@"standmd5anim" ofType:@"txt"];
-    NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+    
+}
+-(void)jiexieAnimMd5:(NSString*)str
+{
     NSArray* matrixAry=  [[[Md5animAnalysis alloc]init]addAnim:str];
     self.frameQuestArr=[[NSMutableArray alloc] init];
     for (int i = 0; i < matrixAry.count; i++) {
@@ -118,7 +127,12 @@
         }
         [self.frameQuestArr  addObject: [self makeDualQuatFloat32Array: matrixAry[i]]];
     }
-    
+}
+-(void)loadTextureBase
+{
+    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:self.picurl] fun:^(NSObject * _Nonnull any) {
+        self.textureRes=(TextureRes*)any;
+    } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
 -(DualQuatFloat32Array*) makeDualQuatFloat32Array:(NSArray<Matrix3D*>*)$frameAry {
     Md5MoveSprite* this=self;
@@ -160,7 +174,7 @@
 }
 - (void)upFrame
 {
-    if(self.md5MeshData&&self.textureRes){
+    if(self.md5MeshData&&self.textureRes&&self.frameQuestArr){
         [self updateMaterialMeshCopy];
     }
 }
@@ -184,6 +198,21 @@
     [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
     
     [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:self.textureRes.textTureLuint level:0];
+ 
+    self.skipNum++;
+    
+    DualQuatFloat32Array* dualQuatFrame = this.frameQuestArr[ self.skipNum%this.frameQuestArr.count];
+    
+    GLfloat boneQarr[dualQuatFrame.quatArr.count];
+    for (int i=0; i<dualQuatFrame.quatArr.count; i++) {
+        boneQarr[i]=dualQuatFrame.quatArr[i].floatValue;
+    }
+    GLfloat boneDarr[dualQuatFrame.posArr.count];
+    for (int i=0; i<dualQuatFrame.posArr.count; i++) {
+        boneDarr[i]=dualQuatFrame.posArr[i].floatValue;
+    }
+    [ctx setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
+    [ctx setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
     
     [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
 }
@@ -192,13 +221,11 @@
     Md5MoveSprite* this=self;
     Context3D *context3D=this.scene3d.context3D;
     [this.posMatrix3d identity];
-
     Matrix3D* viewM=this.viewMatrix;
-  
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
     [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
 }
 
 @end
 
- 
+

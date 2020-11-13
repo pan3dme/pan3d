@@ -54,7 +54,7 @@
     "}"
     " void main(void){"
     "    v0 = v2Uv;"
-    "    vec4 vt0 =  vec4(pos.x, pos.y, pos.z,1.0);"
+    "    vec4 vt0 = getQDdata(vec3(pos.x, pos.y, pos.z));"
     "    vt0 = posMatrix3D * vt0;"
     "    vt0 =vt0* vpMatrix3D ;"
     "    gl_Position = vt0;\n"
