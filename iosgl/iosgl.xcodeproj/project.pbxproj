@@ -18,6 +18,8 @@
 		9C1DA498255C655E00FAE501 /* ObjectTri.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA493255C655E00FAE501 /* ObjectTri.m */; };
 		9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA495255C655E00FAE501 /* ObjectUv.m */; };
 		9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA497255C655E00FAE501 /* ObjectWeight.m */; };
+		9CD92236255E566D00DEE26B /* bodymd5mesh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CD92234255E566D00DEE26B /* bodymd5mesh.txt */; };
+		9CD92237255E566D00DEE26B /* standmd5anim.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CD92235255E566D00DEE26B /* standmd5anim.txt */; };
 		9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF4333254F1F68009472D9 /* ScaleAnim.m */; };
 		E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */; };
 		FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B85241EE1DD00AD44BE /* MaterialParamData.m */; };
@@ -232,6 +234,8 @@
 		9C1DA495255C655E00FAE501 /* ObjectUv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectUv.m; sourceTree = "<group>"; };
 		9C1DA496255C655E00FAE501 /* ObjectWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWeight.h; sourceTree = "<group>"; };
 		9C1DA497255C655E00FAE501 /* ObjectWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWeight.m; sourceTree = "<group>"; };
+		9CD92234255E566D00DEE26B /* bodymd5mesh.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bodymd5mesh.txt; sourceTree = "<group>"; };
+		9CD92235255E566D00DEE26B /* standmd5anim.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = standmd5anim.txt; sourceTree = "<group>"; };
 		9CFF4333254F1F68009472D9 /* ScaleAnim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleAnim.m; sourceTree = "<group>"; };
 		9CFF4336254F1F75009472D9 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleAnim.h; sourceTree = "<group>"; };
 		FE064B84241EE1DD00AD44BE /* MaterialParamData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialParamData.h; sourceTree = "<group>"; };
@@ -803,6 +807,8 @@
 			isa = PBXGroup;
 			children = (
 				FE49FE5623C70E39001FAE9B /* 256.jpg */,
+				9CD92234255E566D00DEE26B /* bodymd5mesh.txt */,
+				9CD92235255E566D00DEE26B /* standmd5anim.txt */,
 				FED0DA5524016C44009F6575 /* baoxiang001_base.txt */,
 				FED0DA5424016C43009F6575 /* baoxiang001.txt */,
 				FE49FE5423C70E39001FAE9B /* 1001_base.txt */,
@@ -1396,12 +1402,14 @@
 			files = (
 				FE49FE6423C70E3A001FAE9B /* shadertwo.fsh in Resources */,
 				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
+				9CD92236255E566D00DEE26B /* bodymd5mesh.txt in Resources */,
 				FE49FE6723C70E3A001FAE9B /* ball.xml in Resources */,
 				FE49FE6823C70E3A001FAE9B /* box.txt in Resources */,
 				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
 				FE49FE6023C70E3A001FAE9B /* 1001_base.txt in Resources */,
 				FED0DA4724002A94009F6575 /* TokenSceneView.xib in Resources */,
 				FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */,
+				9CD92237255E566D00DEE26B /* standmd5anim.txt in Resources */,
 				FE49FE6A23C70E3A001FAE9B /* 5555_base.txt in Resources */,
 				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
 				FE49FE6323C70E3A001FAE9B /* brdf_ltu.jpg in Resources */,

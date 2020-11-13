@@ -27,9 +27,9 @@
     self.picurl=pic_url;
     
     
-    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:pic_url] fun:^(NSObject * _Nonnull any) {
-        self.textureRes=(TextureRes*)any;
-    } wrapType:0 info:nil filteType:0 mipmapType:0];
+//    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:pic_url] fun:^(NSObject * _Nonnull any) {
+//        self.textureRes=(TextureRes*)any;
+//    } wrapType:0 info:nil filteType:0 mipmapType:0];
     
     
     [self loadBodyMesh];
@@ -37,45 +37,49 @@
 
 -(void)loadBodyMesh{
     
-    NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.bodyurl];
+    /*
+     NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.bodyurl];
+     
+     netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/bodymd5mesh.txt";
+     
+     
+     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
+     NSDictionary* dic=(NSDictionary*)value;
+     NSString* path=  dic[@"data"];
+     NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+     self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
+     [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
+     [self loadAnimFrame];
+     }];
+     
+     */
     
-    netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/bodymd5mesh.txt";
+    NSString *path=  [[NSBundle mainBundle]pathForResource:@"bodymd5mesh" ofType:@"txt"];
+    NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+    self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
+    [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
+    [self loadAnimFrame];
     
-    [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
-        NSDictionary* dic=(NSDictionary*)value;
-        NSString* path=  dic[@"data"];
-        NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
-        self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
-        [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
-        [self loadAnimFrame];
-    }];
+    
 }
 -(void)loadAnimFrame
 {
-    NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.animurl];
-    netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/standmd5anim.txt";
-    [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
-        NSDictionary* dic=(NSDictionary*)value;
-        NSString* path=  dic[@"data"];
-        NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
-        NSLog(str);
-        NSArray* matrixAry=  [[[Md5animAnalysis alloc]init]addAnim:str];
-        
-        
-        
-    }];
+    /*
+     NSString* netUrl =[[Scene_data default]getWorkUrlByFilePath:self.animurl];
+     netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/txtdata/standmd5anim.txt";
+     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
+     NSDictionary* dic=(NSDictionary*)value;
+     NSString* path=  dic[@"data"];
+     NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+     NSLog(str);
+     NSArray* matrixAry=  [[[Md5animAnalysis alloc]init]addAnim:str];
+     }];
+     */
+    NSString *path=  [[NSBundle mainBundle]pathForResource:@"standmd5anim" ofType:@"txt"];
+    NSString *str=[NSString stringWithContentsOfFile: path encoding:NSASCIIStringEncoding error:nil];
+    NSArray* matrixAry=  [[[Md5animAnalysis alloc]init]addAnim:str];
     
-    //    LoadManager.getInstance().load(Scene_data.fileRoot  + this.animUrl, LoadManager.XML_TYPE, ($str: any) => {
-    //                 var $matrixAry: Array<Array<Matrix3D>> = new Md5animAnalysis().addAnim($str);
-    //                 this.frameQuestArr = new Array;
-    //                 for (var i: number = 0; i < $matrixAry.length; i++) {
-    //                     var $frameAry: Array<Matrix3D> = $matrixAry[i];
-    //                     for (var j: number = 0; j < $frameAry.length; j++) {
-    //                         $frameAry[j].prepend(this.md5MeshData.invertAry[j]);
-    //                     }
-    //                     this.frameQuestArr.push(this.makeDualQuatFloat32Array($matrixAry[i]));
-    //                 }
-    //             });
 }
+
 @end
 
