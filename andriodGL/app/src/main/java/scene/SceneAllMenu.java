@@ -84,12 +84,12 @@ public class SceneAllMenu extends AppCompatActivity   {
                 _scene3d.addDisplay(dis);
 //                loadSceneByUrl("2013");
 
-//                addLocaMd5();
+
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 //                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
 //                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
-                addLoadFrame3dRes();
+
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {

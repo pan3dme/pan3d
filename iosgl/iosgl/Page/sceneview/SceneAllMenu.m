@@ -13,6 +13,7 @@
 #import "GroupItem.h"
 #import "Scene_data.h"
 #import "SceneRes.h"
+#import "Frame3dSprite.h"
 #import "Md5MoveSprite.h"
 #import "GroupDataManager.h"
 #import "GridLineSprite.h"
@@ -42,6 +43,7 @@
 {
     NSMutableArray* arr=[[NSMutableArray alloc]init];
     [arr addObject:@"场景"];
+    [arr addObject:@"MD5"];
     [arr addObject:@"角色"];
     [arr addObject:@"特效"];
     [arr addObject:@"技能"];
@@ -49,6 +51,16 @@
     [self addBaseMenuButs:arr];
     [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
     
+    [self addFrame3dSprite];
+  
+}
+-(void)addFrame3dSprite;
+{
+    Frame3dSprite* frame3dSprite=[[Frame3dSprite alloc] init];
+    [self.sceneView.scene3D addDisplay:frame3dSprite];
+}
+-(void)addMd5LoackFile;
+{
     Md5MoveSprite *sc=[[Md5MoveSprite alloc]init];
  
     [sc setMd5url:@"pan/expmd5/2/body.md5mesh"  animurl:@"pan/expmd5/2/body.md5mesh"  picurl:@"pan/expmd5/shuangdaonv.jpg"  ];
@@ -84,6 +96,8 @@
      
     }else if([str isEqualToString:@"网格"]){
         [self.sceneView.scene3D addDisplay:[[GridLineSprite alloc]init]];
+    }else if([str isEqualToString:@"MD5"]){
+        [self addMd5LoackFile];
     }else if([str isEqualToString:@"拉+"]){
         self.sceneView.scene3D.camera3D.distance*=0.8;
     }else if([str isEqualToString:@"推-"]){

@@ -8,6 +8,7 @@ import java.util.List;
 import scene.CallBack;
 import z3d.display.Display3D;
 import z3d.scene.Scene3D;
+import z3d.units.TimeUtil;
 
 public class Frame3dSprite extends Display3D {
     private static final String TAG ="Frame3dSprite" ;
@@ -16,11 +17,12 @@ public class Frame3dSprite extends Display3D {
         super(val);
         this.addLoadFrame3dRes();
     }
+    Frame3dRes frame3dRes;
     private void addLoadFrame3dRes()
     {
-
-        Frame3dRes frame3dRes=new Frame3dRes();
-        frame3dRes.load("pan/frame3dres/huowumatou_frame.txt", new CallBack() {
+        scene3d.clearAll();
+        this.frame3dRes=new Frame3dRes();
+        this.frame3dRes.load("pan/frame3dres/huowumatou_frame.txt", new CallBack() {
             @Override
             public void StateChange(Object val) {
                 loadFrame3DFinish(frame3dRes);
@@ -36,29 +38,28 @@ public class Frame3dSprite extends Display3D {
             $base.setFrameNodeVo(frame3dRes.frameItem.get(i));
             this.frameImodelItem.add($base);
         }
-
         Log.d(TAG, "loadFrame3DFinish: ");
     }
-
     private void mathTimeFrame()
     {
-
-//        if (isNaN(Frame3dRes.frameNum)) {
-//            Frame3dRes.frameNum = 0;
-//        }
-//        var dt: number = TimeUtil.getTimer() - this.lastTime;
-//        Frame3dRes.frameNum += dt / (1000 / Frame3dRes.frameSpeedNum);
-//        Frame3dRes.frameNum = Frame3dRes.frameNum % (FrameLinePointVo.maxTime-1);
-//        this.lastTime = TimeUtil.getTimer();
-      int abc=  FrameLinePointVo.maxTime;
+        float dt = TimeUtil.getTimer() - this.lastTime;
+        this.frameNum += dt / (1000 / this.frame3dRes.frameSpeedNum);
+        this.frameNum = this.frameNum % (this.frame3dRes.maxTime-1);
+        this.lastTime = TimeUtil.getTimer();
         for (int i = 0;this.frameImodelItem!=null&& i < this.frameImodelItem.size(); i++) {
-            this.frameImodelItem.get(i).frameNodeVo.curTime=1;
+            this.frameImodelItem.get(i).frameNodeVo.curTime=this.frameNum;
         }
     }
+    private float frameNum=1;
+    private float lastTime=0;
     public void upData()
     {
-        for (int i = 0;this.frameImodelItem!=null&& i < this.frameImodelItem.size(); i++) {
-            this.frameImodelItem.get(i).upData();
+        if(this.frame3dRes.isReady){
+            this.mathTimeFrame();
+            for (int i = 0;this.frameImodelItem!=null&& i < this.frameImodelItem.size(); i++) {
+                this.frameImodelItem.get(i).upData();
+            }
         }
+
     }
 }

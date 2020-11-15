@@ -31,20 +31,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/Frame3dRes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/Frame3dRes.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/Frame3dSprite.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/Frame3dSprite.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/FrameFileNode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/FrameFileNode.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/FrameLinePointVo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/FrameLinePointVo.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/FrameNodeVo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/FrameNodeVo.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameBaseDisplay.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameBaseDisplay.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameBuildShader.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameBuildShader.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameBuildSprite.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameBuildSprite.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameSceneChar.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/FrameSceneChar.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/LightDisplay3DSprite.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/LightDisplay3DSprite.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/ShadowDisplay3DSprite.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosgl/iosgl/bt/frame3d/dis/ShadowDisplay3DSprite.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameFileNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameFileNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameLinePointVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameLinePointVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameNodeVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameNodeVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/SceneAllMenu.m" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl/Page/sceneview/SceneAllMenu.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -208,46 +236,46 @@
     </state>
     <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605115081458" />
     <state width="567" height="438" key="DebuggerActiveHint/0.25.1440.875@0.25.1440.875" timestamp="1605450427067" />
-    <state width="1174" height="239" key="GridCell.Tab.0.bottom" timestamp="1605451369673">
+    <state width="1174" height="190" key="GridCell.Tab.0.bottom" timestamp="1605459228539">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605451369673" />
-    <state width="1174" height="239" key="GridCell.Tab.0.center" timestamp="1605451369671">
+    <state width="1174" height="190" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605459228539" />
+    <state width="1174" height="190" key="GridCell.Tab.0.center" timestamp="1605459228538">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605451369671" />
-    <state width="1174" height="239" key="GridCell.Tab.0.left" timestamp="1605451369670">
+    <state width="1174" height="190" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605459228538" />
+    <state width="1174" height="190" key="GridCell.Tab.0.left" timestamp="1605459228537">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605451369670" />
-    <state width="1174" height="239" key="GridCell.Tab.0.right" timestamp="1605451369672">
+    <state width="1174" height="190" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605459228537" />
+    <state width="1174" height="190" key="GridCell.Tab.0.right" timestamp="1605459228538">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605451369672" />
-    <state width="1174" height="239" key="GridCell.Tab.1.bottom" timestamp="1605451369675">
+    <state width="1174" height="190" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605459228538" />
+    <state width="587" height="239" key="GridCell.Tab.1.bottom" timestamp="1605452097069">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241607" />
-    <state width="1174" height="239" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605451369675" />
-    <state width="1174" height="239" key="GridCell.Tab.1.center" timestamp="1605451369674">
+    <state width="587" height="239" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605452097069" />
+    <state width="587" height="239" key="GridCell.Tab.1.center" timestamp="1605452097067">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1605451369674" />
-    <state width="1174" height="239" key="GridCell.Tab.1.left" timestamp="1605451369674">
+    <state width="587" height="239" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1605452097067" />
+    <state width="587" height="239" key="GridCell.Tab.1.left" timestamp="1605452097067">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1605451369674" />
-    <state width="1174" height="239" key="GridCell.Tab.1.right" timestamp="1605451369675">
+    <state width="587" height="239" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1605452097067" />
+    <state width="587" height="239" key="GridCell.Tab.1.right" timestamp="1605452097068">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241607" />
-    <state width="1174" height="239" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1605451369675" />
+    <state width="587" height="239" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1605452097068" />
     <state x="310" y="200" key="IDE.errors.dialog" timestamp="1605430583631">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -268,11 +296,11 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="330" y="52" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.25.1440.875@0.25.1440.875" timestamp="1605433990135" />
-    <state x="364" y="66" width="615" height="734" key="find.popup" timestamp="1605448798739">
+    <state x="364" y="66" width="615" height="734" key="find.popup" timestamp="1605451618917">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="364" y="64" width="615" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1605270040599" />
-    <state x="364" y="66" width="615" height="734" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1605448798739" />
+    <state x="364" y="66" width="615" height="734" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1605451618917" />
     <state x="359" y="193" key="run.anything.popup" timestamp="1604273789465">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -290,16 +318,6 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/units/LoaderThread.java</url>
           <line>85</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/LightDisplay3DSprite.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureManager.java</url>

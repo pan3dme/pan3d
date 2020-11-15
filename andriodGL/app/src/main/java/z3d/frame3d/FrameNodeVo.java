@@ -17,7 +17,7 @@ public class FrameNodeVo {
     public String name;
     public String url;
     public String resurl;
-    public int curTime=1;
+    public float curTime=1;
     public boolean noLight;
     public boolean directLight;
     public boolean receiveShadow;
@@ -29,6 +29,8 @@ public class FrameNodeVo {
     public String materialurl;
 
 
+    public float    maxTime;
+
     public void writeObject(JSONObject $obj) {
         try {
         this.id = $obj.getInt("id");
@@ -39,6 +41,7 @@ public class FrameNodeVo {
         for (int j = 0; j < itememArr.length(); j++) {
             FrameLinePointVo frameLinePointVo = new FrameLinePointVo();
             frameLinePointVo.writeObject((JSONObject) itememArr.get(j));
+            this.maxTime=Math.max(frameLinePointVo.time,this.maxTime);
             this.pointitem.add(frameLinePointVo);
         }
         this.resurl = $obj.getString("resurl");

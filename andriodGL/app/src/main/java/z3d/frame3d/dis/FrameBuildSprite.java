@@ -44,9 +44,12 @@ public class FrameBuildSprite  extends FrameBaseDisplay {
     @Override
     public void upData() {
         super.upData();
-        for (int i=0;i<this.groupItem.size();i++){
-            this.drawTempDisplay(this.groupItem.get(i));
-        }
+       if( this.sceneVisible){
+           for (int i=0;i<this.groupItem.size();i++){
+               this.drawTempDisplay(this.groupItem.get(i));
+           }
+       }
+
     }
     private void drawTempDisplay(Display3DSprite display) {
         if(display.objData==null){

@@ -14,7 +14,6 @@ public class FrameLinePointVo extends Object3D {
     public boolean isAnimation;
     public Object data;
 
-    public static int maxTime = 0;
 
     public void writeObject(JSONObject $obj) {
 
@@ -41,7 +40,7 @@ public class FrameLinePointVo extends Object3D {
             this.data = $obj.get("data");
 
 
-            FrameLinePointVo.maxTime = Math.max((int)this.time, FrameLinePointVo.maxTime);
+           
 
         } catch (Exception e) {
             e.printStackTrace();

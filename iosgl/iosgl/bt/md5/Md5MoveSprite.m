@@ -37,15 +37,12 @@
 
 @implementation Md5MoveSprite
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.useLocalFile=true;
-        self.skipNum=0;
-        [self inidShader];
-    }
-    return self;
+
+- (void)initData{
+    [super initData];
+    self.useLocalFile=true;
+    self.skipNum=0;
+    [self inidShader];
 }
 -(void)inidShader
 {

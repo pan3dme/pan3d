@@ -9,24 +9,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import scene.CallBack;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
-import z3d.base.ObjData;
+
 import z3d.base.Scene_data;
-import z3d.md5.Md5Analysis;
-import z3d.md5.MeshImportSort;
-import z3d.md5.MeshToObjUtils;
+
 import z3d.res.BaseRes;
-import z3d.scene.Scene3D;
+
 import z3d.units.LoadBackFun;
 import z3d.units.LoadManager;
 
 public class Frame3dRes extends BaseRes {
     private static final String TAG ="Frame3dRes" ;
-//public  static float  frameNum=1;
+    public boolean isReady;
     private CallBack _completeFun;
     public void load(String url, CallBack bfun){
         _completeFun=bfun;
@@ -42,7 +39,7 @@ public class Frame3dRes extends BaseRes {
             }
         },null);
     }
-    public static int frameSpeedNum;
+    public int frameSpeedNum;
     public static String sceneFileroot;
     public static String fileName;
     public boolean haveVideo;
@@ -53,9 +50,9 @@ public class Frame3dRes extends BaseRes {
         String[] itemstr=  $str.split("/");
         Frame3dRes.sceneFileroot = $str.replace(itemstr[itemstr.length - 1], "");
         Frame3dRes.fileName = itemstr[itemstr.length - 1];
-        Frame3dRes.frameSpeedNum = this._byte.readInt();
+        this.frameSpeedNum = this._byte.readInt();
 
-        Log.d(TAG, "版本"+ this.version+ "frameSpeedNum"+ Frame3dRes.frameSpeedNum);
+        Log.d(TAG, "版本"+ this.version+ "frameSpeedNum"+ this.frameSpeedNum);
 
         this.readSceneInfo();
 
@@ -77,19 +74,22 @@ public class Frame3dRes extends BaseRes {
 
     }
     public List<FrameNodeVo> frameItem;
+    public float maxTime=0;
     public void readFrame3dScene() {
         try {
             this.frameItem =new ArrayList<>();
             int size = this._byte.readInt();
             JSONArray $scene = new JSONArray(this._byte.readUTFBytes(size));
 
-        for (int i = 0; i < $scene.length(); i++) {
-            FrameNodeVo $frameNodeVo = new FrameNodeVo();
-            $scene.get(i);
-            $frameNodeVo.writeObject((JSONObject)$scene.get(i));
-            this.frameItem.add($frameNodeVo);
-        }
-        this._completeFun.StateChange(true);
+            for (int i = 0; i < $scene.length(); i++) {
+                FrameNodeVo $frameNodeVo = new FrameNodeVo();
+                $scene.get(i);
+                $frameNodeVo.writeObject((JSONObject)$scene.get(i));
+                this.frameItem.add($frameNodeVo);
+                this.maxTime=Math.max($frameNodeVo.maxTime,this.maxTime) ;
+            }
+            this._completeFun.StateChange(true);
+            this.isReady=true;
         } catch (JSONException e) {
             e.printStackTrace();
         }
