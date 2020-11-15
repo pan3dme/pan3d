@@ -31,7 +31,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameFileNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameLinePointVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameNodeVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBaseDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameSceneChar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/LightDisplay3DSprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/ShadowDisplay3DSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +81,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_30_x86" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-11T09:54:54.214Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-15T09:13:39.301Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SelectDeploymentTargetsDialog.selectedDevices" value="Pixel_3a_API_30_x86" />
@@ -184,50 +199,69 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="158" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604273831456" />
-    <state x="574" y="322" width="489" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604943947048">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="574" y="323" width="489" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605441750465">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="574" y="322" width="489" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1440.877@0.23.1440.877" timestamp="1604943947048" />
-    <state x="226" y="165" width="1016" height="557" key="AVDManager" timestamp="1604274453498">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="574" y="323" width="489" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.25.1440.875@0.25.1440.875" timestamp="1605441750465" />
+    <state x="552" y="188" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605441775561">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="552" y="188" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875@0.25.1440.875" timestamp="1605441775561" />
+    <state x="226" y="167" width="1016" height="556" key="AVDManager" timestamp="1605431389153">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="226" y="165" width="1016" height="557" key="AVDManager/0.23.1440.877@0.23.1440.877" timestamp="1604274453498" />
-    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605115081458">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="226" y="167" width="1016" height="556" key="AVDManager/0.25.1440.875@0.25.1440.875" timestamp="1605431389153" />
+    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605449227938">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605115081458" />
-    <state width="1174" height="266" key="GridCell.Tab.0.bottom" timestamp="1605261241606">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="567" height="438" key="DebuggerActiveHint/0.25.1440.875@0.25.1440.875" timestamp="1605449227938" />
+    <state width="1174" height="239" key="GridCell.Tab.0.bottom" timestamp="1605449297953">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="266" key="GridCell.Tab.0.center" timestamp="1605261241606">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1174" height="239" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605449297953" />
+    <state width="1174" height="239" key="GridCell.Tab.0.center" timestamp="1605449297952">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="266" key="GridCell.Tab.0.left" timestamp="1605261241606">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1174" height="239" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605449297952" />
+    <state width="1174" height="239" key="GridCell.Tab.0.left" timestamp="1605449297952">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="266" key="GridCell.Tab.0.right" timestamp="1605261241606">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1174" height="239" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605449297952" />
+    <state width="1174" height="239" key="GridCell.Tab.0.right" timestamp="1605449297953">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="266" key="GridCell.Tab.1.bottom" timestamp="1605261241607">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1174" height="239" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605449297953" />
+    <state width="1174" height="239" key="GridCell.Tab.1.bottom" timestamp="1605449297954">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241607" />
-    <state width="1174" height="266" key="GridCell.Tab.1.center" timestamp="1605261241606">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1174" height="239" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605449297954" />
+    <state width="1174" height="239" key="GridCell.Tab.1.center" timestamp="1605449297954">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="266" key="GridCell.Tab.1.left" timestamp="1605261241606">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1174" height="239" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1605449297954" />
+    <state width="1174" height="239" key="GridCell.Tab.1.left" timestamp="1605449297953">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="266" key="GridCell.Tab.1.right" timestamp="1605261241607">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1174" height="239" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1605449297953" />
+    <state width="1174" height="239" key="GridCell.Tab.1.right" timestamp="1605449297954">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241607" />
+    <state width="1174" height="239" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1605449297954" />
+    <state x="310" y="200" key="IDE.errors.dialog" timestamp="1605430583631">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="310" y="200" key="IDE.errors.dialog/0.25.1440.875@0.25.1440.875" timestamp="1605430583631" />
     <state x="221" y="59" key="SettingsEditor" timestamp="1604251431408">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -240,18 +274,24 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="338" y="236" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.23.1440.877@0.23.1440.877" timestamp="1604274093407" />
-    <state x="364" y="64" width="615" height="735" key="find.popup" timestamp="1605270040599">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="330" y="52" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605433990135">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="330" y="52" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.25.1440.875@0.25.1440.875" timestamp="1605433990135" />
+    <state x="364" y="66" width="615" height="734" key="find.popup" timestamp="1605448798739">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="364" y="64" width="615" height="735" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1605270040599" />
+    <state x="364" y="66" width="615" height="734" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1605448798739" />
     <state x="359" y="193" key="run.anything.popup" timestamp="1604273789465">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="359" y="193" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1604273789465" />
-    <state x="484" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1605269964938">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="484" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1605446761305">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="484" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605269964938" />
+    <state x="484" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1605446761305" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -261,11 +301,27 @@
           <line>85</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/LightDisplay3DSprite.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/z3d/filemodel/TextureManager.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo typeName="java.lang.String" fieldName="count" />
+        <PinnedItemInfo typeName="org.json.JSONObject$1" fieldName="shadow$_monitor_" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

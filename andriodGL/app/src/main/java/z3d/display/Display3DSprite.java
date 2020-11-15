@@ -5,9 +5,11 @@ import z3d.base.ObjData;
 import z3d.base.ObjDataBackFun;
 import z3d.base.ObjDataManager;
 import z3d.base.Scene_data;
+import z3d.base.TexTuresBackFun;
 import z3d.core.Context3D;
 import z3d.display.interfaces.IBind;
 import z3d.display.role.Display3dMovie;
+import z3d.filemodel.TextureManager;
 import z3d.material.DynamicBaseTexItem;
 import z3d.material.Material;
 import z3d.material.MaterialBackFun;
@@ -84,6 +86,17 @@ public   class Display3DSprite extends Display3D {
             @Override
             public void Bfun(ObjData value) {
                 objData=value;
+            }
+        });
+    }
+    public TextureRes baseTextureRes;
+    public void  setPicUrl(String value)
+    {
+
+        TextureManager.getInstance().getTexture( Scene_data.fileRoot+ value, new TexTuresBackFun() {
+            @Override
+            public void Bfun(TextureRes value) {
+                baseTextureRes =value;
             }
         });
     }

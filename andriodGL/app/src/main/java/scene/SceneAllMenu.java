@@ -39,6 +39,9 @@ import z3d.display.role.Display3dMovie;
 import z3d.display.role.SceneChar;
 import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.ParticleManager;
+import z3d.frame3d.Frame3dRes;
+import z3d.frame3d.Frame3dSprite;
+import z3d.frame3d.FrameFileNode;
 import z3d.md5.Md5MoveSprite;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
@@ -86,6 +89,7 @@ public class SceneAllMenu extends AppCompatActivity   {
 //                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
 //                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
+                addLoadFrame3dRes();
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -110,6 +114,15 @@ public class SceneAllMenu extends AppCompatActivity   {
         initData();
 
     }
+    private void addLoadFrame3dRes()
+    {
+        Frame3dSprite frame3dSprite=new Frame3dSprite(this._scene3d);
+
+        this._scene3d.addDisplay(frame3dSprite);
+
+    }
+
+
     private void addLocaMd5(){
         Md5MoveSprite $sc = new Md5MoveSprite(_scene3d);
         https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg
@@ -129,6 +142,7 @@ public class SceneAllMenu extends AppCompatActivity   {
 
         List<String> arr=new ArrayList<>();
         arr.add("MD5");
+        arr.add("动态");
         arr.add("场景");
         arr.add("角色");
         arr.add("特效");
@@ -144,6 +158,9 @@ public class SceneAllMenu extends AppCompatActivity   {
                 switch ((String) val){
                     case "场景":
                         _selectChangjing();
+                        break;
+                    case "动态":
+                        addLoadFrame3dRes();
                         break;
                     case "角色":
                         _selectRole();
