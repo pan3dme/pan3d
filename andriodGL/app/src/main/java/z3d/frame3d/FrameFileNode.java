@@ -67,9 +67,9 @@ public class FrameFileNode extends Display3D {
     @Override
     public void upData() {
 
-        this.sceneVisible = this.isVisible(Frame3dRes.frameNum);
+        this.sceneVisible = this.isVisible(frameNodeVo.curTime);
         if (this.sceneVisible) {
-            this.setModelSprite(this.playFrameVoByTime(Frame3dRes.frameNum));
+            this.setModelSprite(this.playFrameVoByTime(frameNodeVo.curTime));
         }
         if (this._particle!=null) {
             this._particle.sceneVisible = this.sceneVisible;

@@ -17,7 +17,7 @@ public class FrameNodeVo {
     public String name;
     public String url;
     public String resurl;
-
+    public int curTime=1;
     public boolean noLight;
     public boolean directLight;
     public boolean receiveShadow;

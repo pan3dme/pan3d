@@ -69,7 +69,6 @@ public class FrameBuildSprite  extends FrameBaseDisplay {
     {
         Context3D ctx=this.scene3d.context3D;
         ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
-        this.posMatrix3d.identity();
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
 
     }

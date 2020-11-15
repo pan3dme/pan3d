@@ -26,17 +26,17 @@ public class FrameLinePointVo extends Object3D {
             this.isAnimation = $obj.getBoolean("isAnimation");
 
 
-            this.x = $obj.getLong("x") / 10;
-            this.y =  $obj.getLong("y")  / 10;
-            this.z = $obj.getLong("z")  / 10;
+            this.x =  (float) $obj.getDouble("x") / 10;
+            this.y =  (float)  $obj.getDouble("y")  / 10;
+            this.z =  (float) $obj.getDouble("z")  / 10;
 
-            this.scaleX =  $obj.getLong("scaleX") / 10;
-            this.scaleY =  $obj.getLong("scaleY")  / 10;
-            this.scaleZ =  $obj.getLong("scaleZ")  / 10;
+            this.scaleX = (float) $obj.getDouble("scaleX") / 10;
+            this.scaleY =  (float)  $obj.getDouble("scaleY")  / 10;
+            this.scaleZ =  (float)  $obj.getDouble("scaleZ")  / 10;
 
-            this.rotationX =  $obj.getLong("rotationX") ;
-            this.rotationY =  $obj.getLong("rotationY") ;
-            this.rotationZ = $obj.getLong("rotationZ") ;
+            this.rotationX =   (float) $obj.getDouble("rotationX") ;
+            this.rotationY =  (float) $obj.getDouble("rotationY") ;
+            this.rotationZ =  (float) $obj.getDouble("rotationZ") ;
 
             this.data = $obj.get("data");
 

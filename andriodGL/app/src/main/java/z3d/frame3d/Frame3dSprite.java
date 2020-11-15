@@ -18,7 +18,7 @@ public class Frame3dSprite extends Display3D {
     }
     private void addLoadFrame3dRes()
     {
-        //https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/frame3dres/huowumatou_frame.txt
+
         Frame3dRes frame3dRes=new Frame3dRes();
         frame3dRes.load("pan/frame3dres/huowumatou_frame.txt", new CallBack() {
             @Override
@@ -38,6 +38,22 @@ public class Frame3dSprite extends Display3D {
         }
 
         Log.d(TAG, "loadFrame3DFinish: ");
+    }
+
+    private void mathTimeFrame()
+    {
+
+//        if (isNaN(Frame3dRes.frameNum)) {
+//            Frame3dRes.frameNum = 0;
+//        }
+//        var dt: number = TimeUtil.getTimer() - this.lastTime;
+//        Frame3dRes.frameNum += dt / (1000 / Frame3dRes.frameSpeedNum);
+//        Frame3dRes.frameNum = Frame3dRes.frameNum % (FrameLinePointVo.maxTime-1);
+//        this.lastTime = TimeUtil.getTimer();
+      int abc=  FrameLinePointVo.maxTime;
+        for (int i = 0;this.frameImodelItem!=null&& i < this.frameImodelItem.size(); i++) {
+            this.frameImodelItem.get(i).frameNodeVo.curTime=1;
+        }
     }
     public void upData()
     {

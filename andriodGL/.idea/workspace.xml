@@ -31,23 +31,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dSprite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameFileNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameLinePointVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameNodeVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBaseDisplay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildShader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildSprite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameSceneChar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/LightDisplay3DSprite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/ShadowDisplay3DSprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/display/Display3DSprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/Pods/Pods.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcodeproj/xcuserdata/pan3dme.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dRes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/Frame3dSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameFileNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameFileNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameLinePointVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameLinePointVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameNodeVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/FrameNodeVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/z3d/frame3d/dis/FrameBuildSprite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,51 +203,51 @@
     </state>
     <state x="226" y="165" width="1016" height="557" key="AVDManager/0.23.1440.877@0.23.1440.877" timestamp="1604274453498" />
     <state x="226" y="167" width="1016" height="556" key="AVDManager/0.25.1440.875@0.25.1440.875" timestamp="1605431389153" />
-    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605449227938">
+    <state width="567" height="438" key="DebuggerActiveHint" timestamp="1605450427067">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605115081458" />
-    <state width="567" height="438" key="DebuggerActiveHint/0.25.1440.875@0.25.1440.875" timestamp="1605449227938" />
-    <state width="1174" height="239" key="GridCell.Tab.0.bottom" timestamp="1605449297953">
+    <state width="567" height="438" key="DebuggerActiveHint/0.25.1440.875@0.25.1440.875" timestamp="1605450427067" />
+    <state width="1174" height="239" key="GridCell.Tab.0.bottom" timestamp="1605451369673">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605449297953" />
-    <state width="1174" height="239" key="GridCell.Tab.0.center" timestamp="1605449297952">
+    <state width="1174" height="239" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605451369673" />
+    <state width="1174" height="239" key="GridCell.Tab.0.center" timestamp="1605451369671">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605449297952" />
-    <state width="1174" height="239" key="GridCell.Tab.0.left" timestamp="1605449297952">
+    <state width="1174" height="239" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605451369671" />
+    <state width="1174" height="239" key="GridCell.Tab.0.left" timestamp="1605451369670">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605449297952" />
-    <state width="1174" height="239" key="GridCell.Tab.0.right" timestamp="1605449297953">
+    <state width="1174" height="239" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605451369670" />
+    <state width="1174" height="239" key="GridCell.Tab.0.right" timestamp="1605451369672">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605449297953" />
-    <state width="1174" height="239" key="GridCell.Tab.1.bottom" timestamp="1605449297954">
+    <state width="1174" height="239" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605451369672" />
+    <state width="1174" height="239" key="GridCell.Tab.1.bottom" timestamp="1605451369675">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241607" />
-    <state width="1174" height="239" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605449297954" />
-    <state width="1174" height="239" key="GridCell.Tab.1.center" timestamp="1605449297954">
+    <state width="1174" height="239" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605451369675" />
+    <state width="1174" height="239" key="GridCell.Tab.1.center" timestamp="1605451369674">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1605449297954" />
-    <state width="1174" height="239" key="GridCell.Tab.1.left" timestamp="1605449297953">
+    <state width="1174" height="239" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1605451369674" />
+    <state width="1174" height="239" key="GridCell.Tab.1.left" timestamp="1605451369674">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="239" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1605449297953" />
-    <state width="1174" height="239" key="GridCell.Tab.1.right" timestamp="1605449297954">
+    <state width="1174" height="239" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1605451369674" />
+    <state width="1174" height="239" key="GridCell.Tab.1.right" timestamp="1605451369675">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241607" />
-    <state width="1174" height="239" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1605449297954" />
+    <state width="1174" height="239" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1605451369675" />
     <state x="310" y="200" key="IDE.errors.dialog" timestamp="1605430583631">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

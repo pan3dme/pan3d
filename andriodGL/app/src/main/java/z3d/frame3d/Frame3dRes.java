@@ -26,7 +26,7 @@ import z3d.units.LoadManager;
 
 public class Frame3dRes extends BaseRes {
     private static final String TAG ="Frame3dRes" ;
-public  static float  frameNum=1;
+//public  static float  frameNum=1;
     private CallBack _completeFun;
     public void load(String url, CallBack bfun){
         _completeFun=bfun;
