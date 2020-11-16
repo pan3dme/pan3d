@@ -51,12 +51,12 @@
     [self addBaseMenuButs:arr];
     [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
     
-//    [self addFrame3dSprite];
+    [self addFrame3dSprite];
   
 }
 -(void)addFrame3dSprite;
 {
-    Frame3dSprite* frame3dSprite=[[Frame3dSprite alloc] init];
+    Frame3dSprite* frame3dSprite=[[Frame3dSprite alloc] init:self.sceneView.scene3D];
     [self.sceneView.scene3D addDisplay:frame3dSprite];
 }
 -(void)addMd5LoackFile;

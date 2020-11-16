@@ -39,8 +39,10 @@ float _w;
 -(Matrix3D*)toMatrix3D;
 -(Matrix3D*)toMatrix3D:(Matrix3D*)value;
 -(void)fromMatrix:(Matrix3D*)value;
- 
 
+-(void)slerp:(Quaternion*)qa qb:(Quaternion*)qb t:(float)t;
+-(Vector3D*)toEulerAngles:(Vector3D*)target;
+ 
 -(void)setMd5W;
 
 @end

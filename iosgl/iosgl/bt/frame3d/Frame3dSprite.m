@@ -8,6 +8,7 @@
 
 #import "Frame3dSprite.h"
 #import "Frame3dRes.h"
+#import "Scene3D.h"
 #import "FrameFileNode.h"
 @interface Frame3dSprite ()
 @property (nonatomic, strong) Frame3dRes *frame3dRes;
@@ -17,12 +18,10 @@
 
 @implementation Frame3dSprite
  
-- (instancetype)init
+- (instancetype)init:(Scene3D *)val
 {
-    self = [super init];
-    if (self) {
-        [self addLoadFrame3dRes];
-    }
+    self=[super init:val];
+    [self addLoadFrame3dRes];
     return self;
 }
 

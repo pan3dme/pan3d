@@ -75,6 +75,67 @@
     this.w = cos_a;
     [this normalize:1];
 }
+
+-(void)slerp:(Quaternion*)qa qb:(Quaternion*)qb t:(float)t;
+{
+    Quaternion* this=self;
+float w1 = qa.w;
+float x1 = qa.x;
+float y1 = qa.y;
+float z1 = qa.z;
+float w2 = qb.w;
+float x2 = qb.x;
+float y2 = qb.y;
+float z2 = qb.z;
+       float dot = w1 * w2 + x1 * x2 + y1 * y2 + z1 * z2;
+
+       // shortest direction
+       if (dot < 0) {
+           dot = -dot;
+           w2 = -w2;
+           x2 = -x2;
+           y2 = -y2;
+           z2 = -z2;
+       }
+
+       if (dot < 0.95) {
+           // interpolate angle linearly
+           float angle = acos(dot);
+         
+           float s = 1.0f /  sin(angle);
+           float s1 =  sin(angle * (1 - t)) * s;
+           float s2 =  sin(angle * t) * s;
+           this.w = w1 * s1 + w2 * s2;
+           this.x = x1 * s1 + x2 * s2;
+           this.y = y1 * s1 + y2 * s2;
+           this.z = z1 * s1 + z2 * s2;
+       }
+       else {
+           // nearly identical angle, interpolate linearly
+           this.w = w1 + t * (w2 - w1);
+           this.x = x1 + t * (x2 - x1);
+           this.y = y1 + t * (y2 - y1);
+           this.z = z1 + t * (z2 - z1);
+           float len = 1.0f / sqrt(this.w * this.w + this.x * this.x + this.y * this.y + this.z * this.z);
+           this.w *= len;
+           this.x *= len;
+           this.y *= len;
+           this.z *= len;
+       }
+}
+-(Vector3D*)toEulerAngles:(Vector3D*)target;
+{
+    Quaternion* this=self;
+    if (target==nil) {
+             target = [[Vector3D alloc] init];
+         }
+         float x = this.x, y = this.y, z = this.z, w = this.w;
+         target.x = atan2(2 * (w * x + y * z), 1 - 2 * (x * x + y * y));
+         target.y = asin(2 * (w * y - z * x));
+         target.z =  atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z));
+         return target;
+
+}
 -(void) normalize:(double)val;
 {
         Quaternion* this=self;
