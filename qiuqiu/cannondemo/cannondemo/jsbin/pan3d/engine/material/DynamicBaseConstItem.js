@@ -16,7 +16,7 @@ var Pan3d;
             set: function (value) {
                 this._type = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         DynamicBaseConstItem.prototype.setTargetInfo = function ($target, $paramName, $type) {

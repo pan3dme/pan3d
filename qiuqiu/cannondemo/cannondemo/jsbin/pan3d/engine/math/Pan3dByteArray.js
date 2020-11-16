@@ -61,7 +61,7 @@ var Pan3d;
             set: function (value) {
                 this.data = new DataView(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Pan3dByteArray.prototype, "dataView", {
@@ -75,7 +75,7 @@ var Pan3d;
                 this.data = value;
                 this.write_position = value.byteLength;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Pan3dByteArray.prototype, "bufferOffset", {
@@ -85,7 +85,7 @@ var Pan3d;
             get: function () {
                 return this.data.byteOffset;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Pan3dByteArray.prototype.getByte = function (i) {
@@ -111,7 +111,7 @@ var Pan3d;
                 this._position = value;
                 this.write_position = value > this.write_position ? value : this.write_position;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Pan3dByteArray.prototype.reset = function () {
@@ -130,7 +130,7 @@ var Pan3d;
             set: function (value) {
                 this.validateBuffer(value, true);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Pan3dByteArray.prototype, "bytesAvailable", {
@@ -142,7 +142,7 @@ var Pan3d;
             get: function () {
                 return this.data.byteLength - this._position;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         /**

@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -43,7 +43,7 @@ var Pan3d;
                 this._x = value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "y", {
@@ -54,7 +54,7 @@ var Pan3d;
                 this._y = value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "z", {
@@ -65,7 +65,7 @@ var Pan3d;
                 this._z = value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "scale", {
@@ -73,7 +73,7 @@ var Pan3d;
                 this._scaleX = this._scaleY = this._scaleZ = value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "scaleX", {
@@ -84,7 +84,7 @@ var Pan3d;
                 this._scaleX = value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "scaleY", {
@@ -95,7 +95,7 @@ var Pan3d;
                 this._scaleY = value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "scaleZ", {
@@ -106,7 +106,7 @@ var Pan3d;
                 this._scaleZ = value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "rotationX", {
@@ -118,7 +118,7 @@ var Pan3d;
                 this.updateMatrix();
                 this.updateRotationMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "rotationY", {
@@ -130,7 +130,7 @@ var Pan3d;
                 this.updateMatrix();
                 this.updateRotationMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "rotationZ", {
@@ -142,25 +142,25 @@ var Pan3d;
                 this.updateMatrix();
                 this.updateRotationMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "px", {
             get: function () { return 0; },
             set: function (val) { },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "py", {
             get: function () { return 0; },
             set: function (val) { },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Object3D.prototype, "pz", {
             get: function () { return 0; },
             set: function (val) { },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object3D.prototype.updateMatrix = function () {

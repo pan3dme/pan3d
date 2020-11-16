@@ -83,7 +83,7 @@ var Pan3d;
             get: function () {
                 return null;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIData.loadBaseConfigCom = function () {

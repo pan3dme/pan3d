@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -160,7 +160,7 @@ var topmenu;
                     LabelTextFont.writeSingleLabel(this._topRender.uiAtlas, this.a_diamonds_num_txt.skinName, Pan3d.ColorType.Whiteffffff + this.lastNumStr, 26, TextAlign.CENTER);
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         TopMenuPanel.prototype.setTittleTxt = function (value) {
@@ -181,7 +181,8 @@ var topmenu;
                 Pan3d.UIManager.getInstance().addUIContainer(this);
                 this.refrishUi();
                 TweenLite.to(this, 0.3, {
-                    top: 0, ease: Back.easeInOut, onComplete: function () {
+                    top: 0, ease: Back.easeInOut,
+                    onComplete: function () {
                     }
                 });
             }
@@ -192,7 +193,8 @@ var topmenu;
         TopMenuPanel.prototype.hidePanel = function () {
             var _this = this;
             TweenLite.to(this, 0.3, {
-                top: -100, ease: Back.easeInOut, onComplete: function () {
+                top: -100, ease: Back.easeInOut,
+                onComplete: function () {
                     Pan3d.UIManager.getInstance().removeUIContainer(_this);
                 }
             });

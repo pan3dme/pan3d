@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -167,7 +167,8 @@ var msgalert;
             var _this = this;
             this.timenum = 3;
             TweenLite.to(this, 4, {
-                timenum: 0, onComplete: function () {
+                timenum: 0,
+                onComplete: function () {
                     _this.hidePanel();
                 }
             });
@@ -183,7 +184,7 @@ var msgalert;
                 this.b_top_only_txt.alpha = $num;
                 this.middle = $num * 100;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         OnlyTopTxt.prototype.onRemove = function () {

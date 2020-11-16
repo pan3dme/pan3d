@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -28,7 +28,7 @@ var Pan3d;
                     this.batchPos[i].fileScale = value;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Display3dBatchMovie.prototype.addSun = function ($obj) {
@@ -102,7 +102,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "fileScale", {
@@ -113,7 +113,7 @@ var Pan3d;
                 this._scaleZ *= value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "scale", {
@@ -124,7 +124,7 @@ var Pan3d;
                 this.posData[3] = 20 * value;
                 this.updateMatrix();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "x", {
@@ -144,7 +144,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "y", {
@@ -164,7 +164,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Movie3D.prototype, "z", {
@@ -184,7 +184,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Movie3D.prototype.add = function () {

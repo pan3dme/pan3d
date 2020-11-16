@@ -16,7 +16,7 @@ var Pan3d;
                 }
                 return null;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return DynamicBaseTexItem;

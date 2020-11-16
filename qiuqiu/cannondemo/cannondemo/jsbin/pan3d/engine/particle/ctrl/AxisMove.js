@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -33,7 +33,7 @@ var Pan3d;
                 this.speed = Number(value[3].value) * 0.1;
                 this.aSpeed = Number(value[4].value) * 0.001;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         AxisMove.prototype.dataByte = function (va, arr) {

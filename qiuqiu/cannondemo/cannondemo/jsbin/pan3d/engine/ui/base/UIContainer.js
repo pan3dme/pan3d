@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -46,7 +46,7 @@ var Pan3d;
                     this.renderList[i].sortnum = this._layer;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "interfaceUI", {
@@ -62,7 +62,7 @@ var Pan3d;
                     this.layer = 100;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIConatiner.prototype.load = function ($complateFun, $needShowLoading) {
@@ -87,7 +87,7 @@ var Pan3d;
             get: function () {
                 return this._hasLoad;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIConatiner.prototype.makeBaseWinUi = function () {
@@ -116,7 +116,7 @@ var Pan3d;
                     this.onRemove();
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIConatiner.prototype.setUiListVisibleByItem = function ($arr, $flag) {
@@ -329,7 +329,7 @@ var Pan3d;
                 this._x = this._left * Pan3d.UIData.Scale;
                 this.applyChild();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "right", {
@@ -342,7 +342,7 @@ var Pan3d;
                 this._x = Pan3d.Scene_data.stageWidth - this._right * Pan3d.UIData.Scale - this.width * Pan3d.UIData.Scale;
                 this.applyChild();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "center", {
@@ -352,7 +352,7 @@ var Pan3d;
                 this._x = this._center * Pan3d.UIData.Scale + Pan3d.Scene_data.stageWidth / 2 - this.width * Pan3d.UIData.Scale / 2;
                 this.applyChild();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "top", {
@@ -365,7 +365,7 @@ var Pan3d;
                 this._y = this._top * Pan3d.UIData.Scale;
                 this.applyChild();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "bottom", {
@@ -378,7 +378,7 @@ var Pan3d;
                 this._y = Pan3d.Scene_data.stageHeight - this._bottom * Pan3d.UIData.Scale - this.height * Pan3d.UIData.Scale;
                 this.applyChild();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "middle", {
@@ -388,7 +388,7 @@ var Pan3d;
                 this._y = this._middle * Pan3d.UIData.Scale + Pan3d.Scene_data.stageHeight / 2 - this.height * Pan3d.UIData.Scale / 2;
                 this.applyChild();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "width", {
@@ -405,7 +405,7 @@ var Pan3d;
             set: function (value) {
                 this._width = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "height", {
@@ -422,7 +422,7 @@ var Pan3d;
             set: function (value) {
                 this._height = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIConatiner.prototype.applyChild = function () {
@@ -442,7 +442,7 @@ var Pan3d;
             set: function (value) {
                 this._x = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIConatiner.prototype, "y", {
@@ -452,7 +452,7 @@ var Pan3d;
             set: function (value) {
                 this._y = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIConatiner.prototype.dispose = function () {

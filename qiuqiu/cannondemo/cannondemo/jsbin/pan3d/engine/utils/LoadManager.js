@@ -179,7 +179,7 @@ var Pan3d;
             get: function () {
                 return this.url;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return LoadInfo;

@@ -24,7 +24,7 @@ var GameData = /** @class */ (function () {
         set: function (value) {
             this._gameType = value;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     GameData.getSeverTime = function (bfun) {
@@ -69,7 +69,7 @@ var GameData = /** @class */ (function () {
             }
             return false;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     GameData.lookVideoFinishAdd = function () {
@@ -96,7 +96,7 @@ var GameData = /** @class */ (function () {
                 return true;
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     GameData.getNeedTimeResetPlayByLevel = function (value) {
@@ -223,7 +223,7 @@ var GameData = /** @class */ (function () {
                 return 0;
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     GameData.getAdvertiseList = function () {
@@ -337,7 +337,7 @@ var GameData = /** @class */ (function () {
             GameData.setStorageSync("diamondsHavenum", value);
             Pan3d.ModuleEventManager.dispatchEvent(new game.SceneEvent(game.SceneEvent.DIAMONDS_CHANGE_EVENT));
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     GameData.setStorageSync = function (key, value) {

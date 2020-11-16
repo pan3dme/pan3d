@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -319,7 +319,7 @@ var Pan3d;
             set: function (val) {
                 this._dragY = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SList.prototype.scrollIdx = function (idx) {
@@ -482,7 +482,7 @@ var Pan3d;
             set: function (val) {
                 this._selected = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SListItem.prototype.creatSUI = function (render, baseAtlas, $name, x, y, width, height) {

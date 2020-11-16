@@ -14,7 +14,7 @@ var Pan3d;
                     return null;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIAtlas.prototype.setInfo = function (configUrl, imgUrl, $fun, useImgUrl) {
@@ -113,7 +113,7 @@ var Pan3d;
             get: function () {
                 return this.configData;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIAtlas.prototype.getObject = function ($name, $x, $y, $width, $height, $maxWidth, $maxHeight, $cellx, $celly) {

@@ -39,7 +39,7 @@ var Pan3d;
                 }
                 return this._instance;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         KeyControl.getInstance = function () {

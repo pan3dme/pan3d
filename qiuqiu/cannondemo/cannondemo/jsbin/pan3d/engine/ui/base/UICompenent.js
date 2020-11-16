@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -60,7 +60,7 @@ var Pan3d;
             set: function (val) {
                 this._rendering = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UICompenent.prototype.addStage = function () {
@@ -140,7 +140,7 @@ var Pan3d;
                 this._uvScale = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UICompenent.prototype.setScale = function (num) {
@@ -190,7 +190,7 @@ var Pan3d;
                     this.applyAbsolutePoint();
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "y", {
@@ -203,7 +203,7 @@ var Pan3d;
                     this.applyAbsolutePoint();
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "width", {
@@ -216,7 +216,7 @@ var Pan3d;
                     this.applyAbsolutePoint();
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "height", {
@@ -229,7 +229,7 @@ var Pan3d;
                     this.applyAbsolutePoint();
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "left", {
@@ -238,7 +238,7 @@ var Pan3d;
                 this._xType = 0;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "right", {
@@ -247,7 +247,7 @@ var Pan3d;
                 this._xType = 1;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "center", {
@@ -256,7 +256,7 @@ var Pan3d;
                 this._xType = 2;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "top", {
@@ -265,7 +265,7 @@ var Pan3d;
                 this._yType = 0;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "bottom", {
@@ -274,7 +274,7 @@ var Pan3d;
                 this._yType = 1;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UICompenent.prototype, "middle", {
@@ -283,7 +283,7 @@ var Pan3d;
                 this._yType = 2;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UICompenent.prototype.testPoint = function ($x, $y) {

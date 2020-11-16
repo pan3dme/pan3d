@@ -102,7 +102,7 @@ var Pan3d;
                 this._materialUrl = value;
                 Pan3d.MaterialManager.getInstance().getMaterialByte(Pan3d.Scene_data.fileRoot + value, function ($matrial) { _this.onMaterialLoad($matrial); });
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ParticleData.prototype.onMaterialLoad = function ($matrial) {

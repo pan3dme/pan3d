@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -102,7 +102,8 @@ var endless;
             this.a_add_scene_time_tip.y = this.a_add_scene_time_tip.baseRec.y;
             var $ty = this.a_add_scene_time_tip.baseRec.y - 100;
             TweenLite.to(this.a_add_scene_time_tip, 0.3, {
-                y: $ty, onComplete: function () {
+                y: $ty,
+                onComplete: function () {
                     TimeUtil.addTimeOut(1000, function () {
                         _this.a_add_scene_time_tip.y = -1000;
                     });

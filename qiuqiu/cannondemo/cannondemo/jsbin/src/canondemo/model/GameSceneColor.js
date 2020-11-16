@@ -121,7 +121,7 @@ var game;
                 game.GameDataModel.lightVo.ambientColor[1] = this.statLight.ambientColor[1] + (this.tolightVo.ambientColor[1] - this.statLight.ambientColor[1]) * this._speedNum;
                 game.GameDataModel.lightVo.ambientColor[2] = this.statLight.ambientColor[2] + (this.tolightVo.ambientColor[2] - this.statLight.ambientColor[2]) * this._speedNum;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return GameSceneColor;

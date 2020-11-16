@@ -9,7 +9,7 @@ var Pan3d;
             get: function () {
                 return this._bytes;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UpdateMask.prototype.Clear = function () {

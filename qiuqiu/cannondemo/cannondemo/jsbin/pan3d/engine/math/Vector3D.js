@@ -26,7 +26,7 @@ var Pan3d;
             get: function () {
                 return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Vector3D.prototype.scaleBy = function (value) {

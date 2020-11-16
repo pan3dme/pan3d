@@ -24,7 +24,7 @@ var Pan3d;
                     }
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UIRenderComponent.prototype, "texture", {
@@ -36,7 +36,7 @@ var Pan3d;
                     return null;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UIRenderComponent.prototype.initData = function () {

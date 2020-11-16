@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -64,7 +64,7 @@ var layapan;
                 this.rotationY = val;
                 this.toRotationY = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "pRotationY", {
@@ -80,7 +80,7 @@ var layapan;
                     this.rotationY = val;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "pScale", {
@@ -96,7 +96,7 @@ var layapan;
                     this.tittleHeight = this._skinMesh.tittleHeight * v;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         LayaSceneChar.prototype.setMount = function (v) {
@@ -334,7 +334,7 @@ var layapan;
                 this._visible = value;
                 this.applyVisible();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "optimization", {
@@ -345,14 +345,14 @@ var layapan;
                 this._optimization = value;
                 this.applyVisible();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "resultVisible", {
             get: function () {
                 return this._resultVisible;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         LayaSceneChar.prototype.applyVisible = function () {
@@ -384,7 +384,7 @@ var layapan;
             set: function (v) {
                 this._isCamera2D = v;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "bloodColor", {
@@ -392,7 +392,7 @@ var layapan;
                 this._bloodColor = v;
                 this._charBloodVo && (this._charBloodVo.colortype = this._bloodColor);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "hpRatio", {
@@ -403,7 +403,7 @@ var layapan;
                 this._hpRatio = v;
                 this._charBloodVo && (this._charBloodVo.num = this._hpRatio);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "bloodEnable", {
@@ -414,7 +414,7 @@ var layapan;
                     this._charBloodVo.colortype = 1;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "angerColor", {
@@ -422,7 +422,7 @@ var layapan;
                 this._angerColor = v;
                 this._charAngerVo && (this._charAngerVo.colortype = this._angerColor);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "angerRatio", {
@@ -433,14 +433,14 @@ var layapan;
                 this._angerRatio = v;
                 this._charAngerVo && (this._charAngerVo.num = this._angerRatio);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "angerEnable", {
             set: function (v) {
                 this._angerEnable = v;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "charName", {
@@ -453,7 +453,7 @@ var layapan;
                 this._charName = v;
                 this._charNameVo && (this._charNameVo.name = this._charName);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "nameEnable", {
@@ -466,7 +466,7 @@ var layapan;
                     this._charNameVo.name = "潘佳治" + random(99);
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         LayaSceneChar.prototype.updateBind = function () {
@@ -529,7 +529,7 @@ var layapan;
                     this.x = this.px;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(LayaSceneChar.prototype, "pz", {
@@ -545,7 +545,7 @@ var layapan;
                     this.z = this.pz;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         LayaSceneChar.prototype.update = function () {

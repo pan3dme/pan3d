@@ -24,7 +24,7 @@ var VesionInfo = /** @class */ (function () {
             }
             return true;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return VesionInfo;

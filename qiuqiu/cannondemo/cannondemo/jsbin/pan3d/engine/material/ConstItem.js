@@ -19,7 +19,7 @@ var Pan3d;
                 this.name = "fc" + value;
                 this.offset = value * 4;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ConstItem.prototype.creat = function ($vc) {

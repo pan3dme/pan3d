@@ -13,7 +13,7 @@ var Pan3d;
                 this._visible = value;
                 this.display.stateChage();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Shadow.prototype, "x", {
@@ -23,7 +23,7 @@ var Pan3d;
             set: function (value) {
                 this.data[0] = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Shadow.prototype, "y", {
@@ -33,7 +33,7 @@ var Pan3d;
             set: function (value) {
                 this.data[1] = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Shadow.prototype, "z", {
@@ -43,7 +43,7 @@ var Pan3d;
             set: function (value) {
                 this.data[2] = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Shadow.prototype, "size", {
@@ -53,7 +53,7 @@ var Pan3d;
             set: function (value) {
                 this.data[3] = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return Shadow;

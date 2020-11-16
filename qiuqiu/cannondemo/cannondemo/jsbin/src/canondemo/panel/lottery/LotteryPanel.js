@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -116,7 +116,8 @@ var lottery;
                 var $vo = this.playToNextNum();
                 this.a_lottery_rotation.rotation = this.a_lottery_rotation.rotation % 360;
                 TweenLite.to(this.a_lottery_rotation, 3, {
-                    rotation: (360 * 3 + $vo.id * (360 / 8)), onComplete: function () {
+                    rotation: (360 * 3 + $vo.id * (360 / 8)),
+                    onComplete: function () {
                         console.log("结束");
                         _this.isPLayNow = false;
                         switch ($vo.type) {

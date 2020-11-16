@@ -10,7 +10,7 @@ var Pan3d;
             set: function (value) {
                 Scene_data._viewMatrx3D = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Scene_data.sceneViewHW = 500;

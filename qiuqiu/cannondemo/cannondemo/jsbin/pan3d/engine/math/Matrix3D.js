@@ -39,7 +39,7 @@ var Pan3d;
             get: function () {
                 return new Pan3d.Vector3D(this.m[12], this.m[13], this.m[14], this.m[15]);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Matrix3D.prototype.copyTo = function ($target) {
@@ -286,21 +286,21 @@ var Pan3d;
             get: function () {
                 return this.m[12];
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Matrix3D.prototype, "y", {
             get: function () {
                 return this.m[13];
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(Matrix3D.prototype, "z", {
             get: function () {
                 return this.m[14];
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Matrix3D.prototype.prependRotation = function (rad, axis) {

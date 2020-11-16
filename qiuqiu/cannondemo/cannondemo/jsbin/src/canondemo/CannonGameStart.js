@@ -163,7 +163,7 @@ var game;
                     GameDataModel.lastMainHitTm = TimeUtil.getTimer(); //这是为了更新最后的碰到，
                     return;
                 }
-                Physics.ready = false;
+                // Physics.ready = false;
                 if (Physics.ready) {
                     this.testIsLost();
                     Physics.update();

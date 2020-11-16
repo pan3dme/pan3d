@@ -12,7 +12,7 @@ var Pan3d;
                 this._ui = value;
                 this._baseRect = new Pan3d.Rectangle(this._ui.x, this._ui.y, this._ui.width, this._ui.height);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(UiTweenVo.prototype, "scale", {
@@ -26,7 +26,7 @@ var Pan3d;
                 this._ui.x = this._baseRect.x + (this._baseRect.width - this._ui.width) / 2;
                 this._ui.y = this._baseRect.y + (this._baseRect.height - this._ui.height) / 2;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         UiTweenVo.prototype.destory = function () {

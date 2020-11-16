@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -42,7 +42,7 @@ var Pan3d;
                 this._contentX = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(List.prototype, "contentY", {
@@ -53,7 +53,7 @@ var Pan3d;
                 this._contentY = value;
                 this.applyAbsolutePoint();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         List.prototype.testPoint = function ($x, $y) {
@@ -223,7 +223,7 @@ var Pan3d;
             get: function () {
                 return this._listItemData;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ListItemRender.prototype.setNewData = function ($data) {
@@ -235,7 +235,7 @@ var Pan3d;
             set: function (value) {
                 this._selected = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         ListItemRender.prototype.draw = function () {

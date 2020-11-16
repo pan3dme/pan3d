@@ -21,7 +21,7 @@ var Pan3d;
                 this._sceneVectList = value;
                 this._frist = true; //标记新进入场景时
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         /*

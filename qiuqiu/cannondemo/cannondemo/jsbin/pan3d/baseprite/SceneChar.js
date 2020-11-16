@@ -2,9 +2,9 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -44,7 +44,7 @@ var Pan3d;
             get: function () {
                 return false;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "isBoss", {
@@ -54,7 +54,7 @@ var Pan3d;
             set: function (val) {
                 this._isBoss = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "px", {
@@ -73,7 +73,7 @@ var Pan3d;
                     this.x = val;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "py", {
@@ -92,7 +92,7 @@ var Pan3d;
                     this.y = val;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "pz", {
@@ -111,7 +111,7 @@ var Pan3d;
                     this.z = val;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "forceRotationY", {
@@ -121,7 +121,7 @@ var Pan3d;
                 this.rotationY = val;
                 this.toRotationY = val;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "pRotationY", {
@@ -137,7 +137,7 @@ var Pan3d;
                     this.rotationY = val;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SceneChar.prototype.play = function ($action, $completeState, needFollow) {
@@ -298,7 +298,7 @@ var Pan3d;
                 this.setTarget();
                 this._speedDirect = null;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         /*
@@ -362,7 +362,7 @@ var Pan3d;
                 this.pz = pos.z;
                 this.refreshY();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SceneChar.prototype.stopToPos = function ($v2d) {
@@ -409,7 +409,7 @@ var Pan3d;
                 this.speedTX = 0.01 * (value / 10);
                 ////console.log(this.speedTX )
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SceneChar.prototype.refreshSpeed = function () {
@@ -630,7 +630,7 @@ var Pan3d;
                 this._visible = value;
                 this.applyVisible();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "optimization", {
@@ -641,14 +641,14 @@ var Pan3d;
                 this._optimization = value;
                 this.applyVisible();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(SceneChar.prototype, "resultVisible", {
             get: function () {
                 return this._resultVisible;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SceneChar.prototype.applyVisible = function () {
