@@ -8,6 +8,7 @@
 
 #import "Display3DSprite.h"
 #import "MaterialManager.h"
+#import "TextureManager.h"
 #import "ObjDataManager.h"
 #import "MetalMatrixUtilities.h"
 #import "Scene3D.h"
@@ -84,6 +85,14 @@
  
     }];
 }
+-(void)setPicUrl:(NSString*)value;
+{
+    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+        self.textureRes=(TextureRes*)any;
+ 
+    } wrapType:0 info:nil filteType:0 mipmapType:0];
+}
+
 -(void)setBind:(id<IBind>)bindTarget bindSocket:(NSString*)bindSocket;
 {
     self.bindTarget = bindTarget;

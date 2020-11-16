@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)updateBind;
 -(void)setMaterialVa;
 -(void)setObjUrl:(NSString*)value;
+-(void)setPicUrl:(NSString*)value;
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 -(void)setMaterialVc:(Material*)material  mp:(MaterialBaseParam*)mp;
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;

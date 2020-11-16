@@ -42,8 +42,6 @@ public class Quaternion {
         return target;
 
 
-
-
     }
     public Matrix3D toMatrix3D() {
         Matrix3D $matrix3d = new Matrix3D();
