@@ -6,7 +6,24 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 #import "FrameBuildSprite.h"
+#import "Scene3D.h"
+#import "FrameBuildShader.h"
+#import "ProgrmaManager.h"
+#import "Context3D.h"
 @implementation FrameBuildSprite
+
+- (instancetype)init:(Scene3D *)val
+{
+    self =[super init:val];
+    [self inidShader];
+    return self;
+}
+-(void)inidShader
+{
+    [[ProgrmaManager default] registe:FrameBuildShader.shaderStr shader3d: [[FrameBuildShader alloc]init]];
+    self.shader3d=  [[ProgrmaManager default] getProgram:FrameBuildShader.shaderStr];
+}
+
 -(void)setFrameNodeUrl:(FrameNodeVo*)nodeVo;
 {
     [super setFrameNodeUrl:nodeVo];
@@ -30,10 +47,34 @@
 }
 -(void)drawTempDisplay:(Display3DSprite*)display
 {
+    
     if(display.objData==nil){
         return;
     }
     ObjData* objData= display.objData;
+    FrameBuildSprite* this=self;
     
+    
+    Context3D *ctx=this.scene3d.context3D;
+    GLuint progame= self.shader3d.program;
+    glUseProgram(progame);
+    
+    [self setVc];
+    [ctx pushVa:objData.verticesBuffer];
+    [ctx setVaOffset:this.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
+    [ctx pushVa:objData.uvBuffer];
+    [ctx setVaOffset:this.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
+    [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:display.textureRes.textTureLuint level:0];
+    [ctx drawCall: objData.indexBuffer  numTril:objData.trinum];
+    
+}
+- (void)setVc;
+{
+    FrameBuildSprite* this=self;
+    Context3D *context3D=this.scene3d.context3D;
+    [this.posMatrix3d identity];
+    Matrix3D* viewM=this.viewMatrix;
+    [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
+    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
 }
 @end
