@@ -72,7 +72,6 @@
 {
     FrameBuildSprite* this=self;
     Context3D *context3D=this.scene3d.context3D;
-    [this.posMatrix3d identity];
     Matrix3D* viewM=this.viewMatrix;
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
     [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];

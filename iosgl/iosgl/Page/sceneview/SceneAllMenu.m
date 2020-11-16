@@ -44,6 +44,7 @@
     NSMutableArray* arr=[[NSMutableArray alloc]init];
     [arr addObject:@"场景"];
     [arr addObject:@"MD5"];
+    [arr addObject:@"动态"];
     [arr addObject:@"角色"];
     [arr addObject:@"特效"];
     [arr addObject:@"技能"];
@@ -51,12 +52,14 @@
     [self addBaseMenuButs:arr];
     [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
     
-    [self addFrame3dSprite];
+ 
   
 }
 -(void)addFrame3dSprite;
 {
+    [self.sceneView.scene3D clearAll];
     Frame3dSprite* frame3dSprite=[[Frame3dSprite alloc] init:self.sceneView.scene3D];
+
     [self.sceneView.scene3D addDisplay:frame3dSprite];
 }
 -(void)addMd5LoackFile;
@@ -76,6 +79,8 @@
     }
     if([titleStr isEqualToString:@"场景"]){
         [self addSceneMenuList];
+    }else if([titleStr isEqualToString:@"动态"]){
+        [self addFrame3dSprite];
     }else if([titleStr isEqualToString:@"角色"]){
         [self addRoleMenuList];
     }else if([titleStr isEqualToString:@"特效"]){

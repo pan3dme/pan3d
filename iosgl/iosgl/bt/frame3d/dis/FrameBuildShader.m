@@ -17,14 +17,14 @@
     char* relplayChat =
     "attribute vec3 vPosition;\n"
     "attribute vec2 texcoord;\n"
-    "uniform mat4 viewMatrix;\n"
-    "uniform mat4 posMatrix;\n"
+    "uniform mat4 vpMatrix3D;\n"
+    "uniform mat4 posMatrix3D;\n"
     "varying vec2 v0;\n"
     "void main()"
     "{"
          "v0= texcoord;\n"
          "vec4 vPos = vec4(vPosition.xyz,1.0);\n"
-         "gl_Position = vPos * posMatrix* viewMatrix;\n"
+         "gl_Position = vPos * posMatrix3D* vpMatrix3D;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     
@@ -36,9 +36,9 @@
     "varying vec2 v0;\n"
     "void main()"
     "{"
-//    "vec4 infoUv = texture2D(fs0, v0.xy);\n"
-//    "gl_FragColor =infoUv;\n"
-        "gl_FragColor =vec4(1,0,0,1);\n"
+    "vec4 infoUv = texture2D(fs0, v0.xy);\n"
+    "gl_FragColor =infoUv;\n"
+   
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
