@@ -31,14 +31,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iosgl/iosgl.xcworkspace/xcuserdata/pan3dme.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -202,26 +202,26 @@
     </state>
     <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605115081458" />
     <state width="567" height="438" key="DebuggerActiveHint/0.25.1440.875@0.25.1440.875" timestamp="1605450427067" />
-    <state width="1174" height="190" key="GridCell.Tab.0.bottom" timestamp="1605498626206">
+    <state width="1174" height="190" key="GridCell.Tab.0.bottom" timestamp="1605515840413">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605498626206" />
-    <state width="1174" height="190" key="GridCell.Tab.0.center" timestamp="1605498626205">
+    <state width="1174" height="190" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605515840413" />
+    <state width="1174" height="190" key="GridCell.Tab.0.center" timestamp="1605515840413">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605498626205" />
-    <state width="1174" height="190" key="GridCell.Tab.0.left" timestamp="1605498626204">
+    <state width="1174" height="190" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605515840413" />
+    <state width="1174" height="190" key="GridCell.Tab.0.left" timestamp="1605515840411">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605498626204" />
-    <state width="1174" height="190" key="GridCell.Tab.0.right" timestamp="1605498626205">
+    <state width="1174" height="190" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605515840411" />
+    <state width="1174" height="190" key="GridCell.Tab.0.right" timestamp="1605515840413">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605498626205" />
+    <state width="1174" height="190" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605515840413" />
     <state width="587" height="239" key="GridCell.Tab.1.bottom" timestamp="1605452097069">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
