@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)FrameNodeVo* frameNodeVo;
 @property(nonatomic,strong)NSMutableArray<Display3DSprite*>* groupItem;
 -(void)setFrameNodeUrl:(FrameNodeVo*)nodeVo;
+ 
 
 @end
 

@@ -51,7 +51,7 @@
     [self addBaseMenuButs:arr];
     [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
     
-    [self addFrame3dSprite];
+//    [self addFrame3dSprite];
   
 }
 -(void)addFrame3dSprite;

@@ -9,11 +9,8 @@
 #import "FrameBaseDisplay.h"
 
 @implementation FrameBaseDisplay
-- (instancetype)scene3d:(Scene3D *)val
-{
-    self.scene3d=val;
-    return self;
-}
+ 
+ 
 -(void)setFrameNodeUrl:(FrameNodeVo*)nodeVo;
 {
     FrameBaseDisplay* this=self;

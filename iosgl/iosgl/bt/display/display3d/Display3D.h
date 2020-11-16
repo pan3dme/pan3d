@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) upFrame  ;
 -(void) destory  ;
 -(Matrix3D*)viewMatrix;
+- (instancetype)init;
+- (instancetype)init:(Scene3D*)val;
 @end
 
 NS_ASSUME_NONNULL_END
