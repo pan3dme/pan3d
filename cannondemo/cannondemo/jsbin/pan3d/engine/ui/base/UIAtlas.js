@@ -211,8 +211,8 @@ var Pan3d;
             if (fontsize === void 0) { fontsize = 12; }
             if ($tx === void 0) { $tx = 0; }
             if ($ty === void 0) { $ty = 0; }
-            $ctx.textBaseline = Pan3d.TextAlign.TOP;
-            $ctx.textAlign = Pan3d.TextAlign.LEFT;
+            // $ctx.textBaseline = TextAlign.TOP;
+            // $ctx.textAlign = TextAlign.LEFT;
             $ctx.font = (true ? "bolder " : "") + " " + fontsize + "px " + Pan3d.UIData.font;
             Pan3d.TextRegExp.wrapText($ctx, $str, "#ffffff", $tx, $ty, 9999, 20); //9999为无限大
         };
@@ -226,8 +226,8 @@ var Pan3d;
             if ($textcolor === void 0) { $textcolor = "#000000"; }
             if ($textbolder === void 0) { $textbolder = "bolder"; }
             if ($maxWidth === void 0) { $maxWidth = 0; }
-            $ctx.textAlign = $textAlign;
-            $ctx.textBaseline = $textBaseline;
+            // $ctx.textAlign = $textAlign
+            // $ctx.textBaseline = $textBaseline
             $ctx.fillStyle = $textcolor;
             $ctx.font = $textbolder + " " + $fontsize + "px " + Pan3d.UIData.font;
             var $xpos = this.getTextxpos($textAlign, $ctx);
@@ -240,8 +240,8 @@ var Pan3d;
         };
         UIAtlas.prototype.getTextCtx = function ($rec, $fontsize, $fontColor, $bolder, $textBaseline, $textAlign) {
             var $ctx = Pan3d.UIManager.getInstance().getContext2D($rec.pixelWitdh, $rec.pixelHeight, false);
-            $ctx.textBaseline = $textBaseline;
-            $ctx.textAlign = $textAlign;
+            // $ctx.textBaseline = $textBaseline;
+            // $ctx.textAlign = $textAlign;
             $ctx.fillStyle = $fontColor;
             $ctx.font = ($bolder ? "bolder " : "") + " " + $fontsize + "px " + Pan3d.UIData.font;
             return $ctx;

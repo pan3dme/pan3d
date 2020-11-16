@@ -241,8 +241,8 @@ module Pan3d {
         }
         //单行字绘制到CXT上
         public writeSingleLabelToCxt($ctx: CanvasRenderingContext2D, $str: string, fontsize: number = 12, $tx: number = 0, $ty: number = 0): void {
-            $ctx.textBaseline = TextAlign.TOP;
-            $ctx.textAlign = TextAlign.LEFT;
+            // $ctx.textBaseline = TextAlign.TOP;
+            // $ctx.textAlign = TextAlign.LEFT;
             $ctx.font = (true ? "bolder " : "") + " " + fontsize + "px " + UIData.font;
             TextRegExp.wrapText($ctx, $str, "#ffffff", $tx, $ty, 9999, 20);  //9999为无限大
 
@@ -259,8 +259,8 @@ module Pan3d {
             , $textbolder: string = "bolder"
             , $maxWidth: number = 0): void {
 
-            $ctx.textAlign = $textAlign
-            $ctx.textBaseline = $textBaseline
+            // $ctx.textAlign = $textAlign
+            // $ctx.textBaseline = $textBaseline
             $ctx.fillStyle = $textcolor;
             $ctx.font = $textbolder + " " + $fontsize + "px " + UIData.font;
 
@@ -277,8 +277,8 @@ module Pan3d {
             , $textAlign: string): CanvasRenderingContext2D {
 
             var $ctx: CanvasRenderingContext2D = UIManager.getInstance().getContext2D($rec.pixelWitdh, $rec.pixelHeight, false);
-            $ctx.textBaseline = $textBaseline;
-            $ctx.textAlign = $textAlign;
+            // $ctx.textBaseline = $textBaseline;
+            // $ctx.textAlign = $textAlign;
             $ctx.fillStyle = $fontColor;
             $ctx.font = ($bolder ? "bolder " : "") + " " + $fontsize + "px " + UIData.font;
 
