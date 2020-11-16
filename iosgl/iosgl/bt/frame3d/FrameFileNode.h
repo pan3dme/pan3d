@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FrameFileNode : Display3D
+@property (nonatomic, strong)FrameNodeVo* frameNodeVo;
 -(void)setFrameNodeVoInfo:(FrameNodeVo*)vo;
 @end
 

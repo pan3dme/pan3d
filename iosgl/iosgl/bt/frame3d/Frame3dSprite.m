@@ -9,8 +9,12 @@
 #import "Frame3dSprite.h"
 #import "Frame3dRes.h"
 #import "Scene3D.h"
+#import "TimeUtil.h"
 #import "FrameFileNode.h"
 @interface Frame3dSprite ()
+@property (nonatomic, assign) double lastTime;
+@property (nonatomic, assign) float frameNum;
+
 @property (nonatomic, strong) Frame3dRes *frame3dRes;
 @property (nonatomic, strong) NSMutableArray<FrameFileNode*> *frameImodelItem;
  
@@ -21,6 +25,7 @@
 - (instancetype)init:(Scene3D *)val
 {
     self=[super init:val];
+    self.lastTime=0;
     [self addLoadFrame3dRes];
     return self;
 }
@@ -54,7 +59,14 @@
 }
 -(void)mathTimeFrame
 {
-    
+    Frame3dSprite* this=self;
+    float dt =  [[TimeUtil default]getTimer] - this.lastTime;
+    this.frameNum += dt / (1000 / this.frame3dRes.frameSpeedNum);
+    this.frameNum=(int)this.frameNum % (int)(this.frame3dRes.maxTime-1);;
+    this.lastTime =  [[TimeUtil default]getTimer] ;
+    for (int i = 0;  i < this.frameImodelItem.count; i++) {
+        this.frameImodelItem[i].frameNodeVo.curTime=this.frameNum;
+    }
 }
 - (void)upFrame
 {
