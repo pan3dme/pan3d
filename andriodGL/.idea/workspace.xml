@@ -31,7 +31,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/dexedLibs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/dexedLibs2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/jpct_ae.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/jpct_ae1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/jpct_ae12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/jpct_ae2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/libraries/lib2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloShader/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloShader/.idea/libraries/jpct_ae.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloShader/.idea/libraries/jpct_ae2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloShader/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloShader/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloShader/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/libraries/dexedLibs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/libraries/dexedLibs2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/libraries/jpct_ae.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/libraries/jpct_ae2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/runConfigurations/app.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/jpct-ae/examples/HelloWorld-AE/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,10 +208,11 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="245" y="159" key="#PSD/0.23.1440.877@0.23.1440.877" timestamp="1604251706889" />
-    <state x="158" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604273831456">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="158" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605702396288">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="158" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604273831456" />
+    <state x="158" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1605702396288" />
     <state x="574" y="323" width="489" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605441750465">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -202,26 +232,26 @@
     </state>
     <state width="567" height="438" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1605115081458" />
     <state width="567" height="438" key="DebuggerActiveHint/0.25.1440.875@0.25.1440.875" timestamp="1605450427067" />
-    <state width="1174" height="190" key="GridCell.Tab.0.bottom" timestamp="1605515840413">
+    <state width="1174" height="190" key="GridCell.Tab.0.bottom" timestamp="1605703609263">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605515840413" />
-    <state width="1174" height="190" key="GridCell.Tab.0.center" timestamp="1605515840413">
+    <state width="1174" height="190" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1605703609263" />
+    <state width="1174" height="190" key="GridCell.Tab.0.center" timestamp="1605703609262">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605515840413" />
-    <state width="1174" height="190" key="GridCell.Tab.0.left" timestamp="1605515840411">
+    <state width="1174" height="190" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1605703609262" />
+    <state width="1174" height="190" key="GridCell.Tab.0.left" timestamp="1605703609261">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605515840411" />
-    <state width="1174" height="190" key="GridCell.Tab.0.right" timestamp="1605515840413">
+    <state width="1174" height="190" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1605703609261" />
+    <state width="1174" height="190" key="GridCell.Tab.0.right" timestamp="1605703609263">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="1174" height="266" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605261241606" />
-    <state width="1174" height="190" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605515840413" />
+    <state width="1174" height="190" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1605703609263" />
     <state width="587" height="239" key="GridCell.Tab.1.bottom" timestamp="1605452097069">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

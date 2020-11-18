@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="67ad2626-7140-4d84-9385-433d044b7f2a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/dexedLibs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/dexedLibs2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jpct_ae.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jpct_ae1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jpct_ae12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jpct_ae2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/HelloShader/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/HelloShader/.idea/libraries/jpct_ae.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/HelloShader/.idea/libraries/jpct_ae2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/HelloShader/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/HelloShader/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/HelloShader/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../andriodGL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../andriodGL/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1kSmLLXcJbGcQVYYvWhSMXDRuWu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="67ad2626-7140-4d84-9385-433d044b7f2a" name="Default Changelist" comment="" />
+      <created>1605702309412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605702309412</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="176" y="25" key="#Project_Structure" timestamp="1605702336411">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="176" y="25" key="#Project_Structure/0.25.1440.875@0.25.1440.875" timestamp="1605702336411" />
+    <state x="152" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605702452985">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="152" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1605702452985" />
+    <state x="276" y="173" key="IDE.errors.dialog" timestamp="1605702353979">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="276" y="173" key="IDE.errors.dialog/0.25.1440.875@0.25.1440.875" timestamp="1605702353979" />
+  </component>
+</project>

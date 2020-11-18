@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/examples/HelloShader/HelloShader.iml" filepath="$PROJECT_DIR$/examples/HelloShader/HelloShader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/HelloWorld-AE/HelloWorld-AE.iml" filepath="$PROJECT_DIR$/examples/HelloWorld-AE/HelloWorld-AE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/jpct-ae.iml" filepath="$PROJECT_DIR$/.idea/jpct-ae.iml" />
+    </modules>
+  </component>
+</project>

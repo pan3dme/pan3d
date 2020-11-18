@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jpct_ae1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/examples/HelloWorld-AE/libs/jpct_ae.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
