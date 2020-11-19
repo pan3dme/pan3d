@@ -1,36 +1,56 @@
 ﻿<Properties StartupConfiguration="{2A9562D5-24A0-4F44-94C5-EADCD36C5804}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/libs/laya.webgl.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/src/canondemo/dis/DynamicDirectShadowColorSprite.ts">
     <Files>
       <File FileName="cannondemo/index.html" Line="484" Column="1" />
       <File FileName="cannondemo/only.html" Line="488" Column="19" />
       <File FileName="cannondemo/libs/cannon.js" />
-      <File FileName="cannondemo/src/canondemo/panel/concern/ConcernProcessor.ts" />
-      <File FileName="cannondemo/src/canondemo/modules/ModuleList.ts" />
+      <File FileName="cannondemo/src/canondemo/panel/concern/ConcernProcessor.ts" Line="17" Column="2" />
+      <File FileName="cannondemo/src/canondemo/modules/ModuleList.ts" Line="22" Column="48" />
       <File FileName="cannondemo/pan3d/mvcframe/Module.ts" />
       <File FileName="cannondemo/src/canondemo/panel/BaseWinPanel.ts" Line="24" Column="1" />
       <File FileName="cannondemo/libs/matchvs/matchvs.js" Line="1" Column="1" />
       <File FileName="cannondemo/libs/matchvs/matchvs.d.ts" Line="1" Column="1" />
       <File FileName="cannondemo/libs/matchvs/matchvs.min.js" Line="1" Column="1" />
       <File FileName="cannondemo/libs/laya.core.js" Line="1" Column="1" />
-      <File FileName="cannondemo/libs/laya.webgl.js" Line="1" Column="1" />
+      <File FileName="cannondemo/libs/laya.webgl.js" Line="13" Column="81" />
+      <File FileName="cannondemo/src/canondemo/panel/concern/ConcernPanel.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/panel/setupwin/SetupWinProcessor.ts" Line="22" Column="10" />
+      <File FileName="cannondemo/src/canondemo/panel/setupwin/SetupWinPanel.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/pan3d/baseprite/BaseProcessor.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/pan3d/baseprite/CharAction.ts" Line="26" Column="3" />
+      <File FileName="cannondemo/pan3d/baseprite/MountChar.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/CannonGameStart.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/GameData.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/modules/endless/EndlessManager.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/BaoxiangDisplay3DSprite.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/DiamondsDisplay3DSprite.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/ShadowLaya3dSprite.ts" Line="11" Column="2" />
+      <File FileName="cannondemo/src/canondemo/dis/MainCanonPrefabSprite.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/LevelMainCanonPrefabSprite.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/DynamicDirectShadowColorSprite.ts" Line="17" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/DirectShadowColorSprite.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/MainDirectShadowDisplay3DSprite.ts" Line="1" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/ReviveModelSprite.ts" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="cannondemo" expanded="True">
             <Node name="cannondemo" expanded="True">
-              <Node name="libs" expanded="True">
-                <Node name="matchvs" expanded="True" />
-                <Node name="laya.webgl.js" selected="True" />
-              </Node>
+              <Node name="bin" expanded="True" />
               <Node name="pan3d" expanded="True">
                 <Node name="mvcframe" expanded="True" />
               </Node>
+              <Node name="pan3dinit" expanded="True">
+                <Node name="shadow" expanded="True" />
+              </Node>
               <Node name="src" expanded="True">
                 <Node name="canondemo" expanded="True">
-                  <Node name="modules" expanded="True" />
-                  <Node name="panel" expanded="True">
-                    <Node name="concern" expanded="True" />
+                  <Node name="dis" expanded="True">
+                    <Node name="DynamicDirectShadowColorSprite.ts" selected="True" />
+                  </Node>
+                  <Node name="modules" expanded="True">
+                    <Node name="endless" expanded="True" />
                   </Node>
                 </Node>
               </Node>
