@@ -135,7 +135,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         LinearLayout layout = (LinearLayout) findViewById(R.id.container);
         _menuLayout.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT,   ViewGroup.LayoutParams.MATCH_PARENT));
         layout.addView(_menuLayout);
-        addRootMenu();
+        _selectChangjing();
     }
     LinearLayout _menuLayout;
     private  void addRootMenu(){
@@ -372,6 +372,7 @@ public class SceneAllMenu extends AppCompatActivity   {
         arr.add("2013");
         arr.add("2014");
         arr.add("2015");
+        arr.add("10002");
         arr.add("网格");
         arr.add("清理");
         arr.add("拉+");

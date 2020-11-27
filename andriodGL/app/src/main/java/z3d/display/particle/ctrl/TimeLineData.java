@@ -1,5 +1,7 @@
 package z3d.display.particle.ctrl;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,7 @@ import z3d.base.Scene_data;
 import z3d.vo.Vector3D;
 
 public class TimeLineData {
+    private static final String TAG = "TimeLineData";
     public float beginTime;
     public float maxFrameNum;
     public ArrayList<KeyFrame> dataAry ;
@@ -42,7 +45,7 @@ public class TimeLineData {
             }
 
         }
-
+        Log.d(TAG, "setByteData: "+this.dataAry.size());
           this.maxFrameNum = this.dataAry.get(this.dataAry.size() - 1).frameNum;
           this.beginTime = this.dataAry.get(0).frameNum * Scene_data.frameTime;
 
