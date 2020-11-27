@@ -16,7 +16,10 @@ public class DynamicBaseConstItem {
         this.target = $target;
         this.paramName = $paramName;
         this.settype($type);
-        this.target.setDynamicOffset(this);
+        if( this.target!=null){
+            this.target.setDynamicOffset(this);
+        }
+
         this.currentValue = new ArrayList<>($type);
 
     }

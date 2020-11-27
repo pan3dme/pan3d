@@ -28,7 +28,8 @@ public class MathCore {
                     materialInfoVo.url=  (String) jsonObject.get("url");
                 }
                 if(jsonObject.has("x")){
-                    materialInfoVo.x=(float) jsonObject.get("x");
+
+                    materialInfoVo.x=(float) jsonObject.getInt("x");
                 }
                 if(jsonObject.has("y")){
                     materialInfoVo.y=(float) jsonObject.get("y");

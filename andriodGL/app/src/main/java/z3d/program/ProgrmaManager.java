@@ -71,31 +71,13 @@ public class ProgrmaManager extends  ResGC {
         shader.vertex=shader.vertexStr();
         shader.fragment = material.shaderStr;
 
-        //轨迹粒子
 
-        if (keyStr.indexOf("content/particleresources/materials/ef_path_byte.txt")!=-1) {
-//            this.outShader(shader.vertex,"vertex");
-//            this.outShader(shader.fragment,"fragment");
-//             this._changeLocusShader(shader);
-        }
-        //椭球粒子
-        if (keyStr.indexOf("content/particleresources/materials/m_ef_par_byte.txt")!=-1) {
-//            this.outShader(shader.vertex,"vertex");
-//            this.outShader(shader.fragment,"fragment");
-//            this._changeBallShader(shader);
-        }
-
-        if (keyStr.indexOf("Display3DBallPartilceShader")!=-1) {
-//            this.outShader(shader.vertex,"vertex");
-//            this.outShader(shader.fragment,"fragment");
-//            this._changeBallShader(shader);
-        }
-        if (keyStr.indexOf("MaterialShader")!=-1) {
+        if (keyStr.indexOf("changjinghongpei/standard_byte")!=-1) {
             Log.d(TAG, keyStr);
-            this.outShader(shader.vertex,"vertex");
+//            this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
+
 //            this._changeShader(shader);
-//            Log.d(TAG, "-----------");
 
         }
         shader.encodeVstr(shader.vertex,shader.fragment);
@@ -108,23 +90,23 @@ public class ProgrmaManager extends  ResGC {
 
     private void _changeShader(Shader3D shader) {
 
-        shader.vertex=  "attribute vec3 v3Position;"+
-                "attribute vec2 v2CubeTexST;"+
-                "varying vec2 v0;"+
-                "attribute vec2 v2lightuv;"+
-                "varying vec2 v2;"+
-                "varying vec3 v1;"+
-                "uniform mat4 vpMatrix3D;"+
-                "uniform mat4 posMatrix3D;"+
-                "uniform mat3 rotationMatrix3D;"+
-                "void main(void){"+
-                "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
-                "vec4 vt0= vec4(v3Position, 1.0);"+
-                "vt0 =posMatrix3D* vt0   ;"+
-                "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
-                "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
-                "vt0 = vpMatrix3D*vt0 ;"+
-                "gl_Position = vt0; }";
+//        shader.vertex=  "attribute vec3 v3Position;"+
+//                "attribute vec2 v2CubeTexST;"+
+//                "varying vec2 v0;"+
+//                "attribute vec2 v2lightuv;"+
+//                "varying vec2 v2;"+
+//                "varying vec3 v1;"+
+//                "uniform mat4 vpMatrix3D;"+
+//                "uniform mat4 posMatrix3D;"+
+//                "uniform mat3 rotationMatrix3D;"+
+//                "void main(void){"+
+//                "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
+//                "vec4 vt0= vec4(v3Position, 1.0);"+
+//                "vt0 =posMatrix3D* vt0   ;"+
+//                "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
+//                "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
+//                "vt0 = vpMatrix3D*vt0 ;"+
+//                "gl_Position = vt0; }";
 
         shader.fragment=
                 "precision mediump float;"+
