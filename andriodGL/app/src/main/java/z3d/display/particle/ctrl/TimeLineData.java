@@ -28,6 +28,8 @@ public class TimeLineData {
     public void setByteData(ByteArray $byte)
     {
         float len = $byte.readFloat();
+        Log.d(TAG, "len: "+len);
+        Log.d(TAG, "len: "+len);
         for (int i = 0; i < len; i++) {
             float frameNum = $byte.readFloat();
             KeyFrame key = this.addKeyFrame(frameNum);

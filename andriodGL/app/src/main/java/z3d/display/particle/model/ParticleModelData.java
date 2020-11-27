@@ -35,6 +35,9 @@ public class ParticleModelData extends ParticleData {
             this.objData.indexs.add((short)$byte.readInt());
         }
         this.objData.stride = dataWidth * 4;
+        if (this.version >= 36) {
+           $byte.readInt();//新加模型特效深度信息
+        }
         super.setAllByteInfo($byte);
         this.uploadGpu();
     }
