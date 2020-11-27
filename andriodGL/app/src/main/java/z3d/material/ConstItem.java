@@ -56,7 +56,7 @@ public class ConstItem {
         }
     }
 
-    public void setDynamic(DynamicConstItem dynamic) {
+    public void setDynamic(DynamicBaseConstItem dynamic) {
 
         for(int i=0;i<dynamic.currentValue.size();i++){
             this.vecNum.put(dynamic.targetOffset+i,dynamic.currentValue.get(i));

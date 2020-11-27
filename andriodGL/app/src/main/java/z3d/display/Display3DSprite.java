@@ -106,8 +106,14 @@ public   class Display3DSprite extends Display3D {
         {
             return;
         }
+
         this.shader3D=this.material.shader;
+
+        if (this.material.url.indexOf("changjinghongpei/standard_byte")==-1) {
+           // return;
+        }
         Context3D ctx=this.scene3d.context3D;
+
         ctx.setProgame(this.shader3D.program);
         this.updateBind();
         this.setVc();

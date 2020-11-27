@@ -34,7 +34,8 @@ public class DynamicBaseConstItem {
 
     public void update() {
         if (this.target!=null) {
-            Log.d(TAG, "update: 需要处理，应该不会到这里");
+
+            this.target.setDynamic(this);
         }
     }
 }
