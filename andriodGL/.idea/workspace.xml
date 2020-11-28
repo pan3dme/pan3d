@@ -31,7 +31,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="" />
+    <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/SceneAllMenu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,11 +181,12 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="245" y="159" key="#PSD/0.23.1440.877@0.23.1440.877" timestamp="1604251706889" />
-    <state x="445" y="157" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606565472457">
-      <screen x="0" y="25" width="1680" height="947" />
+    <state x="2189" y="172" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606571616954">
+      <screen x="1680" y="25" width="1920" height="1055" />
     </state>
     <state x="158" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604273831456" />
     <state x="158" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1605702396288" />
+    <state x="2189" y="172" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.940/1680.25.1920.1055@1680.25.1920.1055" timestamp="1606571616954" />
     <state x="184" y="95" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.945/1680.25.1920.1055@0.25.1680.945" timestamp="1606547890261" />
     <state x="445" y="157" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.947/1680.25.1920.1055@0.25.1680.947" timestamp="1606565472457" />
     <state x="457" y="230" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606547880938">
@@ -292,11 +296,12 @@
     <state width="889" height="312" key="GridCell.Tab.1.right/0.25.1680.945/1680.25.1920.1055@0.25.1680.945" timestamp="1606547471020" />
     <state width="890" height="312" key="GridCell.Tab.1.right/0.25.1680.947/1680.25.1920.1055@0.25.1680.947" timestamp="1606491803797" />
     <state width="890" height="344" key="GridCell.Tab.1.right/0.25.1680.949/1680.25.1920.1055@0.25.1680.949" timestamp="1606485504837" />
-    <state x="362" y="213" key="IDE.errors.dialog" timestamp="1606568187886">
-      <screen x="0" y="25" width="1680" height="940" />
+    <state x="2094" y="236" key="IDE.errors.dialog" timestamp="1606571925479">
+      <screen x="1680" y="25" width="1920" height="1055" />
     </state>
     <state x="310" y="200" key="IDE.errors.dialog/0.25.1440.875@0.25.1440.875" timestamp="1605430583631" />
     <state x="362" y="213" key="IDE.errors.dialog/0.25.1680.940/1680.25.1920.1055@0.25.1680.940" timestamp="1606568187886" />
+    <state x="2094" y="236" key="IDE.errors.dialog/0.25.1680.940/1680.25.1920.1055@1680.25.1920.1055" timestamp="1606571925479" />
     <state x="362" y="213" key="IDE.errors.dialog/0.25.1680.942/1680.25.1920.1055@0.25.1680.942" timestamp="1606546262108" />
     <state x="362" y="214" key="IDE.errors.dialog/0.25.1680.947/1680.25.1920.1055@0.25.1680.947" timestamp="1606565812691" />
     <state x="221" y="59" key="SettingsEditor" timestamp="1604251431408">

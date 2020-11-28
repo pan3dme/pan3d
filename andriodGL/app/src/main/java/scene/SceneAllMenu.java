@@ -68,8 +68,6 @@ public class SceneAllMenu extends AppCompatActivity   {
         setContentView(R.layout.scene001_layout);
         _mGLView =   findViewById(R.id.mGLView);
         _mGLView.setEGLContextClientVersion(2);
-
-        Scene_data.fileRoot = "https://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
         Scene_data.fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
         LoaderThread.fileContext = getApplicationContext();
         _mGLView.setRenderer(new GLSurfaceView.Renderer() {
@@ -83,13 +81,10 @@ public class SceneAllMenu extends AppCompatActivity   {
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
 //                loadSceneByUrl("2013");
-
-
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 //                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
 //                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
-
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -97,14 +92,10 @@ public class SceneAllMenu extends AppCompatActivity   {
                 _scene3d.camera3D.fovw = width;
                 _scene3d.camera3D.fovh = height;
                 _scene3d.resizeScene();
-
-
-
             }
             @Override
             public void onDrawFrame(GL10 gl) {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-//                GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 _scene3d.upFrame();
             }
