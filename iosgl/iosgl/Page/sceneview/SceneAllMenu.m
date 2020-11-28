@@ -33,7 +33,7 @@
     self.view.backgroundColor=[UIColor whiteColor];
     self.lyfPlayIdx=0;
     self.sceneView=[[SceneView alloc]init];
-    self.sceneView.frame=CGRectMake(5, 100, 360, 360);
+    self.sceneView.frame=CGRectMake(5, 5, 360, 360);
     [self.view addSubview:  self.sceneView];
     [self.sceneView makeEemptyScene];
     self.butItems=[[NSMutableArray alloc]init];
@@ -122,6 +122,7 @@
     [arr addObject:@"2013"];
     [arr addObject:@"2014"];
     [arr addObject:@"2015"];
+    [arr addObject:@"10002"];
     [self addBaseMenuButs:arr];
     [self addButsByArr:arr  action: @selector(selectSceneClikEvent:)];
 }

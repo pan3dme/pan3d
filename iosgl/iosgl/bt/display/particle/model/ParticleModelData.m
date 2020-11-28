@@ -40,6 +40,10 @@
     self.objData.indexs=indexs;
     self.objData.trinum=(int)self.objData.indexs.count;
     self.objData.stride = buffStride;
+    if (self.version >= 36) {
+        [byte readInt];
+    }
+
     [super setAllByteInfo:fs];
     [self upToGpu];
   
