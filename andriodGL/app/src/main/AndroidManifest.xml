@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SceneWorld001">
         <activity
-            android:name="scene.SceneAllMenu"
+            android:name="scene.Test001"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
