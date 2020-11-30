@@ -40,7 +40,8 @@
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/scene/Test001.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/scene/Test001.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +149,7 @@
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="scene.Test001" />
+      <option name="ACTIVITY_CLASS" value="scene.SceneAllMenu" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
@@ -193,20 +194,20 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="245" y="159" key="#PSD/0.23.1440.877@0.23.1440.877" timestamp="1604251706889" />
-    <state x="445" y="156" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606728788888">
-      <screen x="0" y="25" width="1680" height="940" />
+    <state x="445" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606739230122">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state x="158" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604273831456" />
     <state x="158" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1605702396288" />
-    <state x="445" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.1025/1680.25.1920.970@0.25.1680.1025" timestamp="1606636243764" />
+    <state x="445" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.1025/1680.25.1920.970@0.25.1680.1025" timestamp="1606739230122" />
     <state x="445" y="156" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.940/1680.25.1920.1055@0.25.1680.940" timestamp="1606728788888" />
     <state x="2189" y="172" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.940/1680.25.1920.1055@1680.25.1920.1055" timestamp="1606571616954" />
     <state x="184" y="95" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.945/1680.25.1920.1055@0.25.1680.945" timestamp="1606547890261" />
     <state x="445" y="157" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.947/1680.25.1920.1055@0.25.1680.947" timestamp="1606565472457" />
-    <state x="457" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606728786363">
-      <screen x="0" y="25" width="1680" height="940" />
+    <state x="457" y="247" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606739224938">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state x="457" y="247" key="#com.intellij.ide.util.TreeClassChooserDialog/0.25.1680.1025/1680.25.1920.970@0.25.1680.1025" timestamp="1606636241509" />
+    <state x="457" y="247" key="#com.intellij.ide.util.TreeClassChooserDialog/0.25.1680.1025/1680.25.1920.970@0.25.1680.1025" timestamp="1606739224938" />
     <state x="457" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog/0.25.1680.940/1680.25.1920.1055@0.25.1680.940" timestamp="1606728786363" />
     <state x="457" y="230" key="#com.intellij.ide.util.TreeClassChooserDialog/0.25.1680.945/1680.25.1920.1055@0.25.1680.945" timestamp="1606547880938" />
     <state x="574" y="323" width="489" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605441750465">
@@ -214,10 +215,11 @@
     </state>
     <state x="574" y="322" width="489" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1440.877@0.23.1440.877" timestamp="1604943947048" />
     <state x="574" y="323" width="489" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.25.1440.875@0.25.1440.875" timestamp="1605441750465" />
-    <state x="552" y="188" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605441775561">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="644" y="216" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606739176423">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state x="552" y="188" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875@0.25.1440.875" timestamp="1605441775561" />
+    <state x="644" y="216" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1680.1025/1680.25.1920.970@0.25.1680.1025" timestamp="1606739176423" />
     <state x="323" y="280" width="1186" height="603" key="AVDManager" timestamp="1606563845092">
       <screen x="0" y="25" width="1680" height="947" />
     </state>
