@@ -30,6 +30,7 @@ import javax.microedition.khronos.opengles.GL10;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
+import z3d.base.MathCore;
 import z3d.base.Object3D;
 import z3d.base.Scene_data;
 import z3d.display.BuildDisplay3DSprite;
@@ -76,7 +77,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 _scene3d =new Scene3D();
                 _scene3d.initData();
                 SkillManager.getInstance().scene3D=_scene3d;
-                _scene3d.camera3D.distance=250;
+                _scene3d.camera3D.distance=550;
                 GridLineSprite  dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
@@ -117,7 +118,7 @@ public class SceneAllMenu extends AppCompatActivity   {
     private void addLocaMd5(){
         Md5MoveSprite $sc = new Md5MoveSprite(_scene3d);
         https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg
-       $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
+        $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
 
         this._scene3d.addDisplay($sc);
     }
@@ -194,7 +195,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 if(str.equals("战士")){
                     SceneChar sc=new SceneChar(_scene3d);
                     sc.setRoleUrl("role/50011.txt");
-                     sc.play(SceneChar.CharAction_stand);
+                    sc.play(SceneChar.CharAction_stand);
                     _scene3d.addMovieDisplay(sc);
                     mainChar=sc;
                     mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
@@ -403,7 +404,7 @@ public class SceneAllMenu extends AppCompatActivity   {
                 if(str.equals("返回")){
                     addRootMenu();
                 }else{
-                     playLyf("model/"+str +"_lyf.txt");
+                    playLyf("model/"+str +"_lyf.txt");
                 }
 
             }
@@ -444,22 +445,22 @@ public class SceneAllMenu extends AppCompatActivity   {
 
     private  void parsingBuildItem(JSONObject obj)
     {
+
         try {
             int type = obj.getInt("type");
-            switch ( type) {
-                case 1:
-                    int id=obj.getInt("id");
-                    if( id==2){
+            if(type==BaseRes.PREFAB_TYPE){
+                int id=obj.getInt("id");
+                if( id==2){
 
-                    }
-                    BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                    tempDis.scene3d=this._scene3d;
-                    tempDis.setInfo(obj);
-                    this._scene3d.addDisplay(tempDis);
-
-                    break;
-                default:
-                    break;
+                }
+                BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
+                tempDis.scene3d=this._scene3d;
+                tempDis.setInfo(obj);
+                this._scene3d.addDisplay(tempDis);
+            }
+            if(type==BaseRes.SCENE_PARTICLE_TYPE){
+                CombineParticle particle = this.getParticleSprite(obj);
+                this._scene3d.particleManager.addParticle(particle);
             }
 
         } catch (Exception e) {
@@ -468,6 +469,55 @@ public class SceneAllMenu extends AppCompatActivity   {
 
 
     }
+    protected  CombineParticle getParticleSprite(JSONObject itemObj) {
+
+        try {
+
+            CombineParticle particle =      ParticleManager.getInstance().getParticleByte(   itemObj.getString( "url"));
+            particle.type=0;
+
+            particle.setX((float)itemObj.getDouble("x"));
+            particle.setY((float) itemObj.getDouble("y"));
+            particle.setZ((float)itemObj.getDouble("z"));
+
+            particle.setScaleX((float)itemObj.getInt("scaleX"));
+            particle.setScaleY( (float)itemObj.getInt("scaleY"));
+            particle.setScaleZ((float)itemObj.getInt("scaleZ"));
+
+            particle.setRotationX((float)itemObj.getDouble("rotationX"));
+            particle.setRotationY((float) itemObj.getDouble("rotationY"));
+            particle.setRotationZ((float)itemObj.getDouble("rotationZ"));
+
+
+
+
+            return  particle;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+//        particleManager.addParticle(particle);
+//
+//        particle.scaleX = itemObj.scaleX;
+//        particle.scaleY = itemObj.scaleY;
+//        particle.scaleZ = itemObj.scaleZ;
+//
+//        particle.x = itemObj.x;
+
+    }//        particle.y = itemObj.y;
+//        particle.z = itemObj.z;
+//
+//        particle.rotationX = itemObj.rotationX;
+//        particle.rotationY = itemObj.rotationY;
+//        particle.rotationZ = itemObj.rotationZ;
+//        particle.type = 0;
+//        this._sceneDic["particle" + itemObj.id] = particle;
+//
+//        return particle;
+
+
 
     private void  addRoleToSceneByUrl(String val,Vector3D pos)
     {

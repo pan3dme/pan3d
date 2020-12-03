@@ -65,6 +65,35 @@ public class CombineParticle  extends EventDispatcher {
         this.displayAry.add(dis);
 
     }
+    public void setScaleX(float value){
+        this.bindScale.x = value;
+    }
+    public void setScaleY(float value){
+        this.bindScale.y = value;
+    }
+    public void setScaleZ(float value){
+        this.bindScale.z = value;
+    }
+
+    public void setX(float value){
+        this.bindVecter3d.x = value;
+    }
+    public void setY(float value){
+        this.bindVecter3d.y = value;
+    }
+    public void setZ(float value){
+        this.bindVecter3d.z = value;
+    }
+    public void setRotationX(float value){
+        _rotationX=value;
+    }
+    public void setRotationY(float value){
+        _rotationY=value;
+    }
+    public void setRotationZ(float value){
+        _rotationZ=value;
+    }
+
 
     public  void updateTime(float t)
     {

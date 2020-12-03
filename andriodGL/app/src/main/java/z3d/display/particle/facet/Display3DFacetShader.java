@@ -13,10 +13,11 @@ public class Display3DFacetShader extends Shader3D {
                         "uniform mat4 camMatrix;\n"+
                         "uniform mat4 modeMatrix;\n"+
                         "uniform mat4 rotMatrix;\n"+
+                        "uniform vec2 uvMove;\n"+
         "varying vec2 v0;\n"+
         "void main()"+
         "{"+
-        "v0=v2TexCoord;\n"+
+        "v0=v2TexCoord.xy+uvMove.xy;\n"+
         "vec4 vPos = vec4(v3Position.xyz,1.0);\n"+
           "gl_Position =   (viewMatrix*camMatrix)*(modeMatrix*rotMatrix*vPos);\n"+
         "}";

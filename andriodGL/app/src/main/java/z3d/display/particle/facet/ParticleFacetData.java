@@ -1,24 +1,28 @@
 package z3d.display.particle.facet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import z3d.base.ByteArray;
 import z3d.base.ObjData;
 import z3d.display.particle.Display3DParticle;
 import z3d.display.particle.ParticleData;
 import z3d.program.ProgrmaManager;
+import z3d.vo.Vector2D;
 
 public class ParticleFacetData extends ParticleData {
 
-    public float _maxAnimTime;
-    public boolean _lockx;
-    public boolean _locky;
-    public boolean _isCycle;
+    public int maxAnimTime;
+    public boolean lockx;
+    public boolean locky;
+    public boolean isCycle;
 
     public void setAllByteInfo(ByteArray _byte){
 
-        this._maxAnimTime = _byte.readFloat();
-        this._isCycle = _byte.readBoolean();
-        this._lockx = _byte.readBoolean();
-        this._locky = _byte.readBoolean();
+        this.maxAnimTime =(int) _byte.readFloat();
+        this.isCycle = _byte.readBoolean();
+        this.lockx = _byte.readBoolean();
+        this.locky = _byte.readBoolean();
         super.setAllByteInfo(_byte);
 
         this.uploadGpu();
@@ -45,10 +49,10 @@ public class ParticleFacetData extends ParticleData {
     private void uploadGpu() {
    // [self makeRectangleData:self._width height:self._height offsetX:self._originWidthScale offsetY:self._originHeightScale isUV:self._isUV isU:self._isUV isV:self._isV animLine:self._animLine animRow:self._animRow];
 
-        this.makeRectangleData(this._width,this._height,this._originWidthScale,this._originHeightScale,this._isUV,this._isV,this._animLine,this._animRow);
+        this.makeRectangleData(this._width,this._height,this._originWidthScale,this._originHeightScale,this._isUV,this._isU, this._isV,this._animLine,this._animRow);
 
     }
-    private void makeRectangleData(float width, float height, float offsetX, float offsetY, boolean isUV, boolean isV, float animLine, float animRow) {
+    private void makeRectangleData(float width, float height, float offsetX, float offsetY, boolean isUV, boolean isU, boolean isV, float animLine, float animRow) {
 
 
 
@@ -74,19 +78,42 @@ public class ParticleFacetData extends ParticleData {
         attrArr[11]=0.0f;
 
 
+        List<Vector2D> ary = new ArrayList<>();
+        ary.add(new Vector2D(0, 0));
+        ary.add(new Vector2D(0, 1 / animRow));
+        ary.add(new Vector2D(1 / animLine, 1 / animRow));
+        ary.add(new Vector2D(1 / animLine, 0));
+
+        if (isU) {
+            for (int i = 0; i < ary.size(); i++) {
+                ary.get(i).x = - ary.get(i).x;
+            }
+        }
+
+        if (isV) {
+            for (int i = 0; i < ary.size(); i++) {
+                ary.get(i).y = - ary.get(i).y;
+            }
+        }
+        if (isUV) {
+            ary.add(    ary.remove(0));
+        }
+
 
         Float[] uvArr=new Float[8];
-        uvArr[0]=0.0f;
-        uvArr[1]=0.0f;
+        uvArr[0]=ary.get(0).x;
+        uvArr[1]=ary.get(0).y;
 
-        uvArr[2]=1.0f;
-        uvArr[3]=0.0f;
+        uvArr[2]=ary.get(1).x;
+        uvArr[3]=ary.get(1).y;
 
-        uvArr[4]=1.0f;
-        uvArr[5]=1.0f;
+        uvArr[4]=ary.get(2).x;
+        uvArr[5]=ary.get(2).y;
 
-        uvArr[6]=0.0f;
-        uvArr[7]=1.0f;
+        uvArr[6]=ary.get(3).x;
+        uvArr[7]=ary.get(3).y;
+
+
         int[] Indices=new int[6];
 
         Indices[0]=0;
