@@ -13,6 +13,7 @@
 {
     return @"Display3DFacetShader";
 }
+//uvMove
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
     "attribute vec3 v3Position;\n"
@@ -21,10 +22,11 @@
     "uniform mat4 camMatrix;\n"
     "uniform mat4 modeMatrix;\n"
     "uniform mat4 rotMatrix;\n"
+    "uniform vec2 uvMove;\n"
     "varying vec2 v0;\n"
     "void main()"
     "{"
-         "v0=v2TexCoord;\n"
+         "v0=v2TexCoord.xy+uvMove.xy;\n"
         "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
         "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;\n"
     "}";
