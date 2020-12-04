@@ -38,17 +38,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/app/src/main/java/com/example/navigationdemo/DetailFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/app/src/main/java/com/example/navigationdemo/HomeFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/app/src/main/res/layout/fragment_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/NavigationDemo/app/src/main/res/navigation-nonav/my_nav_graph.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +45,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[5a45b93d]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
