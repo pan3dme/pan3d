@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 import z3d.display.Display3D;
 import z3d.scene.Scene3D;
 import z3d.units.TimeUtil;

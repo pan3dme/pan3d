@@ -1,6 +1,6 @@
 package z3d.skill.key;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 import z3d.base.Scene_data;
 import z3d.display.particle.CombineParticle;
 import z3d.filemodel.ParticleManager;

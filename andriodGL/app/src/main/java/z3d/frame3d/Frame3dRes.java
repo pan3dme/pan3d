@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
 

@@ -2,11 +2,17 @@ package com.example.three.jump;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.three.R;
 
@@ -63,4 +69,23 @@ public class SceneFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_scene, container, false);
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getView().findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle=new Bundle();
+                NavController controller= Navigation.findNavController(v);
+                controller.navigate(R.id.action_sceneFragment_to_sceneBaseFragment,bundle);
+
+
+
+
+            }
+        });
+    }
+
 }

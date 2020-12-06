@@ -6,11 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 import z3d.base.ByteArray;
 import z3d.base.CallBackFun;
-import z3d.base.ResGC;
-import z3d.base.SkillBackFun;
 import z3d.units.LoadBackFun;
 import z3d.units.LoadManager;
 import z3d.vo.DataObjTempVo;

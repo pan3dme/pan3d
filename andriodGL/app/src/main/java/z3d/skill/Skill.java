@@ -1,13 +1,10 @@
 package z3d.skill;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 import z3d.base.Object3D;
-import z3d.display.particle.model.Display3DModelPartilce;
 import z3d.display.role.Display3dMovie;
 import z3d.display.role.SceneChar;
 import z3d.res.SkillActionVo;

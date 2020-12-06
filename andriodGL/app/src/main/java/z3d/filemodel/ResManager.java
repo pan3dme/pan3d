@@ -2,7 +2,7 @@ package z3d.filemodel;
 
 import android.util.Log;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 import z3d.base.CallBackFun;
 import z3d.base.ResGC;
 import z3d.base.RoleBackFun;

@@ -1,16 +1,13 @@
 package z3d.skill;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 import z3d.base.ResGC;
 import z3d.base.Scene_data;
 import z3d.filemodel.ResManager;
-import z3d.program.ProgrmaManager;
 import z3d.res.SkillRes;
 import z3d.scene.Scene3D;
 import z3d.units.TimeUtil;

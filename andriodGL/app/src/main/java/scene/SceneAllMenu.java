@@ -1,5 +1,6 @@
 package scene;
 
+import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -27,10 +28,12 @@ import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import urlhttp.UrlHttpUtil;
+import urlhttp.CallBackUtil;
+import z3d.base.CallBack;
 import z3d.base.CallBackFun;
 import z3d.base.GroupBackFun;
 import z3d.base.GroupItem;
-import z3d.base.MathCore;
 import z3d.base.Object3D;
 import z3d.base.Scene_data;
 import z3d.display.BuildDisplay3DSprite;
@@ -40,9 +43,7 @@ import z3d.display.role.Display3dMovie;
 import z3d.display.role.SceneChar;
 import z3d.filemodel.GroupDataManager;
 import z3d.filemodel.ParticleManager;
-import z3d.frame3d.Frame3dRes;
 import z3d.frame3d.Frame3dSprite;
-import z3d.frame3d.FrameFileNode;
 import z3d.md5.Md5MoveSprite;
 import z3d.res.BaseRes;
 import z3d.res.GroupRes;
@@ -104,7 +105,21 @@ public class SceneAllMenu extends AppCompatActivity   {
         _mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
 
         initData();
+        loadTestFile();
 
+    }
+    private void  loadTestFile()
+    {
+        UrlHttpUtil.getBitmap(Scene_data.fileRoot+"base/brdf_ltu.jpg", new CallBackUtil.CallBackBitmap() {
+            @Override
+            public void onFailure(int code, String errorMessage) {
+                Log.d("errorMessage", "onResponse: ");
+            }
+            @Override
+            public void onResponse(Bitmap bm) {
+                Log.d("onResponse", "onResponse: ");
+            }
+        });
     }
     private void addLoadFrame3dRes()
     {

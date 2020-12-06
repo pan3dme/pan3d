@@ -1,6 +1,6 @@
 package z3d.skill;
 
-import scene.CallBack;
+import z3d.base.CallBack;
 
 public class SkillLoadInfo {
      public  String name;
