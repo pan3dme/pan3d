@@ -88,7 +88,7 @@ public class HomeFragment extends Fragment {
                 GridLineSprite dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
-//                loadSceneByUrl("100002");
+                loadSceneByUrl("10002");
 //                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
 //                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
 //                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
