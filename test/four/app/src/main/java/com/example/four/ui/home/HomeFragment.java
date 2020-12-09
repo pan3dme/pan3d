@@ -110,8 +110,8 @@ public class HomeFragment extends Fragment {
         constraintlayout.addView(_mGLViewTwo);
         ViewGroup.LayoutParams layoutParams=_mGLViewTwo.getLayoutParams();
 
-        layoutParams.width=1000;
-        layoutParams.height=1000;
+        layoutParams.width=600;
+        layoutParams.height=600;
         _mGLViewTwo.setLayoutParams(layoutParams);
         _mGLViewTwo.setEGLContextClientVersion(2);
 
