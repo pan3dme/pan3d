@@ -118,19 +118,30 @@ public class HomeFragment extends Fragment {
         _mGLViewTwo.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+                _scene3dTwo =new Scene3D();
+                _scene3dTwo.initData();
+                _scene3dTwo.camera3D.distance=550;
+                GridLineSprite dis=new GridLineSprite( _scene3dTwo);
+                dis.changeColor(new Vector3D(1,1,0,1));
+                _scene3dTwo.addDisplay(dis);
+
+
 
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
-                GLES20.glViewport(0, 0, width, height);
+//                GLES20.glViewport(0, 0, width, height);
+//                _scene3dTwo.camera3D.fovw = width;
+//                _scene3dTwo.camera3D.fovh = height;
+//                _scene3dTwo.resizeScene();
 
             }
             @Override
             public void onDrawFrame(GL10 gl) {
                 GLES20.glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                if(_scene3d!=null){
-//                    _scene3d.upFrame();
+                if(_scene3dTwo!=null){
+//                    _scene3dTwo.upFrame();
                 }
 
             }
@@ -138,6 +149,7 @@ public class HomeFragment extends Fragment {
         _mGLViewTwo.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
     private Scene3D _scene3d;
+    private Scene3D _scene3dTwo;
     private SceneRes _sceneRes;
     private  void initScene()
     {
@@ -158,6 +170,8 @@ public class HomeFragment extends Fragment {
 //                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
 //                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
+
+
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
