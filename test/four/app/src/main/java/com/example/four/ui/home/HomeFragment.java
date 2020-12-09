@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addGlviewInfo();
-        addGlViewTwo();
+         addGlViewTwo();
     }
     private void addGlviewInfo(){
         _mGLView=new GLSurfaceView(this.getContext());
@@ -118,76 +118,79 @@ public class HomeFragment extends Fragment {
         _mGLViewTwo.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                _scene3dTwo =new Scene3D();
-                _scene3dTwo.initData();
-                _scene3dTwo.camera3D.distance=550;
-                GridLineSprite dis=new GridLineSprite( _scene3dTwo);
-                dis.changeColor(new Vector3D(1,1,0,1));
-                _scene3dTwo.addDisplay(dis);
 
 
 
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
-//                GLES20.glViewport(0, 0, width, height);
-//                _scene3dTwo.camera3D.fovw = width;
-//                _scene3dTwo.camera3D.fovh = height;
-//                _scene3dTwo.resizeScene();
 
             }
             @Override
             public void onDrawFrame(GL10 gl) {
-                GLES20.glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                if(_scene3dTwo!=null){
-//                    _scene3dTwo.upFrame();
+                glTriangle=new GLTriangle();
+                if(glTriangle!=null){
+                    glTriangle.draw();
                 }
+
 
             }
         });
         _mGLViewTwo.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
+    private    GLTriangle glTriangle;
     private Scene3D _scene3d;
     private Scene3D _scene3dTwo;
     private SceneRes _sceneRes;
+    private GLSurfaceView.Renderer _baseRenderer;
+    private GLSurfaceView.Renderer getRenderer(){
+        if(_baseRenderer==null){
+            _baseRenderer=new GLSurfaceView.Renderer() {
+                @Override
+                public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+                    if(_scene3d==null){
+                        _scene3d =new Scene3D();
+                        _scene3d.initData();
+//                        SkillManager.getInstance().scene3D=_scene3d;
+//
+                        _scene3d.camera3D.distance=550;
+                        GridLineSprite dis=new GridLineSprite( _scene3d);
+                        dis.changeColor(new Vector3D(1,1,1,1));
+                        _scene3d.addDisplay(dis);
+
+                        addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,0));
+                        loadSceneByUrl("10002");
+
+                    }
+
+
+
+                }
+                @Override
+                public void onSurfaceChanged(GL10 gl, int width, int height) {
+                    GLES20.glViewport(0, 0, width, height);
+                    _scene3d.camera3D.fovw = width;
+                    _scene3d.camera3D.fovh = height;
+                    _scene3d.resizeScene();
+                }
+                @Override
+                public void onDrawFrame(GL10 gl) {
+                    GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
+                    GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+                    _scene3d.upFrame();
+                    _scene3d.camera3D.rotationY++;
+                }
+            };
+        }
+        return  _baseRenderer;
+    }
     private  void initScene()
     {
 
-        _mGLView.setRenderer(new GLSurfaceView.Renderer() {
-            @Override
-            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                _scene3d =new Scene3D();
-                _scene3d.initData();
-                SkillManager.getInstance().scene3D=_scene3d;
-
-                _scene3d.camera3D.distance=550;
-                GridLineSprite dis=new GridLineSprite( _scene3d);
-                dis.changeColor(new Vector3D(1,1,1,1));
-                _scene3d.addDisplay(dis);
-//                loadSceneByUrl("10002");
-                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,0));
-//                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
-//                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
-//                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
-
-
-            }
-            @Override
-            public void onSurfaceChanged(GL10 gl, int width, int height) {
-                GLES20.glViewport(0, 0, width, height);
-                _scene3d.camera3D.fovw = width;
-                _scene3d.camera3D.fovh = height;
-                _scene3d.resizeScene();
-            }
-            @Override
-            public void onDrawFrame(GL10 gl) {
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
-                GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                _scene3d.upFrame();
-                _scene3d.camera3D.rotationY++;
-            }
-        });
+        _mGLView.setRenderer(getRenderer());
         _mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
     private void loadSceneByUrl(String val){
