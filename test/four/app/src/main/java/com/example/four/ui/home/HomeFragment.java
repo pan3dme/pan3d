@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private View rootView;
     private GLSurfaceView _mGLView;
+    private GLSurfaceView _mGLViewTwo;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -77,28 +80,11 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addGlviewInfo();
-        initData();
-    }
-
-    private void initData(){
-
-        List<String> arr=new ArrayList<>();
-        arr.add("50011");
-        arr.add("50013");
-        arr.add("50015");
-        arr.add("yezhuz");
-        arr.add("全部");
-        arr.add("网格");
-        arr.add("拉+");
-        arr.add("推-");
-        addGridView(arr);
-
-
-
+        addGlViewTwo();
     }
     private void addGlviewInfo(){
         _mGLView=new GLSurfaceView(this.getContext());
-        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.baseConstra);
+        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.glContent);
         TextView textView=new TextView(this.getActivity());
         textView.setText("1123");
         textView.setTextColor(Color.rgb(255,0,255));
@@ -106,18 +92,55 @@ public class HomeFragment extends Fragment {
         ViewGroup.LayoutParams layoutParams=_mGLView.getLayoutParams();
         layoutParams.width=600;
         layoutParams.height=600;
+
+
         _mGLView.setLayoutParams(layoutParams);
+
+        ViewGroup.MarginLayoutParams margin = new ViewGroup.MarginLayoutParams(_mGLView.getLayoutParams());
+
+
         constraintlayout.addView(textView);
         _mGLView.setEGLContextClientVersion(2);
         initScene();
+    }
+    private void addGlViewTwo()
+    {
+        _mGLViewTwo=new GLSurfaceView(this.getContext());
+        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.glContentTwo);
+        constraintlayout.addView(_mGLViewTwo);
+        ViewGroup.LayoutParams layoutParams=_mGLViewTwo.getLayoutParams();
+
+        layoutParams.width=1000;
+        layoutParams.height=1000;
+        _mGLViewTwo.setLayoutParams(layoutParams);
+        _mGLViewTwo.setEGLContextClientVersion(2);
+
+        _mGLViewTwo.setRenderer(new GLSurfaceView.Renderer() {
+            @Override
+            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+
+            }
+            @Override
+            public void onSurfaceChanged(GL10 gl, int width, int height) {
+                GLES20.glViewport(0, 0, width, height);
+
+            }
+            @Override
+            public void onDrawFrame(GL10 gl) {
+                GLES20.glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+                GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+                if(_scene3d!=null){
+//                    _scene3d.upFrame();
+                }
+
+            }
+        });
+        _mGLViewTwo.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
     private Scene3D _scene3d;
     private SceneRes _sceneRes;
     private  void initScene()
     {
-
-
-
 
         _mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
@@ -130,8 +153,8 @@ public class HomeFragment extends Fragment {
                 GridLineSprite dis=new GridLineSprite( _scene3d);
                 dis.changeColor(new Vector3D(1,1,1,1));
                 _scene3d.addDisplay(dis);
-                loadSceneByUrl("10002");
-//                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,500));
+//                loadSceneByUrl("10002");
+                addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,0));
 //                MeshDataManager.getInstance().reloadRoleRes("role/50011.txt");
 //                SkillManager.getInstance().preLoadSkill("skill/jichu_1_byte.txt");
 //                MeshDataManager.getInstance().reloadRoleRes("role/yezhuz.txt");
@@ -145,7 +168,7 @@ public class HomeFragment extends Fragment {
             }
             @Override
             public void onDrawFrame(GL10 gl) {
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 _scene3d.upFrame();
                 _scene3d.camera3D.rotationY++;
@@ -240,27 +263,7 @@ public class HomeFragment extends Fragment {
             return null;
         }
 
-
-//        particleManager.addParticle(particle);
-//
-//        particle.scaleX = itemObj.scaleX;
-//        particle.scaleY = itemObj.scaleY;
-//        particle.scaleZ = itemObj.scaleZ;
-//
-//        particle.x = itemObj.x;
-
     }//        particle.y = itemObj.y;
-//        particle.z = itemObj.z;
-//
-//        particle.rotationX = itemObj.rotationX;
-//        particle.rotationY = itemObj.rotationY;
-//        particle.rotationZ = itemObj.rotationZ;
-//        particle.type = 0;
-//        this._sceneDic["particle" + itemObj.id] = particle;
-//
-//        return particle;
-
-
 
     private void  addRoleToSceneByUrl(String val,Vector3D pos)
     {
@@ -306,31 +309,5 @@ public class HomeFragment extends Fragment {
     Vector2D _downPosV2d;
     Object3D _oldPosV2d;
 
-    private void  addGridView(List<String> arr ){
-        List<Map<String, Object>> data_list=new ArrayList<>();
-        for(int i=0;i<arr.size();i++){
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("image", R.drawable.my_cell_sz001);
-            map.put("text", arr.get(i));
-            data_list.add(map);
-        }
-        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.baseConstra);
-        GridView gview =new GridView(this.getActivity());
-        gview.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
-        gview.setNumColumns(4);
-        constraintlayout.addView(gview);
-        String [] from ={"image","text"};
-        int [] to = {R.id.image,R.id.text};
-        SimpleAdapter sim_adapter = new SimpleAdapter(this.getActivity(),  data_list, R.layout.item, from, to);
-        gview.setAdapter(sim_adapter);
-        gview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            }
-        });
-
-    }
 }
