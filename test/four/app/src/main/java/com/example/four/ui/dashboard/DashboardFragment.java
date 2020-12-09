@@ -85,8 +85,8 @@ public class DashboardFragment extends Fragment {
         textView.setTextColor(Color.rgb(255,0,255));
         constraintlayout.addView(_mGLView);
         ViewGroup.LayoutParams layoutParams=_mGLView.getLayoutParams();
-        layoutParams.width=600;
-        layoutParams.height=600;
+        layoutParams.width=900;
+        layoutParams.height=900;
 
 
         _mGLView.setLayoutParams(layoutParams);
