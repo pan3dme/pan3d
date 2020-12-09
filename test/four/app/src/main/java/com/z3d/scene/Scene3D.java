@@ -3,6 +3,7 @@ package com.z3d.scene;
 import android.opengl.GLES20;
 
 import com.z3d.base.Camera3D;
+import com.z3d.base.ObjDataManager;
 import com.z3d.base.ResGC;
 import com.z3d.base.Scene_data;
 import com.z3d.base.TexTuresBackFun;
@@ -11,8 +12,10 @@ import com.z3d.display.Display3D;
 import com.z3d.display.Display3DSprite;
 import com.z3d.display.line.LineDisplayShader;
 import com.z3d.display.role.Display3dMovie;
+import com.z3d.filemodel.MeshDataManager;
 import com.z3d.filemodel.ParticleManager;
 import com.z3d.filemodel.TextureManager;
+import com.z3d.material.MaterialManager;
 import com.z3d.material.TextureRes;
 import com.z3d.program.ProgrmaManager;
 import com.z3d.program.Shader3D;
@@ -45,6 +48,7 @@ public class Scene3D extends ResGC {
         this.particleManager=new ParticleManager();
         this.camera3D.rotationX =-30;
         this.camera3D.rotationY=45;
+
         ProgrmaManager.getInstance().registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
     }
     public void  initData(){

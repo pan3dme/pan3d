@@ -161,6 +161,7 @@ public class HomeFragment extends Fragment {
                         _scene3d =new Scene3D();
                         _scene3d.initData();
                         SkillManager.getInstance().scene3D=_scene3d;
+
                         ProgrmaManager.getInstance().clearAll();
                         MeshDataManager.getInstance().clearAll();
                         TextureManager.getInstance().clearAll();
