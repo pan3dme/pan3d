@@ -27,13 +27,19 @@ import com.example.four.R;
 import com.z3d.base.CallBackFun;
 import com.z3d.base.GroupBackFun;
 import com.z3d.base.GroupItem;
+import com.z3d.base.ObjDataManager;
 import com.z3d.base.Object3D;
 import com.z3d.display.BuildDisplay3DSprite;
 import com.z3d.display.line.GridLineSprite;
+import com.z3d.display.line.LineDisplayShader;
 import com.z3d.display.particle.CombineParticle;
 import com.z3d.display.role.Display3dMovie;
 import com.z3d.filemodel.GroupDataManager;
+import com.z3d.filemodel.MeshDataManager;
 import com.z3d.filemodel.ParticleManager;
+import com.z3d.filemodel.TextureManager;
+import com.z3d.material.MaterialManager;
+import com.z3d.program.ProgrmaManager;
 import com.z3d.res.BaseRes;
 import com.z3d.res.GroupRes;
 import com.z3d.res.SceneRes;
@@ -119,7 +125,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
-
+                glTriangle=new GLTriangle();
 
             }
             @Override
@@ -131,7 +137,7 @@ public class HomeFragment extends Fragment {
 
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                glTriangle=new GLTriangle();
+
                 if(glTriangle!=null){
                     glTriangle.draw();
                 }
@@ -154,8 +160,13 @@ public class HomeFragment extends Fragment {
                     if(_scene3d==null){
                         _scene3d =new Scene3D();
                         _scene3d.initData();
-//                        SkillManager.getInstance().scene3D=_scene3d;
-//
+                        SkillManager.getInstance().scene3D=_scene3d;
+                        ProgrmaManager.getInstance().clearAll();
+                        MeshDataManager.getInstance().clearAll();
+                        TextureManager.getInstance().clearAll();
+                        ObjDataManager.getInstance().clearAll();
+                        MaterialManager.getInstance().clearAll();
+
                         _scene3d.camera3D.distance=550;
                         GridLineSprite dis=new GridLineSprite( _scene3d);
                         dis.changeColor(new Vector3D(1,1,1,1));

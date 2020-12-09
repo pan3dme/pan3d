@@ -40,6 +40,7 @@ public class ProgrmaManager extends ResGC {
 
         return null;
     }
+
     public Shader3D getMaterialProgram(String key, Shader3D shaderCls, Material material, List<Boolean> paramAry, Boolean parmaByFragmet)
     {
         String keyStr =key+material.url;
