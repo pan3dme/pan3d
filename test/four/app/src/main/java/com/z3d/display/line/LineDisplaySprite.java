@@ -22,8 +22,8 @@ public class LineDisplaySprite extends DisplayBaseSprite {
     protected void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(LineDisplayShader.shaderNameStr);
+        this.scene3d.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
+        this.shader3D=this.scene3d.progrmaManager.getProgram(LineDisplayShader.shaderNameStr);
 
         int a1=GLES20.glGetAttribLocation(this.shader3D.program, "vPosition");
         int a2=GLES20.glGetAttribLocation(this.shader3D.program, "vColorv3d");
@@ -35,7 +35,7 @@ public class LineDisplaySprite extends DisplayBaseSprite {
     protected void  initData()
     {
         baseColor=new Vector3D(1.0f,0.0f,1.0f);
-        this.objData =new ObjData();
+        this.objData =new ObjData(scene3d);
         this.clearLine();
 
 

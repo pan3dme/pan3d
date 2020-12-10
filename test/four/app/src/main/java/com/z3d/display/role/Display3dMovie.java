@@ -55,7 +55,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     }
     public void  setRoleUrl(String url)
     {
-        MeshDataManager.getInstance().getMeshData(url, new SkinMeshBackFun() {
+      this.scene3d.meshDataManager.getMeshData(url, new SkinMeshBackFun() {
             @Override
             public void Bfun(SkinMesh value) {
                 skinMesh=value;
@@ -195,7 +195,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
         }
         this._partUrl.put(key,url);
         ArrayList ary= (ArrayList)this._partDic.get(key);
-        GroupDataManager.getInstance().getGroupData( url, new GroupBackFun() {
+       scene3d.groupDataManager.getGroupData( url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {
                 loadPartRes(bindSocket, groupRes, ary);
@@ -217,12 +217,12 @@ public class Display3dMovie extends Display3DSprite implements IBind {
             }
 
             if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
-                CombineParticle particle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + item.particleUrl);
+                CombineParticle particle = this.scene3d.particleManager.getParticleByte(Scene_data.fileRoot + item.particleUrl);
                 ary.add(particle);
                 particle.setBindTarget(this);
                 particle.bindSocket = bindSocket;
                 particle.dynamic = true;
-                ParticleManager.getInstance().addParticle(particle);
+                this.scene3d.particleManager.addParticle(particle);
                 if (item.isGroup) {
                     particle.setGroup(posV3d, rotationV3d, scaleV3d);
                 }

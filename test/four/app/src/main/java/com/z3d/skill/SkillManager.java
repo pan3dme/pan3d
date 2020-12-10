@@ -22,8 +22,9 @@ public class SkillManager extends ResGC {
 
     public Scene3D scene3D;
 
-    public SkillManager( ){
-        super();
+    public SkillManager(Scene3D val ){
+
+        super(val);
         _skillDic=new HashMap<>();
         _loadDic=new HashMap<>();
         _preLoadDic=new HashMap<>();
@@ -32,13 +33,7 @@ public class SkillManager extends ResGC {
     }
 
     private static final String TAG = "SkillManager";
-    private static SkillManager _instance;
-    public static SkillManager getInstance() {
-        if (SkillManager._instance==null) {
-            SkillManager._instance = new SkillManager();
-        }
-        return SkillManager._instance;
-    }
+
 
     public Skill getSkill(String $url, String $name, CallBack $callback) {
         Skill skill  ;
@@ -79,7 +74,7 @@ public class SkillManager extends ResGC {
         }
         this._loadDic.put($url,new ArrayList<>());
         this._loadDic.get($url).add(obj);
-        ResManager.getInstance().loadSkillRes(Scene_data.fileRoot+ $url, new CallBack() {
+        scene3D.resManager.loadSkillRes(Scene_data.fileRoot+ $url, new CallBack() {
             @Override
             public void StateChange(Object val) {
                 SkillRes $skillRes=(SkillRes)val;
@@ -89,7 +84,7 @@ public class SkillManager extends ResGC {
         return skill;
     }
     private void loadSkillCom(String $url, SkillRes $skillRes) {
-        SkillData skillData  = new SkillData();
+        SkillData skillData  = new SkillData(scene3D);
         skillData.data = $skillRes.data;
         List<SkillLoadInfo> arrInfo= this._loadDic.get($url);
         for (int i = 0;arrInfo!=null&& i <arrInfo.size(); i++) {
@@ -142,7 +137,7 @@ public class SkillManager extends ResGC {
             return;
         }
         this._preLoadDic.put(url,url);
-        ResManager.getInstance().loadSkillRes(Scene_data.fileRoot+ url, new CallBack() {
+      scene3D.resManager.loadSkillRes(Scene_data.fileRoot+ url, new CallBack() {
             @Override
             public void StateChange(Object val) {
                 SkillRes $skillRes=(SkillRes)val;

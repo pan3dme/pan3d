@@ -5,6 +5,7 @@ import com.z3d.base.TexTuresBackFun;
 import com.z3d.engine.GC;
 import com.z3d.filemodel.TextureManager;
 import com.z3d.res.MaterialInfoVo;
+import com.z3d.scene.Scene3D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,10 @@ public class MaterialBaseParam extends GC {
     public List<DynamicBaseTexItem> dynamicTexList ;
     public List<DynamicBaseConstItem> dynamicConstList ;
 
-
+    public Scene3D scene3D;
+    public MaterialBaseParam(Scene3D val){
+        this.scene3D=val;
+    }
     public void setData(Material mater, List<MaterialInfoVo> ary )
     {
         this.material = mater;
@@ -29,7 +33,7 @@ public class MaterialBaseParam extends GC {
 
                 int objType= (int) obj.type;
                 if (objType== 0) {
-                final    DynamicBaseTexItem texItem = new DynamicBaseTexItem();
+                final    DynamicBaseTexItem texItem = new DynamicBaseTexItem(scene3D);
                     texItem.paramName = (String) obj.name;
                     for (int j = 0; j < texList.size(); j++) {
                         if (texItem.paramName.equals(texList.get(j).paramName)) {
@@ -42,7 +46,7 @@ public class MaterialBaseParam extends GC {
                         mipmap = texItem.target.mipmap;
                     }
                     mipmap = 0;
-                    TextureManager.getInstance().getTexture(Scene_data.fileRoot+ obj.url, new TexTuresBackFun() {
+                    this.scene3D.textureManager.getTexture(Scene_data.fileRoot+ obj.url, new TexTuresBackFun() {
                         @Override
                         public void Bfun(TextureRes value) {
                             texItem.textureRes = value;

@@ -21,7 +21,7 @@ public class Frame3dSprite extends Display3D {
     private void addLoadFrame3dRes()
     {
         scene3d.clearAll();
-        this.frame3dRes=new Frame3dRes();
+        this.frame3dRes=new Frame3dRes(this.scene3d);
         this.frame3dRes.load("pan/frame3dres/huowumatou_frame.txt", new CallBack() {
             @Override
             public void StateChange(Object val) {

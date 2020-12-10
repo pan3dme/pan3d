@@ -12,6 +12,7 @@ import com.z3d.base.TexTuresBackFun;
 import com.z3d.filemodel.TextureManager;
 import com.z3d.program.ProgrmaManager;
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,28 +25,17 @@ public class MaterialManager extends ResGC {
     public HashMap loadDic;
     public HashMap resDic;
 
-
-    private static MaterialManager _instance;
-    public static MaterialManager getInstance()  {
-        if (MaterialManager._instance==null) {
-            MaterialManager._instance = new MaterialManager();
-        }
-        return MaterialManager._instance;
-    }
-    public MaterialManager( ) {
-
-        super();
+    public MaterialManager(Scene3D val) {
+        super(val);
         this.loadDic=new HashMap();
         this.resDic=new HashMap();
-
-
-
     }
+
 
     public TextureRes getMaterialByUrl(String url)
     {
 
-        TextureRes textureRes= new TextureRes();
+        TextureRes textureRes= new TextureRes(scene3D);
         Bitmap b = Bitmap.createBitmap(512, 512, Bitmap.Config.RGB_565);
         textureRes.textTureInt= this.createTexture(b);
         return  textureRes;
@@ -119,7 +109,7 @@ public class MaterialManager extends ResGC {
             if (texItem.isParticleColor ||texItem.isDynamic || texItem.type != 0) {
                 continue;
             }
-            TextureManager.getInstance().getTexture(Scene_data.fileRoot+texItem.url, new TexTuresBackFun() {
+           scene3D.textureManager.getTexture(Scene_data.fileRoot+texItem.url, new TexTuresBackFun() {
                 @Override
                 public void Bfun(TextureRes value) {
                     Log.d("", "Bfun: "+value);
@@ -129,28 +119,18 @@ public class MaterialManager extends ResGC {
 
         }
 
-        /*
 
-        for (var i: number = 0; i < texVec.length; i++) {
-        if (texVec[i].isParticleColor || texVec[i].isDynamic || texVec[i].type != 0) {
-            continue;
-        }
-        TextureManager.getInstance().getTexture(Scene_data.fileRoot + texVec[i].url, ($textureVo: TextureRes, $texItem: TexItem) => {
-            $texItem.textureRes = $textureVo;
-        }, texVec[i].wrap, texVec[i], texVec[i].filter, texVec[i].mipmap);
-
-         */
     }
 
     private  void meshByteMaterialByte(ByteArray _byte,MaterialLoad _info)
     {
 
-        Material material = new Material();
+        Material material = new Material(scene3D);
         material.setByteData(_byte);
         material.url = _info.url;
         this.loadMaterial(material);
         if (_info.autoReg) {
-            material.shader = ProgrmaManager.getInstance().getMaterialProgram(_info.regName,_info.shader3D,material,new ArrayList<Boolean>(),true);
+            material.shader = scene3D.progrmaManager.getMaterialProgram(_info.regName,_info.shader3D,material,new ArrayList<Boolean>(),true);
         }
        List arr= (List) this.loadDic.get(_info.url);
        for (int i=0;i<arr.size();i++){
@@ -168,7 +148,7 @@ public class MaterialManager extends ResGC {
             if (dynamicTexItem.isParticleColor) {
                 dynamicTexItem.creatTextureByCurve();
             } else {
-                TextureManager.getInstance().getTexture(Scene_data.fileRoot + dynamicTexItem.url, new TexTuresBackFun() {
+              scene3D.textureManager.getTexture(Scene_data.fileRoot + dynamicTexItem.url, new TexTuresBackFun() {
                     @Override
                     public void Bfun(TextureRes value) {
                         dynamicTexItem.textureRes = value;

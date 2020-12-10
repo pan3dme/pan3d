@@ -5,6 +5,7 @@ import android.util.Log;
 import com.z3d.base.ByteArray;
 import com.z3d.base.CallBack;
 import com.z3d.base.CallBackFun;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.LoadBackFun;
 import com.z3d.units.LoadManager;
 import com.z3d.vo.DataObjTempVo;
@@ -22,6 +23,10 @@ public class SkillRes extends BaseRes {
     private CallBack bfun;
     public int meshBatchNum;
     public HashMap<String,SkillActionVo> data;
+    public  SkillRes(Scene3D val  ){
+        super(val);
+
+    }
     private void  loadComplete(ByteArray $byte )
     {
         this._byte =$byte;

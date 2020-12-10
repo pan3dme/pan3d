@@ -1,6 +1,7 @@
 package com.z3d.material;
 
 import com.z3d.filemodel.TextureManager;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.ColorTransition;
 
 import java.util.ArrayList;
@@ -15,6 +16,10 @@ public class DynamicTexItem extends DynamicBaseTexItem {
     public  boolean isParticleColor;
     public  Curve curve;
     public  float life;
+
+    public DynamicTexItem(Scene3D val) {
+        super(val);
+    }
 
     public int getTexture() {
         return textureDynamic!=null?textureDynamic.textTureInt:this.textureRes.textTureInt;
@@ -70,7 +75,7 @@ public class DynamicTexItem extends DynamicBaseTexItem {
             }
         }
 
-         this.textureDynamic=  TextureManager.getInstance().createTexture(ColorTransition.getImageDataByVec(imgNumVec,100));
+         this.textureDynamic=  this.scene3D.textureManager.createTexture(ColorTransition.getImageDataByVec(imgNumVec,100));
 
     }
 

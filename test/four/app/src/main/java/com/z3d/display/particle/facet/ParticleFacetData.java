@@ -5,6 +5,7 @@ import com.z3d.base.ObjData;
 import com.z3d.display.particle.Display3DParticle;
 import com.z3d.display.particle.ParticleData;
 import com.z3d.program.ProgrmaManager;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.Vector2D;
 
 import java.util.ArrayList;
@@ -16,7 +17,9 @@ public class ParticleFacetData extends ParticleData {
     public boolean lockx;
     public boolean locky;
     public boolean isCycle;
-
+    public  ParticleFacetData(Scene3D val  ){
+       super(val);
+    }
     public void setAllByteInfo(ByteArray _byte){
 
         this.maxAnimTime =(int) _byte.readFloat();
@@ -36,8 +39,8 @@ public class ParticleFacetData extends ParticleData {
             return;
         }
 
-        ProgrmaManager.getInstance().registe(Display3DFacetShader.shaderNameStr,new Display3DFacetShader());
-        this.materialParam.shader3D=ProgrmaManager.getInstance().getProgram(Display3DFacetShader.shaderNameStr);
+        this.scene3d.progrmaManager.registe(Display3DFacetShader.shaderNameStr,new Display3DFacetShader());
+        this.materialParam.shader3D=this.scene3d.progrmaManager.getProgram(Display3DFacetShader.shaderNameStr);
 
     }
 
@@ -56,7 +59,7 @@ public class ParticleFacetData extends ParticleData {
 
 
 
-        this.objData=new ObjData();
+        this.objData=new ObjData(scene3d);
 
 
         Float[] attrArr=new Float[12];

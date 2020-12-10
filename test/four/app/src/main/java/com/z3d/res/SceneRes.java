@@ -5,6 +5,7 @@ import android.util.Log;
 import com.z3d.base.ByteArray;
 import com.z3d.base.CallBackFun;
 import com.z3d.base.Scene_data;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.LoadBackFun;
 import com.z3d.units.LoadManager;
 
@@ -18,6 +19,10 @@ public class SceneRes extends BaseRes {
 
     public  JSONObject  sceneData;
     private CallBackFun sceneFinishFun;
+    public  SceneRes(Scene3D val  ){
+        super(val);
+
+    }
     public void load(String url ,final CallBackFun bfun) {
         LoadManager.getInstance().loadUrl(Scene_data.fileRoot+url, LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override

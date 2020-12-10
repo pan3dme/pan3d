@@ -16,18 +16,12 @@ import java.util.Set;
 public class ParticleManager extends ResGC {
     public List<CombineParticle> particleList;
     public  float time;
-    public Scene3D scene3d;
+
     private HashMap<String,List<CombineParticle>> renderDic;
-    private static ParticleManager _instance;
-    public static ParticleManager getInstance()  {
-        if (ParticleManager._instance==null) {
-            ParticleManager._instance = new ParticleManager();
-        }
-        return ParticleManager._instance;
-    }
-    public  ParticleManager()
+
+    public  ParticleManager(Scene3D val)
     {
-        super();
+        super(val);
 
         this.particleList=new ArrayList<>();
         this.renderDic=new HashMap<>();
@@ -38,7 +32,7 @@ public class ParticleManager extends ResGC {
 
     public void addResByte(String url, ByteArray data) {
         if (!this.dic.containsKey(url)) {
-            CombineParticleData baseData   = new CombineParticleData();
+            CombineParticleData baseData   = new CombineParticleData(this.scene3D);
             baseData.setDataByte(data);
             this.dic.put(url,baseData);
         }
@@ -109,7 +103,7 @@ public class ParticleManager extends ResGC {
             List<CombineParticle> arr=    this.renderDic.get(url);
             for (int i=0;i<arr.size();i++){
                 CombineParticle dic=  arr.get(i);
-                dic.upData(this.scene3d);
+                dic.upData(this.scene3D);
 
             }
 

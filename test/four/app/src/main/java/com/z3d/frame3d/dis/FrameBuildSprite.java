@@ -19,8 +19,8 @@ public class FrameBuildSprite  extends FrameBaseDisplay {
     private static final String TAG ="FrameBuildSprite" ;
     public FrameBuildSprite(Scene3D val) {
         super(val);
-        ProgrmaManager.getInstance().registe(FrameBuildShader.FrameBuildShader,new FrameBuildShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(FrameBuildShader.FrameBuildShader);
+        this.scene3d.progrmaManager.registe(FrameBuildShader.FrameBuildShader,new FrameBuildShader());
+        this.shader3D=this.scene3d.progrmaManager.getProgram(FrameBuildShader.FrameBuildShader);
     }
     @Override
     public void setFrameNodeUrl(FrameNodeVo $vo) {

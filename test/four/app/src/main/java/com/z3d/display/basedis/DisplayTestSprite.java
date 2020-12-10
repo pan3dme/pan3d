@@ -32,7 +32,7 @@ public class DisplayTestSprite extends Display3D {
     }
     protected void  makeTempObjData()
     {
-        this.objData =new ObjData();
+        this.objData =new ObjData(scene3d);
 
         ObjData od=this.objData;
 
@@ -76,8 +76,8 @@ public class DisplayTestSprite extends Display3D {
     protected void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(DisplayTestShader.shaderNameStr,new DisplayTestShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(DisplayTestShader.shaderNameStr);
+        this.scene3d.progrmaManager.registe(DisplayTestShader.shaderNameStr,new DisplayTestShader());
+        this.scene3d.progrmaManager.getProgram(DisplayTestShader.shaderNameStr);
 
     }
 

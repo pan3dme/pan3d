@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.z3d.base.ByteArray;
 import com.z3d.display.particle.ball.ParticleBallData;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.Vector3D;
 
 import org.json.JSONArray;
@@ -18,6 +19,9 @@ public class ParticleLocusballData extends ParticleBallData {
     protected List<Float>  _angleAry ;
     protected List<Float> _tangentAry ;
     protected float _tangentSpeed ;
+    public  ParticleLocusballData(Scene3D val  ){
+        super(val);
+    }
     public void setAllByteInfo(ByteArray $byte) {
 
         Log.d("length "+ $byte.byteBuffer.length(), "position "+ $byte.byteBuffer.position);

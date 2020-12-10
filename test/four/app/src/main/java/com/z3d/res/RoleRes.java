@@ -5,6 +5,7 @@ import android.util.Log;
 import com.z3d.base.ByteArray;
 import com.z3d.base.CallBackFun;
 import com.z3d.filemodel.MeshDataManager;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.AnimManager;
 import com.z3d.units.LoadBackFun;
 import com.z3d.units.LoadManager;
@@ -25,6 +26,10 @@ public class RoleRes extends BaseRes {
     public Vector3D nrmDircet;
     private  static String TAG="ResManager";
     private CallBackFun callBackFun;
+    public  RoleRes(Scene3D val  ){
+        super(val);
+
+    }
     public void load(String url,  CallBackFun backFun)
     {
         callBackFun=backFun;
@@ -91,7 +96,7 @@ public class RoleRes extends BaseRes {
             nrmDircet.y = _byte.readFloat();
             nrmDircet.z = _byte.readFloat();
         }
-        MeshDataManager.getInstance().readData(_byte, meshBatchNum, roleUrl, version);
+        this.scene3d.meshDataManager.readData(_byte, meshBatchNum, roleUrl, version);
 
     }
     private void readAction() {
@@ -106,7 +111,7 @@ public class RoleRes extends BaseRes {
         for (int i = 0; i < actionNum; i++) {
             String actionName = $actionByte.readUTF();
             Log.d(actionName, "actionName: ");
-            AnimManager.getInstance().readData($actionByte, roleUrl + actionName);
+            scene3d.animManager.readData($actionByte, roleUrl + actionName);
             actionAry.add(actionName);
         }
 

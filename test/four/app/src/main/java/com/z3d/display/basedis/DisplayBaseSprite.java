@@ -32,7 +32,7 @@ public class DisplayBaseSprite extends Display3D {
     }
     protected void  makeTempObjData()
     {
-        this.objData =new ObjData();
+        this.objData =new ObjData(scene3d);
 
         ObjData od=this.objData;
 
@@ -65,8 +65,8 @@ public class DisplayBaseSprite extends Display3D {
     protected void  registetProgame()
     {
 
-        ProgrmaManager.getInstance().registe(DisplayBaseShader.shaderNameStr,new DisplayBaseShader());
-        this.shader3D= ProgrmaManager.getInstance().getProgram(DisplayBaseShader.shaderNameStr);
+        this.scene3d.progrmaManager.registe(DisplayBaseShader.shaderNameStr,new DisplayBaseShader());
+        this.shader3D= this.scene3d.progrmaManager.getProgram(DisplayBaseShader.shaderNameStr);
 
     }
 

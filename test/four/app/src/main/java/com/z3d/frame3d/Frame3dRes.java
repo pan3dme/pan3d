@@ -7,6 +7,7 @@ import com.z3d.base.CallBack;
 import com.z3d.base.CallBackFun;
 import com.z3d.base.Scene_data;
 import com.z3d.res.BaseRes;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.LoadBackFun;
 import com.z3d.units.LoadManager;
 
@@ -22,6 +23,9 @@ public class Frame3dRes extends BaseRes {
     private static final String TAG ="Frame3dRes" ;
     public boolean isReady;
     private CallBack _completeFun;
+    public  Frame3dRes(Scene3D val  ){
+        super(val);
+    }
     public void load(String url, CallBack bfun){
         _completeFun=bfun;
         LoadManager.getInstance().loadUrl(Scene_data.fileRoot + url, LoadManager.BYTE_TYPE, new LoadBackFun() {
@@ -98,8 +102,6 @@ public class Frame3dRes extends BaseRes {
         try {
             JSONObject $obj = new JSONObject(this._byte.readUTFBytes(size));
             this.haveVideo = $obj.getBoolean("haveVideo");
-//            Scene_data.light.setData($obj.SunNrm, $obj.SunLigth, $obj.AmbientLight);
-//            LightBmpModel.getInstance().videoLightUvData = $obj.videoLightUvData;
 
         } catch (JSONException e) {
             e.printStackTrace();

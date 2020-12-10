@@ -4,6 +4,7 @@ import com.z3d.base.ByteArray;
 import com.z3d.base.Scene_data;
 import com.z3d.engine.ResCount;
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.Float32Array;
 import com.z3d.vo.Vector2D;
 import com.z3d.vo.Vector3D;
@@ -46,6 +47,9 @@ public class Material extends ResCount {
     public int sceneNumId;
 
 
+    public Material(Scene3D val){
+        super(val);
+    }
 
 
     public void setByteData(ByteArray _byte) {

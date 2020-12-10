@@ -4,11 +4,16 @@ import com.z3d.base.Object3D;
 import com.z3d.event.BaseEvent;
 import com.z3d.event.EventCallBack;
 import com.z3d.filemodel.ParticleManager;
+import com.z3d.scene.Scene3D;
 
 public class SkillEffect extends SkillKey{
 
     private static final String TAG = "SkillEffect";
     public Object3D active;
+
+    public SkillEffect(Scene3D val) {
+        super(val);
+    }
 
 
     public void addToRender(ParticleManager val) {
@@ -24,7 +29,7 @@ public class SkillEffect extends SkillKey{
             @Override
             public void call(Object val, BaseEvent event) {
                particle.removeEventListener(BaseEvent.COMPLETE,getOnPlayCom(),this);
-                _particleManager.removeParticle(particle);
+                scene3D.particleManager.removeParticle(particle);
                 removeCallFun.StateChange(this);
             }
         };

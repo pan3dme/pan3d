@@ -12,8 +12,10 @@ import com.z3d.display.Display3D;
 import com.z3d.display.Display3DSprite;
 import com.z3d.display.line.LineDisplayShader;
 import com.z3d.display.role.Display3dMovie;
+import com.z3d.filemodel.GroupDataManager;
 import com.z3d.filemodel.MeshDataManager;
 import com.z3d.filemodel.ParticleManager;
+import com.z3d.filemodel.ResManager;
 import com.z3d.filemodel.TextureManager;
 import com.z3d.material.MaterialManager;
 import com.z3d.material.TextureRes;
@@ -21,6 +23,7 @@ import com.z3d.program.ProgrmaManager;
 import com.z3d.program.Shader3D;
 import com.z3d.res.RoleRes;
 import com.z3d.skill.SkillManager;
+import com.z3d.units.AnimManager;
 import com.z3d.units.TimeUtil;
 import com.z3d.vo.Vector2D;
 import com.z3d.vo.Vector3D;
@@ -28,7 +31,8 @@ import com.z3d.vo.Vector3D;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Scene3D extends ResGC {
+public class Scene3D  {
+    public ProgrmaManager progrmaManager;
     public Context3D context3D;
     public Camera3D camera3D;
     public Vector2D fogData;
@@ -36,6 +40,15 @@ public class Scene3D extends ResGC {
     public List<Display3D> displayList;
     public List<Display3dMovie> displayRoleList;
     public ParticleManager particleManager;
+    public MeshDataManager meshDataManager;
+    public TextureManager textureManager;
+    public MaterialManager materialManager;
+    public ObjDataManager objDataManager;
+    public GroupDataManager groupDataManager;
+    public SkillManager skillManager;
+    public AnimManager animManager;
+    public ResManager resManager;
+
 
     private float time;
 
@@ -45,22 +58,32 @@ public class Scene3D extends ResGC {
         this.camera3D=new Camera3D();
         this.displayList=new ArrayList<>();
         this.displayRoleList=new ArrayList<>();
-        this.particleManager=new ParticleManager();
+
         this.camera3D.rotationX =-30;
         this.camera3D.rotationY=45;
+        this.particleManager=new ParticleManager(this);
+        this.progrmaManager=new ProgrmaManager(this);
+        this.meshDataManager=new MeshDataManager(this);
+        this.textureManager=new TextureManager(this);
+        this.groupDataManager=new GroupDataManager(this);
+        this.skillManager=new SkillManager(this);
+        this.materialManager=new MaterialManager(this);
+        this.objDataManager=new ObjDataManager(this);
+        this.animManager=new AnimManager(this);
+        this.resManager=new ResManager(this);
 
-        ProgrmaManager.getInstance().registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
+        this.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
     }
     public void  initData(){
 
-        TextureManager.getInstance().getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
+        this.textureManager.getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 Scene_data.pubLut =value;
             }
         });
 
-        TextureManager.getInstance().getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
+        this.textureManager.getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 Scene_data.pubLut =value;
@@ -77,7 +100,7 @@ public class Scene3D extends ResGC {
         //纹理和着色
         RoleRes.upDataRoleResWaitIng();
         Shader3D.upDataProgramWaitIng();
-        TextureManager.getInstance().upDataGenTextUserItem();
+        this.textureManager.upDataGenTextUserItem();
     }
     public  void  upFrame()
     {
@@ -98,11 +121,11 @@ public class Scene3D extends ResGC {
         for(int i=0; i< displayRoleList.size();i++){
             displayRoleList.get(i).upData();
         }
-        this.particleManager.scene3d=this;
+       
         ctx.setFrontFace(true);
         ctx.setDepthTest(false);
         ctx.setWriteDepth(false);
-        SkillManager.getInstance().upData();
+       this.skillManager.upData();
         this.particleManager.upFrame();
 
 

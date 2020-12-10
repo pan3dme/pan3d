@@ -50,7 +50,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 
     protected void setLighturl(String lighturl)
     {
-        TextureManager.getInstance().getTexture(Scene_data.fileRoot+lighturl, new TexTuresBackFun() {
+        scene3d.textureManager.getTexture(Scene_data.fileRoot+lighturl, new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 lightTextureRes=value;
@@ -59,8 +59,8 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     }
     private void showBaseModelUpData(){
         if(this.lightTextureRes!=null){
-            ProgrmaManager.getInstance().registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
-            this.shader3D=ProgrmaManager.getInstance().getProgram(BuildDisplay3DShader.shaderNameStr);
+            this.scene3d.progrmaManager.registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
+            this.shader3D=this.scene3d.progrmaManager.getProgram(BuildDisplay3DShader.shaderNameStr);
             Context3D ctx=this.scene3d.context3D;
 
             ctx.setProgame(this.shader3D.program);

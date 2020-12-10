@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.z3d.base.ResGC;
 import com.z3d.material.Material;
+import com.z3d.scene.Scene3D;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,14 +16,9 @@ public class ProgrmaManager extends ResGC {
     private static final String TAG = "ProgrmaManager";
     private static ProgrmaManager _instance;
 
-    public static ProgrmaManager getInstance() {
-        if (ProgrmaManager._instance==null) {
-            ProgrmaManager._instance = new ProgrmaManager();
-        }
-        return ProgrmaManager._instance;
-    }
-    public ProgrmaManager( ){
-        super();
+    public ProgrmaManager(Scene3D val) {
+
+        super(val);
     }
 
     public   void  registe(String name, Shader3D shader3d)

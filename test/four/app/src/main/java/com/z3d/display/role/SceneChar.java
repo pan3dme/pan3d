@@ -80,6 +80,6 @@ public class SceneChar extends Display3dMovie {
     }
 
     public void playSkill(Skill skill) {
-        SkillManager.getInstance().playSkill(skill);
+       scene3d.skillManager.playSkill(skill);
     }
 }

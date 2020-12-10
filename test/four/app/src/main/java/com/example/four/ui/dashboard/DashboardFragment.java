@@ -71,119 +71,94 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        addGlviewInfo();
+//        addGlviewInfo(R.id.glContentDashBoard);
+        addGlviewInfo(R.id.glContentDashBoardTwo);
     }
 
     private View rootView;
-    private GLSurfaceView _mGLView;
 
-    private void addGlviewInfo(){
-        _mGLView=new GLSurfaceView(this.getContext());
-        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.glContentDashBoard);
+
+    private void addGlviewInfo(int id){
+        GLSurfaceView mGLView=new GLSurfaceView(this.getContext());
+        final ConstraintLayout constraintlayout = rootView.findViewById(id);
         TextView textView=new TextView(this.getActivity());
         textView.setText("1123");
         textView.setTextColor(Color.rgb(255,0,255));
-        constraintlayout.addView(_mGLView);
-        ViewGroup.LayoutParams layoutParams=_mGLView.getLayoutParams();
-        layoutParams.width=900;
-        layoutParams.height=900;
-
-
-        _mGLView.setLayoutParams(layoutParams);
-
-
-
+        constraintlayout.addView(mGLView);
+        ViewGroup.LayoutParams layoutParams=mGLView.getLayoutParams();
+        layoutParams.width=600;
+        layoutParams.height=600;
+        mGLView.setLayoutParams(layoutParams);
         constraintlayout.addView(textView);
-        _mGLView.setEGLContextClientVersion(2);
-        initScene();
+        mGLView.setEGLContextClientVersion(2);
+        initScene(mGLView);
     }
 
-    private    GLTriangle glTriangle;
-    private Scene3D _scene3d;
-    private Scene3D _scene3dTwo;
-    private SceneRes _sceneRes;
-    private GLSurfaceView.Renderer _baseRenderer;
-    private GLSurfaceView.Renderer getRenderer(){
-        if(_baseRenderer==null){
-            _baseRenderer=new GLSurfaceView.Renderer() {
-                @Override
-                public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                    if(_scene3d==null){
-                        ProgrmaManager.getInstance().clearAll();
-                        MeshDataManager.getInstance().clearAll();
-                        TextureManager.getInstance().clearAll();
-                        ObjDataManager.getInstance().clearAll();
-                        MaterialManager.getInstance().clearAll();
-
-                        _scene3d =new Scene3D();
-                        _scene3d.initData();
-                        SkillManager.getInstance().scene3D=_scene3d;
 
 
 
-                        _scene3d.camera3D.distance=550;
-                        GridLineSprite dis=new GridLineSprite( _scene3d);
-                        dis.changeColor(new Vector3D(1,1,1,1));
-                        _scene3d.addDisplay(dis);
-
-                        addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,0));
-                        loadSceneByUrl("10002");
-
-                    }
-
-
-
-                }
-                @Override
-                public void onSurfaceChanged(GL10 gl, int width, int height) {
-                    GLES20.glViewport(0, 0, width, height);
-                    _scene3d.camera3D.fovw = width;
-                    _scene3d.camera3D.fovh = height;
-                    _scene3d.resizeScene();
-                }
-                @Override
-                public void onDrawFrame(GL10 gl) {
-                    GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
-                    GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                    _scene3d.upFrame();
-                    _scene3d.camera3D.rotationY++;
-                }
-            };
-        }
-        return  _baseRenderer;
-    }
-    private  void initScene()
+    private  void initScene(GLSurfaceView mGLView)
     {
+        final Scene3D[] baseScene = new Scene3D[1];
+        mGLView.setRenderer(new GLSurfaceView.Renderer() {
+            @Override
+            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+                baseScene[0]=new Scene3D();
+                Scene3D scene3d=baseScene[0];
+                scene3d.initData();
+                scene3d.camera3D.distance=550;
+                    GridLineSprite dis=new GridLineSprite( scene3d);
+                    dis.changeColor(new Vector3D(1,1,1,1));
+                scene3d.addDisplay(dis);
+                    addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
+                    loadSceneByUrl( scene3d,"10002");
 
-        _mGLView.setRenderer(getRenderer());
-        _mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+            }
+            @Override
+            public void onSurfaceChanged(GL10 gl, int width, int height) {
+                GLES20.glViewport(0, 0, width, height);
+                Scene3D scene3d=baseScene[0];
+                scene3d.camera3D.fovw = width;
+                scene3d.camera3D.fovh = height;
+                scene3d.resizeScene();
+            }
+            @Override
+            public void onDrawFrame(GL10 gl) {
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
+                GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+                Scene3D scene3d=baseScene[0];
+                scene3d.upFrame();
+                scene3d.camera3D.rotationY++;
+            }
+        });
+        mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
-    private void loadSceneByUrl(String val){
-        this._sceneRes = new SceneRes();
-        this._sceneRes.load("map/"+val+".txt", new CallBackFun() {
+    private void loadSceneByUrl(Scene3D scene3D, String val){
+        SceneRes _sceneRes = new SceneRes( scene3D);
+       _sceneRes.load("map/"+val+".txt", new CallBackFun() {
                     @Override
                     public void StateChange(boolean State) {
-                        makeOBjData();
+                        makeOBjData(scene3D ,_sceneRes);
                     }
                 }
         );
     }
-    private void makeOBjData()
+    private void makeOBjData(Scene3D scene3D,  SceneRes _sceneRes)
     {
         try {
-            JSONArray buildItem=    this._sceneRes.sceneData.getJSONArray("buildItem");
+            JSONArray buildItem=     _sceneRes.sceneData.getJSONArray("buildItem");
             for(int i=0;i<buildItem.length();i++){
-                this.parsingBuildItem((JSONObject)buildItem.get(i));
+                this.parsingBuildItem(scene3D,(JSONObject)buildItem.get(i));
             }
 
-            JSONObject fogColor=  this._sceneRes.sceneData.getJSONObject("fogColor");
-            float d= (float) this._sceneRes.sceneData.getDouble("fogDistance");
-            float s=  (float)  this._sceneRes.sceneData.getDouble("fogAttenuation");
-            this._scene3d.fogColor=new Vector3D();
-            this._scene3d.fogColor.x=fogColor.getLong("x")/255.0f;
-            this._scene3d.fogColor.y=fogColor.getLong("y")/255.0f;
-            this._scene3d.fogColor.z=fogColor.getLong("z")/255.0f;
-            this._scene3d.fogData=new Vector2D(d * s,1 / ((1 - s) * d));
+            JSONObject fogColor=   _sceneRes.sceneData.getJSONObject("fogColor");
+            float d= (float)  _sceneRes.sceneData.getDouble("fogDistance");
+            float s=  (float)   _sceneRes.sceneData.getDouble("fogAttenuation");
+            scene3D.fogColor=new Vector3D();
+            scene3D.fogColor.x=fogColor.getLong("x")/255.0f;
+            scene3D.fogColor.y=fogColor.getLong("y")/255.0f;
+            scene3D.fogColor.z=fogColor.getLong("z")/255.0f;
+            scene3D.fogData=new Vector2D(d * s,1 / ((1 - s) * d));
 
 
         } catch (Exception e) {
@@ -191,7 +166,7 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    private  void parsingBuildItem(JSONObject obj)
+    private  void parsingBuildItem(Scene3D scene3D, JSONObject obj)
     {
 
         try {
@@ -202,13 +177,13 @@ public class DashboardFragment extends Fragment {
 
                 }
                 BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                tempDis.scene3d=this._scene3d;
+                tempDis.scene3d=scene3D;
                 tempDis.setInfo(obj);
-                this._scene3d.addDisplay(tempDis);
+                scene3D.addDisplay(tempDis);
             }
             if(type==BaseRes.SCENE_PARTICLE_TYPE){
-                CombineParticle particle = this.getParticleSprite(obj);
-                this._scene3d.particleManager.addParticle(particle);
+                CombineParticle particle = this.getParticleSprite(scene3D,obj);
+                scene3D.particleManager.addParticle(particle);
             }
 
         } catch (Exception e) {
@@ -217,11 +192,11 @@ public class DashboardFragment extends Fragment {
 
 
     }
-    protected  CombineParticle getParticleSprite(JSONObject itemObj) {
+    protected  CombineParticle getParticleSprite(Scene3D scene3D, JSONObject itemObj) {
 
         try {
 
-            CombineParticle particle =      ParticleManager.getInstance().getParticleByte(   itemObj.getString( "url"));
+            CombineParticle particle =     scene3D.particleManager.getParticleByte(   itemObj.getString( "url"));
             particle.type=0;
 
             particle.setX((float)itemObj.getDouble("x"));
@@ -247,13 +222,13 @@ public class DashboardFragment extends Fragment {
 
     }//        particle.y = itemObj.y;
 
-    private void  addRoleToSceneByUrl(String val,Vector3D pos)
+    private void  addRoleToSceneByUrl(Scene3D scene3D,String val,Vector3D pos)
     {
-        GridLineSprite  dic=new GridLineSprite( _scene3d);
+        GridLineSprite  dic=new GridLineSprite( scene3D);
         dic.changeColor(new Vector3D(1,1,1,1));
-        _scene3d.addDisplay(dic);
+        scene3D.addDisplay(dic);
 
-        Display3dMovie sc=new Display3dMovie(this._scene3d);
+        Display3dMovie sc=new Display3dMovie(scene3D);
         sc.setRoleUrl("role/"+val);
         sc.scaleX=2;
         sc.scaleY=2;
@@ -261,13 +236,13 @@ public class DashboardFragment extends Fragment {
         sc.x=pos.x;
         sc.y=pos.y;
         sc.z=pos.z;
-        _scene3d.addMovieDisplay(sc);
+        scene3D.addMovieDisplay(sc);
     }
-    private void   playLyf(String url)
+    private void   playLyf(Scene3D scene3D,String url)
     {
 
 
-        GroupDataManager.getInstance().getGroupData(url, new GroupBackFun() {
+        scene3D.groupDataManager.getGroupData(url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {
 
@@ -275,8 +250,8 @@ public class DashboardFragment extends Fragment {
                     GroupItem item =  groupRes.dataAry.get(i);
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
 
-                        ParticleManager particleManager= _scene3d.particleManager;
-                        CombineParticle particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
+                        ParticleManager particleManager= scene3D.particleManager;
+                        CombineParticle particle =    scene3D.particleManager.getParticleByte(item.particleUrl);
                         particleManager.addParticle(particle);
                         Log.d("TAG", "Bfun: ");
 

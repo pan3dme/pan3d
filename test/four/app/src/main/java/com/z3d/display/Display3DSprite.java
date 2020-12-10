@@ -47,6 +47,7 @@ public   class Display3DSprite extends Display3D {
         this.modeMatrix=new Matrix3D();
         this.rotationMatrix=new Matrix3D();
     }
+
     protected TextureRes getMainTextureRes(){
         TexItem texItem  =this.material.getMainTexItem();
         if(texItem==null){
@@ -63,19 +64,19 @@ public   class Display3DSprite extends Display3D {
     }
     public void upData() {
         super.upData();
-        Context3D ctx = this.scene3d.context3D;
+        Context3D ctx =  scene3d.context3D;
         if (this.material != null) {
             this.updateMaterial();
         }
     }
     public void setMaterialUrl(String url, final List<MaterialInfoVo> paramData)
     {
-        MaterialManager.getInstance().getMaterialByte(url, new MaterialBackFun() {
+       scene3d.materialManager.getMaterialByte(url, new MaterialBackFun() {
             @Override
             public void Bfun(Material value) {
                 material=value;
                 if(paramData!=null){
-                    materialParam=new MaterialBaseParam();
+                    materialParam=new MaterialBaseParam(scene3d);
                     materialParam.setData(material,paramData);
                 }
             }
@@ -84,7 +85,7 @@ public   class Display3DSprite extends Display3D {
     public void  setObjUrl(String value)
     {
         Log.d(TAG, "value: "+value);
-        ObjDataManager.getInstance().getObjData(value, new ObjDataBackFun() {
+      scene3d.objDataManager.getObjData(value, new ObjDataBackFun() {
             @Override
             public void Bfun(ObjData value) {
                 objData=value;
@@ -95,7 +96,7 @@ public   class Display3DSprite extends Display3D {
     public void  setPicUrl(String value)
     {
 
-        TextureManager.getInstance().getTexture( Scene_data.fileRoot+ value, new TexTuresBackFun() {
+       this.scene3d.textureManager.getTexture( Scene_data.fileRoot+ value, new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 baseTextureRes =value;

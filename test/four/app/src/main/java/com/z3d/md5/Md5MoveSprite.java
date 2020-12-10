@@ -32,8 +32,8 @@ public class Md5MoveSprite extends Display3DSprite {
 
 
 
-        ProgrmaManager.getInstance().registe(Md5MoveShader.Md5MoveShader,new Md5MoveShader());
-        this.shader3D=ProgrmaManager.getInstance().getProgram(Md5MoveShader.Md5MoveShader);
+        this.scene3d.progrmaManager.registe(Md5MoveShader.Md5MoveShader,new Md5MoveShader());
+        this.shader3D=this.scene3d.progrmaManager.getProgram(Md5MoveShader.Md5MoveShader);
 
     }
 
@@ -43,7 +43,7 @@ public class Md5MoveSprite extends Display3DSprite {
         this.bodyUrl = $bodyurl;
         this.animUrl = $animurl;
         if ($picurl!=null) {
-            TextureManager.getInstance().getTexture($picurl, new TexTuresBackFun() {
+            scene3d.textureManager.getTexture($picurl, new TexTuresBackFun() {
                 @Override
                 public void Bfun(TextureRes value) {
                     uvTextureRes=value;
@@ -63,7 +63,7 @@ public class Md5MoveSprite extends Display3DSprite {
             public void bfun(HashMap dic) {
                 if(dic!=null){
                     String txt=  dic.get("txt").toString();
-                    md5MeshData = new Md5Analysis().addMesh(txt);
+                    md5MeshData = new Md5Analysis(scene3d).addMesh(txt);
                     new MeshImportSort().processMesh(md5MeshData);
                     new MeshToObjUtils().getObj( md5MeshData);
 

@@ -1,6 +1,7 @@
 package com.z3d.base;
 
 import com.z3d.engine.ResCount;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.Matrix3D;
 
 import java.nio.ByteBuffer;
@@ -40,7 +41,9 @@ public class ObjData extends ResCount {
     public List<Matrix3D> invertAry;
     public int treNum ;
 
-
+   public  ObjData(Scene3D val){
+       super(val);
+   }
     public void makeTriModel(){
         this.verticeslist=new ArrayList<Float>();//结果顶点坐标列表
         this.verticeslist.add(-1f);

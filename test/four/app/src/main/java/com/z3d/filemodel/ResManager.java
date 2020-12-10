@@ -8,20 +8,22 @@ import com.z3d.base.ResGC;
 import com.z3d.base.RoleBackFun;
 import com.z3d.res.RoleRes;
 import com.z3d.res.SkillRes;
+import com.z3d.scene.Scene3D;
 
 public class ResManager extends ResGC {
     private static ResManager _instance;
     private  static String TAG="ResManager";
-    public static ResManager getInstance()  {
-        if (ResManager._instance==null) {
-            ResManager._instance = new ResManager();
-        }
-        return ResManager._instance;
+
+
+    public ResManager(Scene3D val) {
+        super(val);
     }
+
+
     public void  loadRoleRes(String url, final RoleBackFun backFun , int batchNum)
     {
         Log.d(TAG, "loadRoleRes: ");
-        final RoleRes roleRes = new RoleRes();
+        final RoleRes roleRes = new RoleRes(this.scene3D);
         roleRes.meshBatchNum = batchNum;
         roleRes.load(url, new CallBackFun() {
             @Override
@@ -32,7 +34,7 @@ public class ResManager extends ResGC {
     }
     public void loadSkillRes(String $url, CallBack callBack) {
         Log.d(TAG, "loadSkillRes: ");
-        SkillRes skillRes   = new SkillRes();
+        SkillRes skillRes   = new SkillRes(this.scene3D);
         skillRes.load($url,new CallBack() {
             @Override
             public void StateChange(Object val) {

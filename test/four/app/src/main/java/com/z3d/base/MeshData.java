@@ -3,6 +3,7 @@ package com.z3d.base;
 import com.z3d.material.Material;
 import com.z3d.material.MaterialBaseParam;
 import com.z3d.res.MaterialInfoVo;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.BindParticle;
 import com.z3d.vo.Matrix3D;
 
@@ -27,8 +28,8 @@ public class MeshData extends ObjData {
 
     public List<Matrix3D> bindPosAry ;
 
-    public MeshData(){
-        super();
+    public MeshData(Scene3D val){
+        super(val);
         this.particleAry=new ArrayList<>();
     }
     public void  upToGup()

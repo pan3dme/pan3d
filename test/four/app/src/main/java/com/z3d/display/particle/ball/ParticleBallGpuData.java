@@ -1,6 +1,7 @@
 package com.z3d.display.particle.ball;
 
 import com.z3d.display.particle.ParticleGpuData;
+import com.z3d.scene.Scene3D;
 
 import java.nio.FloatBuffer;
 import java.util.List;
@@ -15,6 +16,10 @@ public class ParticleBallGpuData extends ParticleGpuData {
     public FloatBuffer randomOffset;
     public List baseRotation;
     public FloatBuffer baseRotationBuffer;
+
+    public ParticleBallGpuData(Scene3D val) {
+        super(val);
+    }
 
 //    @property (nonatomic, assign)  GLfloat*    basePos;
 //    @property (nonatomic, assign) GLuint   basePosBuffer;

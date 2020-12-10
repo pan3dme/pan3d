@@ -74,7 +74,7 @@ public class Skill {
         this.keyAry = new ArrayList<>();
         if (this.skillVo.types == SkillType.FixEffect) {
             for (int i = 0; i < this.skillVo.keyAry.size(); i++) {
-                SkillFixEffect keySkill  = new SkillFixEffect();
+                SkillFixEffect keySkill  = new SkillFixEffect(scene3D);
                 keySkill.setInfo((SkillKeyVo)this.skillVo.keyAry.get(i));
                 keySkill.removeCallFun = new CallBack() {
                     @Override
@@ -91,9 +91,9 @@ public class Skill {
                 SkillTrajectory trajectory ;
                 SkillTrajectoryTargetKeyVo tkv    = (SkillTrajectoryTargetKeyVo)this.skillVo.keyAry.get(i);
                 if (tkv.multype == 1) {
-                    trajectory = new SkillMulTrajectory();
+                    trajectory = new SkillMulTrajectory(scene3D);
                 } else {
-                    trajectory = new SkillTrajectory();
+                    trajectory = new SkillTrajectory(scene3D);
                 }
                 trajectory.setInfo((SkillKeyVo)this.skillVo.keyAry.get(i));
                 this.keyAry.add(trajectory);
@@ -107,7 +107,7 @@ public class Skill {
         }
     }
     private void skillComplete() {
-        SkillManager.getInstance().removeSkill(this);
+       scene3D.skillManager.removeSkill(this);
         this.isDeath = true;
         if (this.completeFun!=null) {
             this.completeFun.StateChange(true);

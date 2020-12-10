@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.z3d.base.ByteArray;
 import com.z3d.base.ResGC;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.AnimData;
 import com.z3d.vo.Matrix3D;
 import com.z3d.vo.ObjectBaseBone;
@@ -16,12 +17,9 @@ import java.util.List;
 
 public class AnimManager extends ResGC {
 
-    private static AnimManager _instance;
-    public static AnimManager getInstance()  {
-        if (AnimManager._instance==null) {
-            AnimManager._instance = new AnimManager();
-        }
-        return AnimManager._instance;
+
+    public AnimManager(Scene3D val) {
+        super(val);
     }
 
     public AnimData readData(ByteArray _byte, String $url)

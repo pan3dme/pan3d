@@ -1,6 +1,7 @@
 package com.z3d.material;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.ParamDataConVo;
 import com.z3d.vo.ParamDataVo;
 
@@ -15,6 +16,10 @@ public class MaterialParam {
     public Shader3D shader3D;
     public List<DynamicTexItem> dynamicTexList;
     public List<DynamicConstItem>  dynamicConstList ;
+public Scene3D scene3D;
+    public MaterialParam(Scene3D val){
+        scene3D=val;
+    }
 
 
 
@@ -62,14 +67,14 @@ public class MaterialParam {
             DynamicTexItem dyTex ;
             TexItem texItem= texList.get(i);
             if (texItem.isParticleColor) {
-                dyTex = new DynamicTexItem();
+                dyTex = new DynamicTexItem(scene3D);
                 dyTex.target = texItem;
                 dyTex.paramName =texItem.paramName;
                 dyTex.initCurve(4);
                 this.dynamicTexList.add(dyTex);
                 dyTex.isParticleColor = true;
             } else if (texItem.isDynamic) {
-                dyTex = new DynamicTexItem();
+                dyTex = new DynamicTexItem(scene3D);
                 dyTex.target = texItem;
                 dyTex.paramName = texItem.paramName;
                 this.dynamicTexList.add(dyTex);

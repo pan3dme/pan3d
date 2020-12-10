@@ -8,6 +8,7 @@ import com.z3d.base.Scene_data;
 import com.z3d.base.SkinMeshBackFun;
 import com.z3d.res.BaseRes;
 import com.z3d.res.RoleRes;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.BindParticle;
 import com.z3d.vo.BoneSocketData;
 import com.z3d.vo.Matrix3D;
@@ -25,16 +26,10 @@ public class MeshDataManager extends ResGC {
 
     private static MeshDataManager _instance;
     public HashMap loadDic;
-    public static MeshDataManager getInstance()  {
-        if (MeshDataManager._instance==null) {
-            MeshDataManager._instance = new MeshDataManager();
-        }
-        return MeshDataManager._instance;
-    }
 
-    public MeshDataManager()
+    public MeshDataManager(Scene3D val)
     {
-        super();
+        super(val);
         this.loadDic=new HashMap();
     }
     //预备加载
@@ -58,7 +53,7 @@ public class MeshDataManager extends ResGC {
         }
         this.loadDic.put(url,new ArrayList<>());
         ( (List) this.loadDic.get(url)).add(bfun);
-        ResManager.getInstance().loadRoleRes(Scene_data.fileRoot+ url, new RoleBackFun() {
+      this.scene3D.resManager.loadRoleRes(Scene_data.fileRoot+ url, new RoleBackFun() {
             @Override
             public void Bfun(RoleRes value) {
                 roleResCom(value,bfun);
@@ -84,7 +79,7 @@ public class MeshDataManager extends ResGC {
 
     public SkinMesh readData(ByteArray _byte, int $batchNum, String $url, int $version)
     {
-        SkinMesh $skinMesh = new SkinMesh();
+        SkinMesh $skinMesh = new SkinMesh(scene3D);
         $skinMesh.fileScale = _byte.readFloat();
         if ($version >= 19) {
             $skinMesh.tittleHeight = _byte.readFloat();
@@ -101,7 +96,7 @@ public class MeshDataManager extends ResGC {
         int meshNum = _byte.readInt();
         HashMap allParticleDic = new HashMap();
         for (int i = 0; i < meshNum; i++) {
-            MeshData meshData = new MeshData();
+            MeshData meshData = new MeshData(scene3D);
             if ($version >= 21) {
                 this.readMesh2OneBuffer(_byte, meshData);
             }
@@ -119,11 +114,6 @@ public class MeshDataManager extends ResGC {
 
         }
 
-/*
-        for (String key in allParticleDic) {
-            ParticleManager.getInstance().registerUrl(key);
-        }
-        */
 
         $skinMesh.allParticleDic = allParticleDic;
 

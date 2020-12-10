@@ -6,18 +6,16 @@ import com.z3d.base.GroupBackFun;
 import com.z3d.base.ResGC;
 import com.z3d.base.Scene_data;
 import com.z3d.res.GroupRes;
+import com.z3d.scene.Scene3D;
 
 public class GroupDataManager extends ResGC {
 
-    private static GroupDataManager _instance;
-    public static GroupDataManager getInstance()  {
-        if (GroupDataManager._instance==null) {
-            GroupDataManager._instance = new GroupDataManager();
-        }
-        return GroupDataManager._instance;
+
+    public GroupDataManager(Scene3D val) {
+        super(val);
     }
 
-    public void getGroupData(final String url,final GroupBackFun bfun)
+    public void getGroupData(final String url, final GroupBackFun bfun)
     {
 
 //        if(self.dic[url]){
@@ -33,7 +31,7 @@ public class GroupDataManager extends ResGC {
         if(this.dic.containsKey(url)){
             bfun.Bfun((GroupRes)this.dic.get(url));
         }else{
-            final GroupRes groupRes=new GroupRes();
+            final GroupRes groupRes=new GroupRes(this.scene3D);
             groupRes.load(Scene_data.fileRoot + url, new CallBackFun() {
                 @Override
                 public void StateChange(boolean State) {

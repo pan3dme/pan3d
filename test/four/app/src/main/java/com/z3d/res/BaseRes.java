@@ -12,7 +12,9 @@ import com.z3d.engine.ResCount;
 import com.z3d.filemodel.ParticleManager;
 import com.z3d.filemodel.TextureManager;
 import com.z3d.material.MaterialManager;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.TimeUtil;
+import com.z3d.vo.Matrix3D;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -32,9 +34,13 @@ public class BaseRes extends ResCount {
     protected int imgNum;
     protected int imgLoadNum;
     private CallBackFun imgFun;
+
     public int version;
 
+    public  BaseRes(Scene3D val  ){
+        super(val);
 
+    }
     public void read( ){
 
         this.read(null);
@@ -75,7 +81,7 @@ public class BaseRes extends ResCount {
             Log.d("material地址 ->",   url+" " );
             Log.d("material大小 ->",   materialSize+" " );
 
-            MaterialManager.getInstance().addResByte(url, new ByteArray(materialByte));
+            scene3d.materialManager.addResByte(url, new ByteArray(materialByte));
 
         }
 
@@ -93,7 +99,7 @@ public class BaseRes extends ResCount {
             Log.d("partic地址 ->",   url+" " );
             Log.d("partic大小 ->",   particSize+" " );
 
-            ParticleManager.getInstance().addResByte(url, new ByteArray(particByte));
+            scene3d.particleManager.addResByte(url, new ByteArray(particByte));
 
         }
 
@@ -215,7 +221,7 @@ public class BaseRes extends ResCount {
             Log.d("obj地址 ->",   url+" " );
             Log.d("obj大小 ->",   objLen+" " );
 
-            ObjDataManager.getInstance().loadObjCom(  objByte, url);
+            scene3d.objDataManager.loadObjCom(  objByte, url);
 
         }
 
@@ -294,7 +300,7 @@ public class BaseRes extends ResCount {
             if(imgSize>0){
                 byte[] imgByte=  this._byte.readBytes(imgSize);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
-                TextureManager.getInstance().addRes(Scene_data.fileRoot+ url,bitmap);
+                this.scene3d.textureManager.addRes(Scene_data.fileRoot+ url,bitmap);
             }
         }
         Log.d("url ->",     "-----" );

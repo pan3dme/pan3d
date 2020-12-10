@@ -7,6 +7,7 @@ import com.z3d.base.ByteArray;
 import com.z3d.base.CallBackFun;
 import com.z3d.base.GroupBackFun;
 import com.z3d.base.GroupItem;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.LoadBackFun;
 import com.z3d.units.LoadManager;
 
@@ -19,6 +20,10 @@ public class GroupRes extends BaseRes {
     public List<GroupItem> dataAry ;
     private GroupBackFun groupBackFun;
     private  String TAG="baseres";
+    public  GroupRes(Scene3D val  ){
+       super(val);
+
+    }
     public  void  load(String url,final CallBackFun backFun)
     {
         LoadManager.getInstance().loadUrl(url, LoadManager.BYTE_TYPE, new LoadBackFun() {

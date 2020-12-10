@@ -37,6 +37,7 @@ import com.z3d.display.role.Display3dMovie;
 import com.z3d.filemodel.GroupDataManager;
 import com.z3d.filemodel.MeshDataManager;
 import com.z3d.filemodel.ParticleManager;
+import com.z3d.filemodel.ResManager;
 import com.z3d.filemodel.TextureManager;
 import com.z3d.material.MaterialManager;
 import com.z3d.program.ProgrmaManager;
@@ -161,13 +162,9 @@ public class HomeFragment extends Fragment {
                     if(_scene3d==null){
                         _scene3d =new Scene3D();
                         _scene3d.initData();
-                        SkillManager.getInstance().scene3D=_scene3d;
 
-                        ProgrmaManager.getInstance().clearAll();
-                        MeshDataManager.getInstance().clearAll();
-                        TextureManager.getInstance().clearAll();
-                        ObjDataManager.getInstance().clearAll();
-                        MaterialManager.getInstance().clearAll();
+
+
 
                         _scene3d.camera3D.distance=550;
                         GridLineSprite dis=new GridLineSprite( _scene3d);
@@ -207,7 +204,7 @@ public class HomeFragment extends Fragment {
         _mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
     private void loadSceneByUrl(String val){
-        this._sceneRes = new SceneRes();
+        this._sceneRes = new SceneRes(this._scene3d);
         this._sceneRes.load("map/"+val+".txt", new CallBackFun() {
                     @Override
                     public void StateChange(boolean State) {
@@ -269,7 +266,7 @@ public class HomeFragment extends Fragment {
 
         try {
 
-            CombineParticle particle =      ParticleManager.getInstance().getParticleByte(   itemObj.getString( "url"));
+            CombineParticle particle =    _scene3d.particleManager.getParticleByte(   itemObj.getString( "url"));
             particle.type=0;
 
             particle.setX((float)itemObj.getDouble("x"));
@@ -315,7 +312,7 @@ public class HomeFragment extends Fragment {
     {
 
 
-        GroupDataManager.getInstance().getGroupData(url, new GroupBackFun() {
+       _scene3d.groupDataManager.getGroupData(url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {
 
@@ -324,7 +321,7 @@ public class HomeFragment extends Fragment {
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
 
                         ParticleManager particleManager= _scene3d.particleManager;
-                        CombineParticle particle =      ParticleManager.getInstance().getParticleByte(item.particleUrl);
+                        CombineParticle particle =   _scene3d.particleManager.getParticleByte(item.particleUrl);
                         particleManager.addParticle(particle);
                         Log.d("TAG", "Bfun: ");
 

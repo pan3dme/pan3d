@@ -1,21 +1,18 @@
 package com.z3d.base;
 
 import com.z3d.res.BaseRes;
+import com.z3d.scene.Scene3D;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 public class ObjDataManager extends ResGC {
-    private static ObjDataManager _instance;
-    public static ObjDataManager getInstance()  {
-        if (ObjDataManager._instance==null) {
-            ObjDataManager._instance = new ObjDataManager();
-        }
-        return ObjDataManager._instance;
-    }
-    public ObjDataManager( ) {
 
+    public ObjDataManager(Scene3D val) {
+        super(val);
     }
+
+
 
     public void getObjData(String url,ObjDataBackFun backFun)
     {
@@ -32,7 +29,7 @@ public class ObjDataManager extends ResGC {
     {
 
 
-        ObjData objData = new ObjData();
+        ObjData objData = new ObjData(scene3D);
         ByteArray byteArray   = new ByteArray(srcByte);
         int version = byteArray.readInt();
         String str = byteArray.readUTF();

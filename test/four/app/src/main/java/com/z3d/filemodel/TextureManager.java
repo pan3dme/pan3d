@@ -3,10 +3,12 @@ package com.z3d.filemodel;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
+import android.transition.Scene;
 
 import com.z3d.base.ResGC;
 import com.z3d.base.TexTuresBackFun;
 import com.z3d.material.TextureRes;
+import com.z3d.scene.Scene3D;
 import com.z3d.units.LoadBackFun;
 import com.z3d.units.LoadManager;
 
@@ -20,15 +22,12 @@ public class TextureManager extends ResGC {
     public HashMap loadDic;
     public HashMap resDic;
 
-    private static TextureManager _instance;
-    public static TextureManager getInstance()  {
-        if (TextureManager._instance==null) {
-            TextureManager._instance = new TextureManager();
-        }
-        return TextureManager._instance;
-    }
-    public TextureManager()
+
+
+    public TextureManager(Scene3D val)
     {
+        super(val);
+
         this.loadDic=new HashMap();
         this.resDic=new HashMap();
 
@@ -95,7 +94,7 @@ public class TextureManager extends ResGC {
         this.loadDic.remove(textureLoad.url);
     }
     public TextureRes createTexture(Bitmap bitmap){
-        TextureRes  textureRes=new TextureRes();
+        TextureRes  textureRes=new TextureRes(scene3D);
         textureRes.bitmap=bitmap;
         _waitArr.add(textureRes);
         return  textureRes;

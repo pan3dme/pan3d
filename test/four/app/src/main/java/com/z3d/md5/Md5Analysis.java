@@ -7,7 +7,9 @@ import com.z3d.md5.vo.ObjectBone;
 import com.z3d.md5.vo.ObjectTri;
 import com.z3d.md5.vo.ObjectUv;
 import com.z3d.md5.vo.ObjectWeight;
+import com.z3d.scene.Scene3D;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,11 @@ import java.util.regex.Pattern;
 
 public class Md5Analysis {
     private static final String TAG = "Md5Analysis";
+    public Scene3D scene3D;
+    public  Md5Analysis(Scene3D val)
+    {
+        scene3D=val;
+    }
     private List<String> listChatCHnageListString(String[] baseArr)
     {
         List<String> outArr=new ArrayList<>();
@@ -24,6 +31,7 @@ public class Md5Analysis {
         return  outArr;
 
     }
+
     private List<String> getArrayByStrNoEmpty(String[] baseArr)
     {
         List<String> outArr=new ArrayList<>();
@@ -39,7 +47,7 @@ public class Md5Analysis {
     public Md5MeshData addMesh(String str) {
         List<String>  arr;
         if (str.indexOf("mesh") != -1) {
-            Md5MeshData meshData = new Md5MeshData();
+            Md5MeshData meshData = new Md5MeshData(scene3D);
             HashMap meshSmaple = new HashMap();
             str=str.replace("\t","");
             arr=listChatCHnageListString(str.split("\n"));

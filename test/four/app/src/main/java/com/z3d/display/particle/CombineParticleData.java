@@ -11,6 +11,7 @@ import com.z3d.display.particle.locusball.ParticleLocusballData;
 import com.z3d.display.particle.model.Display3DModelPartilce;
 import com.z3d.display.particle.model.ParticleModelData;
 import com.z3d.engine.ResCount;
+import com.z3d.scene.Scene3D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,10 @@ public class CombineParticleData extends ResCount {
 
     public  float maxTime;
     public  List<ParticleData> dataAry;
+
+    public  CombineParticleData(Scene3D val  ){
+  super(val);
+    }
     public void setDataByte(ByteArray _byte) {
         _byte.byteBuffer.position=0;
         int version = _byte.readInt();
@@ -42,34 +47,34 @@ public class CombineParticleData extends ResCount {
         ParticleData pdata=null;
         switch (type){
             case 1:
-                pdata=new ParticleFacetData();
+                pdata=new ParticleFacetData(this.scene3d);
                 break;
             case 3:
-                pdata=new ParticleLocusData();
+                pdata=new ParticleLocusData(this.scene3d);
                 break;
             case 4:
             {
-                pdata = new ParticleModelData();
+                pdata = new ParticleModelData(this.scene3d);
                 break;
             }
             case 7:
             {
-                pdata = new ParticleModelData();
+                pdata = new ParticleModelData(this.scene3d);
                 break;
             }
             case 9:
             {
-                pdata = new ParticleModelData();
+                pdata = new ParticleModelData(this.scene3d);
                 break;
             }
             case 14:
             {
-                pdata = new ParticleLocusballData();
+                pdata = new ParticleLocusballData(this.scene3d);
                 break;
             }
             case 18:
             {
-                pdata = new ParticleBallData();
+                pdata = new ParticleBallData(this.scene3d);
                 break;
             }
             default:

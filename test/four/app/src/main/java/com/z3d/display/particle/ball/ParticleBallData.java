@@ -5,6 +5,7 @@ import com.z3d.base.ObjData;
 import com.z3d.display.particle.Display3DParticle;
 import com.z3d.display.particle.ParticleData;
 import com.z3d.program.ProgrmaManager;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.Matrix3D;
 import com.z3d.vo.ParicleRandomColorVo;
 import com.z3d.vo.Vector2D;
@@ -71,8 +72,8 @@ public class ParticleBallData extends ParticleData {
 
     public Matrix3D _allRotationMatrix;
 
-    public ParticleBallData( ){
-        super();
+    public ParticleBallData(Scene3D val  ){
+        super(val);
         this._round=new Vector3D();
         this._shootAngly=new Vector3D();
         this._waveform=new Vector3D();
@@ -210,7 +211,7 @@ public class ParticleBallData extends ParticleData {
         }
         this.getShaderParam();
         List<Boolean>  shaderParameAry =this.getShaderParam();
-        this.materialParam.shader3D=   ProgrmaManager.getInstance().getMaterialProgram(Display3DBallShader.shaderNameStr,new Display3DBallShader(),this.materialParam.material,shaderParameAry,false);
+        this.materialParam.shader3D=  this.scene3d.progrmaManager.getMaterialProgram(Display3DBallShader.shaderNameStr,new Display3DBallShader(),this.materialParam.material,shaderParameAry,false);
     }
 
     private List<Boolean> getShaderParam() {
@@ -251,7 +252,7 @@ public class ParticleBallData extends ParticleData {
     }
 
     private void uploadGpu() {
-        this.objData =new ParticleBallGpuData() ;
+        this.objData =new ParticleBallGpuData(scene3d) ;
         this.initBaseData();
         this. initUV ();
         this.initBasePos();

@@ -1,5 +1,6 @@
 package com.z3d.skill.key;
 
+import com.z3d.scene.Scene3D;
 import com.z3d.skill.vo.SkillFixEffectKeyVo;
 import com.z3d.skill.vo.SkillKeyVo;
 import com.z3d.vo.Vector3D;
@@ -12,6 +13,10 @@ public class SkillFixEffect extends SkillEffect {
     public Vector3D outPos  ;
     public boolean hasSocket;
     public String socket;
+
+    public SkillFixEffect(Scene3D val) {
+        super(val);
+    }
 
     public void setInfo(SkillKeyVo skillKeyVo) {
         super.setInfo(skillKeyVo);
