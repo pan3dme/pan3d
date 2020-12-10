@@ -29,8 +29,8 @@ public class Md5MoveSprite extends Display3DSprite {
         super(val);
 
 
-        this.scene3D.progrmaManager.registe(Md5MoveShader.Md5MoveShader,new Md5MoveShader(scene3D));
-        this.shader3D=this.scene3D.progrmaManager.getProgram(Md5MoveShader.Md5MoveShader);
+         scene3D.progrmaManager.registe(Md5MoveShader.Md5MoveShader,new Md5MoveShader(scene3D));
+        this.shader3D= scene3D.progrmaManager.getProgram(Md5MoveShader.Md5MoveShader);
 
     }
 
@@ -143,15 +143,15 @@ public class Md5MoveSprite extends Display3DSprite {
     }
     protected void setVc()
     {
-        Context3D ctx=this.scene3D.context3D;
-        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3D.camera3D.modelMatrix.m);
+        Context3D ctx= scene3D.context3D;
+        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D, scene3D.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
 
     }
     private float lastTm=0;
     private float _actionTime=0;
     private void updateMaterialMeshCopy() {
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         if(md5MeshData.vertexBuffer==null){

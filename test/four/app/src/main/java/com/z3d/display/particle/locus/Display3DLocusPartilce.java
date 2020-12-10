@@ -33,7 +33,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
 
     @Override
     public void setVa() {
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         ObjData objData=  this.particleGpuObjData();
         ctx.setVa(this.shader3D, Shader3D.v3Position,3,objData.vertexBuffer);
         ctx.setVa(this.shader3D, Shader3D.v2TexCoord,2,objData.uvBuffer);
@@ -48,8 +48,8 @@ public class Display3DLocusPartilce extends Display3DParticle {
         this.setViewCamModeMatr3d();
         this.updateUV();
         this.modeMatrix=new Matrix3D();
-        Camera3D cam3d= this.scene3D.camera3D;
-        Context3D ctx=this.scene3D.context3D;
+        Camera3D cam3d=  scene3D.camera3D;
+        Context3D ctx=  scene3D.context3D;
 
         Vector3D scaleVec= this.locusdata()._resultUvVec;
         ctx.setVcUniform4f(this.shader3D,"vcmat30",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);

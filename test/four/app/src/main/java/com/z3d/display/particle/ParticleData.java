@@ -60,7 +60,7 @@ public class ParticleData {
     public Scene3D scene3D;
 
     public  ParticleData(Scene3D val  ){
-        this.scene3D =val;
+        scene3D =val;
     }
     public void setAllByteInfo(ByteArray $byte){
 

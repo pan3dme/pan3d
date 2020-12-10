@@ -10,7 +10,7 @@ public class ResGC {
     public Scene3D scene3D;
 
     public ResGC( Scene3D val) {
-        this.scene3D = val;
+         scene3D = val;
         this.dic=new HashMap();
 
     }

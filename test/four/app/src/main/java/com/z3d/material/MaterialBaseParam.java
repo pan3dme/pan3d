@@ -17,7 +17,7 @@ public class MaterialBaseParam extends GC {
 
     public Scene3D scene3D;
     public MaterialBaseParam(Scene3D val){
-        this.scene3D=val;
+       scene3D=val;
     }
     public void setData(Material mater, List<MaterialInfoVo> ary )
     {
@@ -46,7 +46,7 @@ public class MaterialBaseParam extends GC {
                         mipmap = texItem.target.mipmap;
                     }
                     mipmap = 0;
-                    this.scene3D.textureManager.getTexture(Scene_data.fileRoot+ obj.url, new TexTuresBackFun() {
+                     scene3D.textureManager.getTexture(Scene_data.fileRoot+ obj.url, new TexTuresBackFun() {
                         @Override
                         public void Bfun(TextureRes value) {
                             texItem.textureRes = value;

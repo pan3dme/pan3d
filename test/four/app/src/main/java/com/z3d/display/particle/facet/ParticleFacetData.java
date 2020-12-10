@@ -38,8 +38,8 @@ public class ParticleFacetData extends ParticleData {
             return;
         }
 
-        this.scene3D.progrmaManager.registe(Display3DFacetShader.shaderNameStr,new Display3DFacetShader(scene3D));
-        this.materialParam.shader3D=this.scene3D.progrmaManager.getProgram(Display3DFacetShader.shaderNameStr);
+         scene3D.progrmaManager.registe(Display3DFacetShader.shaderNameStr,new Display3DFacetShader(scene3D));
+        this.materialParam.shader3D= scene3D.progrmaManager.getProgram(Display3DFacetShader.shaderNameStr);
 
     }
 

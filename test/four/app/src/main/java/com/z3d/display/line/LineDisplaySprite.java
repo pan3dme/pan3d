@@ -17,7 +17,7 @@ public class LineDisplaySprite extends DisplayBaseSprite {
     LineDisplaySprite(Scene3D val){
         super(val);
         scene3D.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader(scene3D));
-        this.shader3D=this.scene3D.progrmaManager.getProgram(LineDisplayShader.shaderNameStr);
+        this.shader3D= scene3D.progrmaManager.getProgram(LineDisplayShader.shaderNameStr);
     }
 
 
@@ -79,13 +79,13 @@ public class LineDisplaySprite extends DisplayBaseSprite {
 
 
         if(this.shader3D!=null&&this.objData.treNum>0){
-            Context3D ctx=this.scene3D.context3D;
+            Context3D ctx= scene3D.context3D;
             this.modeMatrix.appendRotation(1, Vector3D.Z_AXIS);
             ctx.setProgame(this.shader3D.program);
 
 
 
-            ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3D.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D", scene3D.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
             ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);

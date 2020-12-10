@@ -7,7 +7,7 @@ public class ResCount extends GC {
     public Scene3D scene3D;
 
     public  ResCount(Scene3D val  ){
-        this.scene3D =val;
+        scene3D =val;
 
     }
 

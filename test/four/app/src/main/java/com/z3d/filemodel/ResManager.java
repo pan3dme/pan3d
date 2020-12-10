@@ -23,7 +23,7 @@ public class ResManager extends ResGC {
     public void  loadRoleRes(String url, final RoleBackFun backFun , int batchNum)
     {
         Log.d(TAG, "loadRoleRes: ");
-        final RoleRes roleRes = new RoleRes(this.scene3D);
+        final RoleRes roleRes = new RoleRes( scene3D);
         roleRes.meshBatchNum = batchNum;
         roleRes.load(url, new CallBackFun() {
             @Override
@@ -34,7 +34,7 @@ public class ResManager extends ResGC {
     }
     public void loadSkillRes(String $url, CallBack callBack) {
         Log.d(TAG, "loadSkillRes: ");
-        SkillRes skillRes   = new SkillRes(this.scene3D);
+        SkillRes skillRes   = new SkillRes( scene3D);
         skillRes.load($url,new CallBack() {
             @Override
             public void StateChange(Object val) {

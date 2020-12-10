@@ -210,7 +210,7 @@ public class ParticleBallData extends ParticleData {
         }
         this.getShaderParam();
         List<Boolean>  shaderParameAry =this.getShaderParam();
-        this.materialParam.shader3D=  this.scene3D.progrmaManager.getMaterialProgram(Display3DBallShader.shaderNameStr,new Display3DBallShader(scene3D),this.materialParam.material,shaderParameAry,false);
+        this.materialParam.shader3D=   scene3D.progrmaManager.getMaterialProgram(Display3DBallShader.shaderNameStr,new Display3DBallShader(scene3D),this.materialParam.material,shaderParameAry,false);
     }
 
     private List<Boolean> getShaderParam() {

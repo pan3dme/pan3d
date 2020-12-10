@@ -32,7 +32,7 @@ public class ParticleManager extends ResGC {
 
     public void addResByte(String url, ByteArray data) {
         if (!this.dic.containsKey(url)) {
-            CombineParticleData baseData   = new CombineParticleData(this.scene3D);
+            CombineParticleData baseData   = new CombineParticleData( scene3D);
             baseData.setDataByte(data);
             this.dic.put(url,baseData);
         }
@@ -103,7 +103,7 @@ public class ParticleManager extends ResGC {
             List<CombineParticle> arr=    this.renderDic.get(url);
             for (int i=0;i<arr.size();i++){
                 CombineParticle dic=  arr.get(i);
-                dic.upData(this.scene3D);
+                dic.upData( scene3D);
 
             }
 

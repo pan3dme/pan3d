@@ -9,7 +9,7 @@ public class Display3D<bool> extends Object3D {
     public Scene3D scene3D;
     public Matrix3D posMatrix3d;
     public  Display3D(Scene3D val  ){
-        this.scene3D =val;
+         scene3D =val;
         this.posMatrix3d=new Matrix3D();
     }
 

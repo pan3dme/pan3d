@@ -29,20 +29,20 @@ public class FrameFileNode extends Display3D {
         if (this.frameNodeVo.type == 1) {
 
             if (this.frameNodeVo.directLight) {  //有法线的对象
-                this._frameBuildSprite = new FrameBuildSprite(this.scene3D);
+                this._frameBuildSprite = new FrameBuildSprite(scene3D);
                 this._frameBuildSprite.setFrameNodeUrl(this.frameNodeVo);
-                this.scene3D.addDisplay(this._frameBuildSprite);
+                 scene3D.addDisplay(this._frameBuildSprite);
                 this.sprite = this._frameBuildSprite;
             } else {
                 if (this.frameNodeVo.receiveShadow) {
-                    this._shadowDisplay3DSprite = new ShadowDisplay3DSprite(this.scene3D);
+                    this._shadowDisplay3DSprite = new ShadowDisplay3DSprite( scene3D);
                     this._shadowDisplay3DSprite.setFrameNodeUrl(this.frameNodeVo);
-                    this.scene3D.addDisplay(this._shadowDisplay3DSprite);
+                     scene3D.addDisplay(this._shadowDisplay3DSprite);
                     this.sprite = this._shadowDisplay3DSprite;
                 } else {
-                    this._lightSprite = new LightDisplay3DSprite(this.scene3D);
+                    this._lightSprite = new LightDisplay3DSprite( scene3D);
                     this._lightSprite.setFrameNodeUrl(this.frameNodeVo);
-                    this.scene3D.addDisplay(this._lightSprite);
+                    scene3D.addDisplay(this._lightSprite);
                     this.sprite = this._lightSprite;
                 }
             }

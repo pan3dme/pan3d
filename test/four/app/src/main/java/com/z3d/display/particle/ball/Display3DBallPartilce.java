@@ -14,7 +14,7 @@ public class Display3DBallPartilce extends Display3DParticle {
     public void setVc() {
         super.setVc();
         this. setViewCamModeMatr3d();
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         this.updateWatchCaramMatrix();
         ctx.setVcMatrix4fv(this.shader3D,"rotMatrix",this.rotationMatrix3D.m);
         Vector3D timeVec =   this.ballData()._timeVec;
@@ -38,7 +38,7 @@ public class Display3DBallPartilce extends Display3DParticle {
     public void setVa() {
         super.setVa();
 
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         ParticleBallGpuData objData= (ParticleBallGpuData) this.particleGpuObjData();
         ctx.setVa(this.shader3D, "vPosition",4,objData.vertexBuffer);
         ctx.setVa(this.shader3D,"texcoord",3,objData.uvBuffer);
@@ -52,7 +52,7 @@ public class Display3DBallPartilce extends Display3DParticle {
     private void updateWatchCaramMatrix() {
 
         this.rotationMatrix3D.identity();
-        Camera3D cam3d=this.scene3D.camera3D;
+        Camera3D cam3d= scene3D.camera3D;
         cam3d.upFrame();
         if (this.ballData().facez) {
             this.rotationMatrix3D.prependRotation(90.0f, Vector3D.X_AXIS);

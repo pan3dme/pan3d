@@ -31,7 +31,7 @@ public class GroupDataManager extends ResGC {
         if(this.dic.containsKey(url)){
             bfun.Bfun((GroupRes)this.dic.get(url));
         }else{
-            final GroupRes groupRes=new GroupRes(this.scene3D);
+            final GroupRes groupRes=new GroupRes( scene3D);
             groupRes.load(Scene_data.fileRoot + url, new CallBackFun() {
                 @Override
                 public void StateChange(boolean State) {

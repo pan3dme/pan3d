@@ -295,7 +295,7 @@ public class BaseRes extends ResCount {
             if(imgSize>0){
                 byte[] imgByte=  this._byte.readBytes(imgSize);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
-                this.scene3D.textureManager.addRes(Scene_data.fileRoot+ url,bitmap);
+                scene3D.textureManager.addRes(Scene_data.fileRoot+ url,bitmap);
             }
         }
         Log.d("url ->",     "-----" );

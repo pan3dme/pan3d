@@ -94,7 +94,7 @@ public class RoleRes extends BaseRes {
             nrmDircet.y = _byte.readFloat();
             nrmDircet.z = _byte.readFloat();
         }
-        this.scene3D.meshDataManager.readData(_byte, meshBatchNum, roleUrl, version);
+         scene3D.meshDataManager.readData(_byte, meshBatchNum, roleUrl, version);
 
     }
     private void readAction() {

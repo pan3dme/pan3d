@@ -45,7 +45,7 @@ public class Skill {
     public  Skill(Scene3D val){
         this.time=0;
         this.targetFlag=0;
-        this.scene3D=val;
+        scene3D=val;
     }
     public void reset() {
         this.time = 0;
@@ -170,7 +170,7 @@ public class Skill {
         for (int i = this.targetFlag; i < this.keyAry.size(); i++) {
             SkillKey temp=  this.keyAry.get(i);
             if (temp.time < this.time) {
-                temp.addToRender(this.scene3D.particleManager);
+                temp.addToRender(scene3D.particleManager);
                 if (this.skillVo.types == SkillType.TrajectoryDynamicTarget || this.skillVo.types == SkillType.TrajectoryDynamicPoint) {
                     this.trajectoryAry.add(temp);
                 }

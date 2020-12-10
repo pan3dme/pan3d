@@ -49,7 +49,7 @@ public class SkillManager extends ResGC {
                 }
             }
         }
-        skill = new Skill(this.scene3D);
+        skill = new Skill(  scene3D);
         skill.name = $name;
         skill.isDeath = false;
         if (!this._skillDic.containsKey(key)) {
@@ -109,7 +109,7 @@ public class SkillManager extends ResGC {
     private void addSrc(String $url, SkillData skillData) {
 
         for (String key : skillData.data.keySet()) {
-            Skill skill = new Skill(this.scene3D);
+            Skill skill = new Skill( scene3D);
             skill.name = key;
             skill.isDeath = true;
             skill.src = true;

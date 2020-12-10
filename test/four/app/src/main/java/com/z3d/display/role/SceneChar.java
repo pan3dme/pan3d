@@ -31,8 +31,8 @@ public class SceneChar extends Display3dMovie {
     public void setMountById(String mountName) {
 
         if(this.mountChar==null){
-            this.mountChar=new MountChar(this.scene3D);
-            this.scene3D.addMovieDisplay(this.mountChar);
+            this.mountChar=new MountChar( scene3D);
+             scene3D.addMovieDisplay(this.mountChar);
             this.setBind(this.mountChar, SceneChar.MOUNT_SLOT);
         }
         this.mountChar.setRoleUrl("role/"+mountName+".txt");

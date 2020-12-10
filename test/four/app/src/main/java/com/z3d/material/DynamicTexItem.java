@@ -75,7 +75,7 @@ public class DynamicTexItem extends DynamicBaseTexItem {
             }
         }
 
-         this.textureDynamic=  this.scene3D.textureManager.createTexture(ColorTransition.getImageDataByVec(imgNumVec,100));
+         this.textureDynamic=  scene3D.textureManager.createTexture(ColorTransition.getImageDataByVec(imgNumVec,100));
 
     }
 

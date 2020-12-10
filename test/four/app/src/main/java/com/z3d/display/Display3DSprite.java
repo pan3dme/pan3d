@@ -93,7 +93,7 @@ public   class Display3DSprite extends Display3D {
     public void  setPicUrl(String value)
     {
 
-       this.scene3D.textureManager.getTexture( Scene_data.fileRoot+ value, new TexTuresBackFun() {
+        scene3D.textureManager.getTexture( Scene_data.fileRoot+ value, new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 baseTextureRes =value;
@@ -112,7 +112,7 @@ public   class Display3DSprite extends Display3D {
         if (this.material.url.indexOf("changjinghongpei/standard_byte")==-1) {
            // return;
         }
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
 
         ctx.setProgame(this.shader3D.program);
         this.updateBind();
@@ -153,8 +153,8 @@ public   class Display3DSprite extends Display3D {
     }
     protected void setVc()
     {
-        Context3D ctx=this.scene3D.context3D;
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3D.camera3D.modelMatrix.m);
+        Context3D ctx= scene3D.context3D;
+        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D", scene3D.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
         if (this.material.usePbr || this.material.directLight) {
             float[] m = new float[9];
@@ -166,7 +166,7 @@ public   class Display3DSprite extends Display3D {
 
     protected void setMaterialVa()
     {
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         ctx.setVa(this.shader3D,"v3Position",3,this.objData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2CubeTexST",2,this.objData.uvBuffer);
         if (!(this.material.directLight || this.material.noLight)) {
@@ -190,7 +190,7 @@ public   class Display3DSprite extends Display3D {
         if (mp!=null) {
             mp.update();
         }
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
 //        material.fcData.printOut();
         ctx.setVc4fv(material.shader, "fc",material.fcNum, material.fcData.verBuff);
     }
@@ -212,7 +212,7 @@ public   class Display3DSprite extends Display3D {
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
 
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         List<TexItem> texVec= mp.material.texList;
         TexItem texItem=null;
         for (int i   = 0; i < texVec.size(); i++) {

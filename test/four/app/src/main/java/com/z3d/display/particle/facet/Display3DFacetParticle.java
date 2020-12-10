@@ -27,7 +27,7 @@ public class Display3DFacetParticle  extends Display3DParticle {
     @Override
     public void setVa() {
         super.setVa();
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         ParticleFacetData facetdata=this.getFaceData();
         ObjData objData= facetdata.objData;
         ctx.setVa(this.shader3D,"v3Position",3,objData.vertexBuffer);
@@ -39,7 +39,7 @@ public class Display3DFacetParticle  extends Display3DParticle {
     @Override
     public void setVc() {
         super.setVc();
-        Context3D ctx=this.scene3D.context3D;
+        Context3D ctx= scene3D.context3D;
         this.setViewCamModeMatr3d();
         this.updateRotaionMatrix();
         this.updateUV();
@@ -60,7 +60,7 @@ public class Display3DFacetParticle  extends Display3DParticle {
 
     }
     private void updateRotaionMatrix() {
-        Camera3D cam=this.scene3D.camera3D;
+        Camera3D cam= scene3D.camera3D;
         this.rotationMatrix3D.identity();
         ParticleFacetData facetdata=this.getFaceData();
         if (this.data._watchEye) {

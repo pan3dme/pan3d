@@ -53,7 +53,7 @@ public class MeshDataManager extends ResGC {
         }
         this.loadDic.put(url,new ArrayList<>());
         ( (List) this.loadDic.get(url)).add(bfun);
-      this.scene3D.resManager.loadRoleRes(Scene_data.fileRoot+ url, new RoleBackFun() {
+       scene3D.resManager.loadRoleRes(Scene_data.fileRoot+ url, new RoleBackFun() {
             @Override
             public void Bfun(RoleRes value) {
                 roleResCom(value,bfun);
