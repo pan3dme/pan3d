@@ -23,7 +23,8 @@ public class RoleRes extends BaseRes {
     public float sunLigthIntensity;
     public Vector3D nrmDircet;
     private  static String TAG="ResManager";
-    private CallBackFun callBackFun;
+    public CallBackFun callBackFun;
+
     public  RoleRes(Scene3D val  ){
         super(val);
 
@@ -38,20 +39,15 @@ public class RoleRes extends BaseRes {
                 if(dic!=null){
                     ByteArray temp=(ByteArray)dic.get("byte");
                     _byte=temp;
-                    RoleRes._waitArr.add(that);
+
+                    scene3D.resManager.addWaitRoleResBy(that);
                 }else{
                     Log.d(TAG, "bfun: 角色地址错误");
                 }
             }
         },null);
     }
-    private static List<RoleRes> _waitArr=new ArrayList<>();
-    public static void upDataRoleResWaitIng(){
-        while (_waitArr.size()>0){
-            RoleRes roleRes=   _waitArr.remove(0);
-            roleRes.loadComplete(roleRes.callBackFun);
-        }
-    }
+
     public void  loadComplete(  CallBackFun bfun)
     {
         _byte.buffer.position(0);

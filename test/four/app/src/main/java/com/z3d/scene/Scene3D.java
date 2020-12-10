@@ -99,10 +99,11 @@ public class Scene3D  {
 
     private void  upToGpu(){
         //纹理和着色
-        RoleRes.upDataRoleResWaitIng();
+
         this.progrmaManager.upDataProgramWaitIng();
         this.textureManager.upDataGenTextUserItem();
         this.objDataManager.upDataObjDataToGpu();
+        this.resManager.upDataRoleResWaitIng();
 
     }
     public  void  upFrame()

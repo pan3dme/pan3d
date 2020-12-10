@@ -14,7 +14,7 @@ public class ProgrmaManager extends ResGC {
 
 
     private static final String TAG = "ProgrmaManager";
-    private static ProgrmaManager _instance;
+
 
     public ProgrmaManager(Scene3D val) {
 

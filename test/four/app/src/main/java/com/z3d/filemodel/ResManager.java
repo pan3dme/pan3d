@@ -9,17 +9,16 @@ import com.z3d.base.RoleBackFun;
 import com.z3d.res.RoleRes;
 import com.z3d.res.SkillRes;
 import com.z3d.scene.Scene3D;
+import com.z3d.base.CallBackFun;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResManager extends ResGC {
-    private static ResManager _instance;
+
     private  static String TAG="ResManager";
-
-
     public ResManager(Scene3D val) {
         super(val);
     }
-
-
     public void  loadRoleRes(String url, final RoleBackFun backFun , int batchNum)
     {
         Log.d(TAG, "loadRoleRes: ");
@@ -31,6 +30,16 @@ public class ResManager extends ResGC {
                 backFun.Bfun(roleRes);
             }
         });
+    }
+    private   List<RoleRes> _waitArr=new ArrayList<>();
+    public  void addWaitRoleResBy(RoleRes val){
+        _waitArr.add(val);
+    }
+    public   void upDataRoleResWaitIng(){
+        while (_waitArr.size()>0){
+            RoleRes roleRes=   _waitArr.remove(0);
+            roleRes.loadComplete(roleRes.callBackFun);
+        }
     }
     public void loadSkillRes(String $url, CallBack callBack) {
         Log.d(TAG, "loadSkillRes: ");
