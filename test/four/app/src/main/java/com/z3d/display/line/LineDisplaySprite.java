@@ -81,7 +81,7 @@ public class LineDisplaySprite extends DisplayBaseSprite {
 
         this.objData.indexs.add((short) this.objData.indexs.size());
         this.objData.indexs.add((short) this.objData.indexs.size());
-
+        this.objData.isCompile=false;
     }
 
 
