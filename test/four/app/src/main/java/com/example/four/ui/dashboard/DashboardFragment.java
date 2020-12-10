@@ -96,7 +96,7 @@ public class DashboardFragment extends Fragment {
 
                 scene3d.addDisplay(dis);
                 addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
-//                loadSceneByUrl( scene3d,"10002");
+                loadSceneByUrl( scene3d,"10002");
 
 
             }

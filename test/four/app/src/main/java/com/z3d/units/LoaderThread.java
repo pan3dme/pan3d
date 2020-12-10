@@ -79,12 +79,12 @@ public class LoaderThread
                 }
                 @Override
                 public void onProgress(float progress, long total) {
-                    Log.d("progress"+progress, "total: "+total);
+//                    Log.d("progress"+progress, "total: "+total);
                     super.onProgress(progress, total);
                 }
                 @Override
                 public void onResponse(File response) {
-                    Log.d("TAG", "onResponse: ");
+//                    Log.d("TAG", "onResponse: ");
                     that.onResponse(response);
                 }
             });

@@ -9,7 +9,7 @@ import com.z3d.base.RoleBackFun;
 import com.z3d.res.RoleRes;
 import com.z3d.res.SkillRes;
 import com.z3d.scene.Scene3D;
-import com.z3d.base.CallBackFun;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,13 +31,13 @@ public class ResManager extends ResGC {
             }
         });
     }
-    private   List<RoleRes> _waitArr=new ArrayList<>();
+    private   List<RoleRes> _waitRoleResArr =new ArrayList<>();
     public  void addWaitRoleResBy(RoleRes val){
-        _waitArr.add(val);
+        _waitRoleResArr.add(val);
     }
     public   void upDataRoleResWaitIng(){
-        while (_waitArr.size()>0){
-            RoleRes roleRes=   _waitArr.remove(0);
+        while (_waitRoleResArr.size()>0){
+            RoleRes roleRes=   _waitRoleResArr.remove(0);
             roleRes.loadComplete(roleRes.callBackFun);
         }
     }

@@ -14,7 +14,7 @@ public class ResGC {
         this.dic=new HashMap();
 
     }
-    public void clearAll(){
-        this.dic=new HashMap();
-    }
+//    public void clearAll(){
+//        this.dic=new HashMap();
+//    }
 }
