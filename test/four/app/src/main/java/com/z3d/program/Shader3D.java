@@ -2,6 +2,9 @@ package com.z3d.program;
 
 
 import android.opengl.GLES20;
+import android.transition.Scene;
+
+import com.z3d.scene.Scene3D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,10 @@ public class Shader3D {
     public List<Boolean> paramAry;
     public String fragment;
     public String vertex;
+    public Scene3D scene3D;
+    public Shader3D(Scene3D val){
+        scene3D=val;
+    }
     public String vertexStr(){
         if(this.vertex!=null){
             return this.vertex;

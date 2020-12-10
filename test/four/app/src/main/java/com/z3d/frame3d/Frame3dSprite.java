@@ -20,8 +20,8 @@ public class Frame3dSprite extends Display3D {
     Frame3dRes frame3dRes;
     private void addLoadFrame3dRes()
     {
-        scene3d.clearAll();
-        this.frame3dRes=new Frame3dRes(this.scene3d);
+        scene3D.clearAll();
+        this.frame3dRes=new Frame3dRes(this.scene3D);
         this.frame3dRes.load("pan/frame3dres/huowumatou_frame.txt", new CallBack() {
             @Override
             public void StateChange(Object val) {
@@ -34,7 +34,7 @@ public class Frame3dSprite extends Display3D {
     public void loadFrame3DFinish(Frame3dRes frame3dRes){
         this.frameImodelItem = new ArrayList<>();
         for (int i = 0; i <frame3dRes.frameItem.size(); i++) {
-            FrameFileNode $base = new FrameFileNode(this.scene3d);
+            FrameFileNode $base = new FrameFileNode(this.scene3D);
             $base.setFrameNodeVo(frame3dRes.frameItem.get(i));
             this.frameImodelItem.add($base);
         }

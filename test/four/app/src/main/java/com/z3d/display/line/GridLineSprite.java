@@ -16,7 +16,7 @@ public class GridLineSprite  extends LineDisplaySprite {
     }
     public void changeColor(Vector3D val){
         baseColor=val;
-        this.objData =new ObjData(scene3d);
+        this.objData =new ObjData(scene3D);
 
         this.clearLine();
 

@@ -26,7 +26,7 @@ public class GroupRes extends BaseRes {
     }
     public  void  load(String url,final CallBackFun backFun)
     {
-       scene3d.loadManager.loadUrl(url, LoadManager.BYTE_TYPE, new LoadBackFun() {
+       scene3D.loadManager.loadUrl(url, LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){

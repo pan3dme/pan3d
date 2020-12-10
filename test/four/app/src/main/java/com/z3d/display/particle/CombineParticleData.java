@@ -47,34 +47,34 @@ public class CombineParticleData extends ResCount {
         ParticleData pdata=null;
         switch (type){
             case 1:
-                pdata=new ParticleFacetData(this.scene3d);
+                pdata=new ParticleFacetData(this.scene3D);
                 break;
             case 3:
-                pdata=new ParticleLocusData(this.scene3d);
+                pdata=new ParticleLocusData(this.scene3D);
                 break;
             case 4:
             {
-                pdata = new ParticleModelData(this.scene3d);
+                pdata = new ParticleModelData(this.scene3D);
                 break;
             }
             case 7:
             {
-                pdata = new ParticleModelData(this.scene3d);
+                pdata = new ParticleModelData(this.scene3D);
                 break;
             }
             case 9:
             {
-                pdata = new ParticleModelData(this.scene3d);
+                pdata = new ParticleModelData(this.scene3D);
                 break;
             }
             case 14:
             {
-                pdata = new ParticleLocusballData(this.scene3d);
+                pdata = new ParticleLocusballData(this.scene3D);
                 break;
             }
             case 18:
             {
-                pdata = new ParticleBallData(this.scene3d);
+                pdata = new ParticleBallData(this.scene3D);
                 break;
             }
             default:

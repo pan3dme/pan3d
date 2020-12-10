@@ -155,4 +155,9 @@ public class ProgrmaManager extends ResGC {
         Log.d(TAG, "-----------");
 
     }
+
+    public void upDataProgramWaitIng() {
+
+
+    }
 }

@@ -1,9 +1,15 @@
 package com.z3d.display.particle.facet;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class Display3DFacetShader extends Shader3D {
     public  static  String shaderNameStr="Display3DFacetShader";
+
+    public Display3DFacetShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex=

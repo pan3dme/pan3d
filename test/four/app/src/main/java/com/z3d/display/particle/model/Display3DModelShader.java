@@ -1,9 +1,15 @@
 package com.z3d.display.particle.model;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class Display3DModelShader extends Shader3D {
     public  static  String shaderNameStr="Display3DModelShader";
+
+    public Display3DModelShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex=

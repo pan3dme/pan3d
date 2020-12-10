@@ -1,8 +1,13 @@
 package com.z3d.display.particle.ball;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class Display3DBallShader extends Shader3D {
+    public Display3DBallShader(Scene3D val) {
+        super(val);
+    }
+
     public static int getVcSize()
     {
         return 4;

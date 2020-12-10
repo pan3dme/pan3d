@@ -1,10 +1,16 @@
 package com.z3d.md5;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class Md5MoveShader extends Shader3D {
 
     public  static  String Md5MoveShader="Md5MoveShader";
+
+    public Md5MoveShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex=

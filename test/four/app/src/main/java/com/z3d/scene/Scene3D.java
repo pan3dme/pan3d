@@ -75,7 +75,7 @@ public class Scene3D  {
         this.animManager=new AnimManager(this);
         this.resManager=new ResManager(this);
 
-        this.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader());
+        this.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader(this));
     }
     public void  initData(){
 
@@ -103,6 +103,7 @@ public class Scene3D  {
         //纹理和着色
         RoleRes.upDataRoleResWaitIng();
         Shader3D.upDataProgramWaitIng();
+        this.progrmaManager.upDataProgramWaitIng();
         this.textureManager.upDataGenTextUserItem();
     }
     public  void  upFrame()

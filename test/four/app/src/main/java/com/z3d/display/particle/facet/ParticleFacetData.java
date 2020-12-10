@@ -4,7 +4,6 @@ import com.z3d.base.ByteArray;
 import com.z3d.base.ObjData;
 import com.z3d.display.particle.Display3DParticle;
 import com.z3d.display.particle.ParticleData;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.scene.Scene3D;
 import com.z3d.vo.Vector2D;
 
@@ -39,8 +38,8 @@ public class ParticleFacetData extends ParticleData {
             return;
         }
 
-        this.scene3d.progrmaManager.registe(Display3DFacetShader.shaderNameStr,new Display3DFacetShader());
-        this.materialParam.shader3D=this.scene3d.progrmaManager.getProgram(Display3DFacetShader.shaderNameStr);
+        this.scene3D.progrmaManager.registe(Display3DFacetShader.shaderNameStr,new Display3DFacetShader(scene3D));
+        this.materialParam.shader3D=this.scene3D.progrmaManager.getProgram(Display3DFacetShader.shaderNameStr);
 
     }
 
@@ -59,7 +58,7 @@ public class ParticleFacetData extends ParticleData {
 
 
 
-        this.objData=new ObjData(scene3d);
+        this.objData=new ObjData(scene3D);
 
 
         Float[] attrArr=new Float[12];

@@ -4,9 +4,7 @@ import android.util.Log;
 
 import com.z3d.base.ByteArray;
 import com.z3d.base.CallBackFun;
-import com.z3d.filemodel.MeshDataManager;
 import com.z3d.scene.Scene3D;
-import com.z3d.units.AnimManager;
 import com.z3d.units.LoadBackFun;
 import com.z3d.units.LoadManager;
 import com.z3d.vo.Vector3D;
@@ -34,7 +32,7 @@ public class RoleRes extends BaseRes {
     {
         callBackFun=backFun;
         RoleRes that=this;
-        scene3d.loadManager.loadUrl(url, LoadManager.BYTE_TYPE, new LoadBackFun() {
+        scene3D.loadManager.loadUrl(url, LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){
@@ -96,7 +94,7 @@ public class RoleRes extends BaseRes {
             nrmDircet.y = _byte.readFloat();
             nrmDircet.z = _byte.readFloat();
         }
-        this.scene3d.meshDataManager.readData(_byte, meshBatchNum, roleUrl, version);
+        this.scene3D.meshDataManager.readData(_byte, meshBatchNum, roleUrl, version);
 
     }
     private void readAction() {
@@ -111,7 +109,7 @@ public class RoleRes extends BaseRes {
         for (int i = 0; i < actionNum; i++) {
             String actionName = $actionByte.readUTF();
             Log.d(actionName, "actionName: ");
-            scene3d.animManager.readData($actionByte, roleUrl + actionName);
+            scene3D.animManager.readData($actionByte, roleUrl + actionName);
             actionAry.add(actionName);
         }
 

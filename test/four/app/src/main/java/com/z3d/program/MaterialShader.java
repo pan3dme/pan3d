@@ -2,9 +2,16 @@ package com.z3d.program;
 
 import android.util.Log;
 
+import com.z3d.scene.Scene3D;
+
 public class MaterialShader extends  Shader3D {
     private static final String TAG ="MaterialShader" ;
     public  static  String shaderNameStr="MaterialShader";
+
+    public MaterialShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex= "attribute vec3 vPosition;\n"+

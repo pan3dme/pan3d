@@ -1,8 +1,14 @@
 package com.z3d.frame3d.dis;
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class FrameBuildShader extends Shader3D {
     public  static  String FrameBuildShader="FrameBuildShader";
+
+    public FrameBuildShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex=

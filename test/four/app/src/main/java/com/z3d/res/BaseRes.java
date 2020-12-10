@@ -6,15 +6,10 @@ import android.util.Log;
 
 import com.z3d.base.ByteArray;
 import com.z3d.base.CallBackFun;
-import com.z3d.base.ObjDataManager;
 import com.z3d.base.Scene_data;
 import com.z3d.engine.ResCount;
-import com.z3d.filemodel.ParticleManager;
-import com.z3d.filemodel.TextureManager;
-import com.z3d.material.MaterialManager;
 import com.z3d.scene.Scene3D;
 import com.z3d.units.TimeUtil;
-import com.z3d.vo.Matrix3D;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -81,7 +76,7 @@ public class BaseRes extends ResCount {
             Log.d("material地址 ->",   url+" " );
             Log.d("material大小 ->",   materialSize+" " );
 
-            scene3d.materialManager.addResByte(url, new ByteArray(materialByte));
+            scene3D.materialManager.addResByte(url, new ByteArray(materialByte));
 
         }
 
@@ -99,7 +94,7 @@ public class BaseRes extends ResCount {
             Log.d("partic地址 ->",   url+" " );
             Log.d("partic大小 ->",   particSize+" " );
 
-            scene3d.particleManager.addResByte(url, new ByteArray(particByte));
+            scene3D.particleManager.addResByte(url, new ByteArray(particByte));
 
         }
 
@@ -221,7 +216,7 @@ public class BaseRes extends ResCount {
             Log.d("obj地址 ->",   url+" " );
             Log.d("obj大小 ->",   objLen+" " );
 
-            scene3d.objDataManager.loadObjCom(  objByte, url);
+            scene3D.objDataManager.loadObjCom(  objByte, url);
 
         }
 
@@ -300,7 +295,7 @@ public class BaseRes extends ResCount {
             if(imgSize>0){
                 byte[] imgByte=  this._byte.readBytes(imgSize);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
-                this.scene3d.textureManager.addRes(Scene_data.fileRoot+ url,bitmap);
+                this.scene3D.textureManager.addRes(Scene_data.fileRoot+ url,bitmap);
             }
         }
         Log.d("url ->",     "-----" );

@@ -1,10 +1,16 @@
 package com.z3d.display.basedis;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class DisplayTestShader extends Shader3D {
 
     public  static  String shaderNameStr="DisplayTestShader";
+
+    public DisplayTestShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex= "attribute vec3 vPosition;\n"+

@@ -1,7 +1,14 @@
 package com.z3d.program;
 
+import com.z3d.scene.Scene3D;
+
 public class MaterialAnimShader extends Shader3D {
     public  static  String shaderNameStr="MaterialAnimShader";
+
+    public MaterialAnimShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex= "attribute vec3 pos;\n"+

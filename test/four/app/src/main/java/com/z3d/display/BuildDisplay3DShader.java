@@ -1,10 +1,16 @@
 package com.z3d.display;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class BuildDisplay3DShader extends Shader3D {
 
     public  static  String shaderNameStr="BuildDisplay3DShader";
+
+    public BuildDisplay3DShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
 
         String vertex=

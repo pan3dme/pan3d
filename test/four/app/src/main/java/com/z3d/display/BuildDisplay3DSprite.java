@@ -4,9 +4,7 @@ import com.z3d.base.MathCore;
 import com.z3d.base.Scene_data;
 import com.z3d.base.TexTuresBackFun;
 import com.z3d.core.Context3D;
-import com.z3d.filemodel.TextureManager;
 import com.z3d.material.TextureRes;
-import com.z3d.program.ProgrmaManager;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,7 +48,7 @@ public class BuildDisplay3DSprite extends Display3DSprite {
 
     protected void setLighturl(String lighturl)
     {
-        scene3d.textureManager.getTexture(Scene_data.fileRoot+lighturl, new TexTuresBackFun() {
+        scene3D.textureManager.getTexture(Scene_data.fileRoot+lighturl, new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 lightTextureRes=value;
@@ -59,12 +57,12 @@ public class BuildDisplay3DSprite extends Display3DSprite {
     }
     private void showBaseModelUpData(){
         if(this.lightTextureRes!=null){
-            this.scene3d.progrmaManager.registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader());
-            this.shader3D=this.scene3d.progrmaManager.getProgram(BuildDisplay3DShader.shaderNameStr);
-            Context3D ctx=this.scene3d.context3D;
+            this.scene3D.progrmaManager.registe(BuildDisplay3DShader.shaderNameStr,new BuildDisplay3DShader(scene3D));
+            this.shader3D=this.scene3D.progrmaManager.getProgram(BuildDisplay3DShader.shaderNameStr);
+            Context3D ctx=this.scene3D.context3D;
 
             ctx.setProgame(this.shader3D.program);
-            ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3D.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
             ctx.setVa(this.shader3D,"v3Position",3,this.objData.vertexBuffer);
 

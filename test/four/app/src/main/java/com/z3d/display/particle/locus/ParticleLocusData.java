@@ -4,7 +4,6 @@ import com.z3d.base.ByteArray;
 import com.z3d.base.ObjData;
 import com.z3d.display.particle.Display3DParticle;
 import com.z3d.display.particle.ParticleData;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.res.BaseRes;
 import com.z3d.scene.Scene3D;
 import com.z3d.vo.Float32Array;
@@ -35,7 +34,7 @@ public class ParticleLocusData extends ParticleData {
         this._density = $byte.readFloat(); //f
         this._isEnd = $byte.readBoolean(); //b
 
-        this.objData = new ObjData(scene3d);
+        this.objData = new ObjData(scene3D);
 
         int vLen = $byte.getInt();
         int dataWidth = 9;
@@ -94,7 +93,7 @@ public class ParticleLocusData extends ParticleData {
         }
         this.getShaderParam();
         List<Boolean>  shaderParameAry =this.getShaderParam();
-        this.materialParam.shader3D=   this.scene3d.progrmaManager.getMaterialProgram(Display3DLocusShader.shaderNameStr,new Display3DLocusShader(),this.materialParam.material,shaderParameAry,false);
+        this.materialParam.shader3D=   this.scene3D.progrmaManager.getMaterialProgram(Display3DLocusShader.shaderNameStr,new Display3DLocusShader(scene3D),this.materialParam.material,shaderParameAry,false);
     }
 
     private List<Boolean>  getShaderParam() {

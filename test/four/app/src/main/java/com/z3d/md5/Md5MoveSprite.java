@@ -4,10 +4,8 @@ import com.z3d.base.Scene_data;
 import com.z3d.base.TexTuresBackFun;
 import com.z3d.core.Context3D;
 import com.z3d.display.Display3DSprite;
-import com.z3d.filemodel.TextureManager;
 import com.z3d.material.TextureRes;
 import com.z3d.md5.vo.Md5MeshData;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.program.Shader3D;
 import com.z3d.scene.Scene3D;
 import com.z3d.units.LoadBackFun;
@@ -31,9 +29,8 @@ public class Md5MoveSprite extends Display3DSprite {
         super(val);
 
 
-
-        this.scene3d.progrmaManager.registe(Md5MoveShader.Md5MoveShader,new Md5MoveShader());
-        this.shader3D=this.scene3d.progrmaManager.getProgram(Md5MoveShader.Md5MoveShader);
+        this.scene3D.progrmaManager.registe(Md5MoveShader.Md5MoveShader,new Md5MoveShader(scene3D));
+        this.shader3D=this.scene3D.progrmaManager.getProgram(Md5MoveShader.Md5MoveShader);
 
     }
 
@@ -43,7 +40,7 @@ public class Md5MoveSprite extends Display3DSprite {
         this.bodyUrl = $bodyurl;
         this.animUrl = $animurl;
         if ($picurl!=null) {
-            scene3d.textureManager.getTexture($picurl, new TexTuresBackFun() {
+            scene3D.textureManager.getTexture($picurl, new TexTuresBackFun() {
                 @Override
                 public void Bfun(TextureRes value) {
                     uvTextureRes=value;
@@ -58,12 +55,12 @@ public class Md5MoveSprite extends Display3DSprite {
     private void loadBodyMesh() {
 
 
-        scene3d.loadManager.loadUrl(Scene_data.fileRoot + this.bodyUrl, LoadManager.XML_TYPE, new LoadBackFun() {
+        scene3D.loadManager.loadUrl(Scene_data.fileRoot + this.bodyUrl, LoadManager.XML_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){
                     String txt=  dic.get("txt").toString();
-                    md5MeshData = new Md5Analysis(scene3d).addMesh(txt);
+                    md5MeshData = new Md5Analysis(scene3D).addMesh(txt);
                     new MeshImportSort().processMesh(md5MeshData);
                     new MeshToObjUtils().getObj( md5MeshData);
 
@@ -77,7 +74,7 @@ public class Md5MoveSprite extends Display3DSprite {
     }
     public List<DualQuatFloat32Array> frameQuestArr;
     private void loadAnimFrame() {
-        scene3d.loadManager.loadUrl(Scene_data.fileRoot + this.animUrl, LoadManager.XML_TYPE, new LoadBackFun() {
+        scene3D.loadManager.loadUrl(Scene_data.fileRoot + this.animUrl, LoadManager.XML_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){
@@ -146,15 +143,15 @@ public class Md5MoveSprite extends Display3DSprite {
     }
     protected void setVc()
     {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
+        Context3D ctx=this.scene3D.context3D;
+        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3D.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
 
     }
     private float lastTm=0;
     private float _actionTime=0;
     private void updateMaterialMeshCopy() {
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         if(md5MeshData.vertexBuffer==null){

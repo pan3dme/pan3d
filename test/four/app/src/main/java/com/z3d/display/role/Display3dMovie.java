@@ -11,9 +11,6 @@ import com.z3d.core.Context3D;
 import com.z3d.display.Display3DSprite;
 import com.z3d.display.interfaces.IBind;
 import com.z3d.display.particle.CombineParticle;
-import com.z3d.filemodel.GroupDataManager;
-import com.z3d.filemodel.MeshDataManager;
-import com.z3d.filemodel.ParticleManager;
 import com.z3d.program.Shader3D;
 import com.z3d.res.BaseRes;
 import com.z3d.res.GroupRes;
@@ -55,7 +52,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     }
     public void  setRoleUrl(String url)
     {
-      this.scene3d.meshDataManager.getMeshData(url, new SkinMeshBackFun() {
+      this.scene3D.meshDataManager.getMeshData(url, new SkinMeshBackFun() {
             @Override
             public void Bfun(SkinMesh value) {
                 skinMesh=value;
@@ -70,7 +67,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     @Override
     public void upData() {
         super.upData();
-        if(this.skinMesh==null||this.scene3d==null){
+        if(this.skinMesh==null||this.scene3D ==null){
             return;
         }
         this.updateBind();
@@ -122,7 +119,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
             return;
         }
         this.shader3D=mesh.material.shader;
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         ctx.setDepthTest(true);
         ctx.setWriteDepth(true);
         ctx.setProgame(this.shader3D.program);
@@ -141,8 +138,8 @@ public class Display3dMovie extends Display3DSprite implements IBind {
 
     protected void setVc()
     {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
+        Context3D ctx=this.scene3D.context3D;
+        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3D.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D, Shader3D.posMatrix,this.posMatrix3d.m);
 
     }
@@ -178,7 +175,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
     {
         AnimData  animData=_getCurentAnimData();
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
         ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
 
@@ -195,7 +192,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
         }
         this._partUrl.put(key,url);
         ArrayList ary= (ArrayList)this._partDic.get(key);
-       scene3d.groupDataManager.getGroupData( url, new GroupBackFun() {
+       scene3D.groupDataManager.getGroupData( url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {
                 loadPartRes(bindSocket, groupRes, ary);
@@ -217,23 +214,23 @@ public class Display3dMovie extends Display3DSprite implements IBind {
             }
 
             if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
-                CombineParticle particle = this.scene3d.particleManager.getParticleByte(Scene_data.fileRoot + item.particleUrl);
+                CombineParticle particle = this.scene3D.particleManager.getParticleByte(Scene_data.fileRoot + item.particleUrl);
                 ary.add(particle);
                 particle.setBindTarget(this);
                 particle.bindSocket = bindSocket;
                 particle.dynamic = true;
-                this.scene3d.particleManager.addParticle(particle);
+                this.scene3D.particleManager.addParticle(particle);
                 if (item.isGroup) {
                     particle.setGroup(posV3d, rotationV3d, scaleV3d);
                 }
             } else if (item.types == BaseRes.PREFAB_TYPE) {
-                Display3DSprite display   = new Display3DSprite(scene3d);
+                Display3DSprite display   = new Display3DSprite(scene3D);
                 display.setObjUrl(item.objUrl);
                 display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
                 display.dynamic = true;
                 ary.add(display);
                 display.setBind(this, bindSocket);
-                scene3d.addSpriteDisplay(display);
+                scene3D.addSpriteDisplay(display);
                 if (item.isGroup) {
                     display.setGroup(posV3d, rotationV3d, scaleV3d);
                 }

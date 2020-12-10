@@ -4,7 +4,6 @@ import com.z3d.base.ByteArray;
 import com.z3d.base.ObjData;
 import com.z3d.display.particle.Display3DParticle;
 import com.z3d.display.particle.ParticleData;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.res.BaseRes;
 import com.z3d.scene.Scene3D;
 
@@ -18,7 +17,7 @@ public class ParticleModelData extends ParticleData {
         super(val);
     }
     public void setAllByteInfo(ByteArray $byte) {
-        this.objData = new ObjData(scene3d);
+        this.objData = new ObjData(scene3D);
         this._maxAnimTime = $byte.readFloat();
         int vLen = $byte.getInt();
         int dataWidth = 5;
@@ -61,7 +60,7 @@ public class ParticleModelData extends ParticleData {
             return;
         }
         List<Boolean> shaderParameAry =this.getShaderParam();
-        this.materialParam.shader3D=   this.scene3d.progrmaManager.getMaterialProgram(Display3DModelShader.shaderNameStr,new Display3DModelShader(),this.materialParam.material,shaderParameAry,false);
+        this.materialParam.shader3D=   this.scene3D.progrmaManager.getMaterialProgram(Display3DModelShader.shaderNameStr,new Display3DModelShader(scene3D),this.materialParam.material,shaderParameAry,false);
 
     }
 

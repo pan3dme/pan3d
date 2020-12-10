@@ -1,10 +1,16 @@
 package com.z3d.display;
 
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 
 public class Display3DShader extends Shader3D {
 
     public  static  String shaderNameStr="Display3DShader";
+
+    public Display3DShader(Scene3D val) {
+        super(val);
+    }
+
     public String getVertexShaderString() {
         String vertex= "attribute vec3 vPosition;\n"+
                 "uniform mat4 vpMatrix3D;\n"+

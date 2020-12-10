@@ -6,10 +6,8 @@ import com.z3d.engine.ResCount;
 import com.z3d.material.Material;
 import com.z3d.material.MaterialBackFun;
 import com.z3d.material.MaterialBaseParam;
-import com.z3d.material.MaterialManager;
 import com.z3d.program.MaterialAnimShader;
 import com.z3d.scene.Scene3D;
-import com.z3d.units.AnimManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,14 +54,14 @@ public class SkinMesh extends ResCount {
 
     private void loadByteMeshDataMaterial(MeshData meshData, CallBackFun backFun) {
 
-        scene3d.materialManager.getMaterialByte(meshData.materialUrl, new MaterialBackFun() {
+        scene3D.materialManager.getMaterialByte(meshData.materialUrl, new MaterialBackFun() {
             @Override
             public void Bfun(Material value) {
                 meshData.material = value;
-                meshData.materialParam = new MaterialBaseParam(scene3d);
+                meshData.materialParam = new MaterialBaseParam(scene3D);
                 meshData.materialParam.setData(value, meshData.materialParamData);
             }
-        },true, MaterialAnimShader.shaderNameStr, new MaterialAnimShader());
+        },true, MaterialAnimShader.shaderNameStr, new MaterialAnimShader(scene3D));
 
     }
 
@@ -73,7 +71,7 @@ public class SkinMesh extends ResCount {
         for (int i = 0; i < actionAry.size(); i++) {
             String name  = actionAry.get(i);
             String url = roleUrl +name;
-            AnimData anim=  scene3d.animManager.getAnimDataImmediate(url);
+            AnimData anim=  scene3D.animManager.getAnimDataImmediate(url);
             anim.processMesh(this);
             this.animDic.put(name,anim);
             this.animUrlAry.add(url);

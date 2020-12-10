@@ -3,7 +3,6 @@ package com.z3d.display.basedis;
 import com.z3d.base.ObjData;
 import com.z3d.core.Context3D;
 import com.z3d.display.Display3D;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.program.Shader3D;
 import com.z3d.scene.Scene3D;
 import com.z3d.vo.Matrix3D;
@@ -32,7 +31,7 @@ public class DisplayTestSprite extends Display3D {
     }
     protected void  makeTempObjData()
     {
-        this.objData =new ObjData(scene3d);
+        this.objData =new ObjData(scene3D);
 
         ObjData od=this.objData;
 
@@ -76,13 +75,13 @@ public class DisplayTestSprite extends Display3D {
     protected void  registetProgame()
     {
 
-        this.scene3d.progrmaManager.registe(DisplayTestShader.shaderNameStr,new DisplayTestShader());
-        this.scene3d.progrmaManager.getProgram(DisplayTestShader.shaderNameStr);
+        this.scene3D.progrmaManager.registe(DisplayTestShader.shaderNameStr,new DisplayTestShader(scene3D));
+        this.scene3D.progrmaManager.getProgram(DisplayTestShader.shaderNameStr);
 
     }
 
     public void upData(){
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
 
         if(this.shader3D!=null){
 
@@ -93,7 +92,7 @@ public class DisplayTestSprite extends Display3D {
             m.appendScale(10,10,0);
 
 
-            ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3D.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix",this.modeMatrix.m);
 
 

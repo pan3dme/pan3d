@@ -4,7 +4,6 @@ import com.z3d.base.ByteArray;
 import com.z3d.base.ObjData;
 import com.z3d.display.particle.Display3DParticle;
 import com.z3d.display.particle.ParticleData;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.scene.Scene3D;
 import com.z3d.vo.Matrix3D;
 import com.z3d.vo.ParicleRandomColorVo;
@@ -211,7 +210,7 @@ public class ParticleBallData extends ParticleData {
         }
         this.getShaderParam();
         List<Boolean>  shaderParameAry =this.getShaderParam();
-        this.materialParam.shader3D=  this.scene3d.progrmaManager.getMaterialProgram(Display3DBallShader.shaderNameStr,new Display3DBallShader(),this.materialParam.material,shaderParameAry,false);
+        this.materialParam.shader3D=  this.scene3D.progrmaManager.getMaterialProgram(Display3DBallShader.shaderNameStr,new Display3DBallShader(scene3D),this.materialParam.material,shaderParameAry,false);
     }
 
     private List<Boolean> getShaderParam() {
@@ -252,7 +251,7 @@ public class ParticleBallData extends ParticleData {
     }
 
     private void uploadGpu() {
-        this.objData =new ParticleBallGpuData(scene3d) ;
+        this.objData =new ParticleBallGpuData(scene3D) ;
         this.initBaseData();
         this. initUV ();
         this.initBasePos();

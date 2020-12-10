@@ -18,27 +18,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.four.R;
-import com.example.four.ui.home.GLTriangle;
 import com.z3d.base.CallBackFun;
 import com.z3d.base.GroupBackFun;
 import com.z3d.base.GroupItem;
-import com.z3d.base.ObjDataManager;
 import com.z3d.base.Object3D;
 import com.z3d.display.BuildDisplay3DSprite;
 import com.z3d.display.line.GridLineSprite;
 import com.z3d.display.particle.CombineParticle;
 import com.z3d.display.role.Display3dMovie;
-import com.z3d.filemodel.GroupDataManager;
-import com.z3d.filemodel.MeshDataManager;
 import com.z3d.filemodel.ParticleManager;
-import com.z3d.filemodel.TextureManager;
-import com.z3d.material.MaterialManager;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.res.BaseRes;
 import com.z3d.res.GroupRes;
 import com.z3d.res.SceneRes;
 import com.z3d.scene.Scene3D;
-import com.z3d.skill.SkillManager;
 import com.z3d.vo.Vector2D;
 import com.z3d.vo.Vector3D;
 
@@ -168,7 +160,7 @@ public class DashboardFragment extends Fragment {
 
                 }
                 BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
-                tempDis.scene3d=scene3D;
+                tempDis.scene3D =scene3D;
                 tempDis.setInfo(obj);
                 scene3D.addDisplay(tempDis);
             }

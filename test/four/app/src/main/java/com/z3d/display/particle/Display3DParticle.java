@@ -83,10 +83,10 @@ public class Display3DParticle extends Display3D {
     }
     public void update()
     {
-        if (this.visible&& this.data!=null&&this.scene3d!=null){
+        if (this.visible&& this.data!=null&&this.scene3D !=null){
             if( this.data.materialParam!=null &&this.data.materialParam.shader3D!=null){
                 this.shader3D=this.data.materialParam.shader3D;
-                Context3D ctx=this.scene3d.context3D;
+                Context3D ctx=this.scene3D.context3D;
                 ctx.setProgame(this.shader3D.program);
                 ctx.setBlendParticleFactors(this.data._alphaMode);
                 ctx.cullFaceBack(this.data.materialParam.material.backCull);
@@ -105,15 +105,15 @@ public class Display3DParticle extends Display3D {
  */
     public void  setViewCamModeMatr3d()
     {
-        Camera3D cam3d= this.scene3d.camera3D;
-        Context3D ctx=this.scene3d.context3D;
+        Camera3D cam3d= this.scene3D.camera3D;
+        Context3D ctx=this.scene3D.context3D;
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.viewMatrix,cam3d.viewMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.camMatrix,cam3d.camMatrix3D.m);
         ctx.setVcMatrix4fv(this.shader3D,Shader3D.modeMatrix,this.modeMatrix.m);
     }
     public void  setMaterialTexture()
     {
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         List<TexItem> texVec  = this.data.materialParam.material.texList;
         for (int i   = 0; i < texVec.size(); i++) {
             TexItem texItem=texVec.get(i);
@@ -183,7 +183,7 @@ public class Display3DParticle extends Display3D {
         t = t * this.data.materialParam.material.timeSpeed;
         this.data.materialParam.material.update(t);
         Float32Array fcData= this.data.materialParam.material.fcData;
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         int fcNum=this.data.materialParam.material.fcNum;
 //        Log.d(TAG, fcData.get(0)+" "+fcData.get(1)+" "+fcData.get(2)+" "+fcData.get(3));
         ctx.setVc4fv(this.shader3D,"fc",fcNum, fcData.verBuff);

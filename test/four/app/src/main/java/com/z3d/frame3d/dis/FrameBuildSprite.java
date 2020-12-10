@@ -6,7 +6,6 @@ import com.z3d.base.ObjData;
 import com.z3d.core.Context3D;
 import com.z3d.display.Display3DSprite;
 import com.z3d.frame3d.FrameNodeVo;
-import com.z3d.program.ProgrmaManager;
 import com.z3d.program.Shader3D;
 import com.z3d.scene.Scene3D;
 
@@ -19,14 +18,14 @@ public class FrameBuildSprite  extends FrameBaseDisplay {
     private static final String TAG ="FrameBuildSprite" ;
     public FrameBuildSprite(Scene3D val) {
         super(val);
-        this.scene3d.progrmaManager.registe(FrameBuildShader.FrameBuildShader,new FrameBuildShader());
-        this.shader3D=this.scene3d.progrmaManager.getProgram(FrameBuildShader.FrameBuildShader);
+        this.scene3D.progrmaManager.registe(FrameBuildShader.FrameBuildShader,new FrameBuildShader(scene3D));
+        this.shader3D=this.scene3D.progrmaManager.getProgram(FrameBuildShader.FrameBuildShader);
     }
     @Override
     public void setFrameNodeUrl(FrameNodeVo $vo) {
         super.setFrameNodeUrl($vo);
         this.groupItem = new ArrayList<>();
-        Display3DSprite $dis = new Display3DSprite(this.scene3d);
+        Display3DSprite $dis = new Display3DSprite(this.scene3D);
         $dis.setObjUrl($vo.resurl);
         try {
             JSONObject objInfo=(JSONObject)$vo.materialInfoArr.get(0);
@@ -54,7 +53,7 @@ public class FrameBuildSprite  extends FrameBaseDisplay {
         ObjData objData= display.objData;
 
         Log.d(TAG, "drawTempDisplay: ");
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         ctx.setProgame(this.shader3D.program);
         this.setVc();
         ctx.setVa(this.shader3D,"pos",3,objData.vertexBuffer);
@@ -66,8 +65,8 @@ public class FrameBuildSprite  extends FrameBaseDisplay {
 
     protected void setVc()
     {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3d.camera3D.modelMatrix.m);
+        Context3D ctx=this.scene3D.context3D;
+        ctx.setVcMatrix4fv(this.shader3D, Shader3D.vpMatrix3D,this.scene3D.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
 
     }

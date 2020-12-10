@@ -24,7 +24,7 @@ public class SceneRes extends BaseRes {
 
     }
     public void load(String url ,final CallBackFun bfun) {
-        scene3d.loadManager.loadUrl(Scene_data.fileRoot+url, LoadManager.BYTE_TYPE, new LoadBackFun() {
+        scene3D.loadManager.loadUrl(Scene_data.fileRoot+url, LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){

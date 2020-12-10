@@ -7,7 +7,6 @@ import com.z3d.display.particle.ctrl.TimeLine;
 import com.z3d.display.particle.ctrl.TimeLineData;
 import com.z3d.material.Material;
 import com.z3d.material.MaterialBackFun;
-import com.z3d.material.MaterialManager;
 import com.z3d.material.MaterialParam;
 import com.z3d.scene.Scene3D;
 import com.z3d.vo.CurveItemVo;
@@ -58,10 +57,10 @@ public class ParticleData {
     public Vector3D rotationV3d;
     public Vector3D center;
     public  String TAG="ParticleData";
-    public Scene3D scene3d;
+    public Scene3D scene3D;
 
     public  ParticleData(Scene3D val  ){
-        this.scene3d=val;
+        this.scene3D =val;
     }
     public void setAllByteInfo(ByteArray $byte){
 
@@ -136,7 +135,7 @@ public class ParticleData {
 
     public void set_materialUrl(String value) {
         this._materialUrl = value;
-        scene3d.materialManager.getMaterialByte(  value, new MaterialBackFun() {
+        scene3D.materialManager.getMaterialByte(  value, new MaterialBackFun() {
             @Override
             public void Bfun(Material value) {
                 onMaterialLoad(value);
@@ -144,7 +143,7 @@ public class ParticleData {
         },false,null,null);
     }
     private void   onMaterialLoad(Material material){
-        this.materialParam = new MaterialParam(scene3d) ;
+        this.materialParam = new MaterialParam(scene3D) ;
         this.materialParam.setMaterial(material);
 
         this.materialParam.setLife(this._life);
@@ -153,7 +152,7 @@ public class ParticleData {
             this.materialParam.setTextObj(materialParamData.texAry);
              this.materialParam.setConstObj(this.materialParamData.conAry);
         }
-     scene3d.materialManager.loadDynamicTexUtil(this.materialParam);
+     scene3D.materialManager.loadDynamicTexUtil(this.materialParam);
 
             this.regShader();
 

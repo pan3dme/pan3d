@@ -2,7 +2,6 @@ package com.z3d.display.role;
 
 import com.z3d.scene.Scene3D;
 import com.z3d.skill.Skill;
-import com.z3d.skill.SkillManager;
 
 public class SceneChar extends Display3dMovie {
 
@@ -32,8 +31,8 @@ public class SceneChar extends Display3dMovie {
     public void setMountById(String mountName) {
 
         if(this.mountChar==null){
-            this.mountChar=new MountChar(this.scene3d);
-            this.scene3d.addMovieDisplay(this.mountChar);
+            this.mountChar=new MountChar(this.scene3D);
+            this.scene3D.addMovieDisplay(this.mountChar);
             this.setBind(this.mountChar, SceneChar.MOUNT_SLOT);
         }
         this.mountChar.setRoleUrl("role/"+mountName+".txt");
@@ -80,6 +79,6 @@ public class SceneChar extends Display3dMovie {
     }
 
     public void playSkill(Skill skill) {
-       scene3d.skillManager.playSkill(skill);
+       scene3D.skillManager.playSkill(skill);
     }
 }

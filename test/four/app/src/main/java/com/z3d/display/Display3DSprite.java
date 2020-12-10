@@ -4,17 +4,14 @@ import android.util.Log;
 
 import com.z3d.base.ObjData;
 import com.z3d.base.ObjDataBackFun;
-import com.z3d.base.ObjDataManager;
 import com.z3d.base.Scene_data;
 import com.z3d.base.TexTuresBackFun;
 import com.z3d.core.Context3D;
 import com.z3d.display.interfaces.IBind;
-import com.z3d.filemodel.TextureManager;
 import com.z3d.material.DynamicBaseTexItem;
 import com.z3d.material.Material;
 import com.z3d.material.MaterialBackFun;
 import com.z3d.material.MaterialBaseParam;
-import com.z3d.material.MaterialManager;
 import com.z3d.material.TexItem;
 import com.z3d.material.TextureRes;
 import com.z3d.program.MaterialShader;
@@ -64,28 +61,28 @@ public   class Display3DSprite extends Display3D {
     }
     public void upData() {
         super.upData();
-        Context3D ctx =  scene3d.context3D;
+        Context3D ctx =  scene3D.context3D;
         if (this.material != null) {
             this.updateMaterial();
         }
     }
     public void setMaterialUrl(String url, final List<MaterialInfoVo> paramData)
     {
-       scene3d.materialManager.getMaterialByte(url, new MaterialBackFun() {
+       scene3D.materialManager.getMaterialByte(url, new MaterialBackFun() {
             @Override
             public void Bfun(Material value) {
                 material=value;
                 if(paramData!=null){
-                    materialParam=new MaterialBaseParam(scene3d);
+                    materialParam=new MaterialBaseParam(scene3D);
                     materialParam.setData(material,paramData);
                 }
             }
-        },true, MaterialShader.shaderNameStr,new MaterialShader());
+        },true, MaterialShader.shaderNameStr,new MaterialShader(scene3D));
     }
     public void  setObjUrl(String value)
     {
         Log.d(TAG, "value: "+value);
-      scene3d.objDataManager.getObjData(value, new ObjDataBackFun() {
+      scene3D.objDataManager.getObjData(value, new ObjDataBackFun() {
             @Override
             public void Bfun(ObjData value) {
                 objData=value;
@@ -96,7 +93,7 @@ public   class Display3DSprite extends Display3D {
     public void  setPicUrl(String value)
     {
 
-       this.scene3d.textureManager.getTexture( Scene_data.fileRoot+ value, new TexTuresBackFun() {
+       this.scene3D.textureManager.getTexture( Scene_data.fileRoot+ value, new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
                 baseTextureRes =value;
@@ -115,7 +112,7 @@ public   class Display3DSprite extends Display3D {
         if (this.material.url.indexOf("changjinghongpei/standard_byte")==-1) {
            // return;
         }
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
 
         ctx.setProgame(this.shader3D.program);
         this.updateBind();
@@ -156,8 +153,8 @@ public   class Display3DSprite extends Display3D {
     }
     protected void setVc()
     {
-        Context3D ctx=this.scene3d.context3D;
-        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3d.camera3D.modelMatrix.m);
+        Context3D ctx=this.scene3D.context3D;
+        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D",this.scene3D.camera3D.modelMatrix.m);
         ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
         if (this.material.usePbr || this.material.directLight) {
             float[] m = new float[9];
@@ -169,7 +166,7 @@ public   class Display3DSprite extends Display3D {
 
     protected void setMaterialVa()
     {
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         ctx.setVa(this.shader3D,"v3Position",3,this.objData.vertexBuffer);
         ctx.setVa(this.shader3D,"v2CubeTexST",2,this.objData.uvBuffer);
         if (!(this.material.directLight || this.material.noLight)) {
@@ -193,29 +190,29 @@ public   class Display3DSprite extends Display3D {
         if (mp!=null) {
             mp.update();
         }
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
 //        material.fcData.printOut();
         ctx.setVc4fv(material.shader, "fc",material.fcNum, material.fcData.verBuff);
     }
 
     private void setSceneFcData(Material material) {
 
-        if (scene3d.fogColor!=null&&scene3d.fogData!=null){
-            material.updateFogDagtga(scene3d.fogColor,scene3d.fogData);
+        if (scene3D.fogColor!=null&& scene3D.fogData!=null){
+            material.updateFogDagtga(scene3D.fogColor, scene3D.fogData);
             this.setCamPos(material);
         }
     }
 
     private void setCamPos(Material material) {
 
-        material.updateCam(scene3d.camera3D.x / 100, scene3d.camera3D.y / 100, scene3d.camera3D.z / 100);
+        material.updateCam(scene3D.camera3D.x / 100, scene3D.camera3D.y / 100, scene3D.camera3D.z / 100);
     }
 
     public TextureRes lightTextureRes;
     protected void setMaterialTexture(Material material, MaterialBaseParam mp)
     {
 
-        Context3D ctx=this.scene3d.context3D;
+        Context3D ctx=this.scene3D.context3D;
         List<TexItem> texVec= mp.material.texList;
         TexItem texItem=null;
         for (int i   = 0; i < texVec.size(); i++) {
@@ -230,7 +227,7 @@ public   class Display3DSprite extends Display3D {
             }
             else if (texItem.type == TexItem.LTUMAP   ) {
 
-                ctx.setRenderTexture(material.shader,texItem.name, scene3d.pubLut.textTureInt,texItem.get_id());
+                ctx.setRenderTexture(material.shader,texItem.name, scene3D.pubLut.textTureInt,texItem.get_id());
             }
             else if (texItem.type == TexItem.CUBEMAP) {
                 // Log.d(TAG, "CUBEMAP: ");

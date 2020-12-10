@@ -133,7 +133,7 @@ public class CombineParticle  extends EventDispatcher {
         for(int i=0;i<this.displayAry.size();i++)
         {
             Display3DParticle display3DParticle= this.displayAry.get(i);
-            display3DParticle.scene3d=val;
+            display3DParticle.scene3D =val;
             if(display3DParticle instanceof Display3DModelPartilce){
             }
             display3DParticle.update();
