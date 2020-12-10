@@ -71,14 +71,14 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        addGlviewInfo(R.id.glContentDashBoard);
-        addGlviewInfo(R.id.glContentDashBoardTwo);
+        addGlviewInfo(R.id.glContentDashBoard,0);
+        addGlviewInfo(R.id.glContentDashBoardTwo,2);
     }
 
     private View rootView;
 
 
-    private void addGlviewInfo(int id){
+    private void addGlviewInfo(int id,float skipnum){
         Scene3D scene3d=new Scene3D();
         GLSurfaceView mGLView=new GLSurfaceView(this.getContext());
         final ConstraintLayout constraintlayout = rootView.findViewById(id);
@@ -118,7 +118,7 @@ public class DashboardFragment extends Fragment {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 scene3d.upFrame();
-                scene3d.camera3D.rotationY++;
+                scene3d.camera3D.rotationY+=skipnum;
             }
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
