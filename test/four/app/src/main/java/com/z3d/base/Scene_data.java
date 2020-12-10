@@ -11,7 +11,7 @@ public class Scene_data {
     public static float MAX_NUMBER =10000000;
     public static Context context;
     public static Vector3D fogData=new Vector3D();
-    public static TextureRes pubLut;
+
     public static float frameTime=(float)(1000.0 / 60.0);
 //    public  static  String rootfile="http://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/";
 

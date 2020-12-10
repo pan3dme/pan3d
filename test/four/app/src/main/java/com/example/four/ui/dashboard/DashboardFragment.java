@@ -72,14 +72,14 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addGlviewInfo(R.id.glContentDashBoard);
-//        addGlviewInfo(R.id.glContentDashBoardTwo);
+        addGlviewInfo(R.id.glContentDashBoardTwo);
     }
 
     private View rootView;
 
 
     private void addGlviewInfo(int id){
-        Scene3D abc=new Scene3D();
+        Scene3D scene3d=new Scene3D();
         GLSurfaceView mGLView=new GLSurfaceView(this.getContext());
         final ConstraintLayout constraintlayout = rootView.findViewById(id);
         TextView textView=new TextView(this.getActivity());
@@ -92,33 +92,23 @@ public class DashboardFragment extends Fragment {
         mGLView.setLayoutParams(layoutParams);
         constraintlayout.addView(textView);
         mGLView.setEGLContextClientVersion(2);
-        initScene(mGLView,abc);
-    }
 
-
-
-
-    private  void initScene(GLSurfaceView mGLView,  Scene3D scene3d)
-    {
-//        final Scene3D[] baseScene = new Scene3D[1];
         mGLView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-//                baseScene[0]=new Scene3D();
-//                Scene3D scene3d=baseScene[0];
+
                 scene3d.initData();
                 scene3d.camera3D.distance=550;
-                    GridLineSprite dis=new GridLineSprite( scene3d);
-                    dis.changeColor(new Vector3D(1,1,1,1));
+                GridLineSprite dis=new GridLineSprite( scene3d);
+                dis.changeColor(new Vector3D(1,1,1,1));
                 scene3d.addDisplay(dis);
-                    addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
-                    loadSceneByUrl( scene3d,"10002");
+//                addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
+//                loadSceneByUrl( scene3d,"10002");
 
             }
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
                 GLES20.glViewport(0, 0, width, height);
-//                Scene3D scene3d=baseScene[0];
                 scene3d.camera3D.fovw = width;
                 scene3d.camera3D.fovh = height;
                 scene3d.resizeScene();
@@ -127,13 +117,13 @@ public class DashboardFragment extends Fragment {
             public void onDrawFrame(GL10 gl) {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-//                Scene3D scene3d=baseScene[0];
                 scene3d.upFrame();
                 scene3d.camera3D.rotationY++;
             }
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
+ 
     private void loadSceneByUrl(Scene3D scene3D, String val){
         SceneRes _sceneRes = new SceneRes( scene3D);
        _sceneRes.load("map/"+val+".txt", new CallBackFun() {

@@ -51,7 +51,7 @@ public class Scene3D  {
     public AnimManager animManager;
     public ResManager resManager;
 
-
+    public   TextureRes pubLut;
     private float time;
 
     public Scene3D( ){
@@ -82,14 +82,14 @@ public class Scene3D  {
         this.textureManager.getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
-                Scene_data.pubLut =value;
+               pubLut =value;
             }
         });
 
         this.textureManager.getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
-                Scene_data.pubLut =value;
+                 pubLut =value;
             }
         });
     }

@@ -230,7 +230,7 @@ public   class Display3DSprite extends Display3D {
             }
             else if (texItem.type == TexItem.LTUMAP   ) {
 
-                ctx.setRenderTexture(material.shader,texItem.name, Scene_data.pubLut.textTureInt,texItem.get_id());
+                ctx.setRenderTexture(material.shader,texItem.name, scene3d.pubLut.textTureInt,texItem.get_id());
             }
             else if (texItem.type == TexItem.CUBEMAP) {
                 // Log.d(TAG, "CUBEMAP: ");
