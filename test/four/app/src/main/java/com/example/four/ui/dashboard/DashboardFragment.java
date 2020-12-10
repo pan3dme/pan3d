@@ -63,7 +63,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        addGlviewInfo(R.id.glContentDashBoard,0);
+        addGlviewInfo(R.id.glContentDashBoard,1);
         addGlviewInfoTwo(R.id.glContentDashBoardTwo,2);
     }
 
@@ -95,7 +95,7 @@ public class DashboardFragment extends Fragment {
 
 
                 scene3d.addDisplay(dis);
-//                addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
+                addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
 //                loadSceneByUrl( scene3d,"10002");
 
 
@@ -112,7 +112,7 @@ public class DashboardFragment extends Fragment {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 scene3d.upFrame();
-//                scene3d.camera3D.rotationY+=skipnum;
+                scene3d.camera3D.rotationY+=skipnum;
             }
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
@@ -153,8 +153,8 @@ public class DashboardFragment extends Fragment {
             public void onDrawFrame(GL10 gl) {
                 GLES20.glClearColor(1.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                scene3d.upFrame();
-//                scene3d.camera3D.rotationY+=skipnum;
+//                scene3d.upFrame();
+                scene3d.camera3D.rotationY+=skipnum;
             }
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
