@@ -56,23 +56,13 @@ public class Shader3D {
         }
         this.vertex=vstr;
         this.fragment=fstr;
-        this.program= uCreateGlProgram( this.vertex, this.fragment);
-
-        Shader3D._waitArr.add(this);
+        scene3D.progrmaManager.addWaitArr(this);
         return true;
     }
-    private static List<Shader3D> _waitArr=new ArrayList<>();
-    public static void upDataProgramWaitIng(){
-        while (_waitArr.size()>0){
-            Shader3D shader3D=   _waitArr.remove(0);
-            shader3D.program= uCreateGlProgram( shader3D.vertex, shader3D.fragment);
-        }
-    }
+
 
     //创建GL程序
     public static int uCreateGlProgram(String vertexSource, String fragmentSource){
-
-
 
         int vertex=uLoadShader(GLES20.GL_VERTEX_SHADER,vertexSource);
         if(vertex==0)return 0;

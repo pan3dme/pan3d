@@ -36,7 +36,16 @@ public class ProgrmaManager extends ResGC {
 
         return null;
     }
-
+    private static List<Shader3D> _waitArr=new ArrayList<>();
+    public void  addWaitArr(Shader3D val){
+        _waitArr.add(val);
+    }
+    public static void upDataProgramWaitIng(){
+        while (_waitArr.size()>0){
+            Shader3D shader3D=   _waitArr.remove(0);
+            shader3D.program= Shader3D.uCreateGlProgram( shader3D.vertex, shader3D.fragment);
+        }
+    }
     public Shader3D getMaterialProgram(String key, Shader3D shaderCls, Material material, List<Boolean> paramAry, Boolean parmaByFragmet)
     {
         String keyStr =key+material.url;
@@ -156,8 +165,4 @@ public class ProgrmaManager extends ResGC {
 
     }
 
-    public void upDataProgramWaitIng() {
-
-
-    }
 }

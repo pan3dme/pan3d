@@ -102,7 +102,6 @@ public class Scene3D  {
     private void  upToGpu(){
         //纹理和着色
         RoleRes.upDataRoleResWaitIng();
-        Shader3D.upDataProgramWaitIng();
         this.progrmaManager.upDataProgramWaitIng();
         this.textureManager.upDataGenTextUserItem();
     }
