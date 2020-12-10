@@ -3,9 +3,8 @@ package com.z3d.scene;
 import android.opengl.GLES20;
 
 import com.z3d.base.Camera3D;
+import com.z3d.base.ObjData;
 import com.z3d.base.ObjDataManager;
-import com.z3d.base.ResGC;
-import com.z3d.base.Scene_data;
 import com.z3d.base.TexTuresBackFun;
 import com.z3d.core.Context3D;
 import com.z3d.display.Display3D;
@@ -20,7 +19,6 @@ import com.z3d.filemodel.TextureManager;
 import com.z3d.material.MaterialManager;
 import com.z3d.material.TextureRes;
 import com.z3d.program.ProgrmaManager;
-import com.z3d.program.Shader3D;
 import com.z3d.res.RoleRes;
 import com.z3d.skill.SkillManager;
 import com.z3d.units.AnimManager;
@@ -50,8 +48,7 @@ public class Scene3D  {
     public SkillManager skillManager;
     public AnimManager animManager;
     public ResManager resManager;
-
-    public   TextureRes pubLut;
+    public TextureRes pubLut;
     private float time;
 
     public Scene3D( ){
@@ -75,7 +72,7 @@ public class Scene3D  {
         this.animManager=new AnimManager(this);
         this.resManager=new ResManager(this);
 
-        this.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader(this));
+
     }
     public void  initData(){
 
@@ -99,11 +96,14 @@ public class Scene3D  {
         this.displayList=new ArrayList<>();
         particleManager.clearAll();
     }
+
     private void  upToGpu(){
         //纹理和着色
         RoleRes.upDataRoleResWaitIng();
         this.progrmaManager.upDataProgramWaitIng();
         this.textureManager.upDataGenTextUserItem();
+        this.objDataManager.upDataObjDataToGpu();
+
     }
     public  void  upFrame()
     {
@@ -128,7 +128,7 @@ public class Scene3D  {
         ctx.setFrontFace(true);
         ctx.setDepthTest(false);
         ctx.setWriteDepth(false);
-       this.skillManager.upData();
+        this.skillManager.upData();
         this.particleManager.upFrame();
 
 

@@ -16,20 +16,10 @@ public class LineDisplaySprite extends DisplayBaseSprite {
     public Vector3D baseColor;
     LineDisplaySprite(Scene3D val){
         super(val);
-    }
-
-    protected void  registetProgame()
-    {
-
-        this.scene3D.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader(scene3D));
+        scene3D.progrmaManager.registe(LineDisplayShader.shaderNameStr,new LineDisplayShader(scene3D));
         this.shader3D=this.scene3D.progrmaManager.getProgram(LineDisplayShader.shaderNameStr);
-
-        int a1=GLES20.glGetAttribLocation(this.shader3D.program, "vPosition");
-        int a2=GLES20.glGetAttribLocation(this.shader3D.program, "vColorv3d");
-        Log.d("", "registetProgame: ");
-
-
     }
+
 
     protected void  initData()
     {

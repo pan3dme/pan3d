@@ -21,7 +21,8 @@ public class DisplayTestSprite extends Display3D {
     public DisplayTestSprite(Scene3D val){
         super(val);
         this.modeMatrix=new Matrix3D();
-        this.registetProgame();
+        this.scene3D.progrmaManager.registe(DisplayTestShader.shaderNameStr,new DisplayTestShader(scene3D));
+        this.scene3D.progrmaManager.getProgram(DisplayTestShader.shaderNameStr);
         this.initData();
     }
     protected void  initData()
@@ -72,13 +73,7 @@ public class DisplayTestSprite extends Display3D {
 
     }
 
-    protected void  registetProgame()
-    {
 
-        this.scene3D.progrmaManager.registe(DisplayTestShader.shaderNameStr,new DisplayTestShader(scene3D));
-        this.scene3D.progrmaManager.getProgram(DisplayTestShader.shaderNameStr);
-
-    }
 
     public void upData(){
         Context3D ctx=this.scene3D.context3D;

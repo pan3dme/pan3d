@@ -36,11 +36,11 @@ public class ProgrmaManager extends ResGC {
 
         return null;
     }
-    private static List<Shader3D> _waitArr=new ArrayList<>();
+    private  List<Shader3D> _waitArr=new ArrayList<>();
     public void  addWaitArr(Shader3D val){
         _waitArr.add(val);
     }
-    public static void upDataProgramWaitIng(){
+    public   void upDataProgramWaitIng(){
         while (_waitArr.size()>0){
             Shader3D shader3D=   _waitArr.remove(0);
             shader3D.program= Shader3D.uCreateGlProgram( shader3D.vertex, shader3D.fragment);

@@ -9,6 +9,7 @@ public class LineDisplayShader extends Shader3D {
 
     public LineDisplayShader(Scene3D val) {
         super(val);
+
     }
 
     public String getVertexShaderString() {

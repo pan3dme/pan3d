@@ -1,13 +1,24 @@
 package com.z3d.base;
 
 import com.z3d.res.BaseRes;
+import com.z3d.res.RoleRes;
 import com.z3d.scene.Scene3D;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ObjDataManager extends ResGC {
-
+    private List<ObjData> watiObjDataArr =new ArrayList<>();
+    public void addWaitArrByObjData(ObjData val){
+        watiObjDataArr.add(val);
+    }
+    public void  upDataObjDataToGpu(){
+        while (watiObjDataArr.size()>0){
+            watiObjDataArr.get(0).upToGupCopy();
+            watiObjDataArr.remove(0);
+        }
+    }
     public ObjDataManager(Scene3D val) {
         super(val);
     }

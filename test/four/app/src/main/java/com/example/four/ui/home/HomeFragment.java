@@ -148,7 +148,7 @@ public class HomeFragment extends Fragment {
 
                         _scene3d.camera3D.distance=550;
                         GridLineSprite dis=new GridLineSprite( _scene3d);
-                        dis.changeColor(new Vector3D(1,1,1,1));
+//                        dis.changeColor(new Vector3D(1,1,1,1));
                         _scene3d.addDisplay(dis);
 
                         addRoleToSceneByUrl("yezhuz.txt",new Vector3D(0,0,0));

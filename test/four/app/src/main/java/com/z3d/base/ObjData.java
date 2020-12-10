@@ -77,6 +77,9 @@ public class ObjData extends ResCount {
     }
     public void  upToGup()
     {
+        scene3D.objDataManager.addWaitArrByObjData(this);
+    }
+    public void  upToGupCopy(){
         if(!this.isCompile){
             this.vertexBuffer= ObjData.upGpuvertexBuffer(this.verticeslist);
             if(this.uvlist!=null&&this.uvlist.size()>0){
@@ -93,7 +96,6 @@ public class ObjData extends ResCount {
             this.treNum= this.indexs.size();
             this.isCompile=true;
         }
-
     }
 
     public static  ShortBuffer upGpuIndexBuffer(List<Short> data){

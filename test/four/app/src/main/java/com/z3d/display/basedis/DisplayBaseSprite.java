@@ -21,7 +21,8 @@ public class DisplayBaseSprite extends Display3D {
     public DisplayBaseSprite(Scene3D val){
         super(val);
         this.modeMatrix=new Matrix3D();
-        this.registetProgame();
+        this.scene3D.progrmaManager.registe(DisplayBaseShader.shaderNameStr,new DisplayBaseShader(scene3D));
+        this.shader3D= this.scene3D.progrmaManager.getProgram(DisplayBaseShader.shaderNameStr);
         this.initData();
     }
     protected void  initData()
@@ -61,13 +62,7 @@ public class DisplayBaseSprite extends Display3D {
 
     }
 
-    protected void  registetProgame()
-    {
 
-        this.scene3D.progrmaManager.registe(DisplayBaseShader.shaderNameStr,new DisplayBaseShader(scene3D));
-        this.shader3D= this.scene3D.progrmaManager.getProgram(DisplayBaseShader.shaderNameStr);
-
-    }
 
     public void upData(){
         Context3D ctx=this.scene3D.context3D;
