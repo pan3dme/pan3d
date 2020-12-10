@@ -1,5 +1,7 @@
 package com.z3d.units;
 
+import com.z3d.scene.Scene3D;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,22 +12,16 @@ public class LoadManager {
     public static String  XML_TYPE="XML_TYPE";
 
 
-    private static LoadManager _instance;
-
-    public static LoadManager getInstance()  {
-        if (LoadManager._instance==null) {
-            LoadManager._instance = new LoadManager();
-        }
-        return LoadManager._instance;
-    }
     public List<LoaderThread> loadThreadList;
     public List<LoadInfo> waitLoadList;
-    public LoadManager()
+    public Scene3D scene3D;
+    public LoadManager(Scene3D val)
     {
+        scene3D=val;
         this.loadThreadList=new ArrayList<>();
         this.waitLoadList=new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            this.loadThreadList.add(new LoaderThread(i));
+            this.loadThreadList.add(new LoaderThread(scene3D, i));
         }
     }
 

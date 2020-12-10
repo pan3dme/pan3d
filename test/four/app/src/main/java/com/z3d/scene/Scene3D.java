@@ -24,6 +24,7 @@ import com.z3d.program.Shader3D;
 import com.z3d.res.RoleRes;
 import com.z3d.skill.SkillManager;
 import com.z3d.units.AnimManager;
+import com.z3d.units.LoadManager;
 import com.z3d.units.TimeUtil;
 import com.z3d.vo.Vector2D;
 import com.z3d.vo.Vector3D;
@@ -45,6 +46,7 @@ public class Scene3D  {
     public MaterialManager materialManager;
     public ObjDataManager objDataManager;
     public GroupDataManager groupDataManager;
+    public LoadManager loadManager;
     public SkillManager skillManager;
     public AnimManager animManager;
     public ResManager resManager;
@@ -61,6 +63,7 @@ public class Scene3D  {
 
         this.camera3D.rotationX =-30;
         this.camera3D.rotationY=45;
+        this.loadManager=new LoadManager(this);
         this.particleManager=new ParticleManager(this);
         this.progrmaManager=new ProgrmaManager(this);
         this.meshDataManager=new MeshDataManager(this);

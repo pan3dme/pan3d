@@ -74,7 +74,7 @@ public class TextureManager extends ResGC {
             loadKeyArr.add(textureLoad);
             this.loadDic.put(url,loadKeyArr);
         }
-        LoadManager.getInstance().loadUrl(url, LoadManager.IMG_TYPE , new LoadBackFun() {
+        scene3D.loadManager.loadUrl(url, LoadManager.IMG_TYPE , new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 loadNetTextureCom((TextureLoad)  dic.get("info"),(Bitmap)  dic.get("bitmap"));

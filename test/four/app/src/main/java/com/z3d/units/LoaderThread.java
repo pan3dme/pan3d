@@ -9,6 +9,7 @@ import com.urlhttp.CallBackUtil;
 import com.urlhttp.UrlHttpUtil;
 import com.z3d.base.ByteArray;
 import com.z3d.base.Scene_data;
+import com.z3d.scene.Scene3D;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -28,13 +29,12 @@ public class LoaderThread
     public int id;
     public  LoadInfo loadInfo;
 
-
-
-//    private  Thread thread;
+    public Scene3D scene3D;
     public  static Context fileContext;
-    public LoaderThread(int val)
+    public LoaderThread(Scene3D val, int id)
     {
-        this.id=val;
+        scene3D=val;
+        this.id=id;
         this.idle = true;
         final LoaderThread that=this;
 //        this.thread=new Thread(new Runnable(){
@@ -174,7 +174,7 @@ public class LoaderThread
         }
         this.idle = true;
         this.loadInfo = null;
-        LoadManager.getInstance().loadWaitList();
+        scene3D.loadManager.loadWaitList();
 
     }
     private void  loadImg(Bitmap bmp)
@@ -187,7 +187,7 @@ public class LoaderThread
         this.idle = true;
         this.loadInfo = null;
 
-        LoadManager.getInstance().loadWaitList();
+        scene3D.loadManager.loadWaitList();
     }
     private void  loadXml(String str)
     {
@@ -199,7 +199,7 @@ public class LoaderThread
         this.idle = true;
         this.loadInfo = null;
 
-        LoadManager.getInstance().loadWaitList();
+       scene3D.loadManager.loadWaitList();
     }
 
 

@@ -28,7 +28,7 @@ public class Frame3dRes extends BaseRes {
     }
     public void load(String url, CallBack bfun){
         _completeFun=bfun;
-        LoadManager.getInstance().loadUrl(Scene_data.fileRoot + url, LoadManager.BYTE_TYPE, new LoadBackFun() {
+        scene3d.loadManager.loadUrl(Scene_data.fileRoot + url, LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){

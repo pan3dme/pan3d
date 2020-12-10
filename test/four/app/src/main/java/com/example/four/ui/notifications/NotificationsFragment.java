@@ -44,15 +44,17 @@ public class NotificationsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        addGlViewOne();
         addGlViewTwo();
     }
 
     private View rootView;
-    private    GLTriangle glTriangle;
-    private GLSurfaceView _mGLViewNotifica;
-    private void addGlViewTwo()
+
+
+    private void addGlViewOne()
     {
-        _mGLViewNotifica =new GLSurfaceView(this.getContext());
+        final GLTriangle[] glTriangle = new GLTriangle[1];
+        GLSurfaceView _mGLViewNotifica =new GLSurfaceView(this.getContext());
         final ConstraintLayout constraintlayout = rootView.findViewById(R.id.glContentNotifications);
         constraintlayout.addView(_mGLViewNotifica);
         ViewGroup.LayoutParams layoutParams= _mGLViewNotifica.getLayoutParams();
@@ -66,7 +68,7 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
-                glTriangle=new GLTriangle();
+                glTriangle[0] =new GLTriangle();
 
             }
             @Override
@@ -79,8 +81,49 @@ public class NotificationsFragment extends Fragment {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 
-                if(glTriangle!=null){
-                    glTriangle.draw();
+                if(glTriangle[0] !=null){
+                    glTriangle[0].draw();
+                }
+
+
+
+            }
+        });
+        _mGLViewNotifica.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+    }
+
+    private void addGlViewTwo()
+    {
+        final GLTriangle[] glTriangle = new GLTriangle[1];
+        GLSurfaceView _mGLViewNotifica =new GLSurfaceView(this.getContext());
+        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.glContentNotificationsTwo);
+        constraintlayout.addView(_mGLViewNotifica);
+        ViewGroup.LayoutParams layoutParams= _mGLViewNotifica.getLayoutParams();
+
+        layoutParams.width=600;
+        layoutParams.height=600;
+        _mGLViewNotifica.setLayoutParams(layoutParams);
+        _mGLViewNotifica.setEGLContextClientVersion(2);
+
+        _mGLViewNotifica.setRenderer(new GLSurfaceView.Renderer() {
+            @Override
+            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+
+                glTriangle[0] =new GLTriangle();
+
+            }
+            @Override
+            public void onSurfaceChanged(GL10 gl, int width, int height) {
+
+            }
+            @Override
+            public void onDrawFrame(GL10 gl) {
+
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
+                GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+
+                if(glTriangle[0] !=null){
+                    glTriangle[0].draw();
                 }
 
 

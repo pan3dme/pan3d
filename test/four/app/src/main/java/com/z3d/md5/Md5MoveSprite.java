@@ -58,7 +58,7 @@ public class Md5MoveSprite extends Display3DSprite {
     private void loadBodyMesh() {
 
 
-        LoadManager.getInstance().loadUrl(Scene_data.fileRoot + this.bodyUrl, LoadManager.XML_TYPE, new LoadBackFun() {
+        scene3d.loadManager.loadUrl(Scene_data.fileRoot + this.bodyUrl, LoadManager.XML_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){
@@ -77,7 +77,7 @@ public class Md5MoveSprite extends Display3DSprite {
     }
     public List<DualQuatFloat32Array> frameQuestArr;
     private void loadAnimFrame() {
-        LoadManager.getInstance().loadUrl(Scene_data.fileRoot + this.animUrl, LoadManager.XML_TYPE, new LoadBackFun() {
+        scene3d.loadManager.loadUrl(Scene_data.fileRoot + this.animUrl, LoadManager.XML_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){

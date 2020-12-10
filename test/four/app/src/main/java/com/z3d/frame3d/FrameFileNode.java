@@ -48,19 +48,11 @@ public class FrameFileNode extends Display3D {
             }
         }
         if (this.frameNodeVo.type == 2) {
-//            this._particle = ParticleManager.getInstance().getParticleByte(Scene_data.fileRoot + $vo.resurl);
-//            this._particle.dynamic = true;
-//            this._particle.sceneVisible = false
-//            ParticleManager.getInstance().addParticle(this._particle);
-//            this.sprite = this._particle
+
 
         }
         if (this.frameNodeVo.type == 3) {
-//            this._sceneChar = new FrameSceneChar()
-//            this._sceneChar.shadow = false
-//            this._sceneChar.setRoleUrl(this.frameNodeVo.resurl);
-//            SceneManager.getInstance().addMovieDisplay(this._sceneChar);
-//            this.sprite = this._sceneChar
+
         }
     }
     public boolean sceneVisible;

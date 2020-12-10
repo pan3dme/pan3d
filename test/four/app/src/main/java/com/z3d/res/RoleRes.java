@@ -34,7 +34,7 @@ public class RoleRes extends BaseRes {
     {
         callBackFun=backFun;
         RoleRes that=this;
-        LoadManager.getInstance().loadUrl(url, LoadManager.BYTE_TYPE, new LoadBackFun() {
+        scene3d.loadManager.loadUrl(url, LoadManager.BYTE_TYPE, new LoadBackFun() {
             @Override
             public void bfun(HashMap dic) {
                 if(dic!=null){
