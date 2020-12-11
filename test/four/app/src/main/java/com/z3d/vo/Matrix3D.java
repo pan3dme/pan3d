@@ -2,7 +2,7 @@ package com.z3d.vo;
 
 public class Matrix3D {
     private  static  int MATRIX_SIZE = 16;
-    private  static Matrix3D tempM=new Matrix3D() ;
+//    private    Matrix3D tempM=new Matrix3D() ;
     public float[]  m =new float[Matrix3D.MATRIX_SIZE];
     public boolean isIdentity;
 
@@ -129,9 +129,10 @@ public class Matrix3D {
     }
 
     public void appendTranslation(float x,float y, float z) {
-        Matrix3D.tempM.identity();
-        Matrix3D.tempM.prependTranslation(x, y, z);
-        this.append(Matrix3D.tempM);
+        Matrix3D tempM=new Matrix3D();
+       tempM.identity();
+       tempM.prependTranslation(x, y, z);
+        this.append( tempM);
 
     }
     public void prependTranslation( float x,float y, float z) {
@@ -153,42 +154,42 @@ public class Matrix3D {
 
     }
     public void append(Matrix3D $matrx3d) {
+        Matrix3D tempM=new Matrix3D();
+         tempM.m[0] = $matrx3d.m[0];
+         tempM.m[1] = $matrx3d.m[1];
+        tempM.m[2] = $matrx3d.m[2];
+         tempM.m[3] = $matrx3d.m[3];
+        tempM.m[4] = $matrx3d.m[4];
+        tempM.m[5] = $matrx3d.m[5];
+         tempM.m[6] = $matrx3d.m[6];
+        tempM.m[7] = $matrx3d.m[7];
+         tempM.m[8] = $matrx3d.m[8];
+        tempM.m[9] = $matrx3d.m[9];
+         tempM.m[10] = $matrx3d.m[10];
+        tempM.m[11] = $matrx3d.m[11];
+        tempM.m[12] = $matrx3d.m[12];
+        tempM.m[13] = $matrx3d.m[13];
+       tempM.m[14] = $matrx3d.m[14];
+        tempM.m[15] = $matrx3d.m[15];
 
-        Matrix3D.tempM.m[0] = $matrx3d.m[0];
-        Matrix3D.tempM.m[1] = $matrx3d.m[1];
-        Matrix3D.tempM.m[2] = $matrx3d.m[2];
-        Matrix3D.tempM.m[3] = $matrx3d.m[3];
-        Matrix3D.tempM.m[4] = $matrx3d.m[4];
-        Matrix3D.tempM.m[5] = $matrx3d.m[5];
-        Matrix3D.tempM.m[6] = $matrx3d.m[6];
-        Matrix3D.tempM.m[7] = $matrx3d.m[7];
-        Matrix3D.tempM.m[8] = $matrx3d.m[8];
-        Matrix3D.tempM.m[9] = $matrx3d.m[9];
-        Matrix3D.tempM.m[10] = $matrx3d.m[10];
-        Matrix3D.tempM.m[11] = $matrx3d.m[11];
-        Matrix3D.tempM.m[12] = $matrx3d.m[12];
-        Matrix3D.tempM.m[13] = $matrx3d.m[13];
-        Matrix3D.tempM.m[14] = $matrx3d.m[14];
-        Matrix3D.tempM.m[15] = $matrx3d.m[15];
+       tempM.prepend(this);
 
-        Matrix3D.tempM.prepend(this);
-
-        this.m[0] = Matrix3D.tempM.m[0];
-        this.m[1] = Matrix3D.tempM.m[1];
-        this.m[2] = Matrix3D.tempM.m[2];
-        this.m[3] = Matrix3D.tempM.m[3];
-        this.m[4] = Matrix3D.tempM.m[4];
-        this.m[5] = Matrix3D.tempM.m[5];
-        this.m[6] = Matrix3D.tempM.m[6];
-        this.m[7] = Matrix3D.tempM.m[7];
-        this.m[8] = Matrix3D.tempM.m[8];
-        this.m[9] = Matrix3D.tempM.m[9];
-        this.m[10] = Matrix3D.tempM.m[10];
-        this.m[11] = Matrix3D.tempM.m[11];
-        this.m[12] = Matrix3D.tempM.m[12];
-        this.m[13] = Matrix3D.tempM.m[13];
-        this.m[14] = Matrix3D.tempM.m[14];
-        this.m[15] = Matrix3D.tempM.m[15];
+        this.m[0] =  tempM.m[0];
+        this.m[1] =  tempM.m[1];
+        this.m[2] =  tempM.m[2];
+        this.m[3] =  tempM.m[3];
+        this.m[4] =  tempM.m[4];
+        this.m[5] = tempM.m[5];
+        this.m[6] = tempM.m[6];
+        this.m[7] =  tempM.m[7];
+        this.m[8] = tempM.m[8];
+        this.m[9] =  tempM.m[9];
+        this.m[10] = tempM.m[10];
+        this.m[11] = tempM.m[11];
+        this.m[12] = tempM.m[12];
+        this.m[13] = tempM.m[13];
+        this.m[14] = tempM.m[14];
+        this.m[15] = tempM.m[15];
 
 
             /*
@@ -252,9 +253,10 @@ public class Matrix3D {
 
     }
     public void appendRotation(float rad, Vector3D axis) {
-        Matrix3D.tempM.identity();
-        Matrix3D.tempM.prependRotation(rad, axis);
-        this.append(Matrix3D.tempM);
+        Matrix3D tempM=new Matrix3D();
+
+         tempM.prependRotation(rad, axis);
+        this.append( tempM);
 
     }
     /*
@@ -390,9 +392,10 @@ public class Matrix3D {
         return out;
     };
     public void appendScale(float  x,float y,float z) {
-        Matrix3D.tempM.identity();
-        Matrix3D.tempM.prependScale(x, y, z);
-        this.append(Matrix3D.tempM);
+        Matrix3D tempM=new Matrix3D();
+
+        tempM.prependScale(x, y, z);
+        this.append( tempM);
     }
 
 

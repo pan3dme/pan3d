@@ -97,7 +97,7 @@ public class Scene3D  {
         particleManager.clearAll();
     }
 
-    private void  upToGpu(){
+    protected void  upToGpu(){
         //纹理和着色
 
         this.progrmaManager.upDataProgramWaitIng();

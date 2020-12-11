@@ -64,7 +64,7 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addGlviewInfo(R.id.glContentDashBoard,1);
-        addGlviewInfoTwo(R.id.glContentDashBoardTwo,2);
+        addGlviewInfo(R.id.glContentDashBoardTwo,2);
     }
 
     private View rootView;
@@ -95,8 +95,15 @@ public class DashboardFragment extends Fragment {
 
 
                 scene3d.addDisplay(dis);
-                addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
-                loadSceneByUrl( scene3d,"10002");
+
+
+
+                if(id==R.id.glContentDashBoard){
+                    addRoleToSceneByUrl(scene3d,"yezhuz.txt",new Vector3D(0,0,0));
+                }
+                if(id==R.id.glContentDashBoardTwo){
+                    loadSceneByUrl( scene3d,"10002");
+                }
 
 
             }
@@ -117,49 +124,7 @@ public class DashboardFragment extends Fragment {
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
-    private void addGlviewInfoTwo(int id,float skipnum){
-        Scene3D scene3d=new Scene3D();
-        GLSurfaceView mGLView=new GLSurfaceView(this.getContext());
-        final ConstraintLayout constraintlayout = rootView.findViewById(id);
-        TextView textView=new TextView(this.getActivity());
-        textView.setText("1123");
-        textView.setTextColor(Color.rgb(255,0,255));
-        constraintlayout.addView(mGLView);
-        ViewGroup.LayoutParams layoutParams=mGLView.getLayoutParams();
-        layoutParams.width=600;
-        layoutParams.height=600;
-        mGLView.setLayoutParams(layoutParams);
-        constraintlayout.addView(textView);
-        mGLView.setEGLContextClientVersion(2);
-
-        mGLView.setRenderer(new GLSurfaceView.Renderer() {
-            @Override
-            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-
-                scene3d.initData();
-
-                scene3d.camera3D.distance=550;
-                loadSceneByUrl( scene3d,"10002");
-
-            }
-            @Override
-            public void onSurfaceChanged(GL10 gl, int width, int height) {
-                GLES20.glViewport(0, 0, width, height);
-                scene3d.camera3D.fovw = width;
-                scene3d.camera3D.fovh = height;
-                scene3d.resizeScene();
-            }
-            @Override
-            public void onDrawFrame(GL10 gl) {
-                GLES20.glClearColor(1.0f, 0.0f, 0.0f, 0.2f);
-                GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-                scene3d.upFrame();
-                scene3d.camera3D.rotationY+=skipnum;
-            }
-        });
-        mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
-    }
- 
+    
     private void loadSceneByUrl(Scene3D scene3D, String val){
         SceneRes _sceneRes = new SceneRes( scene3D);
        _sceneRes.load("map/"+val+".txt", new CallBackFun() {
