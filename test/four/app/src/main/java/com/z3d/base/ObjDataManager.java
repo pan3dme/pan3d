@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ObjDataManager extends ResGC {
-    private List<ObjData> watiObjDataArr =new ArrayList<>();
-    public void addWaitArrByObjData(ObjData val){
+    private  List<ObjData> watiObjDataArr =new ArrayList<>();
+    public  void addWaitArrByObjData(ObjData val){
         watiObjDataArr.add(val);
     }
     public void  upDataObjDataToGpu(){

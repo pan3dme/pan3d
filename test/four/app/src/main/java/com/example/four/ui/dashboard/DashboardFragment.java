@@ -124,7 +124,7 @@ public class DashboardFragment extends Fragment {
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
-    
+
     private void loadSceneByUrl(Scene3D scene3D, String val){
         SceneRes _sceneRes = new SceneRes( scene3D);
        _sceneRes.load("map/"+val+".txt", new CallBackFun() {
