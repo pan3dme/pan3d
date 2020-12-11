@@ -85,8 +85,10 @@ public class scene_listFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("sceneurl","2014");
                 NavController controller= Navigation.findNavController(v);
-                controller.navigate(R.id.action_scene_listFragment2_to_tempSceneFragment);
+                controller.navigate(R.id.action_scene_listFragment2_to_tempSceneFragment,bundle);
             }
         });
 

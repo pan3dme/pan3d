@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +28,12 @@ public class tempSceneFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG ="tempSceneFragment" ;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private String sceneurl;
     public tempSceneFragment() {
         // Required empty public constructor
     }
@@ -60,6 +62,8 @@ public class tempSceneFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+           sceneurl=   getArguments().getString("sceneurl");
+
         }
     }
     ConstrainSceneView constrainSceneViewOne;
@@ -71,8 +75,8 @@ public class tempSceneFragment extends Fragment {
             @Override
             public void StateChange(boolean State) {
 
-                constrainSceneViewOne.addRoleToSceneByUrl( "yezhuz.txt",new Vector3D(0,0,0));
-                constrainSceneViewOne.loadSceneByUrl(  "10002");
+
+                constrainSceneViewOne.loadSceneByUrl(  sceneurl);
             }
         });
         constraintlayout.addView(constrainSceneViewOne);

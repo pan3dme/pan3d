@@ -104,8 +104,11 @@ public class DashboardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("sceneurl","10002");
+
                 NavController controller= Navigation.findNavController(v);
-                controller.navigate(R.id.action_navigation_dashboard_to_tempSceneFragment2);
+                controller.navigate(R.id.action_navigation_dashboard_to_tempSceneFragment2,bundle);
             }
         });
 
