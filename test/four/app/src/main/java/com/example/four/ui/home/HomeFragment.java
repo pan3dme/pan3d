@@ -79,6 +79,15 @@ public class HomeFragment extends Fragment {
                 controller.navigate(R.id.action_navigation_home_to_only_sceneFragment,bundle);
             }
         });
+        getView().findViewById(R.id.button_particle).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("particleName","10018");
+                NavController controller= Navigation.findNavController(v);
+                controller.navigate(R.id.action_navigation_home_to_only_particleFragment,bundle);
+            }
+        });
     }
 
 

@@ -207,6 +207,28 @@ public class ConstrainSceneView extends ViewGroup {
         _scene3D.addDisplay(frame3dSprite);
 
     }
+    public void   playParticle(String url)
+    {
+        //"model/"+str +"_lyf.txt"
+        url="model/"+"10018" +"_lyf.txt";
+        _scene3D.groupDataManager.getGroupData(url, new GroupBackFun() {
+            @Override
+            public void Bfun(GroupRes groupRes) {
+                for (int i = 0; i < groupRes.dataAry.size(); i++) {
+                    GroupItem item =  groupRes.dataAry.get(i);
+                    if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
+                        ParticleManager particleManager= _scene3D.particleManager;
+                        CombineParticle particle =      _scene3D.particleManager.getParticleByte(item.particleUrl);
+                        particleManager.addParticle(particle);
+                        Log.d("TAG", "Bfun: ");
+
+                    } else {
+                        Log.d("播放的不是单纯特效", "Bfun: ");
+                    }
+                }
+            }
+        });
+    }
     public void addLocaMd5(){
         Md5MoveSprite $sc = new Md5MoveSprite(_scene3D);
         https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg

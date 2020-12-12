@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_navigation_home_to_only_frame3dFragment"
             app:destination="@id/only_frame3dFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_only_particleFragment"
+            app:destination="@id/only_particleFragment" />
     </fragment>
 
     <fragment
@@ -65,4 +68,9 @@
         android:name="com.example.four.ui.page.only_frame3dFragment"
         android:label="fragment_only_frame3d"
         tools:layout="@layout/fragment_only_frame3d" />
+    <fragment
+        android:id="@+id/only_particleFragment"
+        android:name="com.example.four.ui.page.only_particleFragment"
+        android:label="fragment_only_particle"
+        tools:layout="@layout/fragment_only_particle" />
 </navigation>
