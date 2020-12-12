@@ -36,16 +36,16 @@
         app:layout_constraintTop_toBottomOf="@+id/only_skill_gl_view">
 
         <Button
-            android:id="@+id/skillPanelLoadBut"
+            android:id="@+id/skill_1_play_but"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="加载" />
+            android:text="技能1" />
 
         <Button
-            android:id="@+id/skillPanelPlayBut"
+            android:id="@+id/skill_2_play_but"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="播放" />
+            android:text="技能2" />
 
     </LinearLayout>
 

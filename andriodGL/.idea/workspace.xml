@@ -38,14 +38,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14395ffa-0bdd-4d04-b84e-b4b6efdb14d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/four/app/src/main/java/com/example/four/ui/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/four/app/src/main/java/com/example/four/ui/home/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/four/app/src/main/java/com/example/four/ui/page/only_charFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/four/app/src/main/java/com/example/four/ui/page/only_charFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/four/app/src/main/java/com/example/four/ui/page/only_skillFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/four/app/src/main/java/com/example/four/ui/page/only_skillFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/four/app/src/main/java/com/z3d/scene/ConstrainSceneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/four/app/src/main/java/com/z3d/scene/ConstrainSceneView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/four/app/src/main/java/com/z3d/skill/SkillManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/four/app/src/main/java/com/z3d/skill/SkillManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../test/four/app/src/main/res/layout/fragment_only_skill.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/four/app/src/main/res/layout/fragment_only_skill.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test/four/app/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/four/app/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

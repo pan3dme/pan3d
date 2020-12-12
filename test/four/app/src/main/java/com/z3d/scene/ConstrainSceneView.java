@@ -229,6 +229,9 @@ public class ConstrainSceneView extends ViewGroup {
             }
         });
     }
+    public void  preLoadSkill(String val){//jichu_1_byte
+        mainScene3D.skillManager.preLoadSkill("skill/"+val+".txt");
+    }
     public void addLocaMd5(){
         Md5MoveSprite $sc = new Md5MoveSprite(mainScene3D);
         https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg
