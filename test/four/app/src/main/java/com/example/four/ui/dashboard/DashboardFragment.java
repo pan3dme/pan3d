@@ -106,9 +106,15 @@ public class DashboardFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle=new Bundle();
                 bundle.putString("sceneurl","10002");
+                bundle.putString("sceneurl","10002");
+                bundle.putString("sceneurl","10002");
+                bundle.putString("sceneurl","10002");
+                bundle.putString("sceneurl","10002");
+                bundle.putString("sceneurl","10002");
 
                 NavController controller= Navigation.findNavController(v);
-                controller.navigate(R.id.action_navigation_dashboard_to_tempSceneFragment2,bundle);
+//                controller.navigate(R.id.action_navigation_dashboard_to_only_sceneFragment,bundle);
+                controller.navigate(R.id.action_navigation_dashboard_to_only_charFragment,bundle);
             }
         });
 

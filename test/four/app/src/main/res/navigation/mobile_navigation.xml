@@ -9,7 +9,20 @@
         android:id="@+id/navigation_home"
         android:name="com.example.four.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_only_charFragment"
+            app:destination="@id/only_charFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_tempSceneFragment2"
+            app:destination="@id/tempSceneFragment2" />
+        <action
+            android:id="@+id/action_navigation_home_to_only_sceneFragment"
+            app:destination="@id/only_sceneFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_only_frame3dFragment"
+            app:destination="@id/only_frame3dFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -19,6 +32,12 @@
         <action
             android:id="@+id/action_navigation_dashboard_to_tempSceneFragment2"
             app:destination="@id/tempSceneFragment2" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_only_sceneFragment"
+            app:destination="@id/only_sceneFragment" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_only_charFragment"
+            app:destination="@id/only_charFragment" />
     </fragment>
 
     <fragment
@@ -31,4 +50,19 @@
         android:name="com.example.four.ui.scenelist.tempSceneFragment"
         android:label="fragment_temp_scene"
         tools:layout="@layout/fragment_temp_scene" />
+    <fragment
+        android:id="@+id/only_sceneFragment"
+        android:name="com.example.four.ui.page.only_sceneFragment"
+        android:label="fragment_only_scene"
+        tools:layout="@layout/fragment_only_scene" />
+    <fragment
+        android:id="@+id/only_charFragment"
+        android:name="com.example.four.ui.page.only_charFragment"
+        android:label="fragment_only_char"
+        tools:layout="@layout/fragment_only_char" />
+    <fragment
+        android:id="@+id/only_frame3dFragment"
+        android:name="com.example.four.ui.page.only_frame3dFragment"
+        android:label="fragment_only_frame3d"
+        tools:layout="@layout/fragment_only_frame3d" />
 </navigation>

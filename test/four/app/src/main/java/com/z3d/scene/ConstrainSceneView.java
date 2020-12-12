@@ -15,7 +15,10 @@ import com.z3d.display.BuildDisplay3DSprite;
 import com.z3d.display.line.GridLineSprite;
 import com.z3d.display.particle.CombineParticle;
 import com.z3d.display.role.Display3dMovie;
+import com.z3d.display.role.SceneChar;
 import com.z3d.filemodel.ParticleManager;
+import com.z3d.frame3d.Frame3dSprite;
+import com.z3d.md5.Md5MoveSprite;
 import com.z3d.res.BaseRes;
 import com.z3d.res.GroupRes;
 import com.z3d.res.SceneRes;
@@ -197,5 +200,29 @@ public class ConstrainSceneView extends ViewGroup {
         this.setLayoutParams(layoutParams);
     }
 
+    public void addLoadFrame3dRes()
+    {
+        Frame3dSprite frame3dSprite=new Frame3dSprite(_scene3D);
+
+        _scene3D.addDisplay(frame3dSprite);
+
+    }
+    public void addLocaMd5(){
+        Md5MoveSprite $sc = new Md5MoveSprite(_scene3D);
+        https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg
+        $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
+
+        _scene3D.addDisplay($sc);
+    }
+    public void addSceneChar(){
+        SceneChar sceneChar=new SceneChar(_scene3D);
+        sceneChar.setRoleUrl("role/50011.txt");
+        sceneChar.play(SceneChar.CharAction_stand);
+        _scene3D.addMovieDisplay(sceneChar);
+        sceneChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+        sceneChar.setMountById("5104");
+        sceneChar.play(SceneChar.CharAction_walk);
+
+    }
 
 }

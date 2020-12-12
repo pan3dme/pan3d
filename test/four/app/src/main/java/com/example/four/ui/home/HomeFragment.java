@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.four.R;
 import com.z3d.base.CallBackFun;
@@ -42,50 +45,41 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        addConstrainSceneViewOne();
-        addConstrainSceneViewTwo();
 
+        addEvents();
 
     }
-    ConstrainSceneView constrainSceneViewOne;
-    private void addConstrainSceneViewOne()
+    private void  addEvents()
     {
-        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.glContent);
-        constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
-            @Override
-            public void StateChange(boolean State) {
 
-                constrainSceneViewOne.addRoleToSceneByUrl( "yezhuz.txt",new Vector3D(0,0,0));
+        getView().findViewById(R.id.button_frame3d).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("frameName","10002");
+                NavController controller= Navigation.findNavController(v);
+                controller.navigate(R.id.action_navigation_home_to_only_frame3dFragment,bundle);
             }
         });
-        constraintlayout.addView(constrainSceneViewOne);
-
-        Rectangle rectangle=new Rectangle();
-        rectangle.setBounds(0,0,300,300);
-        constrainSceneViewOne.setRect(rectangle);
-
-
-
-
-    }
-    ConstrainSceneView constrainSceneViewTwo;
-    private void addConstrainSceneViewTwo()
-    {
-        final ConstraintLayout constraintlayout = rootView.findViewById(R.id.glContentTwo);
-        constrainSceneViewTwo =new ConstrainSceneView(this.getContext(), new CallBackFun() {
+        getView().findViewById(R.id.button_char).setOnClickListener(new View.OnClickListener(){
             @Override
-            public void StateChange(boolean State) {
-
-                constrainSceneViewTwo.loadSceneByUrl(  "10002");
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("roloName","10002");
+                NavController controller= Navigation.findNavController(v);
+                controller.navigate(R.id.action_navigation_home_to_only_charFragment,bundle);
             }
         });
-        constraintlayout.addView(constrainSceneViewTwo);
-
-        Rectangle rectangle=new Rectangle();
-        rectangle.setBounds(0,0,700,700);
-        constrainSceneViewTwo.setRect(rectangle);
+        getView().findViewById(R.id.button_scene).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("sceneurl","10002");
+                NavController controller= Navigation.findNavController(v);
+                controller.navigate(R.id.action_navigation_home_to_only_sceneFragment,bundle);
+            }
+        });
     }
-
 
 
 
