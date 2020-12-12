@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_navigation_home_to_only_particleFragment"
             app:destination="@id/only_particleFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_only_skillFragment"
+            app:destination="@id/only_skillFragment" />
     </fragment>
 
     <fragment
@@ -73,4 +76,9 @@
         android:name="com.example.four.ui.page.only_particleFragment"
         android:label="fragment_only_particle"
         tools:layout="@layout/fragment_only_particle" />
+    <fragment
+        android:id="@+id/only_skillFragment"
+        android:name="com.example.four.ui.page.only_skillFragment"
+        android:label="fragment_only_skill"
+        tools:layout="@layout/fragment_only_skill" />
 </navigation>

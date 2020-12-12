@@ -2,13 +2,22 @@ package com.example.four.ui.page;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.four.R;
+import com.z3d.base.CallBackFun;
+import com.z3d.display.role.SceneChar;
+import com.z3d.scene.ConstrainSceneView;
+import com.z3d.skill.Skill;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,4 +72,55 @@ public class only_skillFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_only_skill, container, false);
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        addConstrainSceneViewOne();
+        addEvents();
+
+    }
+    ConstrainSceneView constrainSceneViewOne;
+    private void addConstrainSceneViewOne()
+    {
+
+        final ConstraintLayout constraintlayout = getView().findViewById(R.id.only_skill_gl_view);
+        constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                sceneChar= constrainSceneViewOne.addMovieDisplay("50011");
+            }
+        });
+        constraintlayout.addView(constrainSceneViewOne);
+    }
+    private void addEvents()
+    {
+        getView().findViewById(R.id.skillPanelLoadBut).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                constrainSceneViewOne.mainScene3D.skillManager.preLoadSkill("skill/jichu_1_byte.txt");
+            }
+        });
+
+        getView().findViewById(R.id.skillPanelPlayBut).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+
+                Skill skill=  constrainSceneViewOne.mainScene3D.skillManager.getSkill("skill/jichu_1_byte.txt","m_skill_01",null);
+                if(sceneChar!=null){
+                    skill.reset();
+                    skill.configFixEffect(sceneChar,null,null);
+                    sceneChar.playSkill(skill);
+
+
+                }
+            }
+        });
+
+
+
+
+    }
+   private SceneChar sceneChar;
+
 }

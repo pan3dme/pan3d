@@ -20,7 +20,6 @@ public class SkillManager extends ResGC {
     public List<Skill> _skillAry ;
     private float _time;
 
-    public Scene3D scene3D;
 
     public SkillManager(Scene3D val ){
 

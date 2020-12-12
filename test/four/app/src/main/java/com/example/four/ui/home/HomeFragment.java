@@ -88,6 +88,16 @@ public class HomeFragment extends Fragment {
                 controller.navigate(R.id.action_navigation_home_to_only_particleFragment,bundle);
             }
         });
+
+        getView().findViewById(R.id.button_skill).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("skillName","10018");
+                NavController controller= Navigation.findNavController(v);
+                controller.navigate(R.id.action_navigation_home_to_only_skillFragment,bundle);
+            }
+        });
     }
 
 

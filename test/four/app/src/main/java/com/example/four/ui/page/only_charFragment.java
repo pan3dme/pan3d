@@ -85,7 +85,7 @@ public class only_charFragment extends Fragment {
             public void StateChange(boolean State) {
 
 
-                constrainSceneViewOne.addSceneChar();
+                constrainSceneViewOne.addMovieDisplay("50011");
             }
         });
         constraintlayout.addView(constrainSceneViewOne);
