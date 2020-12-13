@@ -5,6 +5,38 @@ module Pan3d {
         public constructor(value: WebGLRenderingContext) {
             this.webGlRender = value;
         }
+        public setBaseRender():void
+        {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+            gl.clearColor(60 / 255, 60 / 255, 60/ 255, 1.0);
+            gl.clearDepth(1.0);
+            gl.clearStencil(0.0);
+            gl.enable(gl.DEPTH_TEST);
+            gl.depthMask(true);
+            gl.enable(gl.BLEND);
+            gl.frontFace(gl.CW);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
+            gl.disable(gl.CULL_FACE);
+        }
+        public drawCall($iBuffer: WebGLBuffer, $numTri: number) {
+            var gl:WebGLRenderingContext=this.webGlRender;
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, $iBuffer);
+            gl.drawElements(gl.TRIANGLES, $numTri, gl.UNSIGNED_SHORT, 0);
+        }
+
+        public setVa(dataId: number, dataWidth: number, dataBuffer: WebGLBuffer): void {
+            var gl:WebGLRenderingContext=this.webGlRender;
+            gl.bindBuffer(gl.ARRAY_BUFFER, dataBuffer);
+            gl.enableVertexAttribArray(dataId);
+            gl.vertexAttribPointer(dataId, dataWidth, gl.FLOAT, false, 0, 0);
+
+        }
+        public setProgram($program: WebGLProgram): void {
+            var gl:WebGLRenderingContext=this.webGlRender;
+            gl.useProgram($program);
+
+        }
         public uploadBuff3D($iStrData: number[]): WebGLBuffer {
             var gl: WebGLRenderingContext = this.webGlRender;
             var elementArrayBuffer = gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING);
@@ -30,19 +62,11 @@ module Pan3d {
         public getLocation($program: WebGLProgram, $name: string): WebGLUniformLocation {
             return this.webGlRender.getUniformLocation($program, $name);
         }
-        public setProgram($program: WebGLProgram): void {
-            this.webGlRender.useProgram($program);
-        }
+    
         public setVcMatrix4fv($program: Shader3D, $name: string, $m: Float32Array) {
             this.webGlRender.uniformMatrix4fv($program.getWebGLUniformLocation($name), false, $m);
         }
-        public setVa(dataId: number, dataWidth: number, dataBuffer: WebGLBuffer): void {
-            var gl: WebGLRenderingContext = this.webGlRender;
-            gl.bindBuffer(gl.ARRAY_BUFFER, dataBuffer);
-            gl.enableVertexAttribArray(dataId);
-            gl.vertexAttribPointer(dataId, dataWidth, gl.FLOAT, false, 0, 0);
-
-        }
+  
         public setRenderTexture($program: Shader3D, $name: string, $textureObject: WebGLTexture, $level: number, test: boolean = true) {
             var gl: WebGLRenderingContext = this.webGlRender;
             if ($level == 0) {
@@ -63,11 +87,6 @@ module Pan3d {
             gl.bindTexture(gl.TEXTURE_2D, $textureObject);
             gl.uniform1i($program.getWebGLUniformLocation($name), $level);
         }
-        public drawCall($iBuffer: WebGLBuffer, $numTri: number) {
-            var gl: WebGLRenderingContext = this.webGlRender;
-            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, $iBuffer);
-            gl.drawElements(gl.TRIANGLES, $numTri, gl.UNSIGNED_SHORT, 0);
-
-        }
+      
     }
 }

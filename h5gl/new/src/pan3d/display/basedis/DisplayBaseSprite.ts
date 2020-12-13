@@ -133,12 +133,13 @@ module Pan3d {
             this.objData.indexs.push(0, 1, 2);
             this.objData.upToGpu()
         }
-        public update(): void {
+        public upFrame(): void {
             if (this.objData && this.objData.indexBuffer) {
                 this.setProgram(this.program);
                 this.setVa(0, 3, this.objData.vertexBuffer);
                 this.setVa(1, 2, this.objData.uvBuffer);
                 this.drawCall(this.objData.indexBuffer, this.objData.treNum);
+                console.log("upFrame");
             }
         }
         private drawCall($iBuffer: WebGLBuffer, $numTri: number) {
