@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{2A9562D5-24A0-4F44-94C5-EADCD36C5804}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/src/canondemo/dis/DynamicDirectShadowColorSprite.ts">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/src/canondemo/CannonGameStart.ts">
     <Files>
       <File FileName="cannondemo/index.html" Line="484" Column="1" />
       <File FileName="cannondemo/only.html" />
@@ -19,7 +19,7 @@
       <File FileName="cannondemo/pan3d/baseprite/BaseProcessor.ts" />
       <File FileName="cannondemo/pan3d/baseprite/CharAction.ts" />
       <File FileName="cannondemo/pan3d/baseprite/MountChar.ts" />
-      <File FileName="cannondemo/src/canondemo/CannonGameStart.ts" />
+      <File FileName="cannondemo/src/canondemo/CannonGameStart.ts" Line="11" Column="3" />
       <File FileName="cannondemo/src/canondemo/GameData.ts" />
       <File FileName="cannondemo/src/canondemo/modules/endless/EndlessManager.ts" />
       <File FileName="cannondemo/src/canondemo/dis/BaoxiangDisplay3DSprite.ts" />
@@ -27,7 +27,7 @@
       <File FileName="cannondemo/src/canondemo/dis/ShadowLaya3dSprite.ts" />
       <File FileName="cannondemo/src/canondemo/dis/MainCanonPrefabSprite.ts" />
       <File FileName="cannondemo/src/canondemo/dis/LevelMainCanonPrefabSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/DynamicDirectShadowColorSprite.ts" Line="17" Column="1" />
+      <File FileName="cannondemo/src/canondemo/dis/DynamicDirectShadowColorSprite.ts" />
       <File FileName="cannondemo/src/canondemo/dis/DirectShadowColorSprite.ts" />
       <File FileName="cannondemo/src/canondemo/dis/MainDirectShadowDisplay3DSprite.ts" />
       <File FileName="cannondemo/src/canondemo/dis/ReviveModelSprite.ts" />
@@ -36,7 +36,7 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="cannondemo" expanded="True">
-            <Node name="cannondemo" expanded="True" selected="True">
+            <Node name="cannondemo" expanded="True">
               <Node name="bin" expanded="True" />
               <Node name="pan3d" expanded="True">
                 <Node name="mvcframe" expanded="True" />
@@ -50,6 +50,7 @@
                   <Node name="modules" expanded="True">
                     <Node name="endless" expanded="True" />
                   </Node>
+                  <Node name="CannonGameStart.ts" selected="True" />
                 </Node>
               </Node>
             </Node>

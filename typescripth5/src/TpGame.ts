@@ -1,4 +1,13 @@
-﻿class TpGame {
+﻿import GridLineSprite = Pan3d.GridLineSprite;
+import ProgrmaManager = Pan3d.ProgrmaManager;
+import LineDisplayShader = Pan3d.LineDisplayShader;
+import SceneManager = Pan3d.SceneManager;
+import SceneBaseChar=Pan3d.SceneBaseChar;
+
+class TpGame {
+
+
+
     /**是否是外网 */
     public static outNet: boolean = false;
     public static GM: boolean = true
@@ -10,18 +19,23 @@
         this.loadDataComplet();
     }
     private loadDataComplet(): void {
-        CharShow.TpModuleList.startup();//启动所有模块
-        Engine.initPbr();
-        CharShow.ModelshowMouseManager.getInstance().addMouseEvent();
-        CharShow.SceneMouseEventModel.getInstance().initSceneFocueEvent();
-        this.loadBaseMap()
+          ProgrmaManager.getInstance().registe(LineDisplayShader.LineShader,new LineDisplayShader());
+ 
+      
+        SceneManager.getInstance().ready=true;
+        
+         SceneManager.getInstance().addDisplay( new   GridLineSprite());
 
+         var sceneBaseChar:SceneBaseChar=new SceneBaseChar();
+         sceneBaseChar.setRoleUrl("role/50011.txt");
+
+         SceneManager.getInstance().addMovieDisplay(sceneBaseChar);
+
+        
         
     }
     private loadBaseMap(): void
     {
-        var $evt: CharShow.TpSceneEvent = new CharShow.TpSceneEvent(CharShow.TpSceneEvent.SHOW_TP_SCENE_EVENT);
-        $evt.mapId = 5001
-        ModuleEventManager.dispatchEvent($evt);
+         
     }
 }
