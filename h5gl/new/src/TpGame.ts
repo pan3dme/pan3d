@@ -2,7 +2,7 @@
 import ProgrmaManager = Pan3d.ProgrmaManager;
 import LineDisplayShader = Pan3d.LineDisplayShader;
 import SceneManager = Pan3d.SceneManager;
-import SceneBaseChar=Pan3d.SceneBaseChar;
+import SceneBaseChar = Pan3d.SceneBaseChar;
 
 class TpGame {
 
@@ -19,23 +19,18 @@ class TpGame {
         this.loadDataComplet();
     }
     private loadDataComplet(): void {
-          ProgrmaManager.getInstance().registe(LineDisplayShader.LineShader,new LineDisplayShader());
- 
-      
-        SceneManager.getInstance().ready=true;
-        
-         SceneManager.getInstance().addDisplay( new   GridLineSprite());
+        ProgrmaManager.getInstance().registe(LineDisplayShader.LineShader, new LineDisplayShader());
+        SceneManager.getInstance().ready = true;
+        SceneManager.getInstance().addDisplay(new GridLineSprite());
+        var sceneBaseChar: SceneBaseChar = new SceneBaseChar();
+        sceneBaseChar.setRoleUrl("role/50011.txt");
+        SceneManager.getInstance().addMovieDisplay(sceneBaseChar);
+        Pan3d.Scene_data.cam3D.distance = 200;
 
-         var sceneBaseChar:SceneBaseChar=new SceneBaseChar();
-         sceneBaseChar.setRoleUrl("role/50011.txt");
 
-         SceneManager.getInstance().addMovieDisplay(sceneBaseChar);
 
-        
-        
     }
-    private loadBaseMap(): void
-    {
-         
+    private loadBaseMap(): void {
+
     }
 }
