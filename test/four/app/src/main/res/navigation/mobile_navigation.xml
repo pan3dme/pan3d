@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_navigation_home_to_only_skillFragment"
             app:destination="@id/only_skillFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_only_md5Fragment"
+            app:destination="@id/only_md5Fragment" />
     </fragment>
 
     <fragment
@@ -81,4 +84,9 @@
         android:name="com.example.four.ui.page.only_skillFragment"
         android:label="fragment_only_skill"
         tools:layout="@layout/fragment_only_skill" />
+    <fragment
+        android:id="@+id/only_md5Fragment"
+        android:name="com.example.four.ui.page.only_md5Fragment"
+        android:label="fragment_only_md5"
+        tools:layout="@layout/fragment_only_md5" />
 </navigation>

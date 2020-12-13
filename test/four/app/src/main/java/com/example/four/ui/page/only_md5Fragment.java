@@ -2,6 +2,9 @@ package com.example.four.ui.page;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.four.R;
+import com.z3d.base.CallBackFun;
+import com.z3d.scene.ConstrainSceneView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,5 +67,23 @@ public class only_md5Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_only_md5, container, false);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        addConstrainSceneViewOne();
+    }
+    ConstrainSceneView constrainSceneViewOne;
+    private void addConstrainSceneViewOne()
+    {
+
+        final ConstraintLayout constraintlayout = getView().findViewById(R.id.only_md5_gl_view);
+        constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
+            @Override
+            public void StateChange(boolean State) {
+                constrainSceneViewOne.addLocaMd5();
+            }
+        });
+        constraintlayout.addView(constrainSceneViewOne);
     }
 }

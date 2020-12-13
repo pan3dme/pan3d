@@ -98,6 +98,15 @@ public class HomeFragment extends Fragment {
                 controller.navigate(R.id.action_navigation_home_to_only_skillFragment,bundle);
             }
         });
+        getView().findViewById(R.id.button_md5).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("md5Name","10018");
+                NavController controller= Navigation.findNavController(v);
+                controller.navigate(R.id.action_navigation_home_to_only_md5Fragment,bundle);
+            }
+        });
     }
 
 
