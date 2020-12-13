@@ -19,7 +19,7 @@
       <File FileName="cannondemo/pan3d/baseprite/BaseProcessor.ts" />
       <File FileName="cannondemo/pan3d/baseprite/CharAction.ts" />
       <File FileName="cannondemo/pan3d/baseprite/MountChar.ts" />
-      <File FileName="cannondemo/src/canondemo/CannonGameStart.ts" Line="11" Column="3" />
+      <File FileName="cannondemo/src/canondemo/CannonGameStart.ts" Line="2" Column="4" />
       <File FileName="cannondemo/src/canondemo/GameData.ts" />
       <File FileName="cannondemo/src/canondemo/modules/endless/EndlessManager.ts" />
       <File FileName="cannondemo/src/canondemo/dis/BaoxiangDisplay3DSprite.ts" />

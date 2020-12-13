@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "amd",
+      "noImplicitAny": false,
+      "removeComments": false,
+      "outDir": "jsbin",
+      "sourceMap": true
+    },
+    "exclude": [
+      "node_modules",
+
+    ]
+  }
+ 
