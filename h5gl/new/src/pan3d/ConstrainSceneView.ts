@@ -1,14 +1,21 @@
+ 
+import DisplayBaseSprite=Pan3d.DisplayBaseSprite;
+ 
+import Context3D=Pan3d.Context3D;
+ 
 module Pan3d {
     export class ConstrainSceneView {
         public renderContext: WebGLRenderingContext;
         public canvas3D: HTMLCanvasElement;
-        public scene3D: Scene3D;
+    
         constructor(value: HTMLCanvasElement) {
             this.canvas3D = value;
             var gl: any = this.canvas3D.getContext('webgl', { stencil: true, alpha: true, depth: true, antialias: false })
                 || this.canvas3D.getContext('experimental-webgl', { stencil: true, alpha: true, depth: true, antialias: false });
 
             this.renderContext = gl;
+       
+           
             this.initData();
         }
         public resetSize(): void {
@@ -22,13 +29,15 @@ module Pan3d {
             this.canvas3D.style.top = "0px";
 
         }
+        private baseDiplay3dSprit:DisplayBaseSprite
         private initData(): void {
-            this.scene3D = new Scene3D(this.renderContext);
-
+            this.baseDiplay3dSprit=new DisplayBaseSprite( this.renderContext);
+          
         }
         public upFrame(): void {
 
-            this.scene3D.upFrame();
+            this.baseDiplay3dSprit.update();
+         
 
         }
     }
