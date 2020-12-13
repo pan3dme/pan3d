@@ -19,7 +19,7 @@ module Pan3d {
                 this.indexBuffer = this.uploadIndexBuff3D(this.indexs);
             }
         }
-        public uploadIndexBuff3D($iStrData: Array<number>): WebGLBuffer {
+        private uploadIndexBuff3D($iStrData: Array<number>): WebGLBuffer {
             var gl:WebGLRenderingContext=this.renderContext;
             var elementArrayBuffer = gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING);
             var $iBuffer: WebGLBuffer = gl.createBuffer();
@@ -30,7 +30,7 @@ module Pan3d {
             }
             return $iBuffer;
         }
-        public uploadBuff3D($jsData: any): WebGLBuffer {
+        private uploadBuff3D($jsData: any): WebGLBuffer {
             var gl:WebGLRenderingContext=this.renderContext;
             var arrayBuffer = gl.getParameter(gl.ARRAY_BUFFER_BINDING);
 

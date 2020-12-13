@@ -25,14 +25,18 @@ module Pan3d {
         }
         public upToGpu():void
         {
-            var context3D:Context3D=this.scene3D.context3D;
-            this.vertexBuffer =  context3D.uploadBuff3D(this.vertices);
-            this.uvBuffer =  context3D.uploadBuff3D(this.uvs);
-            this.indexBuffer = context3D.uploadIndexBuff3D(this.indexs);
-
-            this.treNum=this.indexs.length;
+       
+            
+            if (this.indexs.length) {
+                this.treNum = this.indexs.length
+               var  context3D:Context3D= this.scene3D.context3D;
+                this.vertexBuffer = context3D.uploadBuff3D(this.vertices);
+                this.uvBuffer = context3D.uploadBuff3D(this.uvs);
+                this.indexBuffer = context3D.uploadIndexBuff3D(this.indexs);
+            }
 
         }
+      
  
 
     }

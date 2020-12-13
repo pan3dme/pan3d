@@ -37,17 +37,6 @@ module Pan3d {
             gl.useProgram($program);
 
         }
-        public uploadBuff3D($iStrData: number[]): WebGLBuffer {
-            var gl: WebGLRenderingContext = this.webGlRender;
-            var elementArrayBuffer = gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING);
-            var $iBuffer: WebGLBuffer = gl.createBuffer();
-            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, $iBuffer);
-            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array($iStrData), gl.STATIC_DRAW);
-            if (elementArrayBuffer) {
-                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elementArrayBuffer);
-            }
-            return $iBuffer;
-        }
         public uploadIndexBuff3D($iStrData: Array<number>): WebGLBuffer {
             var gl: WebGLRenderingContext = this.webGlRender;
             var elementArrayBuffer = gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING);
@@ -59,6 +48,20 @@ module Pan3d {
             }
             return $iBuffer;
         }
+        public uploadBuff3D($jsData: any): WebGLBuffer {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            var arrayBuffer = gl.getParameter(gl.ARRAY_BUFFER_BINDING);
+
+            var $buffData: WebGLBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, $buffData);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array($jsData), gl.STATIC_DRAW);
+
+            if (arrayBuffer) {
+                gl.bindBuffer(gl.ARRAY_BUFFER, arrayBuffer);
+            }
+
+            return $buffData;
+        } 
         public getLocation($program: WebGLProgram, $name: string): WebGLUniformLocation {
             return this.webGlRender.getUniformLocation($program, $name);
         }
