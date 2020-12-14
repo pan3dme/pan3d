@@ -23,6 +23,8 @@ module Pan3d {
         private loadSceneByUrl():void
         {
             var sceneRes:SceneRes=new SceneRes(this.scene3D);
+            //10002
+            //2014
             sceneRes.load("10002",( ) => {
                var buildAry:Array<any>= sceneRes.sceneData.buildItem;
                for (var i: number = 0; i < buildAry.length; i++) {
@@ -46,6 +48,9 @@ module Pan3d {
         {
             var itemDisplay: Display3DSprite =   new Display3DSprite(this.scene3D);
             itemDisplay.setObjUrl(value.objsurl);
+            itemDisplay.setMaterialUrl(value.materialurl,value.materialInfoArr);
+            console.log(value.materialurl);
+        
             return itemDisplay;
         }
         public resetSize(): void {

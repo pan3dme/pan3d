@@ -30,9 +30,11 @@ module Pan3d {
             var $str: string =
                 "precision mediump float;\n" +
                 "varying vec2 v_texCoord;\n" +
+                "uniform sampler2D baseTexture;\n" +
                 "void main(void)\n" +
                 "{\n" +
-                "gl_FragColor =vec4(1.0,0.0,v_texCoord.x,1.0);\n" +
+                "vec4 infoUv = texture2D(baseTexture, v_texCoord.xy);\n" +
+                "gl_FragColor =infoUv;\n" +
                 "}"
             return $str
         }

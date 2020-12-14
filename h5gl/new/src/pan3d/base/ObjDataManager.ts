@@ -116,8 +116,6 @@ module Pan3d {
             $objData.bitangentsOffsets = bitangentsOffsets * 4;
             $objData.stride = dataWidth * 4;
 
-            console.log("$objData.stride ", $objData.stride )
-
       
 
         }

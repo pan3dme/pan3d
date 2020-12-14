@@ -1,10 +1,106 @@
 module Pan3d {
     export class Context3D {
-        
+        private _ctx: CanvasRenderingContext2D;
+        private _canvas: any;
+       
         public webGlRender: WebGLRenderingContext;
         public constructor(value: WebGLRenderingContext) {
             this.webGlRender = value;
+            this._canvas = document.createElement("canvas");
+            this._canvas.style.zIndex = "3";
+            this._canvas.width = 200;
+            this._canvas.height = 200;
+            this._canvas.style.left = 200;
+            this._canvas.style.top = 300;
+            this._ctx = this._canvas.getContext("2d");
+            this._ctx.textBaseline = TextAlign.TOP;
         }
+        public getContext2D($width: number, $height: number, alianDefault: boolean = true): CanvasRenderingContext2D {
+            this._canvas.width = $width;
+            this._canvas.height = $height;
+            this._ctx.clearRect(0, 0, $width, $height);
+            alianDefault = true
+            if (alianDefault) {
+                this._ctx.textBaseline = TextAlign.TOP;
+                this._ctx.textAlign = TextAlign.LEFT;
+            }
+            return this._ctx;
+        }
+        public getTexture($img: any, $wrap: number = 0, $filter: number = 0, $mipmap: number = 0): WebGLTexture {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            var $textureRect: Rectangle = new Rectangle(0, 0, Math.pow(2, Math.ceil(Math.log($img.width) / Math.log(2))), Math.pow(2, Math.ceil(Math.log($img.height) / Math.log(2))));
+            if ($textureRect.width != $img.width || $textureRect.height != $img.height) {
+                //console.log("图片尺寸不为2幂")
+                //alert("图片尺寸不为2幂")
+                var $ctx = this.getContext2D($textureRect.width, $textureRect.height, false);
+                $ctx.drawImage($img, 0, 0, $img.width, $img.height, 0, 0, $textureRect.width, $textureRect.height);
+                return this.getTexture($ctx.canvas, 0, 0)
+            }
+            var textureObject: WebGLTexture = gl.createTexture();
+            gl.bindTexture(gl.TEXTURE_2D, textureObject);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, $img);
+
+            var filterNum: number;
+            if ($filter == 0) {
+                filterNum = gl.LINEAR;
+            } else {
+                filterNum = gl.NEAREST;
+            }
+
+            var mipNum: number;
+            if ($filter == 0) {
+                if ($mipmap == 0) {
+                    mipNum = gl.LINEAR;
+                } else if ($mipmap == 1) {
+                    mipNum = gl.LINEAR_MIPMAP_LINEAR;
+
+                } else if ($mipmap == 2) {
+                    mipNum = gl.LINEAR_MIPMAP_NEAREST;
+                }
+            } else {
+                if ($mipmap == 0) {
+                    mipNum = gl.NEAREST;
+                } else if ($mipmap == 1) {
+                    mipNum = gl.NEAREST_MIPMAP_LINEAR;
+                } else if ($mipmap == 2) {
+                    mipNum = gl.NEAREST_MIPMAP_NEAREST;
+                }
+            }
+ 
+ 
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filterNum);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, mipNum);
+
+            if ($wrap == 0) {
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+            } else {
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+            }
+
+            if ($mipmap != 0) {
+                gl.generateMipmap(gl.TEXTURE_2D);
+            }
+         
+            return textureObject;
+        }
+        public pushVa(dataBuffer: WebGLBuffer): boolean {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            if (gl.getParameter(gl.ARRAY_BUFFER_BINDING) == dataBuffer) {
+                return true
+            } else {
+                gl.bindBuffer(gl.ARRAY_BUFFER, dataBuffer);
+                return false
+            }
+        }
+        public setVaOffset(dataId: number, dataWidth: number, stride: number, offset: number): void {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.enableVertexAttribArray(dataId);
+       
+            gl.vertexAttribPointer(dataId, dataWidth, gl.FLOAT, false, stride, offset);
+        }
+        
         public setBaseRender():void
         {
             var gl: WebGLRenderingContext = this.webGlRender;

@@ -104,13 +104,13 @@ module Pan3d {
 
   
         public loadImg(img: any): void {
-            // TextureManager.getInstance().addRes(img.url, img);
+           this.scene3D.textureManager.addRes(img.url, img);
 
             this.countImg();
         }
 
         public addImg($url: string, img: any): void {
-            // TextureManager.getInstance().addRes($url, img);
+            this.scene3D.textureManager.addRes($url, img);
 
             this.countImg();
         }
@@ -153,7 +153,7 @@ module Pan3d {
                 var dataByte: Pan3dByteArray = new Pan3dByteArray;
                 dataByte.length = size;
                 this._byte.readBytes(dataByte, 0, size)
-                // MaterialManager.getInstance().addResByte(url, dataByte);
+                this.scene3D.materialManager.addResByte(url, dataByte);
           
 
             }
