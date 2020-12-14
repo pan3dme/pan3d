@@ -12,12 +12,16 @@ module Pan3d {
             this.addTestModel();
         }
         private displayBaseSprite:DisplayBaseSprite;
-        private displayRect3dSprite:DisplayRect3dSprite;
+ 
+     
         private addTestModel():void
         {
              
             // this.displayBaseSprite=new DisplayBaseSprite( this.context3D.webGlRender);
-            this.displayRect3dSprite=new DisplayRect3dSprite( this);
+       
+
+            this._displayList.push(new GridLineSprite( this))
+
         }
         public upFrame(): void {
             this.camera3D.upFrame();
@@ -26,8 +30,8 @@ module Pan3d {
             for(var i:number=0;i<this._displayList.length;i++){
                 this._displayList[i].upFrame();
             }
-           this.displayRect3dSprite? this.displayRect3dSprite.upFrame():null;
            this.displayBaseSprite? this.displayBaseSprite.upFrame():null;
+         
         }
 
     }

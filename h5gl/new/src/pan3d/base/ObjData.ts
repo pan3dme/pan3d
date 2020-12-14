@@ -9,7 +9,7 @@ module Pan3d {
         public bitangents: Array<number> = new Array;
 
 
-        public treNum:number;
+        public treNum: number;
 
         public vertexBuffer: WebGLBuffer;
         public uvBuffer: WebGLBuffer;
@@ -20,24 +20,24 @@ module Pan3d {
         public bitangentBuffer: WebGLBuffer;
 
 
-        constructor(value:Scene3D) {
-           super(value);
+        constructor(value: Scene3D) {
+            super(value);
         }
-        public upToGpu():void
-        {
-       
-            
+        public upToGpu(): void {
+
+
             if (this.indexs.length) {
                 this.treNum = this.indexs.length
-               var  context3D:Context3D= this.scene3D.context3D;
-                this.vertexBuffer = context3D.uploadBuff3D(this.vertices);
-                this.uvBuffer = context3D.uploadBuff3D(this.uvs);
-                this.indexBuffer = context3D.uploadIndexBuff3D(this.indexs);
+                var context3D: Context3D = this.scene3D.context3D;
+                this.vertices ? this.vertexBuffer = context3D.uploadBuff3D(this.vertices) : null;
+                this.uvs ? this.uvBuffer = context3D.uploadBuff3D(this.uvs) : null;
+                this.normals ? this.normalsBuffer = context3D.uploadBuff3D(this.normals) : null;
+                this.indexs ? this.indexBuffer = context3D.uploadIndexBuff3D(this.indexs) : null;
             }
 
         }
-      
- 
+
+
 
     }
 }

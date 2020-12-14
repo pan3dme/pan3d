@@ -24,6 +24,11 @@ module Pan3d {
             gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, $iBuffer);
             gl.drawElements(gl.TRIANGLES, $numTri, gl.UNSIGNED_SHORT, 0);
         }
+        public drawLine($iBuffer: WebGLBuffer, $numTri: number): void {
+            var gl:WebGLRenderingContext=this.webGlRender;
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, $iBuffer);
+            gl.drawElements(gl.LINES, $numTri, gl.UNSIGNED_SHORT, 0);
+        }
 
         public setVa(dataId: number, dataWidth: number, dataBuffer: WebGLBuffer): void {
             var gl:WebGLRenderingContext=this.webGlRender;

@@ -36,12 +36,7 @@ module Pan3d {
                 context3D.setVa(1, 2, this.objData.uvBuffer);
                 context3D.setVcMatrix4fv(this.shader3D, "vpMatrix3D", this.scene3D.camera3D.modelMatrix.m);
                 context3D.setVcMatrix4fv(this.shader3D, "posMatrix", this.posMatrix.m);
-                console.log(this.scene3D.camera3D.modelMatrix.m);
-                console.log(this.posMatrix.m);
-                console.log("-----")
-
-                // "uniform mat4 vpMatrix3D;\n"+
-                // "uniform mat4 posMatrix;\n"+
+          
                 context3D.drawCall(this.objData.indexBuffer, this.objData.treNum);
             
             }

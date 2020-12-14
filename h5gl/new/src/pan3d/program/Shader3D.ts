@@ -63,11 +63,16 @@ module Pan3d {
             var vInfo: string = $context.getShaderInfoLog(this.vShader);
             var fInfo: string = $context.getShaderInfoLog(this.fShader);
 
-            if (info != "") {
-                if (vInfo == "" && fInfo == "") {
-                    return true;
+            if (info != ""||vInfo != ""||fInfo != "") {
+                if (info != "") {
+                    console.log("shader error: " + info  );
                 }
-                //console.log("shader error: " + info + "," + vInfo + "," + fInfo);
+                if (vInfo != "") {
+                    console.log("shader error: " + vInfo  );
+                }
+                if (fInfo != "") {
+                    console.log("shader error: " + fInfo  );
+                }
                 return false;
             } else {
                 return true;
