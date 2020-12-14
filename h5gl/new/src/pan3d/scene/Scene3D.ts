@@ -21,6 +21,7 @@ module Pan3d {
        
 
             this._displayList.push(new GridLineSprite( this))
+            this._displayList.push(new Display3DSprite( this))
 
         }
         public upFrame(): void {
