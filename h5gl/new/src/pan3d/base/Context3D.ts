@@ -1,6 +1,6 @@
 module Pan3d {
     export class Context3D {
-
+        
         public webGlRender: WebGLRenderingContext;
         public constructor(value: WebGLRenderingContext) {
             this.webGlRender = value;
@@ -94,6 +94,18 @@ module Pan3d {
             }
             gl.bindTexture(gl.TEXTURE_2D, $textureObject);
             gl.uniform1i($program.getWebGLUniformLocation($name), $level);
+        }
+
+        public uploadBuff3DArrayBuffer($jsData: ArrayBuffer): WebGLBuffer {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            var arrayBuffer = gl.getParameter(gl.ARRAY_BUFFER_BINDING);
+            var $buffData: WebGLBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, $buffData);
+            gl.bufferData(gl.ARRAY_BUFFER, $jsData, gl.STATIC_DRAW);
+            if (arrayBuffer) {
+                gl.bindBuffer(gl.ARRAY_BUFFER, arrayBuffer);
+            }
+            return $buffData;
         }
       
     }

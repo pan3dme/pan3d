@@ -1,6 +1,7 @@
 module Pan3d {
    
     export class Display3DSprite  extends Display3D  {
+       
         private shader3D:Shader3D;
         constructor(value: Scene3D) {
           super(value);
@@ -27,6 +28,15 @@ module Pan3d {
             this.objData.upToGpu()
 
          
+        }
+        public setObjUrl(value: any) {
+           
+            this.scene3D.objDataManager.getObjData(this.scene3D.fileRoot + value, ($obj: ObjData) => {
+                // this.objData = $obj;
+ 
+            });
+          
+
         }
         public upFrame(): void {
             if (this.objData && this.objData.indexBuffer) {

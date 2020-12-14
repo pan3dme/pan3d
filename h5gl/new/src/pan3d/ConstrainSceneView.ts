@@ -17,7 +17,36 @@ module Pan3d {
 
             this.renderContext = gl;
             this.scene3D=new Scene3D(this.renderContext);
+            this.loadSceneByUrl();
      
+        }
+        private loadSceneByUrl():void
+        {
+            var sceneRes:SceneRes=new SceneRes(this.scene3D);
+            sceneRes.load("10002",( ) => {
+               var buildAry:Array<any>= sceneRes.sceneData.buildItem;
+               for (var i: number = 0; i < buildAry.length; i++) {
+                var itemObj: any = buildAry[i];
+                if (itemObj.type == BaseRes.PREFAB_TYPE) {
+                    var itemDisplay: Display3DSprite =this.getBuildSprite(itemObj);
+                    this.scene3D.addDisplay(itemDisplay);
+                } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
+               
+                }
+            }
+
+               
+            },( ) => {
+               
+            },( ) => {
+               
+            });
+        }
+        private getBuildSprite(value:any):Display3DSprite
+        {
+            var itemDisplay: Display3DSprite =   new Display3DSprite(this.scene3D);
+            itemDisplay.setObjUrl(value.objsurl);
+            return itemDisplay;
         }
         public resetSize(): void {
             var stageWidth: number = document.body.clientWidth;

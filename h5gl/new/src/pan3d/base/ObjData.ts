@@ -19,6 +19,15 @@ module Pan3d {
         public tangentBuffer: WebGLBuffer;
         public bitangentBuffer: WebGLBuffer;
 
+        public compressBuffer: boolean = false;
+        public uvsOffsets: number;
+        public lightuvsOffsets: number;
+        public normalsOffsets: number;
+        public tangentsOffsets: number;
+        public bitangentsOffsets: number;
+        public stride: number;
+        public hasdispose: boolean = false;
+
 
         constructor(value: Scene3D) {
             super(value);
