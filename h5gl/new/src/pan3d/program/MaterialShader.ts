@@ -1,35 +1,21 @@
 module Pan3d {
     export class MaterialShader extends Shader3D {
         public static MATERIAL_SHADER: string = "Material_shader";
-        constructor(value:Scene3D) {
+        constructor(value: Scene3D) {
             super(value);
             this.name = "Material_shader";
         }
         binLocation($context: WebGLRenderingContext): void {
             $context.bindAttribLocation(this.program, 0, "v3Position");
             $context.bindAttribLocation(this.program, 1, "v2CubeTexST");
-
-
-
-            //if (this.paramAry[0]){
-            //    $context.bindAttribLocation(this.program, 3, "v3Normal");
-            //}
-            //if (this.paramAry[1]){
-            //    $context.bindAttribLocation(this.program, 4, "v3Tangent");
-            //    $context.bindAttribLocation(this.program, 5, "v3Bitangent");
-            //}
-
             var usePbr: boolean = this.paramAry[0];
             var useNormal: boolean = this.paramAry[1];
             var lightProbe: boolean = this.paramAry[4];
             var directLight: boolean = this.paramAry[5];
             var noLight: boolean = this.paramAry[6];
-
-
             if (!(directLight || noLight)) {
                 $context.bindAttribLocation(this.program, 2, "v2lightuv");
             }
-
             if (usePbr) {
                 $context.bindAttribLocation(this.program, 3, "v3Normal");
                 if (useNormal) {
@@ -156,7 +142,49 @@ module Pan3d {
 
             $str += "gl_Position = vt0;" + "}";
 
-            //   this.outstr($str);
+            this.outstr($str);
+
+            //  "attribute vec3 v3Position;"+
+            //  "attribute vec2 v2CubeTexST;"+
+            //  "varying vec2 v0;"+
+            //  "attribute vec2 v2lightuv;"+
+            //  "varying vec2 v2;"+
+            //  "varying vec3 v1;"+
+            //  "uniform mat4 vpMatrix3D;"+
+            //  "uniform mat4 posMatrix3D;"+
+            //  "uniform mat3 rotationMatrix3D;"+
+            //  "void main(void){
+            //  v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
+            //  "vec4 vt0= vec4(v3Position, 1.0);"+
+            //  "vt0 = posMatrix3D * vt0;"+
+            //  "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
+            //  "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
+            //  "vt0 = vpMatrix3D * vt0;"+
+            //  "gl_Position = vt0;"+
+            //  "};"+
+
+
+
+            $str =
+                "attribute vec3 v3Position;\n" +
+                "attribute vec2 v2CubeTexST;\n" +
+                "attribute vec2 v2lightuv;" +
+                "varying vec2 v0;\n" +
+                "varying vec2 v2;\n" +
+                "varying vec3 v1;\n" +
+                "uniform mat4 vpMatrix3D;\n" +
+                "uniform mat4 posMatrix;\n" +
+
+                "void main(void)\n" +
+                "{\n" +
+                    "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);" +
+                    "v2 = vec2(v2lightuv.x, v2lightuv.y);" +
+                    "vec4 vt0= vec4(v3Position, 1.0);" +
+                    "v1 = vec3(vt0.x,vt0.y,vt0.z);" +
+              
+                
+                    "gl_Position =vpMatrix3D*posMatrix* vt0;\n" +
+                "}"
             return $str
 
 
@@ -166,9 +194,9 @@ module Pan3d {
             var arr: Array<string> = str.split(";")
             for (var i: number = 0; i < arr.length; i++) {
                 var $ddd: string = String(trim(arr[i]));
-                //console.log("\"" + $ddd + "\;" + "\"" + "\+")
+                console.log("\"" + $ddd + "\;" + "\"" + "\+")
             }
-            //   //console.log(arr)
+            console.log(arr)
         }
 
         getFragmentShaderString(): string {
