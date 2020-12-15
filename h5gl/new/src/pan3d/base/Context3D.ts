@@ -1,5 +1,6 @@
 module Pan3d {
     export class Context3D {
+    
         private _ctx: CanvasRenderingContext2D;
         private _canvas: any;
        
@@ -166,11 +167,17 @@ module Pan3d {
         public getLocation($program: WebGLProgram, $name: string): WebGLUniformLocation {
             return this.webGlRender.getUniformLocation($program, $name);
         }
-    
+        public setVcMatrix3fv($program: Shader3D, $name: string, $m: Float32Array) {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.uniformMatrix3fv($program.getWebGLUniformLocation($name), false, $m);
+        }
         public setVcMatrix4fv($program: Shader3D, $name: string, $m: Float32Array) {
             this.webGlRender.uniformMatrix4fv($program.getWebGLUniformLocation($name), false, $m);
         }
-  
+        public setVc4fv($program: Shader3D, $name: string, $m: any) {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.uniform4fv($program.getWebGLUniformLocation($name), $m);
+        }
         public setRenderTexture($program: Shader3D, $name: string, $textureObject: WebGLTexture, $level: number, test: boolean = true) {
             var gl: WebGLRenderingContext = this.webGlRender;
             if ($level == 0) {

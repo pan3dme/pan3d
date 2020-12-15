@@ -31,7 +31,7 @@ module Pan3d {
             if (keyStr.search("/materialinstance/changjinghongpei/standard_byte.txt") != -1 && true) { //FIXME
 
                 // this.outShader(shader.getVertexShaderString());
-                // this.outShader(shader.fragment);
+                this.outShader(shader.fragment);
 
                 shader.fragment =
                     "precision mediump float;\n" +

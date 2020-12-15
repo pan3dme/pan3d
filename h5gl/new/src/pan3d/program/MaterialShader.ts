@@ -89,8 +89,12 @@ module Pan3d {
                 // "uniform mat4 viewMatrix3D;\n" +
                 // "uniform mat4 camMatrix3D;\n" +
                 "uniform mat4 vpMatrix3D;\n" +
-                "uniform mat4 posMatrix3D;\n" +
-                "uniform mat3 rotationMatrix3D;\n";
+                "uniform mat4 posMatrix3D;\n";
+
+                if (usePbr) {
+                    $str +=
+                    "uniform mat3 rotationMatrix3D;\n";
+                }
 
 
             $str +=
@@ -144,47 +148,51 @@ module Pan3d {
 
             this.outstr($str);
 
-            //  "attribute vec3 v3Position;"+
-            //  "attribute vec2 v2CubeTexST;"+
-            //  "varying vec2 v0;"+
-            //  "attribute vec2 v2lightuv;"+
-            //  "varying vec2 v2;"+
-            //  "varying vec3 v1;"+
-            //  "uniform mat4 vpMatrix3D;"+
-            //  "uniform mat4 posMatrix3D;"+
-            //  "uniform mat3 rotationMatrix3D;"+
-            //  "void main(void){
-            //  v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
-            //  "vec4 vt0= vec4(v3Position, 1.0);"+
-            //  "vt0 = posMatrix3D * vt0;"+
-            //  "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
-            //  "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
-            //  "vt0 = vpMatrix3D * vt0;"+
-            //  "gl_Position = vt0;"+
-            //  "};"+
-
-
-
+          
+/*
+            "attribute vec3 v3Position;"+
+"attribute vec2 v2CubeTexST;"+
+"varying vec2 v0;"+
+"attribute vec2 v2lightuv;"+
+"varying vec2 v2;"+
+"varying vec3 v1;"+
+"uniform mat4 vpMatrix3D;"+
+"uniform mat4 posMatrix3D;"+
+"void main(void){"+
+"v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
+"vec4 vt0= vec4(v3Position, 1.0);"+
+"vt0 = posMatrix3D * vt0;"+
+"v2 = vec2(v2lightuv.x, v2lightuv.y);"+
+"v1 = vec3(vt0.x,vt0.y,vt0.z);"+
+"vt0 = vpMatrix3D * vt0;"+
+"gl_Position = vt0;"+
+"}"
+*/
+ 
+            
+ /*
             $str =
-                "attribute vec3 v3Position;\n" +
-                "attribute vec2 v2CubeTexST;\n" +
-                "attribute vec2 v2lightuv;" +
-                "varying vec2 v0;\n" +
-                "varying vec2 v2;\n" +
-                "varying vec3 v1;\n" +
-                "uniform mat4 vpMatrix3D;\n" +
-                "uniform mat4 posMatrix;\n" +
+            "attribute vec3 v3Position;"+
+            "attribute vec2 v2CubeTexST;"+
+            "varying vec2 v0;"+
+            "attribute vec2 v2lightuv;"+
+            "varying vec2 v2;"+
+            "varying vec3 v1;"+
+            "uniform mat4 vpMatrix3D;"+
+            "uniform mat4 posMatrix3D;"+
 
                 "void main(void)\n" +
                 "{\n" +
-                    "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);" +
-                    "v2 = vec2(v2lightuv.x, v2lightuv.y);" +
-                    "vec4 vt0= vec4(v3Position, 1.0);" +
-                    "v1 = vec3(vt0.x,vt0.y,vt0.z);" +
-              
-                
-                    "gl_Position =vpMatrix3D*posMatrix* vt0;\n" +
+                "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
+                "vec4 vt0= vec4(v3Position, 1.0);"+
+                "vt0 = posMatrix3D * vt0;"+
+                "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
+                "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
+                "vt0 = vpMatrix3D * vt0;"+
+                "gl_Position = vt0;"+
                 "}"
+                */
+       
             return $str
 
 

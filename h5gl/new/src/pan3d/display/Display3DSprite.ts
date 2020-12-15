@@ -3,9 +3,13 @@ module Pan3d {
     export class Display3DSprite extends Display3D {
         private shader3D: Shader3D;
         public objData: ObjData;
+        public time:number ;
+        private rotationMatrix:Matrix3D;
+        private _rotationData:Float32Array;
         private materialParam: MaterialBaseParam;
         constructor(value: Scene3D) {
             super(value);
+            this.time=0;
             this.initData();
 
         }
@@ -20,12 +24,8 @@ module Pan3d {
         }
         private lightTextureRes: TextureRes;
         public setLighturl(value: string) {
-
-            console.log("value", value);
             this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + value, (textureRes: TextureRes) => {
-
                 this.lightTextureRes = textureRes;
-
             });
         }
 
@@ -39,6 +39,10 @@ module Pan3d {
                     this.materialParam = new MaterialBaseParam(this.scene3D);
                     this.materialParam.setData(this.material, $paramData);
                 }
+                if (this.material.usePbr || this.material.directLight) {
+                    this._rotationData = new Float32Array(9);
+                  
+                }
 
             }, null, true, MaterialShader.MATERIAL_SHADER, MaterialShader);
         }
@@ -50,16 +54,39 @@ module Pan3d {
                 ctx.setProgram(this.shader3D.program);
                 this.setMaterialVa();
                 this.setMaterialTexture(this.material,this.materialParam);
-                ctx.setVcMatrix4fv(this.shader3D, "vpMatrix3D", this.scene3D.camera3D.modelMatrix.m);
-                ctx.setVcMatrix4fv(this.shader3D, "posMatrix", this.posMatrix.m);
+                this.setMaterialVc(this.material, this.materialParam);
+                this.setVc();
                 ctx.drawCall(this.objData.indexBuffer, this.objData.treNum);
             }
         }
+        protected setVc ():void
+        {
+            var ctx: Context3D = this.scene3D.context3D;
+            ctx.setVcMatrix4fv(this.shader3D, "vpMatrix3D", this.scene3D.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.shader3D, "posMatrix3D", this.posMatrix.m);
+
+            if (this.material.usePbr || this.material.directLight) {
+                ctx.setVcMatrix3fv(this.material.shader, "rotationMatrix3D", this._rotationData);
+    
+            }
+        }
+        public setMaterialVc($material: Material, $mp: MaterialBaseParam = null): void {
+            if ($material.fcNum <= 0) {
+                return;
+            }
+            var t: number = 0;
+            if ($material.hasTime) {
+                t = (TimeUtil.getTimer() - this.time) % 100000 * 0.001;
+            }
+            $material.update(t);
+            if ($mp) {
+                $mp.update();
+            }
+            var ctx: Context3D = this.scene3D.context3D;
+            ctx.setVc4fv($material.shader, "fc", $material.fcData);
+        }
        private setMaterialTexture($material: Material, $mp: MaterialBaseParam) {
         var ctx: Context3D = this.scene3D.context3D;
-        // if (this.materialParam && this.materialParam.dynamicTexList && this.materialParam.dynamicTexList.length) {
-        //     ctx.setRenderTexture(this.shader3D, "fs0", this.materialParam.dynamicTexList[0].texture, 0);
-        // }
         var texVec: Array<TexItem> = $material.texList;
             for (var i: number = 0; i < texVec.length; i++) {
                 if (texVec[i].type == TexItem.LIGHTMAP) {
@@ -91,7 +118,9 @@ module Pan3d {
             }
             ctx.setVaOffset(0, 3, this.objData.stride, 0);
             ctx.setVaOffset(1, 2, this.objData.stride, this.objData.uvsOffsets);
-            ctx.setVaOffset(2, 2, this.objData.stride, this.objData.lightuvsOffsets);
+            if (!(this.material.directLight || this.material.noLight)) {
+                ctx.setVaOffset(2, 2, this.objData.stride, this.objData.lightuvsOffsets);
+            }
         }
 
 
