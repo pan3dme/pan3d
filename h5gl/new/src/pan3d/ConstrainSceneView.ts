@@ -55,6 +55,10 @@ module Pan3d {
             itemDisplay.setObjUrl(value.objsurl);
             itemDisplay.setMaterialUrl(value.materialurl,value.materialInfoArr);
 
+            if( value.lighturl){
+                itemDisplay.setLighturl(value.lighturl);
+            }
+
             itemDisplay.scaleX = value.scaleX;
             itemDisplay.scaleY = value.scaleY;
             itemDisplay.scaleZ = value.scaleZ;

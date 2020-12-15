@@ -64,7 +64,7 @@ module Pan3d {
             this.loadMaterial(material);
 
             if (_info.autoReg) {
-                // material.shader = this.scene3D.progrmaManager.getMaterialProgram(_info.regName, _info.shader3D, material, null, true);
+                 material.shader = this.scene3D.progrmaManager.getMaterialProgram(_info.regName, _info.shader3D, material, null, true);
          
             }
 

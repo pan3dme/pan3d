@@ -45,9 +45,9 @@ module Pan3d {
                         mipmap = texItem.target.mipmap;
                     }
                     mipmap = 0
-                   console.log("this.scene3D.fileRoot + obj.url",this.scene3D.fileRoot + obj.url)
+            
                     this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + obj.url, ($textres: TextureRes) => {
-                        console.log(obj.url,$textres);
+                  
                         texItem.textureRes = $textres;
                     }, 0, null, 0, mipmap);
                     this.dynamicTexList.push(texItem);
