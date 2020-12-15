@@ -1,6 +1,7 @@
 module Pan3d {
     export class Context3D {
     
+       
         private _ctx: CanvasRenderingContext2D;
         private _canvas: any;
        
@@ -199,6 +200,23 @@ module Pan3d {
             gl.uniform1i($program.getWebGLUniformLocation($name), $level);
         }
 
+        public cullFaceBack(tf: boolean): void {
+ 
+            var gl: WebGLRenderingContext = this.webGlRender;
+            if (tf) { //反面渲染
+                gl.enable(gl.CULL_FACE);
+                if (gl.getParameter(gl.CULL_FACE_MODE) != gl.FRONT) {
+                    gl.cullFace(gl.FRONT);
+                }
+    
+            } else { //正面渲染
+                gl.enable(gl.CULL_FACE);
+                if (gl.getParameter(gl.CULL_FACE_MODE) != gl.BACK) {
+                    gl.cullFace(gl.BACK);
+                }
+            }
+
+        }
         public uploadBuff3DArrayBuffer($jsData: ArrayBuffer): WebGLBuffer {
             var gl: WebGLRenderingContext = this.webGlRender;
             var arrayBuffer = gl.getParameter(gl.ARRAY_BUFFER_BINDING);
@@ -209,6 +227,41 @@ module Pan3d {
                 gl.bindBuffer(gl.ARRAY_BUFFER, arrayBuffer);
             }
             return $buffData;
+        }
+        public clearVa(dataId: number): void {
+ 
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.disableVertexAttribArray(dataId);
+        }
+        public setWriteDepth(tf: boolean): void {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.depthMask(tf);
+        }
+      
+        public setBlendParticleFactors(type: number): void {
+            
+            var gl: WebGLRenderingContext = this.webGlRender;
+
+            switch (type) {
+                case 0:
+                    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+                    break;
+                case 1:
+                    gl.blendFunc(gl.ONE, gl.ONE);
+                    break;
+                case 2:
+                    gl.blendFunc(gl.DST_COLOR, gl.ZERO);
+                    break;
+                case 3:
+                    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_COLOR);
+                    break;
+                case 4:
+                    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+                    break;
+                case -1:
+                    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+                    break;
+            }
         }
       
     }

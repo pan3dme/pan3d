@@ -1,6 +1,6 @@
 module Pan3d {
     export class MaterialParam  extends ResCount {
-        //public material: Material;
+        public material: Material;
         public materialUrl: string;
 
         public program: WebGLProgram;

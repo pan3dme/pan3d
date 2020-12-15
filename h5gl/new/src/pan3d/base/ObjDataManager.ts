@@ -1,5 +1,6 @@
 module Pan3d {
     export class ObjDataManager extends ResGC {
+    
         private _loadList: Object;
         constructor(value:Scene3D) {
             super(value);
@@ -118,6 +119,12 @@ module Pan3d {
 
       
 
+        }
+       
+        public registerUrl($url: string): void {
+            if (this.dic[$url]) {
+                this.dic[$url].useNum++;
+            }
         }
 
         

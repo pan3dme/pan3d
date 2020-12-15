@@ -7,6 +7,10 @@ module Pan3d {
         public sceneViewHW:number ;
         public fovw:number ;
         public fovh:number ;
+      
+        public get cameraMatrix(): Matrix3D {
+            return this.modelMatrix;
+        }
         public constructor()
         {
             super()

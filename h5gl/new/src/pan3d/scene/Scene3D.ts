@@ -3,16 +3,27 @@ module Pan3d {
 
         public context3D: Context3D;
         public camera3D: Camera3D;
+        public get cam3D(): Camera3D {
+            return this.camera3D
+        }
+        public get viewMatrx3D(): Matrix3D {
+            return this.cam3D.cameraMatrix;
+        }
+    
         public progrmaManager: ProgrmaManager;
         public objDataManager: ObjDataManager;
         public textureManager: TextureManager;
         public materialManager: MaterialManager;
+        public particleManager: ParticleManager;
+        public groupDataManager: GroupDataManager;
         public fileRoot: string = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
         public supportBlob: boolean;
         public fogColor: Array<number> = [0, 0, 0];
         public fogData: Array<number> = [1000, 0.003];
         public scaleLight: Array<number> = [2.0];
-        public frameTime: number = 0;
+       
+        public static frameTime: number = 1000 / 60;
+        public static MAX_NUMBER: number = 10000000;
         protected _displayList: Array<Display3D>;
         constructor(value: WebGLRenderingContext) {
 
@@ -23,6 +34,8 @@ module Pan3d {
             this.objDataManager = new ObjDataManager(this);
             this.textureManager = new TextureManager(this);
             this.materialManager = new MaterialManager(this);
+            this.groupDataManager = new GroupDataManager(this);
+            this.particleManager = new ParticleManager(this);
             this._displayList = new Array();
             this.addDisplay(new GridLineSprite(this));
             // this.displayBaseSprite=new DisplayBaseSprite( this.context3D.webGlRender);

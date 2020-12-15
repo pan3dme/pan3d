@@ -20,7 +20,7 @@ module Pan3d {
             if (!this.valueVec || this.begintFrame == -1) {
                 return this.valueV3d;
             }
-            var flag: number = float2int($t / this.scene3D.frameTime - this.begintFrame);
+            var flag: number = float2int($t / Scene3D.frameTime - this.begintFrame);
 
             if (flag < 0) {
                 flag = 0;
