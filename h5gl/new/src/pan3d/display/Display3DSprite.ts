@@ -45,37 +45,44 @@ module Pan3d {
             this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + $str, ($texture: TextureRes) => {
                 this.baseTexture = $texture
             });
+        
         }
         private material: Material;
         public setMaterialUrl(value: string, $paramData: Array<any> = null): void {
-
-
             value = value.replace("_byte.txt", ".txt")
             value = value.replace(".txt", "_byte.txt")
-
- 
-               this.scene3D.materialManager.getMaterialByte(this.scene3D.fileRoot+ value, ($material: Material) => {
-                   this.material = $material;
-                   if ($paramData) {
+            this.scene3D.materialManager.getMaterialByte(this.scene3D.fileRoot + value, ($material: Material) => {
+                this.material = $material;
+                if ($paramData) {
                     this.materialParam = new MaterialBaseParam(this.scene3D);
                     this.materialParam.setData(this.material, $paramData);
                 }
-                console.log(this.materialParam);
-                  for(var i:number=0;i< this.material .texList.length;i++){
-                    if(this.material .texList[i].isMain){
-                    //   this.setPicUrl(  this.material .texList[i].url);
-                    }
-                  }
-               }, null, true, MaterialShader.MATERIAL_SHADER, MaterialShader);
-                
+ 
+            }, null, true, MaterialShader.MATERIAL_SHADER, MaterialShader);
+
+            this.setPicUrl("content/finalscens/checkpoint/bamboo forest/dae/glound.jpg");
+
         }
 
         public upFrame(): void {
-            if (this.objData && this.objData.indexBuffer&&  this.baseTexture) {
+            if (this.objData && this.objData.indexBuffer && this.material) {
                 var context3D: Context3D = this.scene3D.context3D;
                 context3D.setProgram(this.shader3D.program);
                 this.setMaterialVaCompress();
-                 context3D.setRenderTexture(this.shader3D, "baseTexture", this.baseTexture.texture,0);
+                for (var i: number = 0; i < this.material.texList.length; i++) {
+                    if (this.material.texList[i].isMain) {
+                        context3D.setRenderTexture(this.shader3D, "baseTexture", this.material.texList[i].texture, 0);
+                 
+                        if(this.materialParam&& this.materialParam.dynamicTexList&& this.materialParam.dynamicTexList.length){
+                   
+
+                           context3D.setRenderTexture(this.shader3D, "baseTexture", this.materialParam.dynamicTexList[0].texture, 0);
+                        }
+                       
+                    }
+                }
+        
+
                 context3D.setVcMatrix4fv(this.shader3D, "vpMatrix3D", this.scene3D.camera3D.modelMatrix.m);
                 context3D.setVcMatrix4fv(this.shader3D, "posMatrix", this.posMatrix.m);
                 context3D.drawCall(this.objData.indexBuffer, this.objData.treNum);
@@ -90,7 +97,7 @@ module Pan3d {
             context3D.setVaOffset(0, 3, this.objData.stride, 0);
             context3D.setVaOffset(1, 2, this.objData.stride, this.objData.uvsOffsets);
         }
- 
+
 
     }
 }

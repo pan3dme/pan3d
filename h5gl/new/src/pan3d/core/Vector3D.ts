@@ -1,9 +1,9 @@
 module Pan3d {
     export class Vector3D {
-        x: number = 0;
-        y: number = 0;
-        z: number = 0;
-        w: number = 1;
+        public  x: number = 0;
+        public   y: number = 0;
+        public  z: number = 0;
+        public  w: number = 1;
         public static X_AXIS: Vector3D = new Vector3D(1, 0, 0);
         public static Y_AXIS: Vector3D = new Vector3D(0, 1, 0);
         public static Z_AXIS: Vector3D = new Vector3D(0, 0, 1);

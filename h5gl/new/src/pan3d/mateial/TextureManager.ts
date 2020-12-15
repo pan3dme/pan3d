@@ -43,6 +43,7 @@ module Pan3d {
         }
         public addRes($url: string, $img: any): void {
             if (!this.dic[$url] && !this._resDic[$url]) {
+                console.log("addRes",$url);
                 this._resDic[$url] = $img;
             }
         }

@@ -5,6 +5,13 @@ module Pan3d {
         public currentValue: Array<number>;
         public targetOffset: number;
         protected _type: number;
+        public scene3D:Scene3D;
+ 
+        public constructor(value:Scene3D) {
+ 
+                this.scene3D=value;
+        }
+      
 
         public update(t: number = 0): void {
             if (this.target) {

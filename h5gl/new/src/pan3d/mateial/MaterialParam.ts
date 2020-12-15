@@ -1,12 +1,12 @@
 module Pan3d {
-    export class MaterialParam extends MaterialBaseParam {
+    export class MaterialParam  extends ResCount {
         //public material: Material;
         public materialUrl: string;
 
         public program: WebGLProgram;
         public shader: Shader3D;
-        //public dynamicTexList:Array<DynamicTexItem>;
-        //public dynamicConstList:Array<DynamicConstItem>;
+        public dynamicTexList:Array<DynamicTexItem>;
+        public dynamicConstList:Array<DynamicConstItem>;
 
     
     

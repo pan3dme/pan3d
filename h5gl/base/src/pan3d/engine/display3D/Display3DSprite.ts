@@ -123,6 +123,7 @@
             //var materialshader: MaterialShader = new MaterialShader;
             MaterialManager.getInstance().getMaterialByte(this.materialUrl, ($material: Material) => {
                 this.material = $material;
+               
                 if (this.material.useNormal) {
                     if (this.objData && !this.objData.tangentBuffer) {
                         ObjDataManager.getInstance().creatTBNBuffer(this.objData);

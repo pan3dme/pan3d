@@ -10,6 +10,15 @@ module Pan3d {
         }
         public upFrame():void {
        
+            
+        }
+        public updateMatrix(): void {
+            this.posMatrix.identity();
+            this.posMatrix.appendScale(this.scaleX, this.scaleY, this.scaleZ);
+            this.posMatrix.appendRotation(this.rotationX, Vector3D.X_AXIS)
+            this.posMatrix.appendRotation(this.rotationY, Vector3D.Y_AXIS)
+            this.posMatrix.appendRotation(this.rotationZ, Vector3D.Z_AXIS)
+             this.posMatrix.appendTranslation(this.x, this.y, this.z);
         }
       
     }

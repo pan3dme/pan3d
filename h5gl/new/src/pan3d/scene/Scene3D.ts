@@ -12,6 +12,7 @@ module Pan3d {
         public   fogColor: Array<number> = [0, 0, 0];
         public   fogData: Array<number> = [1000, 0.003];
         public   scaleLight: Array<number> = [2.0];
+        public frameTime:number=0;
         protected _displayList: Array<Display3D>;
         constructor(value: WebGLRenderingContext) {
             this.fileRoot= "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
@@ -24,18 +25,10 @@ module Pan3d {
             this.materialManager=new MaterialManager(this);
             this._displayList=new Array();
             this.addDisplay(new GridLineSprite( this));
+            // this.displayBaseSprite=new DisplayBaseSprite( this.context3D.webGlRender);
         }
         private displayBaseSprite:DisplayBaseSprite;
-        private addTestModel():void
-        {
-         
-             
-            // this.displayBaseSprite=new DisplayBaseSprite( this.context3D.webGlRender);
-         
-            // this.addDisplay(new Display3DSprite( this));
-         
-    
-        }
+      
         public addDisplay(itemDisplay: Display3D) {
             this._displayList.push(itemDisplay)
         }

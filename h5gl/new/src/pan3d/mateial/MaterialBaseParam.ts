@@ -2,14 +2,14 @@ module Pan3d {
     export class MaterialBaseParam extends ResCount {
         public material: Material;
 
-        public dynamicTexList: Array<any>;
-        public dynamicConstList: Array<any>;
+        public dynamicTexList: Array<DynamicBaseTexItem>;
+        public dynamicConstList: Array<DynamicBaseConstItem>;
     
 
 
         public destory(): void {
             for (var i: number = 0; i < this.dynamicTexList.length; i++) {
-                this.dynamicTexList[i].destory();
+                // this.dynamicTexList[i].destory();
             }
             this.dynamicTexList = null;
             this.dynamicConstList = null;
@@ -27,17 +27,13 @@ module Pan3d {
             this.material = $material;
             this.dynamicConstList = new Array;
             this.dynamicTexList = new Array;
-
             var constList: Array<ConstItem> = $material.constList;
             var texList: Array<TexItem> = $material.texList;
-
             for (var i: number = 0; i < $ary.length; i++) {
                 var obj: any = $ary[i];
                 if (obj.type == 0) {
                     var texItem: DynamicBaseTexItem = new DynamicBaseTexItem();
                     texItem.paramName = obj.name;
-
-
                     for (var j: number = 0; j < texList.length; j++) {
                         if (texItem.paramName == texList[j].paramName) {
                             texItem.target = texList[j];
@@ -49,8 +45,9 @@ module Pan3d {
                         mipmap = texItem.target.mipmap;
                     }
                     mipmap = 0
-
+                   console.log("this.scene3D.fileRoot + obj.url",this.scene3D.fileRoot + obj.url)
                     this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + obj.url, ($textres: TextureRes) => {
+                        console.log(obj.url,$textres);
                         texItem.textureRes = $textres;
                     }, 0, null, 0, mipmap);
                     this.dynamicTexList.push(texItem);
@@ -75,7 +72,7 @@ module Pan3d {
                         }
 
                     }
-                    var constItem: DynamicBaseConstItem = new DynamicBaseConstItem();
+                    var constItem: DynamicBaseConstItem = new DynamicBaseConstItem(this.scene3D);
                     constItem.setTargetInfo(target, targetName, obj.type);
 
                     if (obj.type == 1) {

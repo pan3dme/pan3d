@@ -23,7 +23,6 @@ module Pan3d {
                     $fun(this.dic[$url]);
                 }
                 this.dic[$url].useNum++;
- 
                 return;
             }
 
@@ -48,7 +47,8 @@ module Pan3d {
 
                 delete this._resDic[$url];
             } else {
-                LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($data: ArrayBuffer, _info: MaterialLoad) => { this.loadMaterialByteCom($data, _info) }, materialLoad);
+                LoadManager.getInstance().load($url, LoadManager.BYTE_TYPE, ($data: ArrayBuffer, _info: MaterialLoad) => { 
+                    this.loadMaterialByteCom($data, _info) }, materialLoad);
             }
 
 
@@ -161,6 +161,7 @@ module Pan3d {
 
         public loadDynamicTexUtil(material: MaterialParam): void {
          
+         
             var dynamicTexList: Array<DynamicTexItem> = material.dynamicTexList;
 
             for (var i: number = 0; i < dynamicTexList.length; i++) {
@@ -172,6 +173,7 @@ module Pan3d {
                     }, 0, dynamicTexList[i], 0, 1);
                 }
             }
+       
          
 
         }

@@ -75,3 +75,7 @@ function trimRight(s) {
     }
     return str;
 }
+
+function float2int(value) {
+    return value | 0;
+}

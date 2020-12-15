@@ -22,6 +22,7 @@ module Pan3d {
         }
         private loadSceneByUrl():void
         {
+            this.scene3D.camera3D.distance=500;
             var sceneRes:SceneRes=new SceneRes(this.scene3D);
             //10002
             //2014
@@ -30,6 +31,10 @@ module Pan3d {
                for (var i: number = 0; i < buildAry.length; i++) {
                 var itemObj: any = buildAry[i];
                 if (itemObj.type == BaseRes.PREFAB_TYPE) {
+           
+                    if( itemObj.id!=3){
+                        // continue;
+                   }
                     var itemDisplay: Display3DSprite =this.getBuildSprite(itemObj);
                     this.scene3D.addDisplay(itemDisplay);
                 } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
@@ -49,7 +54,21 @@ module Pan3d {
             var itemDisplay: Display3DSprite =   new Display3DSprite(this.scene3D);
             itemDisplay.setObjUrl(value.objsurl);
             itemDisplay.setMaterialUrl(value.materialurl,value.materialInfoArr);
-            console.log(value.materialurl);
+
+            itemDisplay.scaleX = value.scaleX;
+            itemDisplay.scaleY = value.scaleY;
+            itemDisplay.scaleZ = value.scaleZ;
+
+            itemDisplay.x = value.x;
+            itemDisplay.y = value.y;
+            itemDisplay.z = value.z;
+
+            itemDisplay.rotationX = value.rotationX;
+            itemDisplay.rotationY = value.rotationY;
+            itemDisplay.rotationZ = value.rotationZ;
+
+            itemDisplay.updateMatrix();
+           
         
             return itemDisplay;
         }

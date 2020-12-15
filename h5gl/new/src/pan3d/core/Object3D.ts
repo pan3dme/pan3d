@@ -3,9 +3,13 @@ module Pan3d {
         public rotationX: number;
         public rotationY: number;
         public rotationZ: number;
+        public scaleX: number;
+        public scaleY: number;
+        public scaleZ: number;
         constructor( ) {
             super();
         }
+   
       
     }
 }
