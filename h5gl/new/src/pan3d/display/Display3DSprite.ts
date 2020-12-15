@@ -12,41 +12,15 @@ module Pan3d {
         public objData: ObjData;
         protected initData(): void {
             this.scene3D.progrmaManager.registe(Display3DShader.Display3DShader, new Display3DShader(this.scene3D));
-            this.shader3D = this.scene3D.progrmaManager.getProgram(Display3DShader.Display3DShader);
-
-            /*
-            this.objData = new ObjData(this.scene3D);
-            this.objData.vertices = new Array();
-            this.objData.vertices.push(0, 0, 0);
-            this.objData.vertices.push(100, 0, 0);
-            this.objData.vertices.push(100, 0,100);
-
-            this.objData.uvs = new Array()
-            this.objData.uvs.push(0, 0);
-            this.objData.uvs.push(1, 0);
-            this.objData.uvs.push(0, 1);
-            this.objData.indexs = new Array();
-            this.objData.indexs.push(0, 1, 2);
-            this.objData.upToGpu()
-            */
-
-
+            this.shader3D = this.scene3D.progrmaManager.getProgram(Display3DShader.Display3DShader);         
         }
         public setObjUrl(value: any) {
-
             this.scene3D.objDataManager.getObjData(this.scene3D.fileRoot + value, ($obj: ObjData) => {
                 this.objData = $obj;
             });
 
         }
-        public baseTexture: TextureRes
-        public setPicUrl($str: string): void {
-
-            this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + $str, ($texture: TextureRes) => {
-                this.baseTexture = $texture
-            });
-        
-        }
+     
         private material: Material;
         public setMaterialUrl(value: string, $paramData: Array<any> = null): void {
             value = value.replace("_byte.txt", ".txt")
@@ -60,7 +34,7 @@ module Pan3d {
  
             }, null, true, MaterialShader.MATERIAL_SHADER, MaterialShader);
 
-            this.setPicUrl("content/finalscens/checkpoint/bamboo forest/dae/glound.jpg");
+        
 
         }
 
@@ -72,10 +46,7 @@ module Pan3d {
                 for (var i: number = 0; i < this.material.texList.length; i++) {
                     if (this.material.texList[i].isMain) {
                         context3D.setRenderTexture(this.shader3D, "baseTexture", this.material.texList[i].texture, 0);
-                 
                         if(this.materialParam&& this.materialParam.dynamicTexList&& this.materialParam.dynamicTexList.length){
-                   
-
                            context3D.setRenderTexture(this.shader3D, "baseTexture", this.materialParam.dynamicTexList[0].texture, 0);
                         }
                        
