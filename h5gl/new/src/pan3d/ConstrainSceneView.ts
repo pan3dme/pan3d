@@ -33,7 +33,7 @@ module Pan3d {
                 if (itemObj.type == BaseRes.PREFAB_TYPE) {
            
                     if( itemObj.id!=3){
-                        continue;
+                        // continue;
                    }
                     var itemDisplay: Display3DSprite =this.getBuildSprite(itemObj);
                     this.scene3D.addDisplay(itemDisplay);

@@ -28,7 +28,7 @@ module Pan3d {
             shader.paramAry = paramAry;
             shader.fragment = $material.shaderStr;
 
-            if (keyStr.search("/materialinstance/changjinghongpei/standard_byte.txt") != -1 && true) { //FIXME
+            if (keyStr.search("/materialinstance/changjinghongpei/standard_byte.txt") != -1 && false) { //FIXME
 
                 // this.outShader(shader.getVertexShaderString());
                 this.outShader(shader.fragment);
@@ -43,8 +43,19 @@ module Pan3d {
                     "varying vec3 v1;\n" +
                     "void main(void)\n" +
                     "{\n" +
-                        "vec4 infoUv = texture2D(fs1, v2.xy);\n" +
-                        "gl_FragColor =infoUv;\n" +
+                    "vec4 ft0 = texture2D(fs0,v0);\n" +
+                    "vec4 ft1 = texture2D(fs1,v2);\n" +
+                    "ft1.xyz = ft1.xyz * 2.0;\n" +
+                    "ft1.xyz = ft1.xyz * ft0.xyz;\n" +
+                    "vec4 ft2 = vec4(0,0,0,1);\n" +
+                    "ft2.xyz = ft1.xyz;\n" +
+                    "ft2.w = 1.0;\n" +
+                    "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;\n" +
+                    "ft1.x = ft1.x - fc[0].z;\n" +
+                    "ft1.x = fc[0].w * ft1.x;\n" +
+                    "ft1.x = clamp(ft1.x,0.0,1.0);\n" +
+                    "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);\n" +
+                    "gl_FragColor = ft2;\n" +
                     "}"
 
 
