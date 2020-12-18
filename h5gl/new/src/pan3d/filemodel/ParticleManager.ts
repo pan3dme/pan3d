@@ -44,6 +44,13 @@ module Pan3d {
         
             }
         }
+        public addResByte($url: string, $data: Pan3dByteArray): void {
+            if (!this.dic[$url]) {
+                var baseData: CombineParticleData = new CombineParticleData(this.scene3D);
+                baseData.setDataByte($data);
+                this.dic[$url] = baseData;
+            }
+        }
 
 
     }

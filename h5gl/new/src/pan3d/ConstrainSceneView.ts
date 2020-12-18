@@ -18,7 +18,7 @@ module Pan3d {
             this.renderContext = gl;
             this.scene3D = new Scene3D(this.renderContext);
             this.loadSceneByUrl();
-            this.playParticle("10018");
+            // this.playParticle("10018");
 
         }
         private loadSceneByUrl(): void {
@@ -93,10 +93,8 @@ module Pan3d {
             //"model/"+str +"_lyf.txt"
             url = "model/" + "10018" + "_lyf.txt";
             this.scene3D.groupDataManager.getGroupData(this.scene3D.fileRoot+ url, (groupRes: GroupRes) => {
-
                 for (var i: number = 0; i < groupRes.dataAry.length; i++) {
                     var item: GroupItem = groupRes.dataAry[i];
-    
                     var posV3d: Vector3D;
                     var rotationV3d: Vector3D;
                     var scaleV3d: Vector3D;
@@ -108,6 +106,7 @@ module Pan3d {
     
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
                        
+                      
                         var particle: CombineParticle =  this.scene3D.particleManager.getParticleByte(this.scene3D.fileRoot + item.particleUrl);
                         this.scene3D.particleManager.addParticle(particle);
                       
