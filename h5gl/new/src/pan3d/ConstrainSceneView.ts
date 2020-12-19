@@ -17,8 +17,8 @@ module Pan3d {
 
             this.renderContext = gl;
             this.scene3D = new Scene3D(this.renderContext);
-            this.loadSceneByUrl();
-            // this.playParticle("10018");
+            // this.loadSceneByUrl();
+            this.playParticle("10018");
 
         }
         private loadSceneByUrl(): void {

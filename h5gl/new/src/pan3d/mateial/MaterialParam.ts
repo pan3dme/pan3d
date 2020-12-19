@@ -12,7 +12,7 @@ module Pan3d {
     
 
         public setMaterial($materialTree: Material): void {
-            /*
+           
             this.material = $materialTree;
             this.materialUrl = $materialTree.url;
 
@@ -20,23 +20,23 @@ module Pan3d {
             this.dynamicConstList = new Array;
             this.setTexList();
             this.setConstList();
-            */
+           
         }
 
         public setLife($life: number): void {
-            /*
+      
             for (var i: number = 0; i < this.dynamicTexList.length; i++) {
                 if (this.dynamicTexList[i].isParticleColor) {
                     this.dynamicTexList[i].life = $life;
                 }
             }
-            */
+            
         }
 
 
 
         public setTexList(): void {
-            /*
+         
             var texList: Array<TexItem> = this.material.texList;
             for (var i: number = 0; i < texList.length; i++) {
                 var dyTex: DynamicTexItem;
@@ -55,49 +55,49 @@ module Pan3d {
                 }
 
             }
-            */
+          
         }
 
         public setConstList(): void {
-            /*
+           
             var constList: Array<ConstItem> = this.material.constList;
 
             for (var i: number = 0; i < constList.length; i++) {
                 var constItem: ConstItem = constList[i];
                 var dyCon: DynamicConstItem;
                 if (constItem.param0Type != 0) {
-                    dyCon = new DynamicConstItem;
+                    dyCon = new DynamicConstItem(this.scene3D);
                 
                     dyCon.setTargetInfo(constItem, constItem.paramName0, constItem.param0Type);
                     this.dynamicConstList.push(dyCon);
                 }
 
                 if (constItem.param1Type != 0) {
-                    dyCon = new DynamicConstItem;
+                    dyCon = new DynamicConstItem(this.scene3D);
      
                     dyCon.setTargetInfo(constItem, constItem.paramName1, constItem.param1Type);
                     this.dynamicConstList.push(dyCon);
                 }
 
                 if (constItem.param2Type != 0) {
-                    dyCon = new DynamicConstItem;
+                    dyCon = new DynamicConstItem(this.scene3D);
        
                     dyCon.setTargetInfo(constItem, constItem.paramName2, constItem.param2Type);
                     this.dynamicConstList.push(dyCon);
                 }
 
                 if (constItem.param3Type != 0) {
-                    dyCon = new DynamicConstItem;
+                    dyCon = new DynamicConstItem(this.scene3D);
                
                     dyCon.setTargetInfo(constItem, constItem.paramName3, constItem.param3Type);
                     this.dynamicConstList.push(dyCon);
                 }
             }
-*/
+ 
         }
 
         public setTextObj(ary: Array<any>): void {
-            /*
+        
             for (var i: number = 0; i < ary.length; i++) {
                 var obj: any = ary[i];
                 for (var j: number = 0; j < this.dynamicTexList.length; j++) {
@@ -111,12 +111,12 @@ module Pan3d {
                     }
                 }
             }
-            */
+        
 
         }
 
         public setConstObj(ary: Array<any>): void {
-            /*
+         
             for (var i: number = 0; i < ary.length; i++) {
                 var obj: any = ary[i];
                 for (var j: number = 0; j < this.dynamicConstList.length; j++) {
@@ -126,7 +126,7 @@ module Pan3d {
                     }
                 }
             }
-            */
+          
         }
 
 

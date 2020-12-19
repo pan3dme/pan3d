@@ -7,6 +7,10 @@ module Pan3d {
         public static time: number = 0;
 
         public static getTimer(): number {
+            if(isNaN(  TimeUtil.START_TIME)){
+                TimeUtil.START_TIME = Date.now();
+            }
+          
             return (Date.now() - TimeUtil.START_TIME) ;
         }
 
@@ -187,10 +191,7 @@ module Pan3d {
 
 
 
-        public static init(): void {
-            TimeUtil.START_TIME = Date.now();
-        }
-
+      
 
         public static addTimeTick($time: number, $fun: Function, $beginTime: number = 0): void {
             var timeFunTick: TimeFunTick = new TimeFunTick();

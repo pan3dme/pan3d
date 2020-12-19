@@ -1,10 +1,12 @@
 module Pan3d {
     export class ParticleManager extends ResGC {
+        private _time: number  ;
        
         public constructor(value:Scene3D)
         {
             super(value);
             this._particleList=new Array();
+            this._time=TimeUtil.getTimer();
         }
      
         public getParticleByte($url: string): CombineParticle {
@@ -52,6 +54,45 @@ module Pan3d {
             }
         }
 
+        public upFrame(): void {
+            this. updateTime();
+            this. updateRenderDic();
+    
+        }
+        public updateTime(): void {
+
+            var _tempTime: number = TimeUtil.getTimer();
+            var t: number = _tempTime - this._time;
+            for (var i: number = 0; i < this._particleList.length; i++) {
+                if (!this._particleList[i].sceneVisible) {
+                    continue;
+                }
+                this._particleList[i].updateTime(t);
+            }
+            this._time = _tempTime;
+
+        }
+        private updateRenderDic(): void {
+            for (var key in this.renderDic) {
+                var list: Array<CombineParticle> = this.renderDic[key];
+                if (list.length == 1) {
+                    list[0].update();
+                } else {
+                    var size: number = list[0].size;
+
+                    for (var j: number = 0; j < size; j++) {
+                        for (var i: number = 0; i < list.length; i++) {
+                            list[i].updateItem(j);
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+
+        
 
     }
 }

@@ -52,6 +52,7 @@ module Pan3d {
             for (var i: number = 0; i < this._displayList.length; i++) {
                 this._displayList[i].upFrame();
             }
+            this.particleManager.upFrame()
             this.displayBaseSprite ? this.displayBaseSprite.upFrame() : null;
 
         }

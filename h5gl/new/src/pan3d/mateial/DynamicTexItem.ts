@@ -6,7 +6,8 @@ module Pan3d {
         private _textureDynamic: WebGLTexture;
         //public textureRes:TextureRes;
         public isParticleColor: boolean;
-        // public curve: Curve;
+        public curve: Curve;
+        public  life:number  ;
         private _life: number;
 
         public constructor() {

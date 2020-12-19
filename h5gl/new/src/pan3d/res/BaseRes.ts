@@ -173,7 +173,8 @@ module Pan3d {
                 dataByte.length = size;
                 this._byte.readBytes(dataByte, 0, size)
             
-                // this.scene3D.particleManager.addResByte(url,dataByte);
+                this.scene3D.particleManager.addResByte(url,dataByte); 
+                
 
  
             }

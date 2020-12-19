@@ -64,7 +64,7 @@ module Pan3d {
         //特效配置等级显示  是否能显示
         private get cantUseEffectsLev(): boolean {
             
-            return true;
+            return false;
         }
         public updateTime(t: number): void {
             if (this.cantUseEffectsLev) {
