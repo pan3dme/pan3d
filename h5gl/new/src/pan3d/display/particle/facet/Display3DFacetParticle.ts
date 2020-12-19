@@ -22,7 +22,26 @@
             if (!this._lifeVisible) {
                 return;
             }
-            super.update();
+            this.renderTest();
+        }
+        private renderTest():void
+        {
+            var ctx:Context3D =this.scene3D.context3D;
+      
+            if (this.data.materialParam) {
+                ctx.setProgram(this.data.materialParam.program);
+            }
+            var tf: boolean = ctx.pushVa(this.data.objData.vertexBuffer);
+            if (!tf) {
+                ctx.setVaOffset(0, 3, this.data.objData.stride, 0);
+                ctx.setVaOffset(1, 2, this.data.objData.stride, 12);
+            }
+
+
+            ctx.setVcMatrix4fv(this.data.materialParam.shader, "vpMatrix3D", this.scene3D.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.data.materialParam.shader, "posMatrix", this.posMatrix.m);
+            ctx.drawCall(this.data.objData.indexBuffer, this.data.objData.treNum);
+
         }
 
         public reset(): void {
@@ -69,8 +88,8 @@
                 ctx.setVaOffset(1, 2, this.data.objData.stride, 12);
             }
 
-            //ctx.setVa(0, 3, this.data.objData.vertexBuffer);
-            //ctx.setVa(1, 2, this.data.objData.uvBuffer);
+            ctx.setVaOffset(0, 3, this.data.objData.stride, 0);
+            ctx.setVaOffset(1, 2, this.data.objData.stride, 12);
 
             this.setMaterialTexture();
 

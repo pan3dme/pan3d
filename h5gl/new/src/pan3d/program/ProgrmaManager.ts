@@ -28,67 +28,25 @@ module Pan3d {
             shader.paramAry = paramAry;
             shader.fragment = $material.shaderStr;
 
-            if (keyStr.search("/materialinstance/changjinghongpei/standard_byte.txt") != -1 && false) { //FIXME
+            if (keyStr.search("res/content/particleresources/mat") != -1 && true) { //FIXME
 
                 // this.outShader(shader.getVertexShaderString());
-                this.outShader(shader.fragment);
+               
 
                 shader.fragment =
-                    "precision mediump float;\n" +
-                    "uniform sampler2D fs0;\n" +
-                    "uniform sampler2D fs1;\n" +
-                    "uniform vec4 fc[3];\n" +
-                    "varying vec2 v0;\n" +
-                    "varying vec2 v2;\n" +
-                    "varying vec3 v1;\n" +
-                    "void main(void)\n" +
-                    "{\n" +
-                    "vec4 ft0 = texture2D(fs0,v0);\n" +
-                    "vec4 ft1 = texture2D(fs1,v2);\n" +
-                    "ft1.xyz = ft1.xyz * 2.0;\n" +
-                    "ft1.xyz = ft1.xyz * ft0.xyz;\n" +
-                    "vec4 ft2 = vec4(0,0,0,1);\n" +
-                    "ft2.xyz = ft1.xyz;\n" +
-                    "ft2.w = 1.0;\n" +
-                    "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;\n" +
-                    "ft1.x = ft1.x - fc[0].z;\n" +
-                    "ft1.x = fc[0].w * ft1.x;\n" +
-                    "ft1.x = clamp(ft1.x,0.0,1.0);\n" +
-                    "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);\n" +
-                    "gl_FragColor = ft2;\n" +
-                    "}"
+                "precision mediump float;\n"+
+                "varying vec2 v0;\n"+
+                "void main(void){\n"+
+                "\n"+
+                   "gl_FragColor = vec4(1,1,v0.x,1);\n"+
+                "\n"+
+                "}";
 
+                this.outShader(shader.getVertexShaderString());
+                this.outShader(shader.fragment);
 
-                // this.outShader(shader.getVertexShaderString());
-                // this.outShader( shader.fragment );
-
-                /*
-                "precision mediump float;\n" +
-                    "uniform sampler2D fs0;\n" +
-                    "uniform sampler2D fs1;\n" +
-                    "uniform vec4 fc[3];\n" +
-                    "varying vec2 v0;\n" +
-                    "varying vec2 v2;\n" +
-                    "varying vec3 v1;\n" +
-                    "void main(void){\n" +
-                    "\n" +
-                    "vec4 ft0 = texture2D(fs0,v0);\n" +
-                    "vec4 ft1 = texture2D(fs1,v2);\n" +
-                    "ft1.xyz = ft1.xyz * 2.0;\n" +
-                    "ft1.xyz = ft1.xyz * ft0.xyz;\n" +
-                    "vec4 ft2 = vec4(0,0,0,1);\n" +
-                    "ft2.xyz = ft1.xyz;\n" +
-                    "ft2.w = 1.0;\n" +
-                    "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;\n" +
-                    "ft1.x = ft1.x - fc[0].z;\n" +
-                    "ft1.x = fc[0].w * ft1.x;\n" +
-                    "ft1.x = clamp(ft1.x,0.0,1.0);\n" +
-                    "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);\n" +
-                    "gl_FragColor = ft2;\n" +
-                    "\n" +
-                    "}";
-                    */
-
+                 this.outShader( keyStr );
+ 
 
             }
 

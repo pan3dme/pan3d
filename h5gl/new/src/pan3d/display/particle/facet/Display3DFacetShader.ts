@@ -38,6 +38,22 @@
                 "   gl_Position = " + this.getMat4Str("viewMatrix3D") + "  * " + this.getMat4Str("camMatrix3D") + " * "
                 + this.getMat4Str("posMatrix3D") + " * " + this.getMat4Str("rotationMatrix3D") + " * v3Position;\n" +
                 "}"
+
+                $str =
+                "attribute vec3 v3Position;\n" +
+                "attribute vec2 v2TexCoord;\n" +
+        
+                "uniform mat4 vpMatrix3D;\n"+
+                "uniform mat4 posMatrix;\n"+
+          
+
+                "varying vec2 v0;\n" +
+
+                "void main(void){\n" +
+                "   v0 = v2TexCoord  ;\n" +
+                "   vec4 vt0= vec4(v3Position.xyz, 1.0);" +
+                "   gl_Position =vpMatrix3D*posMatrix* vt0;" +
+                "}"
             return $str;
         }
         getFragmentShaderString(): string {
