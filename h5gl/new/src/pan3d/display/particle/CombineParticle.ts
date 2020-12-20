@@ -99,11 +99,11 @@ module Pan3d {
         }
 
         public setPos($xpos: number, $ypos: number, $zpos: number): void {
-          
+
         }
 
         public setMulPos(ary: Array<Array<Array<number>>>): void {
-             
+
         }
 
         public set scaleX(value: number) {
@@ -167,16 +167,16 @@ module Pan3d {
             this.groupRotationMatrix.prependRotation($rotaion.x, Vector3D.X_AXIS);
 
         }
-        
+
 
         public addPrticleItem($dis: Display3DParticle): void {
             $dis.visible = false;
             $dis.setBind(this.bindVecter3d, this.bindMatrix, this.bindScale, this.invertBindMatrix, this.groupMatrix);
             this._displayAry.push($dis);
         }
-       
 
-       
+
+
 
         public updateTime(t: number): void {
             this._time += t;
@@ -213,18 +213,7 @@ module Pan3d {
                     this.bindMatrix.invertToMatrix(this.invertBindMatrix);
                 }
 
-                //if (this.hasMulItem){
-                //    if (this._bindTarget.getSunType() == 1){
-                //        var bt: any = this._bindTarget;
 
-                //        if (typeof bt.getMulSocket == 'function') {
-                //            for (var i: number = 0; i < this._displayAry.length; i++) {
-                //                bt.getMulSocket(this._displayAry[i].getMulBindList());
-                //            }
-                //        }
-
-                //    }
-                //}
 
             }
 
@@ -266,8 +255,8 @@ module Pan3d {
             return this._displayAry.length;
         }
 
-   
- 
+
+
 
     }
 }
