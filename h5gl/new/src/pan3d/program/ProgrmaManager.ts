@@ -28,7 +28,7 @@ module Pan3d {
             shader.paramAry = paramAry;
             shader.fragment = $material.shaderStr;
 
-            if (keyStr.search("res/content/particleresources/mat") != -1 && true) { //FIXME
+            if (keyStr.search("res/content/particleresources/mat") != -1 && false) { //FIXME
 
                 this.outShader(shader.fragment);
                
