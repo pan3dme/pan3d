@@ -30,19 +30,20 @@ module Pan3d {
 
             if (keyStr.search("res/content/particleresources/mat") != -1 && true) { //FIXME
 
-                // this.outShader(shader.getVertexShaderString());
+                this.outShader(shader.fragment);
                
 
-                shader.fragment =
-                "precision mediump float;\n"+
-                "uniform sampler2D fc0;\n" +
-                "varying vec2 v0;\n"+
-                "void main(void){\n"+
-                "\n"+
-                    "vec4 infoUv = texture2D(fc0, v0.xy);\n" +
-                   "gl_FragColor =infoUv;\n"+
-                "\n"+
-                "}";
+                // shader.fragment =
+                // "precision mediump float;\n"+
+                // "uniform sampler2D fc0;\n" +
+                // "uniform vec4 fc[1];\n"+
+                // "varying vec2 v0;\n"+
+                // "void main(void){\n"+
+                // "\n"+
+                //     "vec4 infoUv = texture2D(fc0, v0.xy);\n" +
+                //    "gl_FragColor =infoUv;\n"+
+                // "\n"+
+                // "}";
 
                 this.outShader(shader.getVertexShaderString());
                 this.outShader(shader.fragment);

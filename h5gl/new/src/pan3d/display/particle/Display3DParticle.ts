@@ -129,6 +129,21 @@ module Pan3d {
         }
 
         public setMaterialVc(): void {
+            if (!this.data.materialParam) {
+                return;
+            }
+            var dynamicConstList: Array<DynamicConstItem> = this.data.materialParam.dynamicConstList;
+            var t: number = this._time % (Scene3D.frameTime * this.data._life);
+            for (var i: number = 0; i < dynamicConstList.length; i++) {
+                dynamicConstList[i].update(t);
+            }
+            if (this.data.materialParam.material.fcNum <= 0) {
+                return;
+            }
+            t = t * this.data.materialParam.material.timeSpeed;
+            this.data.materialParam.material.update(t);
+            var ctx:Context3D=this.scene3D.context3D;
+            ctx.setVc4fv(this.data.materialParam.shader, "fc", this.data.materialParam.material.fcData);
 
 
         }
