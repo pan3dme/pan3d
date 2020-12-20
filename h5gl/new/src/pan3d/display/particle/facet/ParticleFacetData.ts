@@ -81,29 +81,13 @@
             this.objData.stride = 5 * 4;
             var ctx:Context3D=this.scene3D.context3D;
             this.objData.vertexBuffer = ctx.uploadBuff3D(verterList);
-            //this.objData.uvBuffer = ctx.uploadBuff3D(uvAry);
             this.objData.indexBuffer = ctx.uploadIndexBuff3D(indexs);
             this.objData.treNum = indexs.length;
         }
-
-        public initVcData(): void {
-            this.vcmatData = new Float32Array(Display3DFacetShader.getVcSize() * 16);
-
-
-        }
-
-        public setFloat32Vec(key: string, ary: Array<number>): void {
-            var idxary: Array<number> = Display3DFacetShader.shader_vec4[key];
-            var idx: number = idxary[0] * 16 + idxary[1] * 4;
-            this.vcmatData.set(ary, idx);
-        }
-        public setFloat32Mat(key: string, ary: Float32Array): void {
-            var idx: number = Display3DFacetShader.shader_mat4[key] * 16;
-            this.vcmatData.set(ary, idx);
-        }
+ 
 
         public regShader(): void {
-            //var shader: Display3DFacetShader = new Display3DFacetShader();
+       
             this.materialParam.shader = this.scene3D.progrmaManager.getMaterialProgram(Display3DFacetShader.Display3D_Facet_Shader,
                 Display3DFacetShader, this.materialParam.material);
             this.materialParam.program = this.materialParam.shader.program;

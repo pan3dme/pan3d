@@ -35,10 +35,12 @@ module Pan3d {
 
                 shader.fragment =
                 "precision mediump float;\n"+
+                "uniform sampler2D fc0;\n" +
                 "varying vec2 v0;\n"+
                 "void main(void){\n"+
                 "\n"+
-                   "gl_FragColor = vec4(1,0,0,1);\n"+
+                    "vec4 infoUv = texture2D(fc0, v0.xy);\n" +
+                   "gl_FragColor =infoUv;\n"+
                 "\n"+
                 "}";
 

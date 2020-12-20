@@ -99,16 +99,11 @@ module Pan3d {
         }
 
         public setPos($xpos: number, $ypos: number, $zpos: number): void {
-            this.bindVecter3d.setTo($xpos, $ypos, $zpos);
-            for (var i: number = 0; i < this._displayAry.length; i++) {
-                this._displayAry[i].resetPos();
-            }
+          
         }
 
         public setMulPos(ary: Array<Array<Array<number>>>): void {
-            for (var i: number = 0; i < this._displayAry.length; i++) {
-                this._displayAry[i].resetMulPos(ary);
-            }
+             
         }
 
         public set scaleX(value: number) {
