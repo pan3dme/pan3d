@@ -1,6 +1,6 @@
 module Pan3d {
     export class CombineParticleData extends ResCount {
-         
+
         public maxTime: number;
         public dataAry: Array<ParticleData>;
         public getCombineParticle(): CombineParticle {
@@ -13,7 +13,7 @@ module Pan3d {
             }
 
             particle.sourceData = this;
- 
+
 
             return particle;
         }
@@ -26,27 +26,30 @@ module Pan3d {
             this.maxTime = 0;
             this.dataAry = new Array;
             for (var i: number = 0; i < len; i++) {
-            
 
                 var $particleType: number = byte.readInt();
-
                 var pdata: ParticleData = this.getParticleDataType($particleType);
-                if(pdata){
+                if (pdata) {
                     pdata.version = version;
                     pdata.setAllByteInfo(byte);
-    
-                    this.dataAry.push(pdata);
-    
+                    if($particleType==4){
+                        this.dataAry.push(pdata);
+                    }
+               
                     if (pdata.timelineData.maxFrameNum > this.maxTime) {
                         this.maxTime = pdata.timelineData.maxFrameNum;
                     }
-    
-                    i=len;
-                }else{
-                    throw new Error("没有粒子对象，需要补充"+$particleType);
+                    if($particleType==4){
+                    
+                        i=len;
+                    }
+
+                } else {
+                    throw new Error("没有粒子对象，需要补充" + $particleType);
                     return;
+
                 }
-              
+
 
             }
 
@@ -64,7 +67,7 @@ module Pan3d {
                     }
                 case 18:
                     {
-                        // pdata = new ParticleBallData();
+                        pdata = new ParticleBallData(this.scene3D);
                         break;
                     }
                 case 3:
@@ -81,7 +84,7 @@ module Pan3d {
                 case 4:
                 case 7:
                     {
-                        // pdata = new ParticleModelData();
+                        pdata = new ParticleModelData(this.scene3D);
                         break;
                     }
                 case 8:

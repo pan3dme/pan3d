@@ -79,3 +79,13 @@ function trimRight(s) {
 function float2int(value) {
     return value | 0;
 }
+function hexToArgb(expColor: number, is32: boolean = true, color: Pan3d.Vector3D = null): Pan3d. Vector3D {
+    if (!color) {
+        color = new Pan3d. Vector3D();
+    }
+    color.w = is32 ? (expColor >> 24) & 0xFF : 0;
+    color.x = (expColor >> 16) & 0xFF;
+    color.y = (expColor >> 8) & 0xFF;
+    color.z = (expColor) & 0xFF;
+    return color;
+}

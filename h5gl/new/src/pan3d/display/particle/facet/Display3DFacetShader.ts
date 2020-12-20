@@ -15,19 +15,21 @@
                 "uniform mat4 viewMatrix;\n"+
                 "uniform mat4 camMatrix;\n"+
                 "uniform mat4 modeMatrix;\n"+
- 
+                "uniform mat4 rotMatrix;\n"+
+                "uniform vec2 uvMove;\n"+
+
                 "varying vec2 v0;\n" +
 
                 "void main(void){\n" +
-                "   v0 = v2TexCoord  ;\n" +
+                "   v0 = v2TexCoord+uvMove  ;\n" +
                 "   vec4 vt0= vec4(v3Position.xyz, 1.0);" +
-                "   gl_Position =viewMatrix*camMatrix*modeMatrix* vt0;" +
+                "   gl_Position =viewMatrix*camMatrix*modeMatrix*rotMatrix* vt0;" +
                 "}"
             return $str;
         }
         getFragmentShaderString(): string {
             var $str: string =
-                " precision mediump float;\n" +
+                "precision mediump float;\n" +
                 "uniform sampler2D tex;\n" +
                 "varying vec2 v0;\n" +
 

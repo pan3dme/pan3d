@@ -1,9 +1,9 @@
 ﻿module Pan3d {
     export class Display3DFacetParticle extends Display3DParticle {
-        private uvMove: Vector2D;
+        private uvMove:Float32Array;
         constructor(value: Scene3D) {
             super(value);
-            this.uvMove = new Vector2D();
+            this.uvMove = new Float32Array(2);
         }
         public get facetdata(): ParticleFacetData {
             return <ParticleFacetData>this.data;
@@ -17,6 +17,9 @@
             this.setViewCamModeMatr3d();
             this.updateRotaionMatrix();
             this.updateUV();
+            var ctx: Context3D = this.scene3D.context3D;
+            ctx.setVcMatrix4fv(this.shader,"rotMatrix",this._rotationMatrix.m);
+            ctx.setVc2fv(this.shader,"uvMove",this.uvMove);
           
         }
         private updateRotaionMatrix():void
@@ -39,6 +42,7 @@
             if (this.data._isZiZhuan) {
                 this.timeline.applySelfRotation(this._rotationMatrix, this.data._ziZhuanAngly);
             }
+       
 
         }
         public updateUV(): void {
@@ -47,11 +51,12 @@
             currentFrame = currentFrame > this.facetdata._maxAnimTime ? this.facetdata._maxAnimTime : currentFrame;
             currentFrame = (currentFrame / this.data._animInterval) % (this.data._animLine * this.data._animRow);
 
-            this.uvMove.x = float2int(currentFrame % this.data._animLine) / this.data._animLine + this._time / Scene3D.frameTime * this.data._uSpeed;
-            this.uvMove.y = float2int(currentFrame / this.data._animLine) / this.data._animRow + this._time / Scene3D.frameTime * this.data._vSpeed;
-
+            this.uvMove[0] = float2int(currentFrame % this.data._animLine) / this.data._animLine + this._time / Scene3D.frameTime * this.data._uSpeed;
+            this.uvMove[1] = float2int(currentFrame / this.data._animLine) / this.data._animRow + this._time / Scene3D.frameTime * this.data._vSpeed;
+        
         }
         private  inverBind():void {
+
         }
         public setVa(): void {
             var ctx: Context3D = this.scene3D.context3D;
@@ -63,6 +68,8 @@
                 ctx.setVaOffset(0, 3, this.data.objData.stride, 0);
                 ctx.setVaOffset(1, 2, this.data.objData.stride, 12);
             }
+           
+        
             ctx.drawCall(this.data.objData.indexBuffer, this.data.objData.treNum);
         }
 
