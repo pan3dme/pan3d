@@ -44,13 +44,13 @@ module Pan3d {
 
         public _uvType: number;
 
-        public _timeVec: Array<number>;
-        public _addSpeedVec: Array<number>;
+        public _timeVec: Vector3D;
+        public _addSpeedVec: Vector3D;
         public _wordPosVec: Array<number>;
         public _caramPosVec: Array<number>;
 
-        public _scaleVec: Array<number>;
-        public _scaleCtrlVec: Array<number>;
+        public _scaleVec: Vector3D;
+        public _scaleCtrlVec:Vector3D;
 
         public _animCtrlVec: Array<number>;
         public _uvCtrlVec: Array<number>;
@@ -146,25 +146,29 @@ module Pan3d {
 
             if (this._acceleration != 0 || this._addforce.x != 0 || this._addforce.y != 0 || this._addforce.z != 0) {
                 this._needAddSpeed = true;
-                this._addSpeedVec = [this._addforce.x, this._addforce.y, this._addforce.z];
+                this._addSpeedVec = new Vector3D(this._addforce.x, this._addforce.y, this._addforce.z);
             } else {
                 this._needAddSpeed = false;
+                this._addSpeedVec = new Vector3D();////需核对
             }
 
 
             if (this._toscale != 0 || this._waveform.x != 0 || this._waveform.y != 0) {
                 this._needScale = true;
-                this._scaleVec = [this._toscale, this._waveform.x, this._waveform.y, this._beginScale];
+                this._scaleVec = new Vector3D(this._toscale, this._waveform.x, this._waveform.y, this._beginScale);
 
-                this._scaleCtrlVec = [this._widthFixed ? 0 : 1, this._heightFixed ? 0 : 1, this._paticleMaxScale - 1, this._paticleMinScale - 1];
+                this._scaleCtrlVec = new Vector3D(this._widthFixed ? 0 : 1, this._heightFixed ? 0 : 1, this._paticleMaxScale - 1, this._paticleMinScale - 1);
             } else {
+                this._scaleVec = new Vector3D(1,1,1,1);////需核对
+                this._scaleCtrlVec = new Vector3D(1,1,1,1);////需核对
+
                 this._needScale = false;
             }
 
 
             super.setAllByteInfo($byte);
 
-            this._timeVec = [0, this._acceleration, this._life, this._isLoop ? 1 : -1];
+            this._timeVec = new Vector3D(0, this._acceleration, this._life, this._isLoop ? 1 : -1);
 
             if (this._is3Dlizi) {
                 this._wordPosVec = [0, 0, 0];
@@ -521,18 +525,18 @@ module Pan3d {
         public initVcData(): void {
             this.vcmatData = new Float32Array(Display3DBallShader.getVcSize() * 16);
 
-            this.setFloat32Vec("time", this._timeVec);
+            this.setFloat32Vec("time", [this._timeVec.x,this._timeVec.y,this._timeVec.z,this._timeVec.w]);
 
             if (this._needAddSpeed) {
                 //Scene_data.context3D.setVc3fv(this.data.materialParam.shader, "force", this.balldata._addSpeedVec);
-                this.setFloat32Vec("force", this._addSpeedVec);
+                this.setFloat32Vec("force", [this._addSpeedVec.x,this._addSpeedVec.y,this._addSpeedVec.z]);
             }
 
             if (this._needScale) {
                 //Scene_data.context3D.setVc4fv(this.data.materialParam.shader, "scale", this.balldata._scaleVec);
                 //Scene_data.context3D.setVc4fv(this.data.materialParam.shader, "scaleCtrl", this.balldata._scaleCtrlVec);
-                this.setFloat32Vec("scale", this._scaleVec);
-                this.setFloat32Vec("scaleCtrl", this._scaleCtrlVec);
+                this.setFloat32Vec("scale", [this._scaleVec.x,this._scaleVec.y,this._scaleVec.z,this._scaleVec.w]);
+                this.setFloat32Vec("scaleCtrl", [this._scaleCtrlVec.x,this._scaleCtrlVec.y,this._scaleCtrlVec.z,this._scaleCtrlVec.w]);
             }
 
             if (this._uvType == 1) {

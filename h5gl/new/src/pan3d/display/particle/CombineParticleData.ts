@@ -31,7 +31,7 @@ module Pan3d {
                         this.maxTime = pdata.timelineData.maxFrameNum;
                     }
                     if ($particleType == 4) {
-                        i = len;
+                        // i = len;
                     }
                 } else {
                     throw new Error("没有粒子对象，需要补充" + $particleType);

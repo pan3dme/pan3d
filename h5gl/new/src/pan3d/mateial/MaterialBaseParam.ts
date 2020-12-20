@@ -32,7 +32,7 @@ module Pan3d {
             for (var i: number = 0; i < $ary.length; i++) {
                 var obj: any = $ary[i];
                 if (obj.type == 0) {
-                    var texItem: DynamicBaseTexItem = new DynamicBaseTexItem();
+                    var texItem: DynamicBaseTexItem = new DynamicBaseTexItem(this.scene3D);
                     texItem.paramName = obj.name;
                     for (var j: number = 0; j < texList.length; j++) {
                         if (texItem.paramName == texList[j].paramName) {

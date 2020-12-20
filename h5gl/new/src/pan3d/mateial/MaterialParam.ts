@@ -41,14 +41,14 @@ module Pan3d {
             for (var i: number = 0; i < texList.length; i++) {
                 var dyTex: DynamicTexItem;
                 if (texList[i].isParticleColor) {
-                    dyTex = new DynamicTexItem;
+                    dyTex = new DynamicTexItem(this.scene3D);
                     dyTex.target = texList[i];
                     dyTex.paramName = texList[i].paramName;
                     dyTex.initCurve(4);
                     this.dynamicTexList.push(dyTex);
                     dyTex.isParticleColor = true;
                 } else if (texList[i].isDynamic) {
-                    dyTex = new DynamicTexItem;
+                    dyTex = new DynamicTexItem(this.scene3D);
                     dyTex.target = texList[i];
                     dyTex.paramName = texList[i].paramName;
                     this.dynamicTexList.push(dyTex);
@@ -101,11 +101,12 @@ module Pan3d {
             for (var i: number = 0; i < ary.length; i++) {
                 var obj: any = ary[i];
                 for (var j: number = 0; j < this.dynamicTexList.length; j++) {
-                    if (this.dynamicTexList[j].paramName == obj.paramName) {
-                        if (this.dynamicTexList[j].isParticleColor) {
-                            this.dynamicTexList[j].curve.setData(obj.curve);
+                    var dynamicTexItem:DynamicTexItem=this.dynamicTexList[j];
+                    if (dynamicTexItem.paramName == obj.paramName) {
+                        if (dynamicTexItem.isParticleColor) {
+                            dynamicTexItem.curve.setData(obj.curve);
                         } else {
-                            this.dynamicTexList[j].url = obj.url;
+                            dynamicTexItem.url = obj.url;
                         }
                         break;
                     }

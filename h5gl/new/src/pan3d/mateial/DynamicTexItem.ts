@@ -10,15 +10,12 @@ module Pan3d {
         public  life:number  ;
         private _life: number;
 
-        public constructor() {
-            super();
-        }
-
+    
         
 
         public initCurve($type: number): void {
-            // this.curve = new Curve
-            // this.curve.type = $type;
+            this.curve = new Curve(this.scene3D);
+            this.curve.type = $type;
         }
 
         public get texture(): WebGLTexture {
