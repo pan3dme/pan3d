@@ -92,7 +92,7 @@ module Pan3d {
         public playParticle(url: string): void {
             //"model/"+str +"_lyf.txt"
             url = "model/" + "10018" + "_lyf.txt";
-            url = "model/" + "10017" + "_lyf.txt";
+            // url = "model/" + "10017" + "_lyf.txt";
             this.scene3D.groupDataManager.getGroupData(this.scene3D.fileRoot+ url, (groupRes: GroupRes) => {
                 for (var i: number = 0; i < groupRes.dataAry.length; i++) {
                     var item: GroupItem = groupRes.dataAry[i];

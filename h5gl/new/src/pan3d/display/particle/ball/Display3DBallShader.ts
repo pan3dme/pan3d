@@ -103,11 +103,11 @@ module Pan3d {
 
             if (needRotation > 0) {
                 defineBaseStr += "attribute vec2 rotation;\n";
-                // rotationStr = "float angle = rotation.x + rotation.y * ctime;\n" +
-                //     "vec4 np = vec4(sin(angle), cos(angle), 0, 0);\n" +
-                //     "np.z = np.x * pos.y + np.y * pos.x;\n" +
-                //     "np.w = np.y * pos.y - np.x * pos.x;\n" +
-                //     "pos.xy = np.zw;\n";
+                rotationStr = "float angle = rotation.x + rotation.y * ctime;\n" +
+                    "vec4 np = vec4(sin(angle), cos(angle), 0, 0);\n" +
+                    "np.z = np.x * pos.y + np.y * pos.x;\n" +
+                    "np.w = np.y * pos.y - np.x * pos.x;\n" +
+                    "pos.xy = np.zw;\n";
             }
 
             mainBaseStr = "vec4 pos = vec4(vPosition.xyz,1.0);\n" +
