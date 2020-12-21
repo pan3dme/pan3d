@@ -28,7 +28,7 @@ module Pan3d {
             shader.paramAry = paramAry;
             shader.fragment = $material.shaderStr;
 
-            if (keyStr.search("Display3DBallShader_") != -1 && true) { //FIXME
+            if (keyStr.search("Display3DBallShader_") != -1 && false) { //FIXME
 
                 this.outShader(shader.getVertexShaderString());
                 this.outShader(shader.fragment);
