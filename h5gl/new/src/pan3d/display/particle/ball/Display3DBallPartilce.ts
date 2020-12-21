@@ -69,6 +69,9 @@ module Pan3d {
             ctx.setVaOffset(1, 3, this.data.objData.stride, 12);
             ctx.setVaOffset(2, 4, this.data.objData.stride, 24);
             ctx.setVaOffset(3, 3, this.data.objData.stride, 40);
+            if (this.balldata._needSelfRotation) {
+                ctx.setVaOffset(4, 2, this.data.objData.stride, 52);
+            }
             ctx.drawCall(this.data.objData.indexBuffer, this.data.objData.treNum);
           
 
