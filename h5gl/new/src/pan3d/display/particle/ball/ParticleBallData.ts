@@ -556,9 +556,11 @@ module Pan3d {
             var shaderParameAry: Array<number> = this.getShaderParam();
             //var shader: Display3DBallShader = new Display3DBallShader()
 
+            /*
             this.materialParam.shader =this.scene3D.progrmaManager.getMaterialProgram(Display3DBallShader.Display3D_Ball_Shader,
                 Display3DBallShader, this.materialParam.material, shaderParameAry);
             this.materialParam.program = this.materialParam.shader.program;
+            */
         }
 
         public getShaderParam(): Array<number> {
