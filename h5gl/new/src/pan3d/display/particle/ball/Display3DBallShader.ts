@@ -102,18 +102,26 @@ module Pan3d {
         }
         getFragmentShaderString(): string {
             var $str: string =
-            "precision mediump float;\n" +
-            "uniform sampler2D fs0;\n"+
-            "uniform sampler2D fs1;\n"+
-            "varying vec2 v0;" +
-            "varying vec2 v1;" +
+            "precision mediump float;\n"+
+ "uniform sampler2D fs0;\n"+
+ "uniform sampler2D fs1;\n"+
+ "uniform vec4 fc[1];\n"+
+ "varying vec2 v0;\n"+
+ "varying vec2 v1;\n"+
+ "void main(void){\n"+
+ "\n"+
+ "vec4 ft0 = texture2D(fs0,v0);\n"+
+ "ft0.xyz *= ft0.w;\n"+
+ "vec4 ft1 = texture2D(fs1,v1);\n"+
+ "ft1.xyz = ft1.xyz * ft1.w;\n"+
+ "vec4 ft2 = ft0 * fc[0];\n"+
+ "ft0 = ft2 * ft1;\n"+
+ "ft1.xyz = ft0.xyz;\n"+
+ "ft1.w = ft0.w;\n"+
+ "gl_FragColor = ft1;\n"+
+ "\n"+
+ "}"
 
-            "void main(void)\n" +
-            "{\n" +
-            "vec4 ft0 = texture2D(fs0,v0);\n"+
-
-            "gl_FragColor =vec4(1,0,0,1);\n" +
-            "}";
 
             return $str
         }

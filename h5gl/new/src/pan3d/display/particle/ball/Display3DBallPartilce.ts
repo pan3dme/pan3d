@@ -29,25 +29,7 @@ module Pan3d {
 
         }
       
-
-        public setMaterialTexture(): void {
-          
-            if (!this.data.materialParam) {
-                return;
-            }
-            var ctx:Context3D=this.scene3D.context3D;
-            var texVec: Array<TexItem> = this.data.materialParam.material.texList;
-            for (var i: number = 0; i < texVec.length; i++) {
-                if (texVec[i].isDynamic) {
-                    continue;
-                }
-                ctx.setRenderTexture(this.data.materialParam.shader, texVec[i].name, texVec[i].texture, texVec[i].id, true);
-            }
-            var texDynamicVec: Array<DynamicTexItem> = this.data.materialParam.dynamicTexList;
-            for (var i: number = 0; i < texDynamicVec.length; i++) {
-                ctx.setRenderTexture(this.data.materialParam.shader, texDynamicVec[i].target.name, texDynamicVec[i].texture, texDynamicVec[i].target.id, true);
-            }
-        }
+ 
 
        
         public get balldata(): ParticleBallData {
