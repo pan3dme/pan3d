@@ -511,41 +511,9 @@ module Pan3d {
 
         }
 
-        public setFloat32Vec(key: string, ary: Array<number>): void {
-            var idxary: Array<number> = Display3DBallShader.shader_vec4[key];
-            var idx: number = idxary[0] * 16 + idxary[1] * 4;
-            //var idx:number = idxary[0] * 4;
-            this.vcmatData.set(ary, idx);
-        }
-        public setFloat32Mat(key: string, ary: Float32Array): void {
-            var idx: number = Display3DBallShader.shader_mat4[key] * 16;
-            this.vcmatData.set(ary, idx);
-        }
-
+        
         public initVcData(): void {
-            this.vcmatData = new Float32Array(Display3DBallShader.getVcSize() * 16);
-
-            this.setFloat32Vec("time", [this._timeVec.x,this._timeVec.y,this._timeVec.z,this._timeVec.w]);
-
-            if (this._needAddSpeed) {
-                //Scene_data.context3D.setVc3fv(this.data.materialParam.shader, "force", this.balldata._addSpeedVec);
-                this.setFloat32Vec("force", [this._addSpeedVec.x,this._addSpeedVec.y,this._addSpeedVec.z]);
-            }
-
-            if (this._needScale) {
-                //Scene_data.context3D.setVc4fv(this.data.materialParam.shader, "scale", this.balldata._scaleVec);
-                //Scene_data.context3D.setVc4fv(this.data.materialParam.shader, "scaleCtrl", this.balldata._scaleCtrlVec);
-                this.setFloat32Vec("scale", [this._scaleVec.x,this._scaleVec.y,this._scaleVec.z,this._scaleVec.w]);
-                this.setFloat32Vec("scaleCtrl", [this._scaleCtrlVec.x,this._scaleCtrlVec.y,this._scaleCtrlVec.z,this._scaleCtrlVec.w]);
-            }
-
-            if (this._uvType == 1) {
-                //Scene_data.context3D.setVc3fv(this.data.materialParam.shader, "animCtrl", this.balldata._animCtrlVec);
-                this.setFloat32Vec("animCtrl", this._animCtrlVec);
-            } else if (this._uvType == 2) {
-                //Scene_data.context3D.setVc2fv(this.data.materialParam.shader, "uvCtrl", this.balldata._uvCtrlVec);
-                this.setFloat32Vec("uvCtrl", this._uvCtrlVec);
-            }
+    
         }
 
         public regShader(): void {
@@ -554,13 +522,12 @@ module Pan3d {
             }
 
             var shaderParameAry: Array<number> = this.getShaderParam();
-            //var shader: Display3DBallShader = new Display3DBallShader()
-
-            /*
+          
+        
             this.materialParam.shader =this.scene3D.progrmaManager.getMaterialProgram(Display3DBallShader.Display3D_Ball_Shader,
                 Display3DBallShader, this.materialParam.material, shaderParameAry);
-            this.materialParam.program = this.materialParam.shader.program;
-            */
+ 
+        
         }
 
         public getShaderParam(): Array<number> {

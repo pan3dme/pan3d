@@ -15,7 +15,7 @@ module Pan3d {
         public update():void
         {
             if(this.data.materialParam != null){
-                this.data.materialParam.shader=this.shader;
+                  this.data.materialParam.shader=this.shader;
             }
             super.update();
         }

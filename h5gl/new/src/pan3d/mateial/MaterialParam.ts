@@ -3,7 +3,7 @@ module Pan3d {
         public material: Material;
         public materialUrl: string;
 
-        public program: WebGLProgram;
+        // public program: WebGLProgram;
         public shader: Shader3D;
         public dynamicTexList:Array<DynamicTexItem>;
         public dynamicConstList:Array<DynamicConstItem>;

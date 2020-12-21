@@ -60,9 +60,7 @@
         }
         public setVa(): void {
             var ctx: Context3D = this.scene3D.context3D;
-            if (this.data.materialParam) {
-                ctx.setProgram(this.data.materialParam.program);
-            }
+            
             var tf: boolean = ctx.pushVa(this.data.objData.vertexBuffer);
             if (!tf) {
                 ctx.setVaOffset(0, 3, this.data.objData.stride, 0);

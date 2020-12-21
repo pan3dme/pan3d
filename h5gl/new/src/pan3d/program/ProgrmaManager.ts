@@ -33,20 +33,12 @@ module Pan3d {
                 this.outShader(shader.getVertexShaderString());
             
                 shader.fragment =
-                    "precision mediump float;\n" +
-                    "uniform sampler2D fs0;\n" +
-                    "uniform sampler2D fs1;\n" +
-                    "varying vec2 v0;\n" +
-                    "varying vec2 v1;\n" +
-                    "uniform vec4 fc[1];\n"+
-                    "void main(void){\n" +
-              
-                    "vec4 ft0 = texture2D(fs0,v0);\n" +
-                    "vec4 ft1 = texture2D(fs1,v0);\n" +
-
-                    "gl_FragColor =ft0;\n" +
-           
-                    "}";
+                "precision mediump float;\n" +
+                "varying vec2 v_texCoord;\n" +
+                "void main(void)\n" +
+                "{\n" +
+                "gl_FragColor =vec4(1.0,0.0,0,1.0);\n" +
+                "}"
                     this.outShader(shader.fragment);
                  
  

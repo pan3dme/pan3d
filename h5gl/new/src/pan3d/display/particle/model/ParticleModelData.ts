@@ -47,7 +47,7 @@ module Pan3d {
         
             this.materialParam.shader = this.scene3D.progrmaManager.getMaterialProgram(Display3DFacetShader.Display3D_Facet_Shader,
                 Display3DFacetShader, this.materialParam.material);
-            this.materialParam.program = this.materialParam.shader.program;
+        
         }
 
       
