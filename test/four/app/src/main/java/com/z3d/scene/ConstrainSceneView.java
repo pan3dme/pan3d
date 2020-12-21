@@ -210,7 +210,7 @@ public class ConstrainSceneView extends ViewGroup {
     public void   playParticle(String url)
     {
         //"model/"+str +"_lyf.txt"
-        url="model/"+"10018" +"_lyf.txt";
+        url="model/"+"10017" +"_lyf.txt";
         mainScene3D.groupDataManager.getGroupData(url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {

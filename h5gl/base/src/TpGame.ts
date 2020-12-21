@@ -40,7 +40,8 @@ class TpGame {
     }
     private loadBaseLyf(): void
     {
-       var url: String  = "model/" + "10018" + "_lyf.txt";
+    //    var url: String  = "model/" + "10018" + "_lyf.txt";
+       var url: String  = "model/" + "10017" + "_lyf.txt";
         GroupDataManager.getInstance().getGroupData( Scene_data.fileRoot + url, function (groupRes) {
             
             for (var i: number = 0; i < groupRes.dataAry.length; i++) {
