@@ -26,12 +26,14 @@ module Pan3d {
                 if (pdata) {
                     pdata.version = version;
                     pdata.setAllByteInfo(byte);
-                    this.dataAry.push(pdata);
+                
                     if (pdata.timelineData.maxFrameNum > this.maxTime) {
                         this.maxTime = pdata.timelineData.maxFrameNum;
                     }
+                    this.dataAry.push(pdata);
                     if ($particleType == 18) {
-                        // i = len;
+                     
+                        //  i = len;
                     }
                 } else {
                     throw new Error("没有粒子对象，需要补充" + $particleType);

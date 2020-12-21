@@ -183,13 +183,10 @@ module Pan3d {
             if (!this._displayAry) {
                 return;
             }
-
             for (var i: number = 0; i < this._displayAry.length; i++) {
                 this._displayAry[i].updateTime(this._time);
             }
-
             this.updateBind();
-
             if (this._time >= this._maxTime) {
                 this.dispatchEvent(new BaseEvent(BaseEvent.COMPLETE));
             }
@@ -236,10 +233,10 @@ module Pan3d {
             for (var i: number = 0; i < this._displayAry.length; i++) {
 
                 if(this._displayAry[i] instanceof Display3DBallPartilce){
-                   
+                  
                 }
+               
                 this._displayAry[i].update();
-                
             }
         }
 

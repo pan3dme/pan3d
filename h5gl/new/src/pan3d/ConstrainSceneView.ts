@@ -22,7 +22,7 @@ module Pan3d {
 
         }
         private loadSceneByUrl(): void {
-            this.scene3D.camera3D.distance = 500;
+            this.scene3D.camera3D.distance = 1500;
             var sceneRes: SceneRes = new SceneRes(this.scene3D);
             //10002
             //2014

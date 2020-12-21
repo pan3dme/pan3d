@@ -28,17 +28,14 @@ module Pan3d {
             shader.paramAry = paramAry;
             shader.fragment = $material.shaderStr;
 
-            if (keyStr.search("com/res/content/particleresources/materials/m_ef_par_byte") != -1 && true) { //FIXME
+            if (keyStr.search("Display3DBallShader_") != -1 && true) { //FIXME
 
                 this.outShader(shader.getVertexShaderString());
-            
-                shader.fragment =
-                "precision mediump float;\n" +
-                "varying vec2 v_texCoord;\n" +
-                "void main(void)\n" +
-                "{\n" +
-                "gl_FragColor =vec4(1.0,0.0,0,1.0);\n" +
-                "}"
+                this.outShader(shader.fragment);
+
+                console.log("修改后-------")
+                shader.fragment =shader.getFragmentShaderString();
+               
                     this.outShader(shader.fragment);
                  
  

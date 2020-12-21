@@ -18,7 +18,7 @@ module Pan3d {
             this.camMatrix3D=new Matrix3D();
             this.viewMatrix =new Matrix3D();
             this.modelMatrix =new Matrix3D();
-            this.distance=100;
+            this.distance=500;
             this.sceneViewHW=100;
             this.fovw=300;
             this.fovh=500;
