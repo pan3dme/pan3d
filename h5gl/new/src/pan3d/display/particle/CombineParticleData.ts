@@ -30,7 +30,7 @@ module Pan3d {
                     if (pdata.timelineData.maxFrameNum > this.maxTime) {
                         this.maxTime = pdata.timelineData.maxFrameNum;
                     }
-                    if ($particleType == 4) {
+                    if ($particleType == 18) {
                         // i = len;
                     }
                 } else {

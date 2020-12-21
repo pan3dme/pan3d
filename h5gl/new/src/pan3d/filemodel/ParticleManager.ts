@@ -74,6 +74,7 @@ module Pan3d {
         }
         private updateRenderDic(): void {
             this.scene3D.context3D.setWriteDepth(false);
+            this.scene3D.context3D.disableCullFace();
             for (var key in this.renderDic) {
                 var list: Array<CombineParticle> = this.renderDic[key];
                 if (list.length == 1) {

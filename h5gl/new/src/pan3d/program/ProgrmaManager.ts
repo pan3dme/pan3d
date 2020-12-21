@@ -28,28 +28,30 @@ module Pan3d {
             shader.paramAry = paramAry;
             shader.fragment = $material.shaderStr;
 
-            if (keyStr.search("res/content/particleresources/mat") != -1 && false) { //FIXME
-
-                this.outShader(shader.fragment);
-               
-
-                // shader.fragment =
-                // "precision mediump float;\n"+
-                // "uniform sampler2D fc0;\n" +
-                // "uniform vec4 fc[1];\n"+
-                // "varying vec2 v0;\n"+
-                // "void main(void){\n"+
-                // "\n"+
-                //     "vec4 infoUv = texture2D(fc0, v0.xy);\n" +
-                //    "gl_FragColor =infoUv;\n"+
-                // "\n"+
-                // "}";
+            if (keyStr.search("com/res/content/particleresources/materials/m_ef_par_byte") != -1 && true) { //FIXME
 
                 this.outShader(shader.getVertexShaderString());
-                this.outShader(shader.fragment);
+            
+                shader.fragment =
+                    "precision mediump float;\n" +
+                    "uniform sampler2D fs0;\n" +
+                    "uniform sampler2D fs1;\n" +
+                    "varying vec2 v0;\n" +
+                    "varying vec2 v1;\n" +
+                    "uniform vec4 fc[1];\n"+
+                    "void main(void){\n" +
+              
+                    "vec4 ft0 = texture2D(fs0,v0);\n" +
+                    "vec4 ft1 = texture2D(fs1,v0);\n" +
 
-                 this.outShader( keyStr );
+                    "gl_FragColor =ft0;\n" +
+           
+                    "}";
+                    this.outShader(shader.fragment);
+                 
  
+                    console.log("以上为修改后的")
+
 
             }
 

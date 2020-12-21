@@ -217,9 +217,16 @@ module Pan3d {
                 gl.enable(gl.CULL_FACE);
                 if (gl.getParameter(gl.CULL_FACE_MODE) != gl.BACK) {
                     gl.cullFace(gl.BACK);
+                  
                 }
             }
-
+           
+      
+        }
+        public disableCullFace():void
+        {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.disable(gl.CULL_FACE);
         }
         public uploadBuff3DArrayBuffer($jsData: ArrayBuffer): WebGLBuffer {
             var gl: WebGLRenderingContext = this.webGlRender;

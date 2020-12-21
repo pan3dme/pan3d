@@ -49,6 +49,7 @@ module Pan3d {
             ctx.setVcMatrix4fv(this.data.materialParam.shader, "camMatrix", this.scene3D.camera3D.camMatrix3D.m);
             ctx.setVcMatrix4fv(this.data.materialParam.shader, "modeMatrix", this.modelMatrix.m);
         }
+ 
 
         public getMulBindList(): Array<Vector3D> {
             return null;
@@ -105,7 +106,8 @@ module Pan3d {
                         var ctx: Context3D = this.scene3D.context3D;
                         ctx.setProgram(this.shader.program);
                         ctx.setBlendParticleFactors(this.data._alphaMode);
-                        ctx.cullFaceBack(this.data.materialParam.material.backCull);
+                        // ctx.cullFaceBack(this.data.materialParam.material.backCull);
+   
                         this.updateMatrix();
                         this.setMaterialVc();
                         this.setMaterialTexture();
