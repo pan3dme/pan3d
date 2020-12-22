@@ -18,7 +18,7 @@ module Pan3d {
             this.renderContext = gl;
             this.scene3D = new Scene3D(this.renderContext);
             // this.loadSceneByUrl();
-           
+            this.scene3D.camera3D.distance = 200;
 
             this.addEvents();
       

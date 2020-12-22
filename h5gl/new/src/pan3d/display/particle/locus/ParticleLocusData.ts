@@ -33,20 +33,7 @@ module Pan3d {
             BaseRes.readBytes2ArrayBuffer($byte, data, 3, 0, dataWidth, 4);//vertices
             BaseRes.readBytes2ArrayBuffer($byte, data, 4, 3, dataWidth, 4);//normal
             BaseRes.readBytes2ArrayBuffer($byte, data, 2, 7, dataWidth, 4);//uv
-
-            // var vLen: number = $byte.readInt();
-            // for (var i: number = 0; i < vLen; i++) {
-            //     this.objData.vertices.push($byte.readFloat())
-            // }
-            // var nLen: number = $byte.readInt();
-            // for (var i: number = 0; i < nLen; i++) {
-            //     this.objData.normals.push($byte.readFloat())
-            // }
-            // var uLen: number = $byte.readInt();
-            // for (var j: number = 0; j < uLen; j++) {
-            //     this.objData.uvs.push($byte.readFloat())
-            // }
-
+ 
             var iLen: number = $byte.readInt();
             for (var k: number = 0; k < iLen; k++) {
                 this.objData.indexs.push($byte.readInt())
@@ -64,8 +51,7 @@ module Pan3d {
             }
 
             this._uvVec = [this._isU ? -1 : 1, this._isV ? -1 : 1, this._isUV ? 1 : -1]
-
-            // this.uploadGpu();
+ 
 
             this.initVcData();
 
