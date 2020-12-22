@@ -190,7 +190,10 @@
                 display3D.setAllByteInfo(byte, version);
                 display3D.setBind(this.bindVecter3d, this.bindMatrix, this.bindScale, this.invertBindMatrix, this.groupMatrix);
 
-                this._displayAry.push(display3D);
+              
+                    this._displayAry.push(display3D);
+           
+              
 
                 if (display3D.timeline.maxFrameNum > this._maxTime) {
                     this._maxTime = display3D.timeline.maxFrameNum;

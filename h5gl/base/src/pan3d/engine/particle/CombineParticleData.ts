@@ -45,6 +45,10 @@
                 pdata.setAllByteInfo(byte);
 
                 this.dataAry.push(pdata);
+                if(i==5){
+                
+                }
+              
 
                 if (pdata.timelineData.maxFrameNum > this.maxTime) {
                     this.maxTime = pdata.timelineData.maxFrameNum;

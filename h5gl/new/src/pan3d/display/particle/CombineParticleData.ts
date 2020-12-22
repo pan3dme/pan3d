@@ -30,11 +30,11 @@ module Pan3d {
                     if (pdata.timelineData.maxFrameNum > this.maxTime) {
                         this.maxTime = pdata.timelineData.maxFrameNum;
                     }
-               
-                    if (i == 2) {
-                     
-                    }
                     this.dataAry.push(pdata);
+                    if (i == 5) {
+                 
+                    }
+               
 
                 } else {
                     throw new Error("没有粒子对象，需要补充" + $particleType);

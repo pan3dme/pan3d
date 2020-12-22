@@ -5,10 +5,11 @@ module Pan3d {
 
 
         binLocation(gl: WebGLRenderingContext): void {
-            gl.bindAttribLocation(this.program, 0, "v3Position");
-            gl.bindAttribLocation(this.program, 1, "u2Texture");
-            gl.bindAttribLocation(this.program, 2, "texcoord");
+            gl.bindAttribLocation(this.program, 0, "vPosition");
+            gl.bindAttribLocation(this.program, 1, "texcoord");
+            gl.bindAttribLocation(this.program, 2, "basePos");
             gl.bindAttribLocation(this.program, 3, "speed");
+          
 
             var needRotation: number = this.paramAry[3];
             if (needRotation) {
@@ -109,7 +110,7 @@ module Pan3d {
                     "np.w = np.y * pos.y - np.x * pos.x;\n" +
                     "pos.xy = np.zw;\n";
             }
-
+      
             mainBaseStr = "vec4 pos = vec4(vPosition.xyz,1.0);\n" +
 
 
@@ -162,7 +163,7 @@ module Pan3d {
                 "ft0 = ft2 * ft1;\n" +
                 "ft1.xyz = ft0.xyz;\n" +
                 "ft1.w = ft0.w;\n" +
-                "gl_FragColor = ft1;\n" +
+                "gl_FragColor = vec4(1,0,0,1);\n" +
                 "\n" +
                 "}"
 
