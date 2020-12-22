@@ -207,10 +207,10 @@ public class ConstrainSceneView extends ViewGroup {
         mainScene3D.addDisplay(frame3dSprite);
 
     }
-    public void   playParticle(String url)
+    public void   playParticle(String value)
     {
         //"model/"+str +"_lyf.txt"
-        url="model/"+"10017" +"_lyf.txt";
+       String url="model/"+value +"_lyf.txt";
         mainScene3D.groupDataManager.getGroupData(url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {
