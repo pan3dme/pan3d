@@ -18,8 +18,20 @@ module Pan3d {
             this.renderContext = gl;
             this.scene3D = new Scene3D(this.renderContext);
             // this.loadSceneByUrl();
-            this.playParticle("10018");
+           
 
+            this.addEvents();
+      
+
+        }
+        private addEvents():void
+        {
+           
+
+            GameMouseManager.getInstance().uiBlankStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
+        }
+        protected onDown(event: InteractiveEvent): void {
+            this.playParticle("10018");
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;

@@ -9,6 +9,8 @@ import GroupItem=Pan3d.GroupItem;
 import CombineParticle=Pan3d.CombineParticle;
 import BaseRes=Pan3d.BaseRes;
 import Scene_data=Pan3d.Scene_data;
+import InteractiveEvent=Pan3d.InteractiveEvent;
+import GameMouseManager=Pan3d.GameMouseManager;
 
 class TpGame {
 
@@ -23,25 +25,32 @@ class TpGame {
     public init(): void {
 
         this.loadDataComplet();
+        GameMouseManager.getInstance().addMouseEvent();
+        Scene_data.uiStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
+    }
+    protected onDown(event: InteractiveEvent): void {
+         console.log(event)
+         this.loadBaseLyf();
     }
     private loadDataComplet(): void {
           ProgrmaManager.getInstance().registe(LineDisplayShader.LineShader,new LineDisplayShader());
  
       
         SceneManager.getInstance().ready=true;
+
+     
         
          SceneManager.getInstance().addDisplay( new   GridLineSprite());
 
-     
-         this.loadBaseLyf();
-         
-        
-        
+        Scene_data.cam3D.distance=200;
+
+      
     }
     private loadBaseLyf(): void
     {
     //    var url: String  = "model/" + "10018" + "_lyf.txt";
-       var url: String  = "model/" + "10018" + "_lyf.txt";
+    //    var url: String  = "model/" + "10018" + "_lyf.txt";
+       var url: String  = "model/" + "levelup" + "_lyf.txt";
         GroupDataManager.getInstance().getGroupData( Scene_data.fileRoot + url, function (groupRes) {
             
             for (var i: number = 0; i < groupRes.dataAry.length; i++) {

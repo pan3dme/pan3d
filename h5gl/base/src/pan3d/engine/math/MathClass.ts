@@ -16,6 +16,8 @@ module Pan3d {
 
             _Cam.update();
 
+            
+
             //计算出相机的位置
             var $m: Matrix3D = new Matrix3D;
             $m.appendRotation(-_focus_3d.rotationX, Vector3D.X_AXIS);

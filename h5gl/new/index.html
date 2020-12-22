@@ -44,6 +44,7 @@
 <script src="jsbin/Pan3d/base/ObjDataManager.js"></script>
 
 
+
 <script src="jsbin/Pan3d/res/LoadInfo.js"></script>
 <script src="jsbin/Pan3d/res/LoaderThread.js"></script>
 <script src="jsbin/Pan3d/res/LoadManager.js"></script>
@@ -61,6 +62,10 @@
 
 <script src="jsbin/Pan3d/event/Event.js"></script>
 <script src="jsbin/Pan3d/event/EventDispatcher.js"></script>
+<script src="jsbin/Pan3d/event/MouseType.js"></script>
+<script src="jsbin/Pan3d/event/InteractiveEvent.js"></script>
+<script src="jsbin/Pan3d/event/UIStage.js"></script>
+<script src="jsbin/Pan3d/event/GameMouseManager.js"></script>
 
 
 
@@ -117,7 +122,7 @@
 <script src="jsbin/Pan3d/display/particle/model/Display3DModelShader.js"></script>
 <script src="jsbin/Pan3d/display/particle/model/Display3DModelPartilce.js"></script>
 
-<script src="jsbin/Pan3d/display/particle/ball/BallTestShader.js"></script>
+
 <script src="jsbin/Pan3d/display/particle/ball/ParticleBallData.js"></script>
 <script src="jsbin/Pan3d/display/particle/ball/ParticleBallGpuData.js"></script>
 <script src="jsbin/Pan3d/display/particle/ball/Display3DBallShader.js"></script>
@@ -131,6 +136,7 @@
 
 <script src="jsbin/Pan3d/UnitFunction.js"></script>
 <script src="jsbin/Pan3d/ConstrainSceneView.js"></script>
+
  
  
 
@@ -166,7 +172,7 @@
         {
         }
         function addEvents() {
-        
+            Pan3d. GameMouseManager.getInstance().addMouseEvent();
         }
         function resetSize() {
             if(hasInit){
