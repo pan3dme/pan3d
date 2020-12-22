@@ -57,7 +57,7 @@ module Pan3d {
                     }
                 case 3:
                     {
-                        // pdata = new ParticleLocusData();
+                         pdata = new ParticleLocusData(this.scene3D);
                         break;
                     }
                 case 14:
