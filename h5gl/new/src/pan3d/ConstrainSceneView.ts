@@ -31,7 +31,8 @@ module Pan3d {
             GameMouseManager.getInstance().uiBlankStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
         }
         protected onDown(event: InteractiveEvent): void {
-            this.playParticle("10018");
+            // this.playParticle("10018");
+            this.playParticle("levelup");
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;
@@ -101,9 +102,9 @@ module Pan3d {
             this.scene3D.upFrame();
 
         }
-        public playParticle(url: string): void {
+        public playParticle(name: string): void {
             //"model/"+str +"_lyf.txt"
-            url = "model/" + "10018" + "_lyf.txt";
+            var url:string = "model/" + name + "_lyf.txt";
             // url = "model/" + "10017" + "_lyf.txt";
             this.scene3D.groupDataManager.getGroupData(this.scene3D.fileRoot+ url, (groupRes: GroupRes) => {
                 for (var i: number = 0; i < groupRes.dataAry.length; i++) {

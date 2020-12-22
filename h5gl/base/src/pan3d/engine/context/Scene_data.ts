@@ -9,8 +9,8 @@
         public static stageHeight: number;
         public static sceneViewHW: number = 500;
         public static fileRoot: string = "res/";
-        public static ossRoot: string ="https://webpan.oss-cn-shanghai.aliyuncs.com/"
-        public static fileuiRoot:string="res/"
+        public static ossRoot: string = "https://webpan.oss-cn-shanghai.aliyuncs.com/"
+        public static fileuiRoot: string = "res/"
         public static verticalScene: boolean = false;
         public static effectsLev: number = 2;  //2高配1中配0低配
         //public static fileRoot: string = "assets/";
@@ -21,7 +21,7 @@
         public static vpMatrix: Matrix3D;
         public static camFar: number = 1000; //镜头最远距离
 
-        public static version: number=1
+        public static version: number = 1
 
 
         public static skyCubeMap: Array<WebGLTexture>;
