@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,7 +75,18 @@ public class only_particleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addConstrainSceneViewOne();
+        addEvents();
 
+    }
+    private void addEvents()
+    {
+        getView().findViewById(R.id.only_particle_selectbut).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+//                constrainSceneViewOne.playParticle("10018");
+                constrainSceneViewOne.playParticle("levelup");
+            }
+        });
     }
     ConstrainSceneView constrainSceneViewOne;
     private void addConstrainSceneViewOne()
@@ -83,7 +96,8 @@ public class only_particleFragment extends Fragment {
         constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-                constrainSceneViewOne.playParticle("10018");
+
+                constrainSceneViewOne.mainScene3D.camera3D.distance=100;
             }
         });
         constraintlayout.addView(constrainSceneViewOne);

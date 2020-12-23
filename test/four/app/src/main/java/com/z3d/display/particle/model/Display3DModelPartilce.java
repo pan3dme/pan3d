@@ -4,8 +4,13 @@ import com.z3d.base.Camera3D;
 import com.z3d.base.ObjData;
 import com.z3d.core.Context3D;
 import com.z3d.display.particle.Display3DParticle;
+import com.z3d.scene.Scene3D;
 
 public class Display3DModelPartilce  extends Display3DParticle {
+
+    public Display3DModelPartilce(Scene3D val) {
+        super(val);
+    }
 
     @Override
     public void update() {

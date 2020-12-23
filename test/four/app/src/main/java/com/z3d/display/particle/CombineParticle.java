@@ -105,7 +105,7 @@ public class CombineParticle  extends EventDispatcher {
         }
         this.updateBind();
         if (this._time >= this.maxTime) {
-            Log.d(TAG, "updateTime: 播放技能结束");
+//            Log.d(TAG, "updateTime: 播放技能结束");
             this.dispatchEvent(new BaseEvent(BaseEvent.COMPLETE));
         }
     }

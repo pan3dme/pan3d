@@ -120,7 +120,7 @@ public class ParticleLocusData extends ParticleData {
 
     @Override
     public Display3DParticle getParticle() {
-        return new Display3DLocusPartilce();
+        return new Display3DLocusPartilce(this.scene3D);
     }
 
     public void initUV() {

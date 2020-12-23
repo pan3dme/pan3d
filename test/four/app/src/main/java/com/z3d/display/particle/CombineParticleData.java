@@ -35,10 +35,14 @@ public class CombineParticleData extends ResCount {
             ParticleData pdata  = this.getParticleDataType(particleType);
             pdata.version = version;
             pdata.setAllByteInfo(_byte);
-            this.dataAry.add(pdata);
+
             if (pdata.timelineData.maxFrameNum > this.maxTime) {
                 this.maxTime = pdata.timelineData.maxFrameNum;
             }
+            if (i == 2) {
+
+            }
+            this.dataAry.add(pdata);
         }
         this.maxTime *= Scene_data.frameTime;
     }

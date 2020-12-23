@@ -51,7 +51,7 @@ public class ParticleModelData extends ParticleData {
     }
     @Override
     public Display3DParticle getParticle() {
-        return  new Display3DModelPartilce();
+        return  new Display3DModelPartilce(this.scene3D);
     }
     @Override
     protected void regShader() {

@@ -74,12 +74,12 @@ public class ProgrmaManager extends ResGC {
         shader.fragment = material.shaderStr;
 
 
-        if (keyStr.indexOf("changjinghongpei/standard_byte")!=-1) {
+        if (keyStr.indexOf("Display3DLocusShader")!=-1&&false) {
             Log.d(TAG, keyStr);
-//            this.outShader(shader.vertex,"vertex");
+            this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
 
-//            this._changeShader(shader);
+            this._changeShader(shader);
 
         }
         shader.encodeVstr(shader.vertex,shader.fragment);
@@ -114,24 +114,21 @@ public class ProgrmaManager extends ResGC {
                 "precision mediump float;"+
                         "uniform sampler2D fs0;"+
                         "uniform sampler2D fs1;"+
-                        "uniform vec4 fc[3];"+
+                        "uniform vec4 fc[1];"+
                         "varying vec2 v0;"+
-                        "varying vec2 v2;"+
-                        "varying vec3 v1;"+
+                        "varying vec4 v2;"+
+                        "varying vec2 v1;"+
                         "void main(void){"+
-                        "vec4 ft0 = texture2D(fs0,v0);"+
-                        "vec4 ft1 = texture2D(fs1,v2);"+
-//                        "ft1.xyz = ft1.xyz * 2.0;"+
-//                        "ft1.xyz = ft1.xyz * ft0.xyz;"+
-//                        "vec4 ft2 = vec4(0,0,0,1);"+
-//                        "ft2.xyz = ft1.xyz;"+
-//                        "ft2.w = 1.0;"+
-//                        "ft1.x = distance(v1.xyz*0.01,fc[1].xyz)*100.0;"+
-//                        "ft1.x = ft1.x - fc[0].z;"+
-//                        "ft1.x = fc[0].w * ft1.x;"+
-//                        "ft1.x = clamp(ft1.x,0.0,1.0);"+
-//                        "ft2.xyz = mix(ft2.xyz,fc[2].xyz,ft1.x);"+
-                        "gl_FragColor = ft1;"+
+                        "vec4 ft0 = texture2D(fs0,v1);"+
+                        "ft0.xyz *= ft0.w;"+
+                        "vec4 ft1 = texture2D(fs1,v1);"+
+//                        "ft1.xyz = ft1.xyz * ft1.w;"+
+//                        "vec4 ft2 = ft0 * ft1;"+
+//                        "ft0 = ft2 * v2.w;"+
+//                        "ft1.xyz = ft0.xyz;"+
+//                        "ft1.w = ft0.w;"+
+                        "if(v2.x<fc[0].x){discard;}"+
+                        "gl_FragColor = ft0;"+
                         "}";
 
 

@@ -98,6 +98,11 @@ public class ParticleManager extends ResGC {
 
     public void   updateRenderDic()
     {
+
+        this.scene3D.context3D.setWriteDepth(false);
+        this.scene3D.context3D.disableCullFace();
+
+
         Set<String> set=this.renderDic.keySet();
         for (String url : set) {
             List<CombineParticle> arr=    this.renderDic.get(url);

@@ -5,6 +5,7 @@ import com.z3d.base.ObjData;
 import com.z3d.base.Scene_data;
 import com.z3d.core.Context3D;
 import com.z3d.display.particle.Display3DParticle;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.Vector2D;
 import com.z3d.vo.Vector3D;
 
@@ -19,8 +20,8 @@ public class Display3DFacetParticle  extends Display3DParticle {
     public void update() {
         super.update();
     }
-    public Display3DFacetParticle(){
-        super();
+    public Display3DFacetParticle(Scene3D val){
+        super(val);
         this.uvMove=new Vector2D();
     }
 

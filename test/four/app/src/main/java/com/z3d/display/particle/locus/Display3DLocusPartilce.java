@@ -1,18 +1,25 @@
 package com.z3d.display.particle.locus;
 
 
+import android.util.Log;
+
 import com.z3d.base.Camera3D;
 import com.z3d.base.ObjData;
 import com.z3d.base.Scene_data;
 import com.z3d.core.Context3D;
 import com.z3d.display.particle.Display3DParticle;
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
 import com.z3d.vo.Matrix3D;
 import com.z3d.vo.Vector3D;
 
 public class Display3DLocusPartilce extends Display3DParticle {
 
     private  static  String TAG="Display3DLocusPartilce->";
+
+    public Display3DLocusPartilce(Scene3D val) {
+        super(val);
+    }
 
     public ParticleLocusData locusdata(){
         return (ParticleLocusData)this.data;
@@ -21,10 +28,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
     {
         return this.locusdata().objData;
     }
-    public Display3DLocusPartilce()
-    {
-        super();
-    }
+
     @Override
     public void update() {
 
@@ -52,7 +56,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
         Context3D ctx=  scene3D.context3D;
 
         Vector3D scaleVec= this.locusdata()._resultUvVec;
-        ctx.setVcUniform4f(this.shader3D,"vcmat30",scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w);
+        ctx.setVcUniform3f(this.shader3D,"vcmat30",scaleVec.x,scaleVec.y,scaleVec.z);
         if(this.data._watchEye){
             ctx.setVcUniform4f(this.shader3D,"v3CamPos",cam3d.x,cam3d.y,cam3d.z,cam3d.w);
         }
@@ -72,6 +76,7 @@ public class Display3DLocusPartilce extends Display3DParticle {
             }
         }
 //        Log.d(TAG, "updateUV: "+moveUv);
+
         this.locusdata()._resultUvVec.x = moveUv;
     }
     @Override

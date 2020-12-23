@@ -1,5 +1,7 @@
 package com.z3d.display.particle;
 
+import android.util.Log;
+
 import com.z3d.base.Camera3D;
 import com.z3d.base.Scene_data;
 import com.z3d.core.Context3D;
@@ -8,7 +10,10 @@ import com.z3d.display.particle.ctrl.TimeLine;
 import com.z3d.material.DynamicConstItem;
 import com.z3d.material.DynamicTexItem;
 import com.z3d.material.TexItem;
+import com.z3d.material.TextureRes;
 import com.z3d.program.Shader3D;
+import com.z3d.scene.Scene3D;
+import com.z3d.units.ColorTransition;
 import com.z3d.vo.Float32Array;
 import com.z3d.vo.Matrix3D;
 import com.z3d.vo.Vector3D;
@@ -41,13 +46,18 @@ public class Display3DParticle extends Display3D {
     private String  TAG="Display3DParticle";
 
 
-    public Display3DParticle()
-    {
-        super(null);
+//    private TextureRes testTextureOne;
+//    private TextureRes testTextureTwo;
+    public  Display3DParticle(Scene3D val  ){
+
+        super(val);
 
         this.modeMatrix=new Matrix3D();
         this.rotationMatrix3D=new Matrix3D();
         this._time=0;
+
+//        this.testTextureOne =    this.scene3D.textureManager.createTexture(ColorTransition.getImageDataByRandom(new Vector3D( 1,0,0,1)));
+//        this.testTextureTwo =    this.scene3D.textureManager.createTexture(ColorTransition.getImageDataByRandom(new Vector3D( 0,0,1,1)));
     }
     public void setBind(Vector3D $pos, Matrix3D $rotation, Vector3D  $scale, Matrix3D $invertRotation, Matrix3D $groupMatrix)
     {
@@ -90,6 +100,12 @@ public class Display3DParticle extends Display3D {
                 ctx.setProgame(this.shader3D.program);
                 ctx.setBlendParticleFactors(this.data._alphaMode);
                 ctx.cullFaceBack(this.data.materialParam.material.backCull);
+
+                ctx.setBlendParticleFactors(1);
+                ctx.disableCullFace();
+
+
+
                 this.updateMatrix();
                 this.setMaterialVc();
                 this.setMaterialTexture();
@@ -128,6 +144,9 @@ public class Display3DParticle extends Display3D {
             TexItem texItem=dynamicTexItem.target;
             if(dynamicTexItem.hasTextureRes()){
                 ctx.setRenderTexture(this.shader3D,texItem.name,dynamicTexItem.getTexture(),texItem.get_id());
+
+
+
             }
 
 

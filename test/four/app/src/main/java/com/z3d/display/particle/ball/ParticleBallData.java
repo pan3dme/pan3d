@@ -86,7 +86,7 @@ public class ParticleBallData extends ParticleData {
 
     @Override
     public Display3DParticle getParticle() {
-        return  new Display3DBallPartilce();
+        return  new Display3DBallPartilce(this.scene3D);
     }
 
     public void setAllByteInfo(ByteArray $byte) {

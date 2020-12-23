@@ -45,7 +45,7 @@ public class ParticleFacetData extends ParticleData {
 
     @Override
     public Display3DParticle getParticle() {
-        return new Display3DFacetParticle();
+        return new Display3DFacetParticle(this.scene3D);
     }
 
     private void uploadGpu() {

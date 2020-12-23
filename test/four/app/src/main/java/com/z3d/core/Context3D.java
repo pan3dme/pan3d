@@ -119,6 +119,11 @@ public class Context3D {
     {
         GLES20.glUniform3fv(GLES20.glGetUniformLocation(shader3d.program,name),count,m);
     }
+    public void  setVcUniform3f(Shader3D shader3d, String name,float x,float y,float z)
+    {
+        GLES20.glUniform3f(GLES20.glGetUniformLocation(shader3d.program,name),x,y,z);
+    }
+
     public void  setVcUniform4f(Shader3D shader3d, String name,float x,float y,float z,float w)
     {
         GLES20.glUniform4f(GLES20.glGetUniformLocation(shader3d.program,name),x,y,z,w);
@@ -164,6 +169,10 @@ public class Context3D {
         } else {
             GLES20.glDisable(GLES20.GL_CULL_FACE);
         }
+    }
+
+    public void disableCullFace() {
+        GLES20.glDisable(GLES20.GL_CULL_FACE);
     }
 
 }
