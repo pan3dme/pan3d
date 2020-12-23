@@ -26,31 +26,18 @@ module Pan3d {
         public setVc(): void {
             this.updateUV();
             var ctx:Context3D=this.scene3D.context3D;
-        
-            this.data.vcmatData.set(this.scene3D.viewMatrx3D.m, 0);
-    
-            this.data.vcmatData.set(this.scene3D.cam3D.cameraMatrix.m, 16);
-        
-            this.data.vcmatData.set(this.modelMatrix.m, 32);
-       
-            this.data.vcmatData.set(this.locusdata._resultUvVec, 48);
+            this.setViewCamModeMatr3d();
+           
+            ctx.setVc3fv(this.shader,"vcmat30",this.locusdata._resultUvVec);
 
-            if (this.data._watchEye) {
-
-                this.locusdata._caramPosVec[0] = this.scene3D.cam3D.x;
-                this.locusdata._caramPosVec[1] = this.scene3D.cam3D.y;
-                this.locusdata._caramPosVec[2] = this.scene3D.cam3D.z;
- 
-                this.data.vcmatData.set(this.locusdata._caramPosVec, 52);
+            if(this.data._watchEye){
+                var cam3D:Camera3D=this.scene3D.cam3D;
+                ctx.setVc4fv(this.shader,"v3CamPos",[cam3D.x,cam3D.y,cam3D.z,cam3D.w]);
             }
-
             if (this.locusdata._changUv) {
-                this.data.setFloat32Vec("isUv", this.locusdata._uvVec);//56
+               
             }
-
-            ctx.setVcMatrix4fv(this.data.materialParam.shader, "vcmat", this.data.vcmatData);
-
-            this.setMaterialVc();
+             this.setMaterialVc();
 
         }
 

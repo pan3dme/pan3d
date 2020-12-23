@@ -28,13 +28,13 @@ module Pan3d {
             shader.paramAry = paramAry;
             shader.fragment = $material.shaderStr;
 
-            if (keyStr.search("Display3DBallShader_") != -1 && false) { //FIXME
+            if (keyStr.search("Display3DLocusShader") != -1 && true) { //FIXME
 
                 this.outShader(shader.getVertexShaderString());
                 this.outShader(shader.fragment);
 
                 console.log("修改后-------")
-                shader.fragment =shader.getFragmentShaderString();
+                // shader.fragment =shader.getFragmentShaderString();
                
                     this.outShader(shader.fragment);
                  

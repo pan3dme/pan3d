@@ -32,10 +32,10 @@ module Pan3d {
                     }
                    
                     if (i == 2) {
-                     
-                        this.dataAry.push(pdata);
+                       
+                  
                     }
-                   
+                    this.dataAry.push(pdata);
 
                 } else {
                     throw new Error("没有粒子对象，需要补充" + $particleType);

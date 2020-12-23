@@ -179,6 +179,10 @@ module Pan3d {
             var gl: WebGLRenderingContext = this.webGlRender;
             gl.uniform4fv($program.getWebGLUniformLocation($name), $m);
         }
+        public setVc3fv($program: Shader3D, $name: string, $m: any) {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            gl.uniform3fv($program.getWebGLUniformLocation($name), $m);
+        }
         public setVc2fv($program: Shader3D, $name: string, $m: any) {
             var gl: WebGLRenderingContext = this.webGlRender;
             gl.uniform2fv($program.getWebGLUniformLocation($name), $m);
