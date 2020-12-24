@@ -1,12 +1,241 @@
 module Pan3d {
-    export class Display3dMovie extends Display3DSprite  {
+    export class Display3dMovie extends Display3DSprite implements IBind  {
+        private _partUrl: Object;
+        private _preLoadActionDic: Object;
+        private _waitLoadActionDic: Object;
+        public meshVisible: boolean = true;
+        public name: string;
+        public id: number;
+        public objurl: string;
+        public picUrl: string;
+        public materialUrl: string;
+        public materialInfoArr: Array<any>
+ 
+ 
+        public time: number = 0;
+        public lightMapTextureRes: TextureRes;
+
+
+        protected _rotationMatrix: Matrix3D;
+    
+
+        public bindMatrix: Matrix3D;
+        public bindTarget: IBind;
+        public bindSocket: string;
+
+        private _isInGroup: boolean;
+        private _groupPos: Vector3D;
+        private _groupRotation: Vector3D;
+        private _groupScale: Vector3D;
+        public groupMatrix: Matrix3D;
+        public groupRotationMatrix: Matrix3D;
+
+        private _lightProbe: boolean;
+
+        protected resultSHVec: Array<Vector3D>;
+
+    
+
+
+        public dynamic: boolean = false;
+
+        public constructor(val:Scene3D)
+        {
+            super(val);
+            this._animDic = new Object;
+            this._partDic = new Object;
+            this._partUrl = new Object;
+            this._preLoadActionDic = new Object;
+            this._waitLoadActionDic = new Object;
+        }
+        public getSocket(socketName: string, resultMatrix: Matrix3D): void {
+
+            resultMatrix.identity();
+
+
+
+            if (!this._skinMesh) {
+                //resultMatrix.appendTranslation(this._x,this._y,this._z);
+                resultMatrix.append(this.posMatrix);
+                return;
+            } else if (!this._skinMesh.boneSocketDic[socketName]) {
+                if (socketName = "none") {
+                    resultMatrix.appendTranslation(this.x, this.y, this.z);
+                } else {
+                    resultMatrix.append(this.posMatrix);
+                }
+                return;
+
+            }
+
+            var boneSocketData: BoneSocketData = this._skinMesh.boneSocketDic[socketName];
+
+
+            //if (!boneSocketData) {
+            //    resultMatrix.append(this.posMatrix);
+            //    return;
+            //}
+
+            var testmatix: Matrix3D;
+            var index: number = boneSocketData.index;
+
+            testmatix = this.getFrameMatrix(index);
+
+            resultMatrix.appendScale(1 / this.scaleX, 1 / this.scaleY, 1 / this.scaleZ);
+
+            resultMatrix.appendRotation(boneSocketData.rotationX, Vector3D.X_AXIS);
+            resultMatrix.appendRotation(boneSocketData.rotationY, Vector3D.Y_AXIS);
+            resultMatrix.appendRotation(boneSocketData.rotationZ, Vector3D.Z_AXIS);
+            resultMatrix.appendTranslation(boneSocketData.x, boneSocketData.y, boneSocketData.z);
+
+            if (testmatix) {
+                resultMatrix.append(this._skinMesh.meshAry[this._skinMesh.meshAry.length-1].bindPosInvertMatrixAry[index]);
+
+                resultMatrix.append(testmatix);
+            }
+
+            resultMatrix.append(this.posMatrix);
+
+        }
+
+        protected getFrameMatrix(index: number): Matrix3D {
+
+            if (this._animDic[this.curentAction]) {
+                var animData: AnimData = this._animDic[this.curentAction];
+                if (this._curentFrame >= animData.matrixAry.length) {
+                    return animData.matrixAry[0][index];
+                }
+                return animData.matrixAry[this._curentFrame][index];
+            } else if (this._animDic[this._defaultAction]) {
+                var animData: AnimData = this._animDic[this._defaultAction];
+                return animData.matrixAry[this._curentFrame][index];
+            }
+
+            return null;
+        }
+        protected _defaultAction: string = "stand";
+  
+        protected _curentFrame: number = 0;
+        protected _actionTime: number = 0;
+        private curentAction: string;
+        private _skinMesh: SkinMesh;
+        protected _partDic: Object;
+        fileScale: any;
+        private _animDic: Object;
+      
         public setRoleUrl(url: string) {
      
             this.scene3D.meshDataManager.getMeshData(url,(value:SkinMesh)=>{
 
-                console.log(value);
+                this._skinMesh = value;
+                this.fileScale = value.fileScale;
+                this.addSkinMeshParticle();
+                this._animDic = value.animDic;
+                this.onMeshLoaded();
 
             })
+        }
+        public onMeshLoaded(): void {
+            
+        }
+        public addSkinMeshParticle(): void {
+            if (!this._skinMesh) {
+                return;
+            }
+            var dicAry: Array<CombineParticle> = new Array;
+            this._partDic["mesh"] = dicAry;
+
+            var meshAry: Array<MeshData> = this._skinMesh.meshAry;
+            if (!meshAry) {
+                return;
+            }
+            for (var i: number = 0; i < meshAry.length; i++) {
+                var particleAry: Array<BindParticle> = meshAry[i].particleAry;
+                for (var j: number = 0; j < particleAry.length; j++) {
+                    var bindPartcle: BindParticle = particleAry[j];
+
+                    var particle: CombineParticle;
+
+                    particle = this.scene3D.particleManager.getParticleByte(this.scene3D.fileRoot + bindPartcle.url);
+
+                    if (!particle.sourceData) {
+                        console.log("particle.sourceData error");
+                    }
+
+                    particle.dynamic = true;
+
+                    particle.bindSocket = bindPartcle.socketName;
+
+                    dicAry.push(particle);
+
+                    particle.bindTarget = this;
+
+                    this.scene3D.particleManager.addParticle(particle);
+
+                }
+            }
+        }
+
+        public upFrame():void
+        {
+            if (!this._skinMesh) {
+                return;
+            }
+ 
+            this.updateBind();
+
+            if (this.meshVisible) {
+                for (var i: number = 0; i < this._skinMesh.meshAry.length; i++) {
+                    this.updateMaterialMesh(this._skinMesh.meshAry[i]);
+                }
+            }
+
+         
+
+        }
+
+        public updateMaterialMesh($mesh: MeshData): void {
+            if (!$mesh.material) {
+                return;
+            }
+
+            
+
+        }
+        public updateBind(): void {
+            if (this.bindTarget) {
+
+                this.posMatrix.identity();
+                this.posMatrix.appendScale(this.scaleX, this.scaleY, this.scaleZ);
+
+                if (this._isInGroup) {
+                    this.posMatrix.append(this.groupMatrix);
+                    //posMatrix.prependTranslation(groupPos.x, groupPos.y, groupPos.z);
+                    //posMatrix.prependRotation(groupRotation.z, Vector3D.Z_AXIS);
+                    //posMatrix.prependRotation(groupRotation.y, Vector3D.Y_AXIS);
+                    //posMatrix.prependRotation(groupRotation.x, Vector3D.X_AXIS);
+                    //posMatrix.prependScale(groupScale.x, groupScale.y, groupScale.z);
+                }
+
+                this.bindTarget.getSocket(this.bindSocket, this.bindMatrix)
+
+                this.posMatrix.append(this.bindMatrix);
+
+                this.bindMatrix.copyTo(this._rotationMatrix);
+
+
+                this._rotationMatrix.identityPostion();
+
+
+                if (this._isInGroup) {
+                    this._rotationMatrix.prepend(this.groupRotationMatrix);
+                    //_rotationMatrix.prependRotation(groupRotation.z, Vector3D.Z_AXIS);
+                    //_rotationMatrix.prependRotation(groupRotation.y, Vector3D.Y_AXIS);
+                    //_rotationMatrix.prependRotation(groupRotation.x, Vector3D.X_AXIS);
+                }
+
+                this.sceneVisible = (<any>this.bindTarget).visible;
+            }
         }
 
     }
