@@ -111,7 +111,7 @@ module Pan3d {
            
            
            var sc: Display3dMovie =new Display3dMovie(this.scene3D);
-            sc.setRoleUrl("role/"+val);
+            sc.setRoleUrl("role/"+val+".txt");
             sc.scaleX=2;
             sc.scaleY=2;
             sc.scaleZ=2;

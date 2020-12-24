@@ -11,6 +11,7 @@ import BaseRes=Pan3d.BaseRes;
 import Scene_data=Pan3d.Scene_data;
 import InteractiveEvent=Pan3d.InteractiveEvent;
 import GameMouseManager=Pan3d.GameMouseManager;
+import Display3dMovie=Pan3d.Display3dMovie;
 
 class TpGame {
 
@@ -27,10 +28,19 @@ class TpGame {
         this.loadDataComplet();
         GameMouseManager.getInstance().addMouseEvent();
         Scene_data.uiStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
+
+        this.addRoleMove();
+    }
+    private addRoleMove():void
+    {
+        var sc:Display3dMovie=new Display3dMovie();
+        sc.setRoleUrl("role/50011.txt");
+        SceneManager.getInstance().addMovieDisplay(sc);
     }
     protected onDown(event: InteractiveEvent): void {
          console.log(event)
-         this.loadBaseLyf();
+        //  this.loadBaseLyf();
+     
     }
     private loadDataComplet(): void {
           ProgrmaManager.getInstance().registe(LineDisplayShader.LineShader,new LineDisplayShader());

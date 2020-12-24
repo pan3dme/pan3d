@@ -17,6 +17,9 @@ module Pan3d {
         public materialManager: MaterialManager;
         public particleManager: ParticleManager;
         public groupDataManager: GroupDataManager;
+        public resManager: ResManager;
+        public animManager: AnimManager;
+        public meshDataManager: MeshDataManager;
         public fileRoot: string = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
         public supportBlob: boolean;
         public fogColor: Array<number> = [0, 0, 0];
@@ -37,6 +40,9 @@ module Pan3d {
             this.textureManager = new TextureManager(this);
             this.materialManager = new MaterialManager(this);
             this.groupDataManager = new GroupDataManager(this);
+            this.resManager = new ResManager(this);
+            this.animManager = new AnimManager(this);
+            this.meshDataManager = new MeshDataManager(this);
             this.particleManager = new ParticleManager(this);
             this._displayList = new Array();
             this._displayRoleList = new Array();

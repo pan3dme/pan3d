@@ -89,3 +89,10 @@ function hexToArgb(expColor: number, is32: boolean = true, color: Pan3d.Vector3D
     color.z = (expColor) & 0xFF;
     return color;
 }
+function getZipByte($byte: Pan3d.Pan3dByteArray): Pan3d. Pan3dByteArray {
+    var zipLen: number = $byte.readInt();
+    var aryBuf: ArrayBuffer = $byte.buffer.slice($byte.position, $byte.position + zipLen);
+    $byte.position += zipLen;
+    var zipedBuf: ArrayBuffer = unZip(aryBuf)
+    return new Pan3d. Pan3dByteArray(zipedBuf)
+}
