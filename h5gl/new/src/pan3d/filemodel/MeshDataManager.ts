@@ -1,5 +1,8 @@
 module Pan3d {
     export class MeshDataManager extends ResGC {
+        uploadPbrMesh($meshData: MeshData, useNormal: boolean) {
+            throw new Error("Method not implemented.");
+        }
       
       
         // private _dic: Object;
@@ -28,8 +31,37 @@ module Pan3d {
             this._loadDic[$url].push(bfun);
  
             this.scene3D.resManager.loadRoleRes(this.scene3D.fileRoot + $url, ($roleRes: RoleRes) => {
-               
+                this.roleResCom($roleRes, bfun);
             }, $batchNum);
+        }
+
+        private roleResCom($roleRes: RoleRes, $fun: Function): void {
+
+            var url: string = $roleRes.roleUrl;
+
+            var skinMesh: SkinMesh = this.dic[url];
+            skinMesh.loadMaterial();
+            //skinMesh.loadParticle();
+            skinMesh.setAction($roleRes.actionAry, url);
+            skinMesh.url = url;
+            if ($roleRes.ambientLightColor) {
+                skinMesh.lightData = [[$roleRes.ambientLightColor.x, $roleRes.ambientLightColor.y, $roleRes.ambientLightColor.z],
+                [$roleRes.nrmDircet.x, $roleRes.nrmDircet.y, $roleRes.nrmDircet.z],
+                [$roleRes.sunLigthColor.x, $roleRes.sunLigthColor.y, $roleRes.sunLigthColor.z]];
+            }
+
+
+
+            for (var i: number = 0; i < this._loadDic[url].length; i++) {
+                this._loadDic[url][i](skinMesh);
+               
+            }
+            delete this._loadDic[url];
+
+            skinMesh.ready = true;
+
+         
+
         }
         public readData(byte, $batchNum, $url, $version): SkinMesh {
             var $skinMesh: SkinMesh = new SkinMesh(this.scene3D);

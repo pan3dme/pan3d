@@ -4,6 +4,8 @@ module Pan3d {
      
             this.scene3D.meshDataManager.getMeshData(url,(value:SkinMesh)=>{
 
+                console.log(value);
+
             })
         }
 

@@ -1,5 +1,8 @@
 module Pan3d {
     export class AnimManager extends ResGC{
+        public getAnimDataImmediate($url: string): AnimData {
+            return this.dic[$url];
+        }
         public readData(byte: Pan3dByteArray, $url): AnimData {
             var hierarchyList: Array<ObjectBone> = new Array;
             var frameAry: Array<Array<number>> = new Array;
