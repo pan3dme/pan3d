@@ -2,6 +2,7 @@
 import DisplayBaseSprite = Pan3d.DisplayBaseSprite;
 
 import Context3D = Pan3d.Context3D;
+import Display3dMovie = Pan3d.Display3dMovie;
 
 module Pan3d {
     export class ConstrainSceneView {
@@ -17,10 +18,11 @@ module Pan3d {
 
             this.renderContext = gl;
             this.scene3D = new Scene3D(this.renderContext);
-            // this.loadSceneByUrl();
+          
             this.scene3D.camera3D.distance = 200;
 
             this.addEvents();
+            this.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
       
 
         }
@@ -34,6 +36,7 @@ module Pan3d {
             // this.playParticle("10018");
             this.playParticle("10017");
             // this.playParticle("levelup");
+              // this.loadSceneByUrl();
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;
@@ -102,6 +105,22 @@ module Pan3d {
         public upFrame(): void {
             this.scene3D.upFrame();
 
+        }
+        public  addRoleToSceneByUrl(  val:String ,pos:Vector3D ):void
+        {
+           
+           
+           var sc: Display3dMovie =new Display3dMovie(this.scene3D);
+            sc.setRoleUrl("role/"+val);
+            sc.scaleX=2;
+            sc.scaleY=2;
+            sc.scaleZ=2;
+            sc.x=pos.x;
+            sc.y=pos.y;
+            sc.z=pos.z;
+
+            this.scene3D.addMovieDisplay(sc);
+           
         }
         public playParticle(name: string): void {
             //"model/"+str +"_lyf.txt"

@@ -1,8 +1,9 @@
 module Pan3d {
     export class Scene3D {
-
+      
         public context3D: Context3D;
         public camera3D: Camera3D;
+   
         public get cam3D(): Camera3D {
             return this.camera3D
         }
@@ -25,6 +26,7 @@ module Pan3d {
         public static frameTime: number = 1000 / 60;
         public static MAX_NUMBER: number = 10000000;
         protected _displayList: Array<Display3D>;
+        protected _displayRoleList: Array<Display3dMovie>;
         constructor(value: WebGLRenderingContext) {
 
             this.supportBlob = true;
@@ -37,6 +39,7 @@ module Pan3d {
             this.groupDataManager = new GroupDataManager(this);
             this.particleManager = new ParticleManager(this);
             this._displayList = new Array();
+            this._displayRoleList = new Array();
             this.addDisplay(new GridLineSprite(this));
             // this.displayBaseSprite=new DisplayBaseSprite( this.context3D.webGlRender);
         }
@@ -45,6 +48,10 @@ module Pan3d {
         public addDisplay(itemDisplay: Display3D) {
             this._displayList.push(itemDisplay)
         }
+        public addMovieDisplay(role: Display3dMovie) {
+        this._displayRoleList.push(role);
+        }
+
         public upFrame(): void {
             this.camera3D.upFrame();
             this.camera3D.rotationY++;
@@ -52,6 +59,9 @@ module Pan3d {
             this.context3D.setWriteDepth(false);
             for (var i: number = 0; i < this._displayList.length; i++) {
                 this._displayList[i].upFrame();
+            }
+            for (var i: number = 0; i < this._displayRoleList.length; i++) {
+                this._displayRoleList[i].upFrame();
             }
             this.particleManager.upFrame()
             this.displayBaseSprite ? this.displayBaseSprite.upFrame() : null;
