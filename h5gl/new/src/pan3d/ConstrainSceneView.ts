@@ -32,7 +32,8 @@ module Pan3d {
         }
         protected onDown(event: InteractiveEvent): void {
             // this.playParticle("10018");
-            this.playParticle("levelup");
+            this.playParticle("10017");
+            // this.playParticle("levelup");
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;

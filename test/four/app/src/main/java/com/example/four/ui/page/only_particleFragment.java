@@ -83,8 +83,9 @@ public class only_particleFragment extends Fragment {
         getView().findViewById(R.id.only_particle_selectbut).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-//                constrainSceneViewOne.playParticle("10018");
                 constrainSceneViewOne.playParticle("levelup");
+//                constrainSceneViewOne.playParticle("10018");
+//                constrainSceneViewOne.playParticle("10017");
             }
         });
     }
@@ -97,7 +98,7 @@ public class only_particleFragment extends Fragment {
             @Override
             public void StateChange(boolean State) {
 
-                constrainSceneViewOne.mainScene3D.camera3D.distance=100;
+                constrainSceneViewOne.mainScene3D.camera3D.distance=200;
             }
         });
         constraintlayout.addView(constrainSceneViewOne);

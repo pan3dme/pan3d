@@ -111,6 +111,10 @@ module Pan3d {
                     "pos.xy = np.zw;\n";
             }
       
+            var sceleStr:String=  " " ;//缩放比例
+            if(needScale){
+                sceleStr=  "pos = S_POS(pos,stime);\n" ;//缩放比例
+            }
             mainBaseStr = "vec4 pos = vec4(vPosition.xyz,1.0);\n" +
 
 
@@ -124,7 +128,7 @@ module Pan3d {
                 "pos.x =0.0;\n" +//设置不可见
                 "pos.y =0.0;\n" +//设置不可见
                 "}else{\n" +
-                "pos = S_POS(pos,stime);\n" + //缩放比例
+                sceleStr+ //缩放比例
                 "pos = rotMatrix*pos;\n" + //面向视角
 
 
@@ -141,7 +145,7 @@ module Pan3d {
                 mainBaseStr +
                 "}";
 
-
+ 
 
             return outStr;
         }
