@@ -20,6 +20,8 @@ module Pan3d {
             this.scene3D = new Scene3D(this.renderContext);
           
             this.scene3D.camera3D.distance = 200;
+            this.scene3D.camera3D.rotationX =-30;
+            this.scene3D.camera3D.rotationY=45;
 
             this.addEvents();
             this.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
@@ -112,9 +114,9 @@ module Pan3d {
            
            var sc: Display3dMovie =new Display3dMovie(this.scene3D);
             sc.setRoleUrl("role/"+val+".txt");
-            sc.scaleX=2;
-            sc.scaleY=2;
-            sc.scaleZ=2;
+            sc.scaleX=1;
+            sc.scaleY=1;
+            sc.scaleZ=1;
             sc.x=pos.x;
             sc.y=pos.y;
             sc.z=pos.z;

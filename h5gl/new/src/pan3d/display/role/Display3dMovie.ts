@@ -121,12 +121,21 @@ module Pan3d {
 
                 this._skinMesh = value;
                 this.fileScale = value.fileScale;
+                this.updateMatrix();
                 this.addSkinMeshParticle();
                 this._animDic = value.animDic;
-        
                 this.onMeshLoaded();
+ 
 
             })
+        }
+        public updateMatrix(): void {
+             super.updateMatrix();
+   
+           this.posMatrix.appendScale( this.fileScale,  this.fileScale,  this.fileScale);
+ 
+            
+ 
         }
         public onMeshLoaded(): void {
             

@@ -53,6 +53,9 @@ class TpGame {
          SceneManager.getInstance().addDisplay( new   GridLineSprite());
 
         Scene_data.cam3D.distance=200;
+        Scene_data.cam3D.distance = 200;
+        Scene_data.cam3D.rotationX =-30;
+        Scene_data.cam3D.rotationY=45;
 
       
     }
