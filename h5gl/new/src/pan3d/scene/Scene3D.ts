@@ -60,6 +60,7 @@ module Pan3d {
 
         public upFrame(): void {
             this.camera3D.upFrame();
+            this.updateFrameRole();
             this.camera3D.rotationY++;
             this.context3D.setBaseRender();
             this.context3D.setWriteDepth(false);
@@ -67,12 +68,26 @@ module Pan3d {
                 this._displayList[i].upFrame();
             }
             for (var i: number = 0; i < this._displayRoleList.length; i++) {
+           
                 this._displayRoleList[i].upFrame();
             }
             this.particleManager.upFrame()
             this.displayBaseSprite ? this.displayBaseSprite.upFrame() : null;
 
         }
+        public time:number=0;
+        private   updateFrameRole():void{
+            var _tempTime:number= TimeUtil.getTimer();
+            var delay :number=  _tempTime - this.time;
+            this.time=_tempTime;
+            for (var i: number = 0; i < this._displayRoleList.length; i++) {
+           
+                this._displayRoleList[i].updateFrame(delay);
+            }
+            
+    
+        }
+    
 
     }
 }

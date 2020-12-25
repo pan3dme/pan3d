@@ -10,7 +10,14 @@ module Pan3d {
         public picUrl: string;
         public materialUrl: string;
         public materialInfoArr: Array<any>
- 
+        protected _defaultAction: string = "stand";
+        protected _curentFrame: number = 0;
+        protected _actionTime: number = 0;
+        private curentAction: string;
+        private _skinMesh: SkinMesh;
+        protected _partDic: Object;
+        private fileScale: number=1;
+        private _animDic: Object;
  
         public time: number = 0;
         public lightMapTextureRes: TextureRes;
@@ -29,14 +36,7 @@ module Pan3d {
         private _groupScale: Vector3D;
         public groupMatrix: Matrix3D;
         public groupRotationMatrix: Matrix3D;
-
-        private _lightProbe: boolean;
-
         protected resultSHVec: Array<Vector3D>;
-
-    
-
-
         public dynamic: boolean = false;
 
         public constructor(val:Scene3D)
@@ -113,15 +113,7 @@ module Pan3d {
 
             return null;
         }
-        protected _defaultAction: string = "stand";
-  
-        protected _curentFrame: number = 0;
-        protected _actionTime: number = 0;
-        private curentAction: string;
-        private _skinMesh: SkinMesh;
-        protected _partDic: Object;
-        fileScale: any;
-        private _animDic: Object;
+       
       
         public setRoleUrl(url: string) {
      
@@ -131,6 +123,7 @@ module Pan3d {
                 this.fileScale = value.fileScale;
                 this.addSkinMeshParticle();
                 this._animDic = value.animDic;
+        
                 this.onMeshLoaded();
 
             })
@@ -193,7 +186,48 @@ module Pan3d {
          
 
         }
+ 
+        public    completeState:number=0;
+        private    actionTime:number=0;
+        public    updateFrame(t:number):void{
+            this.actionTime+=t;
+            if(this._skinMesh==null){
+                return;
+            }
+            var animData :AnimData  =this._getCurentAnimData();
+            if (animData==null) {
+                return;
+            }
+            this._curentFrame=Math.floor(this.actionTime/(Scene3D.frameTime*1.5) );
+            if (this._curentFrame >= animData.matrixAry.length) {
+                if (this.completeState == 0) {
+                    this.actionTime = 0;
+                    this._curentFrame = 0;
+                } else if (this.completeState == 1) {
+                    this._curentFrame = animData.matrixAry.length - 1;
+                } else if (this.completeState == 2) {
+                    this._curentFrame = 0;
+                    this.completeState = 0;
+                    this.changeAction(this.curentAction);
+                } else if (this.completeState == 3) {
+                }
+            }
+    
+        }
+        private  changeAction(curentAction:string ) :void{
+            this.curentAction = this._defaultAction;
+        }
+        private   _getCurentAnimData():AnimData{
 
+            var animData:AnimData   = null;
+            if (this._animDic[this.curentAction]) {
+                animData =this._animDic[this.curentAction];
+            } else if (this._animDic[this._defaultAction]) {
+                animData= this._animDic[this._defaultAction]
+            }
+          
+            return animData;
+        }
         public updateMaterialMesh(mesh: MeshData): void {
             if (!mesh.material) {
                 return;
@@ -244,10 +278,12 @@ module Pan3d {
             } else {
                 return;
             }
+         
             var $dualQuatFrame: DualQuatFloat32Array = animData.getBoneQPAryByMesh($mesh)[$mesh.uid][this._curentFrame];
             if (!$dualQuatFrame) {
                 return;
             }
+        
             ctx.setVc4fv($mesh.material.shader, "boneQ", $dualQuatFrame.quat); //旋转
             ctx.setVc3fv($mesh.material.shader, "boneD", $dualQuatFrame.pos);  //所有的位移
         }
