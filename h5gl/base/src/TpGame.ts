@@ -41,6 +41,7 @@ class TpGame {
         var sc:Display3dMovie=new Display3dMovie();
         sc.setRoleUrl("role/50011.txt");
         sc.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+        sc.sceneVisible=true;
         SceneManager.getInstance().addMovieDisplay(sc);
     }
     protected onDown(event: InteractiveEvent): void {

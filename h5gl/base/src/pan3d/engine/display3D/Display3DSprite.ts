@@ -371,7 +371,8 @@
                     //_rotationMatrix.prependRotation(groupRotation.x, Vector3D.X_AXIS);
                 }
 
-                this.sceneVisible = (<any>this.bindTarget).visible;
+                this.sceneVisible = (<any>this.bindTarget).sceneVisible;
+                console.log(this.sceneVisible)
             }
         }
 
