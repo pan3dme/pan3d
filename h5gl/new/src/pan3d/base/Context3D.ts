@@ -252,6 +252,16 @@ module Pan3d {
             var gl: WebGLRenderingContext = this.webGlRender;
             gl.depthMask(tf);
         }
+        public    setDepthTest(tf:boolean ):void
+        {
+            var gl: WebGLRenderingContext = this.webGlRender;
+            if(tf){
+                gl.enable(gl.DEPTH_TEST);
+            }else
+            {
+                gl.disable(gl.DEPTH_TEST);
+            }
+        }
       
         public setBlendParticleFactors(type: number): void {
             

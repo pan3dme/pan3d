@@ -194,12 +194,82 @@ module Pan3d {
 
         }
 
-        public updateMaterialMesh($mesh: MeshData): void {
-            if (!$mesh.material) {
+        public updateMaterialMesh(mesh: MeshData): void {
+            if (!mesh.material) {
+                return;
+            }
+            if (mesh.material.shader==null ) {
+                console.log("没有:");
+                return;
+            }
+            this.shader3D=mesh.material.shader;
+            var ctx:Context3D= this.scene3D.context3D;
+            ctx.setDepthTest(true);
+            ctx.setWriteDepth(true);
+            ctx.setProgram(this.shader3D.program);
+            this.setVc();
+            this.setMaterialTexture(mesh.material,mesh.materialParam);
+            this.setMeshVc(mesh);
+            this.setVaCompress(mesh);
+            ctx.drawCall(mesh.indexBuffer,mesh.treNum);
+ 
+        }
+        protected setVc ():void
+        {
+            var ctx: Context3D = this.scene3D.context3D;
+            ctx.setVcMatrix4fv(this.shader3D, "vpMatrix3D", this.scene3D.camera3D.modelMatrix.m);
+            ctx.setVcMatrix4fv(this.shader3D, "posMatrix3D", this.posMatrix.m);
+
+           
+        }
+        public setVaCompress($mesh: MeshData): void {
+            var ctx:Context3D= this.scene3D.context3D;
+            var tf: boolean = ctx.pushVa($mesh.vertexBuffer);
+            if (tf) {
                 return;
             }
 
-            
+            ctx.setVaOffset(0, 3, $mesh.stride, 0);
+            ctx.setVaOffset(1, 2, $mesh.stride, $mesh.uvsOffsets);
+            ctx.setVaOffset(2, 4, $mesh.stride, $mesh.boneIDOffsets);
+            ctx.setVaOffset(3, 4, $mesh.stride, $mesh.boneWeightOffsets);
+        }
+        public setMeshVc($mesh: MeshData): void {
+            var ctx:Context3D= this.scene3D.context3D;
+            var animData: AnimData
+            if (this._animDic[this.curentAction]) {
+                animData = this._animDic[this.curentAction];
+            } else if (this._animDic[this._defaultAction]) {
+                animData = this._animDic[this._defaultAction];
+            } else {
+                return;
+            }
+            var $dualQuatFrame: DualQuatFloat32Array = animData.getBoneQPAryByMesh($mesh)[$mesh.uid][this._curentFrame];
+            if (!$dualQuatFrame) {
+                return;
+            }
+            ctx.setVc4fv($mesh.material.shader, "boneQ", $dualQuatFrame.quat); //旋转
+            ctx.setVc3fv($mesh.material.shader, "boneD", $dualQuatFrame.pos);  //所有的位移
+        }
+        protected setMaterialTexture($material: Material, $mp: MaterialBaseParam = null): void {
+            //有重复需要优化
+            var ctx:Context3D= this.scene3D.context3D;
+            var texVec: Array<TexItem> = $material.texList;
+            for (var i: number = 0; i < texVec.length; i++) {
+                    if (texVec[i].texture) {
+                        ctx.setRenderTexture($material.shader, texVec[i].name, texVec[i].texture, texVec[i].id);
+                    }
+            }
+            if ($mp) {
+                for (i = 0; i < $mp.dynamicTexList.length; i++) {
+ 
+                    if ($mp.dynamicTexList[i].target) {
+                        ctx.setRenderTexture($material.shader, $mp.dynamicTexList[i].target.name,
+                            $mp.dynamicTexList[i].texture, $mp.dynamicTexList[i].target.id);
+                    }
+                }
+            }
+
 
         }
         public updateBind(): void {

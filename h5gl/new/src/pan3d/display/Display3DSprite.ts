@@ -1,7 +1,7 @@
 module Pan3d {
 
     export class Display3DSprite extends Display3D {
-        private shader3D: Shader3D;
+        protected shader3D: Shader3D;
         public objData: ObjData;
         public time:number ;
         private rotationMatrix:Matrix3D;
@@ -85,7 +85,7 @@ module Pan3d {
             var ctx: Context3D = this.scene3D.context3D;
             ctx.setVc4fv($material.shader, "fc", $material.fcData);
         }
-       private setMaterialTexture($material: Material, $mp: MaterialBaseParam) {
+       protected setMaterialTexture($material: Material, $mp: MaterialBaseParam) {
         var ctx: Context3D = this.scene3D.context3D;
         var texVec: Array<TexItem> = $material.texList;
             for (var i: number = 0; i < texVec.length; i++) {
