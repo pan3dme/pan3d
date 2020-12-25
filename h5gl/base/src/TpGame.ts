@@ -13,6 +13,7 @@ import InteractiveEvent=Pan3d.InteractiveEvent;
 import GameMouseManager=Pan3d.GameMouseManager;
 import Display3dMovie=Pan3d.Display3dMovie;
 import SceneChar=Pan3d.SceneChar;
+import Engine=Pan3d.Engine;
 
 class TpGame {
 
@@ -31,6 +32,9 @@ class TpGame {
         Scene_data.uiStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
 
         this.addRoleMove();
+
+        Engine.initPbr()
+        
     }
     private addRoleMove():void
     {

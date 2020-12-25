@@ -36,9 +36,11 @@ module Pan3d {
         }
         protected onDown(event: InteractiveEvent): void {
             // this.playParticle("10018");
-            this.playParticle("10017");
+            // this.playParticle("10017");
             // this.playParticle("levelup");
               // this.loadSceneByUrl();
+
+              this.mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;
@@ -108,19 +110,22 @@ module Pan3d {
             this.scene3D.upFrame();
 
         }
+        private   mainChar:SceneChar;
         public  addRoleToSceneByUrl(  val:String ,pos:Vector3D ):void
         {
            
            
            var sc: SceneChar =new SceneChar(this.scene3D);
             sc.setRoleUrl("role/"+val+".txt");
-            sc.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+         
           
             sc.x=pos.x;
             sc.y=pos.y;
             sc.z=pos.z;
 
             this.scene3D.addMovieDisplay(sc);
+
+            this.mainChar=sc;
            
         }
         public playParticle(name: string): void {

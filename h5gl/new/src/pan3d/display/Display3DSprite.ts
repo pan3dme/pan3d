@@ -55,11 +55,24 @@ module Pan3d {
                 var ctx: Context3D = this.scene3D.context3D;
                 this.shader3D = this.material.shader;
                 ctx.setProgram(this.shader3D.program);
+                this.updateBind();
                 this.setMaterialVa();
                 this.setMaterialTexture(this.material,this.materialParam);
                 this.setMaterialVc(this.material, this.materialParam);
                 this.setVc();
                 ctx.drawCall(this.objData.indexBuffer, this.objData.treNum);
+
+               
+            }
+        }
+        public updateBind(): void {
+            if (this.bindTarget) {
+
+                this.posMatrix.identity();
+                this.posMatrix.appendScale(this.scaleX, this.scaleY, this.scaleZ);
+                this.bindTarget.getSocket(this.bindSocket, this.bindMatrix)
+                this.posMatrix.append(this.bindMatrix);
+             
             }
         }
         protected setVc ():void
@@ -87,6 +100,7 @@ module Pan3d {
             }
             var ctx: Context3D = this.scene3D.context3D;
             ctx.setVc4fv($material.shader, "fc", $material.fcData);
+       
         }
         public setBind($bindTarget: IBind, $bindSocket: string): void {
             this.bindTarget = $bindTarget;
