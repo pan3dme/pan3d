@@ -244,7 +244,7 @@ public class ConstrainSceneView extends ViewGroup {
         sceneChar.setRoleUrl("role/"+val+".txt");
 //        sceneChar.play(SceneChar.CharAction_stand);
         mainScene3D.addMovieDisplay(sceneChar);
-//        sceneChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+        sceneChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
 //        sceneChar.setMountById("5104");
 //        sceneChar.play(SceneChar.CharAction_walk);
 

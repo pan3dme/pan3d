@@ -4,9 +4,12 @@ module Pan3d {
         protected shader3D: Shader3D;
         public objData: ObjData;
         public time:number ;
-        private rotationMatrix:Matrix3D;
+        public dynamic: boolean = false;
         private _rotationData:Float32Array;
         private materialParam: MaterialBaseParam;
+        public bindMatrix: Matrix3D;
+        public bindTarget: IBind;
+        public bindSocket: string;
         constructor(value: Scene3D) {
             super(value);
             this.time=0;
@@ -85,6 +88,12 @@ module Pan3d {
             var ctx: Context3D = this.scene3D.context3D;
             ctx.setVc4fv($material.shader, "fc", $material.fcData);
         }
+        public setBind($bindTarget: IBind, $bindSocket: string): void {
+            this.bindTarget = $bindTarget;
+            this.bindSocket = $bindSocket;
+            this.bindMatrix = new Matrix3D();
+        }
+
        protected setMaterialTexture($material: Material, $mp: MaterialBaseParam) {
         var ctx: Context3D = this.scene3D.context3D;
         var texVec: Array<TexItem> = $material.texList;

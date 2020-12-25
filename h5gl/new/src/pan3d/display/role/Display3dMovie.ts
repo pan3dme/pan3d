@@ -1,6 +1,6 @@
 module Pan3d {
     export class Display3dMovie extends Display3DSprite implements IBind  {
-        private _partUrl: Object;
+        protected _partUrl: Object;
         private _preLoadActionDic: Object;
         private _waitLoadActionDic: Object;
         public meshVisible: boolean = true;

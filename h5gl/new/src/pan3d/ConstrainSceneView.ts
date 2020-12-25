@@ -112,11 +112,10 @@ module Pan3d {
         {
            
            
-           var sc: Display3dMovie =new Display3dMovie(this.scene3D);
+           var sc: SceneChar =new SceneChar(this.scene3D);
             sc.setRoleUrl("role/"+val+".txt");
-            sc.scaleX=1;
-            sc.scaleY=1;
-            sc.scaleZ=1;
+            sc.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+          
             sc.x=pos.x;
             sc.y=pos.y;
             sc.z=pos.z;
