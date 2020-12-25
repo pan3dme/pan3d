@@ -117,6 +117,19 @@ module Pan3d {
                         ctx.setRenderTexture($material.shader, texVec[i].name, this.lightTextureRes.texture, texVec[i].id);
                     }
     
+                }else if (texVec[i].type == TexItem.CUBEMAP) {
+                    if ($material.useDynamicIBL) {// && _reflectionTextureVo) {
+                        //_context.setTextureAt(texVec[i].id, _reflectionTextureVo.texture);
+                    } else {
+                        var index: number = Math.floor($material.roughness * 5);
+                        if (this.scene3D.skyCubeMap) {
+                            var cubeTexture: WebGLTexture = this.scene3D.skyCubeMap[index];
+                            ctx.setRenderTextureCube($material.shader.program, texVec[i].name, cubeTexture, texVec[i].id);
+                        
+                        }
+
+                    }
+
                 }
                 else {
                     if (texVec[i].texture) {

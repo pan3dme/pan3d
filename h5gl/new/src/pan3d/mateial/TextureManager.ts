@@ -67,6 +67,11 @@ module Pan3d {
             this.dic[_info.url] = textres;
         }
 
+        public loadCubeTexture($url: string, $fun: Function): void {
+            var cubeMapLoad: CubemapLoad = new CubemapLoad();
+            cubeMapLoad.loadCube($url, ($cubeList: any) => { $fun($cubeList)},this.scene3D );
+        }
+
 
     }
 

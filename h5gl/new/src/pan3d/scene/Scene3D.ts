@@ -3,12 +3,28 @@ module Pan3d {
       
         public context3D: Context3D;
         public camera3D: Camera3D;
-   
+        public   skyCubeMap: Array<WebGLTexture>;
+        public   pubLut: WebGLTexture;
         public get cam3D(): Camera3D {
             return this.camera3D
         }
         public get viewMatrx3D(): Matrix3D {
             return this.cam3D.cameraMatrix;
+        }
+        public   initPbr(): void {
+            if (!this.pubLut) {
+                this.textureManager.getTexture(this.fileRoot + "base/brdf_ltu.jpg", ($texture: TextureRes) => {
+                    this.pubLut = $texture.texture;
+                }, 1);
+            }
+
+            if (!this.skyCubeMap) {
+                this.textureManager.loadCubeTexture(this.fileRoot + "base/cube/e", ($ary: any) => {
+                    this.skyCubeMap = $ary;
+                })
+            }
+
+
         }
     
         public progrmaManager: ProgrmaManager;
@@ -46,6 +62,7 @@ module Pan3d {
             this.particleManager = new ParticleManager(this);
             this._displayList = new Array();
             this._displayRoleList = new Array();
+            this.initPbr();
             this.addDisplay(new GridLineSprite(this));
             // this.displayBaseSprite=new DisplayBaseSprite( this.context3D.webGlRender);
         }
