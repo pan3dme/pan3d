@@ -13,32 +13,53 @@ class MenuEventModel {
         }
         return this._instance;
     }
-    private mainChar:SceneChar;
-    public selectButByValue(value: String,sceneView: ConstrainSceneView): void {
+    private mainChar: SceneChar;
+    public selectButByValue(value: String, sceneView: ConstrainSceneView): void {
 
-      var arr:Array<string>=  value.split("|");
-      var keyStr:string=arr[0];
-      var infoStr:string=arr[1];
+        var arr: Array<string> = value.split("|");
+        var keyStr: string = arr[0];
+        var infoStr: string = arr.length > 1 ? arr[1] : null;
         switch (keyStr) {
             case "场景":
-                sceneView.loadSceneByUrl();
+                if (infoStr == null) {
+         
+                }else{
+                    sceneView.loadSceneByUrl();
+                }
+             
                 break
             case "角色":
-                sceneView.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
+                if (infoStr == null) {
+         
+                }else{
+                    sceneView.addRoleToSceneByUrl(infoStr, new Vector3D(0, 0, 0));
+                }
+             
                 break
             case "特效":
-                sceneView.playParticle(infoStr);
+                if (infoStr == null) {
+         
+                }else{
+                    sceneView.playParticle(infoStr);
+                }
+            
                 break
             case "技能":
-                if(this.mainChar==null){
-                    this.mainChar=  sceneView.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
-                } 
-                var skill: Skill =  sceneView.scene3D.skillManager.getSkill("skill/jichu_1_byte.txt","m_skill_01",null);
-                if(this.mainChar!=null){
-                    skill.reset();
-                    skill.configFixEffect(this.mainChar,null,null);
-                    this.mainChar.playSkill(skill);
+           
+                if (infoStr == null) {
+                    if (this.mainChar == null) {
+                        console.log("加载角色");
+                        this.mainChar = sceneView.addRoleToSceneByUrl("50011", new Vector3D(0, 0, 0));
+                    }
+                } else {
+                    var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/jichu_1_byte.txt", "m_skill_01", null);
+                    if (this.mainChar != null) {
+                        skill.reset();
+                        skill.configFixEffect(this.mainChar, null, null);
+                        this.mainChar.playSkill(skill);
+                    }
                 }
+         
                 break
             default:
                 break
