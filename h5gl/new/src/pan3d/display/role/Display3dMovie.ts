@@ -295,9 +295,7 @@ module Pan3d {
             } else {
                 return;
             }
-            if(this.curentAction=="m_attack_01"){
-                console.log(this.curentAction,this._curentFrame);
-            }
+          
            
         
             var $dualQuatFrame: DualQuatFloat32Array = animData.getBoneQPAryByMesh($mesh)[$mesh.uid][this._curentFrame];
