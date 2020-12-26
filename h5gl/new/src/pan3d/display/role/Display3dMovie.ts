@@ -1,5 +1,6 @@
 module Pan3d {
     export class Display3dMovie extends Display3DSprite implements IBind  {
+        
         protected _partUrl: Object;
         private _preLoadActionDic: Object;
         private _waitLoadActionDic: Object;
@@ -197,6 +198,30 @@ module Pan3d {
 
         }
  
+        public play($action: string, $completeState: number = 0, needFollow: boolean = true): boolean {
+            //FpsMc.tipStr = "1" + $action + "," + this._curentAction;
+            if (this.curentAction == $action) {
+                return;
+            }
+            //FpsMc.tipStr = "2";
+            this.curentAction = $action;
+            this.completeState = $completeState;
+            this._actionTime = 0;
+            this.updateFrame(0);
+            //FpsMc.tipStr = "3";
+            if (this._animDic.hasOwnProperty($action)) {
+                //FpsMc.tipStr = "4";
+                return true;
+            } else {
+                //FpsMc.tipStr = "5";
+                if (!this._waitLoadActionDic[$action] && this._preLoadActionDic[$action]) {
+                    //FpsMc.tipStr = "6";
+                    // this.setAnimUrl($action, this._preLoadActionDic[$action]);
+                }
+                return false;
+            }
+        }
+
         public    completeState:number=0;
         private    actionTime:number=0;
         public    updateFrame(t:number):void{

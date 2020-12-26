@@ -40,7 +40,18 @@ module Pan3d {
             // this.playParticle("levelup");
               // this.loadSceneByUrl();
 
+              this.playSkillByName()
+
           
+        }
+        private playSkillByName():void
+        {
+           var skill: Skill =  this.scene3D.skillManager.getSkill("skill/jichu_1_byte.txt","m_skill_01",null);
+            if(this.mainChar!=null){
+                skill.reset();
+                skill.configFixEffect(this.mainChar,null,null);
+                this.mainChar.playSkill(skill);
+            }
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;

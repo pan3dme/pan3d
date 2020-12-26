@@ -1,5 +1,6 @@
 module Pan3d {
     export class ParticleManager extends ResGC {
+        
         private _time: number  ;
        
         public constructor(value:Scene3D)
@@ -53,7 +54,27 @@ module Pan3d {
                 this.dic[$url] = baseData;
             }
         }
+        public removeParticle($particle: CombineParticle): void {
+            var indexs: number = this._particleList.indexOf($particle);
+            if (indexs == -1) {
+                return;
+            }
+            this._particleList.splice(indexs, 1);
+            this.removeRenderDic($particle);
 
+        }
+        private removeRenderDic($particle: CombineParticle): void {
+            var url: string = $particle.url;
+
+            var indexs: number = this.renderDic[url].indexOf($particle);
+            if (indexs == -1) {
+                return;
+            }
+            this.renderDic[url].splice(indexs, 1);
+            if (this.renderDic[url].length == 0) {
+                delete this.renderDic[url];
+            }
+        }
         public upFrame(): void {
             this. updateTime();
             this. updateRenderDic();

@@ -1,5 +1,7 @@
 module Pan3d {
     export class SceneChar extends Display3dMovie {
+        public skillVo: Skill;
+      
         public static WEAPON_PART: string = "weapon";
         public static WEAPON_DEFAULT_SLOT: string = "w_01";
         public static MOUNT_SLOT: string = "mount_01";
@@ -8,6 +10,12 @@ module Pan3d {
         public static QUEST_ICON: string = "questicon";
         public static NONE_SLOT: string = "none";
  
+        public playSkill($skill: Skill): void {
+
+       
+            this.scene3D.skillManager .playSkill($skill);
+            this.skillVo = $skill;
+        }
         public addPart($key: string, $bindSocket: string, $url: string): void {
             if (this._partUrl[$key] == $url) {//如果相同则返回
                 return;
