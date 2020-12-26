@@ -372,7 +372,7 @@
                 }
 
                 this.sceneVisible = (<any>this.bindTarget).sceneVisible;
-                console.log(this.sceneVisible)
+               
             }
         }
 

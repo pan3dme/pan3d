@@ -10,8 +10,8 @@ module Pan3d {
         public picUrl: string;
         public materialUrl: string;
         public materialInfoArr: Array<any>
-        // protected _defaultAction: string = "stand";
-        protected _defaultAction: string = "walk";
+        protected _defaultAction: string = "stand";
+        // protected _defaultAction: string = "walk";
         protected _curentFrame: number = 0;
         protected _actionTime: number = 0;
         private curentAction: string;

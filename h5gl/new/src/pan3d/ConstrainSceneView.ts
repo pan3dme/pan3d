@@ -40,7 +40,7 @@ module Pan3d {
             // this.playParticle("levelup");
               // this.loadSceneByUrl();
 
-              this.mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+          
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;
@@ -126,6 +126,7 @@ module Pan3d {
             this.scene3D.addMovieDisplay(sc);
 
             this.mainChar=sc;
+            this.mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
            
         }
         public playParticle(name: string): void {
