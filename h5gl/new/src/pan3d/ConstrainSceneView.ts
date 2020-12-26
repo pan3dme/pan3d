@@ -116,9 +116,19 @@ module Pan3d {
             this.canvas3D.width = stageWidth;
             this.canvas3D.height = stageHeight;
             this.renderContext.viewport(0, 0, stageWidth, stageHeight);
-            this.canvas3D.style.position = "absolute";
-            this.canvas3D.style.left = "0px";
-            this.canvas3D.style.top = "0px";
+            // this.canvas3D.style.position = "absolute";
+            // this.canvas3D.style.left = "0px";
+            // this.canvas3D.style.top = "0px";
+
+            /*
+            var mixNum:number=400;
+            var stageWidth: number = mixNum;
+            var stageHeight: number =mixNum;
+            this.canvas3D.width = stageWidth;
+            this.canvas3D.height = stageHeight;
+            this.renderContext.viewport(0, 0, stageWidth, stageHeight);
+            */
+       
         }
         public upFrame(): void {
             this.scene3D.upFrame();
