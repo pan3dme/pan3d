@@ -12,6 +12,7 @@ module Pan3d {
         public materialUrl: string;
         public materialInfoArr: Array<any>
         protected _defaultAction: string = "stand";
+        // protected _defaultAction: string = "m_attack_01";
         // protected _defaultAction: string = "walk";
         protected _curentFrame: number = 0;
         protected _actionTime: number = 0;
@@ -53,11 +54,7 @@ module Pan3d {
         public getSocket(socketName: string, resultMatrix: Matrix3D): void {
 
             resultMatrix.identity();
-
-
-
             if (!this._skinMesh) {
-                //resultMatrix.appendTranslation(this._x,this._y,this._z);
                 resultMatrix.append(this.posMatrix);
                 return;
             } else if (!this._skinMesh.boneSocketDic[socketName]) {
@@ -67,16 +64,10 @@ module Pan3d {
                     resultMatrix.append(this.posMatrix);
                 }
                 return;
-
             }
 
             var boneSocketData: BoneSocketData = this._skinMesh.boneSocketDic[socketName];
-
-
-            //if (!boneSocketData) {
-            //    resultMatrix.append(this.posMatrix);
-            //    return;
-            //}
+ 
 
             var testmatix: Matrix3D;
             var index: number = boneSocketData.index;
@@ -133,8 +124,7 @@ module Pan3d {
         }
         public updateMatrix(): void {
              super.updateMatrix();
-   
-           this.posMatrix.appendScale( this.fileScale,  this.fileScale,  this.fileScale);
+            this.posMatrix.appendScale( this.fileScale,  this.fileScale,  this.fileScale);
  
             
  
@@ -157,29 +147,20 @@ module Pan3d {
                 var particleAry: Array<BindParticle> = meshAry[i].particleAry;
                 for (var j: number = 0; j < particleAry.length; j++) {
                     var bindPartcle: BindParticle = particleAry[j];
-
                     var particle: CombineParticle;
-
                     particle = this.scene3D.particleManager.getParticleByte(this.scene3D.fileRoot + bindPartcle.url);
-
                     if (!particle.sourceData) {
                         console.log("particle.sourceData error");
                     }
-
                     particle.dynamic = true;
-
                     particle.bindSocket = bindPartcle.socketName;
-
                     dicAry.push(particle);
-
                     particle.bindTarget = this;
-
                     this.scene3D.particleManager.addParticle(particle);
 
                 }
             }
         }
-
         public upFrame():void
         {
             if (!this._skinMesh) {
@@ -207,6 +188,7 @@ module Pan3d {
             this.curentAction = $action;
             this.completeState = $completeState;
             this._actionTime = 0;
+        
             this.updateFrame(0);
             //FpsMc.tipStr = "3";
             if (this._animDic.hasOwnProperty($action)) {
@@ -223,9 +205,9 @@ module Pan3d {
         }
 
         public    completeState:number=0;
-        private    actionTime:number=0;
+    
         public    updateFrame(t:number):void{
-            this.actionTime+=t;
+            this._actionTime+=t;
             if(this._skinMesh==null){
                 return;
             }
@@ -233,10 +215,10 @@ module Pan3d {
             if (animData==null) {
                 return;
             }
-            this._curentFrame=Math.floor(this.actionTime/(Scene3D.frameTime*1.5) );
+            this._curentFrame=Math.floor(this._actionTime/(Scene3D.frameTime*1.5) );
             if (this._curentFrame >= animData.matrixAry.length) {
                 if (this.completeState == 0) {
-                    this.actionTime = 0;
+                    this._actionTime = 0;
                     this._curentFrame = 0;
                 } else if (this.completeState == 1) {
                     this._curentFrame = animData.matrixAry.length - 1;
@@ -313,8 +295,13 @@ module Pan3d {
             } else {
                 return;
             }
-         
+            if(this.curentAction=="m_attack_01"){
+                console.log(this.curentAction,this._curentFrame);
+            }
+           
+        
             var $dualQuatFrame: DualQuatFloat32Array = animData.getBoneQPAryByMesh($mesh)[$mesh.uid][this._curentFrame];
+ 
             if (!$dualQuatFrame) {
                 return;
             }

@@ -52,6 +52,8 @@ module Pan3d {
                 skill.configFixEffect(this.mainChar,null,null);
                 this.mainChar.playSkill(skill);
             }
+
+            
         }
         private loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;
