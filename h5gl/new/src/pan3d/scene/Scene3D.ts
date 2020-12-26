@@ -90,6 +90,7 @@ module Pan3d {
            
                 this._displayRoleList[i].upFrame();
             }
+            this.skillManager.update();
             this.particleManager.upFrame()
             this.displayBaseSprite ? this.displayBaseSprite.upFrame() : null;
 
