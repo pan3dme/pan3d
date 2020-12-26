@@ -23,16 +23,16 @@ module Pan3d {
             this.scene3D.camera3D.rotationX =-30;
             this.scene3D.camera3D.rotationY=45;
 
-            this.addEvents();
-            this.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
+            // this.addEvents();
+            // this.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
       
 
         }
         private addEvents():void
         {
            
-             GameMouseManager.getInstance().addMouseEvent(this.canvas3D );
-            GameMouseManager.getInstance().uiBlankStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
+           GameMouseManager.getInstance().addMouseEvent(this.canvas3D );
+          GameMouseManager.getInstance().uiBlankStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
         }
         protected onDown(event: InteractiveEvent): void {
             // this.playParticle("10018");
@@ -55,7 +55,7 @@ module Pan3d {
 
             
         }
-        private loadSceneByUrl(): void {
+        public loadSceneByUrl(): void {
             this.scene3D.camera3D.distance = 1500;
             var sceneRes: SceneRes = new SceneRes(this.scene3D);
             //10002
@@ -135,22 +135,18 @@ module Pan3d {
 
         }
         private   mainChar:SceneChar;
-        public  addRoleToSceneByUrl(  val:String ,pos:Vector3D ):void
+        public  addRoleToSceneByUrl(  val:String ,pos:Vector3D ):SceneChar
         {
-           
            
            var sc: SceneChar =new SceneChar(this.scene3D);
             sc.setRoleUrl("role/"+val+".txt");
-         
-          
             sc.x=pos.x;
             sc.y=pos.y;
             sc.z=pos.z;
-
             this.scene3D.addMovieDisplay(sc);
-
             this.mainChar=sc;
             this.mainChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
+            return sc;
            
         }
         public playParticle(name: string): void {
@@ -170,8 +166,7 @@ module Pan3d {
                     }
     
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
-                       
-                      
+       
                         var particle: CombineParticle =  this.scene3D.particleManager.getParticleByte(this.scene3D.fileRoot + item.particleUrl);
                         this.scene3D.particleManager.addParticle(particle);
                       

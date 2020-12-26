@@ -11,11 +11,11 @@
     <link rel="apple-touch-icon-precomposed" href="icon.png" />
     <link rel="touch-icon-precomposed" href="icon.png" />
     <style>
-         canvas {
+        canvas {
             position: absolute;
             top: 0px;
             left: 0px;
-        }  
+        }
     </style>
 
     <script src="bins/inflate.min.js"></script>
@@ -167,6 +167,7 @@
 
     <script src="jsbin/Pan3d/UnitFunction.js"></script>
     <script src="jsbin/Pan3d/ConstrainSceneView.js"></script>
+    <script src="jsbin/MenuEventModel.js"></script>
 
 
     <script>
@@ -187,36 +188,40 @@
             update()
             requestAnimationFrame(step);
         }
-       
+
         function resetSize() {
             if (hasInit) {
-                 constrainSceneView.resetSize();
+                constrainSceneView.resetSize();
             }
         }
         function update() {
             constrainSceneView.upFrame();
         }
- 
+        function selectButByValue(value) {
+            MenuEventModel.getInstance().selectButByValue(value,constrainSceneView);
+
+        }
+
     </script>
 </head>
 
 <body onload='init()' onresize="resetSize()" ontouchmove="event.preventDefault()"
     style="overflow-x: hidden; overflow-y: hidden;background-color:#f8f7f7">
-  
 
-    <canvas id="sceneCanvas" width="256" height="256"  style="z-index:1;position: absolute;"></canvas>
+
+    <canvas id="sceneCanvas" width="256" height="256" style="z-index:1;position: absolute;"></canvas>
 
     <div id="container" style="z-index:1;position: absolute;">
- 
-   
-        <div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+        <div id="menu" style=" height:200px ;float:left;">
             <b>菜单</b><br>
-            HTML<br>
-            CSS<br>
-            JavaScript</div>
+            <button onclick="selectButByValue('场景')">场景</button><br>
+            <button onclick="selectButByValue('角色')">角色</button><br>
+            <button onclick="selectButByValue('特效')">特效</button><br>
+            <button onclick="selectButByValue('技能')">技能</button><br>
 
-         
         </div>
+
+    </div>
 
 
 
