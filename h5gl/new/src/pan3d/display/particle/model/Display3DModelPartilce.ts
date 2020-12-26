@@ -23,8 +23,22 @@ module Pan3d {
             ctx.setVcMatrix4fv(this.shader,"rotMatrix",this._rotationMatrix.m);
 
         }
-        private updateRotaionMatrix():void
-        {
+      
+        public updateRotaionMatrix(): void {
+            this._rotationMatrix.identity();
+
+            if (this.data._watchEye) {
+                this.timeline.inverAxisRotation(this._rotationMatrix);
+
+                this._rotationMatrix.prependRotation(-this.scene3D.cam3D.rotationY, Vector3D.Y_AXIS);
+
+                this._rotationMatrix.prependRotation(-this.scene3D.cam3D.rotationX, Vector3D.X_AXIS);
+            }
+
+            if (this.data._isZiZhuan) {
+                this.timeline.applySelfRotation(this._rotationMatrix, this.data._ziZhuanAngly);
+            }
+ 
 
         }
 

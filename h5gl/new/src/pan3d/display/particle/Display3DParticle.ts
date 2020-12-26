@@ -3,7 +3,7 @@ module Pan3d {
         public visible: boolean;
         public timeline: TimeLine;
         protected _time: number;
-        private _beginTime: number;
+        protected _beginTime: number;
         public shader: Shader3D;
         public data: ParticleData;
 
@@ -48,6 +48,8 @@ module Pan3d {
             ctx.setVcMatrix4fv(this.data.materialParam.shader, "viewMatrix", this.scene3D.camera3D.viewMatrix.m);
             ctx.setVcMatrix4fv(this.data.materialParam.shader, "camMatrix", this.scene3D.camera3D.camMatrix3D.m);
             ctx.setVcMatrix4fv(this.data.materialParam.shader, "modeMatrix", this.modelMatrix.m);
+
+           
         }
  
 

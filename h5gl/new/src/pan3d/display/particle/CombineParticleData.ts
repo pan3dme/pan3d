@@ -31,9 +31,7 @@ module Pan3d {
                         this.maxTime = pdata.timelineData.maxFrameNum;
                     }
                    
-                    if (i == 2) {
-                       
-                  
+                    if (i == 2&&$particleType==9) {
                     }
                     this.dataAry.push(pdata);
 

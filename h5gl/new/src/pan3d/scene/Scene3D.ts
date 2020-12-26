@@ -83,6 +83,7 @@ module Pan3d {
             this.camera3D.rotationY++;
             this.context3D.setBaseRender();
             this.context3D.setWriteDepth(false);
+            this.context3D.setBlendParticleFactors(0);
             for (var i: number = 0; i < this._displayList.length; i++) {
                 this._displayList[i].upFrame();
             }
