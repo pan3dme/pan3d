@@ -110,8 +110,9 @@ module Pan3d {
             return itemDisplay;
         }
         public resetSize(): void {
-            var stageWidth: number = document.body.clientWidth;
-            var stageHeight: number = document.body.clientHeight;
+            var mixNum:number=Math.min(document.body.clientWidth,document.body.clientHeight);
+            var stageWidth: number = mixNum;
+            var stageHeight: number =mixNum;
             this.canvas3D.width = stageWidth;
             this.canvas3D.height = stageHeight;
             this.renderContext.viewport(0, 0, stageWidth, stageHeight);
