@@ -15,7 +15,11 @@ class MenuEventModel {
     }
     private mainChar:SceneChar;
     public selectButByValue(value: String,sceneView: ConstrainSceneView): void {
-        switch (value) {
+
+      var arr:Array<string>=  value.split("|");
+      var keyStr:string=arr[0];
+      var infoStr:string=arr[1];
+        switch (keyStr) {
             case "场景":
                 sceneView.loadSceneByUrl();
                 break
@@ -23,12 +27,11 @@ class MenuEventModel {
                 sceneView.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
                 break
             case "特效":
-                sceneView.playParticle("levelup");
+                sceneView.playParticle(infoStr);
                 break
             case "技能":
                 if(this.mainChar==null){
                     this.mainChar=  sceneView.addRoleToSceneByUrl("50011",new Vector3D(0,0,0));
-
                 } 
                 var skill: Skill =  sceneView.scene3D.skillManager.getSkill("skill/jichu_1_byte.txt","m_skill_01",null);
                 if(this.mainChar!=null){
@@ -36,8 +39,6 @@ class MenuEventModel {
                     skill.configFixEffect(this.mainChar,null,null);
                     this.mainChar.playSkill(skill);
                 }
-    
-
                 break
             default:
                 break

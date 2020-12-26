@@ -16,6 +16,37 @@
             top: 0px;
             left: 0px;
         }
+
+        * {
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        div ul {
+            background-color: bisque;
+            border-radius: 5px;
+            margin: 0 auto;
+            list-style: none;
+            border: 1px solid black;
+            width: 80px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        div li {
+            background-color: pink;
+            margin: 0 auto;
+            padding: none;
+            list-style: none;
+            border: 1px solid black;
+            width: 80px;
+            text-align: center;
+        }
+
+        .class1 {
+            display: none;
+        }
     </style>
 
     <script src="bins/inflate.min.js"></script>
@@ -183,6 +214,28 @@
                 requestAnimationFrame(step);
             }
             setInterval("update()", 1000);//特别加一次系统时间的UPdata
+
+            initMenuData();
+
+        }
+        function initMenuData() {
+            var ul_0 = document.querySelector('#ul_0');
+            for (var j = 1; j < 5; j++)
+                ul_0.children[j].children[0].onclick = function () {
+                    var ul = this.parentNode.querySelectorAll('ul');
+                    for (var i = 0; i < ul.length; i++) {
+                        if (ul[i].className == 'class1') {
+                            ul[i].className = 'unclass1';
+                        }
+                        else {
+                            ul[i].className = 'class1';
+                        }
+
+                    }
+                }
+            for (var j = 1; j < 5; j++) {
+                ul_0.children[j].children[0].onclick()
+            }
         }
         function step(timestamp) {
             update()
@@ -198,9 +251,11 @@
             constrainSceneView.upFrame();
         }
         function selectButByValue(value) {
-            MenuEventModel.getInstance().selectButByValue(value,constrainSceneView);
+            MenuEventModel.getInstance().selectButByValue(value, constrainSceneView);
 
         }
+
+
 
     </script>
 </head>
@@ -211,22 +266,47 @@
 
     <canvas id="sceneCanvas" width="256" height="256" style="z-index:1;position: absolute;"></canvas>
 
-    <div id="container" style="z-index:1;position: absolute;">
-        <div id="menu" style=" height:200px ;float:left;">
+
+    <div style="z-index:1;position: absolute;">
+        <ul id='ul_0'>
+            <li><a οnclick="javascript:Foo(); return false;" href="#">菜单</a>
+            </li>
+            <li><a href="#">场景</a>
+                <ul onclick="selectButByValue('场景|1001')">1001</ul>
+                <ul onclick="selectButByValue('场景|1002')">1002</ul>
+                <ul onclick="selectButByValue('场景|1003')">1003</ul>
+            </li>
+            <li><a href="#">角色</a>
+                <ul>1</ul>
+                <ul>2</ul>
+                <ul>3</ul>
+            </li>
+            <li><a href="#">特效</a>
+                <ul onclick="selectButByValue('特效|10017')">10017</ul>
+                <ul onclick="selectButByValue('特效|10018')">10018</ul>
+                <ul onclick="selectButByValue('特效|levelup')">levelup</ul>
+          
+            </li>
+            <li><a href="#">技能</a>
+                <ul>1</ul>
+                <ul>2</ul>
+                <ul>3</ul>
+                <ul>4</ul>
+                <ul>5</ul>
+            </li>
+        </ul>
+    </div>
+ 
+
+    <!-- <div id="menu" style=" height:200px ;float:left;">
             <b>菜单</b><br>
             <button onclick="selectButByValue('场景')">场景</button><br>
             <button onclick="selectButByValue('角色')">角色</button><br>
             <button onclick="selectButByValue('特效')">特效</button><br>
             <button onclick="selectButByValue('技能')">技能</button><br>
+        </div> -->
 
-        </div>
-
-    </div>
-
-
-
-    <!-- <canvas id="FpsTipsCanvas" width="150" height="50" style="z-index:0"></canvas>
-    <canvas id="LoadCanvas" width="800" height="100" style="z-index:0"></canvas> -->
+ 
 
 </body>
 
