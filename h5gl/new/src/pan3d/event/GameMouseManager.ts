@@ -16,16 +16,16 @@ module Pan3d {
         private bindPos: Vector2D = new Vector2D();
         private useMouseEvent: boolean = true;
         private isPc:boolean=true;
-        public addMouseEvent(): void {
+        public addMouseEvent(value: HTMLCanvasElement): void {
             if (this.isPc) {
-                document.addEventListener(MouseType.MouseDown, ($evt: MouseEvent) => { this.onMouse($evt) });
-                document.addEventListener(MouseType.MouseUp, ($evt: MouseEvent) => { this.onMouse($evt) });
-                document.addEventListener(MouseType.MouseMove, ($evt: MouseEvent) => { this.onMouse($evt) });
-                document.addEventListener(MouseType.MouseWheel, ($evt: MouseWheelEvent) => { this.onMouseWheel($evt) });
+                value.addEventListener(MouseType.MouseDown, ($evt: MouseEvent) => { this.onMouse($evt) });
+                value.addEventListener(MouseType.MouseUp, ($evt: MouseEvent) => { this.onMouse($evt) });
+                value.addEventListener(MouseType.MouseMove, ($evt: MouseEvent) => { this.onMouse($evt) });
+                value.addEventListener(MouseType.MouseWheel, ($evt: MouseWheelEvent) => { this.onMouseWheel($evt) });
             } else {
-                document.addEventListener(MouseType.TouchMove, ($evt: TouchEvent) => { this.onTouchMove($evt) });
-                document.addEventListener(MouseType.TouchEnd, ($evt: TouchEvent) => { this.onTouchEnd($evt) });
-                document.addEventListener(MouseType.TouchStart, ($evt: TouchEvent) => { this.onTouchStart($evt) });
+                value.addEventListener(MouseType.TouchMove, ($evt: TouchEvent) => { this.onTouchMove($evt) });
+                value.addEventListener(MouseType.TouchEnd, ($evt: TouchEvent) => { this.onTouchEnd($evt) });
+                value.addEventListener(MouseType.TouchStart, ($evt: TouchEvent) => { this.onTouchStart($evt) });
 
             }
             this.bindPos.x = this.resetPos.x;

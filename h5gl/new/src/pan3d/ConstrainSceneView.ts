@@ -31,7 +31,7 @@ module Pan3d {
         private addEvents():void
         {
            
-
+             GameMouseManager.getInstance().addMouseEvent(this.canvas3D );
             GameMouseManager.getInstance().uiBlankStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
         }
         protected onDown(event: InteractiveEvent): void {

@@ -177,7 +177,6 @@
             constrainSceneView = new Pan3d.ConstrainSceneView(document.getElementById('sceneCanvas'));
             hasInit = true;
             resetSize();
-            addEvents();
             window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
             if (requestAnimationFrame) {
                 requestAnimationFrame(step);
@@ -188,9 +187,7 @@
             update()
             requestAnimationFrame(step);
         }
-        function addEvents() {
-            Pan3d.GameMouseManager.getInstance().addMouseEvent();
-        }
+       
         function resetSize() {
             if (hasInit) {
                  constrainSceneView.resetSize();
