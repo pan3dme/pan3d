@@ -28,7 +28,7 @@ module Pan3d {
             });
 
         }
-        private lightTextureRes: TextureRes;
+        public lightTextureRes: TextureRes;
         public setLighturl(value: string) {
             this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + value, (textureRes: TextureRes) => {
                 this.lightTextureRes = textureRes;
