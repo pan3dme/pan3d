@@ -35,7 +35,7 @@ class MenuEventModel {
                 if (infoStr == null) {
 
                 } else {
-                    //10002
+             
                     sceneView.loadSceneByUrl(infoStr);
                 }
 
