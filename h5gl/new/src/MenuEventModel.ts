@@ -64,7 +64,12 @@ class MenuEventModel {
                         this.mainChar = sceneView.addRoleToSceneByUrl("50011", new Vector3D(0, 0, 0));
                     }
                 } else {
-                    var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/jichu_1_byte.txt", "m_skill_01", null);
+
+                    var filename:string= arr[1];
+                    var skillname:string= arr[2];
+  
+                    // var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/jichu_1_byte.txt", "m_skill_01", null);
+                    var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/"+filename+"_byte.txt", skillname, null);
                     if (this.mainChar != null) {
                         skill.reset();
                         skill.configFixEffect(this.mainChar, null, null);

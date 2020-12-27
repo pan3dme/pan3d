@@ -1,5 +1,9 @@
 module Pan3d {
     export class Matrix3D {
+        getRotaion(_rotationData: Float32Array) {
+            throw new Error("Method not implemented.");
+        }
+     
         public m: Float32Array;
         public isIdentity: boolean = true;
         constructor() {
@@ -64,7 +68,7 @@ module Pan3d {
             $target.m[14] = this.m[14];
             $target.m[15] = this.m[15];
         }
-
+  
         public identity(): void {
             this.m[0] = 1;
             this.m[1] = 0;

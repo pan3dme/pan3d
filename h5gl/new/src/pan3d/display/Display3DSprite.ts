@@ -1,11 +1,14 @@
 module Pan3d {
 
     export class Display3DSprite extends Display3D {
+        public setPicUrl(url: any) {
+            // throw new Error("Method not implemented.");
+        }
         protected shader3D: Shader3D;
         public objData: ObjData;
         public time:number ;
         public dynamic: boolean = false;
-        private _rotationData:Float32Array;
+        public _rotationData:Float32Array;
         private materialParam: MaterialBaseParam;
         public bindMatrix: Matrix3D;
         public bindTarget: IBind;

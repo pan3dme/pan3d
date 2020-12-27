@@ -23,8 +23,17 @@ module Pan3d {
             this.scene3D.camera3D.rotationY = 45;
             this.addEvents();
 
-            this.loadSceneByUrl("10002");
+            // this.loadSceneByUrl("10002");
+            this.addFrame3dSprite();
 
+        }
+
+        private addFrame3dSprite():void
+        {
+          var   frame3dSprite:Frame3dSprite =new Frame3dSprite(this.scene3D);
+
+        this.scene3D.addDisplay(frame3dSprite);
+       
         }
 
         private addEvents(): void {

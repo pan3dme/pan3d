@@ -16,7 +16,7 @@ module Pan3d {
         // protected _defaultAction: string = "walk";
         protected _curentFrame: number = 0;
         protected _actionTime: number = 0;
-        private curentAction: string;
+        public curentAction: string;
         private _skinMesh: SkinMesh;
         protected _partDic: Object;
         private fileScale: number=1;
