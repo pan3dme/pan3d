@@ -173,8 +173,13 @@
             for (var i: number = 0; i < buildAry.length; i++) {
                 var itemObj: any = buildAry[i];
                 if (itemObj.type == BaseRes.PREFAB_TYPE) {
-                    var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
-                    this.addDisplay(itemDisplay)
+                
+                   var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
+                 
+                       if (itemObj.id ==3) {
+                        this.addDisplay(itemDisplay)
+                   }
+                   
                 } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
                     var particle: CombineParticle = this.getParticleSprite(itemObj);
                     ParticleManager.getInstance().addParticle(particle);
@@ -191,19 +196,9 @@
 
 
             this._ready = true;
+ 
 
-            if (obj.quadTreeData) {
-                this._sceneQuadTree = new SceneQuadTree();
-                this._sceneQuadTree.init(obj.quadTreeData, this._sceneDic);
-            } else {
-                this._sceneQuadTree = null;
-            }
-
-            // this.viewFrustum.setData(obj.aabb);
-
-            Scene_data.cam3D.astarRect = AstarUtil.areaRect;
-
-
+            Scene_data.cam3D.distance=600;
 
 
         }

@@ -23,6 +23,8 @@ module Pan3d {
             this.scene3D.camera3D.rotationY = 45;
             this.addEvents();
 
+            this.loadSceneByUrl("10002");
+
         }
 
         private addEvents(): void {
@@ -61,12 +63,19 @@ module Pan3d {
             //2014
             sceneRes.load(value, () => {
                 var buildAry: Array<any> = sceneRes.sceneData.buildItem;
+
+                   //  //console.log(obj.fogDistance)
+            var d: number = sceneRes.sceneData.fogDistance * 1;//1000
+            var s: number = sceneRes.sceneData.fogAttenuation;  //0.5.
+            this.scene3D.fogData = [d * s, 1 / ((1 - s) * d)]
+
+
                 for (var i: number = 0; i < buildAry.length; i++) {
                     var itemObj: any = buildAry[i];
                     if (itemObj.type == BaseRes.PREFAB_TYPE) {
 
                         if (itemObj.id != 3) {
-                            // continue;
+                            //  continue;
                         }
                         var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
                         this.scene3D.addDisplay(itemDisplay);

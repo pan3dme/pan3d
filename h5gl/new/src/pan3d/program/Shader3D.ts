@@ -66,14 +66,17 @@ module Pan3d {
             if (info != ""||vInfo != ""||fInfo != "") {
                 if (info != "") {
                     console.log("shader error: " + info  );
+                    return false;
                 }
                 if (vInfo != "") {
                     console.log("shader error: " + vInfo  );
+                    return true;
                 }
                 if (fInfo != "") {
                     console.log("shader error: " + fInfo  );
+                    return true;
                 }
-                return false;
+              
             } else {
                 return true;
             }

@@ -33,7 +33,8 @@ class TpGame {
         GameMouseManager.getInstance().addMouseEvent();
         Scene_data.uiStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
 
-        this.addRoleMove();
+        // this.addRoleMove();
+        SceneManager.getInstance().loadScene("10002",()=>{},()=>{},()=>{});
 
         Engine.initPbr()
         
@@ -70,7 +71,7 @@ class TpGame {
         
          SceneManager.getInstance().addDisplay( new   GridLineSprite());
 
-        Scene_data.cam3D.distance=200;
+        Scene_data.cam3D.distance=600;
         Scene_data.cam3D.distance = 200;
         Scene_data.cam3D.rotationX =-30;
         Scene_data.cam3D.rotationY=45;
