@@ -5,6 +5,7 @@ module Pan3d {
         public static Move: string = "Move";
         public static PinchStart: string = "PinchStart";
         public static Pinch: string = "Pinch";
+        public static WheelEvent: string = "WheelEvent";
         //public static Click: string = "Click";
         public x: number;
         public y: number;

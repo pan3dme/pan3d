@@ -51,6 +51,7 @@ module Pan3d {
         }
 
         public upFrame(): void {
+            this.updateMatrix();
             if (this.objData && this.objData.indexBuffer && this.material) {
                 var ctx: Context3D = this.scene3D.context3D;
                 this.shader3D = this.material.shader;

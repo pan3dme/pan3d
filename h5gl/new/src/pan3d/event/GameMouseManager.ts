@@ -21,19 +21,23 @@ module Pan3d {
                 value.addEventListener(MouseType.MouseDown, ($evt: MouseEvent) => { this.onMouse($evt) });
                 value.addEventListener(MouseType.MouseUp, ($evt: MouseEvent) => { this.onMouse($evt) });
                 value.addEventListener(MouseType.MouseMove, ($evt: MouseEvent) => { this.onMouse($evt) });
-                value.addEventListener(MouseType.MouseWheel, ($evt: MouseWheelEvent) => { this.onMouseWheel($evt) });
+                value.addEventListener(MouseType.MouseWheel, ($evt: WheelEvent) => { this.onMouseWheel($evt) });
             } else {
                 value.addEventListener(MouseType.TouchMove, ($evt: TouchEvent) => { this.onTouchMove($evt) });
                 value.addEventListener(MouseType.TouchEnd, ($evt: TouchEvent) => { this.onTouchEnd($evt) });
                 value.addEventListener(MouseType.TouchStart, ($evt: TouchEvent) => { this.onTouchStart($evt) });
+                value.addEventListener(MouseType.MouseWheel, ($evt: WheelEvent) => { this.onMouseWheel($evt) });
 
             }
             this.bindPos.x = this.resetPos.x;
             this.bindPos.y = this.resetPos.y;
         }
-        private onMouseWheel($evt: MouseWheelEvent): void {
-         
-        
+        private onMouseWheel(event: WheelEvent): void {
+    
+            var evt: InteractiveEvent;
+            evt = new InteractiveEvent(InteractiveEvent.WheelEvent);
+            evt.data=event.deltaY;
+            this.uiBlankStage.interactiveEvent(evt);
         }
     
         private isCanUseMouseEvent(): boolean {

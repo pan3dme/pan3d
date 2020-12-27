@@ -1,6 +1,7 @@
 module Pan3d {
     export class Scene3D {
       
+      
         public context3D: Context3D;
         public camera3D: Camera3D;
         public   skyCubeMap: Array<WebGLTexture>;
@@ -68,6 +69,11 @@ module Pan3d {
             this.addDisplay(new GridLineSprite(this));
             // this.displayBaseSprite=new DisplayBaseSprite( this.context3D.webGlRender);
         }
+        public clearAll() {
+            this._displayList = new Array();
+            this._displayRoleList = new Array();
+            this.particleManager.clearAll();
+        }
         private displayBaseSprite: DisplayBaseSprite;
 
         public addDisplay(itemDisplay: Display3D) {
@@ -80,7 +86,7 @@ module Pan3d {
         public upFrame(): void {
             this.camera3D.upFrame();
             this.updateFrameRole();
-            this.camera3D.rotationY++;
+            // this.camera3D.rotationY++;
             this.context3D.setBaseRender();
             this.context3D.setWriteDepth(false);
             this.context3D.setBlendParticleFactors(0);
