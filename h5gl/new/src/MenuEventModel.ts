@@ -24,21 +24,23 @@ class MenuEventModel {
         var infoStr: string = arr.length > 1 ? arr[1] : null;
         switch (keyStr) {
             case "清理":
-                if(infoStr=="网格"){
-                    sceneView.scene3D.addDisplay(new GridLineSprite( sceneView.scene3D));
-                } 
-                if(infoStr=="所以"){
+                if (infoStr == "网格") {
+                    sceneView.scene3D.addDisplay(new GridLineSprite(sceneView.scene3D));
+                }
+                if (infoStr == "所以") {
                     sceneView.clearAll();
-                } 
+                }
                 break
             case "场景":
                 if (infoStr == null) {
 
                 } else {
-             
+
                     sceneView.loadSceneByUrl(infoStr);
                 }
-
+                break
+            case "frame3d":
+                sceneView.playFrame3dSprite();
                 break
             case "角色":
                 if (infoStr == null) {
@@ -65,11 +67,11 @@ class MenuEventModel {
                     }
                 } else {
 
-                    var filename:string= arr[1];
-                    var skillname:string= arr[2];
-  
+                    var filename: string = arr[1];
+                    var skillname: string = arr[2];
+
                     // var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/jichu_1_byte.txt", "m_skill_01", null);
-                    var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/"+filename+"_byte.txt", skillname, null);
+                    var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/" + filename + "_byte.txt", skillname, null);
                     if (this.mainChar != null) {
                         skill.reset();
                         skill.configFixEffect(this.mainChar, null, null);

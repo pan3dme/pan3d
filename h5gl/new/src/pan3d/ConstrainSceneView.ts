@@ -24,15 +24,17 @@ module Pan3d {
             this.addEvents();
 
             // this.loadSceneByUrl("10002");
-            this.addFrame3dSprite();
+            // this.addFrame3dSprite();
 
         }
 
-        private addFrame3dSprite():void
+        public playFrame3dSprite():Frame3dSprite
         {
           var   frame3dSprite:Frame3dSprite =new Frame3dSprite(this.scene3D);
 
-        this.scene3D.addDisplay(frame3dSprite);
+          this.scene3D.addDisplay(frame3dSprite);
+
+          return frame3dSprite;
        
         }
 
