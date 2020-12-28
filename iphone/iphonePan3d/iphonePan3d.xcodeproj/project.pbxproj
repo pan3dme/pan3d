@@ -183,6 +183,10 @@
 		9C931B212599A7F000173A89 /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931A732599A7EF00173A89 /* TextureManager.m */; };
 		9C931B222599A7F000173A89 /* ByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931A742599A7EF00173A89 /* ByteArray.m */; };
 		9C931B232599A7F000173A89 /* CubemapLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931A762599A7EF00173A89 /* CubemapLoad.m */; };
+		9C931B312599AA3100173A89 /* GlkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B2B2599AA3100173A89 /* GlkView.m */; };
+		9C931B322599AA3100173A89 /* CtxUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B2C2599AA3100173A89 /* CtxUIView.m */; };
+		9C931B332599AA3100173A89 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B2D2599AA3100173A89 /* GLSpriteView.m */; };
+		9C931B342599AA3100173A89 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B2F2599AA3100173A89 /* Base3dView.m */; };
 		D869C0A029E5E7388831C1DB /* libPods-iphonePan3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7D326D7635F5BA60DBBBA7 /* libPods-iphonePan3d.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -546,6 +550,14 @@
 		9C931A7A2599A7EF00173A89 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		9C931A7B2599A7EF00173A89 /* ParticleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleManager.h; sourceTree = "<group>"; };
 		9C931A7C2599A7EF00173A89 /* GroupDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDataManager.h; sourceTree = "<group>"; };
+		9C931B292599AA3000173A89 /* CtxUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CtxUIView.h; sourceTree = "<group>"; };
+		9C931B2A2599AA3100173A89 /* GlkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkView.h; sourceTree = "<group>"; };
+		9C931B2B2599AA3100173A89 /* GlkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkView.m; sourceTree = "<group>"; };
+		9C931B2C2599AA3100173A89 /* CtxUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CtxUIView.m; sourceTree = "<group>"; };
+		9C931B2D2599AA3100173A89 /* GLSpriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSpriteView.m; sourceTree = "<group>"; };
+		9C931B2E2599AA3100173A89 /* GLSpriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSpriteView.h; sourceTree = "<group>"; };
+		9C931B2F2599AA3100173A89 /* Base3dView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
+		9C931B302599AA3100173A89 /* Base3dView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -644,6 +656,7 @@
 		9C93143825999A0700173A89 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				9C931B282599AA1B00173A89 /* glview */,
 				9C93143C25999A3B00173A89 /* BaseNavigationViewController.h */,
 				9C93143B25999A3B00173A89 /* BaseNavigationViewController.m */,
 				9C93143925999A3B00173A89 /* MyNavigationBar.h */,
@@ -1260,6 +1273,21 @@
 			path = filemode;
 			sourceTree = "<group>";
 		};
+		9C931B282599AA1B00173A89 /* glview */ = {
+			isa = PBXGroup;
+			children = (
+				9C931B302599AA3100173A89 /* Base3dView.h */,
+				9C931B2F2599AA3100173A89 /* Base3dView.m */,
+				9C931B292599AA3000173A89 /* CtxUIView.h */,
+				9C931B2C2599AA3100173A89 /* CtxUIView.m */,
+				9C931B2A2599AA3100173A89 /* GlkView.h */,
+				9C931B2B2599AA3100173A89 /* GlkView.m */,
+				9C931B2E2599AA3100173A89 /* GLSpriteView.h */,
+				9C931B2D2599AA3100173A89 /* GLSpriteView.m */,
+			);
+			path = glview;
+			sourceTree = "<group>";
+		};
 		9E97DE6431D11E1F8017DFB2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1391,6 +1419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C931AA82599A7F000173A89 /* MeshItem.m in Sources */,
+				9C931B342599AA3100173A89 /* Base3dView.m in Sources */,
 				9C931A8F2599A7EF00173A89 /* SkillKeyVo.m in Sources */,
 				9C931B092599A7F000173A89 /* Display3DBallPartilce.m in Sources */,
 				9C931B0D2599A7F000173A89 /* Display3DLocusShader.m in Sources */,
@@ -1516,13 +1545,16 @@
 				9C931AE32599A7F000173A89 /* BindParticle.m in Sources */,
 				9C931A932599A7F000173A89 /* SkillType.m in Sources */,
 				9C931B072599A7F000173A89 /* AxisRotaion.m in Sources */,
+				9C931B332599AA3100173A89 /* GLSpriteView.m in Sources */,
 				9C931AA22599A7F000173A89 /* Md5animAnalysis.m in Sources */,
 				9C931A9D2599A7F000173A89 /* SkillFixEffect.m in Sources */,
 				9C931AE72599A7F000173A89 /* MountChar.m in Sources */,
+				9C931B322599AA3100173A89 /* CtxUIView.m in Sources */,
 				9C931AC42599A7F000173A89 /* FrameFileNode.m in Sources */,
 				9C931AD82599A7F000173A89 /* MetalMatrixUtilities.m in Sources */,
 				9C931ABA2599A7F000173A89 /* BaseRes.m in Sources */,
 				9C931A842599A7EF00173A89 /* TexItem.m in Sources */,
+				9C931B312599AA3100173A89 /* GlkView.m in Sources */,
 				9C931B202599A7F000173A89 /* ParticleManager.m in Sources */,
 				9C931A822599A7EF00173A89 /* MaterialLoad.m in Sources */,
 				9C931AC32599A7F000173A89 /* BuildDisplay3DSprite.m in Sources */,
