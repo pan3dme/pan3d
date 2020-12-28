@@ -187,6 +187,7 @@
 		9C931B322599AA3100173A89 /* CtxUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B2C2599AA3100173A89 /* CtxUIView.m */; };
 		9C931B332599AA3100173A89 /* GLSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B2D2599AA3100173A89 /* GLSpriteView.m */; };
 		9C931B342599AA3100173A89 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B2F2599AA3100173A89 /* Base3dView.m */; };
+		9C931B3A2599BAA800173A89 /* RoleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C931B392599BAA800173A89 /* RoleListViewController.m */; };
 		D869C0A029E5E7388831C1DB /* libPods-iphonePan3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7D326D7635F5BA60DBBBA7 /* libPods-iphonePan3d.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -558,6 +559,8 @@
 		9C931B2E2599AA3100173A89 /* GLSpriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSpriteView.h; sourceTree = "<group>"; };
 		9C931B2F2599AA3100173A89 /* Base3dView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base3dView.m; sourceTree = "<group>"; };
 		9C931B302599AA3100173A89 /* Base3dView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
+		9C931B382599BAA800173A89 /* RoleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoleListViewController.h; sourceTree = "<group>"; };
+		9C931B392599BAA800173A89 /* RoleListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,6 +638,8 @@
 		9C93142F259996EF00173A89 /* rolelist */ = {
 			isa = PBXGroup;
 			children = (
+				9C931B382599BAA800173A89 /* RoleListViewController.h */,
+				9C931B392599BAA800173A89 /* RoleListViewController.m */,
 			);
 			path = rolelist;
 			sourceTree = "<group>";
@@ -656,6 +661,7 @@
 		9C93143825999A0700173A89 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				9C931B372599B5F000173A89 /* mtkview */,
 				9C931B282599AA1B00173A89 /* glview */,
 				9C93143C25999A3B00173A89 /* BaseNavigationViewController.h */,
 				9C93143B25999A3B00173A89 /* BaseNavigationViewController.m */,
@@ -908,18 +914,18 @@
 		9C93199A2599A7EF00173A89 /* scene */ = {
 			isa = PBXGroup;
 			children = (
-				9C93199B2599A7EF00173A89 /* SceneDisplay3DSprite.m */,
-				9C93199C2599A7EF00173A89 /* Scene_data.m */,
-				9C93199D2599A7EF00173A89 /* BuildSceneVo.m */,
-				9C93199E2599A7EF00173A89 /* SceneDisplay3DShader.h */,
 				9C93199F2599A7EF00173A89 /* BuildDisplay3DSprite.h */,
-				9C9319A02599A7EF00173A89 /* Scene3D.h */,
-				9C9319A12599A7EF00173A89 /* Scene_data.h */,
-				9C9319A22599A7EF00173A89 /* SceneDisplay3DSprite.h */,
-				9C9319A32599A7EF00173A89 /* SceneDisplay3DShader.m */,
-				9C9319A42599A7EF00173A89 /* BuildSceneVo.h */,
-				9C9319A52599A7EF00173A89 /* Scene3D.m */,
 				9C9319A62599A7EF00173A89 /* BuildDisplay3DSprite.m */,
+				9C9319A42599A7EF00173A89 /* BuildSceneVo.h */,
+				9C93199D2599A7EF00173A89 /* BuildSceneVo.m */,
+				9C9319A12599A7EF00173A89 /* Scene_data.h */,
+				9C93199C2599A7EF00173A89 /* Scene_data.m */,
+				9C9319A02599A7EF00173A89 /* Scene3D.h */,
+				9C9319A52599A7EF00173A89 /* Scene3D.m */,
+				9C93199E2599A7EF00173A89 /* SceneDisplay3DShader.h */,
+				9C9319A32599A7EF00173A89 /* SceneDisplay3DShader.m */,
+				9C9319A22599A7EF00173A89 /* SceneDisplay3DSprite.h */,
+				9C93199B2599A7EF00173A89 /* SceneDisplay3DSprite.m */,
 			);
 			path = scene;
 			sourceTree = "<group>";
@@ -1288,6 +1294,13 @@
 			path = glview;
 			sourceTree = "<group>";
 		};
+		9C931B372599B5F000173A89 /* mtkview */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = mtkview;
+			sourceTree = "<group>";
+		};
 		9E97DE6431D11E1F8017DFB2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1500,6 +1513,7 @@
 				9C931AE12599A7F000173A89 /* DualQuatFloat32Array.m in Sources */,
 				9C931B212599A7F000173A89 /* TextureManager.m in Sources */,
 				9C931B1A2599A7F000173A89 /* ParticleFollowData.m in Sources */,
+				9C931B3A2599BAA800173A89 /* RoleListViewController.m in Sources */,
 				9C931AFA2599A7F000173A89 /* Display3DFacetShader.m in Sources */,
 				9C931A8D2599A7EF00173A89 /* SkillTrajectoryTargetKeyVo.m in Sources */,
 				9C931B022599A7F000173A89 /* ParamDataVo.m in Sources */,

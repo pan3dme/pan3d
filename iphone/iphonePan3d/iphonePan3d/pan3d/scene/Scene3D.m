@@ -92,6 +92,7 @@
     [self setupDephtBuffer];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
+    
     glViewport(0,0,360,360);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, self.mydepthRenderBuffer);

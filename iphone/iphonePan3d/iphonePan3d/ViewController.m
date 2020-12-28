@@ -8,6 +8,7 @@
 #import "ViewController.h"
 #import "BaseNavigationViewController.h"
 #import "GameListViewController.h"
+#import "RoleListViewController.h"
 
 @interface ViewController ()
 
@@ -28,7 +29,7 @@
 }
 -(void)addView{
     GameListViewController *vc01=[[GameListViewController alloc] init];
-    GameListViewController *vc02=[[GameListViewController alloc] init];
+    RoleListViewController *vc02=[[RoleListViewController alloc] init];
     GameListViewController *vc03=[[GameListViewController alloc]init];
     GameListViewController *vc04=[[GameListViewController alloc] init];
     GameListViewController *vc05=[[GameListViewController alloc] init];
