@@ -3,7 +3,8 @@
 target 'iphonePan3d' do
  
  
-
+ pod 'AFNetworking'
+ 
  pod 'MJRefresh'
 
  pod 'MMPopupView'
@@ -11,6 +12,7 @@ target 'iphonePan3d' do
  pod 'SDWebImage'
   
  pod 'SSZipArchive'
+ pod 'GZIP', '~> 1.2'
  
  
 
