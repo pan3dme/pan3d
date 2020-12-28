@@ -1,0 +1,17 @@
+ 
+
+target 'iphonePan3d' do
+ 
+ 
+
+ pod 'MJRefresh'
+
+ pod 'MMPopupView'
+
+ pod 'SDWebImage'
+  
+ pod 'SSZipArchive'
+ 
+ 
+
+end
