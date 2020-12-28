@@ -702,10 +702,10 @@
 			isa = PBXGroup;
 			children = (
 				9C93190D2599A7EE00173A89 /* Context3D.h */,
-				9C93190E2599A7EE00173A89 /* MathClass.h */,
-				9C93190F2599A7EE00173A89 /* MathCore.h */,
 				9C9319102599A7EE00173A89 /* Context3D.m */,
+				9C93190E2599A7EE00173A89 /* MathClass.h */,
 				9C9319112599A7EE00173A89 /* MathClass.m */,
+				9C93190F2599A7EE00173A89 /* MathCore.h */,
 				9C9319122599A7EE00173A89 /* MathCore.m */,
 			);
 			path = core;
