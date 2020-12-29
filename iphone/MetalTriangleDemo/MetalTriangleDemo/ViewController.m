@@ -9,12 +9,13 @@
 #import "ViewController.h"
 #import "RenderObject.h"
  
- 
 
 @interface ViewController ()
  
 @property (nonatomic, strong) MTKView* _mtkView;
 @property (nonatomic, strong) RenderObject* _renderer;
+@property (nonatomic, strong) UIView* _sceneUiView;
+ 
 @end
 
 @implementation ViewController
@@ -23,9 +24,18 @@
     [super viewDidLoad];
 //    self.view.backgroundColor=[UIColor redColor];
     
-     
+    self._sceneUiView=[[UIView alloc]init];
+    self._sceneUiView.frame=CGRectMake(0, 0, 150, 150);
+    self._sceneUiView.backgroundColor=[UIColor yellowColor];
+    [self.view addSubview:self._sceneUiView];
+    
+   
+    
+    UIView* selectView=self.view;
+    
     // Set the view to use the default device
-    self._mtkView = (MTKView *)self.view;
+ 
+    self._mtkView = (MTKView *)selectView;
     MTLCreateSystemDefaultDevice();
     self._mtkView.device = MTLCreateSystemDefaultDevice();
     
@@ -43,10 +53,11 @@
         return;
     }
     
-    // Initialize our renderer with the view size
+  
     [self._renderer mtkView:self._mtkView drawableSizeWillChange:self._mtkView.drawableSize];
     
     self._mtkView.delegate = self._renderer;
+  
     
 }
 
