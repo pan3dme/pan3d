@@ -93,6 +93,7 @@
                     } else {
                         material.multiply.contents = @"resources.scnassets/Can_Diffuse-1.png";
                     }
+                    material.multiply.contents = @"resources.scnassets/Can_Diffuse-1.png";
                 }
             }
         
@@ -179,6 +180,17 @@
     ballNode.position = SCNVector3Make(-1.75,1.75,8.0);
     [ballNode.physicsBody applyForce:SCNVector3Make(0.825,0,0) impulse:true];
     
+    NSArray *materials = ballNode.geometry.materials;
+  
+    for(SCNMaterial *material in materials) {
+        
+        if(material.multiply.contents != nil){
+        
+        
+            material.multiply.contents = @"resources.scnassets/Can_Diffuse-2.png";
+        }
+    }
+    
     _currentBallNode = ballNode;
     [self.levelScene.rootNode addChildNode:ballNode];
 }
@@ -207,7 +219,9 @@
         }
       
         if(!firstTouchResult)
+        {
             return;
+        }
     
         SCNAction *playAudioAction = [SCNAction playAudioSource:helper.whooshAudioSource waitForCompletion:false];
         [self.levelScene.rootNode runAction:playAudioAction];
