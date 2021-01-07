@@ -88,7 +88,7 @@ typedef struct {
     
     // 创建颜色
     Color color;
-    
+//    NSLog(@"版本->%f %f %f %f ", colorChannels[0], colorChannels[1], colorChannels[2], colorChannels[3]);
  
     
     // 修改颜色的RGBA的值
@@ -114,7 +114,7 @@ typedef struct {
     // 使用MTLCommandQueue 创建对象并且加入到MTCommandBuffer对象中去.
     // 为当前渲染的每个渲染传递创建一个新的命令缓冲区
     id<MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
-    commandBuffer.label = @"MyCommand";
+    commandBuffer.label = @"MyCommand001";
     
     // 从视图绘制中,获得渲染描述内容
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
@@ -125,7 +125,7 @@ typedef struct {
         // 通过渲染描述符创建MTLRenderCommandEncoder 对象
         id<MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
         
-        renderEncoder.label = @"MyRenderEncoder";
+        renderEncoder.label = @"MyRenderEncoder001";
         
         // 我们可以使用MTLRenderCommandEncoder 来绘制对象,但是这个案例我们仅仅创建编码器就可以了,我们并没有让Metal去执行我们绘制的东西,这个时候表示我们的任务已经完成.
         // 即可结束MTLRenderCommandEncoder 工作
