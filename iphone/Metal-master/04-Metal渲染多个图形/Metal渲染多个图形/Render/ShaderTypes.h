@@ -31,6 +31,7 @@ typedef struct
     // 像素空间的位置
     // 像素中心点(100,100)
     vector_float2 position;
+    vector_float2 uvs;
     // RGBA颜色
     vector_float4 color;
 } CCVertex;

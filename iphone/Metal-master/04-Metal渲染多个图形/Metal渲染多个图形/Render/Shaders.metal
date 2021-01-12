@@ -56,6 +56,8 @@ vertexShader(uint vertexID [[vertex_id]],
     
     //把我们输入的颜色直接赋值给输出颜色. 这个值将于构成三角形的顶点的其他颜色值插值,从而为我们片段着色器中的每个片段生成颜色值.
     out.color = vertices[vertexID].color;
+    out.color =  vector_float4(0.0, 1.0, 0.0, 1.0);
+
     
     //完成! 将结构体传递到管道中下一个阶段:
     return out;

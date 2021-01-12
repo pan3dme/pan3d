@@ -42,9 +42,11 @@
         // 在项目中加载所有的(.metal)着色器文件
         // 从bundle中获取.metal文件
         id<MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
+        
+         
 
         //从库中加载顶点函数
-        id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
+        id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderone"];
 
         //从库中加载片元函数
         id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShader"];

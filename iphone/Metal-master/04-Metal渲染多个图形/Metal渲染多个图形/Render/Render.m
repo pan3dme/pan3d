@@ -57,18 +57,18 @@
     const CCVertex quadVertices[] =
     {
         // Pixel 位置, RGBA 颜色
-        { { -20,   20 },    { 1, 0, 0, 1 } },
-        { {  20,   20 },    { 1, 0, 0, 1 } },
-        { { -20,  -20 },    { 1, 0, 0, 1 } },
+        { { -20,   20 },  { -20,   20 },    { 1, 0, 0, 1 } },
+        { {  20,   20 }, { -20,   20 },     { 1, 0, 0, 1 } },
+        { { -20,  -20 }, { -20,   20 },     { 1, 0, 0, 1 } },
         
-        { {  20,  -20 },    { 0, 0, 1, 1 } },
-        { { -20,  -20 },    { 0, 0, 1, 1 } },
-        { {  20,   20 },    { 0, 0, 1, 1 } },
+        { {  20,  -20 }, { -20,   20 },     { 0, 0, 1, 1 } },
+        { { -20,  -20 }, { -20,   20 },     { 0, 0, 1, 1 } },
+        { {  20,   20 }, { -20,   20 },     { 0, 0, 1, 1 } },
     };
     //列
-    const NSUInteger NUM_COLUMNS = 25;
+    const NSUInteger NUM_COLUMNS = 2;
     //行
-    const NSUInteger NUM_ROWS = 15;
+    const NSUInteger NUM_ROWS = 2;
     
     //顶点个数
     const NSUInteger NUM_VERTICES_PER_QUAD = sizeof(quadVertices) / sizeof(CCVertex);
@@ -107,6 +107,7 @@
             {
                 //修改vertexInQuad中的position
                 currentQuad[vertexInQuad].position += upperLeftPosition;
+              
             }
             
             //更新索引
@@ -125,6 +126,8 @@
     
     //从项目中加载所以的.metal着色器文件
     id<MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
+    
+    
     
     //从库中加载顶点函数
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
