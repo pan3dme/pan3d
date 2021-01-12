@@ -64,7 +64,7 @@ public class TimeLine {
         if (this._axisMove!=null) {
             posMatrix.prependTranslation(this._axisMove.axis.x * this._axisMove.num, this._axisMove.axis.y * this._axisMove.num, this._axisMove.axis.z * this._axisMove.num);
         }
-        if (this._axisRotaion!=null) {
+        if (this._axisRotaion!=null&&this._axisRotaion.axis!=null) {
             posMatrix.prependRotation(this._axisRotaion.num, this._axisRotaion.axis);
         }
 

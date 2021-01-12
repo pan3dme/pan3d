@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle=new Bundle();
-                bundle.putString("frameName","10002");
+                bundle.putString("frameName","10005");
                 NavController controller= Navigation.findNavController(v);
                 controller.navigate(R.id.action_navigation_home_to_only_frame3dFragment,bundle);
             }
@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle=new Bundle();
-                bundle.putString("sceneurl","10002");
+                bundle.putString("sceneurl","10005");
                 NavController controller= Navigation.findNavController(v);
                 controller.navigate(R.id.action_navigation_home_to_only_sceneFragment,bundle);
             }
