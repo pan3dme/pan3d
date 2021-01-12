@@ -239,18 +239,7 @@ Implementation for Mesh and Submesh objects
 
     // Recursively traverse the ModelIO  asset hierarchy to find ModelIO  meshes that are children
     //   of this ModelIO  object and create app-specific AAPLMesh objects from those ModelIO meshes
-    for (MDLObject *child in object.children)
-    {
-        NSArray<AAPLMesh*> *childMeshes;
 
-        childMeshes = [AAPLMesh newMeshesFromObject:child
-                            modelIOVertexDescriptor:vertexDescriptor
-                              metalKitTextureLoader:textureLoader
-                                        metalDevice:device
-                                              error:error];
-
-        [newMeshes addObjectsFromArray:childMeshes];
-    }
 
     return newMeshes;
 }

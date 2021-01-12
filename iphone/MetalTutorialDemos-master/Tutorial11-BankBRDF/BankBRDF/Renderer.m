@@ -21,7 +21,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
     MTLVertexDescriptor *_defaultVertexDescriptor;
 
-    id <MTLRenderPipelineState> _pipelineState;
+    id <MTLRenderPipelineState> _pipelineStateOne;
+    id <MTLRenderPipelineState> _pipelineStateTwo;
 
     id <MTLDepthStencilState> _relaxedDepthState;
     id <MTLBuffer> _uniformBuffer;
@@ -83,25 +84,42 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     _defaultVertexDescriptor.layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
 
     id <MTLFunction> vertexStandardMaterial = [defaultLibrary newFunctionWithName:@"vertexShader"];
-    id <MTLFunction> fragmentStandardMaterial = [defaultLibrary newFunctionWithName:@"fragmentShader"];
+ 
     
     // Create a render pipeline state descriptor.
-    MTLRenderPipelineDescriptor * renderPipelineStateDescriptor = [MTLRenderPipelineDescriptor new];
 
-    renderPipelineStateDescriptor.label = @"Forward Lighting";
-    renderPipelineStateDescriptor.sampleCount = view.sampleCount;
-    renderPipelineStateDescriptor.vertexDescriptor = _defaultVertexDescriptor;
-    renderPipelineStateDescriptor.vertexFunction = vertexStandardMaterial;
-    renderPipelineStateDescriptor.fragmentFunction = fragmentStandardMaterial;
-    renderPipelineStateDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat;
-    renderPipelineStateDescriptor.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
-    renderPipelineStateDescriptor.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
+    
+    MTLRenderPipelineDescriptor * renderPipelineStateDescriptorOne = [MTLRenderPipelineDescriptor new];
+
+    renderPipelineStateDescriptorOne.label = @"Forward LightingOne";
+    renderPipelineStateDescriptorOne.sampleCount = view.sampleCount;
+    renderPipelineStateDescriptorOne.vertexDescriptor = _defaultVertexDescriptor;
+    renderPipelineStateDescriptorOne.vertexFunction = vertexStandardMaterial;
+    renderPipelineStateDescriptorOne.fragmentFunction =  [defaultLibrary newFunctionWithName:@"fragmentShaderOne"];
+    renderPipelineStateDescriptorOne.colorAttachments[0].pixelFormat = view.colorPixelFormat;
+    renderPipelineStateDescriptorOne.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
+    renderPipelineStateDescriptorOne.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
+    
+    
+    MTLRenderPipelineDescriptor * renderPipelineStateDescriptorTwo = [MTLRenderPipelineDescriptor new];
+
+    renderPipelineStateDescriptorTwo.label = @"Forward LightingTwo";
+    renderPipelineStateDescriptorTwo.sampleCount = view.sampleCount;
+    renderPipelineStateDescriptorTwo.vertexDescriptor = _defaultVertexDescriptor;
+    renderPipelineStateDescriptorTwo.vertexFunction = vertexStandardMaterial;
+    renderPipelineStateDescriptorTwo.fragmentFunction =  [defaultLibrary newFunctionWithName:@"fragmentShaderTwo"];
+    renderPipelineStateDescriptorTwo.colorAttachments[0].pixelFormat = view.colorPixelFormat;
+    renderPipelineStateDescriptorTwo.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
+    renderPipelineStateDescriptorTwo.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
     
     NSError* error = NULL;
-    _pipelineState = [_device newRenderPipelineStateWithDescriptor:renderPipelineStateDescriptor
+    _pipelineStateOne = [_device newRenderPipelineStateWithDescriptor:renderPipelineStateDescriptorOne
+                                       error:&error];
+    
+    _pipelineStateTwo = [_device newRenderPipelineStateWithDescriptor:renderPipelineStateDescriptorTwo
                                        error:&error];
         
-    NSAssert(_pipelineState, @"Failed to create pipeline state: %@", error);
+ 
 
     MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
 
@@ -181,8 +199,9 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 }
 
 /// Draw the mesh objects with the given render command encoder.
-- (void)drawMeshes:(id<MTLRenderCommandEncoder>)renderEncoder
+- (void)drawMeshes:(id<MTLRenderCommandEncoder>)renderEncoder idx:(int)idx;
 {
+    int skipNum=0;
     for (__unsafe_unretained AAPLMesh *mesh in _meshes)
     {
         __unsafe_unretained MTKMesh *metalKitMesh = mesh.metalKitMesh;
@@ -202,24 +221,29 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         // Draw each submesh of the mesh.
         for(AAPLSubmesh *submesh in mesh.submeshes)
         {
-            // Set any textures that you read or sample in the render pipeline.
-            [renderEncoder setFragmentTexture:submesh.textures[0]
-                                      atIndex:0];
+            if(skipNum==idx){
+                // Set any textures that you read or sample in the render pipeline.
+                [renderEncoder setFragmentTexture:submesh.textures[0]
+                                          atIndex:0];
 
-            [renderEncoder setFragmentTexture:submesh.textures[1]
-                                      atIndex:1];
+                [renderEncoder setFragmentTexture:submesh.textures[1]
+                                          atIndex:1];
 
-            [renderEncoder setFragmentTexture:submesh.textures[2]
-                                      atIndex:2];
-            [renderEncoder setFragmentBuffer:_uniformBuffer offset:0 atIndex:1];
+                [renderEncoder setFragmentTexture:submesh.textures[2]
+                                          atIndex:2];
+                [renderEncoder setFragmentBuffer:_uniformBuffer offset:0 atIndex:1];
 
-            MTKSubmesh *metalKitSubmesh = submesh.metalKitSubmmesh;
+                MTKSubmesh *metalKitSubmesh = submesh.metalKitSubmmesh;
 
-            [renderEncoder drawIndexedPrimitives:metalKitSubmesh.primitiveType
-                                      indexCount:metalKitSubmesh.indexCount
-                                       indexType:metalKitSubmesh.indexType
-                                     indexBuffer:metalKitSubmesh.indexBuffer.buffer
-                               indexBufferOffset:metalKitSubmesh.indexBuffer.offset];
+                [renderEncoder drawIndexedPrimitives:metalKitSubmesh.primitiveType
+                                          indexCount:metalKitSubmesh.indexCount
+                                           indexType:metalKitSubmesh.indexType
+                                         indexBuffer:metalKitSubmesh.indexBuffer.buffer
+                                   indexBufferOffset:metalKitSubmesh.indexBuffer.offset];
+            }
+            
+            skipNum++;
+            
         }
     }
 }
@@ -241,14 +265,38 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         [renderEncoder setCullMode:MTLCullModeBack];
 
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-        [renderEncoder setRenderPipelineState:_pipelineState];
+        [renderEncoder setRenderPipelineState:_pipelineStateOne];
         [renderEncoder setDepthStencilState:_relaxedDepthState];
         [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
-        [self drawMeshes:renderEncoder];
+        [self drawMeshes:renderEncoder idx:0];
+        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
+        [self drawMeshes:renderEncoder idx:1];
         [renderEncoder popDebugGroup];
 
         [renderEncoder endEncoding];
     }
+    
+    /*
+    if(renderPassDescriptor != nil)
+    {
+        id <MTLRenderCommandEncoder> renderEncoder =
+            [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+
+        [renderEncoder setCullMode:MTLCullModeBack];
+
+        [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
+        [renderEncoder setDepthStencilState:_relaxedDepthState];
+        [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
+        [self drawMeshes:renderEncoder idx:1];
+        [renderEncoder popDebugGroup];
+
+        [renderEncoder endEncoding];
+    }
+*/
+
+    
+
 
     // Schedule a presentation for the current drawable, after the framebuffer is complete.
     [commandBuffer presentDrawable:view.currentDrawable];
