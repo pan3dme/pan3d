@@ -177,8 +177,9 @@
                    var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
                  
                        if (itemObj.id ==3) {
-                        this.addDisplay(itemDisplay)
+                       
                    }
+                   this.addDisplay(itemDisplay)
                    
                 } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
                     var particle: CombineParticle = this.getParticleSprite(itemObj);

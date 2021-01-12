@@ -34,7 +34,7 @@ class TpGame {
         Scene_data.uiStage.addEventListener(InteractiveEvent.Down, this.onDown, this);
 
         // this.addRoleMove();
-        SceneManager.getInstance().loadScene("10002",()=>{},()=>{},()=>{});
+        SceneManager.getInstance().loadScene("10005",()=>{},()=>{},()=>{});
 
         Engine.initPbr()
         

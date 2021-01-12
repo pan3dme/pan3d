@@ -91,6 +91,8 @@ module Pan3d {
                         var itemDisplay: Display3DSprite = this.getBuildSprite(itemObj);
                         this.scene3D.addDisplay(itemDisplay);
                     } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
+                        var particle: CombineParticle = this.getParticleSprite(itemObj);
+                        this.scene3D.particleManager.addParticle(particle);
 
                     }
                 }
@@ -99,6 +101,28 @@ module Pan3d {
             }, () => {
 
             });
+        }
+        private getParticleSprite(itemObj: any): CombineParticle {
+            var particle: CombineParticle
+
+            particle = this.scene3D.particleManager.getParticleByte(this.scene3D.fileRoot + itemObj.url);
+
+
+            particle.scaleX = itemObj.scaleX;
+            particle.scaleY = itemObj.scaleY;
+            particle.scaleZ = itemObj.scaleZ;
+
+            particle.x = itemObj.x;
+            particle.y = itemObj.y;
+            particle.z = itemObj.z;
+
+            particle.rotationX = itemObj.rotationX;
+            particle.rotationY = itemObj.rotationY;
+            particle.rotationZ = itemObj.rotationZ;
+            particle.type = 0;
+     
+
+            return particle;
         }
         private getBuildSprite(value: any): Display3DSprite {
             var itemDisplay: Display3DSprite = new Display3DSprite(this.scene3D);

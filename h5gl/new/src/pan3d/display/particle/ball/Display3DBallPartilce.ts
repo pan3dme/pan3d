@@ -62,16 +62,16 @@ module Pan3d {
             
             var ctx: Context3D = this.scene3D.context3D;
             var tf: boolean = ctx.pushVa(this.data.objData.vertexBuffer);
-            if (tf) {
-                return;
+            if (!tf) {
+                ctx.setVaOffset(0, 3, this.data.objData.stride, 0);
+                ctx.setVaOffset(1, 3, this.data.objData.stride, 12);
+                ctx.setVaOffset(2, 4, this.data.objData.stride, 24);
+                ctx.setVaOffset(3, 3, this.data.objData.stride, 40);
+                if (this.balldata._needSelfRotation) {
+                    ctx.setVaOffset(4, 2, this.data.objData.stride, 52);
+                }
             }
-            ctx.setVaOffset(0, 3, this.data.objData.stride, 0);
-            ctx.setVaOffset(1, 3, this.data.objData.stride, 12);
-            ctx.setVaOffset(2, 4, this.data.objData.stride, 24);
-            ctx.setVaOffset(3, 3, this.data.objData.stride, 40);
-            if (this.balldata._needSelfRotation) {
-                ctx.setVaOffset(4, 2, this.data.objData.stride, 52);
-            }
+        
             ctx.drawCall(this.data.objData.indexBuffer, this.data.objData.treNum);
           
 
