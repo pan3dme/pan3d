@@ -357,13 +357,13 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
         [renderEncoder setDepthStencilState:_relaxedDepthState];
         
-        [_redRect3dSprite updata:renderEncoder];
+
         
         
         [self selectOneShader:renderEncoder idx:0];
         [self selectOneShader:renderEncoder idx:1];
         
-        
+        [_redRect3dSprite updata:renderEncoder];
     
  
         
