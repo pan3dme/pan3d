@@ -39,6 +39,10 @@ typedef struct
     vector_float2 uv;
 } VertexRect;
 
+typedef struct
+{
+    vector_float3 pos;
+} VertexRed;
 typedef NS_ENUM(NSInteger, TextureIndex)
 {
     TextureIndexColor    = 0,

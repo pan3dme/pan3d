@@ -72,9 +72,9 @@
 {
     // 顶点buffer
     static const Vertex vert[] = {
-        {{0,1.0}},
-        {{1.0,-1.0}},
-        {{-1.0,-1.0}}
+        {{0,1.0,1.59}},
+        {{1.0,-1.0,0.5}},
+        {{-1.0,-1.0,0.5}}
     };
     vertexBuffer = [_device newBufferWithBytes:vert length:sizeof(vert) options:MTLResourceStorageModeShared];
 }

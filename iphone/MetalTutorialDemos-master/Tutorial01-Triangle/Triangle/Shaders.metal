@@ -27,7 +27,7 @@ vertex ColorInOut vertexShader(constant Vertex *vertexArr [[buffer(0)]],
 {
     ColorInOut out;
 
-    float4 position = vector_float4(vertexArr[vid].pos, 0 , 1.0);
+    float4 position = vector_float4(vertexArr[vid].pos.x,vertexArr[vid].pos.y, vertexArr[vid].pos.z , 1.0);
     out.position = position;
 
     return out;
@@ -35,5 +35,5 @@ vertex ColorInOut vertexShader(constant Vertex *vertexArr [[buffer(0)]],
 
 fragment float4 fragmentShader(ColorInOut in [[stage_in]])
 {
-    return float4(0.0,1,0,1);
+    return float4(1.0,0,0,1);
 }

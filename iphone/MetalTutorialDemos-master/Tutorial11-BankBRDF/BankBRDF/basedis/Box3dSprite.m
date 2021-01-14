@@ -48,7 +48,7 @@ MTLVertexDescriptor *vertexDescriptor;
     
     vertexDescriptor = [[MTLVertexDescriptor alloc] init];
     // pos
-    vertexDescriptor.attributes[0].format = MTLVertexFormatFloat2;
+    vertexDescriptor.attributes[0].format = MTLVertexFormatFloat3;
     vertexDescriptor.attributes[0].offset = 0;
     vertexDescriptor.attributes[0].bufferIndex = 0;
     // uv
@@ -64,8 +64,8 @@ MTLVertexDescriptor *vertexDescriptor;
     id <MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShader"];
 
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
-    pipelineStateDescriptor.label = @"MyPipeline";
-    pipelineStateDescriptor.sampleCount = view.sampleCount;
+
+
     pipelineStateDescriptor.vertexDescriptor = vertexDescriptor;
     pipelineStateDescriptor.vertexFunction = vertexFunction;
     pipelineStateDescriptor.fragmentFunction = fragmentFunction;
@@ -80,19 +80,16 @@ MTLVertexDescriptor *vertexDescriptor;
         NSLog(@"Failed to created pipeline state, error %@", error);
     }
     
-    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
-    depthStateDesc.depthCompareFunction = MTLCompareFunctionLess;
-    depthStateDesc.depthWriteEnabled = YES;
-    _depthState = [_device newDepthStencilStateWithDescriptor:depthStateDesc];
 
-    _commandQueue = [_device newCommandQueue];
+
+  
 }
 
 - (void)makeRectModel
 {
     // 顶点buffer
     static const VertexRect vert[] = {
-        {{0,1.0},     {0.5,0}},
+        {{0,0.25},     {0.5,0}},
         {{1.0,-1.0},  {1.0,1.0}},
         {{-1.0,-1.0}, {0,1.0}}
     };

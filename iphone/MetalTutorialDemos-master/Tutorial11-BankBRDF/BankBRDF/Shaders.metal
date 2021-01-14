@@ -129,7 +129,7 @@ vertex ColorInOut vertexShader(VertexAttr in [[stage_in]])
 {
     ColorInOut out;
 
-    float4 position = vector_float4(in.pos, 0.5 , 2);
+    float4 position = vector_float4(in.pos.xy, 1 , 2);
     out.position = position;
     out.texCoord = in.uv;
 
