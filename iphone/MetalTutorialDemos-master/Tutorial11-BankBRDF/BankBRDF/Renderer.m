@@ -13,6 +13,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 #import "AAPLMathUtilities.h"
 #import "ShaderTypes.h"
 #import "Box3dSprite.h"
+#import "RedRect3dSprite.h"
 
 
 @implementation Renderer
@@ -37,6 +38,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
  
     
     Box3dSprite* _box3dSprite;
+    RedRect3dSprite* _redRect3dSprite;
     
 }
  
@@ -50,6 +52,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         _device = view.device;
         
         _box3dSprite= [[Box3dSprite alloc]init:view];
+        _redRect3dSprite=[[RedRect3dSprite alloc]init:view];
 
         [self loadMetalWithMetalKitView:view];
         [self loadAssets];
@@ -354,6 +357,9 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
         [renderEncoder setDepthStencilState:_relaxedDepthState];
         
+        [_redRect3dSprite updata:renderEncoder];
+        
+        
         [self selectOneShader:renderEncoder idx:0];
         [self selectOneShader:renderEncoder idx:1];
         
@@ -361,7 +367,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     
  
         
-        [_box3dSprite updata:renderEncoder];
+//        [_box3dSprite updata:renderEncoder];
+   
   
         [renderEncoder popDebugGroup];
 

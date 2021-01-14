@@ -150,3 +150,18 @@ fragment half4 fragmentShader(ColorInOut in [[stage_in]],
 }
 
 
+vertex ColorInOut vertexShaderRect(constant VertexRed *vertexArr [[buffer(0)]],
+                               uint vid [[vertex_id]])
+{
+    ColorInOut out;
+
+    float4 position = vector_float4(vertexArr[vid].pos.x,vertexArr[vid].pos.y, vertexArr[vid].pos.z , 1.0);
+    out.position = position;
+
+    return out;
+}
+
+fragment float4 fragmentShaderRect(ColorInOut in [[stage_in]])
+{
+    return float4(1.0,0,0,1);
+}
