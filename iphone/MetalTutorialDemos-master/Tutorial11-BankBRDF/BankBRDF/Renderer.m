@@ -25,7 +25,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     id <MTLRenderPipelineState> _pipelineStateTwo;
 
     id <MTLDepthStencilState> _relaxedDepthState;
-    id <MTLBuffer> _uniformBuffer;
+    id <MTLBuffer> _uniformBufferOne;
+    id <MTLBuffer> _uniformBufferTwo;
 
     matrix_float4x4 _projectionMatrix;
     float _rotation;
@@ -58,7 +59,9 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     id <MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
 
     const MTLResourceOptions storageMode = MTLResourceStorageModeShared;
-    _uniformBuffer = [_device newBufferWithLength:sizeof(Uniforms)
+    _uniformBufferOne = [_device newBufferWithLength:sizeof(Uniforms)
+                                                  options:storageMode];
+    _uniformBufferTwo = [_device newBufferWithLength:sizeof(Uniforms)
                                                   options:storageMode];
     _defaultVertexDescriptor = [[MTLVertexDescriptor alloc] init];
 
@@ -155,9 +158,9 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 }
 
 /// Update app state for the current frame.
-- (void)updateGameState
+- (void)updateGameStateOne
 {
-    Uniforms * uniforms = (Uniforms*)_uniformBuffer.contents;
+    Uniforms * uniforms = (Uniforms*)_uniformBufferOne.contents;
     // P
     uniforms->projectionMatrix = _projectionMatrix;
     // V
@@ -187,6 +190,41 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
     _rotation += 0.002f;
 }
+- (void)updateGameStateTwo
+{
+    Uniforms * uniforms = (Uniforms*)_uniformBufferTwo.contents;
+    // P
+    uniforms->projectionMatrix = _projectionMatrix;
+    // V
+    uniforms->viewMatrix = matrix_multiply(matrix4x4_translation(0, -100, 1100),
+                                           matrix4x4_rotation(-0.5, (vector_float3){1,0,0}));
+    // M
+    uniforms->modelMatrix = matrix_multiply(matrix4x4_rotation(_rotation, (vector_float3){0,1,0}),
+                                            matrix4x4_translation(0, 0, 0));
+    // MV
+    uniforms->modelViewMatrix = matrix_multiply(uniforms->viewMatrix, uniforms->modelMatrix);
+        
+    // 平行光
+    uniforms->directionalLightDirection = (vector_float3){-1.0,-1.0,-1.0};
+    uniforms->directionalLightColor = (vector_float3){1,0.8,0.8};
+    
+    uniforms->IL = 10.0f;
+    uniforms->Kd = 0.1f;
+    uniforms->Ks = 0.9f;
+    uniforms->Ia = 3.0f;
+    uniforms->Ka = 0.1f;
+    //uniforms->shininess = 15.0f;
+    
+    uniforms->f = 0.015;
+    uniforms->m = 0.8;
+    
+    uniforms->cameraPos = (vector_float3){0,100,-1100};
+
+    _rotation += 0.002f;
+
+ 
+}
+ 
 
 /// Called whenever the view changes orientation or size.
 - (void) mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size
@@ -231,7 +269,13 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
                 [renderEncoder setFragmentTexture:submesh.textures[2]
                                           atIndex:2];
-                [renderEncoder setFragmentBuffer:_uniformBuffer offset:0 atIndex:1];
+                
+                if(idx==0){
+                    [renderEncoder setFragmentBuffer:_uniformBufferOne offset:0 atIndex:1];
+                }else{
+                    [renderEncoder setFragmentBuffer:_uniformBufferTwo offset:0 atIndex:1];
+                }
+               
 
                 MTKSubmesh *metalKitSubmesh = submesh.metalKitSubmmesh;
 
@@ -247,6 +291,24 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         }
     }
 }
+-(void)selectOneShader:( id <MTLRenderCommandEncoder> ) renderEncoder idx:(int)idx{
+  
+    [self updateGameStateOne];
+    [self updateGameStateTwo];
+    [renderEncoder setCullMode:MTLCullModeBack];
+    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+    [renderEncoder setDepthStencilState:_relaxedDepthState];
+    
+    if(idx==0){
+        [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
+        [renderEncoder setRenderPipelineState:_pipelineStateOne];
+    }else{
+        [renderEncoder setVertexBuffer:_uniformBufferTwo offset:0 atIndex:1];
+        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
+    }
+ 
+    [self drawMeshes:renderEncoder idx:idx];
+}
 
 - (void) drawInMTKView:(nonnull MTKView *)view
 {
@@ -255,7 +317,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     commandBuffer.label = @"MyCommand";
   
   
-    [self updateGameState];
+   
 
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
   
@@ -264,16 +326,11 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         id <MTLRenderCommandEncoder> renderEncoder =
             [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
 
-        [renderEncoder setCullMode:MTLCullModeBack];
-        [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-        [renderEncoder setDepthStencilState:_relaxedDepthState];
+     
         
-        [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
-        [renderEncoder setRenderPipelineState:_pipelineStateOne];
-        [self drawMeshes:renderEncoder idx:0];
-        [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
-        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
-        [self drawMeshes:renderEncoder idx:1];
+        [self selectOneShader:renderEncoder idx:0];
+        [self selectOneShader:renderEncoder idx:1];
+  
         [renderEncoder popDebugGroup];
 
         [renderEncoder endEncoding];
