@@ -60,7 +60,18 @@ typedef struct
     float m; // 法线分布粗糙度
     
     vector_float3 cameraPos;
-} Uniforms;
+} UniformsOne;
+
+typedef struct
+{
+    matrix_float4x4 projectionMatrix;
+    matrix_float4x4 modelViewMatrix;
+    matrix_float4x4 modelMatrix;
+    matrix_float4x4 viewMatrix;
+ 
+    
+ 
+} UniformsTwo;
 
 #endif /* ShaderTypes_h */
 

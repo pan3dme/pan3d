@@ -62,8 +62,10 @@
             filePath = "BankBRDF/Renderer.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318">
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "-drawInMTKView:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -76,8 +78,8 @@
             filePath = "BankBRDF/Renderer.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "-drawMeshes:idx:"
             landmarkType = "7">
          </BreakpointContent>
@@ -141,22 +143,6 @@
             startingLineNumber = "223"
             endingLineNumber = "223"
             landmarkName = "+newMeshesFromObject:modelIOVertexDescriptor:metalKitTextureLoader:metalDevice:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2DB9B483-C8DC-48DF-BAB4-D616EC7BD006"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BankBRDF/Renderer.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
-            landmarkName = "-selectOneShader:idx:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

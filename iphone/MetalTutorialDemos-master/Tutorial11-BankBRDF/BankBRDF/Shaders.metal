@@ -20,8 +20,8 @@ typedef struct
     float4 normal;
 } ColorInOut;
 
-vertex ColorInOut vertexShader(Vertex in [[ stage_in ]],
-                               constant Uniforms & uniforms [[ buffer(1) ]])
+vertex ColorInOut vertexShaderOne(Vertex in [[ stage_in ]],
+                               constant UniformsOne & uniforms [[ buffer(1) ]])
 {
     ColorInOut out;
     float4 position = float4(in.position, 1.0);
@@ -32,8 +32,9 @@ vertex ColorInOut vertexShader(Vertex in [[ stage_in ]],
     return out;
 }
 
+
 fragment half4 fragmentShaderOne(ColorInOut in [[ stage_in ]],
-                              constant Uniforms & uniforms [[ buffer(1) ]],
+                              constant UniformsOne & uniforms [[ buffer(1) ]],
                               texture2d<half> baseColorMap [[ texture(0) ]])
 {
     constexpr sampler linearSampler(mip_filter::linear, mag_filter::linear, min_filter::linear, s_address::repeat, t_address::repeat);
@@ -94,9 +95,19 @@ fragment half4 fragmentShaderOne(ColorInOut in [[ stage_in ]],
 }
 
 
-
+vertex ColorInOut vertexShaderTwo(Vertex in [[ stage_in ]],
+                               constant UniformsTwo & uniforms [[ buffer(1) ]])
+{
+    ColorInOut out;
+    float4 position = float4(in.position, 1.0);
+    out.position = uniforms.projectionMatrix * uniforms.modelViewMatrix * position;
+    out.worldPos = uniforms.modelMatrix * position;
+    out.texCoord = in.texCoord;
+    out.normal = normalize(uniforms.modelMatrix * float4((float3)in.normal,0));
+    return out;
+}
 fragment half4 fragmentShaderTwo(ColorInOut in [[ stage_in ]],
-                              constant Uniforms & uniforms [[ buffer(1) ]],
+                              constant UniformsTwo & uniforms [[ buffer(1) ]],
                               texture2d<half> baseColorMap [[ texture(0) ]])
 {
     constexpr sampler linearSampler(mip_filter::linear, mag_filter::linear, min_filter::linear, s_address::repeat, t_address::repeat);
