@@ -250,9 +250,11 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
 - (void) drawInMTKView:(nonnull MTKView *)view
 {
+
     id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
     commandBuffer.label = @"MyCommand";
-
+  
+  
     [self updateGameState];
 
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
@@ -263,46 +265,27 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
             [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
 
         [renderEncoder setCullMode:MTLCullModeBack];
-
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+        [renderEncoder setDepthStencilState:_relaxedDepthState];
+        
+        [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
         [renderEncoder setRenderPipelineState:_pipelineStateOne];
-        [renderEncoder setDepthStencilState:_relaxedDepthState];
-        [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
         [self drawMeshes:renderEncoder idx:0];
-        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
-        [self drawMeshes:renderEncoder idx:1];
-        [renderEncoder popDebugGroup];
-
-        [renderEncoder endEncoding];
-    }
-    
-    /*
-    if(renderPassDescriptor != nil)
-    {
-        id <MTLRenderCommandEncoder> renderEncoder =
-            [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
-
-        [renderEncoder setCullMode:MTLCullModeBack];
-
-        [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
-        [renderEncoder setDepthStencilState:_relaxedDepthState];
         [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
+        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
         [self drawMeshes:renderEncoder idx:1];
         [renderEncoder popDebugGroup];
 
         [renderEncoder endEncoding];
     }
-*/
-
     
+    
+    
+  
 
-
-    // Schedule a presentation for the current drawable, after the framebuffer is complete.
     [commandBuffer presentDrawable:view.currentDrawable];
-
-    // Finalize rendering here and send the command buffer to the GPU.
     [commandBuffer commit];
 }
 
+ 
 @end
