@@ -33,6 +33,11 @@ typedef NS_ENUM(NSInteger, VertexAttribute)
     VertexAttributePosition  = 0,
     VertexAttributeTexcoord  = 1,
 };
+typedef struct
+{
+    vector_float2 pos;
+    vector_float2 uv;
+} VertexRect;
 
 typedef NS_ENUM(NSInteger, TextureIndex)
 {

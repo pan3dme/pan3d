@@ -62,10 +62,10 @@
             filePath = "BankBRDF/Renderer.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "-drawInMTKView:"
-            landmarkType = "7">
+            startingLineNumber = "380"
+            endingLineNumber = "380"
+            landmarkName = "Renderer"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,8 +78,8 @@
             filePath = "BankBRDF/Renderer.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "-drawMeshes:idx:"
             landmarkType = "7">
          </BreakpointContent>

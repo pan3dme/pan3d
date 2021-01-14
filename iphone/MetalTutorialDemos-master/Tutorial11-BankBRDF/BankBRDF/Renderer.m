@@ -12,6 +12,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 #import "AAPLMesh.h"
 #import "AAPLMathUtilities.h"
 #import "ShaderTypes.h"
+#import "Box3dSprite.h"
 
 
 @implementation Renderer
@@ -32,7 +33,14 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     float _rotation;
 
     NSArray<AAPLMesh *> *_meshes;
+    
+ 
+    
+    Box3dSprite* _box3dSprite;
+    
 }
+ 
+
 
 -(nonnull instancetype)initWithMetalKitView:(nonnull MTKView *)view;
 {
@@ -40,13 +48,17 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     if(self)
     {
         _device = view.device;
+        
+        _box3dSprite= [[Box3dSprite alloc]init:view];
 
         [self loadMetalWithMetalKitView:view];
         [self loadAssets];
+  
     }
 
     return self;
 }
+ 
 
 - (void)loadMetalWithMetalKitView:(nonnull MTKView *)view
 {
@@ -296,6 +308,32 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     [self drawMeshes:renderEncoder idx:idx];
 }
 
+ 
+
+- (void)drawInMTKViewBase:(nonnull MTKView *)view
+{
+    id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
+    commandBuffer.label = @"MyCommand";
+    MTLRenderPassDescriptor* renderPassDescriptor = view.currentRenderPassDescriptor;
+    renderPassDescriptor.tileWidth = 16;
+    renderPassDescriptor.tileHeight = 16;
+    if(renderPassDescriptor != nil)
+    {
+        id <MTLRenderCommandEncoder> renderEncoder =
+        [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+        renderEncoder.label = @"MyRenderEncoder";
+        [renderEncoder pushDebugGroup:@"DrawBox"];
+ 
+    
+        [renderEncoder popDebugGroup];
+
+        [renderEncoder endEncoding];
+        [commandBuffer presentDrawable:view.currentDrawable];
+    }
+
+    [commandBuffer commit];
+}
+
 - (void) drawInMTKView:(nonnull MTKView *)view
 {
 
@@ -318,6 +356,12 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         
         [self selectOneShader:renderEncoder idx:0];
         [self selectOneShader:renderEncoder idx:1];
+        
+        
+    
+ 
+        
+        [_box3dSprite updata:renderEncoder];
   
         [renderEncoder popDebugGroup];
 

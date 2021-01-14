@@ -119,4 +119,34 @@ fragment half4 fragmentShaderTwo(ColorInOut in [[ stage_in ]],
     return half4(half3(color_sample.xyz),1.0f);
 }
 
+typedef struct
+{
+    float2 pos[[attribute(0)]];
+    float2 uv[[attribute(1)]];
+} VertexAttr;
+
+vertex ColorInOut vertexShader(VertexAttr in [[stage_in]])
+{
+    ColorInOut out;
+
+    float4 position = vector_float4(in.pos, 0.5 , 2);
+    out.position = position;
+    out.texCoord = in.uv;
+
+    return out;
+}
+
+fragment half4 fragmentShader(ColorInOut in [[stage_in]],
+                               texture2d<half> mtltexture01 [[texture(0)]])
+{
+    // 纹理采样对象
+    constexpr sampler textureSampler (mag_filter::linear,
+    min_filter::linear);
+    
+    // 采样贴图
+    const half4 color = mtltexture01.sample(textureSampler, in.texCoord);
+    
+    return color;
+}
+
 

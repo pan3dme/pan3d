@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C612DC225B03D040081A66E /* Box3dSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612DC125B03D040081A66E /* Box3dSprite.m */; };
 		D29B76022420C5BB0093E879 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B76012420C5BB0093E879 /* AppDelegate.m */; };
 		D29B76052420C5BB0093E879 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B76042420C5BB0093E879 /* Renderer.m */; };
 		D29B76082420C5BB0093E879 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B76072420C5BB0093E879 /* GameViewController.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C612DC025B03D040081A66E /* Box3dSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Box3dSprite.h; sourceTree = "<group>"; };
+		9C612DC125B03D040081A66E /* Box3dSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Box3dSprite.m; sourceTree = "<group>"; };
 		D29B75FD2420C5BB0093E879 /* BankBRDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankBRDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29B76002420C5BB0093E879 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D29B76012420C5BB0093E879 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C612DBE25B03BBD0081A66E /* basedis */ = {
+			isa = PBXGroup;
+			children = (
+				9C612DC025B03D040081A66E /* Box3dSprite.h */,
+				9C612DC125B03D040081A66E /* Box3dSprite.m */,
+			);
+			path = basedis;
+			sourceTree = "<group>";
+		};
 		D29B75F42420C5BB0093E879 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +86,7 @@
 		D29B75FF2420C5BB0093E879 /* BankBRDF */ = {
 			isa = PBXGroup;
 			children = (
+				9C612DBE25B03BBD0081A66E /* basedis */,
 				D29B76002420C5BB0093E879 /* AppDelegate.h */,
 				D29B76012420C5BB0093E879 /* AppDelegate.m */,
 				D29B76032420C5BB0093E879 /* Renderer.h */,
@@ -176,6 +189,7 @@
 				D29B76052420C5BB0093E879 /* Renderer.m in Sources */,
 				D29B76082420C5BB0093E879 /* GameViewController.m in Sources */,
 				D29B76022420C5BB0093E879 /* AppDelegate.m in Sources */,
+				9C612DC225B03D040081A66E /* Box3dSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
