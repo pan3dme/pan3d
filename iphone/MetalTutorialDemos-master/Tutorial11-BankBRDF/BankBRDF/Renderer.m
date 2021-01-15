@@ -247,6 +247,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 -(void)selectOneShader:( id <MTLRenderCommandEncoder> ) renderEncoder idx:(int)idx{
    
     
+    /*
     if(idx==0){
         [self updateGameStateOne];
         [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
@@ -254,14 +255,21 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         [renderEncoder setRenderPipelineState:_pipelineStateOne];
     }else{
         [self updateGameStateTwo];
-        [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
+        [renderEncoder setVertexBuffer:_uniformBufferTwo offset:0 atIndex:1];
         [renderEncoder setFragmentBuffer:_uniformBufferTwo offset:0 atIndex:1];
         [renderEncoder setRenderPipelineState:_pipelineStateTwo];
     }
- 
-//    [self drawMeshes:renderEncoder idx:idx];
     
-    [_obj3dSprite drawMeshes:renderEncoder idx:idx];
+    */
+//    [self updateGameStateOne];
+//    [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
+//    [renderEncoder setFragmentBuffer:_uniformBufferOne offset:0 atIndex:1];
+//    [renderEncoder setRenderPipelineState:_pipelineStateOne];
+ 
+    
+//    [_obj3dSprite drawMeshes:renderEncoder idx:idx];
+    
+    [_obj3dSprite updataTest:renderEncoder m:_projectionMatrix];
 }
 
  

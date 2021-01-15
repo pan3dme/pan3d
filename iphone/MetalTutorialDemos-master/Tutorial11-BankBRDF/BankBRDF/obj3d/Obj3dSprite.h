@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init:(MTKView*)view;
 -(void)updata:(id <MTLRenderCommandEncoder>) renderEncoder;
 -(void)setMeshInfo:(NSArray<AAPLMesh *> *) meshData;
+- (void)updataTest:(id<MTLRenderCommandEncoder>)renderEncoder  m:(matrix_float4x4)m;
 - (void)drawMeshes:(id<MTLRenderCommandEncoder>)renderEncoder idx:(int)idx;
  
 @end
