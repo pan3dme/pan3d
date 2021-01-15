@@ -155,7 +155,7 @@ vertex ColorInOut vertexShaderRect(constant VertexRed *vertexArr [[buffer(0)]],
 {
     ColorInOut out;
 
-    float4 position = vector_float4(vertexArr[vid].pos.x,vertexArr[vid].pos.y, vertexArr[vid].pos.z , 1.0);
+    float4 position = vector_float4(vertexArr[vid].pos.x*0.6,vertexArr[vid].pos.y*0.6, vertexArr[vid].pos.z*0.6 ,0.6);
     out.position = position;
 
     return out;

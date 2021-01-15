@@ -53,6 +53,11 @@
     pipelineStateDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat;
     pipelineStateDescriptor.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
     pipelineStateDescriptor.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
+    
+    pipelineStateDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat;
+    pipelineStateDescriptor.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
+    pipelineStateDescriptor.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
+    
 
     NSError *error = NULL;
     _pipelineState = [_device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor error:&error];
@@ -61,11 +66,15 @@
         NSLog(@"Failed to created pipeline state, error %@", error);
     }
     
-    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
-    depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
-    depthStateDesc.depthWriteEnabled = YES;
-    _depthState = [_device newDepthStencilStateWithDescriptor:depthStateDesc];
     
+    
+    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
+
+    {
+        depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
+        depthStateDesc.depthWriteEnabled = YES;
+        _depthState = [_device newDepthStencilStateWithDescriptor:depthStateDesc];
+    }
  
 
     _commandQueue = [_device newCommandQueue];
@@ -75,7 +84,7 @@
 {
     // 顶点buffer
     static const VertexRed vert[] = {
-        {{0,1.0,0}},
+        {{0,1.0,0.5}},
         {{1.0,-1.0,0.5}},
         {{-1.0,-1.0,0.5}}
     };
@@ -86,7 +95,7 @@
     
 //    [renderEncoder pushDebugGroup:@"DrawTriangle"];
     [renderEncoder setRenderPipelineState:_pipelineState];
-//    [renderEncoder setDepthStencilState:_depthState];
+    [renderEncoder setDepthStencilState:_depthState];
     [renderEncoder setVertexBuffer:_vertexBuffer offset:0 atIndex:0];
     [renderEncoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:3];
 }
