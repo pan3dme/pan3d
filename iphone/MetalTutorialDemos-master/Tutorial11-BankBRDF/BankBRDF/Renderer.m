@@ -25,22 +25,16 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
     MTLVertexDescriptor *_defaultVertexDescriptor;
 
-    id <MTLRenderPipelineState> _pipelineStateOne;
-    id <MTLRenderPipelineState> _pipelineStateTwo;
-
     id <MTLDepthStencilState> _relaxedDepthState;
-    id <MTLBuffer> _uniformBufferOne;
-    id <MTLBuffer> _uniformBufferTwo;
 
     matrix_float4x4 _projectionMatrix;
     float _rotation;
 
     NSArray<AAPLMesh *> *_meshes;
     
- 
-    
     Box3dSprite* _box3dSprite;
     RedRect3dSprite* _redRect3dSprite;
+    
     Obj3dSprite* _obj3dSprite;
     Obj3dTestSprite* _obj3dTestSprite;
     
@@ -62,8 +56,6 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
         [self loadMetalWithMetalKitView:view];
         [self loadAssets];
-        
-  
   
     }
 
@@ -78,14 +70,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     view.sampleCount = 1;
     
     _rotation = 0;
-    
-    id <MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
-
-    const MTLResourceOptions storageMode = MTLResourceStorageModeShared;
-    _uniformBufferOne = [_device newBufferWithLength:sizeof(UniformsOne)
-                                                  options:storageMode];
-    _uniformBufferTwo = [_device newBufferWithLength:sizeof(UniformsTwo)
-                                                  options:storageMode];
+     
+ 
     _defaultVertexDescriptor = [[MTLVertexDescriptor alloc] init];
 
     // Positions.
@@ -102,51 +88,11 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     _defaultVertexDescriptor.attributes[2].format = MTLVertexFormatHalf4;
     _defaultVertexDescriptor.attributes[2].offset = 20;
     _defaultVertexDescriptor.attributes[2].bufferIndex = 0;
-    
-    // ...
+     
 
     _defaultVertexDescriptor.layouts[0].stride = 44;
     _defaultVertexDescriptor.layouts[0].stepRate = 1;
     _defaultVertexDescriptor.layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
-
-    id <MTLFunction> vertexStandardMaterialOne = [defaultLibrary newFunctionWithName:@"vertexShaderOne"];
-    id <MTLFunction> vertexStandardMaterialTwo = [defaultLibrary newFunctionWithName:@"vertexShaderTwo"];
- 
-    
-    // Create a render pipeline state descriptor.
-
-    
-    MTLRenderPipelineDescriptor * renderPipelineStateDescriptorOne = [MTLRenderPipelineDescriptor new];
-
-    renderPipelineStateDescriptorOne.label = @"Forward LightingOne";
-    renderPipelineStateDescriptorOne.sampleCount = view.sampleCount;
-    renderPipelineStateDescriptorOne.vertexDescriptor = _defaultVertexDescriptor;
-    renderPipelineStateDescriptorOne.vertexFunction = vertexStandardMaterialOne;
-    renderPipelineStateDescriptorOne.fragmentFunction =  [defaultLibrary newFunctionWithName:@"fragmentShaderOne"];
-    renderPipelineStateDescriptorOne.colorAttachments[0].pixelFormat = view.colorPixelFormat;
-    renderPipelineStateDescriptorOne.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
-    renderPipelineStateDescriptorOne.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
-    
-    
-    MTLRenderPipelineDescriptor * renderPipelineStateDescriptorTwo = [MTLRenderPipelineDescriptor new];
-
-    renderPipelineStateDescriptorTwo.label = @"Forward LightingTwo";
-    renderPipelineStateDescriptorTwo.sampleCount = view.sampleCount;
-    renderPipelineStateDescriptorTwo.vertexDescriptor = _defaultVertexDescriptor;
-    renderPipelineStateDescriptorTwo.vertexFunction = vertexStandardMaterialTwo;
-    renderPipelineStateDescriptorTwo.fragmentFunction =  [defaultLibrary newFunctionWithName:@"fragmentShaderTwo"];
-    renderPipelineStateDescriptorTwo.colorAttachments[0].pixelFormat = view.colorPixelFormat;
-    renderPipelineStateDescriptorTwo.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
-    renderPipelineStateDescriptorTwo.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
-    
-    NSError* error = NULL;
-    _pipelineStateOne = [_device newRenderPipelineStateWithDescriptor:renderPipelineStateDescriptorOne
-                                       error:&error];
-    
-    _pipelineStateTwo = [_device newRenderPipelineStateWithDescriptor:renderPipelineStateDescriptorTwo
-                                       error:&error];
-        
- 
 
     MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
 
@@ -163,14 +109,12 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 {
     // Create and load assets into Metal objects.
     NSError *error = nil;
-
     MDLVertexDescriptor *modelIOVertexDescriptor =
         MTKModelIOVertexDescriptorFromMetal(_defaultVertexDescriptor);
     modelIOVertexDescriptor.attributes[0].name  = MDLVertexAttributePosition;
     modelIOVertexDescriptor.attributes[1].name  = MDLVertexAttributeTextureCoordinate;
     modelIOVertexDescriptor.attributes[2].name    = MDLVertexAttributeNormal;
-    //modelIOVertexDescriptor.attributes[3].name   = MDLVertexAttributeTangent;
-    //modelIOVertexDescriptor.attributes[4].name = MDLVertexAttributeBitangent;
+ 
     NSURL *modelFileURL = [[NSBundle mainBundle] URLForResource:@"Temple.obj" withExtension:nil];
     NSAssert(modelFileURL, @"Could not find model (%@) file in bundle", modelFileURL.absoluteString);
     _meshes = [AAPLMesh newMeshesFromURL:modelFileURL
@@ -183,61 +127,6 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     [_obj3dSprite setMeshInfo:_meshes];
     [_obj3dTestSprite setMeshInfo:_meshes];
 }
-
-/// Update app state for the current frame.
-- (void)updateGameStateOne
-{
-    UniformsOne * uniforms = (UniformsOne*)_uniformBufferOne.contents;
-    // P
-    uniforms->projectionMatrix = _projectionMatrix;
-    // V
-    uniforms->viewMatrix = matrix_multiply(matrix4x4_translation(0, -100, 1100),
-                                           matrix4x4_rotation(-0.5, (vector_float3){1,0,0}));
-    // M
-    uniforms->modelMatrix = matrix_multiply(matrix4x4_rotation(_rotation, (vector_float3){0,1,0}),
-                                            matrix4x4_translation(0, 0, 0));
-    // MV
-    uniforms->modelViewMatrix = matrix_multiply(uniforms->viewMatrix, uniforms->modelMatrix);
-        
-    // 平行光
-    uniforms->directionalLightDirection = (vector_float3){-1.0,-1.0,-1.0};
-    uniforms->directionalLightColor = (vector_float3){0.8,0.8,0.8};
-    
-    uniforms->IL = 10.0f;
-    uniforms->Kd = 0.1f;
-    uniforms->Ks = 0.9f;
-    uniforms->Ia = 3.0f;
-    uniforms->Ka = 0.1f;
-    //uniforms->shininess = 15.0f;
-    
-    uniforms->f = 0.015;
-    uniforms->m = 0.8;
-    
-    uniforms->cameraPos = (vector_float3){0,100,-1100};
-
-    _rotation += 0.002f;
-}
-- (void)updateGameStateTwo
-{
-    UniformsTwo * uniforms = (UniformsTwo*)_uniformBufferTwo.contents;
-    // P
-    uniforms->projectionMatrix = _projectionMatrix;
-    // V
-    uniforms->viewMatrix = matrix_multiply(matrix4x4_translation(0, -100, 1100),
-                                           matrix4x4_rotation(-0.5, (vector_float3){1,0,0}));
-    // M
-    uniforms->modelMatrix = matrix_multiply(matrix4x4_rotation(_rotation, (vector_float3){0,1,0}),
-                                            matrix4x4_translation(0, 0, 0));
-    // MV
-    uniforms->modelViewMatrix = matrix_multiply(uniforms->viewMatrix, uniforms->modelMatrix);
-        
- 
-    _rotation += 0.002f;
-
- 
-}
- 
-
 /// Called whenever the view changes orientation or size.
 - (void) mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size
 {
@@ -249,30 +138,6 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 }
  
 -(void)selectOneShader:( id <MTLRenderCommandEncoder> ) renderEncoder idx:(int)idx{
-   
-    
-    /*
-    if(idx==0){
-        [self updateGameStateOne];
-        [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
-        [renderEncoder setFragmentBuffer:_uniformBufferOne offset:0 atIndex:1];
-        [renderEncoder setRenderPipelineState:_pipelineStateOne];
-    }else{
-        [self updateGameStateTwo];
-        [renderEncoder setVertexBuffer:_uniformBufferTwo offset:0 atIndex:1];
-        [renderEncoder setFragmentBuffer:_uniformBufferTwo offset:0 atIndex:1];
-        [renderEncoder setRenderPipelineState:_pipelineStateTwo];
-    }
-    
-    */
-//    [self updateGameStateOne];
-//    [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
-//    [renderEncoder setFragmentBuffer:_uniformBufferOne offset:0 atIndex:1];
-//    [renderEncoder setRenderPipelineState:_pipelineStateOne];
- 
-    
-//    [_obj3dSprite drawMeshes:renderEncoder idx:idx];
-    
     [_obj3dSprite updataTest:renderEncoder m:_projectionMatrix];
     [_obj3dTestSprite updataTest:renderEncoder m:_projectionMatrix];
 }
@@ -292,28 +157,18 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
         renderEncoder.label = @"MyRenderEncoder";
         [renderEncoder pushDebugGroup:@"DrawBox"];
- 
-    
         [renderEncoder popDebugGroup];
-
         [renderEncoder endEncoding];
         [commandBuffer presentDrawable:view.currentDrawable];
     }
-
     [commandBuffer commit];
 }
 
 - (void) drawInMTKView:(nonnull MTKView *)view
 {
-
     id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
     commandBuffer.label = @"MyCommand";
-  
-  
-   
-
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
-  
     if(renderPassDescriptor != nil)
     {
         id <MTLRenderCommandEncoder> renderEncoder =
@@ -322,31 +177,14 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         [renderEncoder setCullMode:MTLCullModeBack];
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
         [renderEncoder setDepthStencilState:_relaxedDepthState];
-        
-
-        
-   
+    
         [self selectOneShader:renderEncoder idx:0];
         [_redRect3dSprite updata:renderEncoder];
-      
-        
         [self selectOneShader:renderEncoder idx:1];
         
-     
-    
- 
-        
-//        [_box3dSprite updata:renderEncoder];
-   
-  
         [renderEncoder popDebugGroup];
-
         [renderEncoder endEncoding];
     }
-    
-    
-    
-  
 
     [commandBuffer presentDrawable:view.currentDrawable];
     [commandBuffer commit];

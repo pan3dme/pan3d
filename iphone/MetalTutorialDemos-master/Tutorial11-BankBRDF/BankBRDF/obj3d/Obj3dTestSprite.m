@@ -62,7 +62,7 @@
 
     id <MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
     
-    NSString *shaderName = @"Two";
+  
 
     const MTLResourceOptions storageMode = MTLResourceStorageModeShared;
     self._uniformBufferOne = [_device newBufferWithLength:sizeof(UniformsOne)
@@ -92,13 +92,9 @@
     self._defaultVertexDescriptor.layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
       
 
-    id <MTLFunction> vertexStandardMaterialOne = [defaultLibrary newFunctionWithName:   [@"vertexShader" stringByAppendingString:shaderName]];
+    id <MTLFunction> vertexStandardMaterialOne = [defaultLibrary newFunctionWithName:  @"vertexShaderTwo"];
  
-    
-
-    
-    // Create a render pipeline state descriptor.
-
+     
     
     MTLRenderPipelineDescriptor * renderPipelineStateDescriptorOne = [MTLRenderPipelineDescriptor new];
 
@@ -106,7 +102,7 @@
     renderPipelineStateDescriptorOne.sampleCount = view.sampleCount;
     renderPipelineStateDescriptorOne.vertexDescriptor = self._defaultVertexDescriptor;
     renderPipelineStateDescriptorOne.vertexFunction = vertexStandardMaterialOne;
-    renderPipelineStateDescriptorOne.fragmentFunction =  [defaultLibrary newFunctionWithName:    [@"fragmentShader" stringByAppendingString:shaderName]];
+    renderPipelineStateDescriptorOne.fragmentFunction =  [defaultLibrary newFunctionWithName:  @"fragmentShaderTwo"];
     renderPipelineStateDescriptorOne.colorAttachments[0].pixelFormat = view.colorPixelFormat;
     renderPipelineStateDescriptorOne.depthAttachmentPixelFormat = view.depthStencilPixelFormat;
     renderPipelineStateDescriptorOne.stencilAttachmentPixelFormat = view.depthStencilPixelFormat;
@@ -123,12 +119,7 @@
  
 - (void)updata:(id<MTLRenderCommandEncoder>)renderEncoder
 {
-    if(self._meshes!=nil)
-    {
-       
-       
-    }
-   
+  
 
 }
 
