@@ -116,13 +116,13 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     modelIOVertexDescriptor.attributes[2].name    = MDLVertexAttributeNormal;
  
     NSURL *modelFileURL = [[NSBundle mainBundle] URLForResource:@"Temple.obj" withExtension:nil];
-    NSAssert(modelFileURL, @"Could not find model (%@) file in bundle", modelFileURL.absoluteString);
+ 
     _meshes = [AAPLMesh newMeshesFromURL:modelFileURL
                  modelIOVertexDescriptor:modelIOVertexDescriptor
                              metalDevice:_device
                                    error:&error];
     
-    NSAssert(_meshes, @"Could not find model (%@) file in bundle", error);
+ 
     
     [_obj3dSprite setMeshInfo:_meshes];
     [_obj3dTestSprite setMeshInfo:_meshes];
