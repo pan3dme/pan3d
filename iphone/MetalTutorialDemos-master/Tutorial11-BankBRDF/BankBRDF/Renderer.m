@@ -15,6 +15,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 #import "Box3dSprite.h"
 #import "RedRect3dSprite.h"
 #import "Obj3dSprite.h"
+#import "Obj3dTestSprite.h"
 
 
 @implementation Renderer
@@ -41,6 +42,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     Box3dSprite* _box3dSprite;
     RedRect3dSprite* _redRect3dSprite;
     Obj3dSprite* _obj3dSprite;
+    Obj3dTestSprite* _obj3dTestSprite;
     
 }
  
@@ -56,6 +58,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         _box3dSprite= [[Box3dSprite alloc]init:view];
         _redRect3dSprite=[[RedRect3dSprite alloc]init:view];
         _obj3dSprite=[[Obj3dSprite alloc] init:view];
+        _obj3dTestSprite=[[Obj3dTestSprite alloc] init:view];
 
         [self loadMetalWithMetalKitView:view];
         [self loadAssets];
@@ -178,6 +181,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     NSAssert(_meshes, @"Could not find model (%@) file in bundle", error);
     
     [_obj3dSprite setMeshInfo:_meshes];
+    [_obj3dTestSprite setMeshInfo:_meshes];
 }
 
 /// Update app state for the current frame.
@@ -270,6 +274,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 //    [_obj3dSprite drawMeshes:renderEncoder idx:idx];
     
     [_obj3dSprite updataTest:renderEncoder m:_projectionMatrix];
+    [_obj3dTestSprite updataTest:renderEncoder m:_projectionMatrix];
 }
 
  
@@ -323,6 +328,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
    
         [self selectOneShader:renderEncoder idx:0];
         [_redRect3dSprite updata:renderEncoder];
+      
+        
         [self selectOneShader:renderEncoder idx:1];
         
      

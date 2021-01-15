@@ -1,4 +1,15 @@
 //
+//  Obj3dTestSprite.m
+//  BankBRDF
+//
+//  Created by pan3dme on 2021/1/16.
+//  Copyright © 2021 Xinhou Jiang. All rights reserved.
+//
+
+ 
+
+
+//
 //  Obj3dSprite.m
 //  BankBRDF
 //
@@ -6,7 +17,7 @@
 //  Copyright © 2021 Xinhou Jiang. All rights reserved.
 //
 
-#import "Obj3dSprite.h"
+#import "Obj3dTestSprite.h"
 #import "AAPLMesh.h"
 #import "AAPLMathUtilities.h"
 #import "ShaderTypes.h"
@@ -14,7 +25,7 @@
 @import ModelIO;
 @import MetalKit;
 
-@interface Obj3dSprite ()
+@interface Obj3dTestSprite ()
 @property(nonatomic,strong) id <MTLDevice> device;;
 @property(nonatomic,strong) id <MTLCommandQueue> _commandQueue;
 @property(nonatomic,strong) id <MTLRenderPipelineState> _pipelineStateOne;
@@ -26,7 +37,7 @@
 @end
 
 
-@implementation Obj3dSprite
+@implementation Obj3dTestSprite
 - (instancetype)init:(MTKView*)view;
 {
     self = [super init];
@@ -51,7 +62,7 @@
 
     id <MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
     
-    NSString *shaderName = @"One";
+    NSString *shaderName = @"Two";
 
     const MTLResourceOptions storageMode = MTLResourceStorageModeShared;
     self._uniformBufferOne = [_device newBufferWithLength:sizeof(UniformsOne)
@@ -162,8 +173,9 @@
     [renderEncoder setFragmentBuffer:self._uniformBufferOne offset:0 atIndex:1];
     [renderEncoder setRenderPipelineState:self._pipelineStateOne];
     
-    [self drawMeshes:renderEncoder idx:0];
-  
+   
+    [self drawMeshes:renderEncoder idx:1];
+ 
 }
 
 
