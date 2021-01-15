@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C612DC225B03D040081A66E /* Box3dSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612DC125B03D040081A66E /* Box3dSprite.m */; };
 		9C612DD825B0B3BA0081A66E /* RedRect3dSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612DD725B0B3BA0081A66E /* RedRect3dSprite.m */; };
+		9C612DDD25B14DA80081A66E /* Obj3dSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612DDC25B14DA80081A66E /* Obj3dSprite.m */; };
 		D29B76022420C5BB0093E879 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B76012420C5BB0093E879 /* AppDelegate.m */; };
 		D29B76052420C5BB0093E879 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B76042420C5BB0093E879 /* Renderer.m */; };
 		D29B76082420C5BB0093E879 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D29B76072420C5BB0093E879 /* GameViewController.m */; };
@@ -28,6 +29,8 @@
 		9C612DC125B03D040081A66E /* Box3dSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Box3dSprite.m; sourceTree = "<group>"; };
 		9C612DD625B0B3BA0081A66E /* RedRect3dSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedRect3dSprite.h; sourceTree = "<group>"; };
 		9C612DD725B0B3BA0081A66E /* RedRect3dSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedRect3dSprite.m; sourceTree = "<group>"; };
+		9C612DDB25B14DA80081A66E /* Obj3dSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Obj3dSprite.h; sourceTree = "<group>"; };
+		9C612DDC25B14DA80081A66E /* Obj3dSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Obj3dSprite.m; sourceTree = "<group>"; };
 		D29B75FD2420C5BB0093E879 /* BankBRDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankBRDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29B76002420C5BB0093E879 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D29B76012420C5BB0093E879 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,6 +82,15 @@
 			path = red3d;
 			sourceTree = "<group>";
 		};
+		9C612DDA25B14D670081A66E /* obj3d */ = {
+			isa = PBXGroup;
+			children = (
+				9C612DDB25B14DA80081A66E /* Obj3dSprite.h */,
+				9C612DDC25B14DA80081A66E /* Obj3dSprite.m */,
+			);
+			path = obj3d;
+			sourceTree = "<group>";
+		};
 		D29B75F42420C5BB0093E879 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +110,7 @@
 		D29B75FF2420C5BB0093E879 /* BankBRDF */ = {
 			isa = PBXGroup;
 			children = (
+				9C612DDA25B14D670081A66E /* obj3d */,
 				9C612DD325B0B3850081A66E /* red3d */,
 				9C612DBE25B03BBD0081A66E /* basedis */,
 				D29B76002420C5BB0093E879 /* AppDelegate.h */,
@@ -196,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D29B76162420C5BE0093E879 /* main.m in Sources */,
+				9C612DDD25B14DA80081A66E /* Obj3dSprite.m in Sources */,
 				D29B760A2420C5BB0093E879 /* Shaders.metal in Sources */,
 				D29B76202420C6A20093E879 /* AAPLMesh.m in Sources */,
 				D29B76212420C6A20093E879 /* AAPLMathUtilities.m in Sources */,

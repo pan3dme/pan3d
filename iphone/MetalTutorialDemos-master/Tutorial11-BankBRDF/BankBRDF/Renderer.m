@@ -14,6 +14,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 #import "ShaderTypes.h"
 #import "Box3dSprite.h"
 #import "RedRect3dSprite.h"
+#import "Obj3dSprite.h"
 
 
 @implementation Renderer
@@ -39,6 +40,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     
     Box3dSprite* _box3dSprite;
     RedRect3dSprite* _redRect3dSprite;
+    Obj3dSprite* _obj3dSprite;
     
 }
  
@@ -53,9 +55,12 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         
         _box3dSprite= [[Box3dSprite alloc]init:view];
         _redRect3dSprite=[[RedRect3dSprite alloc]init:view];
+        _obj3dSprite=[[Obj3dSprite alloc] init:view];
 
         [self loadMetalWithMetalKitView:view];
         [self loadAssets];
+        
+  
   
     }
 
@@ -171,6 +176,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
                                    error:&error];
     
     NSAssert(_meshes, @"Could not find model (%@) file in bundle", error);
+    
+    [_obj3dSprite setMeshInfo:_meshes];
 }
 
 /// Update app state for the current frame.
@@ -236,79 +243,25 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     float _farPlane = 1500.0f;
     _projectionMatrix = matrix_perspective_left_hand(_fov, aspect, _nearPlane, _farPlane);
 }
-
-/// Draw the mesh objects with the given render command encoder.
-- (void)drawMeshes:(id<MTLRenderCommandEncoder>)renderEncoder idx:(int)idx;
-{
-    int skipNum=0;
-    for (__unsafe_unretained AAPLMesh *mesh in _meshes)
-    {
-        __unsafe_unretained MTKMesh *metalKitMesh = mesh.metalKitMesh;
-
-        // Set the mesh's vertex buffers.
-        for (NSUInteger bufferIndex = 0; bufferIndex < metalKitMesh.vertexBuffers.count; bufferIndex++)
-        {
-            __unsafe_unretained MTKMeshBuffer *vertexBuffer = metalKitMesh.vertexBuffers[bufferIndex];
-            if((NSNull*)vertexBuffer != [NSNull null])
-            {
-                [renderEncoder setVertexBuffer:vertexBuffer.buffer
-                                        offset:vertexBuffer.offset
-                                       atIndex:bufferIndex];
-            }
-        }
-
-        // Draw each submesh of the mesh.
-        for(AAPLSubmesh *submesh in mesh.submeshes)
-        {
-            if(skipNum==idx){
-                // Set any textures that you read or sample in the render pipeline.
-                [renderEncoder setFragmentTexture:submesh.textures[0]
-                                          atIndex:0];
-
-                [renderEncoder setFragmentTexture:submesh.textures[1]
-                                          atIndex:1];
-
-                [renderEncoder setFragmentTexture:submesh.textures[2]
-                                          atIndex:2];
-                
-                if(idx==0){
-                    [renderEncoder setFragmentBuffer:_uniformBufferOne offset:0 atIndex:1];
-                }else{
-                    [renderEncoder setFragmentBuffer:_uniformBufferTwo offset:0 atIndex:1];
-                }
-               
-
-                MTKSubmesh *metalKitSubmesh = submesh.metalKitSubmmesh;
-
-                [renderEncoder drawIndexedPrimitives:metalKitSubmesh.primitiveType
-                                          indexCount:metalKitSubmesh.indexCount
-                                           indexType:metalKitSubmesh.indexType
-                                         indexBuffer:metalKitSubmesh.indexBuffer.buffer
-                                   indexBufferOffset:metalKitSubmesh.indexBuffer.offset];
-            }
-            
-            skipNum++;
-            
-        }
-    }
-}
--(void)selectOneShader:( id <MTLRenderCommandEncoder> ) renderEncoder idx:(int)idx{
-  
  
-
-
+-(void)selectOneShader:( id <MTLRenderCommandEncoder> ) renderEncoder idx:(int)idx{
+   
     
     if(idx==0){
         [self updateGameStateOne];
         [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
+        [renderEncoder setFragmentBuffer:_uniformBufferOne offset:0 atIndex:1];
         [renderEncoder setRenderPipelineState:_pipelineStateOne];
     }else{
         [self updateGameStateTwo];
-        [renderEncoder setVertexBuffer:_uniformBufferTwo offset:0 atIndex:1];
+        [renderEncoder setVertexBuffer:_uniformBufferOne offset:0 atIndex:1];
+        [renderEncoder setFragmentBuffer:_uniformBufferTwo offset:0 atIndex:1];
         [renderEncoder setRenderPipelineState:_pipelineStateTwo];
     }
  
-    [self drawMeshes:renderEncoder idx:idx];
+//    [self drawMeshes:renderEncoder idx:idx];
+    
+    [_obj3dSprite drawMeshes:renderEncoder idx:idx];
 }
 
  
