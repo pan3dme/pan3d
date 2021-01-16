@@ -102,6 +102,9 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         _relaxedDepthState = [_device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
     _commandQueue = [_device newCommandQueue];
+    
+    [_obj3dSprite setMtlVertexDes:_defaultVertexDescriptor];
+    [_obj3dTestSprite setMtlVertexDes:_defaultVertexDescriptor];
 }
 
 // 加载模型
@@ -124,8 +127,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     
  
     
-    [_obj3dSprite setMeshInfo:_meshes];
-    [_obj3dTestSprite setMeshInfo:_meshes];
+    [_obj3dSprite setMeshInfo:_meshes ];
+    [_obj3dTestSprite setMeshInfo:_meshes ];
 }
 /// Called whenever the view changes orientation or size.
 - (void) mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size
@@ -176,7 +179,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
         [renderEncoder setCullMode:MTLCullModeBack];
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-        [renderEncoder setDepthStencilState:_relaxedDepthState];
+//        [renderEncoder setDepthStencilState:_relaxedDepthState];
     
         [self selectOneShader:renderEncoder idx:0];
         [_redRect3dSprite updata:renderEncoder];

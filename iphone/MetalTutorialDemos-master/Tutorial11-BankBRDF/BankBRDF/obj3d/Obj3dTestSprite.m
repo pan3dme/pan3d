@@ -26,12 +26,14 @@
 @import MetalKit;
 
 @interface Obj3dTestSprite ()
+@property(nonatomic,strong) MTKView* baseView;;
 @property(nonatomic,strong) id <MTLDevice> device;;
 @property(nonatomic,strong) id <MTLCommandQueue> _commandQueue;
 @property(nonatomic,strong) id <MTLRenderPipelineState> _pipelineStateOne;
 @property(nonatomic,strong) id <MTLBuffer> _uniformBufferOne;
 @property(nonatomic,assign) NSArray<AAPLMesh *> *_meshes;
-@property(nonatomic,strong)  MTLVertexDescriptor *_defaultVertexDescriptor;
+@property(nonatomic,strong)    MTLVertexDescriptor *_defaultVertexDescriptor;
+ 
  
 
 @end
@@ -42,15 +44,22 @@
 {
     self = [super init];
     if (self) {
+        _baseView=view;
         _device=view.device;
-        [self loadMetalWithMetalKitView:view];
+   
  
     }
     return self;
 }
--(void)setMeshInfo:(NSArray<AAPLMesh *> *) meshData;
+-(void)setMeshInfo:(NSArray<AAPLMesh *> *) meshData  ;
 {
     self._meshes=meshData;
+   
+}
+-(void)setMtlVertexDes:(MTLVertexDescriptor*)mtlVertexDes;
+{
+    self._defaultVertexDescriptor=mtlVertexDes;
+    [self loadMetalWithMetalKitView:_baseView];
 }
  
 - (void)loadMetalWithMetalKitView:(nonnull MTKView *)view
@@ -67,30 +76,7 @@
     const MTLResourceOptions storageMode = MTLResourceStorageModeShared;
     self._uniformBufferOne = [_device newBufferWithLength:sizeof(UniformsOne)
                                                   options:storageMode];
-    
-    self._defaultVertexDescriptor = [[MTLVertexDescriptor alloc] init];
-
-    // Positions.
-    self._defaultVertexDescriptor.attributes[0].format = MTLVertexFormatFloat3;
-    self._defaultVertexDescriptor.attributes[0].offset = 0;
-    self._defaultVertexDescriptor.attributes[0].bufferIndex = 0;
-
-    // Texture coordinates.
-    self._defaultVertexDescriptor.attributes[1].format = MTLVertexFormatFloat2;
-    self._defaultVertexDescriptor.attributes[1].offset = 12;
-    self._defaultVertexDescriptor.attributes[1].bufferIndex = 0;
-    
-    // Normals
-    self._defaultVertexDescriptor.attributes[2].format = MTLVertexFormatHalf4;
-    self._defaultVertexDescriptor.attributes[2].offset = 20;
-    self._defaultVertexDescriptor.attributes[2].bufferIndex = 0;
-    
-    // ...
-
-    self._defaultVertexDescriptor.layouts[0].stride = 44;
-    self._defaultVertexDescriptor.layouts[0].stepRate = 1;
-    self._defaultVertexDescriptor.layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
-      
+     
 
     id <MTLFunction> vertexStandardMaterialOne = [defaultLibrary newFunctionWithName:  @"vertexShaderTwo"];
  
@@ -158,7 +144,7 @@
 }
 - (void)updataTest:(id<MTLRenderCommandEncoder>)renderEncoder  m:(matrix_float4x4)m
 {
- 
+    if(self._meshes){
     [self updateGameStateOne:m];
     [renderEncoder setVertexBuffer:self._uniformBufferOne offset:0 atIndex:1];
     [renderEncoder setFragmentBuffer:self._uniformBufferOne offset:0 atIndex:1];
@@ -166,7 +152,7 @@
     
    
     [self drawMeshes:renderEncoder idx:1];
- 
+    }
 }
 
 
