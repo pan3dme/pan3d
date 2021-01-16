@@ -14,8 +14,8 @@
             filePath = "BankBRDF/obj3d/Obj3dSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "-updata:"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "BankBRDF/obj3d/Obj3dTestSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "-updataTest:"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "BankBRDF/obj3d/Obj3dTestSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "-drawMeshes:idx:"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "BankBRDF/obj3d/Obj3dTestSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-drawMeshes:idx:"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "BankBRDF/obj3d/Obj3dTestSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-loadAssets"
             landmarkType = "7">
          </BreakpointContent>

@@ -45,8 +45,33 @@
     self._meshes=meshData;
    
 }
--(void)setMtlVertexDes:(MTLVertexDescriptor*)mtlVertexDes;
+-(void)setMtlVertexDes ;
 {
+    
+
+    MTLVertexDescriptor* mtlVertexDes = [[MTLVertexDescriptor alloc] init];
+
+   // Positions.
+    mtlVertexDes.attributes[0].format = MTLVertexFormatFloat3;
+    mtlVertexDes.attributes[0].offset = 0;
+    mtlVertexDes.attributes[0].bufferIndex = 0;
+
+   // Texture coordinates.
+    mtlVertexDes.attributes[1].format = MTLVertexFormatFloat2;
+    mtlVertexDes.attributes[1].offset = 12;
+    mtlVertexDes.attributes[1].bufferIndex = 0;
+   
+   // Normals
+    mtlVertexDes.attributes[2].format = MTLVertexFormatHalf4;
+    mtlVertexDes.attributes[2].offset = 20;
+    mtlVertexDes.attributes[2].bufferIndex = 0;
+    
+
+    mtlVertexDes.layouts[0].stride = 44;
+    mtlVertexDes.layouts[0].stepRate = 1;
+    mtlVertexDes.layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
+    
+    
     self._defaultVertexDescriptor=mtlVertexDes;
     
     [self loadMetalWithMetalKitView:_baseView];

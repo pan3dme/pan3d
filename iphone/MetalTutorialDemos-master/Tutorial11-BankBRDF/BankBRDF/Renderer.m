@@ -22,19 +22,12 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 {
     id <MTLDevice> _device;
     id <MTLCommandQueue> _commandQueue;
-
     MTLVertexDescriptor *_defaultVertexDescriptor;
-
     id <MTLDepthStencilState> _relaxedDepthState;
-
-    matrix_float4x4 _projectionMatrix;
-    float _rotation;
-
     NSArray<AAPLMesh *> *_meshes;
     
     Box3dSprite* _box3dSprite;
     RedRect3dSprite* _redRect3dSprite;
-    
     Obj3dSprite* _obj3dSprite;
     Obj3dTestSprite* _obj3dTestSprite;
     
@@ -69,7 +62,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     view.colorPixelFormat = MTLPixelFormatBGRA8Unorm_sRGB;
     view.sampleCount = 1;
     
-    _rotation = 0;
+ 
      
  
     _defaultVertexDescriptor = [[MTLVertexDescriptor alloc] init];
@@ -103,8 +96,8 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     }
     _commandQueue = [_device newCommandQueue];
     
-    [_obj3dSprite setMtlVertexDes:_defaultVertexDescriptor];
-    [_obj3dTestSprite setMtlVertexDes:_defaultVertexDescriptor];
+    [_obj3dSprite setMtlVertexDes ];
+    [_obj3dTestSprite setMtlVertexDes ];
 }
 
 // 加载模型
@@ -133,11 +126,6 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 /// Called whenever the view changes orientation or size.
 - (void) mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size
 {
-    float aspect = size.width / (float)size.height;
-    float _fov = 65.0f * (M_PI / 180.0f);
-    float _nearPlane = 1.0f;
-    float _farPlane = 1500.0f;
-    _projectionMatrix = matrix_perspective_left_hand(_fov, aspect, _nearPlane, _farPlane);
     
     [_obj3dTestSprite drawableSizeWillChange:size];
     [_obj3dSprite drawableSizeWillChange:size];
@@ -148,28 +136,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     [_obj3dTestSprite updataTest:renderEncoder];
 }
 
- 
-
-- (void)drawInMTKViewBase:(nonnull MTKView *)view
-{
-    id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
-    commandBuffer.label = @"MyCommand";
-    MTLRenderPassDescriptor* renderPassDescriptor = view.currentRenderPassDescriptor;
-    renderPassDescriptor.tileWidth = 16;
-    renderPassDescriptor.tileHeight = 16;
-    if(renderPassDescriptor != nil)
-    {
-        id <MTLRenderCommandEncoder> renderEncoder =
-        [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
-        renderEncoder.label = @"MyRenderEncoder";
-        [renderEncoder pushDebugGroup:@"DrawBox"];
-        [renderEncoder popDebugGroup];
-        [renderEncoder endEncoding];
-        [commandBuffer presentDrawable:view.currentDrawable];
-    }
-    [commandBuffer commit];
-}
-
+  
 - (void) drawInMTKView:(nonnull MTKView *)view
 {
     id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
@@ -182,7 +149,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 
         [renderEncoder setCullMode:MTLCullModeBack];
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-//        [renderEncoder setDepthStencilState:_relaxedDepthState];
+        [renderEncoder setDepthStencilState:_relaxedDepthState];
     
         [self selectOneShader:renderEncoder idx:0];
         [_redRect3dSprite updata:renderEncoder depthStencil:_relaxedDepthState];

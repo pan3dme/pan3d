@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init:(MTKView*)view;
 -(void)updata:(id <MTLRenderCommandEncoder>) renderEncoder;
 -(void)setMeshInfo:(NSArray<AAPLMesh *> *) meshData ;
--(void)setMtlVertexDes:(MTLVertexDescriptor*)mtlVertexDes;
+-(void)setMtlVertexDes;
 - (void)updataTest:(id<MTLRenderCommandEncoder>)renderEncoder;
 - (void)drawMeshes:(id<MTLRenderCommandEncoder>)renderEncoder idx:(int)idx;
 - (void) drawableSizeWillChange:(CGSize)size;
