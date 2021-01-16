@@ -1,53 +1,47 @@
 //
-//  ViewController.m
-//  LearnMetal
+//  RotationSpriteA.m
+//  BankBRDF
 //
-//  Created by loyinglin on 2018/6/21.
-//  Copyright © 2018年 loyinglin. All rights reserved.
+//  Created by pan3dme on 2021/1/16.
+//  Copyright © 2021 Xinhou Jiang. All rights reserved.
 //
+
+#import "RotationSpriteA.h"
+#import "ShaderTypes.h"
 @import MetalKit;
 @import GLKit;
 
-#import "LYShaderTypes.h"
-#import "ViewController.h"
 
-@interface ViewController () <MTKViewDelegate>
-
-// view
-@property (nonatomic, strong) MTKView *mtkView;
-@property (nonatomic, strong) IBOutlet UISwitch *rotationX;
-@property (nonatomic, strong) IBOutlet UISwitch *rotationY;
-@property (nonatomic, strong) IBOutlet UISwitch *rotationZ;
-
-@property (nonatomic, strong) IBOutlet UISlider *slider;
+@interface RotationSpriteA ()
+@property(nonatomic,strong) MTKView* mtkView;;
+@property(nonatomic,strong) id <MTLDevice> device;;
+ 
 
 // data
 @property (nonatomic, assign) vector_uint2 viewportSize;
 @property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
-@property (nonatomic, strong) id<MTLDepthStencilState> depthStencilState;
 @property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
 @property (nonatomic, strong) id<MTLTexture> texture;
 @property (nonatomic, strong) id<MTLBuffer> vertices;
 @property (nonatomic, strong) id<MTLBuffer> indexs;
+@property (nonatomic, strong)  id <MTLDepthStencilState> _relaxedDepthState;
 @property (nonatomic, assign) NSUInteger indexCount;
 
 
 @end
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    self.mtkView = [[MTKView alloc] initWithFrame:self.view.bounds];
-    self.mtkView.device = MTLCreateSystemDefaultDevice();
-    self.mtkView.depthStencilPixelFormat = MTLPixelFormatDepth32Float_Stencil8;
-    [self.view insertSubview:self.mtkView atIndex:0];
-    self.mtkView.delegate = self;
-    self.viewportSize = (vector_uint2){self.mtkView.drawableSize.width, self.mtkView.drawableSize.height};
-    
-    [self customInit];
+@implementation RotationSpriteA
+- (instancetype)init:(MTKView*)view
+{
+    self = [super init];
+    if (self) {
+        
+        self.mtkView=view;
+        _device=view.device;
+        
+        [self customInit];
+      
+    }
+    return self;
 }
 
 - (void)customInit {
@@ -58,30 +52,34 @@
 
 -(void)setupPipeline {
     id<MTLLibrary> defaultLibrary = [self.mtkView.device newDefaultLibrary];
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShader"];
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderaaaa"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaaCopy"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;
     pipelineStateDescriptor.fragmentFunction = fragmentFunction;
     pipelineStateDescriptor.colorAttachments[0].pixelFormat = self.mtkView.colorPixelFormat;
     pipelineStateDescriptor.depthAttachmentPixelFormat =  self.mtkView.depthStencilPixelFormat;
-    pipelineStateDescriptor.stencilAttachmentPixelFormat =  self.mtkView.depthStencilPixelFormat;
+    pipelineStateDescriptor.stencilAttachmentPixelFormat = self.mtkView.depthStencilPixelFormat;
+    
     self.pipelineState = [self.mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
                                                                          error:NULL];
-    
-    
-    MTLDepthStencilDescriptor *depthStencilDescriptor = [MTLDepthStencilDescriptor new];
-    depthStencilDescriptor.depthCompareFunction = MTLCompareFunctionLess;
-    depthStencilDescriptor.depthWriteEnabled = YES;
-    self.depthStencilState = [self.mtkView.device newDepthStencilStateWithDescriptor:depthStencilDescriptor];
-    
     self.commandQueue = [self.mtkView.device newCommandQueue];
+    
+    
+    
+    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
+
+    {
+        depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
+        depthStateDesc.depthWriteEnabled = YES;
+        self._relaxedDepthState = [_device newDepthStencilStateWithDescriptor:depthStateDesc];
+    }
 }
 
 - (void)setupVertex {
     static const LYVertex quadVertices[] =
-    {
+    {  // 顶点坐标                          顶点颜色                    纹理坐标
         {{-0.5f, 0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.5f},       {0.0f, 1.0f}},//左上
         {{0.5f, 0.5f, 0.0f, 1.0f},       {0.0f, 0.5f, 0.0f},       {1.0f, 1.0f}},//右上
         {{-0.5f, -0.5f, 0.0f, 1.0f},     {0.5f, 0.0f, 1.0f},       {0.0f, 0.0f}},//左下
@@ -92,7 +90,7 @@
                                                  length:sizeof(quadVertices)
                                                 options:MTLResourceStorageModeShared];
     static int indices[] =
-    {
+    { // 索引
         0, 3, 2,
         0, 1, 3,
         0, 2, 4,
@@ -107,13 +105,7 @@
 }
 
 - (void)setupTexture {
-    UIImage *image = [UIImage imageNamed:@"abc"];
-    if(!image)
-    {
-        NSLog(@"Failed to create the image");
-        return ;
-    }
-    
+    UIImage *image = [UIImage imageNamed:@"texture01"];
     MTLTextureDescriptor *textureDescriptor = [[MTLTextureDescriptor alloc] init];
     textureDescriptor.pixelFormat = MTLPixelFormatRGBA8Unorm;
     textureDescriptor.width = image.size.width;
@@ -171,20 +163,15 @@
 }
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-    CGSize size = self.view.bounds.size;
+    CGSize size = CGSizeMake(400, 400);
     float aspect = fabs(size.width / size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(90.0), aspect, 0.1f, 10.f);
     GLKMatrix4 modelViewMatrix = GLKMatrix4Translate(GLKMatrix4Identity, 0.0f, 0.0f, -2.0f);
     static float x = 0.0, y = 0.0, z = M_PI;
-    if (self.rotationX.on) {
-        x += self.slider.value;
-    }
-    if (self.rotationY.on) {
-        y += self.slider.value;
-    }
-    if (self.rotationZ.on) {
-        z += self.slider.value;
-    }
+  
+    x+=0.01;
+    y+=0.01;
+    z-=0.01;
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, x, 1, 0, 0);
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, y, 0, 1, 0);
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, z, 0, 0, 1);
@@ -195,61 +182,32 @@
                            length:sizeof(matrix)
                           atIndex:LYVertexInputIndexMatrix];
 }
-
-#pragma mark - delegate
-
-- (void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size {
-    self.viewportSize = (vector_uint2){size.width, size.height};
-}
-
-- (void)drawInMTKView:(MTKView *)view {
+-(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder {
     
-    id<MTLCommandBuffer> commandBuffer = [self.commandQueue commandBuffer];
-    MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
-//    renderPassDescriptor.depthAttachment.texture = self.mtkView.depthStencilTexture;
-//    renderPassDescriptor.stencilAttachment.texture = self.mtkView.depthStencilTexture;
     
-    if(renderPassDescriptor != nil)
-    {
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.5, 0.5, 1.0f);
-        renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
-        
-        id<MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
-        [renderEncoder setDepthStencilState:self.depthStencilState];
-        [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.viewportSize.x, self.viewportSize.y, -1.0, 1.0 }];
-        
-        [renderEncoder setRenderPipelineState:self.pipelineState];
-        [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
-        [renderEncoder setCullMode:MTLCullModeBack];
-
-        
-        [self setupMatrixWithEncoder:renderEncoder];
-        
-        [renderEncoder setVertexBuffer:self.vertices
-                                offset:0
-                               atIndex:LYVertexInputIndexVertices];
-        
-        [renderEncoder setFragmentTexture:self.texture
-                                  atIndex:LYFragmentInputIndexTexture];
-        
-        [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                                  indexCount:self.indexCount
-                                   indexType:MTLIndexTypeUInt32
-                                 indexBuffer:self.indexs
-                           indexBufferOffset:0];
-        
-        [renderEncoder endEncoding];
-        
-        [commandBuffer presentDrawable:view.currentDrawable];
-    }
     
-    [commandBuffer commit];
+    [renderEncoder setViewport:(MTLViewport){0.0, 0.0, 400, 400, -1.0, 1.0 }];
+    [renderEncoder setRenderPipelineState:self.pipelineState];
+    
+    [renderEncoder setCullMode:MTLCullModeBack];
+    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+    [renderEncoder setDepthStencilState:self._relaxedDepthState];
+    
+    [self setupMatrixWithEncoder:renderEncoder];
+    
+    [renderEncoder setVertexBuffer:self.vertices
+                            offset:0
+                           atIndex:LYVertexInputIndexVertices];
+    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+    [renderEncoder setCullMode:MTLCullModeBack];
+    
+    [renderEncoder setFragmentTexture:self.texture
+                              atIndex:LYFragmentInputIndexTexture];
+    
+    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                              indexCount:self.indexCount
+                               indexType:MTLIndexTypeUInt32
+                             indexBuffer:self.indexs
+                       indexBufferOffset:0];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end
