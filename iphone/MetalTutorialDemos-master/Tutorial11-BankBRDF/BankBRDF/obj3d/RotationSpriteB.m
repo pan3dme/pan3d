@@ -53,7 +53,7 @@
 -(void)setupPipeline {
     id<MTLLibrary> defaultLibrary = [self.mtkView.device newDefaultLibrary];
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderaaaa"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaa"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaaCopy"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;
@@ -169,7 +169,7 @@
     static float x = 0.0, y = 0.0, z = M_PI;
   
     x-=0.01;
-    y-=0.01;
+    y+=0.01;
     z-=0.01;
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, x, 1, 0, 0);
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, y, 0, 1, 0);
