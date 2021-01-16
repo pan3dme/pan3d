@@ -185,7 +185,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
 //        [renderEncoder setDepthStencilState:_relaxedDepthState];
     
         [self selectOneShader:renderEncoder idx:0];
-        [_redRect3dSprite updata:renderEncoder];
+        [_redRect3dSprite updata:renderEncoder depthStencil:_relaxedDepthState];
         [self selectOneShader:renderEncoder idx:1];
         
         [renderEncoder popDebugGroup];

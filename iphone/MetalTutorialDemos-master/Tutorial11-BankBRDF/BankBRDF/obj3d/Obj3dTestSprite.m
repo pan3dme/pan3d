@@ -51,6 +51,7 @@
     }
     return self;
 }
+
 /// Called whenever the view changes orientation or size.
 - (void) drawableSizeWillChange:(CGSize)size
 {
@@ -70,6 +71,31 @@
 {
     self._defaultVertexDescriptor=mtlVertexDes;
     [self loadMetalWithMetalKitView:_baseView];
+    
+    [self loadAssets];
+}
+
+// 加载模型
+- (void)loadAssets
+{
+    // Create and load assets into Metal objects.
+    NSError *error = nil;
+    MDLVertexDescriptor *modelIOVertexDescriptor =
+        MTKModelIOVertexDescriptorFromMetal(self._defaultVertexDescriptor);
+    modelIOVertexDescriptor.attributes[0].name  = MDLVertexAttributePosition;
+    modelIOVertexDescriptor.attributes[1].name  = MDLVertexAttributeTextureCoordinate;
+    modelIOVertexDescriptor.attributes[2].name    = MDLVertexAttributeNormal;
+ 
+    NSURL *modelFileURL = [[NSBundle mainBundle] URLForResource:@"Temple.obj" withExtension:nil];
+ 
+    AAPLMesh* abcee = [AAPLMesh newMeshesFromURL:modelFileURL
+                 modelIOVertexDescriptor:modelIOVertexDescriptor
+                             metalDevice:_device
+                                   error:&error];
+    
+
+   
+  
 }
  
 - (void)loadMetalWithMetalKitView:(nonnull MTKView *)view

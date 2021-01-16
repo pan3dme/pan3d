@@ -84,18 +84,18 @@
 {
     // 顶点buffer
     static const VertexRed vert[] = {
-        {{0,1.0,1.5}},
-        {{1.0,-1.0,0.5}},
-        {{-1.0,-1.0,0.5}}
+        {{0,1.0,1.1}},
+        {{1.0,-1.0,0.05}},
+        {{-1.0,-1.0,0.05}}
     };
     _vertexBuffer = [_device newBufferWithBytes:vert length:sizeof(vert) options:MTLResourceStorageModeShared];
 }
--(void)updata:(id <MTLRenderCommandEncoder>) renderEncoder;
+-(void)updata:(id <MTLRenderCommandEncoder>) renderEncoder depthStencil:(id<MTLDepthStencilState>) depthState;
 {
     
 //    [renderEncoder pushDebugGroup:@"DrawTriangle"];
     [renderEncoder setRenderPipelineState:_pipelineState];
-    [renderEncoder setDepthStencilState:_depthState];
+    [renderEncoder setDepthStencilState:depthState];
     [renderEncoder setVertexBuffer:_vertexBuffer offset:0 atIndex:0];
     [renderEncoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:3];
 }
