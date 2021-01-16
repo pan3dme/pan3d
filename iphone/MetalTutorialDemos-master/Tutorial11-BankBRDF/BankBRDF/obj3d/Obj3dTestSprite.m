@@ -33,7 +33,7 @@
 @property(nonatomic,strong) id <MTLBuffer> _uniformBufferOne;
 @property(nonatomic,assign) NSArray<AAPLMesh *> *_meshes;
 @property(nonatomic,strong)    MTLVertexDescriptor *_defaultVertexDescriptor;
- 
+@property(nonatomic,assign)   matrix_float4x4 _projectionMatrix;
  
 
 @end
@@ -51,6 +51,16 @@
     }
     return self;
 }
+/// Called whenever the view changes orientation or size.
+- (void) drawableSizeWillChange:(CGSize)size
+{
+    float aspect = size.width / (float)size.height;
+    float _fov = 65.0f * (M_PI / 180.0f);
+    float _nearPlane = 1.0f;
+    float _farPlane = 1500.0f;
+    self._projectionMatrix = matrix_perspective_left_hand(_fov, aspect, _nearPlane, _farPlane);
+}
+ 
 -(void)setMeshInfo:(NSArray<AAPLMesh *> *) meshData  ;
 {
     self._meshes=meshData;
@@ -142,10 +152,10 @@
 
  
 }
-- (void)updataTest:(id<MTLRenderCommandEncoder>)renderEncoder  m:(matrix_float4x4)m
+- (void)updataTest:(id<MTLRenderCommandEncoder>)renderEncoder  
 {
     if(self._meshes){
-    [self updateGameStateOne:m];
+        [self updateGameStateOne:self._projectionMatrix];
     [renderEncoder setVertexBuffer:self._uniformBufferOne offset:0 atIndex:1];
     [renderEncoder setFragmentBuffer:self._uniformBufferOne offset:0 atIndex:1];
     [renderEncoder setRenderPipelineState:self._pipelineStateOne];

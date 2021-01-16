@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)updata:(id <MTLRenderCommandEncoder>) renderEncoder;
 -(void)setMeshInfo:(NSArray<AAPLMesh *> *) meshData ;
 -(void)setMtlVertexDes:(MTLVertexDescriptor*)mtlVertexDes;
-- (void)updataTest:(id<MTLRenderCommandEncoder>)renderEncoder  m:(matrix_float4x4)m;
+- (void)updataTest:(id<MTLRenderCommandEncoder>)renderEncoder;
 - (void)drawMeshes:(id<MTLRenderCommandEncoder>)renderEncoder idx:(int)idx;
- 
+- (void) drawableSizeWillChange:(CGSize)size;
 @end
 
 NS_ASSUME_NONNULL_END

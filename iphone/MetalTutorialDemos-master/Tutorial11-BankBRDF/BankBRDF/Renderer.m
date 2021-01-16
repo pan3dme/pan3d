@@ -138,11 +138,14 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
     float _nearPlane = 1.0f;
     float _farPlane = 1500.0f;
     _projectionMatrix = matrix_perspective_left_hand(_fov, aspect, _nearPlane, _farPlane);
+    
+    [_obj3dTestSprite drawableSizeWillChange:size];
+    [_obj3dSprite drawableSizeWillChange:size];
 }
  
 -(void)selectOneShader:( id <MTLRenderCommandEncoder> ) renderEncoder idx:(int)idx{
-    [_obj3dSprite updataTest:renderEncoder m:_projectionMatrix];
-    [_obj3dTestSprite updataTest:renderEncoder m:_projectionMatrix];
+    [_obj3dSprite updataTest:renderEncoder];
+    [_obj3dTestSprite updataTest:renderEncoder];
 }
 
  
