@@ -13,16 +13,21 @@
     self = [super init];
         if (self) {
         
-            [self initData:value];
+            self.mtkView=value;
+            self.commandQueue = [ self.mtkView.device newCommandQueue];
         }
         return self;
 }
--(void)initData:(MTKView *)value
+ 
+-(void)clearColor:(Vector3D*)value
 {
-    self.commandQueue = [value.device newCommandQueue];
-}
--(void)clearColor
-{
+    
+    self. commandBuffer = [self.commandQueue commandBuffer];
+    MTLRenderPassDescriptor *renderPassDescriptor =  self.mtkView.currentRenderPassDescriptor;
+    renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.5, 0.0, 0.0, 1.0f);
+    self.renderEncoder = [self.commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+
+     
     
 }
 @end
