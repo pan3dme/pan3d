@@ -70,7 +70,6 @@
 		9C612E9525B42B890081A66E /* Object3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object3D.h; sourceTree = "<group>"; };
 		9C612E9625B42B890081A66E /* Object3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Object3D.m; sourceTree = "<group>"; };
 		9C612E9A25B42F180081A66E /* RotationSahder.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = RotationSahder.metal; sourceTree = "<group>"; };
-		9C612E9E25B4300A0081A66E /* RotationSahderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotationSahderType.h; sourceTree = "<group>"; };
 		9C612EA025B44B9B0081A66E /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
 		9C612EA125B44B9B0081A66E /* ResGC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResGC.m; sourceTree = "<group>"; };
 		9C612EA425B44BE10081A66E /* Context3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Context3D.h; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		9CE8F37D25B474C700C0A106 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		9CE8F38125B478F800C0A106 /* RotationShaderA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotationShaderA.h; sourceTree = "<group>"; };
 		9CE8F38225B478F800C0A106 /* RotationShaderA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotationShaderA.m; sourceTree = "<group>"; };
+		9CE8F38825B49BAA00C0A106 /* RotationSahder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotationSahder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,7 @@
 		9C612E4225B3EDC40081A66E /* dis */ = {
 			isa = PBXGroup;
 			children = (
-				9C612E9E25B4300A0081A66E /* RotationSahderType.h */,
+				9CE8F38825B49BAA00C0A106 /* RotationSahder.h */,
 				9C612E9A25B42F180081A66E /* RotationSahder.metal */,
 				9CE8F38125B478F800C0A106 /* RotationShaderA.h */,
 				9CE8F38225B478F800C0A106 /* RotationShaderA.m */,

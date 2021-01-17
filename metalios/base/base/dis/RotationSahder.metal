@@ -6,7 +6,10 @@
 //
 
 #include <metal_stdlib>
-#include "../ShaderTypes.h"
+//#include "../ShaderTypes.h"
+#include "RotationSahder.h"
+ 
+
 #include <simd/simd.h>
 
 using namespace metal;
@@ -19,13 +22,13 @@ typedef struct
     float3 pixelColor;
     float2 textureCoordinate;
     
-} RasterizerDataCopy;
+} RotationRasterizerData;
 
-vertex RasterizerDataCopy // 顶点
-vertexShaderBaseCopyet(uint vertexID [[ vertex_id ]],
-             constant LYVertex *vertexArray [[ buffer(LYVertexInputIndexVertices) ]],
-             constant LYMatrix *matrix [[ buffer(LYVertexInputIndexMatrix) ]]) {
-    RasterizerDataCopy out;
+vertex RotationRasterizerData // 顶点
+vertexShaderBaseCopyEt(uint vertexID [[ vertex_id ]],
+             constant RotationVertex *vertexArray [[ buffer(RotationVertexInputIndexVertices_0) ]],
+             constant RotationMatrix *matrix [[ buffer(RotationVertexInputIndexMatrix_1) ]]) {
+    RotationRasterizerData out;
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
     out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
     out.pixelColor = vertexArray[vertexID].color;
@@ -33,3 +36,14 @@ vertexShaderBaseCopyet(uint vertexID [[ vertex_id ]],
     return out;
 }
  
+fragment float4 // 片元
+samplingShaderBaseCopyEt(RotationRasterizerData input [[stage_in]],
+               texture2d<half> textureColor [[ texture(RotationFragmentInputIndexTexture_0) ]])
+{
+    constexpr sampler textureSampler (mag_filter::linear,
+                                      min_filter::linear);
+    
+    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+//    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
+    return float4(colorTex);
+}
