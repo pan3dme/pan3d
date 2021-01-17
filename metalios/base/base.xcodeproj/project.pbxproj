@@ -20,6 +20,8 @@
 		9C612E7C25B3FE010081A66E /* Vector3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E7B25B3FE010081A66E /* Vector3D.m */; };
 		9C612E8125B3FE7F0081A66E /* Camera3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E8025B3FE7F0081A66E /* Camera3D.m */; };
 		9C612E8525B4003A0081A66E /* Display3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E8425B4003A0081A66E /* Display3D.m */; };
+		9C612E8A25B405AB0081A66E /* Matrix3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E8925B405AB0081A66E /* Matrix3D.m */; };
+		9C612E9325B408690081A66E /* Quaternion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E9225B408690081A66E /* Quaternion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,13 @@
 		9C612E8025B3FE7F0081A66E /* Camera3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Camera3D.m; sourceTree = "<group>"; };
 		9C612E8325B4003A0081A66E /* Display3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3D.h; sourceTree = "<group>"; };
 		9C612E8425B4003A0081A66E /* Display3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3D.m; sourceTree = "<group>"; };
+		9C612E8825B405AB0081A66E /* Matrix3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3D.h; sourceTree = "<group>"; };
+		9C612E8925B405AB0081A66E /* Matrix3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix3D.m; sourceTree = "<group>"; };
+		9C612E8D25B407D90081A66E /* Matrix3x3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3x3.h; sourceTree = "<group>"; };
+		9C612E8E25B407D90081A66E /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
+		9C612E8F25B407D90081A66E /* Quaternion3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quaternion3D.h; sourceTree = "<group>"; };
+		9C612E9125B408690081A66E /* Quaternion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
+		9C612E9225B408690081A66E /* Quaternion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Quaternion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +121,7 @@
 		9C612E6F25B3F4CB0081A66E /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
+				9C612E8C25B407C90081A66E /* libs */,
 				9C612E7925B3FDC10081A66E /* vo */,
 				9C612E7725B3F51E0081A66E /* display */,
 				9C612E7625B3F5180081A66E /* core */,
@@ -125,6 +135,10 @@
 		9C612E7525B3F5100081A66E /* base */ = {
 			isa = PBXGroup;
 			children = (
+				9C612E8825B405AB0081A66E /* Matrix3D.h */,
+				9C612E8925B405AB0081A66E /* Matrix3D.m */,
+				9C612E9125B408690081A66E /* Quaternion.h */,
+				9C612E9225B408690081A66E /* Quaternion.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -154,6 +168,16 @@
 				9C612E8025B3FE7F0081A66E /* Camera3D.m */,
 			);
 			path = vo;
+			sourceTree = "<group>";
+		};
+		9C612E8C25B407C90081A66E /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				9C612E8D25B407D90081A66E /* Matrix3x3.h */,
+				9C612E8E25B407D90081A66E /* Matrix4x4.h */,
+				9C612E8F25B407D90081A66E /* Quaternion3D.h */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +250,7 @@
 			files = (
 				9C612E4D25B3EE140081A66E /* Shaders.metal in Sources */,
 				9C612E7225B3F4E40081A66E /* Scene3D.m in Sources */,
+				9C612E9325B408690081A66E /* Quaternion.m in Sources */,
 				9C612E7C25B3FE010081A66E /* Vector3D.m in Sources */,
 				9C612E0B25B3EC9A0081A66E /* GameViewController.m in Sources */,
 				9C612E4725B3EDD00081A66E /* RotationSpriteB.m in Sources */,
@@ -233,6 +258,7 @@
 				9C612E8525B4003A0081A66E /* Display3D.m in Sources */,
 				9C612E1325B3EC9C0081A66E /* main.m in Sources */,
 				9C612E8125B3FE7F0081A66E /* Camera3D.m in Sources */,
+				9C612E8A25B405AB0081A66E /* Matrix3D.m in Sources */,
 				9C612E0625B3EC9A0081A66E /* AppDelegate.m in Sources */,
 				9C612E4825B3EDD00081A66E /* RotationSpriteA.m in Sources */,
 			);
