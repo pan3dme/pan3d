@@ -47,8 +47,8 @@
 
 -(void)setupPipeline {
     id<MTLLibrary> defaultLibrary = [self.scene3D.mtkView.device newDefaultLibrary];
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderaaaa"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaa"];
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderBase"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderBase"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;

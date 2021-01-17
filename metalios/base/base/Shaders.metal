@@ -14,6 +14,29 @@ typedef struct
 } RasterizerData;
 
 vertex RasterizerData // 顶点
+vertexShaderBase(uint vertexID [[ vertex_id ]],
+             constant LYVertex *vertexArray [[ buffer(LYVertexInputIndexVertices) ]],
+             constant LYMatrix *matrix [[ buffer(LYVertexInputIndexMatrix) ]]) {
+    RasterizerData out;
+    out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
+    out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
+    out.pixelColor = vertexArray[vertexID].color;
+    
+    return out;
+}
+fragment float4 // 片元
+samplingShaderBase(RasterizerData input [[stage_in]],
+               texture2d<half> textureColor [[ texture(LYFragmentInputIndexTexture) ]])
+{
+    constexpr sampler textureSampler (mag_filter::linear,
+                                      min_filter::linear);
+    
+    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+//    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
+    return float4(colorTex);
+}
+
+vertex RasterizerData // 顶点
 vertexShaderaaaa(uint vertexID [[ vertex_id ]],
              constant LYVertex *vertexArray [[ buffer(LYVertexInputIndexVertices) ]],
              constant LYMatrix *matrix [[ buffer(LYVertexInputIndexMatrix) ]]) {
@@ -25,17 +48,7 @@ vertexShaderaaaa(uint vertexID [[ vertex_id ]],
     return out;
 }
 
-fragment float4 // 片元
-samplingShaderaaaa(RasterizerData input [[stage_in]],
-               texture2d<half> textureColor [[ texture(LYFragmentInputIndexTexture) ]])
-{
-    constexpr sampler textureSampler (mag_filter::linear,
-                                      min_filter::linear);
-    
-    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-//    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
-    return float4(colorTex);
-}
+
 fragment float4 // 片元
 samplingShaderaaaaCopy(RasterizerData input [[stage_in]],
                texture2d<half> textureColor [[ texture(LYFragmentInputIndexTexture) ]])
