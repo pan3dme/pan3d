@@ -10,7 +10,7 @@
 #import "ShaderTypes.h"
 #import "Matrix3D.h"
 #import "TextureManager.h"
-#import "Shader3D.h"
+#import "RotationShaderA.h"
 @import MetalKit;
 @import GLKit;
 
@@ -19,7 +19,7 @@
 
  
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong) Shader3D* shader3D;
+@property (nonatomic, strong) RotationShaderA* rotationShaderA;
   
 @end
 @implementation RotationSpriteA
@@ -35,8 +35,8 @@
 
 - (void)customInit {
    
-    self.shader3D=[[Shader3D alloc] init:self.scene3D];
-    [self.shader3D encode];
+    self.rotationShaderA=[[RotationShaderA alloc] init:self.scene3D];
+    [self.rotationShaderA encode];
     self.objData=[[ObjData alloc] init:self.scene3D];
     [self.objData makeTempObjData];
     self.texture=[self.scene3D.textureManager setupTexture  ];
@@ -61,8 +61,8 @@
     
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-    [renderEncoder setRenderPipelineState:self.shader3D.pipelineState];
-    [renderEncoder setDepthStencilState:self.shader3D.relaxedDepthState];
+    [renderEncoder setRenderPipelineState:self.rotationShaderA.pipelineState];
+    [renderEncoder setDepthStencilState:self.rotationShaderA.relaxedDepthState];
     [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
     [renderEncoder setCullMode:MTLCullModeFront];
     [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
