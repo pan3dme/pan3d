@@ -6,11 +6,13 @@
 //
 
 #import "Vector3D.h"
+#import "Matrix3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Camera3D : Vector3D
-
+ 
+@property (nonatomic, strong)  Matrix3D*   viewMatrix;
 @property (nonatomic, assign)  float   distance;
 @property (nonatomic, assign)  float   sceneViewHW;
 @property (nonatomic, assign)  float   fovw;

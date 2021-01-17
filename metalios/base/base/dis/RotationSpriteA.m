@@ -159,19 +159,17 @@
 }
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-    CGSize size = CGSizeMake(self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh);
-    float aspect = fabs(size.width / size.height);
-    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(90.0), aspect, 0.1f, 10.f);
+ 
   
-    static float x = 0.0, y = 0.0, z = M_PI;
+    static float y = 0.0 ;
     y+=1;
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
     [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-    [posMatrix appendTranslation:0 y:0 z:-2.0f];
-
+    [posMatrix appendTranslation:0 y:0 z:5.0f];
+ 
+    LYMatrix matrix = {[self.scene3D.camera3D.viewMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
     
-    LYMatrix matrix = {[self getMetalMatrixFromGLKMatrix:projectionMatrix], [posMatrix getMatrixFloat4x4]};
-    
+ 
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
                           atIndex:LYVertexInputIndexMatrix];
@@ -183,8 +181,11 @@
     [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh, -1.0, 1.0 }];
     [renderEncoder setRenderPipelineState:self.pipelineState];
     
-    [renderEncoder setCullMode:MTLCullModeBack];
-    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+ 
+    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+    [renderEncoder setCullMode:MTLCullModeFront];
+    
+//    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
     [renderEncoder setDepthStencilState:self._relaxedDepthState];
     
     [self setupMatrixWithEncoder:renderEncoder];
