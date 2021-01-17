@@ -29,6 +29,7 @@
 		9C612EAA25B44D1D0081A66E /* ResCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612EA925B44D1D0081A66E /* ResCount.m */; };
 		9C612EAE25B44D290081A66E /* GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612EAD25B44D290081A66E /* GC.m */; };
 		9C612EB325B44D9B0081A66E /* ObjData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612EB225B44D9B0081A66E /* ObjData.m */; };
+		9C612EBE25B46A060081A66E /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612EBD25B46A060081A66E /* TextureManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		9C612EAD25B44D290081A66E /* GC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GC.m; sourceTree = "<group>"; };
 		9C612EB125B44D9B0081A66E /* ObjData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjData.h; sourceTree = "<group>"; };
 		9C612EB225B44D9B0081A66E /* ObjData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjData.m; sourceTree = "<group>"; };
+		9C612EBC25B46A060081A66E /* TextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		9C612EBD25B46A060081A66E /* TextureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,7 @@
 		9C612E6F25B3F4CB0081A66E /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
+				9C612EB525B468AC0081A66E /* filemodel */,
 				9C612E8C25B407C90081A66E /* libs */,
 				9C612E7925B3FDC10081A66E /* vo */,
 				9C612E7725B3F51E0081A66E /* display */,
@@ -213,6 +217,15 @@
 				9C612E8F25B407D90081A66E /* Quaternion3D.h */,
 			);
 			path = libs;
+			sourceTree = "<group>";
+		};
+		9C612EB525B468AC0081A66E /* filemodel */ = {
+			isa = PBXGroup;
+			children = (
+				9C612EBC25B46A060081A66E /* TextureManager.h */,
+				9C612EBD25B46A060081A66E /* TextureManager.m */,
+			);
+			path = filemodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +311,7 @@
 				9C612E8525B4003A0081A66E /* Display3D.m in Sources */,
 				9C612E1325B3EC9C0081A66E /* main.m in Sources */,
 				9C612EAA25B44D1D0081A66E /* ResCount.m in Sources */,
+				9C612EBE25B46A060081A66E /* TextureManager.m in Sources */,
 				9C612E8125B3FE7F0081A66E /* Camera3D.m in Sources */,
 				9C612E8A25B405AB0081A66E /* Matrix3D.m in Sources */,
 				9C612E9725B42B890081A66E /* Object3D.m in Sources */,

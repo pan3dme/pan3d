@@ -11,6 +11,7 @@
 #import "RotationSpriteA.h"
 #import "RotationSpriteB.h"
 #import "RotationSpriteC.h"
+#import "TextureManager.h"
 
 @import MetalKit;
 @import GLKit;
@@ -48,6 +49,7 @@
     self.camera3D=[[Camera3D alloc]init];
    [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView];
+    self.textureManager=[[TextureManager alloc]init:self];
      
     self._rotationSpriteA=[[RotationSpriteA alloc]init:self];
     self._rotationSpriteB=[[RotationSpriteB alloc]init:self];
