@@ -21,7 +21,7 @@
 -(void)initData
 {
     self.viewMatrix=[[Matrix3D alloc] init];
-//    0.1f, 10.f)
-   [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:1 zFar:10];
+    [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:1 zFar:10];
+    [self.viewMatrix prependTranslation: 0 y:0 z:5.0f];
 }
 @end

@@ -164,8 +164,9 @@
     static float y = 0.0 ;
     y+=1;
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
+    [posMatrix appendScale:2 y:2 z:2];
     [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-    [posMatrix appendTranslation:0 y:0 z:5.0f];
+ 
  
     LYMatrix matrix = {[self.scene3D.camera3D.viewMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
     
@@ -179,22 +180,21 @@
     
     
     [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh, -1.0, 1.0 }];
-    [renderEncoder setRenderPipelineState:self.pipelineState];
     
- 
+    [renderEncoder setRenderPipelineState:self.pipelineState];
+    [renderEncoder setDepthStencilState:self._relaxedDepthState];
     [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
     [renderEncoder setCullMode:MTLCullModeFront];
-    
-//    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-    [renderEncoder setDepthStencilState:self._relaxedDepthState];
+    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+
     
     [self setupMatrixWithEncoder:renderEncoder];
     
     [renderEncoder setVertexBuffer:self.vertices
                             offset:0
                            atIndex:LYVertexInputIndexVertices];
-    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
-    [renderEncoder setCullMode:MTLCullModeBack];
+    [renderEncoder setCullMode:MTLCullModeFront];
+       [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
     
     [renderEncoder setFragmentTexture:self.texture
                               atIndex:LYFragmentInputIndexTexture];
