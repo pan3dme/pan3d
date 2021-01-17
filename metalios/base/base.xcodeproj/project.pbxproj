@@ -15,6 +15,7 @@
 		9C612E4725B3EDD00081A66E /* RotationSpriteB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E4425B3EDD00081A66E /* RotationSpriteB.m */; };
 		9C612E4825B3EDD00081A66E /* RotationSpriteA.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E4525B3EDD00081A66E /* RotationSpriteA.m */; };
 		9C612E4D25B3EE140081A66E /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E4C25B3EE140081A66E /* Shaders.metal */; };
+		9C612E6725B3F1980081A66E /* RotationSpriteC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E6625B3F1980081A66E /* RotationSpriteC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		9C612E4525B3EDD00081A66E /* RotationSpriteA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationSpriteA.m; sourceTree = "<group>"; };
 		9C612E4625B3EDD00081A66E /* RotationSpriteA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationSpriteA.h; sourceTree = "<group>"; };
 		9C612E4C25B3EE140081A66E /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		9C612E6525B3F1980081A66E /* RotationSpriteC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotationSpriteC.h; sourceTree = "<group>"; };
+		9C612E6625B3F1980081A66E /* RotationSpriteC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotationSpriteC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				9C612E4525B3EDD00081A66E /* RotationSpriteA.m */,
 				9C612E4325B3EDD00081A66E /* RotationSpriteB.h */,
 				9C612E4425B3EDD00081A66E /* RotationSpriteB.m */,
+				9C612E6525B3F1980081A66E /* RotationSpriteC.h */,
+				9C612E6625B3F1980081A66E /* RotationSpriteC.m */,
 			);
 			path = dis;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				9C612E4D25B3EE140081A66E /* Shaders.metal in Sources */,
 				9C612E0B25B3EC9A0081A66E /* GameViewController.m in Sources */,
 				9C612E4725B3EDD00081A66E /* RotationSpriteB.m in Sources */,
+				9C612E6725B3F1980081A66E /* RotationSpriteC.m in Sources */,
 				9C612E1325B3EC9C0081A66E /* main.m in Sources */,
 				9C612E0625B3EC9A0081A66E /* AppDelegate.m in Sources */,
 				9C612E4825B3EDD00081A66E /* RotationSpriteA.m in Sources */,
