@@ -13,8 +13,9 @@
     MTKView *mtkView=self.scene3D.context3D. mtkView;
     
     id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderBase"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderBase"];
+ 
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderRotation"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderRotation"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;

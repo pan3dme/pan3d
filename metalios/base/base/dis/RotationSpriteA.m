@@ -7,7 +7,7 @@
 //
 
 #import "RotationSpriteA.h"
-#import "ShaderTypes.h"
+#import "RotationSahder.h"
 #import "Matrix3D.h"
 #import "TextureManager.h"
 #import "RotationShaderA.h"
@@ -51,11 +51,11 @@
     [posMatrix appendScale:20 y:20 z:20];
     [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
  
-    LYMatrix matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    RotationMatrix matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
    
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
-                          atIndex:LYVertexInputIndexMatrix];
+                          atIndex:RotationVertexInputIndexMatrix_1];
 }
 -(void)updata  {
     
@@ -67,10 +67,10 @@
     
     [renderEncoder setVertexBuffer: self.objData.vertices
                             offset:0
-                           atIndex:LYVertexInputIndexVertices];
+                           atIndex:RotationVertexInputIndexVertices_0];
     
     [renderEncoder setFragmentTexture:self.texture
-                              atIndex:LYFragmentInputIndexTexture];
+                              atIndex:RotationFragmentInputIndexTexture_0];
     
     [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                               indexCount: self.objData.indexCount
