@@ -34,6 +34,12 @@
         depthStateDesc.depthWriteEnabled = YES;
         self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
+    [self fuck];
+}
+
+-(void)fuck
+{
+  
 }
 
 @end
