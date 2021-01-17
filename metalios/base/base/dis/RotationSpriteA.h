@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RotationSpriteA : Display3D
 @property (nonatomic, strong) ObjData* objData;
--(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder;
+-(void)updata ;
 @end
 
 NS_ASSUME_NONNULL_END

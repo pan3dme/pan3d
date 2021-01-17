@@ -160,9 +160,11 @@
                            length:sizeof(matrix)
                           atIndex:LYVertexInputIndexMatrix];
 }
--(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder {
+-(void)updata  {
     
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
+
  
     
     [renderEncoder setRenderPipelineState:self.pipelineState];

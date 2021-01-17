@@ -34,55 +34,32 @@
     if (self) {
         self.uiView=value;
         
-        
         self.mtkView = [[MTKView alloc] initWithFrame:self.uiView.bounds];
         self.mtkView.device = MTLCreateSystemDefaultDevice();
         self.mtkView.depthStencilPixelFormat = MTLPixelFormatDepth32Float_Stencil8;
-        [self.uiView insertSubview:self.mtkView atIndex:0];
         self.mtkView.delegate = self;
-        
-        
+        [self.uiView insertSubview:self.mtkView atIndex:0];
         [self initData];
-        
-        
-        
     }
     return self;
 }
 -(void)initData
 {
-    
     self.camera3D=[[Camera3D alloc]init];
-    [self resieSize:self.mtkView.drawableSize];
-    
+   [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView];
-    
-    
-    
-    
+     
     self._rotationSpriteA=[[RotationSpriteA alloc]init:self];
     self._rotationSpriteB=[[RotationSpriteB alloc]init:self];
     self._rotationSpriteC=[[RotationSpriteC alloc]init:self];
 }
 - (void)drawInMTKView:(nonnull MTKView *)view {
+    [self.context3D clearColor:[[Vector3D alloc]x:0.16 y:0.16 z:0.16 w:1]];
     
-    id<MTLCommandBuffer> commandBuffer = [self.context3D.commandQueue commandBuffer];
-    MTLRenderPassDescriptor *renderPassDescriptor =  self.mtkView.currentRenderPassDescriptor;
-    renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.5, 0.0, 0.0, 1.0f);
+    [self._rotationSpriteA updata];
+    [self._rotationSpriteB updata ];
     
-//    [self.context3D clearColor:   [[Vector3D alloc]x:1 y:1 z:0 w:1]];
-  
-    
-    id<MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
-    [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.camera3D.fovw, self.camera3D.fovh, -1.0, 1.0 }];
-    
-    [self._rotationSpriteA updata:renderEncoder];
-    [self._rotationSpriteB updata:renderEncoder];
-
-    [renderEncoder endEncoding];
-    [commandBuffer presentDrawable:view.currentDrawable];
-    [commandBuffer commit];
-    
+    [self.context3D present];
     
 }
 

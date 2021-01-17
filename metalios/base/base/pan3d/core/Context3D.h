@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init:(MTKView *)value;
 -(void)clearColor:(Vector3D*)value;
+-(void)setViewport:(MTLViewport)value;
+-(void)present;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -24,10 +24,20 @@
     
     self. commandBuffer = [self.commandQueue commandBuffer];
     MTLRenderPassDescriptor *renderPassDescriptor =  self.mtkView.currentRenderPassDescriptor;
-    renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.5, 0.0, 0.0, 1.0f);
+    renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(value.x,value.y,value.z,value.w);
     self.renderEncoder = [self.commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
 
      
     
+}
+-(void)setViewport:(MTLViewport)value
+{
+//    [self.context3D setViewport:(MTLViewport){0.0, 0.0, self.camera3D.fovw, self.camera3D.fovh, -1.0, 1.0 }];
+}
+-(void)present
+{
+    [self.renderEncoder endEncoding];
+    [self.commandBuffer presentDrawable:self.mtkView.currentDrawable];
+    [self.commandBuffer commit];
 }
 @end

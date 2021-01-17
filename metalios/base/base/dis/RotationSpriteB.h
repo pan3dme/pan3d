@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RotationSpriteB : Display3D
  
--(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder;
+-(void)updata ;
 @end
 
 NS_ASSUME_NONNULL_END

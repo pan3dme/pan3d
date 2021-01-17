@@ -15,9 +15,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Scene3D : NSObject
-
-@property (nonatomic, strong)  Camera3D*  camera3D;
 @property (nonatomic, strong) MTKView *mtkView;
+@property (nonatomic, strong)  Camera3D*  camera3D;
+
 @property (nonatomic, strong) Context3D* context3D;
 
 - (instancetype)init:(UIView*)value;
