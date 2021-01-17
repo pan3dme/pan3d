@@ -8,6 +8,7 @@
 
 #import "RotationSpriteB.h"
 #import "ShaderTypes.h"
+#import "Matrix3D.h"
 @import MetalKit;
 @import GLKit;
 
@@ -48,7 +49,7 @@
 -(void)setupPipeline {
     id<MTLLibrary> defaultLibrary = [self.scene3D.mtkView.device newDefaultLibrary];
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderaaaa"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaaCopyFuck"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaaCopy"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;
@@ -141,38 +142,20 @@
 }
 
 
-/**
- 找了很多文档，都没有发现metalKit或者simd相关的接口可以快捷创建矩阵的，于是只能从GLKit里面借力
-
- @param matrix GLKit的矩阵
- @return metal用的矩阵
- */
-- (matrix_float4x4)getMetalMatrixFromGLKMatrix:(GLKMatrix4)matrix {
-    matrix_float4x4 ret = (matrix_float4x4){
-        simd_make_float4(matrix.m00, matrix.m01, matrix.m02, matrix.m03),
-        simd_make_float4(matrix.m10, matrix.m11, matrix.m12, matrix.m13),
-        simd_make_float4(matrix.m20, matrix.m21, matrix.m22, matrix.m23),
-        simd_make_float4(matrix.m30, matrix.m31, matrix.m32, matrix.m33),
-    };
-    return ret;
-}
-
+ 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-    CGSize size = CGSizeMake(self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh);
-    float aspect = fabs(size.width / size.height);
-    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(90.0), aspect, 0.1f, 10.f);
-    GLKMatrix4 modelViewMatrix = GLKMatrix4Translate(GLKMatrix4Identity, 0.0f, 0.0f, -2.0f);
-    static float x = 0.0, y = 0.0, z = M_PI;
+ 
   
-    x+=0.01;
-    y-=0.01;
-    z+=0.01;
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, x, 1, 0, 0);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, y, 0, 1, 0);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, z, 0, 0, 1);
+    static float y = 0.0 ;
+    y+=1;
+    Matrix3D* posMatrix =[[Matrix3D alloc]init];
+    [posMatrix appendScale:20 y:20 z:20];
+    [posMatrix appendRotation:y axis:Vector3D.Z_AXIS];
+ 
+ 
+    LYMatrix matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
     
-    LYMatrix matrix = {[self getMetalMatrixFromGLKMatrix:projectionMatrix], [self getMetalMatrixFromGLKMatrix:modelViewMatrix]};
-    
+ 
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
                           atIndex:LYVertexInputIndexMatrix];
@@ -180,21 +163,22 @@
 -(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder {
     
     
+ 
     
-    [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh, -1.0, 1.0 }];
     [renderEncoder setRenderPipelineState:self.pipelineState];
-    
-    [renderEncoder setCullMode:MTLCullModeBack];
-    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
     [renderEncoder setDepthStencilState:self._relaxedDepthState];
+    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+    [renderEncoder setCullMode:MTLCullModeFront];
+    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+
     
     [self setupMatrixWithEncoder:renderEncoder];
     
     [renderEncoder setVertexBuffer:self.vertices
                             offset:0
                            atIndex:LYVertexInputIndexVertices];
-    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
-    [renderEncoder setCullMode:MTLCullModeBack];
+    [renderEncoder setCullMode:MTLCullModeFront];
+       [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
     
     [renderEncoder setFragmentTexture:self.texture
                               atIndex:LYFragmentInputIndexTexture];

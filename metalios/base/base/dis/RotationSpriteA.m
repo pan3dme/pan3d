@@ -35,7 +35,6 @@
     self = [super init:value];
         if (self) {
             [self customInit];
-    
         }
         return self;
 }
@@ -141,22 +140,7 @@
     return spriteData;
 }
 
-
-/**
- 找了很多文档，都没有发现metalKit或者simd相关的接口可以快捷创建矩阵的，于是只能从GLKit里面借力
-
- @param matrix GLKit的矩阵
- @return metal用的矩阵
- */
-- (matrix_float4x4)getMetalMatrixFromGLKMatrix:(GLKMatrix4)matrix {
-    matrix_float4x4 ret = (matrix_float4x4){
-        simd_make_float4(matrix.m00, matrix.m01, matrix.m02, matrix.m03),
-        simd_make_float4(matrix.m10, matrix.m11, matrix.m12, matrix.m13),
-        simd_make_float4(matrix.m20, matrix.m21, matrix.m22, matrix.m23),
-        simd_make_float4(matrix.m30, matrix.m31, matrix.m32, matrix.m33),
-    };
-    return ret;
-}
+ 
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
  
@@ -164,11 +148,11 @@
     static float y = 0.0 ;
     y+=1;
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
-    [posMatrix appendScale:2 y:2 z:2];
+    [posMatrix appendScale:20 y:20 z:20];
     [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
  
  
-    LYMatrix matrix = {[self.scene3D.camera3D.viewMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    LYMatrix matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
     
  
     [renderEncoder setVertexBytes:&matrix
@@ -179,7 +163,7 @@
     
     
     
-    [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh, -1.0, 1.0 }];
+
     
     [renderEncoder setRenderPipelineState:self.pipelineState];
     [renderEncoder setDepthStencilState:self._relaxedDepthState];

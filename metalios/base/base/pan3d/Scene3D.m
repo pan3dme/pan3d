@@ -69,9 +69,12 @@
            renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
            
            id<MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+           
+           [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.camera3D.fovw, self.camera3D.fovh, -1.0, 1.0 }];
       
 
            [self._rotationSpriteA updata:renderEncoder];
+           [self._rotationSpriteB updata:renderEncoder];
  
            
            [renderEncoder endEncoding];
