@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  id <MTLDepthStencilState> relaxedDepthState;
 
 -(void)encode;
+-(void)setProgramShader;
 @end
 
 NS_ASSUME_NONNULL_END

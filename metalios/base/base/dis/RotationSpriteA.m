@@ -60,14 +60,8 @@
 -(void)updata  {
     
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-    
-    [renderEncoder setRenderPipelineState:self.rotationShaderA.pipelineState];
-    [renderEncoder setDepthStencilState:self.rotationShaderA.relaxedDepthState];
-    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
-    [renderEncoder setCullMode:MTLCullModeFront];
-    [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-    [renderEncoder setCullMode:MTLCullModeFront];
-    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+     
+    [self.rotationShaderA setProgramShader];
     
     [self setupMatrixWithEncoder:renderEncoder];
     
