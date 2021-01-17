@@ -25,7 +25,7 @@ typedef struct
 } RotationRasterizerData;
 
 vertex RotationRasterizerData // 顶点
-vertexShaderBaseCopyEt(uint vertexID [[ vertex_id ]],
+vertexShaderRotation(uint vertexID [[ vertex_id ]],
              constant RotationVertex *vertexArray [[ buffer(RotationVertexInputIndexVertices_0) ]],
              constant RotationMatrix *matrix [[ buffer(RotationVertexInputIndexMatrix_1) ]]) {
     RotationRasterizerData out;
@@ -37,7 +37,7 @@ vertexShaderBaseCopyEt(uint vertexID [[ vertex_id ]],
 }
  
 fragment float4 // 片元
-samplingShaderBaseCopyEt(RotationRasterizerData input [[stage_in]],
+samplingShaderRotation(RotationRasterizerData input [[stage_in]],
                texture2d<half> textureColor [[ texture(RotationFragmentInputIndexTexture_0) ]])
 {
     constexpr sampler textureSampler (mag_filter::linear,
