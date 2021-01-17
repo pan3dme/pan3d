@@ -8,6 +8,7 @@
 
 #import "RotationSpriteA.h"
 #import "ShaderTypes.h"
+#import "Matrix3D.h"
 @import MetalKit;
 @import GLKit;
 
@@ -161,17 +162,15 @@
     CGSize size = CGSizeMake(self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh);
     float aspect = fabs(size.width / size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(90.0), aspect, 0.1f, 10.f);
-    GLKMatrix4 modelViewMatrix = GLKMatrix4Translate(GLKMatrix4Identity, 0.0f, 0.0f, -2.0f);
-    static float x = 0.0, y = 0.0, z = M_PI;
   
-    x+=0.01;
-    y+=0.01;
-    z-=0.01;
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, x, 1, 0, 0);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, y, 0, 1, 0);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, z, 0, 0, 1);
+    static float x = 0.0, y = 0.0, z = M_PI;
+    y+=1;
+    Matrix3D* posMatrix =[[Matrix3D alloc]init];
+    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+    [posMatrix appendTranslation:0 y:0 z:-2.0f];
+
     
-    LYMatrix matrix = {[self getMetalMatrixFromGLKMatrix:projectionMatrix], [self getMetalMatrixFromGLKMatrix:modelViewMatrix]};
+    LYMatrix matrix = {[self getMetalMatrixFromGLKMatrix:projectionMatrix], [posMatrix getMatrixFloat4x4]};
     
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)

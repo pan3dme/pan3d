@@ -181,11 +181,17 @@
     NSArray *array = [str componentsSeparatedByString:@","];
     for(int i=0;i<16;i++){
         _matrix4x4.data[i]=[array[i] floatValue] ;
-        
     }
- 
-    
-    
+}
+- (matrix_float4x4)getMatrixFloat4x4
+{
+    matrix_float4x4 ret = (matrix_float4x4){
+        simd_make_float4(_matrix4x4.data[0],_matrix4x4.data[1],_matrix4x4.data[2],_matrix4x4.data[3]),
+        simd_make_float4(_matrix4x4.data[4],_matrix4x4.data[5],_matrix4x4.data[6],_matrix4x4.data[7]),
+        simd_make_float4(_matrix4x4.data[8],_matrix4x4.data[9],_matrix4x4.data[10],_matrix4x4.data[11]),
+        simd_make_float4(_matrix4x4.data[12],_matrix4x4.data[13],_matrix4x4.data[14],_matrix4x4.data[15])
+    };
+    return ret;
 }
 
 @end

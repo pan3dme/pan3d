@@ -72,8 +72,8 @@
       
 
            [self._rotationSpriteA updata:renderEncoder];
-           [self._rotationSpriteB updata:renderEncoder];
-           [self._rotationSpriteC updata:renderEncoder];
+//           [self._rotationSpriteB updata:renderEncoder];
+//           [self._rotationSpriteC updata:renderEncoder];
            
            [renderEncoder endEncoding];
        
