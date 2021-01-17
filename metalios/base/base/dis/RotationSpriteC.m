@@ -158,7 +158,7 @@
 }
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-    CGSize size = CGSizeMake(400, 400);
+    CGSize size = CGSizeMake(self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh);
     float aspect = fabs(size.width / size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(90.0), aspect, 0.1f, 10.f);
     GLKMatrix4 modelViewMatrix = GLKMatrix4Translate(GLKMatrix4Identity, 0.0f, 0.0f, -2.0f);
@@ -181,7 +181,7 @@
     
     
     
-    [renderEncoder setViewport:(MTLViewport){0.0, 0.0, 400, 400, -1.0, 1.0 }];
+    [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.scene3D.camera3D.fovw, self.scene3D.camera3D.fovh, -1.0, 1.0 }];
     [renderEncoder setRenderPipelineState:self.pipelineState];
     
     [renderEncoder setCullMode:MTLCullModeBack];
