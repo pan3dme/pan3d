@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Camera3D.h"
+#import "Context3D.h"
 @import MetalKit;
 @import GLKit;
 
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)  Camera3D*  camera3D;
 @property (nonatomic, strong) MTKView *mtkView;
+@property (nonatomic, strong) Context3D* context3D;
 
 - (instancetype)init:(UIView*)value;
 @end

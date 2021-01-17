@@ -21,10 +21,10 @@
 @property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
 @property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong) id<MTLBuffer> vertices;
-@property (nonatomic, strong) id<MTLBuffer> indexs;
 @property (nonatomic, strong)  id <MTLDepthStencilState> _relaxedDepthState;
-@property (nonatomic, assign) NSUInteger indexCount;
+//@property (nonatomic, assign) NSUInteger indexCount;
+//@property (nonatomic, strong) id<MTLBuffer> vertices;
+//@property (nonatomic, strong) id<MTLBuffer> indexs;
 
 
 @end
@@ -73,30 +73,10 @@
 }
 
 - (void)setupVertex {
-    static const LYVertex quadVertices[] =
-    {  // 顶点坐标                          顶点颜色                    纹理坐标
-        {{-0.5f, 0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.5f},       {0.0f, 1.0f}},//左上
-        {{0.5f, 0.5f, 0.0f, 1.0f},       {0.0f, 0.5f, 0.0f},       {1.0f, 1.0f}},//右上
-        {{-0.5f, -0.5f, 0.0f, 1.0f},     {0.5f, 0.0f, 1.0f},       {0.0f, 0.0f}},//左下
-        {{0.5f, -0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.5f},       {1.0f, 0.0f}},//右下
-        {{0.0f, 0.0f, 1.0f, 1.0f},       {1.0f, 1.0f, 1.0f},       {0.5f, 0.5f}},//顶点
-    };
-    self.vertices = [self.scene3D.mtkView.device newBufferWithBytes:quadVertices
-                                                 length:sizeof(quadVertices)
-                                                options:MTLResourceStorageModeShared];
-    static int indices[] =
-    { // 索引
-        0, 3, 2,
-        0, 1, 3,
-        0, 2, 4,
-        0, 4, 1,
-        2, 3, 4,
-        1, 4, 3,
-    };
-    self.indexs = [self.scene3D.mtkView.device newBufferWithBytes:indices
-                                                     length:sizeof(indices)
-                                                    options:MTLResourceStorageModeShared];
-    self.indexCount = sizeof(indices) / sizeof(int);
+    
+    
+    self.objData=[[ObjData alloc] init:self.scene3D];
+    [self.objData makeTempObjData];
 }
 
 - (void)setupTexture {
@@ -146,7 +126,7 @@
  
   
     static float y = 0.0 ;
-    y+=1;
+    y+=10;
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
     [posMatrix appendScale:20 y:20 z:20];
     [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
@@ -174,7 +154,7 @@
     
     [self setupMatrixWithEncoder:renderEncoder];
     
-    [renderEncoder setVertexBuffer:self.vertices
+    [renderEncoder setVertexBuffer: self.objData.vertices
                             offset:0
                            atIndex:LYVertexInputIndexVertices];
     [renderEncoder setCullMode:MTLCullModeFront];
@@ -184,9 +164,9 @@
                               atIndex:LYFragmentInputIndexTexture];
     
     [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                              indexCount:self.indexCount
+                              indexCount: self.objData.indexCount
                                indexType:MTLIndexTypeUInt32
-                             indexBuffer:self.indexs
+                             indexBuffer: self.objData.indexs
                        indexBufferOffset:0];
 }
 @end

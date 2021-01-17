@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Display3D.h"
+#import "ObjData.h"
 @import MetalKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RotationSpriteA : Display3D
- 
+@property (nonatomic, strong) ObjData* objData;
 -(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder;
 @end
 

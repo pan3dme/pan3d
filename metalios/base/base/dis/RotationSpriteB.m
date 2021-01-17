@@ -147,7 +147,7 @@
  
   
     static float y = 0.0 ;
-    y+=1;
+    y+=5;
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
     [posMatrix appendScale:20 y:20 z:20];
     [posMatrix appendRotation:y axis:Vector3D.Z_AXIS];

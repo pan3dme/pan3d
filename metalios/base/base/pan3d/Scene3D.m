@@ -19,8 +19,7 @@
  
 @property (nonatomic, strong) UIView *uiView;
 
-@property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
-  
+ 
 @property (nonatomic, strong)RotationSpriteA* _rotationSpriteA;
 @property (nonatomic, strong)RotationSpriteB* _rotationSpriteB;
 @property (nonatomic, strong)RotationSpriteC* _rotationSpriteC;
@@ -33,13 +32,14 @@
     self = [super init];
     if (self) {
         self.uiView=value;
-
+ 
+        
         self.mtkView = [[MTKView alloc] initWithFrame:self.uiView.bounds];
         self.mtkView.device = MTLCreateSystemDefaultDevice();
         self.mtkView.depthStencilPixelFormat = MTLPixelFormatDepth32Float_Stencil8;
         [self.uiView insertSubview:self.mtkView atIndex:0];
         self.mtkView.delegate = self;
-        self.commandQueue = [self.mtkView.device newCommandQueue];
+  
         
         [self initData];
         
@@ -50,29 +50,25 @@
 }
 -(void)initData
 {
-    self.camera3D=[[Camera3D alloc]init];
-    self.camera3D.fovw=self.mtkView.drawableSize.width;
-    self.camera3D.fovh=self.mtkView.drawableSize.height;
+    [self resieSize:self.mtkView.drawableSize];
     
+    self.camera3D=[[Camera3D alloc]init];
+    self.context3D=[[Context3D alloc] init:self.mtkView];
+ 
     self._rotationSpriteA=[[RotationSpriteA alloc]init:self];
     self._rotationSpriteB=[[RotationSpriteB alloc]init:self];
     self._rotationSpriteC=[[RotationSpriteC alloc]init:self];
 }
 - (void)drawInMTKView:(nonnull MTKView *)view {
     
-       id<MTLCommandBuffer> commandBuffer = [self.commandQueue commandBuffer];
-       MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
-    
+       id<MTLCommandBuffer> commandBuffer = [self.context3D.commandQueue commandBuffer];
+       MTLRenderPassDescriptor *renderPassDescriptor =  self.mtkView.currentRenderPassDescriptor;
        if(renderPassDescriptor != nil)
        {
            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.5, 0.5, 1.0f);
-           renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
-           
+ 
            id<MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
-           
            [renderEncoder setViewport:(MTLViewport){0.0, 0.0, self.camera3D.fovw, self.camera3D.fovh, -1.0, 1.0 }];
-      
-
            [self._rotationSpriteA updata:renderEncoder];
            [self._rotationSpriteB updata:renderEncoder];
  
@@ -87,6 +83,10 @@
 
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
     
+    [self resieSize:size];
+}
+-(void)resieSize:(CGSize)size
+{
     self.camera3D.fovw=size.width;
     self.camera3D.fovh=size.height;
 }
