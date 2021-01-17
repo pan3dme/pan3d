@@ -13,9 +13,7 @@
 
 
 @interface RotationSpriteA ()
-@property(nonatomic,strong) MTKView* mtkView;;
-@property(nonatomic,strong) id <MTLDevice> device;;
- 
+  
 
 // data
 @property (nonatomic, assign) vector_uint2 viewportSize;
@@ -30,18 +28,15 @@
 
 @end
 @implementation RotationSpriteA
-- (instancetype)init:(MTKView*)view
+ 
+- (instancetype)init:(Scene3D *)value
 {
-    self = [super init];
-    if (self) {
-        
-        self.mtkView=view;
-        _device=view.device;
-        
-        [self customInit];
-      
-    }
-    return self;
+    self = [super init:value];
+        if (self) {
+            [self customInit];
+    
+        }
+        return self;
 }
 
 - (void)customInit {
@@ -51,20 +46,20 @@
 }
 
 -(void)setupPipeline {
-    id<MTLLibrary> defaultLibrary = [self.mtkView.device newDefaultLibrary];
+    id<MTLLibrary> defaultLibrary = [self.scene3D.mtkView.device newDefaultLibrary];
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderaaaa"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaaCopyFuck"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderaaaa"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;
     pipelineStateDescriptor.fragmentFunction = fragmentFunction;
-    pipelineStateDescriptor.colorAttachments[0].pixelFormat = self.mtkView.colorPixelFormat;
-    pipelineStateDescriptor.depthAttachmentPixelFormat =  self.mtkView.depthStencilPixelFormat;
-    pipelineStateDescriptor.stencilAttachmentPixelFormat = self.mtkView.depthStencilPixelFormat;
+    pipelineStateDescriptor.colorAttachments[0].pixelFormat = self.scene3D.mtkView.colorPixelFormat;
+    pipelineStateDescriptor.depthAttachmentPixelFormat =  self.scene3D.mtkView.depthStencilPixelFormat;
+    pipelineStateDescriptor.stencilAttachmentPixelFormat = self.scene3D.mtkView.depthStencilPixelFormat;
     
-    self.pipelineState = [self.mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
+    self.pipelineState = [self.scene3D.mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
                                                                          error:NULL];
-    self.commandQueue = [self.mtkView.device newCommandQueue];
+    self.commandQueue = [self.scene3D.mtkView.device newCommandQueue];
     
     
     
@@ -73,7 +68,7 @@
     {
         depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
         depthStateDesc.depthWriteEnabled = YES;
-        self._relaxedDepthState = [_device newDepthStencilStateWithDescriptor:depthStateDesc];
+        self._relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }
 
@@ -86,7 +81,7 @@
         {{0.5f, -0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.5f},       {1.0f, 0.0f}},//右下
         {{0.0f, 0.0f, 1.0f, 1.0f},       {1.0f, 1.0f, 1.0f},       {0.5f, 0.5f}},//顶点
     };
-    self.vertices = [self.mtkView.device newBufferWithBytes:quadVertices
+    self.vertices = [self.scene3D.mtkView.device newBufferWithBytes:quadVertices
                                                  length:sizeof(quadVertices)
                                                 options:MTLResourceStorageModeShared];
     static int indices[] =
@@ -98,7 +93,7 @@
         2, 3, 4,
         1, 4, 3,
     };
-    self.indexs = [self.mtkView.device newBufferWithBytes:indices
+    self.indexs = [self.scene3D.mtkView.device newBufferWithBytes:indices
                                                      length:sizeof(indices)
                                                     options:MTLResourceStorageModeShared];
     self.indexCount = sizeof(indices) / sizeof(int);
@@ -110,7 +105,7 @@
     textureDescriptor.pixelFormat = MTLPixelFormatRGBA8Unorm;
     textureDescriptor.width = image.size.width;
     textureDescriptor.height = image.size.height;
-    self.texture = [self.mtkView.device newTextureWithDescriptor:textureDescriptor];
+    self.texture = [self.scene3D.mtkView.device newTextureWithDescriptor:textureDescriptor];
     
     MTLRegion region = {{ 0, 0, 0 }, {image.size.width, image.size.height, 1}};
     Byte *imageBytes = [self loadImage:image];
@@ -211,3 +206,4 @@
                        indexBufferOffset:0];
 }
 @end
+

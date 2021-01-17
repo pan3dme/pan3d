@@ -18,7 +18,7 @@
 
  
 @property (nonatomic, strong) UIView *uiView;
-@property (nonatomic, strong) MTKView *mtkView;
+
 @property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
   
 @property (nonatomic, strong)RotationSpriteA* _rotationSpriteA;
@@ -39,16 +39,24 @@
         self.mtkView.depthStencilPixelFormat = MTLPixelFormatDepth32Float_Stencil8;
         [self.uiView insertSubview:self.mtkView atIndex:0];
         self.mtkView.delegate = self;
-     
-        
         self.commandQueue = [self.mtkView.device newCommandQueue];
         
-        self._rotationSpriteA=[[RotationSpriteA alloc]init:self.mtkView];
-        self._rotationSpriteB=[[RotationSpriteB alloc]init:self.mtkView];
-        self._rotationSpriteC=[[RotationSpriteC alloc]init:self.mtkView];
+        [self initData];
+        
+
       
     }
     return self;
+}
+-(void)initData
+{
+    self.camera3D=[[Camera3D alloc]init];
+    self.camera3D.fovw=self.mtkView.drawableSize.width;
+    self.camera3D.fovh=self.mtkView.drawableSize.height;
+    
+    self._rotationSpriteA=[[RotationSpriteA alloc]init:self];
+    self._rotationSpriteB=[[RotationSpriteB alloc]init:self];
+    self._rotationSpriteC=[[RotationSpriteC alloc]init:self];
 }
 - (void)drawInMTKView:(nonnull MTKView *)view {
     
@@ -77,7 +85,8 @@
 
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
     
- 
+    self.camera3D.fovw=size.width;
+    self.camera3D.fovh=size.height;
 }
 
 @end

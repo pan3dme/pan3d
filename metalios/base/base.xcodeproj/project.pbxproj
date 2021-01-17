@@ -17,6 +17,9 @@
 		9C612E4D25B3EE140081A66E /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E4C25B3EE140081A66E /* Shaders.metal */; };
 		9C612E6725B3F1980081A66E /* RotationSpriteC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E6625B3F1980081A66E /* RotationSpriteC.m */; };
 		9C612E7225B3F4E40081A66E /* Scene3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E7125B3F4E40081A66E /* Scene3D.m */; };
+		9C612E7C25B3FE010081A66E /* Vector3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E7B25B3FE010081A66E /* Vector3D.m */; };
+		9C612E8125B3FE7F0081A66E /* Camera3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E8025B3FE7F0081A66E /* Camera3D.m */; };
+		9C612E8525B4003A0081A66E /* Display3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612E8425B4003A0081A66E /* Display3D.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,12 @@
 		9C612E6625B3F1980081A66E /* RotationSpriteC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotationSpriteC.m; sourceTree = "<group>"; };
 		9C612E7025B3F4E40081A66E /* Scene3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene3D.h; sourceTree = "<group>"; };
 		9C612E7125B3F4E40081A66E /* Scene3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scene3D.m; sourceTree = "<group>"; };
+		9C612E7A25B3FE010081A66E /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		9C612E7B25B3FE010081A66E /* Vector3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vector3D.m; sourceTree = "<group>"; };
+		9C612E7F25B3FE7F0081A66E /* Camera3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera3D.h; sourceTree = "<group>"; };
+		9C612E8025B3FE7F0081A66E /* Camera3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Camera3D.m; sourceTree = "<group>"; };
+		9C612E8325B4003A0081A66E /* Display3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3D.h; sourceTree = "<group>"; };
+		9C612E8425B4003A0081A66E /* Display3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3D.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +112,8 @@
 		9C612E6F25B3F4CB0081A66E /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
-				9C612E7725B3F51E0081A66E /* display3d */,
+				9C612E7925B3FDC10081A66E /* vo */,
+				9C612E7725B3F51E0081A66E /* display */,
 				9C612E7625B3F5180081A66E /* core */,
 				9C612E7525B3F5100081A66E /* base */,
 				9C612E7025B3F4E40081A66E /* Scene3D.h */,
@@ -126,11 +136,24 @@
 			path = core;
 			sourceTree = "<group>";
 		};
-		9C612E7725B3F51E0081A66E /* display3d */ = {
+		9C612E7725B3F51E0081A66E /* display */ = {
 			isa = PBXGroup;
 			children = (
+				9C612E8325B4003A0081A66E /* Display3D.h */,
+				9C612E8425B4003A0081A66E /* Display3D.m */,
 			);
-			path = display3d;
+			path = display;
+			sourceTree = "<group>";
+		};
+		9C612E7925B3FDC10081A66E /* vo */ = {
+			isa = PBXGroup;
+			children = (
+				9C612E7A25B3FE010081A66E /* Vector3D.h */,
+				9C612E7B25B3FE010081A66E /* Vector3D.m */,
+				9C612E7F25B3FE7F0081A66E /* Camera3D.h */,
+				9C612E8025B3FE7F0081A66E /* Camera3D.m */,
+			);
+			path = vo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,10 +226,13 @@
 			files = (
 				9C612E4D25B3EE140081A66E /* Shaders.metal in Sources */,
 				9C612E7225B3F4E40081A66E /* Scene3D.m in Sources */,
+				9C612E7C25B3FE010081A66E /* Vector3D.m in Sources */,
 				9C612E0B25B3EC9A0081A66E /* GameViewController.m in Sources */,
 				9C612E4725B3EDD00081A66E /* RotationSpriteB.m in Sources */,
 				9C612E6725B3F1980081A66E /* RotationSpriteC.m in Sources */,
+				9C612E8525B4003A0081A66E /* Display3D.m in Sources */,
 				9C612E1325B3EC9C0081A66E /* main.m in Sources */,
+				9C612E8125B3FE7F0081A66E /* Camera3D.m in Sources */,
 				9C612E0625B3EC9A0081A66E /* AppDelegate.m in Sources */,
 				9C612E4825B3EDD00081A66E /* RotationSpriteA.m in Sources */,
 			);

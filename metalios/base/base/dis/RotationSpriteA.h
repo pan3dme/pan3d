@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Display3D.h"
 @import MetalKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RotationSpriteA : NSObject
-- (instancetype)init:(MTKView*)view;
-
+@interface RotationSpriteA : Display3D
+ 
 -(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder;
 @end
 

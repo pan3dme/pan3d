@@ -1,4 +1,3 @@
- 
 //
 //  RotationSpriteA.h
 //  BankBRDF
@@ -8,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Display3D.h"
 @import MetalKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RotationSpriteB : NSObject
-- (instancetype)init:(MTKView*)view;
-
+@interface RotationSpriteB : Display3D
+ 
 -(void)updata:(id<MTLRenderCommandEncoder>)renderEncoder;
 @end
 
