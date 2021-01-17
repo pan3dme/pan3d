@@ -10,23 +10,17 @@
 #import "ShaderTypes.h"
 #import "Matrix3D.h"
 #import "TextureManager.h"
+#import "Shader3D.h"
 @import MetalKit;
 @import GLKit;
 
 
 @interface RotationSpriteA ()
 
-
-// data
-@property (nonatomic, assign) vector_uint2 viewportSize;
-@property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
+ 
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong)  id <MTLDepthStencilState> _relaxedDepthState;
-//@property (nonatomic, assign) NSUInteger indexCount;
-//@property (nonatomic, strong) id<MTLBuffer> vertices;
-//@property (nonatomic, strong) id<MTLBuffer> indexs;
-
-
+@property (nonatomic, strong) Shader3D* shader3D;
+  
 @end
 @implementation RotationSpriteA
 
@@ -40,42 +34,14 @@
 }
 
 - (void)customInit {
-    [self setupPipeline];
-  
+   
+    self.shader3D=[[Shader3D alloc] init:self.scene3D];
+    [self.shader3D encode];
     self.objData=[[ObjData alloc] init:self.scene3D];
     [self.objData makeTempObjData];
     self.texture=[self.scene3D.textureManager setupTexture  ];
 }
-
--(void)setupPipeline {
-    id<MTLLibrary> defaultLibrary = [self.scene3D.mtkView.device newDefaultLibrary];
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderBase"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderBase"];
-    
-    MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
-    pipelineStateDescriptor.vertexFunction = vertexFunction;
-    pipelineStateDescriptor.fragmentFunction = fragmentFunction;
-    pipelineStateDescriptor.colorAttachments[0].pixelFormat = self.scene3D.mtkView.colorPixelFormat;
-    pipelineStateDescriptor.depthAttachmentPixelFormat =  self.scene3D.mtkView.depthStencilPixelFormat;
-    pipelineStateDescriptor.stencilAttachmentPixelFormat = self.scene3D.mtkView.depthStencilPixelFormat;
-    
-    self.pipelineState = [self.scene3D.mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
-                                                                                     error:NULL];
-     
-    
-    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
-    
-    {
-        depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
-        depthStateDesc.depthWriteEnabled = YES;
-        self._relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
-    }
-}
-
  
- 
-
-
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
     
     
@@ -95,20 +61,19 @@
     
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-    [renderEncoder setRenderPipelineState:self.pipelineState];
-    [renderEncoder setDepthStencilState:self._relaxedDepthState];
+    [renderEncoder setRenderPipelineState:self.shader3D.pipelineState];
+    [renderEncoder setDepthStencilState:self.shader3D.relaxedDepthState];
     [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
     [renderEncoder setCullMode:MTLCullModeFront];
     [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-    
+    [renderEncoder setCullMode:MTLCullModeFront];
+    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
     
     [self setupMatrixWithEncoder:renderEncoder];
     
     [renderEncoder setVertexBuffer: self.objData.vertices
                             offset:0
                            atIndex:LYVertexInputIndexVertices];
-    [renderEncoder setCullMode:MTLCullModeFront];
-    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
     
     [renderEncoder setFragmentTexture:self.texture
                               atIndex:LYFragmentInputIndexTexture];

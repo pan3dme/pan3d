@@ -30,6 +30,7 @@
 		9C612EAE25B44D290081A66E /* GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612EAD25B44D290081A66E /* GC.m */; };
 		9C612EB325B44D9B0081A66E /* ObjData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612EB225B44D9B0081A66E /* ObjData.m */; };
 		9C612EBE25B46A060081A66E /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C612EBD25B46A060081A66E /* TextureManager.m */; };
+		9CE8F37E25B474C700C0A106 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE8F37D25B474C700C0A106 /* Shader3D.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		9C612EB225B44D9B0081A66E /* ObjData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjData.m; sourceTree = "<group>"; };
 		9C612EBC25B46A060081A66E /* TextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		9C612EBD25B46A060081A66E /* TextureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
+		9CE8F37C25B474C700C0A106 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
+		9CE8F37D25B474C700C0A106 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,7 @@
 		9C612E6F25B3F4CB0081A66E /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
+				9CE8F37B25B474A000C0A106 /* program */,
 				9C612EB525B468AC0081A66E /* filemodel */,
 				9C612E8C25B407C90081A66E /* libs */,
 				9C612E7925B3FDC10081A66E /* vo */,
@@ -228,6 +232,15 @@
 			path = filemodel;
 			sourceTree = "<group>";
 		};
+		9CE8F37B25B474A000C0A106 /* program */ = {
+			isa = PBXGroup;
+			children = (
+				9CE8F37C25B474C700C0A106 /* Shader3D.h */,
+				9CE8F37D25B474C700C0A106 /* Shader3D.m */,
+			);
+			path = program;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C612E4D25B3EE140081A66E /* Shaders.metal in Sources */,
+				9CE8F37E25B474C700C0A106 /* Shader3D.m in Sources */,
 				9C612E7225B3F4E40081A66E /* Scene3D.m in Sources */,
 				9C612E9325B408690081A66E /* Quaternion.m in Sources */,
 				9C612EAE25B44D290081A66E /* GC.m in Sources */,

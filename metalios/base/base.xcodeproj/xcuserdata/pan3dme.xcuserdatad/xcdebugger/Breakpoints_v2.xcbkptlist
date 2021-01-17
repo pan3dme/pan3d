@@ -78,8 +78,8 @@
             filePath = "base/dis/RotationSpriteA.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "-init:"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "base/dis/RotationSpriteA.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-setupMatrixWithEncoder:"
             landmarkType = "7">
          </BreakpointContent>
