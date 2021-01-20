@@ -1,0 +1,20 @@
+platform :ios, '9.0'
+
+target 'iosgl' do
+ 
+ pod 'AFNetworking'
+
+ pod 'MJRefresh'
+
+ pod 'MMPopupView'
+
+ pod 'SDWebImage'
+  
+ pod 'SSZipArchive'
+
+ pod 'GZIP', '~> 1.2'
+  pod 'AlipaySDK-iOS'
+ pod 'YBImageBrowser'
+ pod 'YBImageBrowser/Video'
+
+end
