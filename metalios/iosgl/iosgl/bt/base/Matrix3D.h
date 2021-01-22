@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(Vector3D*)position;
 -(void)inputStrData:(NSString*)str;
 -(void)identityPostion;
+- (matrix_float4x4)getMatrixFloat4x4;
  
  
 @end

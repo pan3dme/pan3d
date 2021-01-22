@@ -7,6 +7,7 @@
 //
 
 #import "ResCount.h"
+#import "MtkScene3D.h"
 #import <GLKit/GLKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSArray  *lightuvs;
 @property (nonatomic, copy)  NSArray  *nrms;
 @property (nonatomic, copy)  NSArray  *indexs;
+@property (nonatomic, strong)  MtkScene3D  *mtkScene3D;
 
  
 @property (nonatomic, assign)  BOOL compressBuffer  ;
@@ -35,9 +37,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLuint indexBuffer ;
 @property (nonatomic, strong) NSMutableData *dataView ;
 @property (nonatomic, assign) GLuint dataViewBuffer ;
+
+@property (nonatomic, strong) id<MTLBuffer> mtkvertices;
+@property (nonatomic, strong) id<MTLBuffer> mtkindexs;
+@property (nonatomic, assign) NSUInteger mtkindexCount;
+
+- (instancetype)init:(MtkScene3D*)value;
 -(GLuint)upGpuIndexBuffer:(NSArray*)arr;
 -(GLuint)upGpuvertexBuffer:(NSArray*)arr;
 -(void)upToGpu;
+-(void)makeTempObjData;
+
 @end
 
 NS_ASSUME_NONNULL_END

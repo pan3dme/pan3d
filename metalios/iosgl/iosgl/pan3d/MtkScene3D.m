@@ -7,11 +7,13 @@
 //
 
 #import "MtkScene3D.h"
+#import "RotationSpriteA.h"
 
 
 @interface MtkScene3D () <MTKViewDelegate>
 
 @property (nonatomic, strong) UIView *uiView;
+@property (nonatomic,strong)RotationSpriteA* _rotationSpriteA;
  
 @end
 
@@ -37,19 +39,18 @@
     self.context3D=[[MtkContext3D alloc] init:self.mtkView ];
     self.textureManager=[[TextureManager alloc]init ];
     
-    self.uiView.frame=CGRectMake(0, 0, 300, 300);
-//    self.uiView.backgroundColor=UIColor.redColor;
+    self._rotationSpriteA=[[RotationSpriteA alloc] init:self];
+ 
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
     [self.context3D clearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
     
-//    [self._rotationSpriteA updata];
-//    [self._rotationSpriteB updata ];
-    
+    [self._rotationSpriteA updata];
+ 
     [self.context3D present];
     
-    NSLog(@"abc---1234");
+
     
 }
 
