@@ -11,11 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TokenSceneView : BaseUIViewController
- 
-- (IBAction)scene_but_1_clik:(id)sender;
-- (IBAction)scene_but_2_clik:(id)sender;
-- (IBAction)zoom_max_clik:(id)sender;
-- (IBAction)zoom_min_clik:(id)sender;
+  
 
 @end
 
