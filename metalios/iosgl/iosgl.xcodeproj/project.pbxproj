@@ -24,6 +24,7 @@
 		9CBE1CAC25BB1CB300FFE706 /* RotationSpriteA.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CAB25BB1CB300FFE706 /* RotationSpriteA.m */; };
 		9CBE1CB125BB247200FFE706 /* RotationShaderA.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CB025BB247200FFE706 /* RotationShaderA.m */; };
 		9CBE1CB525BB2B6A00FFE706 /* RotationSahder.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CB425BB2B6A00FFE706 /* RotationSahder.metal */; };
+		9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */; };
 		9CD92236255E566D00DEE26B /* bodymd5mesh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CD92234255E566D00DEE26B /* bodymd5mesh.txt */; };
 		9CD92237255E566D00DEE26B /* standmd5anim.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CD92235255E566D00DEE26B /* standmd5anim.txt */; };
 		9CDEDB29256190470099F83B /* FrameBaseDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB28256190470099F83B /* FrameBaseDisplay.m */; };
@@ -263,6 +264,8 @@
 		9CBE1CB025BB247200FFE706 /* RotationShaderA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotationShaderA.m; sourceTree = "<group>"; };
 		9CBE1CB425BB2B6A00FFE706 /* RotationSahder.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = RotationSahder.metal; sourceTree = "<group>"; };
 		9CBE1CB725BB2BA900FFE706 /* RotationSahder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotationSahder.h; sourceTree = "<group>"; };
+		9CBE1CBA25BB369900FFE706 /* MtkBaseLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkBaseLine.h; sourceTree = "<group>"; };
+		9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkBaseLine.m; sourceTree = "<group>"; };
 		9CD92234255E566D00DEE26B /* bodymd5mesh.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bodymd5mesh.txt; sourceTree = "<group>"; };
 		9CD92235255E566D00DEE26B /* standmd5anim.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = standmd5anim.txt; sourceTree = "<group>"; };
 		9CDEDB27256190470099F83B /* FrameBaseDisplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBaseDisplay.h; sourceTree = "<group>"; };
@@ -728,11 +731,13 @@
 			isa = PBXGroup;
 			children = (
 				9CBE1CB725BB2BA900FFE706 /* RotationSahder.h */,
+				9CBE1CB425BB2B6A00FFE706 /* RotationSahder.metal */,
 				9CBE1CAF25BB247200FFE706 /* RotationShaderA.h */,
 				9CBE1CB025BB247200FFE706 /* RotationShaderA.m */,
 				9CBE1CAA25BB1CB300FFE706 /* RotationSpriteA.h */,
 				9CBE1CAB25BB1CB300FFE706 /* RotationSpriteA.m */,
-				9CBE1CB425BB2B6A00FFE706 /* RotationSahder.metal */,
+				9CBE1CBA25BB369900FFE706 /* MtkBaseLine.h */,
+				9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */,
 			);
 			path = dis;
 			sourceTree = "<group>";
@@ -1699,6 +1704,7 @@
 				FE678843239B980200262B53 /* SceneView.m in Sources */,
 				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FEF3D4C52436B5A00055AB31 /* DualQuatFloat32Array.m in Sources */,
+				9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */,
 				FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */,
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
 				FE1E1BC9254C7923009590DB /* SceneAllMenu.m in Sources */,
