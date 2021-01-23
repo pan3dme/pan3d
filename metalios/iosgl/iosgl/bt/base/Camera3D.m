@@ -17,7 +17,7 @@
         self.camMatrix3D=[[Matrix3D alloc]init];
         self.viewMatrix =[[Matrix3D alloc]init];
         self.modelMatrix =[[Matrix3D alloc]init];
-        self.distance=100;
+        self.distance=200;
         self.sceneViewHW=100;
         self.fovw=300;
         self.fovh=500;
