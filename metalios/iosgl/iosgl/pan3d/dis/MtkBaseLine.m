@@ -8,6 +8,7 @@
 
 #import "MtkBaseLine.h"
 #import "RotationShaderA.h"
+#import "MtkBaseLineShader.h"
 #import "RotationSahder.h"
 #import "../../metail/LYShaderTypes.h"
 
@@ -15,7 +16,7 @@
 
  
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong) RotationShaderA* rotationShaderA;
+@property (nonatomic, strong) MtkBaseLineShader* mtkBaseLineShader;
   
 @end
 
@@ -30,8 +31,8 @@
     return self;
 }
 - (void)customInit {
-    self.rotationShaderA=[[RotationShaderA alloc] init:self.mtkScene3D];
-    [self.rotationShaderA encode];
+    self.mtkBaseLineShader=[[MtkBaseLineShader alloc] init:self.mtkScene3D];
+    [self.mtkBaseLineShader encode];
     
     self.objData=[[ObjData alloc] init:self.mtkScene3D];
     [self makeLineObjData];
@@ -85,7 +86,7 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     
-   [self.rotationShaderA setProgramShader];
+   [self.mtkBaseLineShader setProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    
