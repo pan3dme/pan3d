@@ -121,7 +121,7 @@
     for (int i=0; i<value.vertices.count/3; i++) {
         Vector3D* pos=  [[Vector3D alloc]x:[value.vertices[i*3+0] floatValue] y:[value.vertices[i*3+1] floatValue] z:[value.vertices[i*3+2] floatValue]];
         Vector3D* color=  [[Vector3D alloc]x:1 y:0 z:0];
-        quarr[i]=(ModelVertex){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
+        quarr[i]=(ModelVertex){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {[value.uvs[i*2+0] floatValue],[value.uvs[i*2+1] floatValue]}};
    
     }
     for (int i=0; i<value.indexs.count ; i++) {

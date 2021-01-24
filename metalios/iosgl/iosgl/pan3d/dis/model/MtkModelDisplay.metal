@@ -37,8 +37,8 @@ samplingShaderModel(ModelRasterizerData input [[stage_in]],
     constexpr sampler textureSampler (mag_filter::linear,
                                       min_filter::linear);
     
-//    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
+    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+//    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
 //    half4 colorTex = half4(1, 0,0, 1);
     return float4(colorTex);
 }

@@ -9,15 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "GL_Header.h"
 #import "ResGC.h"
- 
 #import "TextureRes.h"
+
+@class  MtkScene3D;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TextureManager : ResGC
+@property (nonatomic, strong)  MtkScene3D*  mtkScene3D;
 + (instancetype)default;
+
 -(void)addRes:(NSString*)url img:(UIImage*)img;
 -(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
 -(void)loadCubeTexture:(NSString*)url fun:(void (^)(GLuint  any))fun;
+- (id<MTLTexture>)getBaseMitTexture;
 @end
 
 NS_ASSUME_NONNULL_END

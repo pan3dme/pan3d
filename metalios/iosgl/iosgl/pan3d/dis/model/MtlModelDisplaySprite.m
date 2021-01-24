@@ -54,42 +54,23 @@
  
     
     [self setObjUrl:self.buildSceneVo.objsurl];
+    [TextureManager default].mtkScene3D=self.mtkScene3D;
+  self.texture=  [[TextureManager default]getBaseMitTexture];
 }
+ 
 -(void)setObjUrl:(NSString*)value;
 {
   
     [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
-        
-    
-        [self changeObjData:obj];
+         
+        obj.mtkScene3D=self.mtkScene3D;
+        [obj changeObjDataToMtkGpu];
+        self.objData=obj;
         
         
     }];
 }
--(void)changeObjData:(ObjData*)value;
-{
-    ModelVertex quarr[value.vertices.count/3];
-    int idxs[value.indexs.count];
-    for (int i=0; i<value.vertices.count/3; i++) {
-        Vector3D* pos=  [[Vector3D alloc]x:[value.vertices[i*3+0] floatValue] y:[value.vertices[i*3+1] floatValue] z:[value.vertices[i*3+2] floatValue]];
-        Vector3D* color=  [[Vector3D alloc]x:1 y:0 z:0];
-        quarr[i]=(ModelVertex){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
-   
-    }
-    for (int i=0; i<value.indexs.count ; i++) {
-        idxs[i]=[value.indexs[i] intValue];
-    }
-    value.mtkvertices = [self.mtkScene3D.mtkView.device newBufferWithBytes:quarr
-                                                 length:sizeof(quarr)
-                                                options:MTLResourceStorageModeShared];
-
-    value.mtkindexs = [self.mtkScene3D.mtkView.device newBufferWithBytes:idxs
-                                                     length:sizeof(idxs)
-                                                    options:MTLResourceStorageModeShared];
-    value.mtkindexCount = value.indexs.count;
-    self.objData=value;
-}
-
+ 
  
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
@@ -100,8 +81,6 @@
    Matrix3D* posMatrix =[[Matrix3D alloc]init];
    [posMatrix appendScale:0.5 y:0.5 z:0.5];
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-
-    
  
     
     ModelMatrixView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
