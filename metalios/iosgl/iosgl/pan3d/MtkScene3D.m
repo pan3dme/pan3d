@@ -101,6 +101,9 @@
 -(void)addBuildDisplay3DSprite:(NSDictionary*)value;
 {
     MtlModelDisplaySprite* dis=[[MtlModelDisplaySprite alloc] init:self];
+    
+    [dis setInfo:value];
+    
     [self.modelList addObject: dis];
  
 }

@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init:(MtkScene3D*)val;
 -(void)updata ;
+-(void) setInfo:(NSDictionary*)value;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,10 +10,12 @@
 #import "MtlModelDisplayShader.h"
 #import "MtlModelDisplayType.h"
 #import "ObjData.h"
+#import "BuildSceneVo.h"
+#import "ObjDataManager.h"
 
 @interface MtlModelDisplaySprite ()
 
- 
+@property(nonatomic,strong)BuildSceneVo* buildSceneVo;
 @property (nonatomic, strong) id<MTLTexture> texture;
 @property (nonatomic, strong) MtlModelDisplayShader* rotationShaderA;
   
@@ -35,6 +37,33 @@
     
     self.objData=[[ObjData alloc] init:self.mtkScene3D];
     [self makeTempObjData];
+}
+-(void) setInfo:(NSDictionary*)value;
+{
+    self.buildSceneVo=[[BuildSceneVo alloc]init];
+    [self.buildSceneVo preshValue:value];
+    self.x=self.buildSceneVo.x;
+    self.y=self.buildSceneVo.y;
+    self.z=self.buildSceneVo.z;
+    self.scaleX=self.buildSceneVo.scaleX;
+    self.scaleY=self.buildSceneVo.scaleY;
+    self.scaleZ=self.buildSceneVo.scaleZ;
+    self.rotationX=self.buildSceneVo.rotationX;
+    self.rotationY=self.buildSceneVo.rotationY;
+    self.rotationZ=self.buildSceneVo.rotationZ;
+ 
+    
+    [self setObjUrl:self.buildSceneVo.objsurl];
+}
+-(void)setObjUrl:(NSString*)value;
+{
+    [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
+        ObjData* tempObjData=obj;
+        
+        
+      
+ 
+    }];
 }
 
 -(void)makeTempObjData
