@@ -26,7 +26,10 @@
     MTKView *mtkView=self.mtkScene3D.context3D. mtkView;
     
     id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+    NSError* errorfun = nil;
+    id<MTLLibrary> aabbcc = [mtkView.device newLibraryWithSource:@"abd" options:nil error:nil];
  
+  
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderLine"];
     id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLine"];
     

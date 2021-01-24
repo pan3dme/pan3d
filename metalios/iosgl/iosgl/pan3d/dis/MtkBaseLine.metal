@@ -1,20 +1,15 @@
 //
-//  RotationSahder.metal
-//  base
+//  MtkBaseLine.metal
+//  iosgl
 //
-//  Created by pan3dme on 2021/1/17.
+//  Created by pan3dme on 2021/1/24.
+//  Copyright © 2021 zhao. All rights reserved.
 //
 
 #include <metal_stdlib>
- 
-#include "RotationSahder.h"
- 
-
-#include <simd/simd.h>
-
 using namespace metal;
+#include "RotationSahder.h"
 
- 
 
 typedef struct
 {
@@ -23,9 +18,8 @@ typedef struct
     float2 textureCoordinate;
     
 } RotationRasterizerData;
-
 vertex RotationRasterizerData // 顶点
-vertexShaderRotation(uint vertexID [[ vertex_id ]],
+vertexShaderLine(uint vertexID [[ vertex_id ]],
              constant RotationVertex *vertexArray [[ buffer(RotationVertexInputIndexVertices_0) ]],
              constant RotationMatrix *matrix [[ buffer(RotationVertexInputIndexMatrix_1) ]]) {
     RotationRasterizerData out;
@@ -37,16 +31,14 @@ vertexShaderRotation(uint vertexID [[ vertex_id ]],
 }
  
 fragment float4 // 片元
-samplingShaderRotation(RotationRasterizerData input [[stage_in]],
+samplingShaderLine(RotationRasterizerData input [[stage_in]],
                texture2d<half> textureColor [[ texture(RotationFragmentInputIndexTexture_0) ]])
 {
     constexpr sampler textureSampler (mag_filter::linear,
                                       min_filter::linear);
     
 //    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-//    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
-    half4 colorTex = half4(0.9, 0.2,0.2, 1);
+    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
+//    half4 colorTex = half4(1, 0,0, 1);
     return float4(colorTex);
 }
-
-
