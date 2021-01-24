@@ -23,19 +23,11 @@ typedef struct
     vector_float4 position;
     vector_float3 color;
     vector_float2 textureCoordinate;
-} LYVertex11;
-
-
-typedef struct
-{
-   vector_float4 position;
-   vector_float3 color;
-   vector_float2 textureCoordinate;
-} RotationVertex11;
+} VertexLine;
 typedef struct
 {
    matrix_float4x4 projectionMatrix;
    matrix_float4x4 modelViewMatrix;
-} RotationMatrix11;
+} LineMatrixView;
 
 #endif /* MtlBaseLineType_h */

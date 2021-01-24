@@ -20,8 +20,8 @@ typedef struct
 } RotationRasterizerData;
 vertex RotationRasterizerData // 顶点
 vertexShaderLine(uint vertexID [[ vertex_id ]],
-             constant RotationVertex11 *vertexArray [[ buffer(0) ]],
-             constant RotationMatrix11 *matrix [[ buffer(1) ]]) {
+             constant VertexLine *vertexArray [[ buffer(0) ]],
+             constant LineMatrixView *matrix [[ buffer(1) ]]) {
     RotationRasterizerData out;
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
     out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
