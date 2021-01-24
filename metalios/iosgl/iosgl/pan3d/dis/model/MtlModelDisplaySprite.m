@@ -35,8 +35,8 @@
     self.rotationShaderA=[[MtlModelDisplayShader alloc] init:self.mtkScene3D];
     [self.rotationShaderA encode];
     
-    self.objData=[[ObjData alloc] init:self.mtkScene3D];
-    [self makeTempObjData];
+ 
+ 
 }
 -(void) setInfo:(NSDictionary*)value;
 {
@@ -57,42 +57,40 @@
 }
 -(void)setObjUrl:(NSString*)value;
 {
+  
     [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
-        ObjData* tempObjData=obj;
+        
+    
+        [self changeObjData:obj];
         
         
-      
- 
     }];
 }
-
--(void)makeTempObjData
+-(void)changeObjData:(ObjData*)value;
 {
-    static const ModelVertex quadVertices[] =
-    {  // 顶点坐标                          顶点颜色                    纹理坐标
-        {{-1.5f, 0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.5f},       {0.0f, 1.0f}},//左上
-        {{0.5f, 0.5f, 0.0f, 1.0f},       {0.0f, 0.5f, 0.0f},       {1.0f, 1.0f}},//右上
-        {{-0.5f, -0.5f, 0.0f, 1.0f},     {0.5f, 0.0f, 1.0f},       {0.0f, 0.0f}},//左下
-        {{0.5f, -0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.5f},       {1.0f, 0.0f}},//右下
-        {{0.0f, 0.0f, 1.0f, 1.0f},       {1.0f, 1.0f, 1.0f},       {0.5f, 0.5f}},//顶点
-    };
-    self.objData.mtkvertices = [self.mtkScene3D.mtkView.device newBufferWithBytes:quadVertices
-                                                 length:sizeof(quadVertices)
+    ModelVertex quarr[value.vertices.count/3];
+    int idxs[value.indexs.count];
+    for (int i=0; i<value.vertices.count/3; i++) {
+        Vector3D* pos=  [[Vector3D alloc]x:[value.vertices[i*3+0] floatValue] y:[value.vertices[i*3+1] floatValue] z:[value.vertices[i*3+2] floatValue]];
+        Vector3D* color=  [[Vector3D alloc]x:1 y:0 z:0];
+        quarr[i]=(ModelVertex){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
+   
+    }
+    for (int i=0; i<value.indexs.count ; i++) {
+        idxs[i]=[value.indexs[i] intValue];
+    }
+    value.mtkvertices = [self.mtkScene3D.mtkView.device newBufferWithBytes:quarr
+                                                 length:sizeof(quarr)
                                                 options:MTLResourceStorageModeShared];
-    static int indices[] =
-    { // 索引
-        0, 3, 2,
-        0, 1, 3,
-        0, 2, 4,
-        0, 4, 1,
-        2, 3, 4,
-        1, 4, 3,
-    };
-    self.objData.mtkindexs = [self.mtkScene3D.mtkView.device newBufferWithBytes:indices
-                                                     length:sizeof(indices)
+
+    value.mtkindexs = [self.mtkScene3D.mtkView.device newBufferWithBytes:idxs
+                                                     length:sizeof(idxs)
                                                     options:MTLResourceStorageModeShared];
-    self.objData.mtkindexCount = sizeof(indices) / sizeof(int);
+    value.mtkindexCount = value.indexs.count;
+    self.objData=value;
 }
+
+ 
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
    
@@ -100,7 +98,7 @@
    static float y = 0.0 ;
    y+=10;
    Matrix3D* posMatrix =[[Matrix3D alloc]init];
-   [posMatrix appendScale:20 y:20 z:20];
+   [posMatrix appendScale:0.5 y:0.5 z:0.5];
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
 
     
@@ -113,6 +111,9 @@
                          atIndex:1];
 }
 -(void)updata  {
+    if(self.objData==nil){
+        return;
+    }
    
    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     
