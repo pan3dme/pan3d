@@ -9,6 +9,7 @@
 #import "MtlModelDisplaySprite.h"
 #import "MtlModelDisplayShader.h"
 #import "MtlModelDisplayType.h"
+#import "ObjData.h"
 
 @interface MtlModelDisplaySprite ()
 

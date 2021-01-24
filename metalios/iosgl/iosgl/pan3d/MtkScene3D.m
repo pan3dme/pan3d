@@ -19,6 +19,7 @@
 #import "SceneRes.h"
 #import "MathCore.h"
 #import "Scene_data.h"
+#import "TimeUtil.h"
 #import "ParticleManager.h"
 #import "MaterialManager.h"
 #import "GL_Header.h"
@@ -27,9 +28,8 @@
 @interface MtkScene3D () <MTKViewDelegate>
 
 @property (nonatomic, strong) UIView *uiView;
-@property (nonatomic,strong)RotationSpriteA* _rotationSpriteA;
-@property (nonatomic,strong)MtkBaseLine* _mtkBaseLine;
-@property (nonatomic,strong)MtlModelDisplaySprite* _mtlModelDisplaySprite;
+@property (nonatomic,strong)MtkBaseLine* mtkBaseLine;
+ 
  
 @end
 
@@ -55,10 +55,11 @@
    [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[MtkContext3D alloc] init:self.mtkView ];
     self.textureManager=[[TextureManager alloc]init ];
+    self.modelList=[[NSMutableArray alloc] init];
     
-    self._rotationSpriteA=[[RotationSpriteA alloc] init:self];
-    self._mtkBaseLine=[[MtkBaseLine alloc] init:self];
-    self._mtlModelDisplaySprite=[[MtlModelDisplaySprite alloc]init:self];
+   
+    self.mtkBaseLine=[[MtkBaseLine alloc] init:self];
+ 
     
     [self loadSeceneByUrl:@"2012"];
  
@@ -70,8 +71,9 @@
     [self.camera3D upFrame];
     
  
-    [self._mtkBaseLine updata];
-    [self._mtlModelDisplaySprite updata];
+    [self.mtkBaseLine updata];
+    [self updateModelList];
+   
     
  
     [self.context3D present];
@@ -98,8 +100,16 @@
  
 -(void)addBuildDisplay3DSprite:(NSDictionary*)value;
 {
-   
+    MtlModelDisplaySprite* dis=[[MtlModelDisplaySprite alloc] init:self];
+    [self.modelList addObject: dis];
  
+}
+-(void)updateModelList;
+{
+ 
+    for(int i=0;i<self.modelList.count;i++){
+        [self.modelList[i] updata];
+    }
 }
 - (void)loadSeceneByUrl:(NSString *)url
 {

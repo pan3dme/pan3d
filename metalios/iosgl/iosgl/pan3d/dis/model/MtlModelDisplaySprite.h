@@ -7,8 +7,9 @@
 //
 
 #import "Display3D.h"
-#import "ObjData.h"
+ 
 @class  MtkScene3D;
+@class  ObjData;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MtlModelDisplaySprite : Display3D
