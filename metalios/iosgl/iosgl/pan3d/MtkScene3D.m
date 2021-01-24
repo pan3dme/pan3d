@@ -9,6 +9,7 @@
 #import "MtkScene3D.h"
 #import "RotationSpriteA.h"
 #import "MtkBaseLine.h"
+#import "MtlModelDisplaySprite.h"
 
 
 @interface MtkScene3D () <MTKViewDelegate>
@@ -16,6 +17,7 @@
 @property (nonatomic, strong) UIView *uiView;
 @property (nonatomic,strong)RotationSpriteA* _rotationSpriteA;
 @property (nonatomic,strong)MtkBaseLine* _mtkBaseLine;
+@property (nonatomic,strong)MtlModelDisplaySprite* _mtlModelDisplaySprite;
  
 @end
 
@@ -44,6 +46,7 @@
     
     self._rotationSpriteA=[[RotationSpriteA alloc] init:self];
     self._mtkBaseLine=[[MtkBaseLine alloc] init:self];
+    self._mtlModelDisplaySprite=[[MtlModelDisplaySprite alloc]init:self];
  
 }
 
@@ -52,8 +55,9 @@
     self.camera3D.rotationX=-15;
     [self.camera3D upFrame];
     
-    [self._rotationSpriteA updata];
+//    [self._rotationSpriteA updata];
     [self._mtkBaseLine updata];
+    [self._mtlModelDisplaySprite updata];
     
  
     [self.context3D present];
