@@ -10,6 +10,18 @@
 #import "RotationSpriteA.h"
 #import "MtkBaseLine.h"
 #import "MtlModelDisplaySprite.h"
+#import <GLKit/GLKit.h>
+#import "Matrix3D.h"
+#import "Vector3D.h"
+#import "TextureRes.h"
+#import "BuildDisplay3DSprite.h"
+#import "Scene3D.h"
+#import "SceneRes.h"
+#import "MathCore.h"
+#import "Scene_data.h"
+#import "ParticleManager.h"
+#import "MaterialManager.h"
+#import "GL_Header.h"
 
 
 @interface MtkScene3D () <MTKViewDelegate>
@@ -47,6 +59,8 @@
     self._rotationSpriteA=[[RotationSpriteA alloc] init:self];
     self._mtkBaseLine=[[MtkBaseLine alloc] init:self];
     self._mtlModelDisplaySprite=[[MtlModelDisplaySprite alloc]init:self];
+    
+    [self loadSeceneByUrl:@"2012"];
  
 }
 
@@ -55,7 +69,7 @@
     self.camera3D.rotationX=-15;
     [self.camera3D upFrame];
     
-//    [self._rotationSpriteA updata];
+ 
     [self._mtkBaseLine updata];
     [self._mtlModelDisplaySprite updata];
     
@@ -65,6 +79,48 @@
 
     
 }
+-(void)parsingBuildItem:(NSDictionary*)value;
+{
+    
+    int type=   [value[@"type"]intValue];
+    switch (type) {
+        case PREFAB_TYPE:
+            [self addBuildDisplay3DSprite:value];
+            break;
+        case SCENE_PARTICLE_TYPE:
+          
+            break;
+            
+        default:
+            break;
+    }
+}
+ 
+-(void)addBuildDisplay3DSprite:(NSDictionary*)value;
+{
+   
+ 
+}
+- (void)loadSeceneByUrl:(NSString *)url
+{
+    NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
+    SceneRes *sceneRes=[[SceneRes alloc]init];
+    [sceneRes load:webUrl  bfun:^(NSString *value) {
+        NSDictionary* obj=sceneRes.sceneData;
+        NSArray *buildItem=[obj objectForKey:@"buildItem"];
+   
+        for(int i=0;i<buildItem.count;i++){
+       
+            if( [buildItem[i][@"id"]intValue]==2){
+                [self parsingBuildItem:buildItem[i]];
+            }
+         
+            
+        }
+        NSLog(@"--");
+    }];
+}
+
 
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
     [self resieSize:size];
