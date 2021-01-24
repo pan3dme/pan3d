@@ -271,6 +271,7 @@
 		9CBE1CBF25BB395500FFE706 /* MtkBaseLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkBaseLineShader.h; sourceTree = "<group>"; };
 		9CBE1CC025BB395500FFE706 /* MtkBaseLineShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkBaseLineShader.m; sourceTree = "<group>"; };
 		9CBE1CC325BD67C400FFE706 /* MtkBaseLine.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MtkBaseLine.metal; sourceTree = "<group>"; };
+		9CBE1CC925BD6AC300FFE706 /* MtlBaseLineType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtlBaseLineType.h; sourceTree = "<group>"; };
 		9CD92234255E566D00DEE26B /* bodymd5mesh.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bodymd5mesh.txt; sourceTree = "<group>"; };
 		9CD92235255E566D00DEE26B /* standmd5anim.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = standmd5anim.txt; sourceTree = "<group>"; };
 		9CDEDB27256190470099F83B /* FrameBaseDisplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBaseDisplay.h; sourceTree = "<group>"; };
@@ -749,6 +750,7 @@
 		9CBE1CC625BD692100FFE706 /* line */ = {
 			isa = PBXGroup;
 			children = (
+				9CBE1CC925BD6AC300FFE706 /* MtlBaseLineType.h */,
 				9CBE1CC325BD67C400FFE706 /* MtkBaseLine.metal */,
 				9CBE1CBF25BB395500FFE706 /* MtkBaseLineShader.h */,
 				9CBE1CC025BB395500FFE706 /* MtkBaseLineShader.m */,

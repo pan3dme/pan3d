@@ -10,7 +10,9 @@
 #import "RotationShaderA.h"
 #import "MtkBaseLineShader.h"
 #import "RotationSahder.h"
-#import "../../../metail/LYShaderTypes.h"
+#import "MtlBaseLineType.h"
+//#import "../../../metail/LYShaderTypes.h"
+
 
 @interface MtkBaseLine ()
 
@@ -109,12 +111,12 @@
 -(void)refrishLineDataToGpu;
 {
     if(self.linePointArr&&self.linePointArr.count){
-        LYVertex quarr[self.linePointArr.count];
+        LYVertex11 quarr[self.linePointArr.count];
         int idxs[self.linePointArr.count];
         for (int i=0; i<self.linePointArr.count/2; i++) {
             Vector3D* pos=  self.linePointArr[i*2+0];
             Vector3D* color=  self.linePointArr[i*2+1];
-            quarr[i]=(LYVertex){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
+            quarr[i]=(LYVertex11){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
        
         }
         for (int i=0; i<self.linePointArr.count ; i++) {

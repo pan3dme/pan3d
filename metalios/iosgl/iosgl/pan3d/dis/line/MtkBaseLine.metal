@@ -8,7 +8,7 @@
 
 #include <metal_stdlib>
 using namespace metal;
-#include "../RotationSahder.h"
+#include "MtlBaseLineType.h"
 
 
 typedef struct
@@ -20,8 +20,8 @@ typedef struct
 } RotationRasterizerData;
 vertex RotationRasterizerData // 顶点
 vertexShaderLine(uint vertexID [[ vertex_id ]],
-             constant RotationVertex *vertexArray [[ buffer(RotationVertexInputIndexVertices_0) ]],
-             constant RotationMatrix *matrix [[ buffer(RotationVertexInputIndexMatrix_1) ]]) {
+             constant RotationVertex11 *vertexArray [[ buffer(0) ]],
+             constant RotationMatrix11 *matrix [[ buffer(1) ]]) {
     RotationRasterizerData out;
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
     out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
@@ -32,7 +32,7 @@ vertexShaderLine(uint vertexID [[ vertex_id ]],
  
 fragment float4 // 片元
 samplingShaderLine(RotationRasterizerData input [[stage_in]],
-               texture2d<half> textureColor [[ texture(RotationFragmentInputIndexTexture_0) ]])
+               texture2d<half> textureColor [[ texture(0) ]])
 {
     constexpr sampler textureSampler (mag_filter::linear,
                                       min_filter::linear);
