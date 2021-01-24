@@ -742,11 +742,6 @@
 				9CBE1CB025BB247200FFE706 /* RotationShaderA.m */,
 				9CBE1CAA25BB1CB300FFE706 /* RotationSpriteA.h */,
 				9CBE1CAB25BB1CB300FFE706 /* RotationSpriteA.m */,
-				9CBE1CC325BD67C400FFE706 /* MtkBaseLine.metal */,
-				9CBE1CBF25BB395500FFE706 /* MtkBaseLineShader.h */,
-				9CBE1CC025BB395500FFE706 /* MtkBaseLineShader.m */,
-				9CBE1CBA25BB369900FFE706 /* MtkBaseLine.h */,
-				9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */,
 			);
 			path = dis;
 			sourceTree = "<group>";
@@ -754,6 +749,11 @@
 		9CBE1CC625BD692100FFE706 /* line */ = {
 			isa = PBXGroup;
 			children = (
+				9CBE1CC325BD67C400FFE706 /* MtkBaseLine.metal */,
+				9CBE1CBF25BB395500FFE706 /* MtkBaseLineShader.h */,
+				9CBE1CC025BB395500FFE706 /* MtkBaseLineShader.m */,
+				9CBE1CBA25BB369900FFE706 /* MtkBaseLine.h */,
+				9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */,
 			);
 			path = line;
 			sourceTree = "<group>";
