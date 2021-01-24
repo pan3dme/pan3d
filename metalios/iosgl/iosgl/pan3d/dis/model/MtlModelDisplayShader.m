@@ -7,7 +7,58 @@
 //
 
 #import "MtlModelDisplayShader.h"
+#import <UIKit/UIKit.h>
 
 @implementation MtlModelDisplayShader
 
+- (instancetype)init:(MtkScene3D*)value
+{
+    self = [super init];
+    if (self) {
+        self.mtkScene3D=value;
+    }
+    return self;
+    
+}
+-(void)encode
+{
+   
+    MTKView *mtkView=self.mtkScene3D.context3D. mtkView;
+    
+    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+ 
+  
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderLine"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLine"];
+    
+    MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
+    pipelineStateDescriptor.vertexFunction = vertexFunction;
+    pipelineStateDescriptor.fragmentFunction = fragmentFunction;
+    pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
+    pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
+    pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
+    
+    self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
+                                                                                     error:NULL];
+     
+    
+    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
+    
+    {
+        depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
+        depthStateDesc.depthWriteEnabled = YES;
+        self.relaxedDepthState = [self.mtkScene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
+    }
+}
+-(void)setProgramShader
+{
+   id<MTLRenderCommandEncoder> renderEncoder= self.mtkScene3D.context3D.renderEncoder;
+   [renderEncoder setRenderPipelineState:self.pipelineState];
+   [renderEncoder setDepthStencilState:self.relaxedDepthState];
+   [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+   [renderEncoder setCullMode:MTLCullModeFront];
+   [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+   [renderEncoder setCullMode:MTLCullModeFront];
+   [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+}
 @end
