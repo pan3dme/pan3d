@@ -25,7 +25,7 @@ typedef struct
     vector_float4 position;
     vector_float3 color;
     vector_float2 textureCoordinate;
-} VertexModel;
+} ModelVertex;
 typedef struct
 {
    matrix_float4x4 projectionMatrix;

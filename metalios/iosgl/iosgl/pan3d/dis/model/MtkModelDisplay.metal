@@ -20,7 +20,7 @@ typedef struct
 } ModelRasterizerData;
 vertex ModelRasterizerData // 顶点
 vertexShaderModel(uint vertexID [[ vertex_id ]],
-             constant VertexModel *vertexArray [[ buffer(0) ]],
+             constant ModelVertex *vertexArray [[ buffer(0) ]],
              constant ModelMatrixView *matrix [[ buffer(1) ]]) {
     ModelRasterizerData out;
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
