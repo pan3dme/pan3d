@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Camera3D.h"
-#import "MtkContext3D.h"
+#import "Context3D.h"
 #import "TextureManager.h"
 #import "MtlModelDisplaySprite.h"
  
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) MTKView *mtkView;
 @property (nonatomic, strong)  Camera3D*  camera3D;
 @property (nonatomic, strong)  TextureManager*  textureManager;
-@property (nonatomic, strong) MtkContext3D* mtkContext3D;
+@property (nonatomic, strong) Context3D* mtkContext3D;
 @property (nonatomic, strong) NSMutableArray<MtlModelDisplaySprite*>* modelList;
  
 //必须传入UiView

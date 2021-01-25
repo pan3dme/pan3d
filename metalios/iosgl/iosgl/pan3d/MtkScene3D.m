@@ -54,7 +54,7 @@
     self.camera3D=[[Camera3D alloc]init];
   
    [self resieSize:self.mtkView.drawableSize];
-    self.mtkContext3D=[[MtkContext3D alloc] init:self.mtkView ];
+    self.mtkContext3D=[[Context3D alloc] init:self.mtkView ];
     self.textureManager=[[TextureManager alloc]init ];
     self.modelList=[[NSMutableArray alloc] init];
     
