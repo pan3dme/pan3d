@@ -68,18 +68,16 @@
  
 -(void)setObjUrl:(NSString*)value;
 {
-  
     [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
          
         obj.mtkScene3D=self.mtkScene3D;
         [obj changeObjDataToMtkGpu];
         self.objData=obj;
-        
-        
+ 
     }];
 }
  
--(void)setMaterialUrlA:(NSString*)value  paramData:(NSArray*)paramData;
+-(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 {
     MtlModelDisplaySprite* this=self;
     value= [value stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
@@ -97,60 +95,7 @@
     } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
 }
  
--(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
-{
-    MtlModelDisplaySprite* this=self;
-    value= [value stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
-    value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
-    this.materialUrl =   value;
-    
-    [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
-        this.material=(Material*)obj;
-        if (this.material.useNormal) {
-        }
-        if (paramData) {
-            [this getMaterialMaiinTexture:this.material ary:paramData];
-            
-         }
-    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
-}
- 
--(void)getMaterialMaiinTexture:(Material*)material ary:(NSArray<NSDictionary*>*)ary;
-{
   
-    
-    NSMutableArray<TexItem*>* texList  = material.texList;
-    
-    for (int i = 0; i < ary.count; i++) {
-        
-        NSDictionary* obj = ary[i];
-        int obj_type=[obj[@"type"]intValue];
-        NSString* obj_name=(NSString*)obj[@"name"] ;
-        if (obj_type == 0) {
-            DynamicBaseTexItem* texItem   = [[DynamicBaseTexItem alloc]init];
-            texItem.paramName = obj_name;
-            for (int j = 0; j < texList.count; j++) {
-                if (texItem.paramName == texList[j].paramName) {
-                    texItem.target = texList[j];
-                    break;
-                }
-            }
-            if(texItem.target.isMain){
-                [self loadNetImage:[[Scene_data default]getWorkUrlByFilePath:obj[@"url"]]];
-            }
-      
-        }
-    }
-    
-}
--(void)loadNetImage:(NSString*)url
-{
-    if ([ TextureManager default] .resDic[url]) {
-        UIImage* img=[ TextureManager default] .resDic[url];
-        [TextureManager default].mtkScene3D=self.mtkScene3D;
-        self.texture=  [[TextureManager default]getBaseMitTexture:img];
-    }
-}
  
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
@@ -182,9 +127,14 @@
     for (int i   = 0; i < texDynamicVec.count; i++) {
         texItem=texDynamicVec[i].target;
         if(texItem ){
-         
-     
-            
+            if(texItem.isMain){
+          
+                
+                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+                [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
+                                          atIndex:0];
+            }
+ 
         }
     }
     
@@ -222,8 +172,7 @@
                            offset:0
                           atIndex:0];
    
-   [renderEncoder setFragmentTexture:self.texture
-                             atIndex:0];
+
     
     [self setMaterialTexture:self.material mp:self.materialParam];
    

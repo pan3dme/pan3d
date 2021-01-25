@@ -101,8 +101,8 @@ static TextureManager *instance = nil;
     TextureRes *textureRes=[[TextureRes alloc]init];
  
     textureRes.textTureLuint=  [Context3D getTexture:img wrap:info.wrap];
-  //  textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
-    
+ 
+    textureRes.mtlTexture= [[TextureManager default]getBaseMitTexture:img];
   
     
     NSArray<TextureLoad*>* ary  = self.loadDic[info.url];
