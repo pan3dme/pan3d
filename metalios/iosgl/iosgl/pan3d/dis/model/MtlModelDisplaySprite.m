@@ -16,6 +16,7 @@
 #import "LoadManager.h"
 #import "ObjDataManager.h"
 #import "MaterialBaseParam.h"
+#import "DynamicTexItem.h"
 #import "MaterialShader.h"
 #import "MaterialManager.h"
 
@@ -77,6 +78,25 @@
         
     }];
 }
+ 
+-(void)setMaterialUrlA:(NSString*)value  paramData:(NSArray*)paramData;
+{
+    MtlModelDisplaySprite* this=self;
+    value= [value stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
+    value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
+    this.materialUrl =   value;
+    
+    [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+        this.material=(Material*)obj;
+        if (this.material.useNormal) {
+        }
+        if (paramData) {
+            this.materialParam = [[MaterialBaseParam alloc]init];
+            [this.materialParam setData:this.material ary:paramData];
+         }
+    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
+}
+ 
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 {
     MtlModelDisplaySprite* this=self;
@@ -93,9 +113,8 @@
             
          }
     } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
-    
-
 }
+ 
 -(void)getMaterialMaiinTexture:(Material*)material ary:(NSArray<NSDictionary*>*)ary;
 {
   
@@ -133,6 +152,43 @@
     }
 }
  
+-(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
+{
+ 
+    if(!material){
+        return;
+    }
+    NSArray<TexItem*>* texVec  = mp.material.texList;
+    TexItem* texItem;
+    for (int i   = 0; i < texVec.count; i++) {
+        texItem=texVec[i];
+        if (texItem.isDynamic) {
+            continue;
+        }
+        if (texItem.type == TexItem.LIGHTMAP) {
+        }
+        else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
+            NSLog(@"TexItem.LTUMAP)");
+        }
+        else if (texItem.type == TexItem.CUBEMAP) {
+            
+        }
+        else if (texItem.type == 0) {
+          
+            
+        }
+    }
+    NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
+    for (int i   = 0; i < texDynamicVec.count; i++) {
+        texItem=texDynamicVec[i].target;
+        if(texItem ){
+         
+     
+            
+        }
+    }
+    
+}
  
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
@@ -168,6 +224,8 @@
    
    [renderEncoder setFragmentTexture:self.texture
                              atIndex:0];
+    
+    [self setMaterialTexture:self.material mp:self.materialParam];
    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: self.objData.mtkindexCount
