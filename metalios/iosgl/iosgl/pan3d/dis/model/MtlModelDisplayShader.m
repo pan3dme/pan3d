@@ -20,7 +20,7 @@
     return self;
     
 }
--(void)encode
+-(void)mtlEncode
 {
    
     MTKView *mtkView=self.mtkScene3D.context3D. mtkView;
@@ -50,7 +50,7 @@
         self.relaxedDepthState = [self.mtkScene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }
--(void)setProgramShader
+-(void)mtlSetProgramShader
 {
    id<MTLRenderCommandEncoder> renderEncoder= self.mtkScene3D.context3D.renderEncoder;
    [renderEncoder setRenderPipelineState:self.pipelineState];

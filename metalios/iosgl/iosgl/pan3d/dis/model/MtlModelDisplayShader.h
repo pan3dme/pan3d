@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  MtkScene3D*   mtkScene3D;
 
 - (instancetype)init:(MtkScene3D*)value;
--(void)encode;
--(void)setProgramShader;
+-(void)mtlEncode;
+-(void)mtlSetProgramShader;
 @end
 
 NS_ASSUME_NONNULL_END

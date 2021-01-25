@@ -41,7 +41,7 @@
 }
 - (void)customInit {
     self.mtlModelDisplayShader=[[MtlModelDisplayShader alloc] init:self.mtkScene3D];
-    [self.mtlModelDisplayShader encode];
+    [self.mtlModelDisplayShader mtlEncode];
 }
 -(void) setInfo:(NSDictionary*)value;
 {
@@ -161,7 +161,7 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     
-   [self.mtlModelDisplayShader setProgramShader];
+   [self.mtlModelDisplayShader mtlSetProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    
