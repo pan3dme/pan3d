@@ -89,14 +89,7 @@
 }
 -(void)resetViewport;
 {
-    [self setupDephtBuffer];
-    [self setupRenderBuffer];
-    [self setupFrameBuffer];
-    glViewport(0,0,360,360);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, self.mydepthRenderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, self.myColorRenderBuffer);
-
+ 
 }
 -(void) addDisplay:(Display3D*)dis;
 {
@@ -119,66 +112,24 @@
  */
 -(void)setupRenderBuffer
 {
-    GLuint buffer;
-    if(self.myColorRenderBuffer ){
-        return;
-    }
-    glGenRenderbuffers(1, &buffer);
-    self.myColorRenderBuffer = buffer;
-    glBindRenderbuffer(GL_RENDERBUFFER, self.myColorRenderBuffer);
-    [self.context3D.gl renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.myEAGLayer];
-    
-    
 }
 /*
 设置渲深度Buff;
 */
 -(void)setupDephtBuffer
 {
-    
-  
-    GLuint depthBuffer;
-   if(self.mydepthRenderBuffer){
-         depthBuffer=self.mydepthRenderBuffer;
-    }
-    GLint width=self.viewRect.weight*_sceneScale;
-    GLint height=self.viewRect.height*_sceneScale;
-    glGenRenderbuffers(1, &depthBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);
-    self.mydepthRenderBuffer=depthBuffer;
-    
 }
 /*
 设置渲FrameBuff;
 */
 -(void)setupFrameBuffer
 {
-    GLuint buffer;
-    if(self.myColorFrameBuffer){
-        return;
-    }
-    glGenFramebuffers(1, &buffer);
-    self.myColorFrameBuffer = buffer;
-    glBindFramebuffer(GL_FRAMEBUFFER, self.myColorFrameBuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.myColorRenderBuffer);
 }
 //1、设置图层
 -(void)setUpLayer
 {
  
-    self.myEAGLayer = (CAEAGLLayer *) self.uiView.layer;
-    [self.uiView setContentScaleFactor:1.0];
-    self.myEAGLayer.opaque=YES;
-    self.myEAGLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:false],
-                                          kEAGLDrawablePropertyRetainedBacking,kEAGLColorFormatRGBA8,kEAGLDrawablePropertyColorFormat,nil];
- 
-    
-    GLKView *dd=[[GLKView alloc]init];
-     dd.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;  //颜色缓冲区格式
-    [EAGLContext setCurrentContext:self.context3D.gl];
-    
-  
+   
 }
 
 

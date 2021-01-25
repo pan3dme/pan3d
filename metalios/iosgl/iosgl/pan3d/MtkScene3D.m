@@ -7,7 +7,7 @@
 //
 
 #import "MtkScene3D.h"
-#import "RotationSpriteA.h"
+ 
 #import "MtkBaseLine.h"
 #import "MtlModelDisplaySprite.h"
 #import <GLKit/GLKit.h>
@@ -46,46 +46,28 @@
 {
     [TextureManager default].mtkScene3D=self;
     self.camera3D=[[Camera3D alloc]init];
-  
    [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
- 
     self.modelList=[[NSMutableArray alloc] init];
-    
- 
-    
     [self loadSeceneByUrl:@"2014"];
- 
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
     [self.context3D mtkclearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
     self.camera3D.rotationX=-15;
     [self.camera3D upFrame];
-    
- 
-    
     [self updateModelList];
-   
-    
- 
     [self.context3D mtkpresent];
-    
-
-    
 }
 -(void)parsingBuildItem:(NSDictionary*)value;
 {
-    
     int type=   [value[@"type"]intValue];
     switch (type) {
         case PREFAB_TYPE:
             [self addBuildDisplay3DSprite:value];
             break;
         case SCENE_PARTICLE_TYPE:
-          
             break;
-            
         default:
             break;
     }
@@ -94,15 +76,11 @@
 -(void)addBuildDisplay3DSprite:(NSDictionary*)value;
 {
     MtlModelDisplaySprite* dis=[[MtlModelDisplaySprite alloc] init:self];
-    
     [dis setInfo:value];
-    
     [self.modelList addObject: dis];
- 
 }
 -(void)updateModelList;
 {
- 
     for(int i=0;i<self.modelList.count;i++){
         [self.modelList[i] updata];
     }
@@ -114,20 +92,13 @@
     [sceneRes load:webUrl  bfun:^(NSString *value) {
         NSDictionary* obj=sceneRes.sceneData;
         NSArray *buildItem=[obj objectForKey:@"buildItem"];
-   
         for(int i=0;i<buildItem.count;i++){
-       
             if( [buildItem[i][@"id"]intValue]==2){
-     
             }
             [self parsingBuildItem:buildItem[i]];
-            
         }
-        NSLog(@"--");
     }];
 }
-
-
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
     [self resieSize:size];
 }

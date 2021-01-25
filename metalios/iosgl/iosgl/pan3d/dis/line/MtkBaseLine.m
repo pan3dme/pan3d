@@ -7,9 +7,9 @@
 //
 
 #import "MtkBaseLine.h"
-#import "RotationShaderA.h"
+ 
 #import "MtkBaseLineShader.h"
-#import "RotationSahder.h"
+ 
 #import "MtlBaseLineType.h"
  
 @interface MtkBaseLine ()
@@ -144,11 +144,11 @@
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
  
     
-   RotationMatrix matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    LineMatrixView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
   
    [renderEncoder setVertexBytes:&matrix
                           length:sizeof(matrix)
-                         atIndex:RotationVertexInputIndexMatrix_1];
+                         atIndex:1];
 }
 -(void)updata  {
    
@@ -160,10 +160,10 @@
    
    [renderEncoder setVertexBuffer: self.objData.mtkvertices
                            offset:0
-                          atIndex:RotationVertexInputIndexVertices_0];
+                          atIndex:0];
    
    [renderEncoder setFragmentTexture:self.texture
-                             atIndex:RotationFragmentInputIndexTexture_0];
+                             atIndex:0];
    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeLine
                              indexCount: self.objData.mtkindexCount
