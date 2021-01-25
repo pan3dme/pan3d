@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) MTKView *mtkView;
 @property (nonatomic, strong) NSMutableArray<MtlModelDisplaySprite*>* modelList;
+@property (nonatomic, strong) UIView *uiView;
  
 //必须传入UiView
 - (instancetype)init:(UIView*)value;

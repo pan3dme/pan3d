@@ -25,13 +25,7 @@
 #import "GL_Header.h"
 
 
-@interface MtkScene3D ()
-
-@property (nonatomic, strong) UIView *uiView;
-@property (nonatomic,strong)MtkBaseLine* mtkBaseLine;
  
- 
-@end
 
 @implementation MtkScene3D
 - (instancetype)init:(UIView *)value
@@ -58,8 +52,6 @@
  
     self.modelList=[[NSMutableArray alloc] init];
     
-   
-    self.mtkBaseLine=[[MtkBaseLine alloc] init:self];
  
     
     [self loadSeceneByUrl:@"2014"];
@@ -72,7 +64,7 @@
     [self.camera3D upFrame];
     
  
-    [self.mtkBaseLine updata];
+    
     [self updateModelList];
    
     
