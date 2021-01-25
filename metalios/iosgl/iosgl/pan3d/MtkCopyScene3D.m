@@ -7,7 +7,23 @@
 //
 
 #import "MtkCopyScene3D.h"
-
+ 
+#import "RotationSpriteA.h"
+#import "MtkBaseLine.h"
+#import "MtlModelDisplaySprite.h"
+#import <GLKit/GLKit.h>
+#import "Matrix3D.h"
+#import "Vector3D.h"
+#import "TextureRes.h"
+#import "BuildDisplay3DSprite.h"
+#import "Scene3D.h"
+#import "SceneRes.h"
+#import "MathCore.h"
+#import "Scene_data.h"
+#import "TimeUtil.h"
+#import "ParticleManager.h"
+#import "MaterialManager.h"
+#import "GL_Header.h"
 
  
 @implementation MtkCopyScene3D
@@ -30,9 +46,8 @@
 {
     
 }
-
 - (void)drawInMTKView:(nonnull MTKView *)view {
-  
+ 
 }
 
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {

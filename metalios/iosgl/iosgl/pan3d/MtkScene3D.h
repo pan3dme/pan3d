@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MtkScene3D : NSObject  <MTKViewDelegate>
 @property (nonatomic, strong)  Camera3D*  camera3D;
-@property (nonatomic, strong) Context3D* mtkContext3D;
+@property (nonatomic, strong) Context3D* context3D;
 
 @property (nonatomic, strong) MTKView *mtkView;
 @property (nonatomic, strong) NSMutableArray<MtlModelDisplaySprite*>* modelList;

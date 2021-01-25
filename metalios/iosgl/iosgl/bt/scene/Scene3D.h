@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 float _sceneScale;
  }
 @property (nonatomic, strong) MTKView *mtkView;
+@property (nonatomic, strong) NSMutableArray<MtlModelDisplaySprite*>* modelList;
+@property (nonatomic, strong) Camera3D *camera3D;
 @property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
 @property (nonatomic, assign) GLuint myColorRenderBuffer;
@@ -34,7 +36,7 @@ float _sceneScale;
 @property (nonatomic, strong) NSMutableArray<Display3D*>* displayList;
 @property (nonatomic, strong) NSMutableArray<Display3dMovie*>* displayRoleList;
 @property (nonatomic, strong) UIView *uiView;
-@property (nonatomic, strong) Camera3D *camera3D;
+
 @property (nonatomic, strong) Rectangle *viewRect;
 @property (nonatomic, strong) ParticleManager *particleManager;
 @property (nonatomic, strong) SkillManager *skillManager;
