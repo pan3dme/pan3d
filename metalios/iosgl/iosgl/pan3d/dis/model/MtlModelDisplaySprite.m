@@ -25,7 +25,7 @@
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property(nonatomic,strong)BuildSceneVo* buildSceneVo;
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong) MtlModelDisplayShader* rotationShaderA;
+@property (nonatomic, strong) MtlModelDisplayShader* mtlModelDisplayShader;
   
 @end
 
@@ -40,11 +40,8 @@
     return self;
 }
 - (void)customInit {
-    self.rotationShaderA=[[MtlModelDisplayShader alloc] init:self.mtkScene3D];
-    [self.rotationShaderA encode];
-    
- 
- 
+    self.mtlModelDisplayShader=[[MtlModelDisplayShader alloc] init:self.mtkScene3D];
+    [self.mtlModelDisplayShader encode];
 }
 -(void) setInfo:(NSDictionary*)value;
 {
@@ -164,7 +161,7 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     
-   [self.rotationShaderA setProgramShader];
+   [self.mtlModelDisplayShader setProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    
