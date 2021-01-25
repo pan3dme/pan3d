@@ -21,7 +21,7 @@
         return self;
 }
  
--(void)clearColor:(Vector3D*)value
+-(void)mtkclearColor:(Vector3D*)value
 {
     
     self. commandBuffer = [self.commandQueue commandBuffer];
@@ -32,11 +32,11 @@
      
     
 }
--(void)setViewport:(MTLViewport)value
+-(void)mtksetViewport:(MTLViewport)value
 {
 //    [self.context3D setViewport:(MTLViewport){0.0, 0.0, self.camera3D.fovw, self.camera3D.fovh, -1.0, 1.0 }];
 }
--(void)present
+-(void)mtkpresent
 {
     [self.renderEncoder endEncoding];
     [self.commandBuffer presentDrawable:self.mtkView.currentDrawable];

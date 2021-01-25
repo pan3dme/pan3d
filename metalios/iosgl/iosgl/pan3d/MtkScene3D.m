@@ -67,7 +67,7 @@
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
-    [self.mtkContext3D clearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
+    [self.mtkContext3D mtkclearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
     self.camera3D.rotationX=-15;
     [self.camera3D upFrame];
     
@@ -77,7 +77,7 @@
    
     
  
-    [self.mtkContext3D present];
+    [self.mtkContext3D mtkpresent];
     
 
     
