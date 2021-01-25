@@ -127,7 +127,7 @@
             if(texItem.isMain){
           
                 
-                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.mtkContext3D.renderEncoder;
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
             }
@@ -159,7 +159,7 @@
         return;
     }
    
-   id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+   id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.mtkContext3D.renderEncoder;
     
    [self.mtlModelDisplayShader mtlSetProgramShader];
    

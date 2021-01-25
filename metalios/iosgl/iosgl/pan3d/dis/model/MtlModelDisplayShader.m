@@ -23,7 +23,7 @@
 -(void)mtlEncode
 {
    
-    MTKView *mtkView=self.mtkScene3D.context3D. mtkView;
+    MTKView *mtkView=self.mtkScene3D.mtkContext3D. mtkView;
     
     id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
  
@@ -52,7 +52,7 @@
 }
 -(void)mtlSetProgramShader
 {
-   id<MTLRenderCommandEncoder> renderEncoder= self.mtkScene3D.context3D.renderEncoder;
+   id<MTLRenderCommandEncoder> renderEncoder= self.mtkScene3D.mtkContext3D.renderEncoder;
    [renderEncoder setRenderPipelineState:self.pipelineState];
    [renderEncoder setDepthStencilState:self.relaxedDepthState];
    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];

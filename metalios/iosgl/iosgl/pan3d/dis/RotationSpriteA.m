@@ -58,7 +58,7 @@
 }
 -(void)updata  {
    
-   id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+   id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.mtkContext3D.renderEncoder;
     
    [self.rotationShaderA setProgramShader];
    

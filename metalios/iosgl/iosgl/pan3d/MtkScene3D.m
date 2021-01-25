@@ -54,7 +54,7 @@
     self.camera3D=[[Camera3D alloc]init];
   
    [self resieSize:self.mtkView.drawableSize];
-    self.context3D=[[MtkContext3D alloc] init:self.mtkView ];
+    self.mtkContext3D=[[MtkContext3D alloc] init:self.mtkView ];
     self.textureManager=[[TextureManager alloc]init ];
     self.modelList=[[NSMutableArray alloc] init];
     
@@ -67,7 +67,7 @@
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
-    [self.context3D clearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
+    [self.mtkContext3D clearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
     self.camera3D.rotationX=-15;
     [self.camera3D upFrame];
     
@@ -77,7 +77,7 @@
    
     
  
-    [self.context3D present];
+    [self.mtkContext3D present];
     
 
     
