@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  {
 float _sceneScale;
  }
+@property (nonatomic, strong) MTKView *mtkView;
 @property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) CAEAGLLayer *myEAGLayer;
 @property (nonatomic, assign) GLuint myColorRenderBuffer;

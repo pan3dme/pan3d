@@ -25,7 +25,7 @@
 #import "GL_Header.h"
 
 
-@interface MtkScene3D () <MTKViewDelegate>
+@interface MtkScene3D ()
 
 @property (nonatomic, strong) UIView *uiView;
 @property (nonatomic,strong)MtkBaseLine* mtkBaseLine;
