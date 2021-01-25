@@ -8,20 +8,13 @@
 
 #import "ResGC.h"
 #import "Vector3D.h"
+#import "Context3D.h"
 @import MetalKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MtkContext3D : ResGC
-@property (nonatomic, strong) id<MTLRenderCommandEncoder> renderEncoder;
-@property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
-@property (nonatomic, strong) id<MTLCommandBuffer> commandBuffer;
-@property (nonatomic, strong) MTKView *mtkView;
-
-- (instancetype)init:(MTKView *)value;
--(void)mtkclearColor:(Vector3D*)value;
--(void)mtksetViewport:(MTLViewport)value;
--(void)mtkpresent;
+@interface MtkContext3D : Context3D
+ 
 @end
 
 NS_ASSUME_NONNULL_END

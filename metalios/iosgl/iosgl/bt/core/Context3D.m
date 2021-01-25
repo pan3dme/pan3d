@@ -18,6 +18,39 @@
     }
     return self;
 }
+- (instancetype)init:(MTKView *)value
+{
+    self = [super init];
+        if (self) {
+        
+            self.mtkView=value;
+            self.commandQueue = [ self.mtkView.device newCommandQueue];
+        }
+        return self;
+}
+ 
+-(void)mtkclearColor:(Vector3D*)value
+{
+    
+    self. commandBuffer = [self.commandQueue commandBuffer];
+    MTLRenderPassDescriptor *renderPassDescriptor =  self.mtkView.currentRenderPassDescriptor;
+    renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(value.x,value.y,value.z,value.w);
+    self.renderEncoder = [self.commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+
+     
+    
+}
+-(void)mtksetViewport:(MTLViewport)value
+{
+//    [self.context3D setViewport:(MTLViewport){0.0, 0.0, self.camera3D.fovw, self.camera3D.fovh, -1.0, 1.0 }];
+}
+-(void)mtkpresent
+{
+    [self.renderEncoder endEncoding];
+    [self.commandBuffer presentDrawable:self.mtkView.currentDrawable];
+    [self.commandBuffer commit];
+}
+
 -(void)setupContext
 {
     
