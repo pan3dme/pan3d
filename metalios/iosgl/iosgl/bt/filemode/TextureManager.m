@@ -19,7 +19,7 @@
 @interface TextureManager()
  
 @property (nonatomic, strong)NSMutableDictionary* loadDic;
-@property (nonatomic, strong)NSMutableDictionary* resDic;
+
  
 @end
 static TextureManager *instance = nil;
@@ -125,9 +125,12 @@ static TextureManager *instance = nil;
 }
 
 
-- (id<MTLTexture>)getBaseMitTexture
+- (id<MTLTexture>)getBaseMitTexture:(UIImage*)baseImg
 {
     UIImage *image = [UIImage imageNamed:@"abc"];
+    if(baseImg){
+        image=baseImg;
+    }
     MTLTextureDescriptor *textureDescriptor = [[MTLTextureDescriptor alloc] init];
     textureDescriptor.pixelFormat = MTLPixelFormatRGBA8Unorm;
     textureDescriptor.width = image.size.width;

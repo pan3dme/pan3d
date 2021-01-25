@@ -7,7 +7,7 @@
 //
 
 #import "Display3D.h"
- 
+#import "Material.h"
 @class  MtkScene3D;
 @class  ObjData;
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MtlModelDisplaySprite : Display3D
 @property (nonatomic, strong)  MtkScene3D*   mtkScene3D;
 @property (nonatomic, strong) ObjData* objData;
-
+@property (nonatomic, strong) Material* material;
 - (instancetype)init:(MtkScene3D*)val;
 -(void)updata ;
 -(void) setInfo:(NSDictionary*)value;
