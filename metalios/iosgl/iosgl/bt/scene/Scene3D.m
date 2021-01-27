@@ -52,7 +52,7 @@
     self.camera3D.rotationX=-15;
     [self.camera3D upFrame];
     [self updateModelList];
-    [self.mtkBaseLine updata];
+//    [self.mtkBaseLine updata];
     [self.context3D mtkpresent];
 }
 -(void)parsingBuildItem:(NSDictionary*)value;

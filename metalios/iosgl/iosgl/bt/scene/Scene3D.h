@@ -13,11 +13,15 @@
 #import "Matrix3D.h"
 #import "Camera3D.h"
 #import "Rectangle.h"
-//#import "Display3dMovie.h"
+ 
 #import "SkillManager.h"
 #import "ParticleManager.h"
  
-@class ParticleManager,SkillManager,Display3dMovie,MtlModelDisplaySprite;
+@class ParticleManager ;
+@class SkillManager;
+@class TextureManager;
+@class Display3dMovie;
+@class MtlModelDisplaySprite;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,6 +39,7 @@ float _sceneScale;
 @property (nonatomic, strong) Rectangle *viewRect;
 @property (nonatomic, strong) ParticleManager *particleManager;
 @property (nonatomic, strong) SkillManager *skillManager;
+@property (nonatomic, strong) TextureManager *textureManager;
 @property (nonatomic, strong) Vector2D *fogData;
 @property (nonatomic, strong) Vector3D *fogColor;
 @property (nonatomic, assign) float gameAngle;
