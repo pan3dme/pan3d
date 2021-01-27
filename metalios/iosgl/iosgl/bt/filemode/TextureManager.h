@@ -16,10 +16,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TextureManager : ResGC
-@property (nonatomic, strong)  Scene3D*  mtkScene3D;
+
 @property (nonatomic, strong)NSMutableDictionary* resDic;
  
-- (instancetype)init:(Scene3D*)value;
+
 
 + (instancetype)default;
 
