@@ -36,6 +36,12 @@
         self.mtkView.delegate = self;
         [self.uiView insertSubview:self.mtkView atIndex:0];
         [self initData];
+        
+        self.fpsLabel=[[UILabel alloc]init];
+        self.fpsLabel.frame=CGRectMake(0, 50, 100, 20);
+        self.fpsLabel.text=@"60fps";
+        self.fpsLabel.backgroundColor=[UIColor redColor];
+        [self.uiView addSubview:self.fpsLabel];
     }
     return self;
 }

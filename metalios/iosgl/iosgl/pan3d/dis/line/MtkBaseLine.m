@@ -36,13 +36,13 @@
     self.objData=[[ObjData alloc] init:self.mtkScene3D];
  
     
-    /*
+    
     [self clearLine];
     self.colorV3d=[[Vector3D alloc]x:1 y:0 z:0];
     [self addLineA2B:[[Vector3D alloc]x:0 y:0 z:0] b:[[Vector3D alloc]x:100 y:0 z:0]];
     [self addLineA2B:[[Vector3D alloc]x:100 y:0 z:0] b:[[Vector3D alloc]x:100 y:0 z:100]];
     [self refrishLineDataToGpu];
-    */
+  
     
     [self makeGridLine];
     
@@ -88,6 +88,7 @@
 {
     if(self.linePointArr&&self.linePointArr.count){
         [self.linePointArr removeAllObjects];
+        self.objData.compressBuffer=false;
     }
 }
 -(void)addLineA2B:(Vector3D*)a b:(Vector3D*)b color:(Vector3D*)color;
@@ -127,7 +128,9 @@
         self.objData.mtkindexs = [self.mtkScene3D.mtkView.device newBufferWithBytes:idxs
                                                          length:sizeof(idxs)
                                                         options:MTLResourceStorageModeShared];
-        self.objData.mtkindexCount = self.linePointArr.count;
+        self.objData.mtkindexCount = self.linePointArr.count/2;
+        
+        self.objData.compressBuffer=YES;
     }
     
   
@@ -150,6 +153,9 @@
                          atIndex:1];
 }
 -(void)updata  {
+    if( !self.objData||!self.objData.compressBuffer){
+        return;
+    }
    
    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     
