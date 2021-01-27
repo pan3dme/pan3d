@@ -18,6 +18,7 @@
 		9C1DA498255C655E00FAE501 /* ObjectTri.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA493255C655E00FAE501 /* ObjectTri.m */; };
 		9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA495255C655E00FAE501 /* ObjectUv.m */; };
 		9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA497255C655E00FAE501 /* ObjectWeight.m */; };
+		9CB8A2EA25C191910039B7E0 /* GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8A2E925C191910039B7E0 /* GC.m */; };
 		9CBE1C8B25B8420700FFE706 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1C8A25B8420700FFE706 /* shaders.metal */; };
 		9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */; };
 		9CBE1CC125BB395500FFE706 /* MtkBaseLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CC025BB395500FFE706 /* MtkBaseLineShader.m */; };
@@ -252,6 +253,8 @@
 		9C1DA495255C655E00FAE501 /* ObjectUv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectUv.m; sourceTree = "<group>"; };
 		9C1DA496255C655E00FAE501 /* ObjectWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWeight.h; sourceTree = "<group>"; };
 		9C1DA497255C655E00FAE501 /* ObjectWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWeight.m; sourceTree = "<group>"; };
+		9CB8A2E825C191910039B7E0 /* GC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GC.h; sourceTree = "<group>"; };
+		9CB8A2E925C191910039B7E0 /* GC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GC.m; sourceTree = "<group>"; };
 		9CBE1C8925B8420700FFE706 /* LYShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYShaderTypes.h; sourceTree = "<group>"; };
 		9CBE1C8A25B8420700FFE706 /* shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
 		9CBE1CBA25BB369900FFE706 /* MtkBaseLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkBaseLine.h; sourceTree = "<group>"; };
@@ -1264,6 +1267,8 @@
 		FE678832239B944600262B53 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				9CB8A2E825C191910039B7E0 /* GC.h */,
+				9CB8A2E925C191910039B7E0 /* GC.m */,
 				FE2088DE239BE86A007FB797 /* ResGC.h */,
 				FE2088DF239BE86A007FB797 /* ResGC.m */,
 				FE678834239B946800262B53 /* ResCount.h */,
@@ -1812,6 +1817,7 @@
 				FE776AC82448483A00B8B5A4 /* DisplayTestShader.m in Sources */,
 				FE189AD824026AF1008E2FF6 /* TimeLineData.m in Sources */,
 				FE0FC27B2395533500D2483A /* MathClass.m in Sources */,
+				9CB8A2EA25C191910039B7E0 /* GC.m in Sources */,
 				FE2BB2DC23980EE600597658 /* GLSpriteView.m in Sources */,
 				FE1D8B4B24128B3C00A04FC4 /* LineDisplayShader.m in Sources */,
 			);
