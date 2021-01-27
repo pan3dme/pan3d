@@ -180,7 +180,7 @@
     [self.md5MeshData upToGpu];
     Md5MoveSprite* this=self;
     Md5MeshData* mesh= this.md5MeshData;
-    Context3D *ctx=this.scene3d.context3D;
+    Context3D *ctx=this.mtkScene3D.context3D;
     GLuint progame= self.shader3d.program;
     glUseProgram(progame);
     
@@ -216,7 +216,7 @@
 - (void)setVc;
 {
     Md5MoveSprite* this=self;
-    Context3D *context3D=this.scene3d.context3D;
+    Context3D *context3D=this.mtkScene3D.context3D;
     [this.posMatrix3d identity];
     Matrix3D* viewM=this.viewMatrix;
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];

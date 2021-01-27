@@ -9,15 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Scene3D.h"
+#import "GC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MtlModelDisplayShader : NSObject
+@interface MtlModelDisplayShader : GC
 @property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
 @property (nonatomic, strong)  id <MTLDepthStencilState> relaxedDepthState;
-@property (nonatomic, strong)  Scene3D*   mtkScene3D;
-
-- (instancetype)init:(Scene3D*)value;
+ 
 -(void)mtlEncode;
 -(void)mtlSetProgramShader;
 @end

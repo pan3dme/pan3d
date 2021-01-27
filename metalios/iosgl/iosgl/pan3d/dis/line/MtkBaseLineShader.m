@@ -11,15 +11,7 @@
 
 @implementation MtkBaseLineShader
 
-- (instancetype)init:(Scene3D*)value
-{
-    self = [super init];
-    if (self) {
-        self.mtkScene3D=value;
-    }
-    return self;
-    
-}
+ 
 -(void)encode
 {
    

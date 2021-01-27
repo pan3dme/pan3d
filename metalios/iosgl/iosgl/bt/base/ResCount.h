@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "ByteArray.h"
+#import "GC.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ResCount : NSObject
+@interface ResCount : GC
 @property (nonatomic, assign) int        version;    //
 @property (nonatomic, assign) int        useNum;    //
 @property (nonatomic, strong) ByteArray        *byte;    //

@@ -112,7 +112,7 @@
 - (void)setMaterialVa;
 {
     BuildDisplay3DSprite* this=self;
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     if (!(this.material.directLight || this.material.noLight)) {
         [ctx pushVa:this.objData.lightuvsBuffer];
         [ctx setVaOffset:this.shader3d name:"v2lightuv" dataWidth:2 stride:0 offset:0];
@@ -123,7 +123,7 @@
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     [super setMaterialTexture:material mp:mp];
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     NSArray<TexItem*>* texVec  = mp.material.texList;
     for (int i   = 0; i < texVec.count; i++) {
         TexItem* texItem=texVec[i];
@@ -158,7 +158,7 @@
     }else{
         
         this.shader3d= this.lightUvShader;
-        Context3D *ctx=this.scene3d.context3D;
+        Context3D *ctx=this.mtkScene3D.context3D;
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
         

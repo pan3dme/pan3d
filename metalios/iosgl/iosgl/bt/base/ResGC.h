@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GC.h"
 
-@class Scene3D;
+ 
 
 NS_ASSUME_NONNULL_BEGIN
 

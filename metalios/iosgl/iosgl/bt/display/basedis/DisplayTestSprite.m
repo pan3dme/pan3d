@@ -44,7 +44,7 @@
 - (void)setVa;
 {
     [super setVa];
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:self.textureRes.textTureLuint level:0];
     
 }

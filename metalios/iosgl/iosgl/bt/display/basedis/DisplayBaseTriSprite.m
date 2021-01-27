@@ -62,7 +62,7 @@
     if(self.shader3d&&self.objData){
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
-        Context3D *context3D=self.scene3d.context3D;
+        Context3D *context3D=self.mtkScene3D.context3D;
         [context3D pushVa:self.objData.verticesBuffer];
         GLuint position = glGetAttribLocation( self.shader3d.program,"position");
         glEnableVertexAttribArray(position);

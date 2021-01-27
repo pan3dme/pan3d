@@ -32,9 +32,8 @@
 @implementation MtlModelDisplaySprite
 - (instancetype)init:(Scene3D*)value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
-        self.mtkScene3D=value;
         [self customInit];
     }
     return self;

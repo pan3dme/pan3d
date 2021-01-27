@@ -76,14 +76,7 @@
      glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
      return verticesBuffer;
  }
-- (instancetype)init:(Scene3D*)value
-{
-    self = [super init];
-    if (self) {
-        self.mtkScene3D=value;
-    }
-    return self;
-}
+ 
 
 -(void)makeTempObjData
 {

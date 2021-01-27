@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSArray  *lightuvs;
 @property (nonatomic, copy)  NSArray  *nrms;
 @property (nonatomic, copy)  NSArray  *indexs;
-@property (nonatomic, strong)  Scene3D  *mtkScene3D;
-
+ 
  
 @property (nonatomic, assign)  BOOL compressBuffer  ;
 
@@ -42,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) id<MTLBuffer> mtkindexs;
 @property (nonatomic, assign) NSUInteger mtkindexCount;
 
-- (instancetype)init:(Scene3D*)value;
+ 
 -(GLuint)upGpuIndexBuffer:(NSArray*)arr;
 -(GLuint)upGpuvertexBuffer:(NSArray*)arr;
 -(void)upToGpu;

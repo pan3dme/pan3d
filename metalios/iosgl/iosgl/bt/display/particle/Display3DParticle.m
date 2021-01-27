@@ -83,7 +83,7 @@
 {
     if(self.visible ){
         if ( self.data.materialParam){
-            Context3D *ctx=self.scene3d.context3D;
+            Context3D *ctx=self.mtkScene3D.context3D;
             self.shader3d=self.data.materialParam.shader;
             
             glUseProgram(self.shader3d.program);
@@ -104,8 +104,8 @@
  */
 -(void)setViewCamModeMatr3d;
 {
-    Context3D *ctx=self.scene3d.context3D;
-    Camera3D* cam3D=self.scene3d.camera3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
+    Camera3D* cam3D=self.mtkScene3D.camera3D;
     
     [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
     [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
@@ -114,7 +114,7 @@
 
 -(void)setMaterialTexture;
 {
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     NSArray<TexItem*>* texVec  = self.data.materialParam.material.texList;
     for (int i   = 0; i < texVec.count; i++) {
         if (texVec[i].isDynamic) {
@@ -172,7 +172,7 @@
     }
     t = t * this.data.materialParam.material.timeSpeed;
     [this.data.materialParam.material update:t];
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
     GLfloat fcDataGlArr[fcData.count];
     for (int i=0; i<fcData.count; i++) {

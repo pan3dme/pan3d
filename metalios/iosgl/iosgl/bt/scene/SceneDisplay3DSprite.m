@@ -63,7 +63,7 @@
         [self setShaderInfo];
         
         
-        Context3D *context3D=self.scene3d.context3D;
+        Context3D *context3D=self.mtkScene3D.context3D;
         
     
         [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
@@ -84,7 +84,7 @@
  
 -(void)setShaderInfo
 {
-    Context3D *context3D=self.scene3d.context3D;
+    Context3D *context3D=self.mtkScene3D.context3D;
     if(!self.skipnum){
         self.skipnum=1;
     }

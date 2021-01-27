@@ -134,7 +134,7 @@ public setObjUrl(value: string): void {
     if(self.shader3d&&self.objData){
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
-        Context3D *context3D=self.scene3d.context3D;
+        Context3D *context3D=self.mtkScene3D.context3D;
         [self setVa];
         [self setVc];
         [context3D drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
@@ -143,7 +143,7 @@ public setObjUrl(value: string): void {
 
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     NSArray<TexItem*>* texVec  = mp.material.texList;
     for (int i   = 0; i < texVec.count; i++) {
         if (texVec[i].isDynamic) {
@@ -164,14 +164,14 @@ public setObjUrl(value: string): void {
 
 -(void)setVc;
 {
-    Context3D *context3D=self.scene3d.context3D;
+    Context3D *context3D=self.mtkScene3D.context3D;
     [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
     [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
 }
 -(void)setVa;
 {
     
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     [ctx pushVa:self.objData.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:self.objData.uvBuffer];

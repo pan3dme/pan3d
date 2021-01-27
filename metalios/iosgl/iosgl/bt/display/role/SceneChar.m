@@ -77,7 +77,7 @@
  
 -(void)playSkill:(Skill*)skill;
 {
-    [self.scene3d.skillManager  playSkill:skill];
+    [self.mtkScene3D.skillManager  playSkill:skill];
 
     self.skillVo=skill;
  
@@ -115,7 +115,7 @@
     SceneChar* this=self;
     if(!this.mountChar){
         this.mountChar=[[MountChar alloc]init];
-        [this.scene3d addMovieDisplay:this.mountChar];
+        [this.mtkScene3D addMovieDisplay:this.mountChar];
         [this setBind:this.mountChar bindSocket:SceneChar.MOUNT_SLOT];
  
     }

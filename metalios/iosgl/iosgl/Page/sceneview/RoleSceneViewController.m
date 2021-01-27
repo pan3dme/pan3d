@@ -152,7 +152,7 @@
         }else{
             
             Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
-            skill.scene3D=self.sceneView.scene3D;
+            skill.mtkScene3D=self.sceneView.scene3D;
             [skill reset];
             [skill configFixEffect:self.mainChar completeFun:nil posObj:nil ];
             [self.mainChar playSkill:skill];

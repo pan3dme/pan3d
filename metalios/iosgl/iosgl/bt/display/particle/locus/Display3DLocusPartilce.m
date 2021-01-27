@@ -44,8 +44,8 @@
 - (void)setVc;
 {
     [self setViewCamModeMatr3d];
-    Context3D *ctx=self.scene3d.context3D;
-    Camera3D* cam3D=self.scene3d.camera3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
+    Camera3D* cam3D=self.mtkScene3D.camera3D;
     [self updateUV];
     Vector3D*  scaleVec =   self.locusdata._resultUvVec;
     [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
@@ -76,7 +76,7 @@
 }
 - (void)setVa;
 {
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     ObjData* temp=self.particleGpuObjData;
     
     [ctx pushVa: temp.verticesBuffer];
@@ -95,7 +95,7 @@
 }
 - (void)resetVa;
 {
-      Context3D *ctx=self.scene3d.context3D;
+      Context3D *ctx=self.mtkScene3D.context3D;
     [ctx clearVa:0];
     [ctx clearVa:1];
     [ctx clearVa:2];

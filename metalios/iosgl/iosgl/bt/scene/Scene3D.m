@@ -53,7 +53,7 @@
     self.camera3D.rotationX=-15;
     [self.camera3D upFrame];
     [self updateModelList];
-//    [self.mtkBaseLine updata];
+    [self.mtkBaseLine updata];
     [self.context3D mtkpresent];
 }
 -(void)parsingBuildItem:(NSDictionary*)value;
@@ -181,12 +181,12 @@
 }
 -(void) addDisplay:(Display3D*)dis;
 {
-    dis.scene3d=self;
+    dis.mtkScene3D=self;
     [self.displayList addObject:dis];
 }
 -(void) addMovieDisplay:(Display3dMovie*)dis;
 {
-    dis.scene3d=self;
+    dis.mtkScene3D=self;
     [self.displayRoleList addObject:dis];
 }
 -(void) clearAll;

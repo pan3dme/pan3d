@@ -200,7 +200,7 @@
 {
     Display3dMovie* this=self;
     
-    Context3D *ctx=this.scene3d.context3D;
+    Context3D *ctx=this.mtkScene3D.context3D;
     [ctx pushVa:mesh.verticesBuffer];
     [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:    mesh.uvBuffer];
@@ -218,7 +218,7 @@
 -(void)setMeshVc:(MeshData*)mesh;
 {
     Display3dMovie* this=self;
-    Context3D *context3D=self.scene3d.context3D;
+    Context3D *context3D=self.mtkScene3D.context3D;
     AnimData* animData;
     if (this.animDic[this.curentAction]) {
         animData = this.animDic[this.curentAction];
@@ -246,7 +246,7 @@
 - (void)setVc;
 {
     Display3dMovie* this=self;
-    Context3D *context3D=this.scene3d.context3D;
+    Context3D *context3D=this.mtkScene3D.context3D;
     [context3D setVcMatrix4fv:this.shader3d name:"viewMatrix" data:this.viewMatrix.m];
     [context3D setVcMatrix4fv:this.shader3d name:"posMatrix" data:this.posMatrix3d.m];
 }
@@ -267,7 +267,7 @@
         return;
     }
     this.shader3d=mesh.material.shader;
-    Context3D *ctx=this.scene3d.context3D;
+    Context3D *ctx=this.mtkScene3D.context3D;
     [ctx setProgram:this.shader3d.program];
     [ctx setBlendParticleFactors:mesh.material.blendMode];
     [ctx cullFaceBack:mesh.material.backCull];
@@ -364,7 +364,7 @@
               particle.bindTarget = this;
               particle.bindSocket = bindSocket;
               particle.dynamic = YES;
-             [this.scene3d.particleManager addParticle:particle];
+             [this.mtkScene3D.particleManager addParticle:particle];
               if (item.isGroup) {
                 //  particle.setGroup(posV3d, rotationV3d, scaleV3d);
               }
@@ -374,7 +374,7 @@
               [display setMaterialUrl:item.materialUrl paramData:item.materialInfoArr];
               [ary addObject:display];
               [display setBind:this bindSocket:bindSocket];
-              [this.scene3d addDisplay:display];
+              [this.mtkScene3D addDisplay:display];
               if(item.isGroup){
                   [display setGroup:posV3d rotaion:rotationV3d scale:scaleV3d];
               }

@@ -36,7 +36,7 @@
 -(void)setVc;
 {
     [self setViewCamModeMatr3d];
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     
     [self updateWatchCaramMatrix];
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
@@ -62,7 +62,7 @@
 -(void)setVa;
 {
     
-    Context3D *ctx=self.scene3d.context3D;
+    Context3D *ctx=self.mtkScene3D.context3D;
     [ctx pushVa:self.particleBallGpuData.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:4 stride:0 offset:0];
     [ctx pushVa:self.particleBallGpuData.uvBuffer];
@@ -78,7 +78,7 @@
 }
 - (void)resetVa;
 {
-   Context3D *ctx=self.scene3d.context3D;
+   Context3D *ctx=self.mtkScene3D.context3D;
     [ctx clearVa:0];
     [ctx clearVa:1];
     [ctx clearVa:2];
@@ -88,7 +88,7 @@
 {
     Display3DBallPartilce* this=self;
     [this.rotationMatrix3D identity];
-    Camera3D* cam3d=self.scene3d.camera3D;
+    Camera3D* cam3d=self.mtkScene3D.camera3D;
     [cam3d upFrame];
     if (this.ballData.facez) {
         [this.rotationMatrix3D prependRotation:90.0f axis:Vector3D.X_AXIS];
