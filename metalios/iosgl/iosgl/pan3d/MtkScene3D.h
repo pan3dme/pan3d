@@ -12,22 +12,14 @@
 #import "Context3D.h"
 #import "TextureManager.h"
 #import "MtlModelDisplaySprite.h"
+#import "Scene3D.h"
  
 @import MetalKit;
 @import GLKit;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MtkScene3D : NSObject  <MTKViewDelegate>
-@property (nonatomic, strong) Camera3D*  camera3D;
-@property (nonatomic, strong) Context3D* context3D;
-@property (nonatomic, strong) UIView *uiView;
-
-@property (nonatomic, strong) MTKView *mtkView;
-@property (nonatomic, strong) NSMutableArray<MtlModelDisplaySprite*>* modelList;
-
+@interface MtkScene3D : Scene3D  <MTKViewDelegate>
  
-//必须传入UiView
-- (instancetype)init:(UIView*)value;
 @end
 
 NS_ASSUME_NONNULL_END

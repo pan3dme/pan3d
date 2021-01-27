@@ -13,11 +13,11 @@
 #import "Matrix3D.h"
 #import "Camera3D.h"
 #import "Rectangle.h"
-#import "Display3dMovie.h"
+//#import "Display3dMovie.h"
 #import "SkillManager.h"
 #import "ParticleManager.h"
  
-@class ParticleManager,SkillManager;
+@class ParticleManager,SkillManager,Display3dMovie,MtlModelDisplaySprite;
 
 NS_ASSUME_NONNULL_BEGIN
 
