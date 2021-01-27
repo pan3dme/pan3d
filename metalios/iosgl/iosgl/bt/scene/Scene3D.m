@@ -39,6 +39,7 @@
 -(void)initData
 {
     [TextureManager default].mtkScene3D=self;
+    self.textureManager=[[TextureManager alloc] init:self];
     self.camera3D=[[Camera3D alloc]init];
    [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];

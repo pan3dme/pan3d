@@ -18,7 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TextureManager : ResGC
 @property (nonatomic, strong)  Scene3D*  mtkScene3D;
 @property (nonatomic, strong)NSMutableDictionary* resDic;
+ 
+- (instancetype)init:(Scene3D*)value;
+
 + (instancetype)default;
+
+
 
 -(void)addRes:(NSString*)url img:(UIImage*)img;
 -(void)getTexture:(NSString*)url fun:(void (^)(NSObject* any))fun wrapType:(int)wrapType info:(NSObject*)info filteType:(int)filteType mipmapType:(int)mipmapType;
