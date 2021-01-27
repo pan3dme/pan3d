@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Scene3D.h"
+@class Scene3D;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GC : NSObject

@@ -9,9 +9,11 @@
 #import "ResGC.h"
 
 @implementation ResGC
-- (instancetype)init
+ 
+- (instancetype)init:(Scene3D *)value
 {
-    self = [super init];
+    
+    self = [super init:value];
     if (self) {
            self.dic=[[NSMutableDictionary alloc]init];
     }
