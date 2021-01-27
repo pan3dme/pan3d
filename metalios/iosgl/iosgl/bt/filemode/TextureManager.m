@@ -37,17 +37,15 @@ static TextureManager *instance = nil;
     if (self) {
         self.loadDic=[[NSMutableDictionary alloc]init];
         self.resDic=[[NSMutableDictionary alloc]init];
-        
     }
     return self;
 }
 - (instancetype)init:(Scene3D*)value
 {
-    self = [self init];
+    self = [super init:value];
     if (self) {
-        
-        self.mtkScene3D=value;
-        
+        self.loadDic=[[NSMutableDictionary alloc]init];
+        self.resDic=[[NSMutableDictionary alloc]init];
     }
     return self;
 }
