@@ -41,10 +41,12 @@
     
     
     [self.camMatrix3D identity];
+    
+    NSLog(@"%f",self.rotationX);
     [self.camMatrix3D appendRotation: self.rotationY axis:Vector3D.Y_AXIS];
     [self.camMatrix3D appendRotation: self.rotationX axis:Vector3D.X_AXIS];
     [self.camMatrix3D appendTranslation: 0.0 y:0.0 z:self.distance];
-    [self.camMatrix3D appendTranslation: 0.0 y:-0.0 z:0.0];
+
     
     Matrix3D* m=[self.camMatrix3D clone];
     [m Invert];

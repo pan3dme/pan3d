@@ -52,9 +52,9 @@
     self.objDataManager=[[ObjDataManager alloc]init:self];
     self.materialManager=[[MaterialManager alloc]init:self];
     self.progrmaManager=[[ProgrmaManager alloc]init:self];
-    
     self.camera3D=[[Camera3D alloc]init];
-   [self resieSize:self.mtkView.drawableSize];
+    self.camera3D.rotationX=-15;
+    [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
     self.modelList=[[NSMutableArray alloc] init];
     [self loadSeceneByUrl:@"2014"];
@@ -63,7 +63,7 @@
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
     [self.context3D mtkclearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
-    self.camera3D.rotationX=-15;
+ 
     [self.camera3D upFrame];
     [self updateModelList];
     [self.mtkBaseLine updata];
