@@ -11,7 +11,7 @@
 
 @implementation MtlModelDisplayShader
 
-- (instancetype)init:(MtkScene3D*)value
+- (instancetype)init:(Scene3D*)value
 {
     self = [super init];
     if (self) {

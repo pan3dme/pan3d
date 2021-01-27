@@ -19,7 +19,6 @@
 		9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA495255C655E00FAE501 /* ObjectUv.m */; };
 		9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA497255C655E00FAE501 /* ObjectWeight.m */; };
 		9CBE1C8B25B8420700FFE706 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1C8A25B8420700FFE706 /* shaders.metal */; };
-		9CBE1C9F25BB117B00FFE706 /* MtkScene3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1C9E25BB117B00FFE706 /* MtkScene3D.m */; };
 		9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */; };
 		9CBE1CC125BB395500FFE706 /* MtkBaseLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CC025BB395500FFE706 /* MtkBaseLineShader.m */; };
 		9CBE1CC425BD67C400FFE706 /* MtkBaseLine.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CC325BD67C400FFE706 /* MtkBaseLine.metal */; };
@@ -255,8 +254,6 @@
 		9C1DA497255C655E00FAE501 /* ObjectWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWeight.m; sourceTree = "<group>"; };
 		9CBE1C8925B8420700FFE706 /* LYShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYShaderTypes.h; sourceTree = "<group>"; };
 		9CBE1C8A25B8420700FFE706 /* shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
-		9CBE1C9D25BB117B00FFE706 /* MtkScene3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkScene3D.h; sourceTree = "<group>"; };
-		9CBE1C9E25BB117B00FFE706 /* MtkScene3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkScene3D.m; sourceTree = "<group>"; };
 		9CBE1CBA25BB369900FFE706 /* MtkBaseLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkBaseLine.h; sourceTree = "<group>"; };
 		9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkBaseLine.m; sourceTree = "<group>"; };
 		9CBE1CBF25BB395500FFE706 /* MtkBaseLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkBaseLineShader.h; sourceTree = "<group>"; };
@@ -722,8 +719,6 @@
 			isa = PBXGroup;
 			children = (
 				9CBE1CA925BB1C4E00FFE706 /* dis */,
-				9CBE1C9D25BB117B00FFE706 /* MtkScene3D.h */,
-				9CBE1C9E25BB117B00FFE706 /* MtkScene3D.m */,
 			);
 			path = pan3d;
 			sourceTree = "<group>";
@@ -1626,7 +1621,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CBE1C9F25BB117B00FFE706 /* MtkScene3D.m in Sources */,
 				FE515FB623A2802300C49DA5 /* BaseRes.m in Sources */,
 				FE0FC24E2395104800D2483A /* main.m in Sources */,
 				FE1E1BC0254A7E9A009590DB /* SkillLoadInfo.m in Sources */,

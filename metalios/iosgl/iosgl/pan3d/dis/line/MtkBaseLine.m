@@ -21,7 +21,7 @@
 @end
 
 @implementation MtkBaseLine
-- (instancetype)init:(MtkScene3D*)val
+- (instancetype)init:(Scene3D*)val
 {
     self = [super init];
     if (self) {

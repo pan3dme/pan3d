@@ -10,13 +10,13 @@
 #import "GL_Header.h"
 #import "ResGC.h"
 #import "TextureRes.h"
-
-@class  MtkScene3D;
+#import "Scene3D.h"
+ 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TextureManager : ResGC
-@property (nonatomic, strong)  MtkScene3D*  mtkScene3D;
+@property (nonatomic, strong)  Scene3D*  mtkScene3D;
 @property (nonatomic, strong)NSMutableDictionary* resDic;
 + (instancetype)default;
 

@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "MtkScene3D.h"
+#import "Scene3D.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MtlModelDisplayShader : NSObject
 @property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
 @property (nonatomic, strong)  id <MTLDepthStencilState> relaxedDepthState;
-@property (nonatomic, strong)  MtkScene3D*   mtkScene3D;
+@property (nonatomic, strong)  Scene3D*   mtkScene3D;
 
-- (instancetype)init:(MtkScene3D*)value;
+- (instancetype)init:(Scene3D*)value;
 -(void)mtlEncode;
 -(void)mtlSetProgramShader;
 @end

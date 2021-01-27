@@ -21,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Scene3D : ResGC
+@interface Scene3D : ResGC  <MTKViewDelegate>
  {
 float _sceneScale;
  }

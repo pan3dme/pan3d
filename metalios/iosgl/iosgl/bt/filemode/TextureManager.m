@@ -13,7 +13,7 @@
 #import "CubemapLoad.h"
 #import "Scene_data.h"
 #import "Context3D.h"
-#import "MtkScene3D.h"
+#import "Scene3D.h"
 
 
 @interface TextureManager()

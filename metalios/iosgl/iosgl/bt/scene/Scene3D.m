@@ -14,10 +14,96 @@
 #import "TextureManager.h"
 #import "TimeUtil.h"
 #import "Scene_data.h"
+#import "MtkBaseLine.h"
+#import "MtlModelDisplaySprite.h"
+#import "SceneRes.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
+@property(nonatomic,strong)MtkBaseLine* mtkBaseLine;
 @end
 @implementation Scene3D
+- (instancetype)init:(UIView *)value
+{
+    self = [super init];
+    if (self) {
+        self.uiView=value;
+        self.mtkView = [[MTKView alloc] initWithFrame:self.uiView.bounds];
+        self.mtkView.device = MTLCreateSystemDefaultDevice();
+        self.mtkView.depthStencilPixelFormat = MTLPixelFormatDepth32Float_Stencil8;
+        self.mtkView.delegate = self;
+        [self.uiView insertSubview:self.mtkView atIndex:0];
+        [self initData];
+    }
+    return self;
+}
+-(void)initData
+{
+    [TextureManager default].mtkScene3D=self;
+    self.camera3D=[[Camera3D alloc]init];
+   [self resieSize:self.mtkView.drawableSize];
+    self.context3D=[[Context3D alloc] init:self.mtkView ];
+    self.modelList=[[NSMutableArray alloc] init];
+    [self loadSeceneByUrl:@"2014"];
+    self.mtkBaseLine=[[MtkBaseLine alloc]init:self];
+}
+
+- (void)drawInMTKView:(nonnull MTKView *)view {
+    [self.context3D mtkclearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
+    self.camera3D.rotationX=-15;
+    [self.camera3D upFrame];
+    [self updateModelList];
+    [self.mtkBaseLine updata];
+    [self.context3D mtkpresent];
+}
+-(void)parsingBuildItem:(NSDictionary*)value;
+{
+    int type=   [value[@"type"]intValue];
+    switch (type) {
+        case PREFAB_TYPE:
+            [self addBuildDisplay3DSprite:value];
+            break;
+        case SCENE_PARTICLE_TYPE:
+            break;
+        default:
+            break;
+    }
+}
+ 
+-(void)addBuildDisplay3DSprite:(NSDictionary*)value;
+{
+    MtlModelDisplaySprite* dis=[[MtlModelDisplaySprite alloc] init:self];
+    [dis setInfo:value];
+    [self.modelList addObject: dis];
+}
+-(void)updateModelList;
+{
+    for(int i=0;i<self.modelList.count;i++){
+        [self.modelList[i] updata];
+    }
+}
+- (void)loadSeceneByUrl:(NSString *)url
+{
+    NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
+    SceneRes *sceneRes=[[SceneRes alloc]init];
+    [sceneRes load:webUrl  bfun:^(NSString *value) {
+        NSDictionary* obj=sceneRes.sceneData;
+        NSArray *buildItem=[obj objectForKey:@"buildItem"];
+        for(int i=0;i<buildItem.count;i++){
+            if( [buildItem[i][@"id"]intValue]==2){
+            }
+            [self parsingBuildItem:buildItem[i]];
+        }
+    }];
+}
+- (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
+    [self resieSize:size];
+}
+-(void)resieSize:(CGSize)size
+{
+    self.camera3D.fovw=size.width;
+    self.camera3D.fovh=size.height;
+}
+/*
 - (instancetype)init:(UIView*)uiview;
 {
     self = [super init];
@@ -51,6 +137,7 @@
     }
     return self;
 }
+*/
 -(void)setSceneScale:(float)value;
 {
     _sceneScale=value;
