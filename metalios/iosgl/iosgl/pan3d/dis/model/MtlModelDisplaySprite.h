@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Scene3D*   mtkScene3D;
 @property (nonatomic, strong) ObjData* objData;
 @property (nonatomic, strong) Material* material;
-- (instancetype)init:(Scene3D*)val;
+- (instancetype)init:(Scene3D*)value;
 -(void)updata ;
 -(void) setInfo:(NSDictionary*)value;
 @end

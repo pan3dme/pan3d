@@ -21,11 +21,11 @@
     }
     return self;
 }
-- (instancetype)init:(Scene3D*)val;
+- (instancetype)init:(Scene3D*)value;
 {
     self = [super init];
     if (self) {
-        self.scene3d=val;
+        self.scene3d=value;
         self.posMatrix3d=[[Matrix3D alloc]init];
         self.modeMatrix=[[Matrix3D alloc]init];
         self.rotationMatrix3D=[[Matrix3D alloc]init];
