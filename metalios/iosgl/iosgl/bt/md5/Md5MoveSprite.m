@@ -46,8 +46,8 @@
 }
 -(void)inidShader
 {
-    [[ProgrmaManager default] registe:Md5MeshShader.shaderStr shader3d: [[Md5MeshShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:Md5MeshShader.shaderStr];
+    [self.mtkScene3D.progrmaManager registe:Md5MeshShader.shaderStr shader3d: [[Md5MeshShader alloc]init]];
+    self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:Md5MeshShader.shaderStr];
 }
 
 - (void)setMd5url:(NSString *)body_url animurl:(NSString *)anim_url picurl:(NSString *)pic_url{
@@ -127,7 +127,8 @@
 }
 -(void)loadTextureBase
 {
-    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:self.picurl] fun:^(NSObject * _Nonnull any) {
+    
+    [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:self.picurl] fun:^(NSObject * _Nonnull any) {
         self.textureRes=(TextureRes*)any;
     } wrapType:0 info:nil filteType:0 mipmapType:0];
 }

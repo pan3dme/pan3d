@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Context3D : ResGC
+@interface Context3D : NSObject
 @property (nonatomic, strong) id<MTLRenderCommandEncoder> renderEncoder;
 @property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
 @property (nonatomic, strong) id<MTLCommandBuffer> commandBuffer;

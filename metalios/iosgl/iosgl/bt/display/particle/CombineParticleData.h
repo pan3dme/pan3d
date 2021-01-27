@@ -6,7 +6,7 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
-#import "ResCount.h"
+#import "GC.h"
 #import "ByteArray.h"
 #import "CombineParticleData.h"
 
@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CombineParticleData : ResCount
+@interface CombineParticleData : GC
 @property (nonatomic, assign)  int maxTime;
 @property (nonatomic, strong)  NSMutableArray *dataAry;
 -(void)setDataByte:(ByteArray*)byte;

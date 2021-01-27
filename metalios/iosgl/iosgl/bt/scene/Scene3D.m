@@ -12,6 +12,9 @@
 #import "Display3dMovie.h"
 #import "ParticleManager.h"
 #import "TextureManager.h"
+#import "ObjDataManager.h"
+#import "ProgrmaManager.h"
+#import "MaterialManager.h"
 #import "TimeUtil.h"
 #import "Scene_data.h"
 #import "MtkBaseLine.h"
@@ -38,8 +41,12 @@
 }
 -(void)initData
 {
-    [TextureManager default].mtkScene3D=self;
+ 
     self.textureManager=[[TextureManager alloc] init:self];
+    self.objDataManager=[[ObjDataManager alloc]init:self];
+    self.materialManager=[[MaterialManager alloc]init:self];
+    self.progrmaManager=[[ProgrmaManager alloc]init:self];
+    
     self.camera3D=[[Camera3D alloc]init];
    [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
@@ -85,7 +92,7 @@
 - (void)loadSeceneByUrl:(NSString *)url
 {
     NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
-    SceneRes *sceneRes=[[SceneRes alloc]init];
+    SceneRes *sceneRes=[[SceneRes alloc]init:self];
     [sceneRes load:webUrl  bfun:^(NSString *value) {
         NSDictionary* obj=sceneRes.sceneData;
         NSArray *buildItem=[obj objectForKey:@"buildItem"];

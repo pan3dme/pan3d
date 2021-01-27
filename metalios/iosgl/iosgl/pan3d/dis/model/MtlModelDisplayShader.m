@@ -15,7 +15,7 @@
 -(void)mtlEncode
 {
    
-    MTKView *mtkView=self.mtkScene3D.context3D. mtkView;
+    MTKView *mtkView=self.scene3D.context3D. mtkView;
     
     id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
  
@@ -39,12 +39,12 @@
     {
         depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
         depthStateDesc.depthWriteEnabled = YES;
-        self.relaxedDepthState = [self.mtkScene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
+        self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }
 -(void)mtlSetProgramShader
 {
-   id<MTLRenderCommandEncoder> renderEncoder= self.mtkScene3D.context3D.renderEncoder;
+   id<MTLRenderCommandEncoder> renderEncoder= self.scene3D.context3D.renderEncoder;
    [renderEncoder setRenderPipelineState:self.pipelineState];
    [renderEncoder setDepthStencilState:self.relaxedDepthState];
    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];

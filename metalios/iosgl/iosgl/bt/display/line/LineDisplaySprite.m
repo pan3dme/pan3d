@@ -62,8 +62,8 @@
 }
 -(void)registetProgame;
 {
-     [[ProgrmaManager default] registe:LineDisplayShader.shaderStr shader3d: [[LineDisplayShader alloc]init]];
-      self.shader3d=  [[ProgrmaManager default] getProgram:LineDisplayShader.shaderStr];
+     [self.mtkScene3D.progrmaManager registe:LineDisplayShader.shaderStr shader3d: [[LineDisplayShader alloc]init]];
+      self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:LineDisplayShader.shaderStr];
 }
 -(void)refrishLineDataToGpu;
 {

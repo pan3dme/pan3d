@@ -140,7 +140,7 @@ static ObjDataManager *instance = nil;
 -(void)loadObjCom:(ByteArray *)value  url:(NSString*)url;
 {
     ByteArray *byte=value;
-    ObjData *objData=[[ObjData alloc]init];
+    ObjData *objData=[[ObjData alloc]init:self.scene3D];
     objData.version= [byte readInt];
     NSLog(@"version-->%d", objData.version);
     NSString *objUrl = [byte readUTF];

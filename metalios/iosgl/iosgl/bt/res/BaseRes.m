@@ -138,7 +138,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         int objsSize=  [self.byte readInt];
         NSData *objsNsdata=  [self.byte getNsDataByLen:objsSize];
         ByteArray *objsByte=  [[ByteArray alloc]init:objsNsdata];
-        [[ ObjDataManager default] loadObjCom:objsByte url:url];
+        [self.scene3D.objDataManager loadObjCom:objsByte url:url];
    
      }
     
@@ -169,7 +169,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
       ByteArray *materByte=  [[ByteArray alloc]init:materNsdata];
     
     
-      [[MaterialManager default]addResByte:[[Scene_data default]getWorkUrlByFilePath:materurl] dataByte:materByte];
+      [self.scene3D.materialManager addResByte:[[Scene_data default]getWorkUrlByFilePath:materurl] dataByte:materByte];
       
       
   }
@@ -185,7 +185,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         int particeSize=  [self.byte readInt];
         NSData *particeNsdata=  [self.byte getNsDataByLen:particeSize];
         ByteArray *particeByte=  [[ByteArray alloc]init:particeNsdata];
-        [ ParticleManager  addResByte:particeurl byteArray:particeByte];
+        [ self.scene3D.particleManager  addResByte:particeurl byteArray:particeByte];
     }
     
 }
@@ -239,7 +239,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         int imgSize=  [self.byte readInt];
         if(imgSize&&[Scene_data default].supportBlob){
               NSData *imgNsdata=  [self.byte getNsDataByLen:imgSize];
-              [[TextureManager default] addRes: [[Scene_data default]getWorkUrlByFilePath:imgurl] img: [UIImage imageWithData: imgNsdata]];
+              [self.scene3D.textureManager addRes: [[Scene_data default]getWorkUrlByFilePath:imgurl] img: [UIImage imageWithData: imgNsdata]];
         }
         [self countImg];
     }
@@ -253,7 +253,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
         int objSize=  [srcByte readInt];
         NSData *objNsdata=  [srcByte getNsDataByLen:objSize];
         ByteArray *objByte=  [[ByteArray alloc]init:objNsdata];
-        [[ObjDataManager default] loadObjCom:objByte url:objurl];
+        [self.scene3D.objDataManager loadObjCom:objByte url:objurl];
         
         
     }

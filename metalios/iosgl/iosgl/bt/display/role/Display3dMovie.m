@@ -359,7 +359,7 @@
           }
  
           if (item.types == SCENE_PARTICLE_TYPE) {
-               CombineParticle*  particle =   [ParticleManager   getParticleByte: item.particleUrl];
+               CombineParticle*  particle =   [self.mtkScene3D.particleManager   getParticleByte: item.particleUrl];
               [ary addObject:particle];
               particle.bindTarget = this;
               particle.bindSocket = bindSocket;

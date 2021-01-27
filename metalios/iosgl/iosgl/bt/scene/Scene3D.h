@@ -17,9 +17,13 @@
 #import "SkillManager.h"
 #import "ParticleManager.h"
  
+ 
 @class ParticleManager ;
 @class SkillManager;
 @class TextureManager;
+@class ObjDataManager;
+@class ProgrmaManager;
+@class MaterialManager;
 @class Display3dMovie;
 @class MtlModelDisplaySprite;
 
@@ -39,6 +43,11 @@ float _sceneScale;
 @property (nonatomic, strong) Rectangle *viewRect;
 @property (nonatomic, strong) ParticleManager *particleManager;
 @property (nonatomic, strong) SkillManager *skillManager;
+@property (nonatomic, strong) ObjDataManager *objDataManager;
+@property (nonatomic, strong) MaterialManager *materialManager;
+@property (nonatomic, strong) ProgrmaManager *progrmaManager;
+
+
 @property (nonatomic, strong) TextureManager *textureManager;
 @property (nonatomic, strong) Vector2D *fogData;
 @property (nonatomic, strong) Vector3D *fogColor;

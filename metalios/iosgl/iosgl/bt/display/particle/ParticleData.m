@@ -12,6 +12,7 @@
 #import "TimeLine.h"
 #import "Scene_data.h"
 #import "CurveVo.h"
+#import "Scene3D.h"
 #import "ParamDataVo.h"
 #import "ParticleModelData.h"
 #import "MaterialManager.h"
@@ -101,7 +102,7 @@
        return;
     }
     self._materialUrl = value;
-    [[MaterialManager default] getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * obj) {
+    [self.scene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * obj) {
         [self onMaterialLoad:(Material*)obj];
     } info:nil autoReg:nil regName:nil shader3DCls:nil];
 
@@ -119,7 +120,7 @@
     
         // MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
     
-    [[MaterialManager default] loadDynamicTexUtil:this.materialParam];
+    [self.scene3D.materialManager loadDynamicTexUtil:this.materialParam];
     
     [self regShader];
     /*

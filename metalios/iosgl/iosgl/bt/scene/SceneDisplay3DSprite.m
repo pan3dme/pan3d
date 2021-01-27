@@ -41,8 +41,8 @@
    
     
     
-    [[ProgrmaManager default] registe:SceneDisplay3DShader.shaderStr shader3d: [[SceneDisplay3DShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:SceneDisplay3DShader.shaderStr];
+    [self.mtkScene3D.progrmaManager registe:SceneDisplay3DShader.shaderStr shader3d: [[SceneDisplay3DShader alloc]init]];
+    self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:SceneDisplay3DShader.shaderStr];
     
     [self loadTextureResByUrl:@"tu001.jpg"];
     [self loadObjDataByUrl:objsurl];

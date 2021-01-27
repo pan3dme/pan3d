@@ -106,7 +106,7 @@
 }
 -(void)addParticleSprite:(NSDictionary*)itemObj;
 {
-    CombineParticle*  particle =   [ParticleManager   getParticleByte:itemObj[@"url"]];
+    CombineParticle*  particle =   [self.scene3D.particleManager   getParticleByte:itemObj[@"url"]];
     [self.scene3D.particleManager addParticle:particle];
     particle.x=[itemObj[@"x"]floatValue];
     particle.y=[itemObj[@"y"]floatValue];

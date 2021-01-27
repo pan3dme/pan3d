@@ -64,9 +64,9 @@
  
 -(void)setObjUrl:(NSString*)value;
 {
-    [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
+    [self.mtkScene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
          
-        obj.mtkScene3D=self.mtkScene3D;
+        obj.scene3D=self.mtkScene3D;
         [obj changeObjDataToMtkGpu];
         self.objData=obj;
  
@@ -80,15 +80,15 @@
     value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     this.materialUrl =   value;
     
-    [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+    [self.mtkScene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
         this.material=(Material*)obj;
         if (this.material.useNormal) {
         }
         if (paramData) {
-            this.materialParam = [[MaterialBaseParam alloc]init];
+            this.materialParam = [[MaterialBaseParam alloc]init:self.mtkScene3D];
             [this.materialParam setData:this.material ary:paramData];
          }
-    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
+    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init:self.mtkScene3D]];
 }
  
   

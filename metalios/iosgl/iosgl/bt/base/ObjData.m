@@ -88,7 +88,7 @@
         {{0.5f, -0.5f, 0.0f, 1.0f},      {0.0f, 0.0f, 0.5f},       {1.0f, 0.0f}},//右下
         {{0.0f, 0.0f, 1.0f, 1.0f},       {1.0f, 1.0f, 1.0f},       {0.5f, 0.5f}},//顶点
     };
-    self.mtkvertices = [self.mtkScene3D.mtkView.device newBufferWithBytes:quadVertices
+    self.mtkvertices = [self.scene3D.mtkView.device newBufferWithBytes:quadVertices
                                                  length:sizeof(quadVertices)
                                                 options:MTLResourceStorageModeShared];
     static int indices[] =
@@ -100,7 +100,7 @@
         2, 3, 4,
         1, 4, 3,
     };
-    self.mtkindexs = [self.mtkScene3D.mtkView.device newBufferWithBytes:indices
+    self.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:indices
                                                      length:sizeof(indices)
                                                     options:MTLResourceStorageModeShared];
     self.mtkindexCount = sizeof(indices) / sizeof(int);
@@ -120,11 +120,11 @@
     for (int i=0; i<value.indexs.count ; i++) {
         idxs[i]=[value.indexs[i] intValue];
     }
-    value.mtkvertices = [self.mtkScene3D.mtkView.device newBufferWithBytes:quarr
+    value.mtkvertices = [self.scene3D.mtkView.device newBufferWithBytes:quarr
                                                  length:sizeof(quarr)
                                                 options:MTLResourceStorageModeShared];
 
-    value.mtkindexs = [self.mtkScene3D.mtkView.device newBufferWithBytes:idxs
+    value.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:idxs
                                                      length:sizeof(idxs)
                                                     options:MTLResourceStorageModeShared];
     value.mtkindexCount = value.indexs.count;

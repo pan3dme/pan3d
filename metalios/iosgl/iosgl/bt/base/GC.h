@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GC : NSObject
-@property (nonatomic, strong)  Scene3D*  mtkScene3D;
+@property (nonatomic, strong)  Scene3D*  scene3D;
 - (instancetype)init:(Scene3D*)value;
 @end
 

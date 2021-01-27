@@ -107,7 +107,7 @@
     for (int i = this.targetFlag; i < this.keyAry.count; i++) {
         NSLog(@"%f   %f",this.keyAry[i].time ,this.time);
         if (this.keyAry[i].time < this.time) {
-            [this.keyAry[i] addToRender:self.mtkScene3D.particleManager];
+            [this.keyAry[i] addToRender:self.scene3D.particleManager];
             if (this.skillVo.types == SkillType.TrajectoryDynamicTarget || this.skillVo.types == SkillType.TrajectoryDynamicPoint) {
                 SkillKey* skillKey = this.keyAry[i];
                 
@@ -202,7 +202,7 @@
 {
     NSLog(@"skillComplete");
     Skill* this=self;
-    [this.mtkScene3D.skillManager removeSkill:this];
+    [this.scene3D.skillManager removeSkill:this];
     
     this.isDeath=true;
     if(this.completeFun!=nil){

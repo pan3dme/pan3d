@@ -9,6 +9,7 @@
 #import "SkillKey.h"
 #import "SkillKeyVo.h"
 #import "Scene_data.h"
+#import "Scene3D.h"
 #import "ParticleManager.h"
 
 @implementation SkillKey
@@ -16,7 +17,7 @@
 {
     SkillKey* this=self;
     this.time=obj.frame*[Scene_data default].frameTime;
-    this.particle=  [ ParticleManager    getParticleByte: obj.url];
+    this.particle=  [ self.scene3D.particleManager    getParticleByte: obj.url];
  
 }
 -(void)addToRender:(ParticleManager*)particleManager;

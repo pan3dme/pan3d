@@ -6,12 +6,12 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
-#import "ResCount.h"
+#import "GC.h"
 #import "ByteArray.h"
 #import "CombineParticle.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ParticleManager : ResCount
+@interface ParticleManager : GC
 //+ (instancetype)default;
 
 
@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  Scene3D *scene3d;
 @property (nonatomic, assign)  double time;
  
-+(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
-+(CombineParticle*)getParticleByte:(NSString*)url;
+-(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
+-(CombineParticle*)getParticleByte:(NSString*)url;
 -(void)addParticle:(CombineParticle*)particle;
 -(void)registerUrl:(NSString*)url;
 -(void)updateTime;

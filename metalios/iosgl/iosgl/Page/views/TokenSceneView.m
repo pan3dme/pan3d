@@ -12,7 +12,7 @@
  
 
 @interface TokenSceneView ()
-@property (nonatomic, strong)Scene3D* _mtkScene3D;
+@property (nonatomic, strong)Scene3D* scene3D;
 @end
 
 @implementation TokenSceneView
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self._mtkScene3D=[[Scene3D alloc]init:self.view];
+    self.scene3D=[[Scene3D alloc]init:self.view];
     
     
 }

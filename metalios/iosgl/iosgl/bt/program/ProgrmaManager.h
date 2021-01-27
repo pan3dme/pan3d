@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  
  
-+ (instancetype)default;
+//+ (instancetype)default;
 -(Shader3D*) getProgram:(NSString*)value ;
 -(void)registe:(NSString*)keystr shader3d:(Shader3D*)shader3d;
 -(Shader3D*)getMaterialProgram:(NSString*)key shaderCls:(Shader3D*)shaderCls   material:(Material*)material paramAry:(NSArray<NSNumber*>*)paramAry parmaByFragmet:(BOOL)parmaByFragmet ;

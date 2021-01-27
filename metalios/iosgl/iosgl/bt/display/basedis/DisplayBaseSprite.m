@@ -91,7 +91,7 @@
 }
 -(void)setObjUrl:(NSString*)value;
 {
-    [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
+    [self.mtkScene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
        // self.objData=obj;
     }];
 }
@@ -114,12 +114,12 @@ public setObjUrl(value: string): void {
 */
 -(void)registetProgame;
 {
-    [[ProgrmaManager default] registe:Display3DShader.shaderStr shader3d: [[Display3DShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:Display3DShader.shaderStr];
+    [self.mtkScene3D.progrmaManager registe:Display3DShader.shaderStr shader3d: [[Display3DShader alloc]init]];
+    self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:Display3DShader.shaderStr];
 }
 -(void)loadObjDataByUrl:(NSString*)url
 {
-    [[ ObjDataManager default] getObjDataByUrl: url Block:^(ObjData *objData) {
+    [self.mtkScene3D.objDataManager getObjDataByUrl: url Block:^(ObjData *objData) {
         self.objData=objData;
         [self.objData upToGpu];
     }];
@@ -127,7 +127,7 @@ public setObjUrl(value: string): void {
 
 -(void)loadTextureResByUrl:(NSString*)value;
 {
-    self.textureRes=[[MaterialManager default] getMaterialByUrl:value];
+    self.textureRes=[self.mtkScene3D.materialManager getMaterialByUrl:value];
 }
 -(void)upFrame{
     

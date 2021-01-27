@@ -30,15 +30,10 @@ static MaterialManager *instance = nil;
 @end
 
 @implementation MaterialManager
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[MaterialManager alloc] init];
-    }
-    return instance;
-}
-- (instancetype)init
+ 
+- (instancetype)init:(Scene3D *)value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.dic=[[NSMutableDictionary alloc]init];
         _loadDic=[[NSMutableDictionary alloc]init];
@@ -100,12 +95,12 @@ static MaterialManager *instance = nil;
  
 -(void)meshByteMaterialByt:(ByteArray*)byte info:(MaterialLoad*)info;
 {
-    Material* material=[[Material alloc]init];
+    Material* material=[[Material alloc]init:self.scene3D];
     [material setByteData:byte];
     material.url = info.url;
     [self loadMaterial:material];
     if (info.autoReg) {
-        material.shader=  [[ProgrmaManager default] getMaterialProgram:info.regName shaderCls:info.shader3D material:material paramAry:nil parmaByFragmet:true];
+        material.shader=  [self.scene3D.progrmaManager getMaterialProgram:info.regName shaderCls:info.shader3D material:material paramAry:nil parmaByFragmet:true];
     }
     NSArray<TextureLoad*>* ary = self.loadDic[info.url];
     for (int i = 0; i < ary.count; i++) {
@@ -128,7 +123,8 @@ static MaterialManager *instance = nil;
         if (dynamicTexList[i].isParticleColor) {
             [(DynamicTexItem*)dynamicTexList[i]  creatTextureByCurve];
         } else {
-            [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
+            
+            [self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:dynamicTexList[i].url] fun:^(NSObject * _Nonnull any) {
                 NSDictionary* bdic=(NSDictionary*)any;
                 DynamicTexItem* tempInof= (DynamicTexItem*)bdic[@"info"];
                 TextureRes*  ddd=bdic[@"data"];

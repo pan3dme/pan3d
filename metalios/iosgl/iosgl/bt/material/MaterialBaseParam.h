@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Material.h"
- 
 #import "DynamicBaseTexItem.h"
+#import "GC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class DynamicTexItem;
-@interface MaterialBaseParam : NSObject
+@interface MaterialBaseParam : GC
 @property (nonatomic, strong)  Material*  material;
 @property (nonatomic, strong)  NSMutableArray<DynamicTexItem*>*  dynamicTexList;
 @property (nonatomic, strong)  NSMutableArray*  dynamicConstList;

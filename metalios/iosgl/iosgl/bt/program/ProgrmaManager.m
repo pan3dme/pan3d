@@ -12,21 +12,7 @@
 #import "Material.h"
 static ProgrmaManager *instance = nil;
 @implementation ProgrmaManager
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[ProgrmaManager alloc] init];
-    }
-    return instance;
-}
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.dic = [[NSMutableDictionary alloc] init];
-  
-    }
-    return self;
-}
+ 
 -(Shader3D*) getProgram:(NSString*)value ;
 {
     if([self.dic objectForKey:value]){

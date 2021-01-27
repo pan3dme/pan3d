@@ -10,11 +10,12 @@
 #import "SkillKeyVo.h"
 #import "ParticleManager.h"
 #import "CombineParticle.h"
+#import "GC.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SkillKey : NSObject
+@interface SkillKey : GC
 typedef void (^SkillKeyBfun)(SkillKey* skillKey);
 @property(nonatomic,assign)float time ;
 @property(nonatomic,strong)CombineParticle*  particle;

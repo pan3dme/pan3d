@@ -416,7 +416,7 @@
     }
     //使用2进制着色器
     NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
-    self.materialParam.shader=  [[ProgrmaManager default]getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls: [[Display3DBallPartilceShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+    self.materialParam.shader=  [self.scene3D.progrmaManager getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls: [[Display3DBallPartilceShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
  
 }
 -(NSArray<NSNumber*>*)getShaderParam;

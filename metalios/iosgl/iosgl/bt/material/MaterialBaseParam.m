@@ -44,7 +44,7 @@
             }
             mipmap = 0;
             
-            [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:obj[@"url"]] fun:^(NSObject * _Nonnull any) {
+            [self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:obj[@"url"]] fun:^(NSObject * _Nonnull any) {
                 texItem.textureRes=(TextureRes*)any;
             } wrapType:0 info:nil filteType:0 mipmapType:0];
             

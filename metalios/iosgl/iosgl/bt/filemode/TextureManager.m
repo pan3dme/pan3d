@@ -24,22 +24,22 @@
 @end
 static TextureManager *instance = nil;
 @implementation TextureManager
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[TextureManager alloc] init];
- 
-    }
-    return instance;
-}
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.loadDic=[[NSMutableDictionary alloc]init];
-        self.resDic=[[NSMutableDictionary alloc]init];
-    }
-    return self;
-}
+//+ (instancetype)default{
+//    if (instance == nil) {
+//        instance = [[TextureManager alloc] init];
+// 
+//    }
+//    return instance;
+//}
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        self.loadDic=[[NSMutableDictionary alloc]init];
+//        self.resDic=[[NSMutableDictionary alloc]init];
+//    }
+//    return self;
+//}
 - (instancetype)init:(Scene3D*)value
 {
     self = [super init:value];
@@ -105,11 +105,11 @@ static TextureManager *instance = nil;
 {
  
     NSLog(@" info.wrap   %d", info.wrap);
-    TextureRes *textureRes=[[TextureRes alloc]init];
+    TextureRes *textureRes=[[TextureRes alloc]init:self.scene3D];
  
     textureRes.textTureLuint=  [Context3D getTexture:img wrap:info.wrap];
  
-    textureRes.mtlTexture= [[TextureManager default]getBaseMitTexture:img];
+    textureRes.mtlTexture= [self.scene3D.textureManager getBaseMitTexture:img];
   
     
     NSArray<TextureLoad*>* ary  = self.loadDic[info.url];
@@ -142,7 +142,7 @@ static TextureManager *instance = nil;
     textureDescriptor.pixelFormat = MTLPixelFormatRGBA8Unorm;
     textureDescriptor.width = image.size.width;
     textureDescriptor.height = image.size.height;
-    id<MTLTexture> texture = [self.mtkScene3D.mtkView.device newTextureWithDescriptor:textureDescriptor];
+    id<MTLTexture> texture = [self.scene3D.mtkView.device newTextureWithDescriptor:textureDescriptor];
     
     MTLRegion region = {{ 0, 0, 0 }, {image.size.width, image.size.height, 1}};
     Byte *imageBytes = [self loadImage:image];

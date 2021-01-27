@@ -9,18 +9,20 @@
 #import "ParticleManager.h"
 #import "CombineParticleData.h"
 #import "TimeUtil.h"
+#import "Scene3D.h"
 static ParticleManager *instance = nil;
 static NSMutableDictionary* _dic;
 @implementation ParticleManager
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[ParticleManager alloc] init];
-    }
-    return instance;
-}
-- (instancetype)init
+//+ (instancetype)default{
+//    if (instance == nil) {
+//        instance = [[ParticleManager alloc] init];
+//    }
+//    return instance;
+//}
+ 
+- (instancetype)init:(Scene3D *)value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.time=0;
         self._renderDic=[[NSMutableDictionary alloc]init];
@@ -28,18 +30,22 @@ static NSMutableDictionary* _dic;
     }
     return self;
 }
-+(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
+
+-(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
 {
     if(!_dic){
         _dic=[[NSMutableDictionary alloc]init];
     }
     if(!_dic[url]){
-        CombineParticleData *combineParticleData=[[CombineParticleData alloc]init];
+        
+        
+    
+        CombineParticleData *combineParticleData=[[CombineParticleData alloc]init:self.scene3D];
         [combineParticleData setDataByte:byteArray];
         _dic[url]=combineParticleData;
     }
 }
-+(CombineParticle*)getParticleByte:(NSString*)url;
+-(CombineParticle*)getParticleByte:(NSString*)url;
 {
     url= [url stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
     url= [url stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];

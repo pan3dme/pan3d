@@ -152,7 +152,7 @@
         }else{
             
             Skill* skill= [self.sceneView.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
-            skill.mtkScene3D=self.sceneView.scene3D;
+            skill.scene3D=self.sceneView.scene3D;
             [skill reset];
             [skill configFixEffect:self.mainChar completeFun:nil posObj:nil ];
             [self.mainChar playSkill:skill];
@@ -198,7 +198,7 @@
         for (int i = 0; i < groupRes.dataAry.count; i++) {
             GroupItem *item = groupRes.dataAry[i];
             if (item.types ==SCENE_PARTICLE_TYPE) {
-                CombineParticle*  particle =   [ParticleManager   getParticleByte: item.particleUrl];
+                CombineParticle*  particle =   [particleManager   getParticleByte: item.particleUrl];
                 [particleManager addParticle:particle];
             } else {
                 NSLog(@"播放的不是单纯特效");
