@@ -53,9 +53,9 @@
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     self.objData.indexBuffer=indexBuffer;
     self.objData.trinum=6;
-    [[ProgrmaManager default] registe:DisplayBaseTriShader.shaderStr shader3d: [[DisplayBaseTriShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:DisplayBaseTriShader.shaderStr];
-    
+    [ self.mtkScene3D.progrmaManager registe:DisplayBaseTriShader.shaderStr shader3d: [[DisplayBaseTriShader alloc]init]];
+    self.shader3d=  [ self.mtkScene3D.progrmaManager getProgram:DisplayBaseTriShader.shaderStr];
+   
 }
 -(void)upFrame{
     

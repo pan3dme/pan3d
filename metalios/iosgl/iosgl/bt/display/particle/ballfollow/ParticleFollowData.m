@@ -10,6 +10,7 @@
 #import "ProgrmaManager.h"
 #import "Display3DFollowShader.h"
 #import "Display3DFollowPartilce.h"
+ 
 
 @implementation ParticleFollowData
 
@@ -24,7 +25,9 @@
     }
     //使用2进制着色器
     NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
-    self.materialParam.shader=  [[ProgrmaManager default]getMaterialProgram:Display3DFollowShader.shaderStr shaderCls: [[Display3DFollowShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+
+    
+//    self.materialParam.shader=  [ self.mtkScene3D.progrmaManager getMaterialProgram:Display3DFollowShader.shaderStr shaderCls: [[Display3DFollowShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
  
 }
 -(NSArray<NSNumber*>*)getShaderParam;

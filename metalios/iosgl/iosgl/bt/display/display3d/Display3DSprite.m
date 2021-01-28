@@ -48,7 +48,7 @@
     [self onCreated];
 
     
-        self.textureRes=[[MaterialManager default] getMaterialByUrl:@"tu001.jpg"];
+        self.textureRes=[self.mtkScene3D.materialManager getMaterialByUrl:@"tu001.jpg"];
 }
 
 -(void)onCreated;
@@ -62,7 +62,7 @@
     value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     this.materialUrl =   value;
     
-    [[MaterialManager default]getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+    [self.mtkScene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
         this.material=(Material*)obj;
         if (this.material.useNormal) {
         }
@@ -79,7 +79,7 @@
  
 -(void)setObjUrl:(NSString*)value;
 {
-    [[ObjDataManager default]getObjData:value fun:^(ObjData * obj) {
+    [ self.mtkScene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
      self.objData=obj;
         [self.objData upToGpu];
  
@@ -87,7 +87,7 @@
 }
 -(void)setPicUrl:(NSString*)value;
 {
-    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+    [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
         self.textureRes=(TextureRes*)any;
  
     } wrapType:0 info:nil filteType:0 mipmapType:0];
@@ -122,7 +122,7 @@
 }
 -(void)loadObjDataByUrl:(NSString*)url
 {
-    [[ ObjDataManager default] getObjDataByUrl: url Block:^(ObjData *objData) {
+    [self.mtkScene3D.objDataManager getObjDataByUrl: url Block:^(ObjData *objData) {
       //  self.objData=objData;
       //  [self.objData upToGpu];
     }];
@@ -130,7 +130,7 @@
 
 -(void)loadTextureResByUrl:(NSString*)value;
 {
-    self.textureRes=[[MaterialManager default] getMaterialByUrl:value];
+    self.textureRes=[self.mtkScene3D.materialManager getMaterialByUrl:value];
 }
 -(void)upFrame{
  

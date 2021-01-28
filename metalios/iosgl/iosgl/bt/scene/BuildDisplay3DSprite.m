@@ -104,7 +104,7 @@
 -(void)setLighturl:(NSString*)value;
 {
     if(value&&value.length){
-        [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+        [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
             self.lightTextureRes=(TextureRes*)any;
         } wrapType:0 info: nil filteType:0 mipmapType:0];
     }
@@ -153,8 +153,8 @@
     }
     BuildDisplay3DSprite* this=self;
     if(!this.lightUvShader){
-        [[ProgrmaManager default] registe:BuildDisplay3DLightUvShader.shaderStr shader3d: [[BuildDisplay3DLightUvShader alloc]init]];
-        this.lightUvShader=  [[ProgrmaManager default] getProgram:BuildDisplay3DLightUvShader.shaderStr];
+        [ self.mtkScene3D.progrmaManager registe:BuildDisplay3DLightUvShader.shaderStr shader3d: [[BuildDisplay3DLightUvShader alloc]init]];
+        this.lightUvShader=  [ self.mtkScene3D.progrmaManager getProgram:BuildDisplay3DLightUvShader.shaderStr];
     }else{
         
         this.shader3d= this.lightUvShader;

@@ -55,8 +55,8 @@
 }
 -(void)registetProgame;
 {
-    [[ProgrmaManager default] registe:GridLineShader.shaderStr shader3d: [[GridLineShader alloc]init]];
-     self.shader3d=  [[ProgrmaManager default] getProgram:GridLineShader.shaderStr];
+    [ self.mtkScene3D.progrmaManager registe:GridLineShader.shaderStr shader3d: [[GridLineShader alloc]init]];
+     self.shader3d=  [ self.mtkScene3D.progrmaManager getProgram:GridLineShader.shaderStr];
 }
 -(void)setVc;
 {

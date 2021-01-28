@@ -20,8 +20,8 @@
 }
 -(void)inidShader
 {
-    [[ProgrmaManager default] registe:FrameBuildShader.shaderStr shader3d: [[FrameBuildShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:FrameBuildShader.shaderStr];
+    [self.mtkScene3D.progrmaManager registe:FrameBuildShader.shaderStr shader3d: [[FrameBuildShader alloc]init]];
+    self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:FrameBuildShader.shaderStr];
 }
 
 -(void)setFrameNodeUrl:(FrameNodeVo*)nodeVo;

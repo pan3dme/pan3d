@@ -18,8 +18,8 @@
 @implementation DisplayTestSprite
 -(void)registetProgame;
 {
-    [[ProgrmaManager default] registe:DisplayTestShader.shaderStr shader3d: [[DisplayTestShader alloc]init]];
-    self.shader3d=  [[ProgrmaManager default] getProgram:DisplayTestShader.shaderStr];
+    [ self.mtkScene3D.progrmaManager registe:DisplayTestShader.shaderStr shader3d: [[DisplayTestShader alloc]init]];
+    self.shader3d=  [ self.mtkScene3D.progrmaManager getProgram:DisplayTestShader.shaderStr];
 }
 -(void)initData;
 {
@@ -30,7 +30,9 @@
     picurl=@"content/particleresources/textures/smoke/sm_yawu_00.jpg";
     picurl=@"content/particleresources/textures/halo/hl__ptc_001.jpg";
     
-    [[ TextureManager default]getTexture:[[Scene_data default]getWorkUrlByFilePath:picurl] fun:^(NSObject * _Nonnull any) {
+    
+   
+    [  self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:picurl] fun:^(NSObject * _Nonnull any) {
         self.textureRes=(TextureRes*)any;
     } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
