@@ -28,8 +28,8 @@
    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
 
  
-   id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderModel"];
-   id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderModel"];
+   id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexMaterialShader"];
+   id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentMaterialShader"];
    
    MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
    pipelineStateDescriptor.vertexFunction = vertexFunction;

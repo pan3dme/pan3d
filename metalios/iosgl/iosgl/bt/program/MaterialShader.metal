@@ -8,8 +8,9 @@
 
 #include <metal_stdlib>
 using namespace metal;
+#include "MaterialShaderType.h"
 
-/*
+ 
  
 typedef struct
 {
@@ -19,8 +20,8 @@ typedef struct
 } MaterialShaderData;
 vertex MaterialShaderData // 顶点
 vertexMaterialShader(uint vertexID [[ vertex_id ]],
-           constant ModelVertex *vertexArray [[ buffer(0) ]],
-           constant ModelMatrixView *matrix [[ buffer(1) ]]) {
+           constant MaterialShaderVertex *vertexArray [[ buffer(0) ]],
+           constant MaterialShaderMatrixView *matrix [[ buffer(1) ]]) {
     MaterialShaderData out;
   out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
   out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
@@ -37,8 +38,8 @@ fragmentMaterialShader(MaterialShaderData input [[stage_in]],
                                     min_filter::linear);
   
   half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-
+//    half4 colorTex = half4(1, 0,0, 1);
   return float4(colorTex);
 }
-*/
+ 
  
