@@ -30,8 +30,8 @@
             filePath = "iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-updata"
             landmarkType = "7">
          </BreakpointContent>
@@ -305,6 +305,22 @@
             startingLineNumber = "34"
             endingLineNumber = "34"
             landmarkName = "-touchesMoved:withEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "869581E8-ACAC-4599-BB4E-D82046258755"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/program/MaterialShader.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-getVertexShaderString"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

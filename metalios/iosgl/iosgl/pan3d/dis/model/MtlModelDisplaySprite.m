@@ -26,7 +26,7 @@
 @property(nonatomic,strong)BuildSceneVo* buildSceneVo;
 @property (nonatomic, strong) id<MTLTexture> texture;
 @property (nonatomic, strong) MtlModelDisplayShader* mtlModelDisplayShader;
-  
+
 @end
 
 @implementation MtlModelDisplaySprite
@@ -55,24 +55,24 @@
     self.rotationX=self.buildSceneVo.rotationX;
     self.rotationY=self.buildSceneVo.rotationY;
     self.rotationZ=self.buildSceneVo.rotationZ;
- 
+    
     
     [self setObjUrl:self.buildSceneVo.objsurl];
     [self setMaterialUrl:self.buildSceneVo.materialurl paramData:self.buildSceneVo.materialInfoArr];
-
+    
 }
- 
+
 -(void)setObjUrl:(NSString*)value;
 {
     [self.mtkScene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
-         
+        
         obj.scene3D=self.mtkScene3D;
         [obj changeObjDataToMtkGpu];
         self.objData=obj;
- 
+        
     }];
 }
- 
+
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 {
     MtlModelDisplaySprite* this=self;
@@ -87,15 +87,15 @@
         if (paramData) {
             this.materialParam = [[MaterialBaseParam alloc]init:self.mtkScene3D];
             [this.materialParam setData:this.material ary:paramData];
-         }
+        }
     } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init:self.mtkScene3D]];
 }
- 
-  
- 
+
+
+
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
- 
+    
     if(!material){
         return;
     }
@@ -115,7 +115,7 @@
             
         }
         else if (texItem.type == 0) {
-          
+            
             
         }
     }
@@ -124,59 +124,53 @@
         texItem=texDynamicVec[i].target;
         if(texItem ){
             if(texItem.isMain){
-          
+                
                 
                 id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
             }
- 
+            
         }
     }
     
 }
- 
+
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-   
-   
-   static float y = 0.0 ;
-//   y+=0.1;
-   Matrix3D* posMatrix =[[Matrix3D alloc]init];
-   [posMatrix appendScale:0.25 y:0.25 z:0.25];
-   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
- 
+    
+    static float y = 0.0 ;
+    //   y+=0.1;
+    Matrix3D* posMatrix =[[Matrix3D alloc]init];
+    [posMatrix appendScale:0.25 y:0.25 z:0.25];
+    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
     
     ModelMatrixView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
-  
-   [renderEncoder setVertexBytes:&matrix
-                          length:sizeof(matrix)
-                         atIndex:1];
+    
+    [renderEncoder setVertexBytes:&matrix
+                           length:sizeof(matrix)
+                          atIndex:1];
 }
 -(void)updata  {
     if(self.objData==nil){
         return;
     }
-   
-   id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+    [self.material.shader mtlSetProgramShader];
+    [self setupMatrixWithEncoder:renderEncoder];
+    [renderEncoder setVertexBuffer: self.objData.mtkvertices
+                            offset:0
+                           atIndex:0];
     
-   [self.mtlModelDisplayShader mtlSetProgramShader];
-   
-   [self setupMatrixWithEncoder:renderEncoder];
-   
-   [renderEncoder setVertexBuffer: self.objData.mtkvertices
-                           offset:0
-                          atIndex:0];
-   
-
+    
     
     [self setMaterialTexture:self.material mp:self.materialParam];
-   
-   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                             indexCount: self.objData.mtkindexCount
-                              indexType:MTLIndexTypeUInt32
-                            indexBuffer: self.objData.mtkindexs
-                      indexBufferOffset:0];
+    
+    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                              indexCount: self.objData.mtkindexCount
+                               indexType:MTLIndexTypeUInt32
+                             indexBuffer: self.objData.mtkindexs
+                       indexBufferOffset:0];
 }
 
 @end

@@ -7,11 +7,48 @@
 //
 
 #import "MaterialShader.h"
+#import "Scene3D.h"
 
 @implementation MaterialShader
 +(NSString*)shaderStr;
 {
     return @"MaterialShader";
+}
+
+- (void)encodeVstr:(NSString *)vstr encodeFstr:(NSString *)fstr
+{
+    [self mtlEncode];
+}
+
+-(void)mtlEncode
+{
+  
+   MTKView *mtkView=self.scene3D.context3D. mtkView;
+   
+   id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+
+ 
+   id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderModel"];
+   id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderModel"];
+   
+   MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
+   pipelineStateDescriptor.vertexFunction = vertexFunction;
+   pipelineStateDescriptor.fragmentFunction = fragmentFunction;
+   pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
+   pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
+   pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
+   
+   self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
+                                                                                    error:NULL];
+    
+   
+   MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
+   
+   {
+       depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
+       depthStateDesc.depthWriteEnabled = YES;
+       self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
+   }
 }
 -(NSString *)getVertexShaderString;{
     
