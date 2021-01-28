@@ -8,9 +8,19 @@
 
 #import "ResCount.h"
 #import <GLKit/GLKit.h>
+@import MetalKit;
+@import GLKit;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Shader3D : ResCount
+
+@property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
+@property (nonatomic, strong)  id <MTLDepthStencilState> relaxedDepthState;
+
+-(void)mtlEncode;
+-(void)mtlSetProgramShader;
+ 
  
 @property (nonatomic,assign)  GLuint program;
 

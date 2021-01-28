@@ -31,7 +31,7 @@
 }
 - (void)customInit {
     self.mtkBaseLineShader=[[MtkBaseLineShader alloc] init:self.mtkScene3D];
-    [self.mtkBaseLineShader encode];
+    [self.mtkBaseLineShader mtlEncode];
     
     self.objData=[[ObjData alloc] init:self.mtkScene3D];
  
@@ -159,7 +159,7 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     
-   [self.mtkBaseLineShader setProgramShader];
+   [self.mtkBaseLineShader mtlSetProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    

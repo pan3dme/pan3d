@@ -7,9 +7,25 @@
 //
 #import <GLKit/GLKit.h>
 #import "Shader3D.h"
+#import "Scene3D.h"
 
 @implementation Shader3D
+-(void)mtlEncode;
+{
+    
+}
  
+-(void)mtlSetProgramShader
+{
+   id<MTLRenderCommandEncoder> renderEncoder= self.scene3D.context3D.renderEncoder;
+   [renderEncoder setRenderPipelineState:self.pipelineState];
+   [renderEncoder setDepthStencilState:self.relaxedDepthState];
+   [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+   [renderEncoder setCullMode:MTLCullModeFront];
+   [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
+   [renderEncoder setCullMode:MTLCullModeFront];
+   [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+}
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 {
     
