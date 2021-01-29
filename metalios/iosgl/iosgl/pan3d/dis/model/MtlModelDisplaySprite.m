@@ -19,10 +19,12 @@
 #import "DynamicTexItem.h"
 #import "MaterialShader.h"
 #import "MaterialManager.h"
+#import "TextureManager.h"
 #import "MaterialShaderType.h"
 
 @interface MtlModelDisplaySprite ()
 @property(nonatomic,strong)NSString* materialUrl;
+@property(nonatomic,strong)TextureRes* lightTextureRes;
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property(nonatomic,strong)BuildSceneVo* buildSceneVo;
 @property (nonatomic, strong) id<MTLTexture> texture;
@@ -61,6 +63,22 @@
     [self setObjUrl:self.buildSceneVo.objsurl];
     [self setMaterialUrl:self.buildSceneVo.materialurl paramData:self.buildSceneVo.materialInfoArr];
     
+  NSString* lighturl=  [value valueForKey:@"lighturl"];
+    if(lighturl){
+ 
+        [self setLighturl:lighturl];
+            }
+    
+    
+    
+}
+-(void)setLighturl:(NSString*)value
+{
+    
+    [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+        self.lightTextureRes=(TextureRes*)any;
+ 
+    } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
 
 -(void)setObjUrl:(NSString*)value;
@@ -128,6 +146,11 @@
                 id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
+                
+                if( self.lightTextureRes){
+                    [renderEncoder setFragmentTexture:self.lightTextureRes.mtlTexture
+                                              atIndex:0];
+                }
             }
             
         }
@@ -168,7 +191,7 @@
                             offset:0
                            atIndex:0];
     
-    [renderEncoder setVertexBuffer: self.objData.mtkuvs
+    [renderEncoder setVertexBuffer: self.objData.mtklightuvs
                             offset:0
                            atIndex:1];
     

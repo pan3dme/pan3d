@@ -111,6 +111,9 @@
     [self changeObjDataIndexToMtkGpu];
     self.mtkvertices= [self changeDataToGupMtkfloat4:self.vertices ];
     self.mtkuvs=[self changeDataToGupMtkfloat2:self.uvs];
+    if( self.lightuvs&&self.lightuvs.count){
+        self.mtklightuvs=[self changeDataToGupMtkfloat2:self.lightuvs];
+    }
     self.mtkindexCount = self.indexs.count;
 }
 //索引
