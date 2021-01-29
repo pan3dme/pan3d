@@ -26,13 +26,16 @@ typedef struct
     vector_float4 position;
     vector_float2 textureCoordinate;
 } MaterialShaderVertex;
+
 typedef struct
 {
-   matrix_float4x4 projectionMatrix;
-   matrix_float4x4 modelViewMatrix;
+   matrix_float4x4 matrix;
 } MaterialShaderMatrixView;
 
- 
+typedef struct
+{
+   matrix_float4x4 matrix;
+} MaterialShaderViewMatrix;
 
 
 #endif /* MaterialShaderType_h */

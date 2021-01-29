@@ -11,33 +11,33 @@ using namespace metal;
 #include "MaterialShaderType.h"
 
  
- 
 typedef struct
 {
-  float4 clipSpacePosition [[position]];
-  float2 textureCoordinate;
+  float4 vPosition [[position]];
+  float2 vTextCoord;
   
 } MaterialShaderData;
-vertex MaterialShaderData // 顶点
+
+vertex MaterialShaderData
 vertexMaterialShader(uint vertexID [[ vertex_id ]],
            constant MaterialShaderVertex *vertexArray [[ buffer(0) ]],
-           constant MaterialShaderMatrixView *matrix [[ buffer(1) ]]) {
+                     constant MaterialShaderViewMatrix *viewMatrix [[ buffer(1) ]],
+                     constant MaterialShaderMatrixView *posMatrix [[ buffer(2) ]]
+                     ) {
     MaterialShaderData out;
-  out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
-  out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
-
-  
+  out.vPosition = viewMatrix->matrix * posMatrix->matrix * vertexArray[vertexID].position;
+  out.vTextCoord = vertexArray[vertexID].textureCoordinate;
   return out;
 }
 
-fragment float4 // 片元
+fragment float4
 fragmentMaterialShader(MaterialShaderData input [[stage_in]],
              texture2d<half> textureColor [[ texture(0) ]])
 {
   constexpr sampler textureSampler (mag_filter::linear,
                                     min_filter::linear);
   
-  half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+  half4 colorTex = textureColor.sample(textureSampler, input.vTextCoord);
 //    half4 colorTex = half4(1, 0,0, 1);
   return float4(colorTex);
 }

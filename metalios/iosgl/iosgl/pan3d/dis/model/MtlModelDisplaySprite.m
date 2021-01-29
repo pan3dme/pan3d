@@ -19,6 +19,7 @@
 #import "DynamicTexItem.h"
 #import "MaterialShader.h"
 #import "MaterialManager.h"
+#import "MaterialShaderType.h"
 
 @interface MtlModelDisplaySprite ()
 @property(nonatomic,strong)NSString* materialUrl;
@@ -124,8 +125,6 @@
         texItem=texDynamicVec[i].target;
         if(texItem ){
             if(texItem.isMain){
-                
-                
                 id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
@@ -141,15 +140,28 @@
     
     static float y = 0.0 ;
     //   y+=0.1;
+    
+    
+    
+    MaterialShaderViewMatrix viewMatrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4] };
+ 
+    [renderEncoder setVertexBytes:&viewMatrix
+                           length:sizeof(viewMatrix)
+                          atIndex:1];
+    
+    
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
     [posMatrix appendScale:0.25 y:0.25 z:0.25];
     [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
     
-    ModelMatrixView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
-    
+    MaterialShaderMatrixView matrix = { [posMatrix getMatrixFloat4x4]};
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
-                          atIndex:1];
+                          atIndex:2];
+    
+
+    
+    
 }
 -(void)updata  {
     if(self.objData==nil){
