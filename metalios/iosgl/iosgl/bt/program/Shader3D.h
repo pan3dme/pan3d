@@ -12,6 +12,39 @@
 @import MetalKit;
 @import GLKit;
 
+#if !defined(_STRINGIFY)
+#define __STRINGIFY( _x )   # _x
+#define _STRINGIFY( _x )   __STRINGIFY( _x )
+#endif
+ 
+typedef NSString *(^StringifyArrayOfIncludes)(NSArray <NSString *> *includes);
+static NSString *(^stringifyHeaderFileNamesArray)(NSArray <NSString *> *) = ^(NSArray <NSString *> *includes) {
+    NSMutableString *importStatements = [NSMutableString new];
+    [includes enumerateObjectsUsingBlock:^(NSString * _Nonnull include, NSUInteger idx, BOOL * _Nonnull stop) {
+        [importStatements appendString:@"#include <"];
+        [importStatements appendString:include];
+        [importStatements appendString:@">\n"];
+    }];
+
+    return [NSString new];
+};
+
+typedef NSString *(^StringifyArrayOfHeaderFileNames)(NSArray <NSString *> *headerFileNames);
+static NSString *(^stringifyIncludesArray)(NSArray *) = ^(NSArray *headerFileNames) {
+    NSMutableString *importStatements = [NSMutableString new];
+    [headerFileNames enumerateObjectsUsingBlock:^(NSString * _Nonnull headerFileName, NSUInteger idx, BOOL * _Nonnull stop) {
+        [importStatements appendString:@"#import "];
+        [importStatements appendString:@_STRINGIFY("")];
+        [importStatements appendString:headerFileName];
+        [importStatements appendString:@_STRINGIFY("")];
+        [importStatements appendString:@"\n"];
+    }];
+
+    return [NSString new];
+};
+
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Shader3D : ResCount

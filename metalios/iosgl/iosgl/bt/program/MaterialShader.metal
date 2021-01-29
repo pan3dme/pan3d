@@ -7,8 +7,10 @@
 //
 
 #include <metal_stdlib>
-using namespace metal;
 #include "MaterialShaderType.h"
+
+using namespace metal;
+
 
  
 typedef struct
