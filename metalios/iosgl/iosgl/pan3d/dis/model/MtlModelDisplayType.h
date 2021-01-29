@@ -27,6 +27,15 @@ typedef struct
 } ModelVertex;
 typedef struct
 {
+    vector_float4 data;
+} ModelVertexfloat4;
+typedef struct
+{
+    vector_float2 data;
+} ModelVertexfloat2;
+
+typedef struct
+{
    matrix_float4x4 projectionMatrix;
    matrix_float4x4 modelViewMatrix;
 } ModelMatrixView;

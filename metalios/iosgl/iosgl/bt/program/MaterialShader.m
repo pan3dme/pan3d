@@ -48,8 +48,18 @@
         float2 textureCoordinate;
     } MaterialShaderVertex;
                                      
-           
-                                     
+                                     typedef struct
+                                     {
+        float4 data;
+ 
+    } MaterialShaderVertexFloat4;
+                                     typedef struct
+                                     {
+        float2 data;
+ 
+    } MaterialShaderVertexFloat2;
+    
+                                
                                      typedef struct
                                      {
         float4x4 matrix;
@@ -57,13 +67,14 @@
                                      
                                      
      vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
-                                                       constant MaterialShaderVertex *vertexArray [[ buffer(0) ]],
-                                                       constant MaterialMatrix *viewMatrix [[ buffer(1) ]],
-                                                       constant MaterialMatrix *posMatrix [[ buffer(2) ]]
+                                                       constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
+                                                       constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
+                                                       constant MaterialMatrix *viewMatrix [[ buffer(2) ]],
+                                                       constant MaterialMatrix *posMatrix [[ buffer(3) ]]
                                                        ) {
          MaterialOutVertices out;
-         out.vPosition = viewMatrix->matrix * posMatrix->matrix * vertexArray[vertexID].position;
-         out.vTextCoord = vertexArray[vertexID].textureCoordinate;
+         out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
+         out.vTextCoord = v2TexCoord[vertexID].data;
          return out;
      }
 

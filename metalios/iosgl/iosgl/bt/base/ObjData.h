@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLuint dataViewBuffer ;
 
 @property (nonatomic, strong) id<MTLBuffer> mtkvertices;
+@property (nonatomic, strong) id<MTLBuffer> mtkpostions;
+@property (nonatomic, strong) id<MTLBuffer> mtkuvs;
 @property (nonatomic, strong) id<MTLBuffer> mtkindexs;
 @property (nonatomic, assign) NSUInteger mtkindexCount;
 

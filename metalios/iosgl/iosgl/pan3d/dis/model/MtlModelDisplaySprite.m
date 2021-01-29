@@ -147,7 +147,7 @@
  
     [renderEncoder setVertexBytes:&viewMatrix
                            length:sizeof(viewMatrix)
-                          atIndex:1];
+                          atIndex:2];
     
     
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
@@ -157,7 +157,7 @@
     MaterialShaderMatrixView matrix = { [posMatrix getMatrixFloat4x4]};
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
-                          atIndex:2];
+                          atIndex:3];
     
 
     
@@ -170,9 +170,16 @@
     id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     [self.material.shader mtlSetProgramShader];
     [self setupMatrixWithEncoder:renderEncoder];
-    [renderEncoder setVertexBuffer: self.objData.mtkvertices
+    
+    [renderEncoder setVertexBuffer: self.objData.mtkpostions
                             offset:0
                            atIndex:0];
+    
+    [renderEncoder setVertexBuffer: self.objData.mtkuvs
+                            offset:0
+                           atIndex:1];
+    
+  
     
     
     
