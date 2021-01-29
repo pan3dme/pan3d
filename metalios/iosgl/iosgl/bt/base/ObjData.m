@@ -108,55 +108,43 @@
 
 -(void)changeObjDataToMtkGpu ;
 {
+    [self changeObjDataIndexToMtkGpu];
+    [self changeObjDataVerticesToMtkGpu];
+    [self changeObjDataUvsToMtkGpu];
+}
+//索引
+-(void)changeObjDataIndexToMtkGpu ;
+{
     ObjData* value=self;
-    ModelVertex quarr[value.vertices.count/3];
     int idxs[value.indexs.count];
-    for (int i=0; i<value.vertices.count/3; i++) {
-        Vector3D* pos=  [[Vector3D alloc]x:[value.vertices[i*3+0] floatValue] y:[value.vertices[i*3+1] floatValue] z:[value.vertices[i*3+2] floatValue]];
-     
-        quarr[i]=(ModelVertex){{pos.x,pos.y,pos.z,1},        {[value.uvs[i*2+0] floatValue],[value.uvs[i*2+1] floatValue]}};
-   
-    }
     for (int i=0; i<value.indexs.count ; i++) {
         idxs[i]=[value.indexs[i] intValue];
     }
-    value.mtkvertices = [self.scene3D.mtkView.device newBufferWithBytes:quarr
-                                                 length:sizeof(quarr)
-                                                options:MTLResourceStorageModeShared];
-    
-    
-    
-
     value.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:idxs
                                                      length:sizeof(idxs)
                                                     options:MTLResourceStorageModeShared];
     value.mtkindexCount = value.indexs.count;
- 
-    [self changeObjDataToMtkGpuPosV4];
-    [self changeObjDataToMtkGpuPosV2Uvs];
+  
 }
-
--(void)changeObjDataToMtkGpuPosV4 ;
+//顶点
+-(void)changeObjDataVerticesToMtkGpu ;
 {
     ObjData* value=self;
     ModelVertexfloat4 quarr[value.vertices.count/3];
     for (int i=0; i<value.vertices.count/3; i++) {
         Vector3D* pos=  [[Vector3D alloc]x:[value.vertices[i*3+0] floatValue] y:[value.vertices[i*3+1] floatValue] z:[value.vertices[i*3+2] floatValue]];
-   
         quarr[i]=(ModelVertexfloat4){{pos.x,pos.y,pos.z,1} };
    
     }
     
-    value.mtkpostions = [self.scene3D.mtkView.device newBufferWithBytes:quarr
+    value.mtkvertices = [self.scene3D.mtkView.device newBufferWithBytes:quarr
                                                  length:sizeof(quarr)
                                                 options:MTLResourceStorageModeShared];
     
-    
-    
- 
  
 }
--(void)changeObjDataToMtkGpuPosV2Uvs ;
+//纹理
+-(void)changeObjDataUvsToMtkGpu ;
 {
     ObjData* value=self;
     ModelVertexfloat2 quarr[value.uvs.count/2];

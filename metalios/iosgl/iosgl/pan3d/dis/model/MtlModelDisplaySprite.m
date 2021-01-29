@@ -139,10 +139,7 @@
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
     
     static float y = 0.0 ;
-    //   y+=0.1;
-    
-    
-    
+ 
     MaterialShaderViewMatrix viewMatrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4] };
  
     [renderEncoder setVertexBytes:&viewMatrix
@@ -158,10 +155,7 @@
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
                           atIndex:3];
-    
-
-    
-    
+     
 }
 -(void)updata  {
     if(self.objData==nil){
@@ -171,7 +165,7 @@
     [self.material.shader mtlSetProgramShader];
     [self setupMatrixWithEncoder:renderEncoder];
     
-    [renderEncoder setVertexBuffer: self.objData.mtkpostions
+    [renderEncoder setVertexBuffer: self.objData.mtkvertices
                             offset:0
                            atIndex:0];
     
@@ -179,9 +173,7 @@
                             offset:0
                            atIndex:1];
     
-  
-    
-    
+
     
     [self setMaterialTexture:self.material mp:self.materialParam];
     
