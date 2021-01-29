@@ -40,7 +40,7 @@
         float4 vPosition [[position]];
         float2 vTextCoord;
         
-    } MaterialShaderData;
+    } MaterialOutVertices;
                                      
                                      typedef struct
                                      {
@@ -48,36 +48,36 @@
         float2 textureCoordinate;
     } MaterialShaderVertex;
                                      
-                                     typedef struct
-                                     {
-        float4x4 matrix;
-    } MaterialShaderMatrixView;
+           
                                      
                                      typedef struct
                                      {
         float4x4 matrix;
-    } MaterialShaderViewMatrix; 
-                                     vertex MaterialShaderData   vertexMaterialShader(uint vertexID [[ vertex_id ]],
-                                                                                      constant MaterialShaderVertex *vertexArray [[ buffer(0) ]],
-                                                                                      constant MaterialShaderViewMatrix *viewMatrix [[ buffer(1) ]],
-                                                                                      constant MaterialShaderMatrixView *posMatrix [[ buffer(2) ]]
-                                                                                      ) {
-        MaterialShaderData out;
-        out.vPosition = viewMatrix->matrix * posMatrix->matrix * vertexArray[vertexID].position;
-        out.vTextCoord = vertexArray[vertexID].textureCoordinate;
-        return out;
-    }
+    } MaterialMatrix;
                                      
-                                     fragment float4   fragmentMaterialShader(MaterialShaderData input [[stage_in]],
-                                                                              texture2d<half> textureColor [[ texture(0) ]])
-                                     {
-        constexpr sampler textureSampler (mag_filter::linear,
-                                          min_filter::linear);
-        
-        half4 colorTex = textureColor.sample(textureSampler, input.vTextCoord);
-//          colorTex = half4(1, 0,0, 1);
-        return float4(colorTex);
-    }
+                                     
+     vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
+                                                       constant MaterialShaderVertex *vertexArray [[ buffer(0) ]],
+                                                       constant MaterialMatrix *viewMatrix [[ buffer(1) ]],
+                                                       constant MaterialMatrix *posMatrix [[ buffer(2) ]]
+                                                       ) {
+         MaterialOutVertices out;
+         out.vPosition = viewMatrix->matrix * posMatrix->matrix * vertexArray[vertexID].position;
+         out.vTextCoord = vertexArray[vertexID].textureCoordinate;
+         return out;
+     }
+
+     fragment float4   fragmentMaterialShader(MaterialOutVertices input [[stage_in]],
+                                              texture2d<half> textureColor [[ texture(0) ]])
+     {
+         constexpr sampler textureSampler (mag_filter::linear,
+                                           min_filter::linear);
+         
+         half4 colorTex = textureColor.sample(textureSampler, input.vTextCoord);
+         //          colorTex = half4(1, 0,0, 1);
+         return float4(colorTex);
+     }
+                                      
                                      
                                      )];
     

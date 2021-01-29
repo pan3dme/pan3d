@@ -44,4 +44,5 @@ fragmentMaterialShader(MaterialShaderData input [[stage_in]],
   return float4(colorTex);
 }
  
- 
+
+
