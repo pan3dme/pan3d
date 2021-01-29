@@ -138,24 +138,23 @@
 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
     
-    static float y = 0.0 ;
  
-    MaterialShaderViewMatrix viewMatrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4] };
- 
-    [renderEncoder setVertexBytes:&viewMatrix
-                           length:sizeof(viewMatrix)
-                          atIndex:2];
-    
-    
+  
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
     [posMatrix appendScale:0.25 y:0.25 z:0.25];
-    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-    
-    MaterialShaderMatrixView matrix = { [posMatrix getMatrixFloat4x4]};
-    [renderEncoder setVertexBytes:&matrix
-                           length:sizeof(matrix)
-                          atIndex:3];
+    [posMatrix appendRotation:0 axis:Vector3D.Y_AXIS];
+
+  
+    [self setMatrixVc:self.mtkScene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:2];
+    [self setMatrixVc:posMatrix renderEncoder:renderEncoder idx:3];
      
+}
+-(void)setMatrixVc:(Matrix3D*)m renderEncoder:(id<MTLRenderCommandEncoder>)renderEncoder   idx:(int)idx
+{
+    matrix_float4x4 viewMatrix = [m getMatrixFloat4x4] ;
+    [renderEncoder setVertexBytes:&viewMatrix
+                           length:sizeof(matrix_float4x4)
+                          atIndex:idx];
 }
 -(void)updata  {
     if(self.objData==nil){
