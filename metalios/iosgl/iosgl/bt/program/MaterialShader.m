@@ -98,57 +98,44 @@
                                      )];
     
     //输入索引，顶点，纹理，矩阵
-    NSString * vertexStrInputArr    = [NSString stringWithFormat:@"%s",
-                          _STRINGIFY(
-                                     (uint vertexID [[ vertex_id ]],
-                                   constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
-                                   constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
-                                   constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
-                                   constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
-                                   constant MaterialMatrix *posMatrix [[ buffer(4) ]]
-                                   )
-                                      
-                                     
-                                     )];
-    NSString * vertexMathMulArr    = [NSString stringWithFormat:@"%s",
-                          _STRINGIFY(
-      
-                                     MaterialOutVertices out;
-                                    out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
-                                    out.vTextCoord = v2TexCoord[vertexID].data;
-                                    out.vTextLight = v2LightUv[vertexID].data;
- 
-                          )];
+
+  
     
-    
-    NSString * outBaseStr    = [NSString stringWithFormat:@"%@ %s %@ %s %@",
-                               @"vertex MaterialOutVertices   vertexMaterialShader",
-            _STRINGIFY(
-                (uint vertexID [[ vertex_id ]],
-                    constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
-                    constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
-                    constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
-                    constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
-                    constant MaterialMatrix *posMatrix [[ buffer(4) ]]
-                )
-            ),
-            @"{",
-            _STRINGIFY(
-                MaterialOutVertices out;
-                out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
-                out.vTextCoord = v2TexCoord[vertexID].data;
-                out.vTextLight = v2LightUv[vertexID].data;
-                return out;
-            ),
-            @"}"
-            ];
+    NSString * outBaseStr    = [self getVertexShaderStringMtk];
     
     code=   [code stringByAppendingString:outBaseStr];
  
- 
- 
+  
     
     return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
+}
+-(NSString*)getVertexShaderStringMtk
+{
+    
+    //输入对象列表
+    NSString* inputVecStr =
+    @"(uint vertexID [[ vertex_id ]],\n"
+    "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
+    "constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],\n"
+    "constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],\n"
+    "constant MaterialMatrix *viewMatrix [[ buffer(3) ]],\n"
+    "constant MaterialMatrix *posMatrix [[ buffer(4) ]]\n"
+    ")";
+    NSString* addstr=
+    @"MaterialOutVertices out;\n"
+    "out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;\n"
+    "out.vTextCoord = v2TexCoord[vertexID].data;\n"
+    "out.vTextLight = v2LightUv[vertexID].data;\n"
+    "return out;\n";
+
+
+    NSString * outBaseStr    = [NSString stringWithFormat:@"%@ %@ { %@ }",
+    @"vertex MaterialOutVertices   vertexMaterialShader ",
+    inputVecStr,
+    addstr
+    ];
+    
+    return outBaseStr;
 }
 
 -(void)mtlEncode
