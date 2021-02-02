@@ -111,28 +111,161 @@
 }
 -(NSString*)getVertexShaderStringMtk
 {
+    MaterialShader* this=self;
+    BOOL usePbr    = [this.paramAry[0] boolValue];
+    BOOL useNormal = [this.paramAry[1]boolValue];
+    BOOL hasFresnel = [this.paramAry[2] boolValue];
+    BOOL useDynamicIBL = [this.paramAry[3] boolValue];
+    BOOL lightProbe = [this.paramAry[4]boolValue];
+    BOOL directLight = [this.paramAry[5]boolValue];
+    BOOL noLight = [this.paramAry[6]boolValue];
+    BOOL fogMode = [this.paramAry[7]boolValue];
     
+    int viewMatrix_id=2;
+    int posMatrix_id=3;
     //输入对象列表
-    NSString* inputVecStr =
-    @"(uint vertexID [[ vertex_id ]],\n"
+    NSString* inputVecStrMtk =
+    @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
     "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
     "constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],\n"
     "constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],\n"
     "constant MaterialMatrix *viewMatrix [[ buffer(3) ]],\n"
     "constant MaterialMatrix *posMatrix [[ buffer(4) ]]\n"
     ")";
-    NSString* addstr=
-    @"MaterialOutVertices out;\n"
+    
+    
+    NSString* addstrMtk=
+    @"{MaterialOutVertices out;\n"
     "out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;\n"
     "out.vTextCoord = v2TexCoord[vertexID].data;\n"
     "out.vTextLight = v2LightUv[vertexID].data;\n"
-    "return out;\n";
+    "return out;\n}";
+    
+    NSString* str=  @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
+    "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
+    "constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],\n";
+    NSString* addstr=@"";
+    
+    if (directLight) {
+//        addstr= @"varying vec3 v2;\n";
+//        str=  [str stringByAppendingString:addstr];
+    } else if (noLight) {
+        
+    } else {
+        addstr=
+        @"constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],\n";
+        str=  [str stringByAppendingString:addstr];
+    }
+    if (usePbr) {
+        /*
+        addstr=
+        @"attribute vec3 v3Normal;\n"
+        "varying vec3 v1;\n";
+        str=  [str stringByAppendingString:addstr];
+        if (!useNormal) {
+            addstr=  @"varying vec3 v4;\n";
+            str=  [str stringByAppendingString:addstr];
+        } else {
+            addstr= @"varying mat3 v4;\n";
+            str=  [str stringByAppendingString:addstr];
+        }
+        */
+    } else if (fogMode != 0) {
+        /*
+        addstr=
+        @"varying vec3 v1;\n";
+        str=  [str stringByAppendingString:addstr];
+         */
+    }
+    if (useNormal) {
+        /*
+        addstr=
+        @"attribute vec3 v3Tangent;\n"
+        "attribute vec3 v3Bitangent;\n";
+        str=  [str stringByAppendingString:addstr];
+         */
+    }
+    if (directLight) {
+        /*
+        if (!usePbr) {
+            addstr=
+            @"attribute vec3 v3Normal;\n";
+            str=  [str stringByAppendingString:addstr];
+        }
+        addstr=
+        @"uniform vec3 sunDirect;\n"
+        "uniform vec3 sunColor;\n"
+        "uniform vec3 ambientColor;\n";
+        str=  [str stringByAppendingString:addstr];
+         */
+    }
+    addstr=
+    @"constant MaterialMatrix *viewMatrix [[ buffer(3) ]],\n"
+    "constant MaterialMatrix *posMatrix [[ buffer(4) ]]\n"
+    ")\n";
+    str=  [str stringByAppendingString:addstr];
+    /*
+    addstr=
+    @"void main(void){\n"
+    "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);\n"
+    "vec4 vt0= vec4(v3Position, 1.0);\n"
+    "vt0 = vt0*posMatrix3D   ;\n";
+    str=  [str stringByAppendingString:addstr];
+     */
+    if (!(directLight || noLight)) {
+        /*
+        addstr=  @"v2 = vec2(v2lightuv.x, v2lightuv.y);\n";
+        str=  [str stringByAppendingString:addstr];
+        */
+    }
+    if (usePbr || fogMode != 0) {
+        /*
+        addstr=
+        @"v1 = vec3(vt0.x,vt0.y,vt0.z);\n";
+        str=  [str stringByAppendingString:addstr];
+        */
+    }
+    /*
+    addstr=
+    @"vt0 = vt0*vpMatrix3D ;\n";
+    str=  [str stringByAppendingString:addstr];
+    */
+    if (usePbr) {
+        /*
+        if (!useNormal) {
+            addstr=  @"v4 =v3Normal* rotationMatrix3D ;\n";
+            str=  [str stringByAppendingString:addstr];
+        } else {
+            addstr=
+            @"v4 = mat3(v3Tangent*rotationMatrix3D  ,v3Bitangent*rotationMatrix3D ,v3Normal* rotationMatrix3D );\n";
+            str=  [str stringByAppendingString:addstr];
+        }
+        */
+    }
+    if (directLight) {/*
+        if (!usePbr) {
+            addstr=
+            @"vec3 n = v3Normal*rotationMatrix3D ;\n"
+            "float suncos = dot(n.xyz,sunDirect.xyz);\n";
+            str=  [str stringByAppendingString:addstr];
+        } else {
+            addstr=
+            @"float suncos = dot(v4.xyz,sunDirect.xyz);\n";
+            str=  [str stringByAppendingString:addstr];
+        }
+        
+        addstr=
+        @"suncos = clamp(suncos,0.0,1.0);\n"
+        "v2 = sunColor * suncos + ambientColor;";
+        str=  [str stringByAppendingString:addstr];
+                       */
+        
+    }
 
 
-    NSString * outBaseStr    = [NSString stringWithFormat:@"%@ %@ { %@ }",
-    @"vertex MaterialOutVertices   vertexMaterialShader ",
-    inputVecStr,
-    addstr
+    NSString * outBaseStr    = [NSString stringWithFormat:@" %@   %@  ",
+                                str,
+                    addstrMtk
     ];
     
     return outBaseStr;
