@@ -121,27 +121,27 @@
                           )];
     
     
-    NSString * outBaseStr    = [NSString stringWithFormat:@"%s%s",
-                                _STRINGIFY(
-                                           vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
-                                                             constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
-                                                             constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
-                                                             constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
-                                                             constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
-                                                             constant MaterialMatrix *posMatrix [[ buffer(4) ]]
-                                                             ) {
-       
-                                ),
-     
-                                _STRINGIFY(
-                                           MaterialOutVertices out;
-                                          out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
-                                          out.vTextCoord = v2TexCoord[vertexID].data;
-                                          out.vTextLight = v2LightUv[vertexID].data;
-                                           return out;
-                                       }
-         
-                                  )];
+    NSString * outBaseStr    = [NSString stringWithFormat:@"%s%@%s%@",
+            _STRINGIFY(
+                vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
+                    constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
+                    constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
+                    constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
+                    constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
+                    constant MaterialMatrix *posMatrix [[ buffer(4) ]]
+                )
+
+            ),
+            @"{",
+            _STRINGIFY(
+                MaterialOutVertices out;
+                out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
+                out.vTextCoord = v2TexCoord[vertexID].data;
+                out.vTextLight = v2LightUv[vertexID].data;
+                return out;
+            ),
+            @"}"
+            ];
     
     code=   [code stringByAppendingString:outBaseStr];
  
