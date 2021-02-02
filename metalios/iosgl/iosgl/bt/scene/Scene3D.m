@@ -19,10 +19,12 @@
 #import "Scene_data.h"
 #import "MtkBaseLine.h"
 #import "MtlModelDisplaySprite.h"
+#import "MtkMoveDisplay3D.h"
 #import "SceneRes.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
 @property(nonatomic,strong)MtkBaseLine* mtkBaseLine;
+@property(nonatomic,strong)MtkMoveDisplay3D* mtkMoveDisplay3D;
 @end
 @implementation Scene3D
 - (instancetype)init:(UIView *)value
@@ -59,6 +61,7 @@
     self.modelList=[[NSMutableArray alloc] init];
     [self loadSeceneByUrl:@"2014"];
     self.mtkBaseLine=[[MtkBaseLine alloc]init:self];
+    self.mtkMoveDisplay3D=[[MtkMoveDisplay3D alloc]init:self];
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
@@ -66,7 +69,8 @@
  
     [self.camera3D upFrame];
     [self updateModelList];
-    [self.mtkBaseLine updata];
+//    [self.mtkBaseLine updata];
+    [self.mtkMoveDisplay3D updata];
     [self.context3D mtkpresent];
 }
 -(void)parsingBuildItem:(NSDictionary*)value;
