@@ -121,16 +121,16 @@
                           )];
     
     
-    NSString * outBaseStr    = [NSString stringWithFormat:@"%s%@%s%@",
+    NSString * outBaseStr    = [NSString stringWithFormat:@"%@ %s %@ %s %@",
+                               @"vertex MaterialOutVertices   vertexMaterialShader",
             _STRINGIFY(
-                vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
+                (uint vertexID [[ vertex_id ]],
                     constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
                     constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
                     constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
                     constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
                     constant MaterialMatrix *posMatrix [[ buffer(4) ]]
                 )
-
             ),
             @"{",
             _STRINGIFY(
