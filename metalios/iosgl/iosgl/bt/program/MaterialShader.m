@@ -98,11 +98,7 @@
                                      )];
     
     //输入索引，顶点，纹理，矩阵
-
-  
-    
     NSString * outBaseStr    = [self getVertexShaderStringMtk];
-    
     code=   [code stringByAppendingString:outBaseStr];
  
   
@@ -114,32 +110,15 @@
     MaterialShader* this=self;
     BOOL usePbr    = [this.paramAry[0] boolValue];
     BOOL useNormal = [this.paramAry[1]boolValue];
-    BOOL hasFresnel = [this.paramAry[2] boolValue];
-    BOOL useDynamicIBL = [this.paramAry[3] boolValue];
-    BOOL lightProbe = [this.paramAry[4]boolValue];
+//    BOOL hasFresnel = [this.paramAry[2] boolValue];
+//    BOOL useDynamicIBL = [this.paramAry[3] boolValue];
+//    BOOL lightProbe = [this.paramAry[4]boolValue];
     BOOL directLight = [this.paramAry[5]boolValue];
     BOOL noLight = [this.paramAry[6]boolValue];
     BOOL fogMode = [this.paramAry[7]boolValue];
     
     int matrix_star_id=2;
  
-    //输入对象列表
-    NSString* inputVecStrMtk =
-    @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
-    "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
-    "constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],\n"
-    "constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],\n"
-    "constant MaterialMatrix *viewMatrix [[ buffer(3) ]],\n"
-    "constant MaterialMatrix *posMatrix [[ buffer(4) ]]\n"
-    ")";
-    
-    
-    NSString* addstrMtk=
-    @"{MaterialOutVertices out;\n"
-    "out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;\n"
-    "out.vTextCoord = v2TexCoord[vertexID].data;\n"
-    "out.vTextLight = v2LightUv[vertexID].data;\n"
-    "return out;\n}";
     
     NSString* str=  @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
     "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
@@ -152,7 +131,7 @@
     } else if (noLight) {
         
     } else {
-        matrix_star_id++; //3
+        matrix_star_id++; //3索引加1
         addstr=
         @"constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],\n";
         str=  [str stringByAppendingString:addstr];
@@ -205,19 +184,18 @@
     "constant MaterialMatrix *posMatrix [[ buffer(%d) ]]\n"    //4
     ")\n",matrix_star_id,matrix_star_id+1];
     str=  [str stringByAppendingString:addstr];
-    /*
-    addstr=
-    @"void main(void){\n"
-    "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);\n"
-    "vec4 vt0= vec4(v3Position, 1.0);\n"
-    "vt0 = vt0*posMatrix3D   ;\n";
+ 
+    addstr=@"{\n"
+    "MaterialOutVertices out;\n"
+    "out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;\n"
+    "out.vTextCoord = v2TexCoord[vertexID].data;\n"  ;
+    
     str=  [str stringByAppendingString:addstr];
-     */
+     
     if (!(directLight || noLight)) {
-        /*
-        addstr=  @"v2 = vec2(v2lightuv.x, v2lightuv.y);\n";
+        addstr=  @"out.vTextLight = v2LightUv[vertexID].data;\n";
         str=  [str stringByAppendingString:addstr];
-        */
+      
     }
     if (usePbr || fogMode != 0) {
         /*
@@ -262,14 +240,11 @@
                        */
         
     }
+    addstr=@"return out;\n}";
+    str=  [str stringByAppendingString:addstr];
+ 
 
-
-    NSString * outBaseStr    = [NSString stringWithFormat:@" %@   %@  ",
-                                str,
-                    addstrMtk
-    ];
-    
-    return outBaseStr;
+    return str;
 }
 
 -(void)mtlEncode
@@ -305,33 +280,12 @@
     
     MaterialShader* this=self;
     
-    char* relplayChat =
-    "attribute vec3 v3Position;\n"
-    "attribute vec2 v2CubeTexST;\n"
-    "attribute vec3 v3Normal;\n"
-    "uniform mat4 vpMatrix3D;\n"
-    "uniform mat4 posMatrix3D;\n"
-    "uniform mat3 rotationMatrix3D;\n"
-    "varying vec2 v0;\n"
-    "varying vec3 v1;\n"
-    "varying vec3 v4;\n"
-    "void main()"
-    "{"
-    "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);\n"
-    "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
-    "vec4 vt0= vec4(v3Position, 1.0);\n"
-    "vt0 = posMatrix3D * vt0;\n"
-    "v1 = vec3(vt0.x,vt0.y,vt0.z);\n"
-    "vt0 = vpMatrix3D * vt0;"
-    "v4 = rotationMatrix3D * v3Normal;"
-    "gl_Position = vPos * posMatrix3D* vpMatrix3D;\n"
-    "}";
     
     BOOL usePbr    = [this.paramAry[0] boolValue];
     BOOL useNormal = [this.paramAry[1]boolValue];
-    BOOL hasFresnel = [this.paramAry[2] boolValue];
-    BOOL useDynamicIBL = [this.paramAry[3] boolValue];
-    BOOL lightProbe = [this.paramAry[4]boolValue];
+//    BOOL hasFresnel = [this.paramAry[2] boolValue];
+//    BOOL useDynamicIBL = [this.paramAry[3] boolValue];
+//    BOOL lightProbe = [this.paramAry[4]boolValue];
     BOOL directLight = [this.paramAry[5]boolValue];
     BOOL noLight = [this.paramAry[6]boolValue];
     BOOL fogMode = [this.paramAry[7]boolValue];
@@ -442,12 +396,8 @@
     }
     addstr= @"gl_Position = vt0; }";
     str=  [str stringByAppendingString:addstr];
-    
-    // NSLog(@"\n%@",str);
-    
     return str;
-    
-    // return    [ NSString stringWithFormat:@"%s" ,relplayChat];
+ 
     
 }
 -(NSString *)getFragmentShaderString;{
