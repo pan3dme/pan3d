@@ -39,6 +39,7 @@
                                      {
         float4 vPosition [[position]];
         float2 vTextCoord;
+        float2 vTextLight;
         
     } MaterialOutVertices;
                                      
@@ -66,31 +67,86 @@
     } MaterialMatrix;
                                      
                                      
-     vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
-                                                       constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
-                                                       constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
-                                                       constant MaterialMatrix *viewMatrix [[ buffer(2) ]],
-                                                       constant MaterialMatrix *posMatrix [[ buffer(3) ]]
-                                                       ) {
-         MaterialOutVertices out;
-         out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
-         out.vTextCoord = v2TexCoord[vertexID].data;
-         return out;
-     }
+    
 
      fragment float4   fragmentMaterialShader(MaterialOutVertices input [[stage_in]],
-                                              texture2d<half> textureColor [[ texture(0) ]])
+                                              texture2d<half> textureColor [[ texture(0)]],texture2d<half> textureLight [[ texture(1)]])
      {
-         constexpr sampler textureSampler (mag_filter::linear,
-                                           min_filter::linear);
+         constexpr sampler textureSampler (mag_filter::linear, min_filter::linear);
          
-         half4 colorTex = textureColor.sample(textureSampler, input.vTextCoord);
-         //          colorTex = half4(1, 0,0, 1);
-         return float4(colorTex);
+        half4 colorTexA = textureColor.sample(textureSampler, input.vTextCoord);
+        half4 colorTexB = textureLight.sample(textureSampler, input.vTextLight);
+ 
+         return float4(colorTexA*colorTexB);
      }
+                                     
+                     
+//     vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
+//                                                       constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
+//                                                       constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
+//                                                       constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
+//                                                       constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
+//                                                       constant MaterialMatrix *posMatrix [[ buffer(4) ]]
+//                                                       ) {
+//         MaterialOutVertices out;
+//        out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
+//        out.vTextCoord = v2TexCoord[vertexID].data;
+//        out.vTextLight = v2LightUv[vertexID].data;
+//         return out;
+//     }
+                                     
+                                     )];
+    
+    //输入索引，顶点，纹理，矩阵
+    NSString * vertexStrInputArr    = [NSString stringWithFormat:@"%s",
+                          _STRINGIFY(
+                                     (uint vertexID [[ vertex_id ]],
+                                   constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
+                                   constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
+                                   constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
+                                   constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
+                                   constant MaterialMatrix *posMatrix [[ buffer(4) ]]
+                                   )
                                       
                                      
                                      )];
+    NSString * vertexMathMulArr    = [NSString stringWithFormat:@"%s",
+                          _STRINGIFY(
+      
+                                     MaterialOutVertices out;
+                                    out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
+                                    out.vTextCoord = v2TexCoord[vertexID].data;
+                                    out.vTextLight = v2LightUv[vertexID].data;
+ 
+                          )];
+    
+    
+    NSString * outBaseStr    = [NSString stringWithFormat:@"%s%s",
+                                _STRINGIFY(
+                                           vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
+                                                             constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
+                                                             constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
+                                                             constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
+                                                             constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
+                                                             constant MaterialMatrix *posMatrix [[ buffer(4) ]]
+                                                             ) {
+       
+                                ),
+     
+                                _STRINGIFY(
+                                           MaterialOutVertices out;
+                                          out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
+                                          out.vTextCoord = v2TexCoord[vertexID].data;
+                                          out.vTextLight = v2LightUv[vertexID].data;
+                                           return out;
+                                       }
+         
+                                  )];
+    
+    code=   [code stringByAppendingString:outBaseStr];
+ 
+ 
+ 
     
     return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
 }

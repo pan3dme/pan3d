@@ -149,7 +149,7 @@
                 
                 if( self.lightTextureRes){
                     [renderEncoder setFragmentTexture:self.lightTextureRes.mtlTexture
-                                              atIndex:0];
+                                              atIndex:1];
                 }
             }
             
@@ -168,8 +168,8 @@
     [posMatrix appendRotation:0 axis:Vector3D.Y_AXIS];
 
   
-    [self setMatrixVc:self.mtkScene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:2];
-    [self setMatrixVc:posMatrix renderEncoder:renderEncoder idx:3];
+    [self setMatrixVc:self.mtkScene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:3];
+    [self setMatrixVc:posMatrix renderEncoder:renderEncoder idx:4];
      
 }
 -(void)setMatrixVc:(Matrix3D*)m renderEncoder:(id<MTLRenderCommandEncoder>)renderEncoder   idx:(int)idx
@@ -191,9 +191,13 @@
                             offset:0
                            atIndex:0];
     
-    [renderEncoder setVertexBuffer: self.objData.mtklightuvs
+    [renderEncoder setVertexBuffer: self.objData.mtkuvs
                             offset:0
                            atIndex:1];
+    
+    [renderEncoder setVertexBuffer: self.objData.mtklightuvs
+                            offset:0
+                           atIndex:2];
     
 
     
