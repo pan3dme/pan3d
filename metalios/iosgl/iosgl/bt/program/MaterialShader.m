@@ -77,7 +77,7 @@
         half4 colorTexA = textureColor.sample(textureSampler, input.vTextCoord);
         half4 colorTexB = textureLight.sample(textureSampler, input.vTextLight);
  
-         return float4(colorTexA*colorTexB);
+         return float4(colorTexA*colorTexB*2.0f);
      }
                                      
                      
