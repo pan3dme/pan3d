@@ -121,8 +121,8 @@
     BOOL noLight = [this.paramAry[6]boolValue];
     BOOL fogMode = [this.paramAry[7]boolValue];
     
-    int viewMatrix_id=2;
-    int posMatrix_id=3;
+    int matrix_star_id=2;
+ 
     //输入对象列表
     NSString* inputVecStrMtk =
     @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
@@ -152,6 +152,7 @@
     } else if (noLight) {
         
     } else {
+        matrix_star_id++; //3
         addstr=
         @"constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],\n";
         str=  [str stringByAppendingString:addstr];
@@ -199,10 +200,10 @@
         str=  [str stringByAppendingString:addstr];
          */
     }
-    addstr=
-    @"constant MaterialMatrix *viewMatrix [[ buffer(3) ]],\n"
-    "constant MaterialMatrix *posMatrix [[ buffer(4) ]]\n"
-    ")\n";
+    addstr=[NSString stringWithFormat:
+    @"constant MaterialMatrix *viewMatrix [[ buffer(%d) ]],\n" //3
+    "constant MaterialMatrix *posMatrix [[ buffer(%d) ]]\n"    //4
+    ")\n",matrix_star_id,matrix_star_id+1];
     str=  [str stringByAppendingString:addstr];
     /*
     addstr=
