@@ -17,7 +17,7 @@ typedef struct
 typedef struct
 {
     vector_float4 data;
-} ModelVertexfloat4;
+} ModelRoleVertexfloat4;
 typedef struct
 {
     vector_float2 data;

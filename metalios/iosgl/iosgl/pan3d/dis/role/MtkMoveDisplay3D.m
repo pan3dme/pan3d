@@ -8,6 +8,8 @@
 
 #import "MtkMoveDisplay3D.h"
 #import "MtkBaseLineShader.h"
+#import "MeshDataManager.h"
+#import "SkinMesh.h"
 #import "../line/MtlBaseLineType.h"
 
 @interface MtkMoveDisplay3D ()
@@ -43,6 +45,16 @@
     
     [self makeGridLine];
     
+    [self setRoleUrl:getRoleUrl(@"50001")];
+    
+}
+-(void)setRoleUrl:(NSString*)value;
+{
+  
+    [[MeshDataManager default]getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
+ 
+        NSLog(@"abc");
+    } batchNum:1];
 }
 -(void)makeGridLine;
 {

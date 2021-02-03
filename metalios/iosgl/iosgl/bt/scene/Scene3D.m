@@ -59,7 +59,7 @@
     [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
     self.modelList=[[NSMutableArray alloc] init];
-    [self loadSeceneByUrl:@"2014"];
+//    [self loadSeceneByUrl:@"2014"];
     self.mtkBaseLine=[[MtkBaseLine alloc]init:self];
     self.mtkMoveDisplay3D=[[MtkMoveDisplay3D alloc]init:self];
 }
@@ -68,7 +68,7 @@
     [self.context3D mtkclearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
  
     [self.camera3D upFrame];
-    [self updateModelList];
+//    [self updateModelList];
 //    [self.mtkBaseLine updata];
     [self.mtkMoveDisplay3D updata];
     [self.context3D mtkpresent];
