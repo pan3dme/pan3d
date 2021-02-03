@@ -10,9 +10,9 @@
 #import "Md5MeshData.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MeshToObjUtils : NSObject
+@interface MeshToObjUtils : GC
  
-+ (instancetype)default;
+//+ (instancetype)default;
 -(NSArray*)getStorNewTargerArr:(NSArray*)targetAry;
 -(void)getObj:(Md5MeshData*)mesh;
 @end

@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MeshDataManager : ResGC
-+ (instancetype)default;
+//+ (instancetype)default;
 -(void)getMeshData:(NSString*)url fun:(SkinMeshBfun)fun batchNum:(int)batchNum;
 -(void)readData:(ByteArray*)byte batchNum:(int)batchNum url:(NSString*)url version:(int)version;
 @end

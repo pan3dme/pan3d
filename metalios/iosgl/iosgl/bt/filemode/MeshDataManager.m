@@ -21,18 +21,19 @@
 @interface MeshDataManager ()
 @property(nonatomic,strong)NSMutableDictionary* loadDic;
 @end
-static MeshDataManager *instance = nil;
+//static MeshDataManager *instance = nil;
 @implementation MeshDataManager
-+ (instancetype)default;
+//+ (instancetype)default;
+//{
+//    if (instance == nil) {
+//        instance = [[MeshDataManager alloc] init];
+//    }
+//    return instance;
+//}
+ 
+- (instancetype)init:(Scene3D *)value
 {
-    if (instance == nil) {
-        instance = [[MeshDataManager alloc] init];
-    }
-    return instance;
-}
-- (instancetype)init
-{
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.dic=[[NSMutableDictionary alloc]init];
         self.loadDic=[[NSMutableDictionary alloc]init];
@@ -54,7 +55,7 @@ static MeshDataManager *instance = nil;
     }
     this.loadDic[url] =[[NSMutableArray alloc]init];
     [this.loadDic[url] addObject:fun];
-    [[ResManager default]loadRoleRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(RoleRes * _Nonnull roleRes) {
+    [self.scene3D.resManager loadRoleRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(RoleRes * _Nonnull roleRes) {
         
         [self roleResCom:roleRes fun:^(NSString *localPath) {
             
@@ -83,7 +84,7 @@ static MeshDataManager *instance = nil;
 
 -(void)readData:(ByteArray*)byte batchNum:(int)batchNum url:(NSString*)url version:(int)version;
 {
-    SkinMesh* skinMesh  =[[SkinMesh alloc]init];
+    SkinMesh* skinMesh  =[[SkinMesh alloc]init:self.scene3D];
     skinMesh.fileScale = [byte readFloat];
     skinMesh.tittleHeight =[byte readFloat];
     skinMesh.hitBox=[[Vector2D alloc]init];
@@ -97,7 +98,7 @@ static MeshDataManager *instance = nil;
     
     for (int i = 0; i < meshNum; i++) {
         
-        MeshData* meshData =[[MeshData alloc]init];
+        MeshData* meshData =[[MeshData alloc]init:self.scene3D];
                        if (version >= 35) {
                            meshData.bindPosAry = [self readBindPosByte:byte];
                        }

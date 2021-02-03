@@ -14,17 +14,17 @@
 @interface ResManager()
 
 @end
-static ResManager *instance = nil;
+//static ResManager *instance = nil;
 @implementation ResManager
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[ResManager alloc] init];
-    }
-    return instance;
-}
+//+ (instancetype)default{
+//    if (instance == nil) {
+//        instance = [[ResManager alloc] init];
+//    }
+//    return instance;
+//}
 -(void)loadRoleRes:(NSString*)url fun:(RoleResBfun)fun meshBatchNum:(int)meshBatchNum;
 {
-    RoleRes* roleRes = [[RoleRes alloc]init];
+    RoleRes* roleRes = [[RoleRes alloc]init:self.scene3D];
      roleRes.meshBatchNum = meshBatchNum;
     [roleRes load:url fun:^(NSString *localPath) {
         fun(roleRes);

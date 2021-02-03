@@ -68,7 +68,7 @@
     int actionNum = [actionByte readInt];
     for (int i = 0; i < actionNum; i++) {
         NSString* actionName   = [actionByte readUTF];
-        [[AnimManager default] readData:actionByte url:[self.roleUrl stringByAppendingString:actionName]];
+        [self.scene3D.animManager readData:actionByte url:[self.roleUrl stringByAppendingString:actionName]];
         [self.actionAry addObject:actionName];
     }
     [self read:^(NSString* code) {
@@ -107,7 +107,9 @@
     this.nrmDircet.y = [this.byte readFloat];
     this.nrmDircet.z = [this.byte readFloat];
     
-    [[MeshDataManager default] readData:self.byte batchNum:this.meshBatchNum url:this.roleUrl version:this.version];
+
+    
+    [    this.scene3D.meshDataManager readData:self.byte batchNum:this.meshBatchNum url:this.roleUrl version:this.version];
 }
  
 @end

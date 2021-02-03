@@ -17,14 +17,16 @@
 #import "ObjectWeight.h"
 #import "Md5MeshData.h"
 #import "AnimManager.h"
-static MeshToObjUtils *instance = nil;
+//static MeshToObjUtils *instance = nil;
 @implementation MeshToObjUtils
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[MeshToObjUtils alloc] init];
-    }
-    return instance;
-}
+//+ (instancetype)default{
+//    if (instance == nil) {
+//        instance = [[MeshToObjUtils alloc] init];
+//    }
+//    return instance;
+//}
+
+
 -(NSArray*)getStorNewTargerArr:(NSArray*)targetAry
 {
     NSMutableArray* newTargetAry  = [[NSMutableArray alloc] init];
@@ -53,7 +55,8 @@ static MeshToObjUtils *instance = nil;
     for (int i = 0; i < boneItemAry.count; i++) {
         ObjectBone* objbone = boneItemAry[i];
         Quaternion* OldQ =   [[Quaternion alloc]x:objbone.qx y:objbone.qy z:objbone.qz];
-        OldQ.w = [[AnimManager default]getW:OldQ.x  y:OldQ.y z:OldQ.z];
+        
+        OldQ.w = [self.scene3D.animManager getW:OldQ.x  y:OldQ.y z:OldQ.z];
         Matrix3D* newM = [OldQ toMatrix3D];
         [newM appendTranslation:objbone.tx y:objbone.ty z:objbone.tz];
         objbone.matrix = newM;
@@ -115,7 +118,7 @@ static MeshToObjUtils *instance = nil;
     }
 }
 -(NSArray*) processBoneNew:(NSArray* ) targetAry{
-    NSArray* newTargetAry=[[MeshToObjUtils default]getStorNewTargerArr: targetAry ];
+    NSArray* newTargetAry=[self.scene3D.meshToObjUtils getStorNewTargerArr: targetAry ];
     NSMutableArray* mapkeyAry  =[[NSMutableArray alloc] init];//新旧ID映射关系
     for (int i = 0; i < targetAry.count; i++) {
         int index=[self indexOf:newTargetAry find:targetAry[i]];

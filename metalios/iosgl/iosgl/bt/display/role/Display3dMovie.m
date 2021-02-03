@@ -42,7 +42,7 @@
  
 @end
 @implementation Display3dMovie
-- (instancetype)init
+- (instancetype)init:value
 {
     /*
      [0]    (null)    @"attack_03" : (no summary)
@@ -62,7 +62,7 @@
      [14]    (null)    @"attack_020" : (no summary)
      [15]    (null)    @"m_attack_04" : (no summary)
      */
-    self = [super init];
+    self = [super init:value];
     if (self) {
         Display3dMovie* this=self;
         
@@ -142,7 +142,8 @@
 -(void)setRoleUrl:(NSString*)value;
 {
      Display3dMovie* this =self;
-    [[MeshDataManager default]getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
+    
+    [self.mtkScene3D.meshDataManager getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
         this.skinMesh=skinMesh;
         this.fileScale=skinMesh.fileScale;
         this.animDic = skinMesh.animDic;

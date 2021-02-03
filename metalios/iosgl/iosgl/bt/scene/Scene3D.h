@@ -23,7 +23,11 @@
 @class TextureManager;
 @class ObjDataManager;
 @class ProgrmaManager;
+@class MeshDataManager;
 @class MaterialManager;
+@class MeshToObjUtils;
+@class AnimManager;
+@class ResManager;
 @class Display3dMovie;
 @class MtlModelDisplaySprite;
 
@@ -46,6 +50,13 @@ float _sceneScale;
 @property (nonatomic, strong) ObjDataManager *objDataManager;
 @property (nonatomic, strong) MaterialManager *materialManager;
 @property (nonatomic, strong) ProgrmaManager *progrmaManager;
+@property (nonatomic, strong) MeshDataManager *meshDataManager;
+@property (nonatomic, strong) MeshToObjUtils *meshToObjUtils;
+
+@property (nonatomic, strong) AnimManager *animManager;
+
+@property (nonatomic, strong) ResManager *resManager;
+
 
 
 @property (nonatomic, strong) TextureManager *textureManager;

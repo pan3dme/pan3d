@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ResManager : ResGC
-+ (instancetype)default;
+//+ (instancetype)default;
 -(void)loadRoleRes:(NSString*)url fun:(RoleResBfun)fun meshBatchNum:(int)meshBatchNum;
 -(void)loadSkillRes:(NSString*)url fun:(SkillResBfun)fun;
 @end

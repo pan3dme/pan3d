@@ -10,6 +10,8 @@
 #import "MtkMoveDisplayShader.h"
 #import "MeshDataManager.h"
 #import "SkinMesh.h"
+#import "AnimData.h"
+#import "DualQuatFloat32Array.h"
 #import "MtlMoveDisplayType.h"
 
 @interface MtkMoveDisplay3D ()
@@ -48,6 +50,68 @@
     [self setRoleUrl:getRoleUrl(@"50001")];
     
 }
+-(void)updateMaterialMesh:(MeshData*)mesh;
+{
+    MtkMoveDisplay3D* this=self;
+    if (!mesh.material) {
+        return;
+    }
+    this.shader3d=mesh.material.shader;
+    Context3D *ctx=this.mtkScene3D.context3D;
+    [ctx setProgram:this.shader3d.program];
+    [ctx setBlendParticleFactors:mesh.material.blendMode];
+    [ctx cullFaceBack:mesh.material.backCull];
+    mesh.material.shader=this.shader3d;
+    [this setMaterialTexture:mesh.material mp:mesh.materialParam];
+    [this setMaterialVc:mesh.material mp:mesh.materialParam];
+    [this setVc];
+    [this setMeshVc:mesh];
+    [this setVaCompress:mesh];
+    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+    
+}
+-(void)setVaCompress:(MeshData*)mesh;
+{
+    Display3dMovie* this=self;
+    
+    Context3D *ctx=this.mtkScene3D.context3D;
+    [ctx pushVa:mesh.verticesBuffer];
+    [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
+    [ctx pushVa:    mesh.uvBuffer];
+    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
+    [ctx pushVa: mesh.boneIdBuffer];
+    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
+    [ctx pushVa: mesh.boneWeightBuffer];
+    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
+  
+    
+}
+-(void)setMeshVc:(MeshData*)mesh;
+{
+    MtkMoveDisplay3D* this=self;
+    Context3D *context3D=self.mtkScene3D.context3D;
+    AnimData* animData;
+    if (this.animDic[this.curentAction]) {
+        animData = this.animDic[this.curentAction];
+    } else if (this.animDic[this.defaultAction]) {
+        animData = this.animDic[this.defaultAction];
+    } else {
+        return;
+    }
+    DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][0];
+    GLfloat boneQarr[dualQuatFrame.quatArr.count];
+    for (int i=0; i<dualQuatFrame.quatArr.count; i++) {
+        boneQarr[i]=dualQuatFrame.quatArr[i].floatValue;
+    }
+    GLfloat boneDarr[dualQuatFrame.posArr.count];
+    for (int i=0; i<dualQuatFrame.posArr.count; i++) {
+        boneDarr[i]=dualQuatFrame.posArr[i].floatValue;
+    }
+    [context3D setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
+    [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
+    
+}
+ 
  
 -(void)makeGridLine;
 {
@@ -154,7 +218,8 @@
                           length:sizeof(matrix)
                          atIndex:1];
 }
--(void)updata  {
+-(void)upTrice
+{
     if( !self.objData||!self.objData.compressBuffer){
         return;
     }
@@ -172,11 +237,21 @@
    [renderEncoder setFragmentTexture:self.texture
                              atIndex:0];
    
-   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeLine
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: self.objData.mtkindexCount
                               indexType:MTLIndexTypeUInt32
                             indexBuffer: self.objData.mtkindexs
                       indexBufferOffset:0];
+}
+-(void)updata  {
+ 
+    
+    [self upTrice];
+}
+- (void)upFrame
+{
+    [super upFrame];
+    
 }
 
 @end

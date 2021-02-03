@@ -63,7 +63,8 @@ static SkillManager *instance = nil;
     if (this.dic[url] || this._preLoadDic[url]){
         return;
     }
-    [[ResManager default]loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
+    
+    [self.scene3D.resManager loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
         SkillData* skillData=[[SkillData alloc]init];
         skillData.data=skillRes.data;
         this.dic[url] = skillData;
@@ -130,7 +131,7 @@ static SkillManager *instance = nil;
     obj.skill= skill;
 
     [this._loadDic[url] addObject:obj];
-    [[ResManager default]loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
+    [self.scene3D.resManager loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
         [self loadSkillCom:url skillRes:skillRes];
     }];
      

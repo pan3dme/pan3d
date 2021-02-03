@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MeshImportSort : NSObject
+@interface MeshImportSort : GC
 -(void)processMesh:(Md5MeshData*)meshData;
 @end
 

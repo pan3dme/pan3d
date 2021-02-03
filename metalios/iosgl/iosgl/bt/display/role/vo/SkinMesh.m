@@ -27,9 +27,10 @@
 
 @end
 @implementation SkinMesh
-- (instancetype)init
+ 
+- (instancetype)init:(Scene3D *)value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.animDic=[[NSMutableDictionary alloc]init];
           self.meshAry=[[NSMutableArray alloc]init];
@@ -69,12 +70,12 @@
     [self.scene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:url] fun:^(NSObject *obj) {
         meshData.material=(Material*)obj;
         if (meshData.materialParamData){
-            meshData.materialParam =[[MaterialBaseParam alloc]init];
+            meshData.materialParam =[[MaterialBaseParam alloc]init:self.scene3D];
            [meshData.materialParam setData:meshData.material ary:meshData.materialParamData];
                            
        }
   
-    } info:nil autoReg:YES regName:MaterialAnimShader.shaderStr shader3DCls:[[MaterialAnimShader alloc]init]];
+    } info:nil autoReg:YES regName:MaterialAnimShader.shaderStr shader3DCls:[[MaterialAnimShader alloc]init:self.scene3D]];
     
     
      
@@ -88,7 +89,7 @@
     for (int i = 0; i < actionAry.count; i++) {
         NSString* name  = actionAry[i];
         NSString* url = [roleUrl stringByAppendingString:actionAry[i]];
-        AnimData* anim = [[AnimManager default] getAnimDataImmediate:url];
+        AnimData* anim = [self.scene3D.animManager getAnimDataImmediate:url];
         [anim processMesh:self];
         self.animDic[name] = anim;
         [self.animUrlAry addObject:url];

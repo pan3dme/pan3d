@@ -16,9 +16,9 @@
 
 @implementation MeshData
 
-- (instancetype)init
+- (instancetype)init:value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.particleAry=[[NSMutableArray alloc]init];
     }

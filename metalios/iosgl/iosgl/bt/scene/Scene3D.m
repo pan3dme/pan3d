@@ -15,6 +15,10 @@
 #import "ObjDataManager.h"
 #import "ProgrmaManager.h"
 #import "MaterialManager.h"
+#import "MeshDataManager.h"
+#import "MeshToObjUtils.h"
+#import "ResManager.h"
+#import "AnimManager.h"
 #import "TimeUtil.h"
 #import "Scene_data.h"
 #import "MtkBaseLine.h"
@@ -54,12 +58,16 @@
     self.objDataManager=[[ObjDataManager alloc]init:self];
     self.materialManager=[[MaterialManager alloc]init:self];
     self.progrmaManager=[[ProgrmaManager alloc]init:self];
+    self.meshDataManager=[[MeshDataManager alloc]init:self];
+    self.resManager=[[ResManager alloc]init:self];
+    self.animManager=[[AnimManager alloc]init:self];
+    self.meshToObjUtils=[[MeshToObjUtils alloc]init:self];
     self.camera3D=[[Camera3D alloc]init];
     self.camera3D.rotationX=-15;
     [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
     self.modelList=[[NSMutableArray alloc] init];
-//    [self loadSeceneByUrl:@"2014"];
+    [self loadSeceneByUrl:@"2014"];
     self.mtkBaseLine=[[MtkBaseLine alloc]init:self];
     self.mtkMoveDisplay3D=[[MtkMoveDisplay3D alloc]init:self];
 }
@@ -68,8 +76,8 @@
     [self.context3D mtkclearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
  
     [self.camera3D upFrame];
-//    [self updateModelList];
-//    [self.mtkBaseLine updata];
+    [self updateModelList];
+    [self.mtkBaseLine updata];
     [self.mtkMoveDisplay3D updata];
     [self.context3D mtkpresent];
 }

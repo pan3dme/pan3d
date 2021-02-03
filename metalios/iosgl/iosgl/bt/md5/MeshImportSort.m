@@ -143,7 +143,7 @@
 
 -(NSArray*)getMapValue:(NSArray* )targetAry{
     
-    NSArray* newTargetAry=[[MeshToObjUtils default]getStorNewTargerArr: targetAry ];
+    NSArray* newTargetAry=[self.scene3D.meshToObjUtils getStorNewTargerArr: targetAry ];
     NSMutableArray* mapkeyAry  = [[NSMutableArray alloc]init ];//新旧ID映射关系
     for (int i = 0; i < targetAry.count; i++) {
         NSUInteger index= [newTargetAry indexOfObject: targetAry[i]];
