@@ -19,8 +19,8 @@
     id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
   
   
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderLine"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLine"];
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderLineRole"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLineRole"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;

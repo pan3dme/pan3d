@@ -8,7 +8,7 @@
 
 #include <metal_stdlib>
 using namespace metal;
-#include "../line/MtlBaseLineType.h"
+#include "MtlMoveDisplayType.h"
 
 
 typedef struct
@@ -17,12 +17,12 @@ typedef struct
     float3 pixelColor;
     float2 textureCoordinate;
     
-} RotationRasterizerData;
-vertex RotationRasterizerData // 顶点
+} RoleRasterizerData;
+vertex RoleRasterizerData // 顶点
 vertexShaderLineRole(uint vertexID [[ vertex_id ]],
-             constant VertexLine *vertexArray [[ buffer(0) ]],
-             constant LineMatrixView *matrix [[ buffer(1) ]]) {
-    RotationRasterizerData out;
+             constant VertexRoleLine *vertexArray [[ buffer(0) ]],
+             constant LineMatrixRoleView *matrix [[ buffer(1) ]]) {
+    RoleRasterizerData out;
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
     out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
     out.pixelColor = vertexArray[vertexID].color;
@@ -31,13 +31,13 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
 }
  
 fragment float4 // 片元
-samplingShaderLineRole(RotationRasterizerData input [[stage_in]],
+samplingShaderLineRole(RoleRasterizerData input [[stage_in]],
                texture2d<half> textureColor [[ texture(0) ]])
 {
   
     
 //    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
-//    half4 colorTex = half4(1, 0,0, 1);
+//    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
+    half4 colorTex = half4(1, 0,0, 1);
     return float4(colorTex);
 }

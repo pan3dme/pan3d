@@ -6,14 +6,14 @@
 //  Copyright © 2021 zhao. All rights reserved.
 //
 
-#import "Display3D.h"
+#import "Display3dMovie.h"
  
 #import "ObjData.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MtkMoveDisplay3D : Display3D
+@interface MtkMoveDisplay3D : Display3dMovie
 
-@property (nonatomic, strong) ObjData* objData;
+ 
 @property (nonatomic, strong) Vector3D* colorV3d;
 
 

@@ -9,27 +9,27 @@
 #ifndef MtlMoveDisplayType_h
 #define MtlMoveDisplayType_h
 
+
+#ifdef __METAL_VERSION__
+#define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
+#define NSInteger metal::int32_t
+#else
+#import <Foundation/Foundation.h>
+#endif
+
+#include <simd/simd.h>
+
 typedef struct
 {
     vector_float4 position;
+    vector_float3 color;
     vector_float2 textureCoordinate;
-} ModelRoleVertex;
-typedef struct
-{
-    vector_float4 data;
-} ModelRoleVertexfloat4;
-typedef struct
-{
-    vector_float2 data;
-} ModelRoleVertexfloat2;
-
+} VertexRoleLine;
 typedef struct
 {
    matrix_float4x4 projectionMatrix;
    matrix_float4x4 modelViewMatrix;
-} ModelRoleMatrixView;
-
- 
+} LineMatrixRoleView;
 
 
 #endif /* MtlMoveDisplayType_h */

@@ -7,16 +7,16 @@
 //
 
 #import "MtkMoveDisplay3D.h"
-#import "MtkBaseLineShader.h"
+#import "MtkMoveDisplayShader.h"
 #import "MeshDataManager.h"
 #import "SkinMesh.h"
-#import "../line/MtlBaseLineType.h"
+#import "MtlMoveDisplayType.h"
 
 @interface MtkMoveDisplay3D ()
 
 @property (nonatomic, strong) NSMutableArray<Vector3D *>*  linePointArr;
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong) MtkBaseLineShader* mtkBaseLineShader;
+@property (nonatomic, strong) MtkMoveDisplayShader* mtkMoveDisplayShader;
   
 @end
 @implementation MtkMoveDisplay3D
@@ -29,8 +29,8 @@
     return self;
 }
 - (void)customInit {
-    self.mtkBaseLineShader=[[MtkBaseLineShader alloc] init:self.mtkScene3D];
-    [self.mtkBaseLineShader mtlEncode];
+    self.mtkMoveDisplayShader=[[MtkMoveDisplayShader alloc] init:self.mtkScene3D];
+    [self.mtkMoveDisplayShader mtlEncode];
     
     self.objData=[[ObjData alloc] init:self.mtkScene3D];
  
@@ -48,17 +48,10 @@
     [self setRoleUrl:getRoleUrl(@"50001")];
     
 }
--(void)setRoleUrl:(NSString*)value;
-{
-  
-    [[MeshDataManager default]getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
  
-        NSLog(@"abc");
-    } batchNum:1];
-}
 -(void)makeGridLine;
 {
-    [self clearLine];
+     [self clearLine];
     float w=30;
     float n=30;
     float skeep=w/n;
@@ -118,12 +111,12 @@
 -(void)refrishLineDataToGpu;
 {
     if(self.linePointArr&&self.linePointArr.count){
-        VertexLine quarr[self.linePointArr.count];
+        VertexRoleLine quarr[self.linePointArr.count];
         int idxs[self.linePointArr.count];
         for (int i=0; i<self.linePointArr.count/2; i++) {
             Vector3D* pos=  self.linePointArr[i*2+0];
             Vector3D* color=  self.linePointArr[i*2+1];
-            quarr[i]=(VertexLine){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
+            quarr[i]=(VertexRoleLine){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
        
         }
         for (int i=0; i<self.linePointArr.count ; i++) {
@@ -155,7 +148,7 @@
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
  
     
-    LineMatrixView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
   
    [renderEncoder setVertexBytes:&matrix
                           length:sizeof(matrix)
@@ -168,7 +161,7 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
     
-   [self.mtkBaseLineShader mtlSetProgramShader];
+   [self.mtkMoveDisplayShader mtlSetProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    
