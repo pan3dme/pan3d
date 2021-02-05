@@ -56,18 +56,39 @@
     if (!mesh.material) {
         return;
     }
-    this.shader3d=mesh.material.shader;
-    Context3D *ctx=this.mtkScene3D.context3D;
-    [ctx setProgram:this.shader3d.program];
-    [ctx setBlendParticleFactors:mesh.material.blendMode];
-    [ctx cullFaceBack:mesh.material.backCull];
-    mesh.material.shader=this.shader3d;
-    [this setMaterialTexture:mesh.material mp:mesh.materialParam];
-    [this setMaterialVc:mesh.material mp:mesh.materialParam];
-    [this setVc];
-    [this setMeshVc:mesh];
-    [this setVaCompress:mesh];
-    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+
+    
+    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+     
+    [self.mtkMoveDisplayShader mtlSetProgramShader];
+    
+    [self setupMatrixWithEncoder:renderEncoder];
+    
+    [renderEncoder setVertexBuffer: self.objData.mtkvertices
+                            offset:0
+                           atIndex:0];
+    
+    [renderEncoder setFragmentTexture:self.texture
+                              atIndex:0];
+    
+    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                              indexCount: self.objData.mtkindexCount
+                               indexType:MTLIndexTypeUInt32
+                             indexBuffer: self.objData.mtkindexs
+                       indexBufferOffset:0];
+    
+//    this.shader3d=mesh.material.shader;
+//    Context3D *ctx=this.mtkScene3D.context3D;
+//    [ctx setProgram:this.shader3d.program];
+//    [ctx setBlendParticleFactors:mesh.material.blendMode];
+//    [ctx cullFaceBack:mesh.material.backCull];
+//    mesh.material.shader=this.shader3d;
+//    [this setMaterialTexture:mesh.material mp:mesh.materialParam];
+//    [this setMaterialVc:mesh.material mp:mesh.materialParam];
+//    [this setVc];
+//    [this setMeshVc:mesh];
+//    [this setVaCompress:mesh];
+//    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
     
 }
 -(void)setVaCompress:(MeshData*)mesh;
@@ -246,13 +267,15 @@
 -(void)updata  {
  
     
-    [self upTrice];
+//    [self upTrice];
+    [self upFrame];
 }
 - (void)upFrame
 {
     [super upFrame];
     
 }
+ 
 
 @end
 

@@ -49,6 +49,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)mtkclearColor:(Vector3D*)value;
 -(void)mtksetViewport:(MTLViewport)value;
 -(void)mtkpresent;
+-(id<MTLBuffer>)changeObjDataIndexToMtkGpu:(NSArray*)indexs ;
+-(id<MTLBuffer> )changeDataToGupMtkfloat2:(NSArray*)value;
+-(id<MTLBuffer> )changeDataToGupMtkfloat3:(NSArray*)value;
+-(id<MTLBuffer> )changeDataToGupMtkfloat4:(NSArray*)value;
 
 
 @end

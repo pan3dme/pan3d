@@ -365,5 +365,60 @@
     return textureID;
     
 }
+//索引
+-(id<MTLBuffer>)changeObjDataIndexToMtkGpu:(NSArray*)indexs ;
+{
+  
+    int idxs[ indexs.count];
+    for (int i=0; i< indexs.count ; i++) {
+        idxs[i]=[ indexs[i] intValue];
+    }
+    return  [self.mtkView.device newBufferWithBytes:idxs
+                                                     length:sizeof(idxs)
+                                                    options:MTLResourceStorageModeShared];
+
+  
+}
+-(id<MTLBuffer> )changeDataToGupMtkfloat3:(NSArray*)value
+{
+ 
+    int len=3;
+    vector_float3 quarr[value.count/len];
+    for (int i=0; i<value.count/len; i++) {
+    
+        quarr[i]= (vector_float3){[value[i*len+0] floatValue],[value[i*len+1] floatValue],[value[i*len+2] floatValue]} ;
+   
+    }
+    return   [self.mtkView.device newBufferWithBytes:quarr
+                                                 length:sizeof(quarr)
+                                                options:MTLResourceStorageModeShared];
+}
+-(id<MTLBuffer> )changeDataToGupMtkfloat2:(NSArray*)value
+{
+ 
+    int len=2;
+    vector_float2 quarr[value.count/len];
+    for (int i=0; i<value.count/len; i++) {
+        quarr[i]= (vector_float2){[value[i*len+0] floatValue],[value[i*len+1] floatValue]} ;
+    }
+    return   [self.mtkView.device newBufferWithBytes:quarr
+                                                 length:sizeof(quarr)
+                                                options:MTLResourceStorageModeShared];
+}
+ 
+-(id<MTLBuffer> )changeDataToGupMtkfloat4:(NSArray*)value
+{
+ 
+    int len=3;
+    vector_float4 quarr[value.count/len];
+    for (int i=0; i<value.count/len; i++) {
+        Vector3D* pos=  [[Vector3D alloc]x:[value[i*len+0] floatValue] y:[value[i*len+1] floatValue] z:[value[i*len+2] floatValue]];
+        quarr[i]= (vector_float4){pos.x,pos.y,pos.z,1} ;
+   
+    }
+    return   [self.mtkView.device newBufferWithBytes:quarr
+                                                 length:sizeof(quarr)
+                                                options:MTLResourceStorageModeShared];
+}
   
 @end

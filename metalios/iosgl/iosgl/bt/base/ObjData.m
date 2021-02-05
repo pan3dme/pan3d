@@ -108,71 +108,20 @@
 
 -(void)changeObjDataToMtkGpu ;
 {
-    [self changeObjDataIndexToMtkGpu];
-    self.mtkvertices= [self changeDataToGupMtkfloat4:self.vertices ];
-    self.mtkuvs=[self changeDataToGupMtkfloat2:self.uvs];
+ 
+    self.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:self.indexs];
+    self.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat4:self.vertices ];
+    self.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.uvs];
     if( self.lightuvs&&self.lightuvs.count){
-        self.mtklightuvs=[self changeDataToGupMtkfloat2:self.lightuvs];
+        self.mtklightuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.lightuvs];
     }
     self.mtkindexCount = self.indexs.count;
 }
-//索引
--(void)changeObjDataIndexToMtkGpu ;
-{
-    ObjData* value=self;
-    int idxs[value.indexs.count];
-    for (int i=0; i<value.indexs.count ; i++) {
-        idxs[i]=[value.indexs[i] intValue];
-    }
-    value.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:idxs
-                                                     length:sizeof(idxs)
-                                                    options:MTLResourceStorageModeShared];
-
-  
-}
+ 
 //顶点
  
 
--(id<MTLBuffer> )changeDataToGupMtkfloat4:(NSArray*)value
-{
  
-    int len=3;
-    vector_float4 quarr[value.count/len];
-    for (int i=0; i<value.count/len; i++) {
-        Vector3D* pos=  [[Vector3D alloc]x:[value[i*len+0] floatValue] y:[value[i*len+1] floatValue] z:[value[i*len+2] floatValue]];
-        quarr[i]= (vector_float4){pos.x,pos.y,pos.z,1} ;
-   
-    }
-    return   [self.scene3D.mtkView.device newBufferWithBytes:quarr
-                                                 length:sizeof(quarr)
-                                                options:MTLResourceStorageModeShared];
-}
--(id<MTLBuffer> )changeDataToGupMtkfloat3:(NSArray*)value
-{
- 
-    int len=3;
-    vector_float3 quarr[value.count/len];
-    for (int i=0; i<value.count/len; i++) {
-    
-        quarr[i]= (vector_float3){[value[i*len+0] floatValue],[value[i*len+1] floatValue],[value[i*len+2] floatValue]} ;
-   
-    }
-    return   [self.scene3D.mtkView.device newBufferWithBytes:quarr
-                                                 length:sizeof(quarr)
-                                                options:MTLResourceStorageModeShared];
-}
--(id<MTLBuffer> )changeDataToGupMtkfloat2:(NSArray*)value
-{
- 
-    int len=2;
-    vector_float2 quarr[value.count/len];
-    for (int i=0; i<value.count/len; i++) {
-        quarr[i]= (vector_float2){[value[i*len+0] floatValue],[value[i*len+1] floatValue]} ;
-    }
-    return   [self.scene3D.mtkView.device newBufferWithBytes:quarr
-                                                 length:sizeof(quarr)
-                                                options:MTLResourceStorageModeShared];
-}
- 
+
 
 @end
