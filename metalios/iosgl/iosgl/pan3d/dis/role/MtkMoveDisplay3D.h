@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 -(void)updata ;
--(void)clearLine;
--(void)addLineA2B:(Vector3D*)a b:(Vector3D*)b;
+ 
 
 @end
 

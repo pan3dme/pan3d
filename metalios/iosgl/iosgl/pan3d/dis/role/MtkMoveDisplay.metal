@@ -19,7 +19,7 @@ typedef struct
 } RoleRasterizerData;
 vertex RoleRasterizerData // 顶点
 vertexShaderLineRole(uint vertexID [[ vertex_id ]],
-             constant VertexRoleLine *vertexArray [[ buffer(0) ]],
+             constant VertexRoleFloat3 *vertexArray [[ buffer(0) ]],
              constant LineMatrixRoleView *matrix [[ buffer(1) ]]) {
     RoleRasterizerData out;
     //

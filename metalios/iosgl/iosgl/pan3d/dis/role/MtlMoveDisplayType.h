@@ -22,7 +22,11 @@
 typedef struct
 {
     vector_float3 position;
-} VertexRoleLine;
+} VertexRoleFloat3;
+typedef struct
+{
+    vector_float4 position;
+} VertexRoleFloat4;
 typedef struct
 {
    matrix_float4x4 projectionMatrix;
