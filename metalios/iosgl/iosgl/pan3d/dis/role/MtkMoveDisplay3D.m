@@ -47,7 +47,8 @@
     
     [self makeGridLine];
     
-    [self setRoleUrl:getRoleUrl(@"50001")];
+//    [self setRoleUrl:getRoleUrl(@"50001")];
+    [self setRoleUrl:getRoleUrl(@"yezhuz")];
     
 }
 -(void)updateMaterialMesh:(MeshData*)mesh;
