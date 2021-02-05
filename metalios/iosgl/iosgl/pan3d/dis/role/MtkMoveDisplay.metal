@@ -14,7 +14,6 @@ using namespace metal;
 typedef struct
 {
     float4 clipSpacePosition [[position]];
-    float3 pixelColor;
     float2 textureCoordinate;
     
 } RoleRasterizerData;
@@ -23,9 +22,11 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
              constant VertexRoleLine *vertexArray [[ buffer(0) ]],
              constant LineMatrixRoleView *matrix [[ buffer(1) ]]) {
     RoleRasterizerData out;
-    out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vertexArray[vertexID].position;
-    out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
-    out.pixelColor = vertexArray[vertexID].color;
+    //
+    float4 vt0 = float4( vertexArray[vertexID].position.xyz, 1);
+    out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
+ 
+ 
     
     return out;
 }

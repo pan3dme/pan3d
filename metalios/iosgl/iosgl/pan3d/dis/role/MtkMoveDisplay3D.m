@@ -56,39 +56,26 @@
     if (!mesh.material) {
         return;
     }
-
+    self.objData=mesh;
     
-    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+    id<MTLRenderCommandEncoder> renderEncoder=this.mtkScene3D.context3D.renderEncoder;
      
     [self.mtkMoveDisplayShader mtlSetProgramShader];
     
     [self setupMatrixWithEncoder:renderEncoder];
     
-    [renderEncoder setVertexBuffer: self.objData.mtkvertices
+    [renderEncoder setVertexBuffer: this.objData.mtkvertices
                             offset:0
                            atIndex:0];
-    
-    [renderEncoder setFragmentTexture:self.texture
-                              atIndex:0];
+     
     
     [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                              indexCount: self.objData.mtkindexCount
+                              indexCount: this.objData.mtkindexCount
                                indexType:MTLIndexTypeUInt32
-                             indexBuffer: self.objData.mtkindexs
+                             indexBuffer: this.objData.mtkindexs
                        indexBufferOffset:0];
     
-//    this.shader3d=mesh.material.shader;
-//    Context3D *ctx=this.mtkScene3D.context3D;
-//    [ctx setProgram:this.shader3d.program];
-//    [ctx setBlendParticleFactors:mesh.material.blendMode];
-//    [ctx cullFaceBack:mesh.material.backCull];
-//    mesh.material.shader=this.shader3d;
-//    [this setMaterialTexture:mesh.material mp:mesh.materialParam];
-//    [this setMaterialVc:mesh.material mp:mesh.materialParam];
-//    [this setVc];
-//    [this setMeshVc:mesh];
-//    [this setVaCompress:mesh];
-//    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+
     
 }
 -(void)setVaCompress:(MeshData*)mesh;
@@ -201,7 +188,7 @@
         for (int i=0; i<self.linePointArr.count/2; i++) {
             Vector3D* pos=  self.linePointArr[i*2+0];
             Vector3D* color=  self.linePointArr[i*2+1];
-            quarr[i]=(VertexRoleLine){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
+            quarr[i]=(VertexRoleLine){{pos.x,pos.y,pos.z} };
        
         }
         for (int i=0; i<self.linePointArr.count ; i++) {

@@ -67,7 +67,7 @@
     [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
     self.modelList=[[NSMutableArray alloc] init];
-    [self loadSeceneByUrl:@"2014"];
+//    [self loadSeceneByUrl:@"2014"];
     self.mtkBaseLine=[[MtkBaseLine alloc]init:self];
     self.mtkMoveDisplay3D=[[MtkMoveDisplay3D alloc]init:self];
 }

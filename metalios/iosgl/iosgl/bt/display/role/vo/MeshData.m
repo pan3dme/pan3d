@@ -47,7 +47,7 @@
         self.mtkboneId= [self.scene3D.context3D changeDataToGupMtkfloat4:self.boneIDAry ];
         self.mtkboneWeight= [self.scene3D.context3D changeDataToGupMtkfloat4:self.boneWeightAry ];
         self.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.uvs];
-        
+        self.mtkindexCount = self.indexs.count;
     }
 }
 
