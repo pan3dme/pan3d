@@ -36,6 +36,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)int  uid;
 
 @property(nonatomic,strong)NSMutableArray<BindParticle*>*  particleAry;
+
+
+@property (nonatomic, strong) id<MTLBuffer> mtkboneWeight;
+@property (nonatomic, strong) id<MTLBuffer> mtkboneId;
  
 @end
 
