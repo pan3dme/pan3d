@@ -19,8 +19,9 @@ typedef struct
 } RoleRasterizerData;
 vertex RoleRasterizerData // 顶点
 vertexShaderLineRole(uint vertexID [[ vertex_id ]],
-             constant VertexRoleFloat3 *vertexArray [[ buffer(0) ]],
-             constant LineMatrixRoleView *matrix [[ buffer(1) ]]) {
+                     constant LineMatrixRoleView *matrix [[ buffer(0) ]],
+             constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]]
+             ) {
     RoleRasterizerData out;
     //
     float4 vt0 = float4( vertexArray[vertexID].position.xyz, 1);

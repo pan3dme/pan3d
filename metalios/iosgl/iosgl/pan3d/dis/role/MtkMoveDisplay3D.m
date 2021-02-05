@@ -38,6 +38,24 @@
     [self setRoleUrl:getRoleUrl(@"yezhuz")];
     
 }
+
+ 
+- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
+  
+  
+  static float y = 0.0 ;
+//   y-=0.05;
+  Matrix3D* posMatrix =[[Matrix3D alloc]init];
+  [posMatrix appendScale:1 y:1 z:1];
+  [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+
+   
+   LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+ 
+  [renderEncoder setVertexBytes:&matrix
+                         length:sizeof(matrix)
+                        atIndex:0];
+}
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {
     MtkMoveDisplay3D* this=self;
@@ -54,7 +72,7 @@
     
     [renderEncoder setVertexBuffer: mesh.mtkvertices
                             offset:0
-                           atIndex:0];
+                           atIndex:1];
      
     
     [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
@@ -108,23 +126,6 @@
     
 }
  
-  
-- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-   
-   
-   static float y = 0.0 ;
-//   y-=0.05;
-   Matrix3D* posMatrix =[[Matrix3D alloc]init];
-   [posMatrix appendScale:1 y:1 z:1];
-   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
- 
-    
-    LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
-  
-   [renderEncoder setVertexBytes:&matrix
-                          length:sizeof(matrix)
-                         atIndex:1];
-}
  
 -(void)updata  {
  
