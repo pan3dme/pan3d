@@ -58,13 +58,13 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
  
     float4 vt0 = getQDdata(vertexArray[vertexID].position,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );;
  
-//    vt0=float4(vertexArray[vertexID].position, 1);
+    vt0=float4(vertexArray[vertexID].position, 1);
     
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
     
 
     
-    out.outColor=float4(boneWeight[vertexID].position.xyz, 1);
+    out.outColor=float4(boneID[vertexID].position.x,0,0, 1);
  
     
     return out;

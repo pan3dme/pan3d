@@ -107,7 +107,7 @@
         return;
     }
 
-    if(self.curentFrame++>30){
+    if(self.curentFrame++>=animData.boneQPAry[mesh.uid].count-1){
         self.curentFrame=0;
     }
 
