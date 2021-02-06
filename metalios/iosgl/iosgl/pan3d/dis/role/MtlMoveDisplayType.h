@@ -40,6 +40,6 @@ typedef struct
  
 } BoneQDrole;
 
-
+ 
 
 #endif /* MtlMoveDisplayType_h */

@@ -15,6 +15,7 @@ using namespace metal;
 typedef struct
 {
     float4 clipSpacePosition [[position]];
+    float4 outColor;
     float2 textureCoordinate;
     
 } RoleRasterizerData;
@@ -24,7 +25,7 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
                      constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
                      constant VertexRoleFloat4 *boneIDArray [[ buffer(2) ]],
                      constant VertexRoleFloat4 *boneWeightArray [[ buffer(3) ]],
-                     constant BoneQDrole *BoneQDarr [[ buffer(4) ]]
+                     constant BoneQDrole *boneQDarr [[ buffer(4) ]]
                     
                       
              ) {
@@ -32,7 +33,11 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
     //
     float4 vt0 = float4( vertexArray[vertexID].position.xyz, 1);
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
+    
  
+//    float4 bcd =boneQDarr->boneQ[0];
+ 
+    out.outColor=float4(vt0.x,0,1, 1);
  
     
     return out;
@@ -46,6 +51,7 @@ samplingShaderLineRole(RoleRasterizerData input [[stage_in]],
     
 //    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
 //    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
-    half4 colorTex = half4(1, 0,0, 1);
+//    half4 colorTex = half4(1, 0,0, 1);
+    half4 colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
     return float4(colorTex);
 }

@@ -104,19 +104,16 @@
     } else {
         return;
     }
-    DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][0];
-    GLfloat boneQarr[dualQuatFrame.quatArr.count];
-    for (int i=0; i<dualQuatFrame.quatArr.count; i++) {
-        boneQarr[i]=dualQuatFrame.quatArr[i].floatValue;
-    }
-    GLfloat boneDarr[dualQuatFrame.posArr.count];
-    for (int i=0; i<dualQuatFrame.posArr.count; i++) {
-        boneDarr[i]=dualQuatFrame.posArr[i].floatValue;
-    }
- 
     vector_float4 boneQ[54];
     vector_float3 boneD[54];
-    
+    DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][0];
+    for (int i=0; i<dualQuatFrame.quatArr.count/4; i++) {
+        boneQ[i]=simd_make_float4(1,0,0,1 );
+    }
+    for (int i=0; i<dualQuatFrame.posArr.count/3; i++) {
+        boneD[i]=simd_make_float3(1,1,1 );
+    }
+
     BoneQDrole* _boneQDrole={boneQ,boneD};
  
     [renderEncoder setVertexBytes:&_boneQDrole
