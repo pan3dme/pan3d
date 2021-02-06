@@ -9,6 +9,7 @@
 #include <metal_stdlib>
 using namespace metal;
 #include "MtlMoveDisplayType.h"
+ 
 
 
 typedef struct
@@ -22,7 +23,10 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
                      constant LineMatrixRoleView *matrix [[ buffer(0) ]],
                      constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
                      constant VertexRoleFloat4 *boneIDArray [[ buffer(2) ]],
-                     constant VertexRoleFloat4 *boneWeightArray [[ buffer(3) ]]
+                     constant VertexRoleFloat4 *boneWeightArray [[ buffer(3) ]],
+                     constant BoneQDrole *BoneQDarr [[ buffer(4) ]]
+                    
+                      
              ) {
     RoleRasterizerData out;
     //

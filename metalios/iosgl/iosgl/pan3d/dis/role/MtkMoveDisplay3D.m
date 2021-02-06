@@ -34,28 +34,13 @@
     self.mtkMoveDisplayShader=[[MtkMoveDisplayShader alloc] init:self.mtkScene3D];
     [self.mtkMoveDisplayShader mtlEncode];
     
-    
+//    [self setRoleUrl:getRoleUrl(@"50001")];
     [self setRoleUrl:getRoleUrl(@"yezhuz")];
     
 }
 
 
-- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-    
-    
-    static float y = 0.0 ;
-    //   y-=0.05;
-    Matrix3D* posMatrix =[[Matrix3D alloc]init];
-    [posMatrix appendScale:1 y:1 z:1];
-    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-    
-    
-    LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
-    
-    [renderEncoder setVertexBytes:&matrix
-                           length:sizeof(matrix)
-                          atIndex:0];
-}
+
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {
     MtkMoveDisplay3D* this=self;
@@ -69,6 +54,8 @@
     [self.mtkMoveDisplayShader mtlSetProgramShader];
     
     [self setupMatrixWithEncoder:renderEncoder];
+    
+    [self setMeshVcMtk:mesh redEncoder:renderEncoder];
     
     [renderEncoder setVertexBuffer: mesh.mtkvertices  offset:0  atIndex:1];
     [renderEncoder setVertexBuffer: mesh.mtkboneId  offset:0  atIndex:2];
@@ -86,24 +73,29 @@
 }
 -(void)setVaCompress:(MeshData*)mesh;
 {
-    Display3dMovie* this=self;
-    
-    Context3D *ctx=this.mtkScene3D.context3D;
-    [ctx pushVa:mesh.verticesBuffer];
-    [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa:    mesh.uvBuffer];
-    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
-    [ctx pushVa: mesh.boneIdBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
-    [ctx pushVa: mesh.boneWeightBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
-    
+  
     
 }
--(void)setMeshVc:(MeshData*)mesh;
+- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
+    
+    
+    static float y = 0.0 ;
+    //   y-=0.05;
+    Matrix3D* posMatrix =[[Matrix3D alloc]init];
+    [posMatrix appendScale:1 y:1 z:1];
+    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+    
+    
+    LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    
+    [renderEncoder setVertexBytes:&matrix
+                           length:sizeof(matrix)
+                          atIndex:0];
+}
+-(void)setMeshVcMtk:(MeshData*)mesh redEncoder:(id<MTLRenderCommandEncoder>)renderEncoder
 {
     MtkMoveDisplay3D* this=self;
-    Context3D *context3D=self.mtkScene3D.context3D;
+ 
     AnimData* animData;
     if (this.animDic[this.curentAction]) {
         animData = this.animDic[this.curentAction];
@@ -121,8 +113,16 @@
     for (int i=0; i<dualQuatFrame.posArr.count; i++) {
         boneDarr[i]=dualQuatFrame.posArr[i].floatValue;
     }
-    [context3D setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
-    [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
+ 
+    vector_float4 boneQ[54];
+    vector_float3 boneD[54];
+    
+    BoneQDrole* _boneQDrole={boneQ,boneD};
+ 
+    [renderEncoder setVertexBytes:&_boneQDrole
+                           length:sizeof(_boneQDrole)
+                          atIndex:4];
+    
     
 }
 

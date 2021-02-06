@@ -33,5 +33,13 @@ typedef struct
    matrix_float4x4 modelViewMatrix;
 } LineMatrixRoleView;
 
+typedef struct
+{
+    vector_float4 boneQ[54];
+    vector_float3 boneD[54];
+ 
+} BoneQDrole;
+
+
 
 #endif /* MtlMoveDisplayType_h */
