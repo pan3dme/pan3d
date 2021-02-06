@@ -25,7 +25,8 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
                      constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
                      constant VertexRoleFloat4 *boneIDArray [[ buffer(2) ]],
                      constant VertexRoleFloat4 *boneWeightArray [[ buffer(3) ]],
-                     constant BoneQDrole *boneQDarr [[ buffer(4) ]]
+                     constant VertexRoleFloat4 *qarr [[ buffer(4) ]],
+                     constant VertexRoleFloat3 *parr [[ buffer(5) ]]
                     
                       
              ) {
@@ -34,10 +35,10 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
     float4 vt0 = float4( vertexArray[vertexID].position.xyz, 1);
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
     
- 
-//    float4 bcd =boneQDarr->boneQ[0];
+  
  
     out.outColor=float4(vt0.x,0,1, 1);
+    out.outColor= float4( qarr[18].position.xyz, 1);
  
     
     return out;
