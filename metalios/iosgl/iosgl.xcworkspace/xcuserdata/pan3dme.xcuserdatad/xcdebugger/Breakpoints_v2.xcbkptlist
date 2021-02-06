@@ -958,9 +958,9 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay.metal"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "vertexShaderLineRole(uint vertexID [[ vertex_id ]], constant LineMatrixRoleView *matrix [[ buffer(0) ]], constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]], constant VertexRoleFloat4 *boneIDArray [[ buffer(2) ]], constant VertexRoleFloat4 *boneWeightArray [[ buffer(3) ]], constant VertexRoleFloat4 *qarr [[ buffer(4) ]], constant VertexRoleFloat3 *parr [[ buffer(5) ]] )"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "vertexShaderLineRole(uint vertexID [[ vertex_id ]], constant LineMatrixRoleView *matrix [[ buffer(0) ]], constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]], constant VertexRoleFloat4 *boneID [[ buffer(2) ]], constant VertexRoleFloat4 *boneWeight [[ buffer(3) ]], constant VertexRoleFloat4 *boneQ [[ buffer(4) ]], constant VertexRoleFloat3 *boneD [[ buffer(5) ]] )"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
