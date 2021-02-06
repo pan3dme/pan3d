@@ -23,9 +23,7 @@ float4 qdv( float4 q ,float3 d ,float3 v  )
 {
     float3 t = 2.0 * cross(q.xyz, v);
     float3 f = v + q.w * t + cross(q.xyz, t);
-    
-
- return float4(f.x + d.x, f.y + d.y, f.z + d.z, 1.0);
+    return float4(f.x + d.x, f.y + d.y, f.z + d.z, 1.0);
 }
 float4 getQDdata(float3 vdata,float4 boneID,float4 boneWeight,constant VertexRoleFloat4 *boneQ  ,constant VertexRoleFloat3 *boneD){
     
@@ -58,19 +56,16 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
    
     RoleRasterizerData out;
  
-    float4 vt0 = getQDdata(vertexArray[vertexID].position.xyz,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );;
+    float4 vt0 = getQDdata(vertexArray[vertexID].position,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );;
  
-    vt0=float4(vertexArray[vertexID].position.xyz, 1);
+    vt0=float4(vertexArray[vertexID].position, 1);
     
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
     
-  
- 
     out.outColor=float4(vt0.x,0,1, 1);
     out.outColor= float4( boneQ[1].position.xyz, 1);
     
-    
-    out.outColor=float4(1,0,0, 1);
+    out.outColor=float4(boneWeight[vertexID].position.xyz, 1);
  
     
     return out;

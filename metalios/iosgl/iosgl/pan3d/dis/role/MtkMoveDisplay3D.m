@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSMutableArray<Vector3D *>*  linePointArr;
 @property (nonatomic, strong) id<MTLTexture> texture;
 @property (nonatomic, strong) MtkMoveDisplayShader* mtkMoveDisplayShader;
+@property(nonatomic,assign)int  curentFrame;
 
 @end
 @implementation MtkMoveDisplay3D
@@ -26,6 +27,7 @@
 {
     self = [super init:value];
     if (self) {
+        self.curentFrame=0;
         [self customInit];
     }
     return self;
@@ -105,8 +107,11 @@
         return;
     }
 
+    if(self.curentFrame++>30){
+        self.curentFrame=0;
+    }
 
-    DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][0];
+    DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][self.curentFrame];
   
      
     id<MTLBuffer>  q=  [self.mtkScene3D.context3D changeDataToGupMtkfloat4:dualQuatFrame.quatArr];
