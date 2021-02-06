@@ -25,8 +25,8 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
                      constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
                      constant VertexRoleFloat4 *boneIDArray [[ buffer(2) ]],
                      constant VertexRoleFloat4 *boneWeightArray [[ buffer(3) ]],
-                     constant VertexRoleFloat4 *qarr [[ buffer(4) ]],
-                     constant VertexRoleFloat3 *parr [[ buffer(5) ]]
+                     constant VertexRoleFloat4 *boneQ [[ buffer(4) ]],
+                     constant VertexRoleFloat3 *boneD [[ buffer(5) ]]
                     
                       
              ) {
@@ -38,7 +38,7 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
   
  
     out.outColor=float4(vt0.x,0,1, 1);
-    out.outColor= float4( qarr[18].position.xyz, 1);
+    out.outColor= float4( boneQ[1].position.xyz, 1);
  
     
     return out;
