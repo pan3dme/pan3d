@@ -52,6 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(id<MTLBuffer>)changeObjDataIndexToMtkGpu:(NSArray*)indexs ;
 -(id<MTLBuffer> )changeDataToGupMtkfloat2:(NSArray*)value;
 -(id<MTLBuffer> )changeDataToGupMtkfloat3:(NSArray*)value;
+-(id<MTLBuffer> )changeDataToGupMtkfloat4_copy:(NSArray*)value;
 -(id<MTLBuffer> )changeDataToGupMtkfloat4:(NSArray*)value;
 
 

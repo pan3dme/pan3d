@@ -38,8 +38,8 @@
     self.mtkMoveDisplayShader=[[MtkMoveDisplayShader alloc] init:self.mtkScene3D];
     [self.mtkMoveDisplayShader mtlEncode];
     
-//    [self setRoleUrl:getRoleUrl(@"50001")];
-    [self setRoleUrl:getRoleUrl(@"yezhuz")];
+    [self setRoleUrl:getRoleUrl(@"50001")];
+//    [self setRoleUrl:getRoleUrl(@"yezhuz")];
     
 }
 
