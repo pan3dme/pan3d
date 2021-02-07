@@ -243,6 +243,7 @@ Implementation of renderer class that perfoms Metal setup and per-frame renderin
         [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
         [renderEncoder setRenderPipelineState:_pipelineState];
         [renderEncoder setDepthStencilState:_relaxedDepthState];
+        [renderEncoder setCullMode:1];
         [renderEncoder setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
         [self drawMeshes:renderEncoder];
         [renderEncoder popDebugGroup];

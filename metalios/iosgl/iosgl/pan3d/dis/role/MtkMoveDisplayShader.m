@@ -28,6 +28,7 @@
     pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
     pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
     pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
+ 
     
     self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
                                                                                      error:NULL];
@@ -38,6 +39,7 @@
     {
         depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
         depthStateDesc.depthWriteEnabled = YES;
+  
         self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }

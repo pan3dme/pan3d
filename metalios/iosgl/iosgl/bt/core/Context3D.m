@@ -183,6 +183,7 @@
 -(void)cullFaceBack:(BOOL)tf;
 {
     if (tf) {
+  
         glEnable(GL_CULL_FACE);
         glCullFace(GL_BACK);
     } else {
@@ -409,16 +410,17 @@
 -(id<MTLBuffer> )changeDataToGupMtkfloat4:(NSArray*)value
 {
  
-    int len=3;
+    int len=4;
     vector_float4 quarr[value.count/len];
     for (int i=0; i<value.count/len; i++) {
-        Vector3D* pos=  [[Vector3D alloc]x:[value[i*len+0] floatValue] y:[value[i*len+1] floatValue] z:[value[i*len+2] floatValue]];
-        quarr[i]= (vector_float4){pos.x,pos.y,pos.z,1} ;
+        Vector3D* pos=  [[Vector3D alloc]x:[value[i*len+0] floatValue] y:[value[i*len+1] floatValue] z:[value[i*len+2] floatValue] w:[value[i*len+3] floatValue]];
+        quarr[i]= (vector_float4){pos.x,pos.y,pos.z,pos.w} ;
    
     }
     return   [self.mtkView.device newBufferWithBytes:quarr
                                                  length:sizeof(quarr)
                                                 options:MTLResourceStorageModeShared];
 }
+ 
   
 @end

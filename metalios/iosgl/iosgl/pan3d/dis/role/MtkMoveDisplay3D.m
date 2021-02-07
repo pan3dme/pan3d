@@ -57,6 +57,8 @@
     
     [self setupMatrixWithEncoder:renderEncoder];
     
+    [renderEncoder setCullMode:0];
+    
     [self setMeshVcMtk:mesh redEncoder:renderEncoder];
     
     [renderEncoder setVertexBuffer: mesh.mtkvertices  offset:0  atIndex:1];
@@ -70,6 +72,7 @@
                              indexBuffer: mesh.mtkindexs
                        indexBufferOffset:0];
     
+ 
     
     
 }
@@ -79,17 +82,8 @@
     
 }
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-    
-    
-    static float y = 0.0 ;
-    //   y-=0.05;
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
-    [posMatrix appendScale:1 y:1 z:1];
-    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-    
-    
     LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
-    
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
                           atIndex:0];

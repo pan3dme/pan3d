@@ -109,13 +109,13 @@
 -(void)changeObjDataToMtkGpu ;
 {
  
-    self.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:self.indexs];
-    self.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat4:self.vertices ];
-    self.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.uvs];
-    if( self.lightuvs&&self.lightuvs.count){
-        self.mtklightuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.lightuvs];
-    }
-    self.mtkindexCount = self.indexs.count;
+//    self.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:self.indexs];
+//    self.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat4:self.vertices ];
+//    self.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.uvs];
+//    if( self.lightuvs&&self.lightuvs.count){
+//        self.mtklightuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.lightuvs];
+//    }
+//    self.mtkindexCount = self.indexs.count;
 }
  
 //顶点

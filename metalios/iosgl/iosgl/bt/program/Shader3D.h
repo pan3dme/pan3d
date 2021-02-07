@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
 @property (nonatomic, strong)  id <MTLDepthStencilState> relaxedDepthState;
+ 
 
 -(void)mtlEncode;
 -(void)mtlSetProgramShader;
