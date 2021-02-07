@@ -25,7 +25,7 @@
     NSMutableArray<ObjectBone*>* hierarchyList=[[NSMutableArray alloc]init];
     NSMutableArray<NSMutableArray<NSNumber*>*>* frameAry=[[NSMutableArray alloc]init];
     
-    AnimData* animData=[[AnimData alloc]init];
+    AnimData* animData=[[AnimData alloc]init:self.scene3D];
     animData.inLoop = [byte readInt];
     
     int numLength = [byte readInt];

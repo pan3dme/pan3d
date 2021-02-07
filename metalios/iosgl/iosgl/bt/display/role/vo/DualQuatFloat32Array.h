@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+ 
+@import MetalKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) NSArray<NSNumber*>* quatArr;
 @property(nonatomic,strong) NSArray<NSNumber*>* posArr;
 
- 
+@property(nonatomic,strong) id<MTLBuffer>  mtkquatArr;
+@property(nonatomic,strong) id<MTLBuffer>  mtkposArr;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

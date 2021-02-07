@@ -168,6 +168,10 @@
     $tempDq.posArr=[[NSArray alloc]initWithArray:posArr];
     
     
+    $tempDq.mtkquatArr=  [self.mtkScene3D.context3D changeDataToGupMtkfloat4: $tempDq.quatArr];
+    $tempDq.mtkposArr=  [self.mtkScene3D.context3D changeDataToGupMtkfloat3: $tempDq.posArr];
+    
+    
     return $tempDq;
 }
 - (void)upFrame

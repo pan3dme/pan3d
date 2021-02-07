@@ -11,10 +11,11 @@
 #import "Matrix3D.h"
 #import "SkinMesh.h"
 #import "DualQuatFloat32Array.h"
+#import "GC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AnimData : NSObject
+@interface AnimData : GC
 @property(nonatomic,assign)int inLoop;
 @property(nonatomic,assign)int  nameHeight;
 @property(nonatomic,assign)BOOL  hasProcess;

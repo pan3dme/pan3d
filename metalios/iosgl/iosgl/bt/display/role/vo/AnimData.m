@@ -13,6 +13,16 @@
 
 @implementation AnimData
 
+
+- (instancetype)init:(Scene3D *)value
+{
+    self = [super init:value];
+    if (self) {
+        
+    }
+    return self;
+}
+
 -(void)processMesh:(SkinMesh*)skinMesh;
 {
     if (self.hasProcess){
@@ -76,6 +86,10 @@
                 [frameDualQuat addObject:dualQuatFloat32Array];
            
 
+           
+                
+                dualQuatFloat32Array.mtkquatArr=  [self.scene3D.context3D changeDataToGupMtkfloat4: dualQuatFloat32Array.quatArr];
+                dualQuatFloat32Array.mtkposArr=  [self.scene3D.context3D changeDataToGupMtkfloat3: dualQuatFloat32Array.posArr];
             }
               [this.boneQPAry addObject:frameDualQuat];
 

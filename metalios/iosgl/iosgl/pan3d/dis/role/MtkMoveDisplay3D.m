@@ -161,12 +161,9 @@
 
     DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][self.curentFrame];
   
-     
-    id<MTLBuffer>  q=  [self.mtkScene3D.context3D changeDataToGupMtkfloat4:dualQuatFrame.quatArr];
-    id<MTLBuffer>  p=  [self.mtkScene3D.context3D changeDataToGupMtkfloat3:dualQuatFrame.posArr];
-
-    [renderEncoder setVertexBuffer: q   offset:0   atIndex:5];
-    [renderEncoder setVertexBuffer: p   offset:0   atIndex:6];
+    
+    [renderEncoder setVertexBuffer: dualQuatFrame.mtkquatArr   offset:0   atIndex:5];
+    [renderEncoder setVertexBuffer: dualQuatFrame.mtkposArr   offset:0   atIndex:6];
 }
 
 
