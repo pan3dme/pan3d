@@ -862,8 +862,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-setMeshVcMtk:redEncoder:"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +878,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,8 +894,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-updateMaterialMesh:"
             landmarkType = "7">
          </BreakpointContent>
@@ -910,8 +910,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-setVaCompress:"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,8 +942,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-setVaCompress:"
             landmarkType = "7">
          </BreakpointContent>
@@ -958,9 +958,9 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay.metal"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "vertexShaderLineRole(uint vertexID [[ vertex_id ]], constant LineMatrixRoleView *matrix [[ buffer(0) ]], constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]], constant VertexRoleFloat4 *boneID [[ buffer(2) ]], constant VertexRoleFloat4 *boneWeight [[ buffer(3) ]], constant VertexRoleFloat4 *boneQ [[ buffer(4) ]], constant VertexRoleFloat3 *boneD [[ buffer(5) ]] )"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "vertexShaderLineRole(uint vertexID [[ vertex_id ]], constant LineMatrixRoleView *matrix [[ buffer(0) ]], constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]], constant VertexRoleFloat2 *uvs [[ buffer(2) ]], constant VertexRoleFloat4 *boneID [[ buffer(3) ]], constant VertexRoleFloat4 *boneWeight [[ buffer(4) ]], constant VertexRoleFloat4 *boneQ [[ buffer(5) ]], constant VertexRoleFloat3 *boneD [[ buffer(6) ]] )"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -974,8 +974,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-setMeshVcMtk:redEncoder:"
             landmarkType = "7">
          </BreakpointContent>
@@ -990,8 +990,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-setMeshVcMtk:redEncoder:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,8 +1022,8 @@
             filePath = "iosgl/bt/display/role/vo/MeshData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-upToGpu"
             landmarkType = "7">
          </BreakpointContent>
@@ -1038,8 +1038,8 @@
             filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-updata"
             landmarkType = "7">
          </BreakpointContent>
@@ -1057,6 +1057,38 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "-changeObjDataToMtkGpu"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8781260C-41B6-4512-A496-D26E911F3E07"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-setMaterialTexture:mp:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A80F6C7-6503-4729-B5A9-236D920AA516"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/pan3d/dis/role/MtkMoveDisplay3D.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-setMaterialTexture:mp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

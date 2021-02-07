@@ -42,10 +42,11 @@ vertex RoleRasterizerData // 顶点
 vertexShaderLineRole(uint vertexID [[ vertex_id ]],
                      constant LineMatrixRoleView *matrix [[ buffer(0) ]],
                      constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
-                     constant VertexRoleFloat4 *boneID [[ buffer(2) ]],
-                     constant VertexRoleFloat4 *boneWeight [[ buffer(3) ]],
-                     constant VertexRoleFloat4 *boneQ [[ buffer(4) ]],
-                     constant VertexRoleFloat3 *boneD [[ buffer(5) ]]
+                     constant VertexRoleFloat2 *uvs [[ buffer(2) ]],
+                     constant VertexRoleFloat4 *boneID [[ buffer(3) ]],
+                     constant VertexRoleFloat4 *boneWeight [[ buffer(4) ]],
+                     constant VertexRoleFloat4 *boneQ [[ buffer(5) ]],
+                     constant VertexRoleFloat3 *boneD [[ buffer(6) ]]
                     
                       
              )
@@ -62,7 +63,7 @@ vertexShaderLineRole(uint vertexID [[ vertex_id ]],
     
     out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
     
-
+    out.textureCoordinate = uvs[vertexID].position;
     
     out.outColor=float4(1,0,0, 1);
  
@@ -74,11 +75,12 @@ fragment float4 // 片元
 samplingShaderLineRole(RoleRasterizerData input [[stage_in]],
                texture2d<half> textureColor [[ texture(0) ]])
 {
-  
+    constexpr sampler textureSampler (mag_filter::linear,
+                                      min_filter::linear);
     
-//    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
 //    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
 //    half4 colorTex = half4(1, 0,0, 1);
-    half4 colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
+//    half4 colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
     return float4(colorTex);
 }

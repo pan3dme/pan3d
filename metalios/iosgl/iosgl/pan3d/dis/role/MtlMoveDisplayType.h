@@ -25,6 +25,10 @@ typedef struct
 } VertexRoleFloat3;
 typedef struct
 {
+    vector_float2 position;
+} VertexRoleFloat2;
+typedef struct
+{
     vector_float4 position;
 } VertexRoleFloat4;
 typedef struct

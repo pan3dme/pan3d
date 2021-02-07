@@ -11,6 +11,8 @@
 #import "MeshDataManager.h"
 #import "SkinMesh.h"
 #import "AnimData.h"
+#import "DynamicTexItem.h"
+#import "Scene_data.h"
 #import "DualQuatFloat32Array.h"
 #import "MtlMoveDisplayType.h"
 
@@ -62,8 +64,12 @@
     [self setMeshVcMtk:mesh redEncoder:renderEncoder];
     
     [renderEncoder setVertexBuffer: mesh.mtkvertices  offset:0  atIndex:1];
-    [renderEncoder setVertexBuffer: mesh.mtkboneId  offset:0  atIndex:2];
-    [renderEncoder setVertexBuffer: mesh.mtkboneWeight   offset:0   atIndex:3];
+    [renderEncoder setVertexBuffer: mesh.mtkuvs  offset:0  atIndex:2];
+    [renderEncoder setVertexBuffer: mesh.mtkboneId  offset:0  atIndex:3];
+    [renderEncoder setVertexBuffer: mesh.mtkboneWeight   offset:0   atIndex:4];
+    
+    
+    [this setMaterialTexture:mesh.material mp:mesh.materialParam];
     
     
     [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
@@ -74,6 +80,54 @@
     
  
     
+    
+}
+-(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
+{
+ 
+    NSArray<TexItem*>* texVec  = mp.material.texList;
+    TexItem* texItem;
+    for (int i   = 0; i < texVec.count; i++) {
+        texItem=texVec[i];
+        if (texItem.isDynamic) {
+            continue;
+        }
+        if (texItem.type == TexItem.LIGHTMAP) {
+        }
+        else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
+            NSLog(@"TexItem.LTUMAP)");
+        }
+        else if (texItem.type == TexItem.CUBEMAP) {
+            if (material.useDynamicIBL) {// && _reflectionTextureVo) {
+                NSLog(@"TexItem.useDynamicIBL)");
+            } else {
+                if([Scene_data default].skyCubeTexture){
+                  
+                }
+            }
+        }
+        else if (texItem.type == 0) {
+         
+            
+        }
+    }
+    NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
+    for (int i   = 0; i < texDynamicVec.count; i++) {
+        texItem=texDynamicVec[i].target;
+        if(texItem ){
+            
+            if(texItem.isMain){
+                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+                [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
+                                          atIndex:0];
+                
+              
+            }
+           
+//            [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
+            
+        }
+    }
     
 }
 -(void)setVaCompress:(MeshData*)mesh;
@@ -111,8 +165,8 @@
     id<MTLBuffer>  q=  [self.mtkScene3D.context3D changeDataToGupMtkfloat4:dualQuatFrame.quatArr];
     id<MTLBuffer>  p=  [self.mtkScene3D.context3D changeDataToGupMtkfloat3:dualQuatFrame.posArr];
 
-    [renderEncoder setVertexBuffer: q   offset:0   atIndex:4];
-    [renderEncoder setVertexBuffer: p   offset:0   atIndex:5];
+    [renderEncoder setVertexBuffer: q   offset:0   atIndex:5];
+    [renderEncoder setVertexBuffer: p   offset:0   atIndex:6];
 }
 
 
