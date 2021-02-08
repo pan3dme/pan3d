@@ -123,8 +123,7 @@
                 
               
             }
-           
-//            [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
+ 
             
         }
     }
