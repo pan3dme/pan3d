@@ -22,6 +22,9 @@
 #import "Display3DSprite.h"
 #import "TextureManager.h"
 #import "GroupDataManager.h"
+#import "MtlMoveDisplayType.h"
+#import "MtkMoveDisplayShader.h"
+#import "DynamicTexItem.h"
 
 @interface Display3dMovie()<IBind>
 @property(nonatomic,strong)NSString*  meshUrl;
@@ -31,7 +34,7 @@
 @property(nonatomic,strong)NSMutableDictionary*  preLoadActionDic;
 @property(nonatomic,strong)NSMutableDictionary*  waitLoadActionDic;
 
-
+@property (nonatomic, strong) MtkMoveDisplayShader* mtkMoveDisplayShader;
 
 @property(nonatomic,assign)int  completeState ;
 @property(nonatomic,assign)int  curentFrame;
@@ -73,10 +76,21 @@
         this.preLoadActionDic = [[NSMutableDictionary alloc]init];
         this.waitLoadActionDic =[[NSMutableDictionary alloc]init];
         this.actionTime=0;
+        
+        [self customInit];
    
     }
     return self;
 }
+- (void)customInit {
+    self.mtkMoveDisplayShader=[[MtkMoveDisplayShader alloc] init:self.mtkScene3D];
+    [self.mtkMoveDisplayShader mtlEncode];
+    
+    [self setRoleUrl:getRoleUrl(@"50001")];
+//    [self setRoleUrl:getRoleUrl(@"yezhuz")];
+    
+}
+
 -(void)onMeshLoaded;
 {
     
@@ -199,27 +213,14 @@
 
 -(void)setVaCompress:(MeshData*)mesh;
 {
-    Display3dMovie* this=self;
     
-    Context3D *ctx=this.mtkScene3D.context3D;
-    [ctx pushVa:mesh.verticesBuffer];
-    [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa:    mesh.uvBuffer];
-    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
-    [ctx pushVa: mesh.boneIdBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
-    [ctx pushVa: mesh.boneWeightBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
   
     
 }
-/*
- 设置骨骼数据
- */
--(void)setMeshVc:(MeshData*)mesh;
+-(void)setMeshVc:(MeshData*)mesh redEncoder:(id<MTLRenderCommandEncoder>)renderEncoder
 {
     Display3dMovie* this=self;
-    Context3D *context3D=self.mtkScene3D.context3D;
+ 
     AnimData* animData;
     if (this.animDic[this.curentAction]) {
         animData = this.animDic[this.curentAction];
@@ -228,19 +229,19 @@
     } else {
         return;
     }
-    DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][this.curentFrame];
-    GLfloat boneQarr[dualQuatFrame.quatArr.count];
-    for (int i=0; i<dualQuatFrame.quatArr.count; i++) {
-        boneQarr[i]=dualQuatFrame.quatArr[i].floatValue;
+
+    if(self.curentFrame++>=animData.boneQPAry[mesh.uid].count-1){
+        self.curentFrame=0;
     }
-    GLfloat boneDarr[dualQuatFrame.posArr.count];
-    for (int i=0; i<dualQuatFrame.posArr.count; i++) {
-        boneDarr[i]=dualQuatFrame.posArr[i].floatValue;
-    }
-    [context3D setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
-    [context3D setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
+
+    DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][self.curentFrame];
+  
     
+    [renderEncoder setVertexBuffer: dualQuatFrame.mtkquatArr   offset:0   atIndex:5];
+    [renderEncoder setVertexBuffer: dualQuatFrame.mtkposArr   offset:0   atIndex:6];
 }
+
+ 
 /*
  设置镜头矩阵和模型位置矩阵
  */
@@ -257,28 +258,99 @@
     [self.posMatrix3d prependScale:self.fileScale y:self.fileScale z:self.fileScale];
  
 }
+- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
+    Matrix3D* posMatrix =[[Matrix3D alloc]init];
+    LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    [renderEncoder setVertexBytes:&matrix
+                           length:sizeof(matrix)
+                          atIndex:0];
+}
 
 /*
  部分mesh对象渲染
  */
 -(void)updateMaterialMesh:(MeshData*)mesh;
 {
-     Display3dMovie* this=self;
+    Display3dMovie* this=self;
     if (!mesh.material) {
         return;
     }
-    this.shader3d=mesh.material.shader;
-    Context3D *ctx=this.mtkScene3D.context3D;
-    [ctx setProgram:this.shader3d.program];
-    [ctx setBlendParticleFactors:mesh.material.blendMode];
-    [ctx cullFaceBack:mesh.material.backCull];
-    mesh.material.shader=this.shader3d;
+    
+    
+    id<MTLRenderCommandEncoder> renderEncoder=this.mtkScene3D.context3D.renderEncoder;
+    
+    [self.mtkMoveDisplayShader mtlSetProgramShader];
+    
+    [self setupMatrixWithEncoder:renderEncoder];
+    
+    [renderEncoder setCullMode:0];
+    
+    [self setMeshVc:mesh redEncoder:renderEncoder];
+    
+    [renderEncoder setVertexBuffer: mesh.mtkvertices  offset:0  atIndex:1];
+    [renderEncoder setVertexBuffer: mesh.mtkuvs  offset:0  atIndex:2];
+    [renderEncoder setVertexBuffer: mesh.mtkboneId  offset:0  atIndex:3];
+    [renderEncoder setVertexBuffer: mesh.mtkboneWeight   offset:0   atIndex:4];
+    
+    
     [this setMaterialTexture:mesh.material mp:mesh.materialParam];
-    [this setMaterialVc:mesh.material mp:mesh.materialParam];
-    [this setVc];
-    [this setMeshVc:mesh];
-    [this setVaCompress:mesh];
-    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+    
+    
+    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                              indexCount: mesh.mtkindexCount
+                               indexType:MTLIndexTypeUInt32
+                             indexBuffer: mesh.mtkindexs
+                       indexBufferOffset:0];
+    
+    
+}
+
+
+-(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
+{
+ 
+    NSArray<TexItem*>* texVec  = mp.material.texList;
+    TexItem* texItem;
+    for (int i   = 0; i < texVec.count; i++) {
+        texItem=texVec[i];
+        if (texItem.isDynamic) {
+            continue;
+        }
+        if (texItem.type == TexItem.LIGHTMAP) {
+        }
+        else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
+            NSLog(@"TexItem.LTUMAP)");
+        }
+        else if (texItem.type == TexItem.CUBEMAP) {
+            if (material.useDynamicIBL) {// && _reflectionTextureVo) {
+                NSLog(@"TexItem.useDynamicIBL)");
+            } else {
+                if([Scene_data default].skyCubeTexture){
+                  
+                }
+            }
+        }
+        else if (texItem.type == 0) {
+         
+            
+        }
+    }
+    NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) mp.dynamicTexList;
+    for (int i   = 0; i < texDynamicVec.count; i++) {
+        texItem=texDynamicVec[i].target;
+        if(texItem ){
+            
+            if(texItem.isMain){
+                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+                [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
+                                          atIndex:0];
+                
+              
+            }
+ 
+            
+        }
+    }
     
 }
 /*

@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)play:(NSString*)action;
 -(BOOL)play:(NSString*)action completeState:(int)completeState needFollow:(BOOL)needFollow;
 -(void)addPart:(NSString*)key bindSocket:(NSString*)bindSocket url:(NSString*)url;
+ 
 @end
 
 NS_ASSUME_NONNULL_END
