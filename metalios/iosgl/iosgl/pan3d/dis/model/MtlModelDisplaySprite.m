@@ -86,7 +86,7 @@
     [self.mtkScene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
         
         obj.scene3D=self.mtkScene3D;
-        [obj changeObjDataToMtkGpu];
+        [obj upToGpu];
         self.objData=obj;
         
     }];

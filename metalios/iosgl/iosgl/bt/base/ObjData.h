@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(GLuint)upGpuvertexBuffer:(NSArray*)arr;
 -(void)upToGpu;
 -(void)makeTempObjData;
--(void)changeObjDataToMtkGpu ;
+ 
 
 @end
 
