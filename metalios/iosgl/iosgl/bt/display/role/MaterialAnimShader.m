@@ -34,33 +34,25 @@
                                      using namespace metal;
                                      
                                
-                                     
-                                     typedef struct
-                                     {
-                                         vector_float3 position;
-                                     } VertexRoleFloat3;
-                                     typedef struct
-                                     {
-                                         vector_float2 position;
-                                     } VertexRoleFloat2;
-                                     typedef struct
-                                     {
-                                         vector_float4 position;
-                                     } VertexRoleFloat4;
-                                     typedef struct
-                                     {
-        float4x4 projectionMatrix;
-        float4x4 modelViewMatrix;
-                                     } LineMatrixRoleView;
-
-                                     typedef struct
-                                     {
-                                         vector_float4 boneQ[54];
-                                         vector_float3 boneD[54];
-                                      
-                                     } BoneQDrole;
-                                     
-                                     
+                                                         
+                                typedef struct
+                                {
+                                    vector_float3 position;
+                                } VertexRoleFloat3;
+                                typedef struct
+                                {
+                                    vector_float2 position;
+                                } VertexRoleFloat2;
+                                typedef struct
+                                {
+                                    vector_float4 position;
+                                } VertexRoleFloat4;
+                                typedef struct
+                                {
+                                    float4x4 projectionMatrix;
+                                    float4x4 modelViewMatrix;
+                                } LineMatrixRoleView;
+ 
                                      typedef struct
                                      {
                                          float4 clipSpacePosition [[position]];
@@ -68,6 +60,7 @@
                                          float2 textureCoordinate;
                                          
                                      } RoleRasterizerData;
+                                     
                                      float4 qdv( float4 q ,float3 d ,float3 v  )
                                      {
                                          float3 t = 2.0 * cross(q.xyz, v);
@@ -86,25 +79,12 @@
                                          
                                          
                                      }
-
-                                  
-                                      
-                                     fragment float4 // 片元
-                                     samplingShaderLineRole(RoleRasterizerData input [[stage_in]],
-                                                    texture2d<half> textureColor [[ texture(0) ]])
-                                     {
-                                         constexpr sampler textureSampler (mag_filter::linear,
-                                                                           min_filter::linear);
-                                         
-                                         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-                             
-//                                         half4 colorTex = half4(1, 0,0, 1);
-                                         return float4(colorTex);
-                                     }
+ 
                                      )];
  
-    NSString * outBaseStr    = [self getVertexShaderStringMtk];
-    code=   [code stringByAppendingString:outBaseStr];
+ 
+    code=   [code stringByAppendingString:[self getVertexShaderStringMtk]];
+    code=   [code stringByAppendingString:[self getFragmentShaderStringMtk]];
     
     return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
 }
@@ -160,6 +140,45 @@
     return changeStr;
 }
 
+
+-(NSString*)getFragmentShaderStringMtk
+{
+  
+    NSString *baseStr     = [NSString stringWithFormat:@"%s",
+                          _STRINGIFY(
+                                     fragment float4 // 片元
+                                     fragmentShaderRoleStr(RoleRasterizerData input [[stage_in]],
+                                                    texture2d<half> textureColor [[ texture(0) ]])
+                                     {
+                                         constexpr sampler textureSampler (mag_filter::linear,
+                                                                           min_filter::linear);
+                                         
+                                         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+ 
+                                         return float4(colorTex);
+                                     }
+                                     )];
+ 
+    
+    NSString* changeStr=@ "fragment float4 \n"
+    "fragmentShaderRoleStr(RoleRasterizerData input [[stage_in]], texture2d<half> textureColor [[ texture(0) ]])\n"
+    "{\n"
+    "constexpr sampler textureSampler (mag_filter::linear,  min_filter::linear);\n"
+        
+    "half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);\n"
+
+//    "half4 colorTex = half4(1, 0,0, 1);\n"
+    
+    "return float4(colorTex);\n"
+"}\n";
+    
+ 
+    
+ 
+
+    return changeStr;
+}
+
 -(void)mtlEncode
 {
     MTKView *mtkView=self.scene3D.context3D. mtkView;
@@ -168,7 +187,7 @@
     NSString* librarySrc = [self makeTestShader];
     id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderRoleStr"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLineRole"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShaderRoleStr"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;
