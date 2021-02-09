@@ -87,38 +87,7 @@
                                          
                                      }
 
-                                     vertex RoleRasterizerData // 顶点
-                                     vertexShaderLineRole(uint vertexID [[ vertex_id ]],
-                                                          constant LineMatrixRoleView *matrix [[ buffer(0) ]],
-                                                          constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
-                                                          constant VertexRoleFloat2 *uvs [[ buffer(2) ]],
-                                                          constant VertexRoleFloat4 *boneID [[ buffer(3) ]],
-                                                          constant VertexRoleFloat4 *boneWeight [[ buffer(4) ]],
-                                                          constant VertexRoleFloat4 *boneQ [[ buffer(5) ]],
-                                                          constant VertexRoleFloat3 *boneD [[ buffer(6) ]]
-                                                         
-                                                           
-                                                  )
-                                      
-
-                                     {
-                                        
-                                        
-                                         RoleRasterizerData out;
-                                      
-                                         float4 vt0 = getQDdata(vertexArray[vertexID].position,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );;
-                                      
-                                     //    vt0=float4(vertexArray[vertexID].position, 1);
-                                         
-                                         out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
-                                         
-                                         out.textureCoordinate = uvs[vertexID].position;
-                                         
-                                         out.outColor=float4(1,0,0, 1);
-                                      
-                                         
-                                         return out;
-                                     }
+                                  
                                       
                                      fragment float4 // 片元
                                      samplingShaderLineRole(RoleRasterizerData input [[stage_in]],
@@ -128,32 +97,67 @@
                                                                            min_filter::linear);
                                          
                                          half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
-                                     //    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
-                                     //    half4 colorTex = half4(1, 0,0, 1);
-                                     //    half4 colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
+                             
+//                                         half4 colorTex = half4(1, 0,0, 1);
                                          return float4(colorTex);
                                      }
-
-                                     
                                      )];
  
- 
-  
+    NSString * outBaseStr    = [self getVertexShaderStringMtk];
+    code=   [code stringByAppendingString:outBaseStr];
     
     return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
 }
 -(NSString*)getVertexShaderStringMtk
 {
   
-    NSString* str=  @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
-    "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
-    "constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],\n";
+    NSString *baseStr     = [NSString stringWithFormat:@"%s",
+                          _STRINGIFY(
+                                     vertex RoleRasterizerData // 顶点
+                                     vertexShaderRoleStr(uint vertexID [[ vertex_id ]],
+                                                          constant LineMatrixRoleView *matrix [[ buffer(0) ]],
+                                                          constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
+                                                          constant VertexRoleFloat2 *uvs [[ buffer(2) ]],
+                                                          constant VertexRoleFloat4 *boneID [[ buffer(3) ]],
+                                                          constant VertexRoleFloat4 *boneWeight [[ buffer(4) ]],
+                                                          constant VertexRoleFloat4 *boneQ [[ buffer(5) ]],
+                                                          constant VertexRoleFloat3 *boneD [[ buffer(6) ]]
+                                                  )
+                                     {
+                                         RoleRasterizerData out;
+                                         float4 vt0 = getQDdata(vertexArray[vertexID].position,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );
+                                         out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
+                                         out.textureCoordinate = uvs[vertexID].position;
+                                         out.outColor=float4(1,0,0, 1);
+                                         return out;
+                                     }
+                                     )];
  
     
+    NSString* changeStr=@" vertex RoleRasterizerData  vertexShaderRoleStr(uint vertexID [[ vertex_id ]],\n"
+                    "constant LineMatrixRoleView *matrix [[ buffer(0) ]],\n"
+                    "constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],\n"
+                    "constant VertexRoleFloat2 *uvs [[ buffer(2) ]],\n"
+                    "constant VertexRoleFloat4 *boneID [[ buffer(3) ]],\n"
+                    "constant VertexRoleFloat4 *boneWeight [[ buffer(4) ]],\n"
+                    "constant VertexRoleFloat4 *boneQ [[ buffer(5) ]],\n"
+                    "constant VertexRoleFloat3 *boneD [[ buffer(6) ]]\n"
+        
+                ")\n"
+                "{\n"
+                    "RoleRasterizerData out;\n"
+                    "float4 vt0 = getQDdata(vertexArray[vertexID].position,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );\n"
+                    "out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;\n"
+                    "out.textureCoordinate = uvs[vertexID].position;\n"
+                    "out.outColor=float4(0,1,0, 1);\n"
+                    "return out;\n"
+                "}";
+    
+ 
     
  
 
-    return str;
+    return changeStr;
 }
 
 -(void)mtlEncode
@@ -163,7 +167,7 @@
     __autoreleasing NSError *error = nil;
     NSString* librarySrc = [self makeTestShader];
     id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderLineRole"];
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderRoleStr"];
     id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLineRole"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];

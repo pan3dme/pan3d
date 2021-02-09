@@ -23,7 +23,6 @@
 #import "TextureManager.h"
 #import "GroupDataManager.h"
 #import "MtlMoveDisplayType.h"
-#import "MtkMoveDisplayShader.h"
 #import "DynamicTexItem.h"
 
 @interface Display3dMovie()<IBind>
@@ -33,8 +32,7 @@
 @property(nonatomic,strong)NSMutableDictionary*  partUrl;
 @property(nonatomic,strong)NSMutableDictionary*  preLoadActionDic;
 @property(nonatomic,strong)NSMutableDictionary*  waitLoadActionDic;
-
-@property (nonatomic, strong) MtkMoveDisplayShader* mtkMoveDisplayShader;
+ 
 
 @property(nonatomic,assign)int  completeState ;
 @property(nonatomic,assign)int  curentFrame;
@@ -83,8 +81,7 @@
     return self;
 }
 - (void)customInit {
-    self.mtkMoveDisplayShader=[[MtkMoveDisplayShader alloc] init:self.mtkScene3D];
-    [self.mtkMoveDisplayShader mtlEncode];
+  
     
 //    [self setRoleUrl:getRoleUrl(@"50001")];
     [self setRoleUrl:getRoleUrl(@"yezhuz")];
@@ -262,7 +259,7 @@
     
     id<MTLRenderCommandEncoder> renderEncoder=this.mtkScene3D.context3D.renderEncoder;
     
-    [self.mtkMoveDisplayShader mtlSetProgramShader];
+    [self.shader3d mtlSetProgramShader];
     
     [self setVcMtl:renderEncoder];
     
