@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        self.mtkScene3D=value;
+        self.scene3D=value;
         self.posMatrix3d=[[Matrix3D alloc]init];
         self.modeMatrix=[[Matrix3D alloc]init];
         self.rotationMatrix3D=[[Matrix3D alloc]init];
@@ -53,8 +53,8 @@
  
 -(Matrix3D*)viewMatrix;
 {
-    if(self.mtkScene3D){
-        return self.mtkScene3D.camera3D.modelMatrix;
+    if(self.scene3D){
+        return self.scene3D.camera3D.modelMatrix;
     }else{
         return nil;
     }

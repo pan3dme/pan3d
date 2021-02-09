@@ -154,7 +154,7 @@
 {
      Display3dMovie* this =self;
     
-    [self.mtkScene3D.meshDataManager getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
+    [self.scene3D.meshDataManager getMeshData:value fun:^(SkinMesh * _Nonnull skinMesh) {
         this.skinMesh=skinMesh;
         this.fileScale=skinMesh.fileScale;
         this.animDic = skinMesh.animDic;
@@ -238,7 +238,7 @@
 }
 - (void)setVcMtl:(id<MTLRenderCommandEncoder>)renderEncoder {
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
-    LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    LineMatrixRoleView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
                           atIndex:0];
@@ -257,7 +257,7 @@
     this.shader3d=mesh.material.shader;
     
     
-    id<MTLRenderCommandEncoder> renderEncoder=this.mtkScene3D.context3D.renderEncoder;
+    id<MTLRenderCommandEncoder> renderEncoder=this.scene3D.context3D.renderEncoder;
     
     [self.shader3d mtlSetProgramShader];
     
@@ -322,7 +322,7 @@
         if(texItem ){
             
             if(texItem.isMain){
-                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+                id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
                 
@@ -413,12 +413,12 @@
           }
  
           if (item.types == SCENE_PARTICLE_TYPE) {
-               CombineParticle*  particle =   [self.mtkScene3D.particleManager   getParticleByte: item.particleUrl];
+               CombineParticle*  particle =   [self.scene3D.particleManager   getParticleByte: item.particleUrl];
               [ary addObject:particle];
               particle.bindTarget = this;
               particle.bindSocket = bindSocket;
               particle.dynamic = YES;
-             [this.mtkScene3D.particleManager addParticle:particle];
+             [this.scene3D.particleManager addParticle:particle];
               if (item.isGroup) {
                 //  particle.setGroup(posV3d, rotationV3d, scaleV3d);
               }
@@ -428,7 +428,7 @@
               [display setMaterialUrl:item.materialUrl paramData:item.materialInfoArr];
               [ary addObject:display];
               [display setBind:this bindSocket:bindSocket];
-              [this.mtkScene3D addDisplay:display];
+              [this.scene3D addDisplay:display];
               if(item.isGroup){
                   [display setGroup:posV3d rotaion:rotationV3d scale:scaleV3d];
               }

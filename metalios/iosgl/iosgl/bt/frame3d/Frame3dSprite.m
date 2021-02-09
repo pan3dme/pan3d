@@ -49,7 +49,7 @@
    
     this.frameImodelItem = [[NSMutableArray alloc] init];
            for (int i = 0; i <this.frame3dRes.frameItem.count; i++) {
-               FrameFileNode* base = [[FrameFileNode alloc]init:this.mtkScene3D];
+               FrameFileNode* base = [[FrameFileNode alloc]init:this.scene3D];
                [base setFrameNodeVoInfo:this.frame3dRes.frameItem[i]];
            
                [this.frameImodelItem addObject:base];

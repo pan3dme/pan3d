@@ -55,15 +55,15 @@
 }
 -(void)registetProgame;
 {
-    [ self.mtkScene3D.progrmaManager registe:GridLineShader.shaderStr shader3d: [[GridLineShader alloc]init]];
-     self.shader3d=  [ self.mtkScene3D.progrmaManager getProgram:GridLineShader.shaderStr];
+    [ self.scene3D.progrmaManager registe:GridLineShader.shaderStr shader3d: [[GridLineShader alloc]init]];
+     self.shader3d=  [ self.scene3D.progrmaManager getProgram:GridLineShader.shaderStr];
 }
 -(void)setVc;
 {
-    Context3D *ctx=self.mtkScene3D.context3D;
+    Context3D *ctx=self.scene3D.context3D;
    
-    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.mtkScene3D.camera3D.viewMatrix.m];
-    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:self.mtkScene3D.camera3D.camMatrix3D.m];
+    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.scene3D.camera3D.viewMatrix.m];
+    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:self.scene3D.camera3D.camMatrix3D.m];
  
 }
  

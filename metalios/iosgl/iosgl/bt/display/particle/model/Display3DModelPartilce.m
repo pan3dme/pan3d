@@ -27,12 +27,12 @@
 {
       [self setViewCamModeMatr3d];
       [self updateRotaionMatrix];
-      Context3D *ctx=self.mtkScene3D.context3D;
+      Context3D *ctx=self.scene3D.context3D;
       [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
 }
 - (void)setVa;
 {
-    Context3D *ctx=self.mtkScene3D.context3D;
+    Context3D *ctx=self.scene3D.context3D;
     ObjData* temp=self.facetdata.objData;
     [ctx pushVa: temp.verticesBuffer];
     [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
@@ -42,14 +42,14 @@
 }
 - (void)resetVa;
 {
-   Context3D *ctx=self.mtkScene3D.context3D;
+   Context3D *ctx=self.scene3D.context3D;
     [ctx clearVa:0];
     [ctx clearVa:1];
 }
  
 -(void)updateRotaionMatrix;
 {
-    Camera3D *cam=self.mtkScene3D.camera3D;
+    Camera3D *cam=self.scene3D.camera3D;
     Display3DModelPartilce* this=self;
     [this.rotationMatrix3D identity];
     if (this.data._watchEye) {

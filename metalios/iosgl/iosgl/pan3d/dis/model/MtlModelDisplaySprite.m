@@ -42,7 +42,7 @@
     return self;
 }
 - (void)customInit {
-    self.mtlModelDisplayShader=[[MtlModelDisplayShader alloc] init:self.mtkScene3D];
+    self.mtlModelDisplayShader=[[MtlModelDisplayShader alloc] init:self.scene3D];
     [self.mtlModelDisplayShader mtlEncode];
 }
 -(void) setInfo:(NSDictionary*)value;
@@ -75,7 +75,7 @@
 -(void)setLighturl:(NSString*)value
 {
     
-    [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+    [self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
         self.lightTextureRes=(TextureRes*)any;
  
     } wrapType:0 info:nil filteType:0 mipmapType:0];
@@ -83,9 +83,9 @@
 
 -(void)setObjUrl:(NSString*)value;
 {
-    [self.mtkScene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
+    [self.scene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
         
-        obj.scene3D=self.mtkScene3D;
+        obj.scene3D=self.scene3D;
         [obj upToGpu];
         self.objData=obj;
         
@@ -99,15 +99,15 @@
     value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     this.materialUrl =   value;
     
-    [self.mtkScene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+    [self.scene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
         this.material=(Material*)obj;
         if (this.material.useNormal) {
         }
         if (paramData) {
-            this.materialParam = [[MaterialBaseParam alloc]init:self.mtkScene3D];
+            this.materialParam = [[MaterialBaseParam alloc]init:self.scene3D];
             [this.materialParam setData:this.material ary:paramData];
         }
-    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init:self.mtkScene3D]];
+    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init:self.scene3D]];
 }
 
 
@@ -143,7 +143,7 @@
         texItem=texDynamicVec[i].target;
         if(texItem ){
             if(texItem.isMain){
-                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+                id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
                 
@@ -168,7 +168,7 @@
     [posMatrix appendRotation:0 axis:Vector3D.Y_AXIS];
 
   
-    [self setMatrixVc:self.mtkScene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:3];
+    [self setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:3];
     [self setMatrixVc:posMatrix renderEncoder:renderEncoder idx:4];
      
 }
@@ -183,7 +183,7 @@
     if(self.objData==nil){
         return;
     }
-    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     [self.material.shader mtlSetProgramShader];
     [self setupMatrixWithEncoder:renderEncoder];
     

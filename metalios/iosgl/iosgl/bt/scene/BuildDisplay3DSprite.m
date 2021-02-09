@@ -106,7 +106,7 @@
 -(void)setLighturl:(NSString*)value;
 {
     if(value&&value.length){
-        [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+        [self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
             self.lightTextureRes=(TextureRes*)any;
         } wrapType:0 info: nil filteType:0 mipmapType:0];
     }
@@ -114,7 +114,7 @@
 - (void)setMaterialVa;
 {
     BuildDisplay3DSprite* this=self;
-    Context3D *ctx=self.mtkScene3D.context3D;
+    Context3D *ctx=self.scene3D.context3D;
     if (!(this.material.directLight || this.material.noLight)) {
         [ctx pushVa:this.objData.lightuvsBuffer];
         [ctx setVaOffset:this.shader3d name:"v2lightuv" dataWidth:2 stride:0 offset:0];
@@ -133,7 +133,7 @@
 //            [ctx setRenderTexture:material.shader name:texItem.name texture:self.lightTextureRes.textTureLuint level:texItem.id];
 //        }
 //    }
-//      
+//
 //    
 //}
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
@@ -143,36 +143,28 @@
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
     [posMatrix appendScale:0.25 y:0.25 z:0.25];
     [posMatrix appendRotation:0 axis:Vector3D.Y_AXIS];
-
-  
  
-    [self setMatrixVc:self.mtkScene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:3];
-    [self setMatrixVc:posMatrix renderEncoder:renderEncoder idx:4];
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:3];
+    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:4];
      
 }
--(void)setMatrixVc:(Matrix3D*)m renderEncoder:(id<MTLRenderCommandEncoder>)renderEncoder   idx:(int)idx
-{
-    matrix_float4x4 viewMatrix = [m getMatrixFloat4x4] ;
-    [renderEncoder setVertexBytes:&viewMatrix
-                           length:sizeof(matrix_float4x4)
-                          atIndex:idx];
-}
+ 
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
 {
     BuildDisplay3DSprite* this=self;
     value= [value stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
     value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
-//    this.materialUrl =   value;
+ 
     
-    [self.mtkScene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+    [self.scene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
         this.material=(Material*)obj;
         if (this.material.useNormal) {
         }
         if (paramData) {
-            this.materialParam = [[MaterialBaseParam alloc]init:self.mtkScene3D];
+            this.materialParam = [[MaterialBaseParam alloc]init:self.scene3D];
             [this.materialParam setData:this.material ary:paramData];
         }
-    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init:self.mtkScene3D]];
+    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init:self.scene3D]];
 }
 
 - (void)upFrame;
@@ -181,7 +173,7 @@
     if(self.objData==nil){
         return;
     }
-    id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     [self.material.shader mtlSetProgramShader];
     [self setupMatrixWithEncoder:renderEncoder];
     
@@ -239,7 +231,7 @@
         texItem=texDynamicVec[i].target;
         if(texItem ){
             if(texItem.isMain){
-                id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+                id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
                 
@@ -257,31 +249,7 @@
 
 -(void)upFrameLightUv;
 {
-    if(!self.objData){
-        return;
-    }
-    BuildDisplay3DSprite* this=self;
-    if(!this.lightUvShader){
-        [ self.mtkScene3D.progrmaManager registe:BuildDisplay3DLightUvShader.shaderStr shader3d: [[BuildDisplay3DLightUvShader alloc]init]];
-        this.lightUvShader=  [ self.mtkScene3D.progrmaManager getProgram:BuildDisplay3DLightUvShader.shaderStr];
-    }else{
-        
-        this.shader3d= this.lightUvShader;
-        Context3D *ctx=this.mtkScene3D.context3D;
-        GLuint progame= self.shader3d.program;
-        glUseProgram(progame);
-        
-        [ctx setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:this.viewMatrix.m];
-        [ctx setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
-        [ctx pushVa:self.objData.verticesBuffer];
-        [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
-        [ctx pushVa:self.objData.lightuvsBuffer];
-        [ctx setVaOffset:self.shader3d name:"v2LightUv" dataWidth:2 stride:0 offset:0];
-        [ctx setRenderTexture:self.shader3d name:@"lighttexture" texture:this.lightTextureRes.textTureLuint  level:0];
-        [ctx drawCall:self.objData.indexBuffer  numTril:self.objData.trinum ];
-        
-        
-    }
+     
     
     
 }

@@ -20,8 +20,8 @@
 }
 -(void)inidShader
 {
-    [self.mtkScene3D.progrmaManager registe:FrameBuildShader.shaderStr shader3d: [[FrameBuildShader alloc]init]];
-    self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:FrameBuildShader.shaderStr];
+    [self.scene3D.progrmaManager registe:FrameBuildShader.shaderStr shader3d: [[FrameBuildShader alloc]init]];
+    self.shader3d=  [self.scene3D.progrmaManager getProgram:FrameBuildShader.shaderStr];
 }
 
 -(void)setFrameNodeUrl:(FrameNodeVo*)nodeVo;
@@ -29,7 +29,7 @@
     [super setFrameNodeUrl:nodeVo];
     FrameBuildSprite* this=self;
     this.groupItem =[[NSMutableArray alloc] init];
-    Display3DSprite* dis =[[Display3DSprite alloc]init:this.mtkScene3D];
+    Display3DSprite* dis =[[Display3DSprite alloc]init:this.scene3D];
     [dis setObjUrl:nodeVo.resurl];
     NSDictionary* info =nodeVo.materialInfoArr[0];
     [dis setPicUrl:  [info valueForKey:@"url"]];
@@ -56,7 +56,7 @@
     FrameBuildSprite* this=self;
     
     
-    Context3D *ctx=this.mtkScene3D.context3D;
+    Context3D *ctx=this.scene3D.context3D;
     GLuint progame= self.shader3d.program;
     glUseProgram(progame);
     
@@ -72,7 +72,7 @@
 - (void)setVc;
 {
     FrameBuildSprite* this=self;
-    Context3D *context3D=this.mtkScene3D.context3D;
+    Context3D *context3D=this.scene3D.context3D;
     Matrix3D* viewM=this.viewMatrix;
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
     [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];

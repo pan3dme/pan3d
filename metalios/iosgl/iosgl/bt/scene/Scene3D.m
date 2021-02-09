@@ -206,12 +206,12 @@
 }
 -(void) addDisplay:(Display3D*)dis;
 {
-    dis.mtkScene3D=self;
+    dis.scene3D=self;
     [self.displayList addObject:dis];
 }
 -(void) addMovieDisplay:(Display3dMovie*)dis;
 {
-    dis.mtkScene3D=self;
+    dis.scene3D=self;
     [self.displayRoleList addObject:dis];
 }
 -(void) clearAll;

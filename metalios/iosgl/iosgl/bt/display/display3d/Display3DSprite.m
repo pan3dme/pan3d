@@ -48,7 +48,7 @@
     [self onCreated];
 
     
-        self.textureRes=[self.mtkScene3D.materialManager getMaterialByUrl:@"tu001.jpg"];
+        self.textureRes=[self.scene3D.materialManager getMaterialByUrl:@"tu001.jpg"];
 }
 
 -(void)onCreated;
@@ -62,7 +62,7 @@
     value= [value stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     this.materialUrl =   value;
     
-    [self.mtkScene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
+    [self.scene3D.materialManager getMaterialByte:[[Scene_data default]getWorkUrlByFilePath:value ] fun:^(NSObject *obj) {
         this.material=(Material*)obj;
         if (this.material.useNormal) {
         }
@@ -79,7 +79,7 @@
  
 -(void)setObjUrl:(NSString*)value;
 {
-    [ self.mtkScene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
+    [ self.scene3D.objDataManager getObjData:value fun:^(ObjData * obj) {
      self.objData=obj;
         [self.objData upToGpu];
  
@@ -87,7 +87,7 @@
 }
 -(void)setPicUrl:(NSString*)value;
 {
-    [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
+    [self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:value] fun:^(NSObject * _Nonnull any) {
         self.textureRes=(TextureRes*)any;
  
     } wrapType:0 info:nil filteType:0 mipmapType:0];
@@ -122,7 +122,7 @@
 }
 -(void)loadObjDataByUrl:(NSString*)url
 {
-    [self.mtkScene3D.objDataManager getObjDataByUrl: url Block:^(ObjData *objData) {
+    [self.scene3D.objDataManager getObjDataByUrl: url Block:^(ObjData *objData) {
       //  self.objData=objData;
       //  [self.objData upToGpu];
     }];
@@ -130,7 +130,7 @@
 
 -(void)loadTextureResByUrl:(NSString*)value;
 {
-    self.textureRes=[self.mtkScene3D.materialManager getMaterialByUrl:value];
+    self.textureRes=[self.scene3D.materialManager getMaterialByUrl:value];
 }
 -(void)upFrame{
  
@@ -211,7 +211,7 @@
 -(void)setMaterialVa;
 {
     Display3DSprite* this=self;
-    Context3D *ctx=this.mtkScene3D.context3D;
+    Context3D *ctx=this.scene3D.context3D;
     [ctx pushVa:this.objData.verticesBuffer];
     [ctx setVaOffset:this.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
     [ctx pushVa:this.objData.uvBuffer];
@@ -225,7 +225,7 @@
 }
 - (void)resetVa;
 {
-   Context3D *ctx=self.mtkScene3D.context3D;
+   Context3D *ctx=self.scene3D.context3D;
     [ctx clearVa:0];
     [ctx clearVa:1];
     [ctx clearVa:2];
@@ -236,7 +236,7 @@
 -(void)setMaterialVc:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
     Display3DSprite* this=self;
-    Context3D *ctx=self.mtkScene3D.context3D;
+    Context3D *ctx=self.scene3D.context3D;
     if (material.fcNum <= 0) {
         return;
     }
@@ -291,15 +291,15 @@
  */
 -(void)setSceneFcData:(Material*)material;
 {
-    if(self.mtkScene3D.fogColor&&self.mtkScene3D.fogData){
-        [material updateFogDagtga:self.mtkScene3D.fogColor fogData:self.mtkScene3D.fogData];
+    if(self.scene3D.fogColor&&self.scene3D.fogData){
+        [material updateFogDagtga:self.scene3D.fogColor fogData:self.scene3D.fogData];
          [self setCamPos:material];
     }
  
 }
 -(void)setCamPos:(Material*)material;
 {
-    Vector3D* v3d=[[Vector3D alloc]x:self.mtkScene3D.camera3D.x y:self.mtkScene3D.camera3D.y z:self.mtkScene3D.camera3D.z];
+    Vector3D* v3d=[[Vector3D alloc]x:self.scene3D.camera3D.x y:self.scene3D.camera3D.y z:self.scene3D.camera3D.z];
     //[v3d normalize];
     [v3d scaleBy:1.0/500.0]; //需要优化
     [material updateCam:v3d.x  y:v3d.y  z:v3d.z];
@@ -307,7 +307,7 @@
 }
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
-    Context3D *ctx=self.mtkScene3D.context3D;
+    Context3D *ctx=self.scene3D.context3D;
     NSArray<TexItem*>* texVec  = mp.material.texList;
     TexItem* texItem;
     for (int i   = 0; i < texVec.count; i++) {
@@ -349,7 +349,7 @@
 -(void)setVc;
 {
     Display3DSprite* this=self;
-    Context3D *context3D=this.mtkScene3D.context3D;
+    Context3D *context3D=this.scene3D.context3D;
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:this.viewMatrix.m];
     [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
     if (this.material.usePbr || this.material.directLight) {

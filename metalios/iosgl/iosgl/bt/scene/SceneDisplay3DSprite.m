@@ -41,8 +41,8 @@
    
     
     
-    [self.mtkScene3D.progrmaManager registe:SceneDisplay3DShader.shaderStr shader3d: [[SceneDisplay3DShader alloc]init]];
-    self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:SceneDisplay3DShader.shaderStr];
+    [self.scene3D.progrmaManager registe:SceneDisplay3DShader.shaderStr shader3d: [[SceneDisplay3DShader alloc]init]];
+    self.shader3d=  [self.scene3D.progrmaManager getProgram:SceneDisplay3DShader.shaderStr];
     
     [self loadTextureResByUrl:@"tu001.jpg"];
     [self loadObjDataByUrl:objsurl];
@@ -63,7 +63,7 @@
         [self setShaderInfo];
         
         
-        Context3D *context3D=self.mtkScene3D.context3D;
+        Context3D *context3D=self.scene3D.context3D;
         
     
         [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
@@ -84,7 +84,7 @@
  
 -(void)setShaderInfo
 {
-    Context3D *context3D=self.mtkScene3D.context3D;
+    Context3D *context3D=self.scene3D.context3D;
     if(!self.skipnum){
         self.skipnum=1;
     }

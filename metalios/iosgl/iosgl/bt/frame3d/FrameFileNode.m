@@ -35,9 +35,9 @@
     this.frameNodeVo = vo;
     if (this.frameNodeVo.type == 1) {
         if (this.frameNodeVo.directLight) {  //有法线的对象
-            this._frameBuildSprite =[[FrameBuildSprite alloc]init:this.mtkScene3D];
+            this._frameBuildSprite =[[FrameBuildSprite alloc]init:this.scene3D];
             [this._frameBuildSprite setFrameNodeUrl:this.frameNodeVo];
-            [this.mtkScene3D addDisplay:this._frameBuildSprite];
+            [this.scene3D addDisplay:this._frameBuildSprite];
             this.sprite = this._frameBuildSprite;
         } else {
             if (this.frameNodeVo.receiveShadow) {

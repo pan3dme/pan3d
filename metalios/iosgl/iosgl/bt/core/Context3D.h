@@ -54,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(id<MTLBuffer> )changeDataToGupMtkfloat3:(NSArray*)value;
 -(id<MTLBuffer> )changeDataToGupMtkfloat4_copy:(NSArray*)value;
 -(id<MTLBuffer> )changeDataToGupMtkfloat4:(NSArray*)value;
+-(void)setMatrixVc:(Matrix3D*)m renderEncoder:(id<MTLRenderCommandEncoder>)renderEncoder   idx:(int)idx;
 
 
 @end

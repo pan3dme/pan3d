@@ -53,8 +53,8 @@
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     self.objData.indexBuffer=indexBuffer;
     self.objData.trinum=6;
-    [ self.mtkScene3D.progrmaManager registe:DisplayBaseTriShader.shaderStr shader3d: [[DisplayBaseTriShader alloc]init]];
-    self.shader3d=  [ self.mtkScene3D.progrmaManager getProgram:DisplayBaseTriShader.shaderStr];
+    [ self.scene3D.progrmaManager registe:DisplayBaseTriShader.shaderStr shader3d: [[DisplayBaseTriShader alloc]init]];
+    self.shader3d=  [ self.scene3D.progrmaManager getProgram:DisplayBaseTriShader.shaderStr];
    
 }
 -(void)upFrame{
@@ -62,7 +62,7 @@
     if(self.shader3d&&self.objData){
         GLuint progame= self.shader3d.program;
         glUseProgram(progame);
-        Context3D *context3D=self.mtkScene3D.context3D;
+        Context3D *context3D=self.scene3D.context3D;
         [context3D pushVa:self.objData.verticesBuffer];
         GLuint position = glGetAttribLocation( self.shader3d.program,"position");
         glEnableVertexAttribArray(position);

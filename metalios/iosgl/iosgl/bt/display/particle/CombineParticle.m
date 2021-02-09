@@ -151,7 +151,7 @@
     for(int i=0;i<self._displayAry.count;i++)
     {
         
-        self._displayAry[i].mtkScene3D=self.scene3d;
+        self._displayAry[i].scene3D=self.scene3d;
         if ([self._displayAry[i]  isKindOfClass:[Display3DModelPartilce class]]) {
    
         }

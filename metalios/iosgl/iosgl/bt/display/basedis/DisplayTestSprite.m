@@ -18,8 +18,8 @@
 @implementation DisplayTestSprite
 -(void)registetProgame;
 {
-    [ self.mtkScene3D.progrmaManager registe:DisplayTestShader.shaderStr shader3d: [[DisplayTestShader alloc]init]];
-    self.shader3d=  [ self.mtkScene3D.progrmaManager getProgram:DisplayTestShader.shaderStr];
+    [ self.scene3D.progrmaManager registe:DisplayTestShader.shaderStr shader3d: [[DisplayTestShader alloc]init]];
+    self.shader3d=  [ self.scene3D.progrmaManager getProgram:DisplayTestShader.shaderStr];
 }
 -(void)initData;
 {
@@ -32,7 +32,7 @@
     
     
    
-    [  self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:picurl] fun:^(NSObject * _Nonnull any) {
+    [  self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:picurl] fun:^(NSObject * _Nonnull any) {
         self.textureRes=(TextureRes*)any;
     } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
@@ -46,7 +46,7 @@
 - (void)setVa;
 {
     [super setVa];
-    Context3D *ctx=self.mtkScene3D.context3D;
+    Context3D *ctx=self.scene3D.context3D;
     [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:self.textureRes.textTureLuint level:0];
     
 }

@@ -62,8 +62,8 @@
 }
 -(void)registetProgame;
 {
-     [self.mtkScene3D.progrmaManager registe:LineDisplayShader.shaderStr shader3d: [[LineDisplayShader alloc]init]];
-      self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:LineDisplayShader.shaderStr];
+     [self.scene3D.progrmaManager registe:LineDisplayShader.shaderStr shader3d: [[LineDisplayShader alloc]init]];
+      self.shader3d=  [self.scene3D.progrmaManager getProgram:LineDisplayShader.shaderStr];
 }
 -(void)refrishLineDataToGpu;
 {
@@ -111,13 +111,13 @@
 }
 -(void)setVc;
 {
-    Context3D *context3D=self.mtkScene3D.context3D;
+    Context3D *context3D=self.scene3D.context3D;
     [context3D setVcMatrix4fv:self.shader3d name:"viewMatrix" data:self.viewMatrix.m];
     [context3D setVcMatrix4fv:self.shader3d name:"posMatrix" data:self.posMatrix3d.m];
 }
 -(void)setVa;
 {
-    Context3D *context3D=self.mtkScene3D.context3D;
+    Context3D *context3D=self.scene3D.context3D;
     [context3D pushVa:self.objData.verticesBuffer];
     [context3D setVaOffset:self.shader3d name:"position" dataWidth:3 stride:24 offset:0];
     [context3D setVaOffset:self.shader3d name:"attcolor" dataWidth:3 stride:24 offset:3];

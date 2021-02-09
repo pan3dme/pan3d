@@ -46,8 +46,8 @@
 }
 -(void)inidShader
 {
-    [self.mtkScene3D.progrmaManager registe:Md5MeshShader.shaderStr shader3d: [[Md5MeshShader alloc]init]];
-    self.shader3d=  [self.mtkScene3D.progrmaManager getProgram:Md5MeshShader.shaderStr];
+    [self.scene3D.progrmaManager registe:Md5MeshShader.shaderStr shader3d: [[Md5MeshShader alloc]init]];
+    self.shader3d=  [self.scene3D.progrmaManager getProgram:Md5MeshShader.shaderStr];
 }
 
 - (void)setMd5url:(NSString *)body_url animurl:(NSString *)anim_url picurl:(NSString *)pic_url{
@@ -128,7 +128,7 @@
 -(void)loadTextureBase
 {
     
-    [self.mtkScene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:self.picurl] fun:^(NSObject * _Nonnull any) {
+    [self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:self.picurl] fun:^(NSObject * _Nonnull any) {
         self.textureRes=(TextureRes*)any;
     } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
@@ -168,8 +168,8 @@
     $tempDq.posArr=[[NSArray alloc]initWithArray:posArr];
     
     
-    $tempDq.mtkquatArr=  [self.mtkScene3D.context3D changeDataToGupMtkfloat4: $tempDq.quatArr];
-    $tempDq.mtkposArr=  [self.mtkScene3D.context3D changeDataToGupMtkfloat3: $tempDq.posArr];
+    $tempDq.mtkquatArr=  [self.scene3D.context3D changeDataToGupMtkfloat4: $tempDq.quatArr];
+    $tempDq.mtkposArr=  [self.scene3D.context3D changeDataToGupMtkfloat3: $tempDq.posArr];
     
     
     return $tempDq;
@@ -185,7 +185,7 @@
     [self.md5MeshData upToGpu];
     Md5MoveSprite* this=self;
     Md5MeshData* mesh= this.md5MeshData;
-    Context3D *ctx=this.mtkScene3D.context3D;
+    Context3D *ctx=this.scene3D.context3D;
     GLuint progame= self.shader3d.program;
     glUseProgram(progame);
     
@@ -221,7 +221,7 @@
 - (void)setVc;
 {
     Md5MoveSprite* this=self;
-    Context3D *context3D=this.mtkScene3D.context3D;
+    Context3D *context3D=this.scene3D.context3D;
     [this.posMatrix3d identity];
     Matrix3D* viewM=this.viewMatrix;
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];

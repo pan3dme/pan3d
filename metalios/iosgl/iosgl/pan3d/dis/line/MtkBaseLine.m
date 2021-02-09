@@ -30,10 +30,10 @@
     return self;
 }
 - (void)customInit {
-    self.mtkBaseLineShader=[[MtkBaseLineShader alloc] init:self.mtkScene3D];
+    self.mtkBaseLineShader=[[MtkBaseLineShader alloc] init:self.scene3D];
     [self.mtkBaseLineShader mtlEncode];
     
-    self.objData=[[ObjData alloc] init:self.mtkScene3D];
+    self.objData=[[ObjData alloc] init:self.scene3D];
  
     
     
@@ -121,11 +121,11 @@
             idxs[i]=i;
         }
         
-        self.objData.mtkvertices = [self.mtkScene3D.mtkView.device newBufferWithBytes:quarr
+        self.objData.mtkvertices = [self.scene3D.mtkView.device newBufferWithBytes:quarr
                                                      length:sizeof(quarr)
                                                     options:MTLResourceStorageModeShared];
    
-        self.objData.mtkindexs = [self.mtkScene3D.mtkView.device newBufferWithBytes:idxs
+        self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:idxs
                                                          length:sizeof(idxs)
                                                         options:MTLResourceStorageModeShared];
         self.objData.mtkindexCount = self.linePointArr.count/2;
@@ -146,7 +146,7 @@
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
  
     
-    LineMatrixView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    LineMatrixView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
   
    [renderEncoder setVertexBytes:&matrix
                           length:sizeof(matrix)
@@ -157,7 +157,7 @@
         return;
     }
    
-   id<MTLRenderCommandEncoder> renderEncoder=self.mtkScene3D.context3D.renderEncoder;
+   id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
    [self.mtkBaseLineShader mtlSetProgramShader];
    
