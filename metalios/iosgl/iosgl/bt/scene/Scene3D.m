@@ -75,11 +75,11 @@
 -(void)initSceneInfoModel;
 {
     [self addDisplay: [[MtkBaseLine alloc]init:self]];
-    [self loadSeceneByUrl:@"2014"];
-    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
+//    [self loadSeceneByUrl:@"2014"];
+//    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
     
-//    [self playLyfByUrl:@"10017"];
-
+    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10017"]];
+   
 }
 
 -(void)playLyfByUrl:(NSString*)value
