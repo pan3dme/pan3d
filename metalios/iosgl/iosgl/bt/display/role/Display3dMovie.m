@@ -219,10 +219,7 @@
         return;
     }
 
-    if(self.curentFrame++>=animData.boneQPAry[mesh.uid].count-1){
-        self.curentFrame=0;
-    }
-
+    
     DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][self.curentFrame];
     [renderEncoder setVertexBuffer: dualQuatFrame.mtkquatArr   offset:0   atIndex:5];
     [renderEncoder setVertexBuffer: dualQuatFrame.mtkposArr   offset:0   atIndex:6];

@@ -35,23 +35,28 @@
                                      
                                
                                                          
-                                typedef struct
-                                {
-                                    vector_float3 position;
-                                } VertexRoleFloat3;
-                                typedef struct
-                                {
-                                    vector_float2 position;
-                                } VertexRoleFloat2;
-                                typedef struct
-                                {
-                                    vector_float4 position;
-                                } VertexRoleFloat4;
-                                typedef struct
-                                {
-                                    float4x4 projectionMatrix;
-                                    float4x4 modelViewMatrix;
-                                } LineMatrixRoleView;
+typedef struct
+{
+vector_float3 position;
+} VertexRoleFloat3;
+typedef struct
+{
+vector_float2 position;
+} VertexRoleFloat2;
+typedef struct
+{
+vector_float4 position;
+} VertexRoleFloat4;
+typedef struct
+{
+float4x4 projectionMatrix;
+float4x4 modelViewMatrix;
+} LineMatrixRoleView;
+
+typedef struct
+{
+float4x4 matrix;
+} MaterialMatrix;
  
                                      typedef struct
                                      {
