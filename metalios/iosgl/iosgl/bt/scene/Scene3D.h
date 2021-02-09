@@ -29,7 +29,7 @@
 @class AnimManager;
 @class ResManager;
 @class Display3dMovie;
-@class MtlModelDisplaySprite;
+@class BuildDisplay3DSprite;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 float _sceneScale;
  }
 @property (nonatomic, strong) MTKView *mtkView;
-@property (nonatomic, strong) NSMutableArray<MtlModelDisplaySprite*>* modelList;
+ 
 @property (nonatomic, strong) Camera3D *camera3D;
 @property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) NSMutableArray<Display3D*>* displayList;

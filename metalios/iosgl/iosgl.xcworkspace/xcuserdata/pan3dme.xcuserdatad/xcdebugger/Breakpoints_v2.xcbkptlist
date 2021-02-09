@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "098CC906-3BC4-4A6E-A024-2B6EDD323D47"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "-updata"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "14FE1903-5744-469C-87FD-D65758E6F9D7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -190,74 +174,10 @@
             filePath = "iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-setInfo:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "44388622-4221-4C1E-9D30-C32F234BD3AA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-setMaterialUrl:paramData:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "589438D9-13EE-4EA6-86B7-5C76DD9600A3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-setMaterialUrl:paramData:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "589438D9-13EE-4EA6-86B7-5C76DD9600A3 - 47e6284a7b68bf20"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MtlModelDisplaySprite setMaterialUrl:paramData:]"
-                  moduleName = "iosgl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pan3dme/pan3dall/metalios/iosgl/iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "264">
-               </Location>
-               <Location
-                  uuid = "589438D9-13EE-4EA6-86B7-5C76DD9600A3 - 6a9921fb3c784c16"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__50-[MtlModelDisplaySprite setMaterialUrl:paramData:]_block_invoke"
-                  moduleName = "iosgl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pan3dme/pan3dall/metalios/iosgl/iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -407,38 +327,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5833E259-8E61-4A21-A2AC-CBA6B9DC7C77"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "-setLighturl:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F6869B8D-4520-4977-A6AA-51941C00461D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iosgl/pan3d/dis/model/MtlModelDisplaySprite.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-setLighturl:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "60D2C7EA-EE2C-4719-B5CB-18C87CC85B80"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -446,9 +334,9 @@
             filePath = "iosgl/bt/base/ObjData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-changeObjDataToMtkGpu"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-makeTempObjData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -926,9 +814,9 @@
             filePath = "iosgl/bt/base/ObjData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "-changeObjDataToMtkGpu"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-makeTempObjData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -977,6 +865,22 @@
             startingLineNumber = "194"
             endingLineNumber = "194"
             landmarkName = "-mtlEncode"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3EEF689-3809-48EE-AD8E-B00B515D5D9D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/scene/BuildDisplay3DSprite.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-setLighturl:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

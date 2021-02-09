@@ -22,7 +22,7 @@
 #import "TimeUtil.h"
 #import "Scene_data.h"
 #import "MtkBaseLine.h"
-#import "MtlModelDisplaySprite.h"
+#import "BuildDisplay3DSprite.h"
 #import "Display3dMovie.h"
 #import "SceneRes.h"
 @interface Scene3D ()
@@ -66,7 +66,7 @@
     self.camera3D.rotationX=-15;
     [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
-    self.modelList=[[NSMutableArray alloc] init];
+    self.displayList=[[NSMutableArray alloc] init];
     [self loadSeceneByUrl:@"2014"];
     self.mtkBaseLine=[[MtkBaseLine alloc]init:self];
     self.mtkMoveDisplay3D=[[Display3dMovie alloc]init:self];
@@ -97,14 +97,14 @@
  
 -(void)addBuildDisplay3DSprite:(NSDictionary*)value;
 {
-    MtlModelDisplaySprite* dis=[[MtlModelDisplaySprite alloc] init:self];
+    BuildDisplay3DSprite* dis=[[BuildDisplay3DSprite alloc] init:self];
     [dis setInfo:value];
-    [self.modelList addObject: dis];
+    [self.displayList addObject: dis];
 }
 -(void)updateModelList;
 {
-    for(int i=0;i<self.modelList.count;i++){
-        [self.modelList[i] updata];
+    for(int i=0;i<self.displayList.count;i++){
+        [self.displayList[i] upFrame];
     }
 }
 - (void)loadSeceneByUrl:(NSString *)url

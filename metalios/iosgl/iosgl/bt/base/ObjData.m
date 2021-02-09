@@ -17,38 +17,7 @@
         return;
     }
     
-    if( self.vertices&&self.vertices.count){
-        self.verticesBuffer=  [self upGpuvertexBuffer:self.vertices];
-        self.uvBuffer=  [self upGpuvertexBuffer:self.uvs];
-        if(self.lightuvs&&self.lightuvs.count){
-            self.lightuvsBuffer=  [self upGpuvertexBuffer:self.lightuvs];
-        }
-        if(self.nrms&&self.nrms.count){
-            self.nrmsBuffer=  [self upGpuvertexBuffer:self.nrms];
-        }
-        self.indexBuffer=  [self upGpuIndexBuffer:self.indexs];
-        self.trinum=(int)self.indexs.count;
-    }  else if(self.dataView){
-     
-
-        unsigned int Indices[self.indexs.count];
-        for(int j=0;j<self.indexs.count;j++)
-        {
-            Indices[j]=[self.indexs[j]intValue];
-        }
-        
-        glGenBuffers(1, &_indexBuffer);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-        
-        
-        glGenBuffers(1, &_dataViewBuffer);
-        glBindBuffer(GL_ARRAY_BUFFER, self.dataViewBuffer);
-        glBufferData(GL_ARRAY_BUFFER, self.dataView.length, self.dataView.bytes,GL_STATIC_DRAW);
-   
-   
-        
-    }
+    [self changeObjDataToMtkGpu];
     self.compressBuffer=YES;
 }
  -(GLuint)upGpuIndexBuffer:(NSArray*)arr;
