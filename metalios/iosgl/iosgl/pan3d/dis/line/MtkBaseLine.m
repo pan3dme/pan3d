@@ -152,7 +152,7 @@
                           length:sizeof(matrix)
                          atIndex:1];
 }
--(void)updata  {
+-(void)upFrame  {
     if( !self.objData||!self.objData.compressBuffer){
         return;
     }
