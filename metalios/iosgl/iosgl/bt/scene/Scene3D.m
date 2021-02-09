@@ -16,6 +16,7 @@
 #import "ProgrmaManager.h"
 #import "MaterialManager.h"
 #import "MeshDataManager.h"
+#import "GroupDataManager.h"
 #import "MeshToObjUtils.h"
 #import "ResManager.h"
 #import "AnimManager.h"
@@ -24,6 +25,7 @@
 #import "MtkBaseLine.h"
 #import "BuildDisplay3DSprite.h"
 #import "Display3dMovie.h"
+#import "GroupItem.h"
 #import "SceneRes.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
@@ -57,6 +59,7 @@
     self.materialManager=[[MaterialManager alloc]init:self];
     self.progrmaManager=[[ProgrmaManager alloc]init:self];
     self.meshDataManager=[[MeshDataManager alloc]init:self];
+    self.groupDataManager=[[GroupDataManager alloc]init:self];
     self.resManager=[[ResManager alloc]init:self];
     self.animManager=[[AnimManager alloc]init:self];
     self.meshToObjUtils=[[MeshToObjUtils alloc]init:self];
@@ -71,10 +74,30 @@
 }
 -(void)initSceneInfoModel;
 {
-    [self loadSeceneByUrl:@"2014"];
     [self addDisplay: [[MtkBaseLine alloc]init:self]];
+    [self loadSeceneByUrl:@"2014"];
     [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
+    
+//    [self playLyfByUrl:@"10017"];
 
+}
+
+-(void)playLyfByUrl:(NSString*)value
+{
+
+    ParticleManager* particleManager=  self.particleManager;
+    NSString* modeurl =[[Scene_data default]getWorkUrlByFilePath:value];
+    [self.groupDataManager getGroupData:modeurl Block:^(GroupRes *groupRes) {
+        for (int i = 0; i < groupRes.dataAry.count; i++) {
+            GroupItem *item = groupRes.dataAry[i];
+            if (item.types ==SCENE_PARTICLE_TYPE) {
+                CombineParticle*  particle =   [particleManager   getParticleByte: item.particleUrl];
+                [particleManager addParticle:particle];
+            } else {
+                NSLog(@"播放的不是单纯特效");
+            }
+        }
+    }];
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {

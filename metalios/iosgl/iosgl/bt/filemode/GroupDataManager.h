@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GroupDataManager : ResGC
-+ (instancetype)default;
+ 
 
 -(void)getGroupData:(NSString*)url Block:(void (^)(GroupRes * ))block;
 @end

@@ -16,14 +16,17 @@
 @end
 @implementation GroupRes
 
-- (instancetype)init
+
+- (instancetype)init:(Scene3D*)value;
+
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.dataAry=[[NSMutableArray alloc]init];
     }
     return self;
 }
+ 
 -(void)load:(NSString*)url Block:(SuccessBlock)block;
 {
     //本地文件

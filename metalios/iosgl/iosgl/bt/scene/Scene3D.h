@@ -28,6 +28,7 @@
 @class MeshToObjUtils;
 @class AnimManager;
 @class ResManager;
+@class GroupDataManager;
 @class Display3dMovie;
 @class BuildDisplay3DSprite;
 
@@ -51,6 +52,7 @@ float _sceneScale;
 @property (nonatomic, strong) MaterialManager *materialManager;
 @property (nonatomic, strong) ProgrmaManager *progrmaManager;
 @property (nonatomic, strong) MeshDataManager *meshDataManager;
+@property (nonatomic, strong) GroupDataManager *groupDataManager;
 @property (nonatomic, strong) MeshToObjUtils *meshToObjUtils;
 
 @property (nonatomic, strong) AnimManager *animManager;

@@ -387,7 +387,7 @@
     this.partUrl[key] = url;
     NSMutableArray* ary  = this.partDic[key];
     
-    [[GroupDataManager default] getGroupData:[[Scene_data default]getWorkUrlByFilePath:url] Block:^(GroupRes *groupRes) {
+    [self.scene3D.groupDataManager getGroupData:[[Scene_data default]getWorkUrlByFilePath:url] Block:^(GroupRes *groupRes) {
         [this loadPartRes:bindSocket groupRes:groupRes ary:ary];
     }];
 }
