@@ -207,16 +207,8 @@
         return NO;
     }
 }
- /*
-  设置定点Buff
-  */
-
--(void)setVaCompress:(MeshData*)mesh;
-{
-    
-  
-    
-}
+ 
+ 
 -(void)setMeshVc:(MeshData*)mesh redEncoder:(id<MTLRenderCommandEncoder>)renderEncoder
 {
     Display3dMovie* this=self;
@@ -235,30 +227,19 @@
     }
 
     DualQuatFloat32Array* dualQuatFrame = animData.boneQPAry[mesh.uid][self.curentFrame];
-  
-    
     [renderEncoder setVertexBuffer: dualQuatFrame.mtkquatArr   offset:0   atIndex:5];
     [renderEncoder setVertexBuffer: dualQuatFrame.mtkposArr   offset:0   atIndex:6];
 }
 
  
-/*
- 设置镜头矩阵和模型位置矩阵
- */
-- (void)setVc;
-{
-    Display3dMovie* this=self;
-    Context3D *context3D=this.mtkScene3D.context3D;
-    [context3D setVcMatrix4fv:this.shader3d name:"viewMatrix" data:this.viewMatrix.m];
-    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix" data:this.posMatrix3d.m];
-}
+ 
 -(void)updateMatrix;
 {
     [super updateMatrix];
     [self.posMatrix3d prependScale:self.fileScale y:self.fileScale z:self.fileScale];
  
 }
-- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
+- (void)setVcMtl:(id<MTLRenderCommandEncoder>)renderEncoder {
     Matrix3D* posMatrix =[[Matrix3D alloc]init];
     LineMatrixRoleView matrix = {[self.mtkScene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
     [renderEncoder setVertexBytes:&matrix
@@ -276,12 +257,15 @@
         return;
     }
     
+    this.shader3d=mesh.material.shader;
+    
     
     id<MTLRenderCommandEncoder> renderEncoder=this.mtkScene3D.context3D.renderEncoder;
     
     [self.mtkMoveDisplayShader mtlSetProgramShader];
     
-    [self setupMatrixWithEncoder:renderEncoder];
+    [self setVcMtl:renderEncoder];
+    
     
     [renderEncoder setCullMode:0];
     

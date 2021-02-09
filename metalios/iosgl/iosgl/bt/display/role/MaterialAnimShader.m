@@ -7,12 +7,185 @@
 //
 
 #import "MaterialAnimShader.h"
-
+#import "Scene3D.h"
+ 
 @implementation MaterialAnimShader
 +(NSString*)shaderStr;
 {
     return @"MaterialAnimShader";
 }
+- (void)encodeVstr:(NSString *)vstr encodeFstr:(NSString *)fstr
+{
+    [self mtlEncode];
+    
+    
+    
+}
+
+- (NSString *)makeTestShader
+{
+    NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
+    NSString *imports  =@"";
+    includes=@"";
+    
+    
+    NSString *code     = [NSString stringWithFormat:@"%s",
+                          _STRINGIFY(
+                                     using namespace metal;
+                                     
+                               
+                                     
+                                     typedef struct
+                                     {
+                                         vector_float3 position;
+                                     } VertexRoleFloat3;
+                                     typedef struct
+                                     {
+                                         vector_float2 position;
+                                     } VertexRoleFloat2;
+                                     typedef struct
+                                     {
+                                         vector_float4 position;
+                                     } VertexRoleFloat4;
+                                     typedef struct
+                                     {
+        float4x4 projectionMatrix;
+        float4x4 modelViewMatrix;
+                                     } LineMatrixRoleView;
+
+                                     typedef struct
+                                     {
+                                         vector_float4 boneQ[54];
+                                         vector_float3 boneD[54];
+                                      
+                                     } BoneQDrole;
+                                     
+                                     
+                                     typedef struct
+                                     {
+                                         float4 clipSpacePosition [[position]];
+                                         float4 outColor;
+                                         float2 textureCoordinate;
+                                         
+                                     } RoleRasterizerData;
+                                     float4 qdv( float4 q ,float3 d ,float3 v  )
+                                     {
+                                         float3 t = 2.0 * cross(q.xyz, v);
+                                         float3 f = v + q.w * t + cross(q.xyz, t);
+                                         return float4(f.x + d.x, f.y + d.y, f.z + d.z, 1.0);
+                                     }
+                                     float4 getQDdata(float3 vdata,float4 boneID,float4 boneWeight,constant VertexRoleFloat4 *boneQ  ,constant VertexRoleFloat3 *boneD){
+                                         
+                                         
+                                         float4 tempnum = qdv(boneQ[int(boneID.x)].position, boneD[int(boneID.x)].position, vdata) * boneWeight.x;
+                                         tempnum += qdv(boneQ[int(boneID.y)].position, boneD[int(boneID.y)].position, vdata) * boneWeight.y;
+                                         tempnum += qdv(boneQ[int(boneID.z)].position, boneD[int(boneID.z)].position, vdata) * boneWeight.z;
+                                         tempnum += qdv(boneQ[int(boneID.w)].position, boneD[int(boneID.w)].position, vdata) * boneWeight.w;
+                                         tempnum.x = tempnum.x * -1.0;
+                                         return tempnum;
+                                         
+                                         
+                                     }
+
+                                     vertex RoleRasterizerData // 顶点
+                                     vertexShaderLineRole(uint vertexID [[ vertex_id ]],
+                                                          constant LineMatrixRoleView *matrix [[ buffer(0) ]],
+                                                          constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
+                                                          constant VertexRoleFloat2 *uvs [[ buffer(2) ]],
+                                                          constant VertexRoleFloat4 *boneID [[ buffer(3) ]],
+                                                          constant VertexRoleFloat4 *boneWeight [[ buffer(4) ]],
+                                                          constant VertexRoleFloat4 *boneQ [[ buffer(5) ]],
+                                                          constant VertexRoleFloat3 *boneD [[ buffer(6) ]]
+                                                         
+                                                           
+                                                  )
+                                      
+
+                                     {
+                                        
+                                        
+                                         RoleRasterizerData out;
+                                      
+                                         float4 vt0 = getQDdata(vertexArray[vertexID].position,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );;
+                                      
+                                     //    vt0=float4(vertexArray[vertexID].position, 1);
+                                         
+                                         out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
+                                         
+                                         out.textureCoordinate = uvs[vertexID].position;
+                                         
+                                         out.outColor=float4(1,0,0, 1);
+                                      
+                                         
+                                         return out;
+                                     }
+                                      
+                                     fragment float4 // 片元
+                                     samplingShaderLineRole(RoleRasterizerData input [[stage_in]],
+                                                    texture2d<half> textureColor [[ texture(0) ]])
+                                     {
+                                         constexpr sampler textureSampler (mag_filter::linear,
+                                                                           min_filter::linear);
+                                         
+                                         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+                                     //    half4 colorTex = half4(input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
+                                     //    half4 colorTex = half4(1, 0,0, 1);
+                                     //    half4 colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
+                                         return float4(colorTex);
+                                     }
+
+                                     
+                                     )];
+ 
+ 
+  
+    
+    return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
+}
+-(NSString*)getVertexShaderStringMtk
+{
+  
+    NSString* str=  @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
+    "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
+    "constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],\n";
+ 
+    
+    
+ 
+
+    return str;
+}
+
+-(void)mtlEncode
+{
+    MTKView *mtkView=self.scene3D.context3D. mtkView;
+ 
+    __autoreleasing NSError *error = nil;
+    NSString* librarySrc = [self makeTestShader];
+    id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderLineRole"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLineRole"];
+    
+    MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
+    pipelineStateDescriptor.vertexFunction = vertexFunction;
+    pipelineStateDescriptor.fragmentFunction = fragmentFunction;
+    pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
+    pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
+    pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
+    
+    self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
+                                                                        error:NULL];
+    
+    
+    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
+    
+    {
+        depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
+        depthStateDesc.depthWriteEnabled = YES;
+        self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
+    }
+}
+
 -(NSString *)getVertexShaderString;{
     char* relplayChat =
  
