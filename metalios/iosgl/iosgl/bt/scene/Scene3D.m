@@ -60,6 +60,7 @@
     self.progrmaManager=[[ProgrmaManager alloc]init:self];
     self.meshDataManager=[[MeshDataManager alloc]init:self];
     self.groupDataManager=[[GroupDataManager alloc]init:self];
+    self.particleManager=[[ParticleManager alloc]init:self];
     self.resManager=[[ResManager alloc]init:self];
     self.animManager=[[AnimManager alloc]init:self];
     self.meshToObjUtils=[[MeshToObjUtils alloc]init:self];
@@ -75,8 +76,8 @@
 -(void)initSceneInfoModel;
 {
     [self addDisplay: [[MtkBaseLine alloc]init:self]];
-//    [self loadSeceneByUrl:@"2014"];
-//    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
+    [self loadSeceneByUrl:@"2014"];
+    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
     
     [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10017"]];
    

@@ -18,9 +18,9 @@
 
 @implementation ParticleBallData
 
-- (instancetype)init
+- (instancetype)init:value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self._round=[[Vector3D alloc]init];
         self._shootAngly=[[Vector3D alloc]init];
@@ -171,7 +171,7 @@
 }
 -(void)uploadGpu;
 {
-     self.objData =[[ParticleBallGpuData alloc]init] ;
+    self.objData =[[ParticleBallGpuData alloc]init:self.scene3D] ;
     
     [self initBaseData];
     [self initUV ];
@@ -416,7 +416,7 @@
     }
     //使用2进制着色器
     NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
-    self.materialParam.shader=  [self.scene3D.progrmaManager getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls: [[Display3DBallPartilceShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+    self.materialParam.shader=  [self.scene3D.progrmaManager getMaterialProgram:Display3DBallPartilceShader.shaderStr shaderCls: [[Display3DBallPartilceShader alloc]init:self.scene3D]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
  
 }
 -(NSArray<NSNumber*>*)getShaderParam;

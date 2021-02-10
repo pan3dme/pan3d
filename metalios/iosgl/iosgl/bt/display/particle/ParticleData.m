@@ -110,7 +110,7 @@
 -(void)onMaterialLoad:(Material*)material;
 {
     ParticleData* this=self;
-    this.materialParam = [[MaterialParam alloc]init] ;
+    this.materialParam = [[MaterialParam alloc]init:self.scene3D] ;
     [this.materialParam SetMaterial:material];
     [this.materialParam SetLife:self._life];
     if (this.materialParamData) {

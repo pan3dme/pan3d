@@ -38,7 +38,7 @@
     
     
     
-    self.objData=[[ObjData alloc]init];
+    self.objData=[[ObjData alloc]init:self.scene3D];
     GLfloat attrArr[12];
     attrArr[0]=-offsetX * width;
     attrArr[1]=height - offsetY * height;

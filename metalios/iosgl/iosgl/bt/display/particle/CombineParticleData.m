@@ -49,28 +49,28 @@
     ParticleData *pdata;
     switch (type) {
         case 1:
-            pdata = [[ParticleFacetData alloc]init];
+            pdata = [[ParticleFacetData alloc]init:self.scene3D];
             break;
         case 3:
-            pdata = [[ParticleLocusData alloc]init];
+            pdata = [[ParticleLocusData alloc]init:self.scene3D];
             break;
         case 8:
-            pdata = [[ParticleFollowData alloc]init];
+            pdata = [[ParticleFollowData alloc]init:self.scene3D];
             break;
         case 4:
-            pdata = [[ParticleModelData alloc]init];
+            pdata = [[ParticleModelData alloc]init:self.scene3D];
             break;
         case 7:
-            pdata = [[ParticleModelData alloc]init];
+            pdata = [[ParticleModelData alloc]init:self.scene3D];
             break;
         case 9:
-            pdata = [[ParticleModelData alloc]init];
+            pdata = [[ParticleModelData alloc]init:self.scene3D];
             break;
         case 14:
-            pdata = [[ParticleLocusballData alloc]init];
+            pdata = [[ParticleLocusballData alloc]init:self.scene3D];
             break;
         case 18:
-            pdata = [[ParticleBallData alloc]init];
+            pdata = [[ParticleBallData alloc]init:self.scene3D];
             break;
         default:
             NSLog(@"没有的类型  %d",type);
