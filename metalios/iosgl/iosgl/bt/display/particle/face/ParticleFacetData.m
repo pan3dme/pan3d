@@ -68,14 +68,10 @@
 //    self.objData.verticesBuffer=verticesBuffer;
     
     
-    /*
-    self.objData.mtkvertices = [self.scene3D.mtkView.device newBufferWithBytes:attrArr
-                                                 length:sizeof(attrArr)
-                                                options:MTLResourceStorageModeShared];
-    */
+    
    
     NSMutableArray* attrArrktl  =[[NSMutableArray alloc]init];
-    for(int dd=0;dd<9;dd++){
+    for(int dd=0;dd<12;dd++){
         [attrArrktl addObject:[NSNumber numberWithFloat:attrArr[dd]]];
     }
     self.objData.mtkvertices=[self.scene3D.context3D changeDataToGupMtkfloat3:attrArrktl];
@@ -133,28 +129,21 @@
     Indices[1]=1;
     Indices[2]=2;
     Indices[3]=0;
-    Indices[4]=0;
-    Indices[5]=0;
+    Indices[4]=2;
+    Indices[5]=3;
 //    GLuint indexBuffer;
 //    glGenBuffers(1, &indexBuffer);
 //    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 //    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
 //    self.objData.indexBuffer=indexBuffer;
     
-//    self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
-//                                                     length:sizeof(Indices)
-//                                                    options:MTLResourceStorageModeShared];
-    
-    NSMutableArray* indexs  =[[NSMutableArray alloc]init];
-    for(int dd=0;dd<6;dd++){
-        [indexs addObject:[NSNumber numberWithInt:Indices[dd]]];
-    }
-    
-    self.objData.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu: indexs];
+    self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
+                                                     length:sizeof(Indices)
+                                                    options:MTLResourceStorageModeShared];
     
     
     
-    self.objData.trinum=3;
+    self.objData.trinum=6;
     
     self.objData.mtkindexCount = self.objData.trinum;
     
