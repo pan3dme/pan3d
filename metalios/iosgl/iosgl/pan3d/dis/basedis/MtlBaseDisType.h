@@ -24,16 +24,5 @@ typedef struct
 vector_float3 position;
 } VertexbaseFloat3;
 
-typedef struct
-{
-    matrix_float4x4 matrix;
-} MaterialBaseMatrix;
-
-
-//typedef struct
-//{
-//   matrix_float4x4 projectionMatrix;
-//   matrix_float4x4 modelViewMatrix;
-//} DisMatrixView;
-
+ 
 #endif /* MtlBaseLineType_h */

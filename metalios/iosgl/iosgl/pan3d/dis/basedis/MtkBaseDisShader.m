@@ -11,15 +11,80 @@
 
 @implementation MtkBaseDisShader
 
- 
+
+- (NSString *)makeTestShader
+{
+    NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
+    NSString *imports  =@"";
+    includes=@"";
+    
+    
+    NSString *code     = [NSString stringWithFormat:@"%s",
+                          _STRINGIFY(
+                                     using namespace metal;
+                                     
+                                     
+                                     typedef struct
+                                     {
+        float3 position;
+                                     } VertexbaseFloat3;
+
+                                     typedef struct
+                                     {
+        float4x4 matrix;
+                                     } MaterialBaseMatrix;
+                                     
+                                     typedef struct
+                                     {
+                                         float4 clipSpacePosition [[position]];
+                                      
+                                         
+                                     } RotationRasterizerData;
+                                     
+                                     
+
+
+
+
+                                     vertex RotationRasterizerData // 顶点
+                                     vertexShaderDis(uint vertexID [[ vertex_id ]],
+                                                  constant VertexbaseFloat3 *vertexArray [[ buffer(0) ]],
+                                                     constant MaterialBaseMatrix *projectionMatrix [[ buffer(1) ]],
+                                                     constant MaterialBaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
+                                         RotationRasterizerData out;
+                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
+                                      
+                                         
+                                         return out;
+                                     }
+                                      
+                                     fragment float4 // 片元
+                                     samplingShaderDis(RotationRasterizerData input [[stage_in]],
+                                                    texture2d<half> textureColor [[ texture(0) ]])
+                                     {
+                                 
+                                         half4 colorTex = half4(1, 0,0, 1);
+                                         return float4(colorTex);
+                                     }
+                                     
+                                     )];
+    
+    
+    
+    return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
+}
 -(void)mtlEncode
 {
-   
+    
     MTKView *mtkView=self.scene3D.context3D. mtkView;
     
-    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
-  
-  
+//    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+    
+    __autoreleasing NSError *error = nil;
+    NSString* librarySrc = [self makeTestShader];
+    id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
+    
+    
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderDis"];
     id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderDis"];
     
@@ -31,8 +96,8 @@
     pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
     
     self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
-                                                                                     error:NULL];
-     
+                                                                        error:NULL];
+    
     
     MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
     
@@ -42,5 +107,5 @@
         self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }
- 
+
 @end

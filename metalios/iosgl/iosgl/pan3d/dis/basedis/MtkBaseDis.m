@@ -84,9 +84,7 @@
    Matrix3D* posMatrix =[[Matrix3D alloc]init];
    [posMatrix appendScale:1 y:1 z:1];
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
- 
-    
-     
+  
     
     [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
     [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
