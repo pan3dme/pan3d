@@ -18,12 +18,18 @@
 
 #include <simd/simd.h>
 
+ 
 typedef struct
 {
-    vector_float4 position;
-    vector_float3 color;
-    vector_float2 textureCoordinate;
-} VertexDis;
+vector_float3 position;
+} VertexbaseFloat3;
+
+typedef struct
+{
+    matrix_float4x4 matrix;
+} MaterialBaseMatrix;
+
+
 typedef struct
 {
    matrix_float4x4 projectionMatrix;

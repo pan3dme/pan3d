@@ -49,13 +49,13 @@
 -(void)refrishLineDataToGpu;
 {
   
-        VertexDis quarr[3];
+    VertexbaseFloat3 quarr[3];
         int idxs[3];
        
     
-    quarr[0]=(VertexDis){{0,0,0,1},      (vector_float3){0,0,0},   {0.0f, 1.0f}     };
-    quarr[1]=(VertexDis){{100,0,0,1},    (vector_float3){0,0,0},   {0.0f, 1.0f}     };
-    quarr[2]=(VertexDis){{0,0,100,1},     (vector_float3){0,0,0},   {0.0f, 1.0f}     };
+    quarr[0]=(VertexbaseFloat3){{0,0,0},     };
+    quarr[1]=(VertexbaseFloat3){{100,0,0},       };
+    quarr[2]=(VertexbaseFloat3){{0,0,100},      };
     
     idxs[0]=0;
     idxs[1]=2;
