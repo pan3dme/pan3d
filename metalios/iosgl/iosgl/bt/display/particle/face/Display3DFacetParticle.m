@@ -20,7 +20,7 @@
 @interface Display3DFacetParticle ()
 @property (nonatomic, strong)  Vector2D*   uvMove;
 @property (nonatomic,strong) MtkBaseDis* mtkBaseLine;
-@property (nonatomic,strong) Display3DFacetShader* mtkBaseLineShader;
+//@property (nonatomic,strong) Display3DFacetShader* mtkBaseLineShader;
 @end
 
  
@@ -33,8 +33,8 @@
         self.uvMove=[[Vector2D alloc] init];
         self.mtkBaseLine=[[MtkBaseDis alloc] init:self.scene3D];
         
-        self.mtkBaseLineShader=[[Display3DFacetShader alloc] init:self.scene3D];
-        [self.mtkBaseLineShader mtlEncode];
+//        self.mtkBaseLineShader=[[Display3DFacetShader alloc] init:self.scene3D];
+//        [self.mtkBaseLineShader mtlEncode];
     }
     return self;
 }
@@ -42,9 +42,9 @@
 - (void)update;
 {
  
-//    [super update];
+    [super update];
   
-    [self upFrameCopy];
+ 
     
     
     
@@ -56,7 +56,7 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-   [self.mtkBaseLineShader mtlSetProgramShader];
+   [self.shader3d mtlSetProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    
@@ -92,9 +92,12 @@
       [self setViewCamModeMatr3d];
       [self updateRotaionMatrix];
       [self updateUV];
+    /*
       Context3D *ctx=self.scene3D.context3D;
+   
       [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
       [ctx setVcUniform2f:self.shader3d name:"uvMove" x:self.uvMove.x y:self.uvMove.y];
+    */
 }
 -(void)updateUV;
 {
@@ -110,6 +113,7 @@
 }
 - (void)setVa;
 {
+    /*
     Context3D *ctx=self.scene3D.context3D;
     ObjData* temp=self.facetdata.objData;
     [ctx pushVa: temp.verticesBuffer];
@@ -117,6 +121,30 @@
     [ctx pushVa: temp.uvBuffer];
     [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
     [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
+    
+    */
+    
+    if( !self.mtkBaseLine.objData||!self.mtkBaseLine.objData.compressBuffer){
+        return;
+    }
+   
+   id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+   [self.shader3d mtlSetProgramShader];
+   
+   [self setupMatrixWithEncoder:renderEncoder];
+   
+   [renderEncoder setVertexBuffer: self.mtkBaseLine.objData.mtkvertices
+                           offset:0
+                          atIndex:0];
+   
+ 
+   
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                             indexCount: self.mtkBaseLine.objData.mtkindexCount
+                              indexType:MTLIndexTypeUInt32
+                            indexBuffer: self.mtkBaseLine.objData.mtkindexs
+                      indexBufferOffset:0];
     
 }
 - (void)resetVa;

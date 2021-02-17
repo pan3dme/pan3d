@@ -320,7 +320,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "-setVc"
+            landmarkName = "-updateUV"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -334,9 +334,9 @@
             filePath = "iosgl/bt/display/particle/face/Display3DFacetParticle.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-setVa"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "-updateRotaionMatrix"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -528,7 +528,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
-            landmarkName = "-setupMatrixWithEncoder:"
+            landmarkName = "-updateUV"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -576,7 +576,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
-            landmarkName = "-setupMatrixWithEncoder:"
+            landmarkName = "-updateUV"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

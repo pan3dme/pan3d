@@ -75,7 +75,7 @@
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
                                  
-                                         half4 colorTex = half4(1, 0,0, 1);
+                                         half4 colorTex = half4(1, 0,1, 1);
                                          return float4(colorTex);
                                      }
                                      
