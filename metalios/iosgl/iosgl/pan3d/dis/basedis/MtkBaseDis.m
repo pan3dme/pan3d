@@ -80,17 +80,18 @@
    
    
    static float y = 0.0 ;
-//   y-=0.05;
+    y-=0.05;
    Matrix3D* posMatrix =[[Matrix3D alloc]init];
    [posMatrix appendScale:1 y:1 z:1];
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
  
     
-    DisMatrixView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+     
+    
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
+    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
+    
   
-   [renderEncoder setVertexBytes:&matrix
-                          length:sizeof(matrix)
-                         atIndex:1];
 }
 -(void)upFrame  {
     if( !self.objData||!self.objData.compressBuffer){

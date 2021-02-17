@@ -30,10 +30,10 @@ typedef struct
 } MaterialBaseMatrix;
 
 
-typedef struct
-{
-   matrix_float4x4 projectionMatrix;
-   matrix_float4x4 modelViewMatrix;
-} DisMatrixView;
+//typedef struct
+//{
+//   matrix_float4x4 projectionMatrix;
+//   matrix_float4x4 modelViewMatrix;
+//} DisMatrixView;
 
 #endif /* MtlBaseLineType_h */
