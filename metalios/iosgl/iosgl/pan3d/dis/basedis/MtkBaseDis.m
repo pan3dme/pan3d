@@ -35,20 +35,6 @@
     
     self.objData=[[ObjData alloc] init:self.scene3D];
  
-    
-    [self refrishLineDataToGpu];
-  
-    
-    
-}
-  
--(void)addLineA2B:(Vector3D*)a b:(Vector3D*)b;
-{
- 
-}
--(void)refrishLineDataToGpu;
-{
- 
     vector_float3 quarr[3];
         int idxs[3];
        
@@ -72,10 +58,11 @@
         self.objData.mtkindexCount = 3;
         
         self.objData.compressBuffer=YES;
-    
   
-
+    
+    
 }
+   
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
    
    
