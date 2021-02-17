@@ -13,10 +13,12 @@
 #import "ObjData.h"
 #import "Vector2D.h"
 #import "ParticleFacetData.h"
+#import "MtkBaseDis.h"
  
 
 @interface Display3DFacetParticle ()
 @property (nonatomic, strong)  Vector2D*   uvMove;
+@property (nonatomic,strong) MtkBaseDis* mtkBaseLine;
 @end
 
  
@@ -27,6 +29,7 @@
     self = [super init:value];
     if (self) {
         self.uvMove=[[Vector2D alloc] init];
+        self.mtkBaseLine=[[MtkBaseDis alloc] init:self.scene3D];
     }
     return self;
 }
@@ -37,6 +40,8 @@
  
     
     NSLog(@"here");
+    
+    [self.mtkBaseLine upFrame];
     
     
 }

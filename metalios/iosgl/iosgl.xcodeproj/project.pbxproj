@@ -20,6 +20,9 @@
 		9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA497255C655E00FAE501 /* ObjectWeight.m */; };
 		9C55A0A225C99F79004CA03B /* MtkMoveDisplay.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */; };
 		9C55A0A725C99F9A004CA03B /* MtkMoveDisplayShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A625C99F9A004CA03B /* MtkMoveDisplayShader.m */; };
+		9C8CA85525DCB489000F9194 /* MtkBaseDisShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */; };
+		9C8CA85625DCB489000F9194 /* MtkBaseDis.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA85225DCB489000F9194 /* MtkBaseDis.metal */; };
+		9C8CA85725DCB489000F9194 /* MtkBaseDis.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA85425DCB489000F9194 /* MtkBaseDis.m */; };
 		9CB8A2EA25C191910039B7E0 /* GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8A2E925C191910039B7E0 /* GC.m */; };
 		9CBE1C8B25B8420700FFE706 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1C8A25B8420700FFE706 /* shaders.metal */; };
 		9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */; };
@@ -259,6 +262,12 @@
 		9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MtkMoveDisplay.metal; sourceTree = "<group>"; };
 		9C55A0A525C99F9A004CA03B /* MtkMoveDisplayShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkMoveDisplayShader.h; sourceTree = "<group>"; };
 		9C55A0A625C99F9A004CA03B /* MtkMoveDisplayShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkMoveDisplayShader.m; sourceTree = "<group>"; };
+		9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MtkBaseDisShader.m; sourceTree = "<group>"; };
+		9C8CA85025DCB489000F9194 /* MtlBaseDisType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtlBaseDisType.h; sourceTree = "<group>"; };
+		9C8CA85125DCB489000F9194 /* MtkBaseDis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtkBaseDis.h; sourceTree = "<group>"; };
+		9C8CA85225DCB489000F9194 /* MtkBaseDis.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MtkBaseDis.metal; sourceTree = "<group>"; };
+		9C8CA85325DCB489000F9194 /* MtkBaseDisShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtkBaseDisShader.h; sourceTree = "<group>"; };
+		9C8CA85425DCB489000F9194 /* MtkBaseDis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MtkBaseDis.m; sourceTree = "<group>"; };
 		9CB8A2E825C191910039B7E0 /* GC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GC.h; sourceTree = "<group>"; };
 		9CB8A2E925C191910039B7E0 /* GC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GC.m; sourceTree = "<group>"; };
 		9CB8A2F025C2EE4B0039B7E0 /* MaterialShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShaderType.h; sourceTree = "<group>"; };
@@ -727,6 +736,19 @@
 			path = role;
 			sourceTree = "<group>";
 		};
+		9C8CA84325DCB3F2000F9194 /* basedis */ = {
+			isa = PBXGroup;
+			children = (
+				9C8CA85125DCB489000F9194 /* MtkBaseDis.h */,
+				9C8CA85425DCB489000F9194 /* MtkBaseDis.m */,
+				9C8CA85225DCB489000F9194 /* MtkBaseDis.metal */,
+				9C8CA85325DCB489000F9194 /* MtkBaseDisShader.h */,
+				9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */,
+				9C8CA85025DCB489000F9194 /* MtlBaseDisType.h */,
+			);
+			path = basedis;
+			sourceTree = "<group>";
+		};
 		9CBE1C8825B841E000FFE706 /* metail */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +769,7 @@
 		9CBE1CA925BB1C4E00FFE706 /* dis */ = {
 			isa = PBXGroup;
 			children = (
+				9C8CA84325DCB3F2000F9194 /* basedis */,
 				9C55A09A25C99E96004CA03B /* role */,
 				9CBE1CCB25BD785200FFE706 /* model */,
 				9CBE1CC625BD692100FFE706 /* line */,
@@ -1665,6 +1688,7 @@
 				FE2088F0239C176A007FB797 /* TextureRes.m in Sources */,
 				FE0FC2462395104700D2483A /* iosgl.xcdatamodeld in Sources */,
 				9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */,
+				9C8CA85525DCB489000F9194 /* MtkBaseDisShader.m in Sources */,
 				FE15ACB124357BFE0062741F /* MeshDataManager.m in Sources */,
 				FE887D5F2416768700025A74 /* DynamicConstItem.m in Sources */,
 				FE15ACB724357F920062741F /* RoleRes.m in Sources */,
@@ -1729,6 +1753,7 @@
 				FEEF8BBC2448E4D4001AFEB2 /* Skill.m in Sources */,
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
+				9C8CA85625DCB489000F9194 /* MtkBaseDis.metal in Sources */,
 				FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */,
 				FEEF8BEA2449A183001AFEB2 /* Display3DLocusBallPartilce.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
@@ -1798,6 +1823,7 @@
 				FE887D562416765600025A74 /* ConstItem.m in Sources */,
 				9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */,
 				FE1E1BB3254A742F009590DB /* DataObjTempVo.m in Sources */,
+				9C8CA85725DCB489000F9194 /* MtkBaseDis.m in Sources */,
 				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
