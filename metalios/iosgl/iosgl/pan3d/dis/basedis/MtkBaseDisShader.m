@@ -27,31 +27,31 @@
                                      typedef struct
                                      {
         float3 position;
-                                     } VertexbaseFloat3;
+                                     } BaseFloat3;
 
                                      typedef struct
                                      {
         float4x4 matrix;
-                                     } MaterialBaseMatrix;
+                                     }  BaseMatrix;
                                      
                                      typedef struct
                                      {
                                          float4 clipSpacePosition [[position]];
                                       
                                          
-                                     } RotationRasterizerData;
+                                     } OutData;
                                      
                                      
 
 
 
 
-                                     vertex RotationRasterizerData // 顶点
+                                     vertex OutData // 顶点
                                      vertexShaderDis(uint vertexID [[ vertex_id ]],
-                                                  constant VertexbaseFloat3 *vertexArray [[ buffer(0) ]],
-                                                     constant MaterialBaseMatrix *projectionMatrix [[ buffer(1) ]],
-                                                     constant MaterialBaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
-                                         RotationRasterizerData out;
+                                                  constant BaseFloat3 *vertexArray [[ buffer(0) ]],
+                                                     constant BaseMatrix *projectionMatrix [[ buffer(1) ]],
+                                                     constant BaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
+        OutData out;
                                          out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
                                       
                                          
@@ -59,7 +59,7 @@
                                      }
                                       
                                      fragment float4 // 片元
-                                     samplingShaderDis(RotationRasterizerData input [[stage_in]],
+                                     samplingShaderDis(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
                                  
