@@ -262,7 +262,6 @@
 		9C55A0A525C99F9A004CA03B /* MtkMoveDisplayShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkMoveDisplayShader.h; sourceTree = "<group>"; };
 		9C55A0A625C99F9A004CA03B /* MtkMoveDisplayShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkMoveDisplayShader.m; sourceTree = "<group>"; };
 		9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MtkBaseDisShader.m; sourceTree = "<group>"; };
-		9C8CA85025DCB489000F9194 /* MtlBaseDisType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtlBaseDisType.h; sourceTree = "<group>"; };
 		9C8CA85125DCB489000F9194 /* MtkBaseDis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtkBaseDis.h; sourceTree = "<group>"; };
 		9C8CA85325DCB489000F9194 /* MtkBaseDisShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtkBaseDisShader.h; sourceTree = "<group>"; };
 		9C8CA85425DCB489000F9194 /* MtkBaseDis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MtkBaseDis.m; sourceTree = "<group>"; };
@@ -741,7 +740,6 @@
 				9C8CA85425DCB489000F9194 /* MtkBaseDis.m */,
 				9C8CA85325DCB489000F9194 /* MtkBaseDisShader.h */,
 				9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */,
-				9C8CA85025DCB489000F9194 /* MtlBaseDisType.h */,
 			);
 			path = basedis;
 			sourceTree = "<group>";

@@ -10,7 +10,7 @@
  
 #import "MtkBaseDisShader.h"
  
-#import "MtlBaseDisType.h"
+ 
  
 @interface MtkBaseDis ()
 
@@ -48,14 +48,14 @@
 }
 -(void)refrishLineDataToGpu;
 {
-  
-    VertexbaseFloat3 quarr[3];
+ 
+    vector_float3 quarr[3];
         int idxs[3];
        
     
-    quarr[0]=(VertexbaseFloat3){{0,0,0},     };
-    quarr[1]=(VertexbaseFloat3){{100,0,0},       };
-    quarr[2]=(VertexbaseFloat3){{0,0,100},      };
+    quarr[0]=(vector_float3){0,0,0} ;
+    quarr[1]=(vector_float3){100.0,0,0.0       };
+    quarr[2]=(vector_float3){0.0,0.0,100    };
     
     idxs[0]=0;
     idxs[1]=2;
