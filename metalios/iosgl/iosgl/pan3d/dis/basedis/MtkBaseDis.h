@@ -14,12 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
  
 
 @property (nonatomic, strong) ObjData* objData;
-@property (nonatomic, strong) Vector3D* colorV3d;
-
-
  
--(void)clearLine;
--(void)addLineA2B:(Vector3D*)a b:(Vector3D*)b;
+ 
 @end
 
 NS_ASSUME_NONNULL_END
