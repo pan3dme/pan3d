@@ -102,7 +102,7 @@
 }
 
 - (void)drawInMTKView:(nonnull MTKView *)view {
-    [self.context3D mtkclearColor:[[Vector3D alloc]x:1 y:1 z:0.16 w:1]];
+    [self.context3D mtkclearColor:[[Vector3D alloc]x:0.16 y:0.16 z:0.16 w:1]];
  
  
     
@@ -177,7 +177,7 @@
     }
     [self.context3D setDepthTest:NO];
 //    [self.skillManager update];
-//    [self.particleManager update];
+    [self.particleManager update];
 }
 -(void)updateFrameRole;
 {

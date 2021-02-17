@@ -9,6 +9,7 @@
 #import "CombineParticle.h"
 #import "Display3DLocusPartilce.h"
 #import "Display3DModelPartilce.h"
+#import "Display3DFacetParticle.h"
 #import "Display3DParticle.h"
 #import "IBind.h"
 
@@ -152,10 +153,10 @@
     {
         
         self._displayAry[i].scene3D=self.scene3d;
-        if ([self._displayAry[i]  isKindOfClass:[Display3DModelPartilce class]]) {
-   
+        if ([self._displayAry[i]  isKindOfClass:[Display3DFacetParticle class]]) {
+            [self._displayAry[i] update];
         }
-        [self._displayAry[i] update];
+       
     }
 }
 -(void)updateItem:(int)idx;
