@@ -13,13 +13,12 @@
 #import "ObjData.h"
 #import "Vector2D.h"
 #import "ParticleFacetData.h"
-#import "MtkBaseDis.h"
 #import "Display3DFacetShader.h"
  
 
 @interface Display3DFacetParticle ()
 @property (nonatomic, strong)  Vector2D*   uvMove;
-@property (nonatomic,strong) MtkBaseDis* mtkBaseLine;
+//@property (nonatomic,strong) MtkBaseDis* mtkBaseLine;
 //@property (nonatomic,strong) Display3DFacetShader* mtkBaseLineShader;
 @end
 
@@ -31,10 +30,7 @@
     self = [super init:value];
     if (self) {
         self.uvMove=[[Vector2D alloc] init];
-        self.mtkBaseLine=[[MtkBaseDis alloc] init:self.scene3D];
-        
-//        self.mtkBaseLineShader=[[Display3DFacetShader alloc] init:self.scene3D];
-//        [self.mtkBaseLineShader mtlEncode];
+ 
     }
     return self;
 }
@@ -49,37 +45,15 @@
     
     
 }
--(void)upFrameCopy  {
-    if( !self.mtkBaseLine.objData||!self.mtkBaseLine.objData.compressBuffer){
-        return;
-    }
-   
-   id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-    
-   [self.shader3d mtlSetProgramShader];
-   
-   [self setupMatrixWithEncoder:renderEncoder];
-   
-   [renderEncoder setVertexBuffer: self.mtkBaseLine.objData.mtkvertices
-                           offset:0
-                          atIndex:0];
-   
  
-   
-   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                             indexCount: self.mtkBaseLine.objData.mtkindexCount
-                              indexType:MTLIndexTypeUInt32
-                            indexBuffer: self.mtkBaseLine.objData.mtkindexs
-                      indexBufferOffset:0];
-}
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
    
    
    static float y = 0.0 ;
-    y-=0.05;
+    y-=0.25;
    Matrix3D* posMatrix =[[Matrix3D alloc]init];
-   [posMatrix appendScale:1 y:1 z:1];
-   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+//   [posMatrix appendScale:0.03 y:0.03 z:0.03];
+//   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
   
     
     [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
@@ -124,7 +98,7 @@
     
     */
     
-    if( !self.mtkBaseLine.objData||!self.mtkBaseLine.objData.compressBuffer){
+    if( !self.facetdata ){
         return;
     }
    
@@ -134,16 +108,14 @@
    
    [self setupMatrixWithEncoder:renderEncoder];
    
-   [renderEncoder setVertexBuffer: self.mtkBaseLine.objData.mtkvertices
+   [renderEncoder setVertexBuffer: self.facetdata.objData.mtkvertices
                            offset:0
                           atIndex:0];
-   
- 
-   
+    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                             indexCount: self.mtkBaseLine.objData.mtkindexCount
+                             indexCount: self.facetdata.objData.mtkindexCount
                               indexType:MTLIndexTypeUInt32
-                            indexBuffer: self.mtkBaseLine.objData.mtkindexs
+                            indexBuffer: self.facetdata.objData.mtkindexs
                       indexBufferOffset:0];
     
 }

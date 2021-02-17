@@ -36,7 +36,8 @@
 -(void)makeRectangleData:(float)width height:(float)height offsetX:(float)offsetX  offsetY:(float)offsetY  isUV:(BOOL)isUV  isU:(BOOL)isU  isV:(BOOL)isV  animLine:(float)animLine animRow:(float)animRow;
 {
     
-    
+    width=50;
+    height=25;
     
     self.objData=[[ObjData alloc]init:self.scene3D];
     GLfloat attrArr[12];
@@ -46,11 +47,11 @@
     
     attrArr[3]=width - offsetX * width;
     attrArr[4]=height - offsetY * height;
-    attrArr[5]=10.0f;
+    attrArr[5]=0.0f;
     
     attrArr[6]=width - offsetX * width;
     attrArr[7]=-offsetY * height;
-    attrArr[8]=10.0f;
+    attrArr[8]=0.0f;
     
     attrArr[9]=-offsetX * width;
     attrArr[10]=-offsetY * height;
@@ -58,13 +59,28 @@
     
     
     
+
+    
+//    GLuint verticesBuffer;
+//    glGenBuffers(1, &verticesBuffer);
+//    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
+//    self.objData.verticesBuffer=verticesBuffer;
     
     
-    GLuint verticesBuffer;
-    glGenBuffers(1, &verticesBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-    self.objData.verticesBuffer=verticesBuffer;
+    /*
+    self.objData.mtkvertices = [self.scene3D.mtkView.device newBufferWithBytes:attrArr
+                                                 length:sizeof(attrArr)
+                                                options:MTLResourceStorageModeShared];
+    */
+   
+    NSMutableArray* attrArrktl  =[[NSMutableArray alloc]init];
+    for(int dd=0;dd<9;dd++){
+        [attrArrktl addObject:[NSNumber numberWithFloat:attrArr[dd]]];
+    }
+    self.objData.mtkvertices=[self.scene3D.context3D changeDataToGupMtkfloat3:attrArrktl];
+  
+    
     
     NSMutableArray<Vector2D*>* ary=[[NSMutableArray alloc] init];
     [ary addObject:[[Vector2D alloc]x:0.0f y:0.0f]];
@@ -104,11 +120,11 @@
     
     
     
-    GLuint uvBuffer;
-    glGenBuffers(1, &uvBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
-    self.objData.uvBuffer=uvBuffer;
+//    GLuint uvBuffer;
+//    glGenBuffers(1, &uvBuffer);
+//    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
+//    self.objData.uvBuffer=uvBuffer;
     
     
     
@@ -117,14 +133,32 @@
     Indices[1]=1;
     Indices[2]=2;
     Indices[3]=0;
-    Indices[4]=2;
-    Indices[5]=3;
-    GLuint indexBuffer;
-    glGenBuffers(1, &indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-    self.objData.indexBuffer=indexBuffer;
-    self.objData.trinum=6;
+    Indices[4]=0;
+    Indices[5]=0;
+//    GLuint indexBuffer;
+//    glGenBuffers(1, &indexBuffer);
+//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+//    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
+//    self.objData.indexBuffer=indexBuffer;
+    
+//    self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
+//                                                     length:sizeof(Indices)
+//                                                    options:MTLResourceStorageModeShared];
+    
+    NSMutableArray* indexs  =[[NSMutableArray alloc]init];
+    for(int dd=0;dd<6;dd++){
+        [indexs addObject:[NSNumber numberWithInt:Indices[dd]]];
+    }
+    
+    self.objData.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu: indexs];
+    
+    
+    
+    self.objData.trinum=3;
+    
+    self.objData.mtkindexCount = self.objData.trinum;
+    
+    
 }
 
 -(void)regShader;
