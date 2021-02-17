@@ -47,7 +47,7 @@
 
 
                                      vertex OutData // 顶点
-                                     vertexShaderDis(uint vertexID [[ vertex_id ]],
+                                     vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
                                                      constant BaseMatrix *projectionMatrix [[ buffer(1) ]],
                                                      constant BaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
@@ -59,11 +59,11 @@
                                      }
                                       
                                      fragment float4 // 片元
-                                     samplingShaderDis(OutData input [[stage_in]],
+                                     fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
                                  
-                                         half4 colorTex = half4(1, 0,0, 1);
+                                         half4 colorTex = half4(1, 1,0, 1);
                                          return float4(colorTex);
                                      }
                                      
@@ -85,8 +85,8 @@
     id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
     
     
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderDis"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderDis"];
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShader"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;

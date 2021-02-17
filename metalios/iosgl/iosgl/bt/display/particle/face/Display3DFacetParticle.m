@@ -14,11 +14,13 @@
 #import "Vector2D.h"
 #import "ParticleFacetData.h"
 #import "MtkBaseDis.h"
+#import "Display3DFacetShader.h"
  
 
 @interface Display3DFacetParticle ()
 @property (nonatomic, strong)  Vector2D*   uvMove;
 @property (nonatomic,strong) MtkBaseDis* mtkBaseLine;
+@property (nonatomic,strong) Display3DFacetShader* mtkBaseLineShader;
 @end
 
  
@@ -30,20 +32,60 @@
     if (self) {
         self.uvMove=[[Vector2D alloc] init];
         self.mtkBaseLine=[[MtkBaseDis alloc] init:self.scene3D];
+        
+        self.mtkBaseLineShader=[[Display3DFacetShader alloc] init:self.scene3D];
+        [self.mtkBaseLineShader mtlEncode];
     }
     return self;
 }
+ 
 - (void)update;
 {
  
 //    [super update];
+  
+    [self upFrameCopy];
+    
+    
+    
+}
+-(void)upFrameCopy  {
+    if( !self.mtkBaseLine.objData||!self.mtkBaseLine.objData.compressBuffer){
+        return;
+    }
+   
+   id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+   [self.mtkBaseLineShader mtlSetProgramShader];
+   
+   [self setupMatrixWithEncoder:renderEncoder];
+   
+   [renderEncoder setVertexBuffer: self.mtkBaseLine.objData.mtkvertices
+                           offset:0
+                          atIndex:0];
+   
  
+   
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                             indexCount: self.mtkBaseLine.objData.mtkindexCount
+                              indexType:MTLIndexTypeUInt32
+                            indexBuffer: self.mtkBaseLine.objData.mtkindexs
+                      indexBufferOffset:0];
+}
+- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
+   
+   
+   static float y = 0.0 ;
+    y-=0.05;
+   Matrix3D* posMatrix =[[Matrix3D alloc]init];
+   [posMatrix appendScale:1 y:1 z:1];
+   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+  
     
-    NSLog(@"here");
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
+    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
     
-    [self.mtkBaseLine upFrame];
-    
-    
+  
 }
 - (void)setVc;
 {

@@ -16,6 +16,14 @@
 }
  
 
+- (void)encodeVstr:(NSString *)vstr encodeFstr:(NSString *)fstr
+{
+    [self mtlEncode];
+    
+    
+    
+}
+
 - (NSString *)makeTestShader
 {
     NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
@@ -77,19 +85,20 @@
     
     return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
 }
-
 -(void)mtlEncode
 {
     
     MTKView *mtkView=self.scene3D.context3D. mtkView;
-  
+    
+//    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+    
     __autoreleasing NSError *error = nil;
     NSString* librarySrc = [self makeTestShader];
     id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
     
     
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderDis"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderDis"];
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShader"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;

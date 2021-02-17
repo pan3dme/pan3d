@@ -93,8 +93,8 @@
                            offset:0
                           atIndex:0];
    
-   [renderEncoder setFragmentTexture:self.texture
-                             atIndex:0];
+//   [renderEncoder setFragmentTexture:self.texture
+//                             atIndex:0];
    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: self.objData.mtkindexCount

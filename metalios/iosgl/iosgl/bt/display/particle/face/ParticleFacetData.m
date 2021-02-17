@@ -130,8 +130,8 @@
 -(void)regShader;
 {
     if ( self.materialParam) {
-//        [ self.mtkScene3D.progrmaManager registe:Display3DFacetShader.shaderStr shader3d: [[Display3DFacetShader alloc]init]];
-//        self.materialParam.shader=  [ self.mtkScene3D.progrmaManager getProgram:Display3DFacetShader.shaderStr];
+        [ self.scene3D.progrmaManager registe:Display3DFacetShader.shaderStr shader3d: [[Display3DFacetShader alloc]init:self.scene3D]];
+        self.materialParam.shader=  [ self.scene3D.progrmaManager getProgram:Display3DFacetShader.shaderStr];
         
     }
     
