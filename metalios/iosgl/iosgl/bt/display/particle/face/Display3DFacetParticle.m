@@ -22,9 +22,9 @@
  
 @implementation Display3DFacetParticle
 
-- (instancetype)init
+- (instancetype)init:value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.uvMove=[[Vector2D alloc] init];
     }
@@ -33,7 +33,12 @@
 - (void)update;
 {
  
-    [super update];
+//    [super update];
+ 
+    
+    NSLog(@"here");
+    
+    
 }
 - (void)setVc;
 {

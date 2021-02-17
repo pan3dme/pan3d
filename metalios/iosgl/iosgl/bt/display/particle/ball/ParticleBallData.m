@@ -145,7 +145,7 @@
 }
 -(Display3DParticle*)getParticle;
 {
-    return [[Display3DBallPartilce alloc]init];
+    return [[Display3DBallPartilce alloc]init:self.scene3D];
 }
 -(void)readRandomColor:(ByteArray*)byte;
 {

@@ -140,6 +140,6 @@
 
 -(Display3DParticle*)getParticle;
 {
-    return [[Display3DFacetParticle alloc]init];
+    return [[Display3DFacetParticle alloc]init:self.scene3D];
 }
 @end

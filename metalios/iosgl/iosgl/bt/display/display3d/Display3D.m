@@ -15,9 +15,7 @@
 {
     self = [super init];
     if (self) {
-        self.posMatrix3d=[[Matrix3D alloc]init];
-        self.modeMatrix=[[Matrix3D alloc]init];
-        self.rotationMatrix3D=[[Matrix3D alloc]init];
+       NSLog(@"不应该到这")
     }
     return self;
 }

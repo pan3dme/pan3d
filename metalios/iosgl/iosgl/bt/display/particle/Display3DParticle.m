@@ -23,9 +23,9 @@
 
 @implementation Display3DParticle
 
-- (instancetype)init
+- (instancetype)init:value
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self._time=0;
         self.visible=YES;
