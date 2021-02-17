@@ -118,7 +118,7 @@
   
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)
-                         atIndex:1];
+                         atIndex:2];
     
 
 }
@@ -136,7 +136,11 @@
     NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) self.data.materialParam.dynamicTexList;
     for (int i   = 0; i < texDynamicVec.count; i++) {
         TexItem* texItem=texDynamicVec[i].target;
-        [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
+//        [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
+         
+        id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+        [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
+                                  atIndex:0];
     }
     
 }

@@ -61,11 +61,11 @@
      
     
    
-    NSMutableArray* attrArrktl  =[[NSMutableArray alloc]init];
-    for(int dd=0;dd<12;dd++){
-        [attrArrktl addObject:[NSNumber numberWithFloat:attrArr[dd]]];
+    NSMutableArray* arr001  =[[NSMutableArray alloc]init];
+    for(int i=0;i<12;i++){
+        [arr001 addObject:[NSNumber numberWithFloat:attrArr[i]]];
     }
-    self.objData.mtkvertices=[self.scene3D.context3D changeDataToGupMtkfloat3:attrArrktl];
+    self.objData.mtkvertices=[self.scene3D.context3D changeDataToGupMtkfloat3:arr001];
   
     
     
@@ -105,6 +105,11 @@
     uvArr[7]=ary[3].y;
     
     
+    NSMutableArray* arr002  =[[NSMutableArray alloc]init];
+    for(int i=0;i<8;i++){
+        [arr002 addObject:[NSNumber numberWithFloat:uvArr[i]]];
+    }
+    self.objData.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:arr002];
  
     
     unsigned int Indices[6];

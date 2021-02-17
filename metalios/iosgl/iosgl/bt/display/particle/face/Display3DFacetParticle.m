@@ -93,9 +93,12 @@
    
    
    
-   [renderEncoder setVertexBuffer: self.facetdata.objData.mtkvertices
-                           offset:0
-                          atIndex:0];
+    [renderEncoder setVertexBuffer: self.facetdata.objData.mtkvertices
+                            offset:0
+                           atIndex:0];
+    [renderEncoder setVertexBuffer: self.facetdata.objData.mtkuvs
+                            offset:0
+                           atIndex:1];
     
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: self.facetdata.objData.mtkindexCount

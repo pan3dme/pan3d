@@ -38,6 +38,10 @@
                                      
                                      typedef struct
                                      {
+        float2 position;
+                                     } BaseFloat2;
+                                     typedef struct
+                                     {
         float3 position;
                                      } BaseFloat3;
 
@@ -56,20 +60,17 @@
                                      typedef struct
                                      {
                                          float4 clipSpacePosition [[position]];
-                                      
+        float2 textureCoordinate;
                                          
                                      } OutData;
                                      
-                                     
-
-
-
+                                  
 
                                      vertex OutData // 顶点
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
-                                          
-                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(1) ]]
+                                                  constant BaseFloat2 *uvsArray [[ buffer(1) ]],
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]]
                                                   
                                                   ) {
         OutData out;
@@ -79,6 +80,7 @@
         out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix * float4(vertexArray[vertexID].position, 1);
                                       
                                          
+        out.textureCoordinate = uvsArray[vertexID].position;
                                          return out;
                                      }
                                       
@@ -87,7 +89,13 @@
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
                                  
-                                         half4 colorTex = half4(1, 0,1, 1);
+        
+        constexpr sampler textureSampler (mag_filter::linear,
+                                          min_filter::linear);
+        
+        half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
+        
+//                                         half4 colorTex = half4(1, 0,0, 1);
                                          return float4(colorTex);
                                      }
                                      
