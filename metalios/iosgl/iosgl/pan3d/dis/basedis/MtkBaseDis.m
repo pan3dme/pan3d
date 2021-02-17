@@ -170,7 +170,7 @@
    [renderEncoder setFragmentTexture:self.texture
                              atIndex:0];
    
-   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeLine
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: self.objData.mtkindexCount
                               indexType:MTLIndexTypeUInt32
                             indexBuffer: self.objData.mtkindexs
