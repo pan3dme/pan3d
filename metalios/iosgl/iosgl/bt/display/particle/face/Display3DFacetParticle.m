@@ -106,7 +106,7 @@
     
    [self.shader3d mtlSetProgramShader];
    
-   [self setupMatrixWithEncoder:renderEncoder];
+   
    
    [renderEncoder setVertexBuffer: self.facetdata.objData.mtkvertices
                            offset:0

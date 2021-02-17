@@ -590,9 +590,9 @@
             filePath = "iosgl/bt/display/particle/face/ParticleFacetData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-makeRectangleData:height:offsetX:offsetY:isUV:isU:isV:animLine:animRow:"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-regShader"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -641,6 +641,38 @@
             startingLineNumber = "58"
             endingLineNumber = "58"
             landmarkName = "-makeRectangleData:height:offsetX:offsetY:isUV:isU:isV:animLine:animRow:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45C6636C-AE47-4E5A-972E-89BB586D8DA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/particle/Display3DParticle.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-update"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "996BFB16-3B5F-4F71-9016-6CC91AB0BA2B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/bt/display/particle/Display3DParticle.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-setViewCamModeMatr3d"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

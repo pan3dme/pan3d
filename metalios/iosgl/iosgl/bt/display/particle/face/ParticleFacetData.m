@@ -36,8 +36,8 @@
 -(void)makeRectangleData:(float)width height:(float)height offsetX:(float)offsetX  offsetY:(float)offsetY  isUV:(BOOL)isUV  isU:(BOOL)isU  isV:(BOOL)isV  animLine:(float)animLine animRow:(float)animRow;
 {
     
-    width=50;
-    height=25;
+//    width=50;
+//    height=25;
     
     self.objData=[[ObjData alloc]init:self.scene3D];
     GLfloat attrArr[12];
@@ -58,16 +58,7 @@
     attrArr[11]=0.0f;
     
     
-    
-
-    
-//    GLuint verticesBuffer;
-//    glGenBuffers(1, &verticesBuffer);
-//    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-//    self.objData.verticesBuffer=verticesBuffer;
-    
-    
+     
     
    
     NSMutableArray* attrArrktl  =[[NSMutableArray alloc]init];
@@ -114,15 +105,7 @@
     uvArr[7]=ary[3].y;
     
     
-    
-    
-//    GLuint uvBuffer;
-//    glGenBuffers(1, &uvBuffer);
-//    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
-//    self.objData.uvBuffer=uvBuffer;
-    
-    
+ 
     
     unsigned int Indices[6];
     Indices[0]=0;
@@ -131,11 +114,7 @@
     Indices[3]=0;
     Indices[4]=2;
     Indices[5]=3;
-//    GLuint indexBuffer;
-//    glGenBuffers(1, &indexBuffer);
-//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-//    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-//    self.objData.indexBuffer=indexBuffer;
+ 
     
     self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
                                                      length:sizeof(Indices)
