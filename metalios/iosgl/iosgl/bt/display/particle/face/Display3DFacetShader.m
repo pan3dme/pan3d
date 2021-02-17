@@ -14,11 +14,7 @@
 {
     return @"Display3DFacetShader";
 }
-- (void)encodeVstr:(NSString *)vstr encodeFstr:(NSString *)fstr
-{
-    [self mtlEncode];
  
-}
 
 - (NSString *)makeTestShader
 {
@@ -84,13 +80,16 @@
 
 -(void)mtlEncode
 {
+    
     MTKView *mtkView=self.scene3D.context3D. mtkView;
- 
+  
     __autoreleasing NSError *error = nil;
     NSString* librarySrc = [self makeTestShader];
     id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShader"];
+    
+    
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderDis"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderDis"];
     
     MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
     pipelineStateDescriptor.vertexFunction = vertexFunction;
@@ -111,6 +110,7 @@
         self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }
+
 
 //uvMove
 -(NSString *)getVertexShaderString;{
