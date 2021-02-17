@@ -265,6 +265,7 @@
 		9C8CA85125DCB489000F9194 /* MtkBaseDis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtkBaseDis.h; sourceTree = "<group>"; };
 		9C8CA85325DCB489000F9194 /* MtkBaseDisShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtkBaseDisShader.h; sourceTree = "<group>"; };
 		9C8CA85425DCB489000F9194 /* MtkBaseDis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MtkBaseDis.m; sourceTree = "<group>"; };
+		9C8CA85C25DD7A6F000F9194 /* ParticleMetalType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleMetalType.h; sourceTree = "<group>"; };
 		9CB8A2E825C191910039B7E0 /* GC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GC.h; sourceTree = "<group>"; };
 		9CB8A2E925C191910039B7E0 /* GC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GC.m; sourceTree = "<group>"; };
 		9CB8A2F025C2EE4B0039B7E0 /* MaterialShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShaderType.h; sourceTree = "<group>"; };
@@ -1227,6 +1228,7 @@
 				FE3D4EEE2401C25D00185FD3 /* ParticleData.m */,
 				FE3D4EEA2401C24200185FD3 /* Display3DParticle.h */,
 				FE3D4EEB2401C24200185FD3 /* Display3DParticle.m */,
+				9C8CA85C25DD7A6F000F9194 /* ParticleMetalType.h */,
 			);
 			path = particle;
 			sourceTree = "<group>";

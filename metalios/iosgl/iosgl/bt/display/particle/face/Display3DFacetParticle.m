@@ -46,21 +46,7 @@
     
 }
  
-- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-   
-   
-   static float y = 0.0 ;
-    y-=0.25;
-   Matrix3D* posMatrix =[[Matrix3D alloc]init];
-//   [posMatrix appendScale:0.03 y:0.03 z:0.03];
-//   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-  
-    
-    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
-    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
-    
-  
-}
+ 
 - (void)setVc;
 {
       [self setViewCamModeMatr3d];
@@ -68,7 +54,6 @@
       [self updateUV];
     /*
       Context3D *ctx=self.scene3D.context3D;
-   
       [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
       [ctx setVcUniform2f:self.shader3d name:"uvMove" x:self.uvMove.x y:self.uvMove.y];
     */

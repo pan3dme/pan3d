@@ -48,6 +48,13 @@
                                      
                                      typedef struct
                                      {
+        float4x4 viewMatrix;
+        float4x4 camMatrix;
+        float4x4 modeMatrix;
+                                     } ParticleMetalMatrixData;
+                                     
+                                     typedef struct
+                                     {
                                          float4 clipSpacePosition [[position]];
                                       
                                          
@@ -61,10 +68,15 @@
                                      vertex OutData // 顶点
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
-                                                     constant BaseMatrix *projectionMatrix [[ buffer(1) ]],
-                                                     constant BaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
+                                          
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(1) ]]
+                                                  
+                                                  ) {
         OutData out;
-                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
+//                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
+        
+        
+        out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix * float4(vertexArray[vertexID].position, 1);
                                       
                                          
                                          return out;

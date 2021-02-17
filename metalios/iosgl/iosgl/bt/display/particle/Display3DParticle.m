@@ -16,6 +16,7 @@
 #import "Scene_data.h"
 #import "Vector3D.h"
 #import "Matrix3D.h"
+#import "ParticleMetalType.h"
 
 @interface Display3DParticle()
 @property (nonatomic, strong)  TimeLine*  timeline;
@@ -104,18 +105,22 @@
  */
 -(void)setViewCamModeMatr3d;
 {
-    Context3D *ctx=self.scene3D.context3D;
+ 
     Camera3D* cam3D=self.scene3D.camera3D;
     
 //    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
 //    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
 //    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
-    
-    
+
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
-    [self.scene3D.context3D setMatrixVc:self.modeMatrix renderEncoder:renderEncoder idx:2];
+    ParticleMetalMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4]};
+  
+   [renderEncoder setVertexBytes:&matrixList
+                          length:sizeof(matrixList)
+                         atIndex:1];
+    
+
 }
 
 -(void)setMaterialTexture;
