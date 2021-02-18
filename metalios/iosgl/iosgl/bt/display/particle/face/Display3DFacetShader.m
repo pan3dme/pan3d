@@ -50,6 +50,15 @@
         float4 position;
     } BaseFloat4;
                                      
+          
+                                     
+                                     typedef struct
+                                     {
+        float4 fc[1];
+  
+
+    } FcItemInfo;
+                                     
                                      typedef struct
                                      {
         float4x4 matrix;
@@ -92,7 +101,7 @@
                                      fragment half4 // 片元
                                      fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]],
-                                                    constant BaseFloat4 *infodata [[ buffer(1) ]]
+                                                    constant FcItemInfo *infodata [[ buffer(1) ]]
                                     
                                                     
                                                     )
@@ -104,7 +113,7 @@
         
         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
         
-//                colorTex = half4(infodata->position);
+                colorTex =colorTex* half4(infodata->fc[0]);
         //        colorTex = half4(colorTex.w,colorTex.w,colorTex.w,colorTex.w);
         //        colorTex = half4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
         return colorTex;

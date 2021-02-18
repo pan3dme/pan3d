@@ -196,14 +196,21 @@
 //    [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
     
     
-    GLfloat attrArr[4];
-    attrArr[0]=1;
-    attrArr[1]=1;
-    attrArr[2]=0;
-    attrArr[3]=1;
+//    GLfloat attrArr[4];
+//    attrArr[0]=1;
+//    attrArr[1]=1;
+//    attrArr[2]=0;
+//    attrArr[3]=1;
+    if(fcData.count!=4){
+        NSLog(@"出错setMaterialVc%lu",fcData.count);
+    }
+    
+ 
+    
+    
     
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-    [renderEncoder setFragmentBytes:attrArr length:sizeof(attrArr) atIndex:1];
+    [renderEncoder setFragmentBytes:fcDataGlArr length:sizeof(fcDataGlArr) atIndex:1];
 }
 
 -(void)setVa;
