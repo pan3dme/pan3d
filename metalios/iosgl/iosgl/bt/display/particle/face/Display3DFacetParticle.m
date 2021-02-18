@@ -100,6 +100,9 @@
                             offset:0
                            atIndex:1];
     
+    
+ 
+    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: self.facetdata.objData.mtkindexCount
                               indexType:MTLIndexTypeUInt32

@@ -23,10 +23,8 @@
    [renderEncoder setRenderPipelineState:self.pipelineState];
    [renderEncoder setDepthStencilState:self.relaxedDepthState];
    [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
-   [renderEncoder setCullMode:MTLCullModeFront];
-   [renderEncoder pushDebugGroup:@"Render Forward Lighting"];
-   [renderEncoder setCullMode:MTLCullModeFront];
-   [renderEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+   [renderEncoder setCullMode:MTLCullModeNone];
+ 
 }
 -(void)encodeVstr:(NSString*)vstr encodeFstr:(NSString*)fstr;
 {

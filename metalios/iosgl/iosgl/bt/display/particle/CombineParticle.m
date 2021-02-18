@@ -156,10 +156,10 @@
  
         if ([self._displayAry[i]  isKindOfClass:[Display3DFacetParticle class]]) {
      
-            if( num++!=2){
+            if( num++==2){
                 [self._displayAry[i] update];
             }
-        
+          
            
         }
        

@@ -14,7 +14,7 @@
 {
     return @"Display3DFacetShader";
 }
- 
+
 
 - (void)encodeVstr:(NSString *)vstr encodeFstr:(NSString *)fstr
 {
@@ -39,33 +39,38 @@
                                      typedef struct
                                      {
         float2 position;
-                                     } BaseFloat2;
+    } BaseFloat2;
                                      typedef struct
                                      {
         float3 position;
-                                     } BaseFloat3;
-
+    } BaseFloat3;
+                                     
+                                     typedef struct
+                                     {
+        float4 position;
+    } BaseFloat4;
+                                     
                                      typedef struct
                                      {
         float4x4 matrix;
-                                     }  BaseMatrix;
+    }  BaseMatrix;
                                      
                                      typedef struct
                                      {
         float4x4 viewMatrix;
         float4x4 camMatrix;
         float4x4 modeMatrix;
-                                     } ParticleMetalMatrixData;
+    } ParticleMetalMatrixData;
                                      
                                      typedef struct
                                      {
-                                         float4 clipSpacePosition [[position]];
+        float4 clipSpacePosition [[position]];
         float2 textureCoordinate;
-                                         
-                                     } OutData;
+        
+    } OutData;
                                      
-                                  
-
+                                     
+                                     
                                      vertex OutData // 顶点
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
@@ -74,39 +79,43 @@
                                                   
                                                   ) {
         OutData out;
-//                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
+        //                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
         
         
         out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix * float4(vertexArray[vertexID].position, 1);
-                                      
-                                         
+        
+        
         out.textureCoordinate = uvsArray[vertexID].position;
-                                         return out;
-                                     }
-                                      
+        return out;
+    }
+                                     
                                      fragment half4 // 片元
                                      fragmentShader(OutData input [[stage_in]],
-                                                    texture2d<half> textureColor [[ texture(0) ]])
+                                                    texture2d<half> textureColor [[ texture(0) ]],
+                                                    constant BaseFloat4 *infodata [[ buffer(1) ]]
+                                    
+                                                    
+                                                    )
                                      {
-                                 
+        
         
         constexpr sampler textureSampler (mag_filter::linear,
                                           min_filter::linear);
         
         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
         
-//        colorTex = half4(1, 0,0, 1);
-//        colorTex = half4(colorTex.w,colorTex.w,colorTex.w,colorTex.w);
-//        colorTex = half4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
+//                colorTex = half4(infodata->position);
+        //        colorTex = half4(colorTex.w,colorTex.w,colorTex.w,colorTex.w);
+        //        colorTex = half4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
         return colorTex;
         
-//        float4(colorTex.w,colorTex.w,colorTex.w,colorTex.w)
-//        float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w)
+        //        float4(colorTex.w,colorTex.w,colorTex.w,colorTex.w)
+        //        float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w)
         
-//        return float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
+        //        return float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
         
         
-                                     }
+    }
                                      
                                      )];
     
@@ -119,7 +128,7 @@
     
     MTKView *mtkView=self.scene3D.context3D. mtkView;
     
-//    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+    //    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
     
     __autoreleasing NSError *error = nil;
     NSString* librarySrc = [self makeTestShader];
@@ -137,23 +146,23 @@
     pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
     
     
-  
+    
     
     MTLRenderPipelineColorAttachmentDescriptor *renderbufferAttachment = pipelineStateDescriptor.colorAttachments[0];
-
+    
     renderbufferAttachment.pixelFormat = MTLPixelFormatBGRA8Unorm;
- 
-   
-        renderbufferAttachment.blendingEnabled = YES;
-        renderbufferAttachment.rgbBlendOperation = MTLBlendOperationAdd;
-        renderbufferAttachment.alphaBlendOperation = MTLBlendOperationAdd;
-
-        renderbufferAttachment.sourceRGBBlendFactor = MTLBlendFactorSourceAlpha;
-        renderbufferAttachment.destinationRGBBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
-
-        renderbufferAttachment.sourceAlphaBlendFactor = MTLBlendFactorSourceAlpha;
-        renderbufferAttachment.destinationAlphaBlendFactor = MTLBlendFactorSourceAlpha;
-  
+    
+    
+    renderbufferAttachment.blendingEnabled = YES;
+    renderbufferAttachment.rgbBlendOperation = MTLBlendOperationAdd;
+    renderbufferAttachment.alphaBlendOperation = MTLBlendOperationAdd;
+    
+    renderbufferAttachment.sourceRGBBlendFactor = MTLBlendFactorOne;
+    renderbufferAttachment.destinationRGBBlendFactor = MTLBlendFactorOne;
+    
+    renderbufferAttachment.sourceAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+    renderbufferAttachment.destinationAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+    
     
     
     
@@ -162,7 +171,7 @@
     
     
     MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
-     
+    
     {
         depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
         depthStateDesc.depthWriteEnabled = NO;
@@ -184,9 +193,9 @@
     "varying vec2 v0;\n"
     "void main()"
     "{"
-         "v0=v2TexCoord.xy+uvMove.xy;\n"
-        "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
-        "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;\n"
+    "v0=v2TexCoord.xy+uvMove.xy;\n"
+    "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
+    "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
     
@@ -198,8 +207,8 @@
     "varying vec2 v0;\n"
     "void main()"
     "{"
-        "vec4 infoUv   =texture2D(fs0,v0.xy);\n"
-        "gl_FragColor =infoUv;\n"
+    "vec4 infoUv   =texture2D(fs0,v0.xy);\n"
+    "gl_FragColor =infoUv;\n"
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }

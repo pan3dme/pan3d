@@ -193,7 +193,17 @@
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
-    [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
+//    [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
+    
+    
+    GLfloat attrArr[4];
+    attrArr[0]=1;
+    attrArr[1]=1;
+    attrArr[2]=0;
+    attrArr[3]=1;
+    
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    [renderEncoder setFragmentBytes:attrArr length:sizeof(attrArr) atIndex:1];
 }
 
 -(void)setVa;
