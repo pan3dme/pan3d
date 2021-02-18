@@ -108,6 +108,14 @@
                                      
                                      typedef struct
                                      {
+        float4x4 viewMatrix;
+        float4x4 camMatrix;
+        float4x4 modeMatrix;
+        float4x4 rotMatrix;
+    } ParticleMetalMatrixData;
+                                     
+                                     typedef struct
+                                     {
                                          float4 clipSpacePosition [[position]];
                                       
                                          
@@ -120,20 +128,22 @@
 
                                      vertex OutData // 顶点
                                      vertexShader(uint vertexID [[ vertex_id ]],
-                                                  constant BaseFloat4 *vertexArray [[ buffer(0) ]],
-                                                     constant BaseMatrix *projectionMatrix [[ buffer(1) ]],
-                                                  constant BaseMatrix *modelViewMatrix [[ buffer(2) ]],
-                                                  constant BaseFloat4 *basePos [[ buffer(3) ]]
+                                                  constant BaseFloat4 *posBuff [[ buffer(0) ]],
+                                                  constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
+                               
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]]
+                                                 
                                                   ) {
         OutData out;
         
-        float4 pos=float4(vertexArray[vertexID].position.xyz , 1);
-        float4 basev3d=float4(basePos[vertexID].position.xyz , 1);
+        float4 pos=float4(posBuff[vertexID].position.xyz , 1);
+        pos=matrixdic->rotMatrix*pos;
+        float4 basepos=float4(basePosBuff[vertexID].position.xyz , 1);
         
         
-        pos.xyz=pos.xyz+basev3d.xyz;
+        pos.xyz=pos.xyz+basepos.xyz;
         
-                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * pos;
+                                         out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
                                       
                                          
                                          return out;

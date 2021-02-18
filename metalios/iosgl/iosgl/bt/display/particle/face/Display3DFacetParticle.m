@@ -14,6 +14,7 @@
 #import "Vector2D.h"
 #import "ParticleFacetData.h"
 #import "Display3DFacetShader.h"
+#import "ParticleMetalType.h"
  
 
 @interface Display3DFacetParticle ()
@@ -116,6 +117,25 @@
     [ctx clearVa:0];
     [ctx clearVa:1];
  
+}
+-(void)setViewCamModeMatr3d;
+{
+ 
+    Camera3D* cam3D=self.scene3D.camera3D;
+    
+//    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
+//    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
+//    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
+
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+    ParticleMetalMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4]};
+  
+   [renderEncoder setVertexBytes:&matrixList
+                          length:sizeof(matrixList)
+                         atIndex:2];
+    
+
 }
 -(void)updateRotaionMatrix;
 {

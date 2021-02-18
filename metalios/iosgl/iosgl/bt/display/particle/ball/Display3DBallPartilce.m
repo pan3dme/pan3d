@@ -20,7 +20,9 @@
 #import "Scene3D.h"
 #import "DynamicTexItem.h"
 #import "Camera3D.h"
+#import "ParticleMetalType.h"
 #import "MtkBaseDis.h"
+
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
@@ -57,7 +59,7 @@
     
    [self.shader3d mtlSetProgramShader];
    
-   [self setupMatrixWithEncoder:renderEncoder];
+ 
    
     [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkvertices
                             offset:0
@@ -65,7 +67,7 @@
     
     [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbasePos
                             offset:0
-                           atIndex:3];
+                           atIndex:1];
  
    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
@@ -74,22 +76,35 @@
                             indexBuffer: self.particleBallGpuData.mtkindexs
                       indexBufferOffset:0];
 }
-- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-   
  
-  
+-(void)setViewCamModeMatr3d;
+{
+ 
+    Camera3D* cam3D=self.scene3D.camera3D;
+     
+ 
+
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
-    [self.scene3D.context3D setMatrixVc:self.modeMatrix renderEncoder:renderEncoder idx:2];
+ 
     
+    ParticleMetalBallMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4],[self.rotationMatrix3D getMatrixFloat4x4]};
   
+   [renderEncoder setVertexBytes:&matrixList
+                          length:sizeof(matrixList)
+                         atIndex:2];
+    
+//    [self.rotationMatrix3D outString];
+    
+
 }
+
 -(void)setVc;
 {
+    [self updateWatchCaramMatrix];
     [self setViewCamModeMatr3d];
     Context3D *ctx=self.scene3D.context3D;
     
-    [self updateWatchCaramMatrix];
     [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
     
     Vector3D*  timeVec =   self.ballData._timeVec;
@@ -145,8 +160,9 @@
         [this.rotationMatrix3D prependRotation:90.0f axis:Vector3D.X_AXIS];
     } else if (this.ballData._is3Dlizi) {
     } else if (this.ballData._watchEye) {
-        [this.rotationMatrix3D prependRotation:cam3d.rotationX axis:Vector3D.X_AXIS];
-        [this.rotationMatrix3D prependRotation:cam3d.rotationY axis:Vector3D.Y_AXIS];
+        [this.rotationMatrix3D prependRotation:-cam3d.rotationY axis:Vector3D.Y_AXIS];
+        [this.rotationMatrix3D prependRotation:-cam3d.rotationX axis:Vector3D.X_AXIS];
+       
     }
     
 }

@@ -73,7 +73,7 @@
     NSString *outstr=@"\n";
     for(int i=0;i<16;i++){
         outstr=  [outstr stringByAppendingString:[NSString stringWithFormat:@"%d:",i]];
-        outstr=  [outstr stringByAppendingString:[NSString stringWithFormat:@"%f\n",_matrix4x4.data[i]]];
+        outstr=  [outstr stringByAppendingString:[NSString stringWithFormat:@"%f ",_matrix4x4.data[i]]];
     }
     NSLog(@"%@",outstr);
 }
