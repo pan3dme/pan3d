@@ -359,6 +359,7 @@
 //    glBufferData(GL_ARRAY_BUFFER, sizeof(speedArr), speedArr, GL_DYNAMIC_DRAW);
 //    self.particleGpuData.speedBuffer=speedBuffer;
     
+ 
     
     self.particleGpuData.mtkspeed=   [self.scene3D.mtkView.device newBufferWithBytes:speedArr
                                                  length:sizeof(speedArr)

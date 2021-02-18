@@ -230,13 +230,17 @@ module Pan3d {
             if (!this._displayAry) {
                 return;
             }
+            var num:number=0
             for (var i: number = 0; i < this._displayAry.length; i++) {
 
                 if(this._displayAry[i] instanceof Display3DBallPartilce){
-                  
+              
+                    if(num++==0){
+                        this._displayAry[i].update();
+                    }
                 }
                
-                this._displayAry[i].update();
+       
             }
         }
 
