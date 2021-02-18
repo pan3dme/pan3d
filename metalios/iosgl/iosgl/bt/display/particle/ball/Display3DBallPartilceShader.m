@@ -116,13 +116,56 @@
                                      
                                      typedef struct
                                      {
-                                         float4 clipSpacePosition [[position]];
-                                      
+                                            float4 vcmat50;
+                                            float4 vcmat51;
+                                            float4 vcmat52;
+                                            float4 vcmat53;
                                          
+                                     } ParticleMetalBallVcmatData;
+                                     
+                                     typedef struct
+                                     {
+                                         float4 clipSpacePosition [[position]];
+        float4 outColor;
+     
                                      } OutData;
+ 
+                                     float CTM(float4 basePos,constant ParticleMetalBallVcmatData *vcmatDatadic  ) {
+        float4 vcmat50=vcmatDatadic->vcmat50;
+                                     float t = vcmat50.x- basePos.w;
+                                     if (vcmat50.w > 0.0 && t >= 0.0) {
+                                     t = fract(t /vcmat50.z) * vcmat50.z;
+                                     }
+                                     return t;
+                                     }
+                                     float STM(float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic ) {
+        float4 vcmat51=vcmatDatadic->vcmat51;
+                                     float t = ctime - vcmat51.w;
+                                     t = max(t,0.0);
+                                     return t;
+                                     }
                                      
-                                     
-
+                                     float3 ADD_POS( float3 speed ,float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic  )
+                                    {
+   
+                                        float3 addPos = speed * ctime;
+                                        float3 uspeed = float3(0,0,0);
+        float4 vcmat50=vcmatDatadic->vcmat50;
+        float4 vcmat53=vcmatDatadic->vcmat53;
+        
+//                                        if(vcmat50.y != 0.0 && length(speed) != 0.0) {
+//                                            uspeed = float3(speed.x, speed.y, speed.z);
+//                                            uspeed = normalize(uspeed);
+//                                            uspeed = uspeed * vcmat50.y;
+//                                            uspeed.xyz = uspeed.xyz + vcmat53.xyz;
+//                                        } else {
+//                                            uspeed = float3(vcmat53.x, vcmat53.y, vcmat53.z);
+//                                        }
+//                                        addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;
+                                        return addPos;
+                                        
+                                        
+                                    }
 
 
 
@@ -130,22 +173,41 @@
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat4 *posBuff [[ buffer(0) ]],
                                                   constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
-                               
-                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]]
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]],
+                                                  constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(3) ]]
                                                  
                                                   ) {
         OutData out;
         
         float4 pos=float4(posBuff[vertexID].position.xyz , 1);
-        pos=pos*matrixdic->rotMatrix;
         float4 basepos=float4(basePosBuff[vertexID].position.xyz , 1);
+        float ctime = CTM(basepos,vcmatDatadic);
+        float stime = STM(ctime,vcmatDatadic);
+        
+        pos=pos*matrixdic->rotMatrix;
+   
         
         
         pos.xyz=pos.xyz+basepos.xyz;
         
+        float4 vcmat50=vcmatDatadic->vcmat50;
+        
+        
+        if (ctime < 0.0 || ctime > vcmat50.z) {
+            pos.x =0.0;
+            pos.y =0.0;
+        }else{
+            float3 addPos =ADD_POS(float3(0,1,0),ctime,vcmatDatadic);
+            pos.xyz=pos.xyz+addPos.xyz;
+        }
+      
+        
                                          out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
                                       
-                                         
+        
+     
+        
+        out.outColor=float4(vcmatDatadic->vcmat50.xyz,1);
                                          return out;
                                      }
                                       
@@ -155,6 +217,9 @@
                                      {
                                  
                                          half4 colorTex = half4(1, 0,0, 1);
+        
+        colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
+        
                                          return float4(colorTex);
                                      }
                                      

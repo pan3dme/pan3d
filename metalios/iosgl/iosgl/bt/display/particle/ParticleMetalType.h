@@ -27,3 +27,13 @@ typedef struct
     matrix_float4x4 modeMatrix;
     matrix_float4x4 rotMatrix;
 } ParticleMetalBallMatrixData;
+
+
+typedef struct
+{
+    vector_float4 vcmat50;
+    vector_float4 vcmat51;
+    vector_float4 vcmat52;
+    vector_float4 vcmat53;
+    
+} ParticleMetalBallVcmatData;

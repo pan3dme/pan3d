@@ -94,7 +94,10 @@
                           length:sizeof(matrixList)
                          atIndex:2];
     
-//    [self.rotationMatrix3D outString];
+
+    
+ 
+   
     
 
 }
@@ -121,7 +124,15 @@
     if(self.ballData._is3Dlizi){
        // NSLog(@"_is3Dlizi");
     }
+ 
+    ParticleMetalBallVcmatData matrixList = { (vector_float4){timeVec.x,timeVec.y,timeVec.z,timeVec.w},(vector_float4){scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w},(vector_float4){scaleCtrl.x,scaleCtrl.y,scaleCtrl.z,scaleCtrl.w},(vector_float4){addSpeedVec.x,addSpeedVec.y,addSpeedVec.z,addSpeedVec.w}};
     
+    
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+ 
+   [renderEncoder setVertexBytes:&matrixList
+                          length:sizeof(matrixList)
+                         atIndex:3];
    
 }
  

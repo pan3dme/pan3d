@@ -157,7 +157,7 @@
  //Display3DBallPartilce
         //Display3DFacetParticle
         if ([self._displayAry[i]  isKindOfClass:[Display3DFacetParticle class]]) {
-//                [self._displayAry[i] update];
+                [self._displayAry[i] update];
         }
         if ([self._displayAry[i]  isKindOfClass:[Display3DBallPartilce class]]) {
      
