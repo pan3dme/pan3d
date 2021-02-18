@@ -149,12 +149,18 @@
 }
 -(void)update;
 {
+    int num=0;
     for(int i=0;i<self._displayAry.count;i++)
     {
         
  
         if ([self._displayAry[i]  isKindOfClass:[Display3DFacetParticle class]]) {
-            [self._displayAry[i] update];
+     
+            if( num++!=2){
+                [self._displayAry[i] update];
+            }
+        
+           
         }
        
     }

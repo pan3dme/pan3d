@@ -84,7 +84,7 @@
                                          return out;
                                      }
                                       
-                                     fragment float4 // 片元
+                                     fragment half4 // 片元
                                      fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
@@ -95,8 +95,17 @@
         
         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
         
-//                                         half4 colorTex = half4(1, 0,0, 1);
-                                         return float4(colorTex);
+//        colorTex = half4(1, 0,0, 1);
+//        colorTex = half4(colorTex.w,colorTex.w,colorTex.w,colorTex.w);
+//        colorTex = half4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
+        return colorTex;
+        
+//        float4(colorTex.w,colorTex.w,colorTex.w,colorTex.w)
+//        float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w)
+        
+//        return float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
+        
+        
                                      }
                                      
                                      )];
@@ -127,15 +136,36 @@
     pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
     pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
     
+    
+  
+    
+    MTLRenderPipelineColorAttachmentDescriptor *renderbufferAttachment = pipelineStateDescriptor.colorAttachments[0];
+
+    renderbufferAttachment.pixelFormat = MTLPixelFormatBGRA8Unorm;
+ 
+   
+        renderbufferAttachment.blendingEnabled = YES;
+        renderbufferAttachment.rgbBlendOperation = MTLBlendOperationAdd;
+        renderbufferAttachment.alphaBlendOperation = MTLBlendOperationAdd;
+
+        renderbufferAttachment.sourceRGBBlendFactor = MTLBlendFactorSourceAlpha;
+        renderbufferAttachment.destinationRGBBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
+
+        renderbufferAttachment.sourceAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+        renderbufferAttachment.destinationAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+  
+    
+    
+    
     self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
                                                                         error:NULL];
     
     
     MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
-    
+     
     {
         depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
-        depthStateDesc.depthWriteEnabled = YES;
+        depthStateDesc.depthWriteEnabled = NO;
         self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }
