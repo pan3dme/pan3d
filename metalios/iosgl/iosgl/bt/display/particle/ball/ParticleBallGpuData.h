@@ -19,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  float   randomOffset;
 @property (nonatomic, strong)  NSMutableArray*   baseRotation;
 @property (nonatomic, assign) GLuint   baseRotationBuffer;
+@property (nonatomic, strong) id<MTLBuffer> mtkbasePos;
+@property (nonatomic, strong) id<MTLBuffer> mtkbaseRotation;
+@property (nonatomic, strong) id<MTLBuffer> mtkspeed;
+@property (nonatomic, strong) id<MTLBuffer> mtkrandomColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

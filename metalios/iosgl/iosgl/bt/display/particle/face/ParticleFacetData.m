@@ -110,7 +110,10 @@
         [arr002 addObject:[NSNumber numberWithFloat:uvArr[i]]];
     }
     self.objData.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:arr002];
- 
+    
+  
+  
+    
     
     unsigned int Indices[6];
     Indices[0]=0;

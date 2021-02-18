@@ -43,6 +43,8 @@
 {
     ParticleBallData *this=self;
     this._totalNum =  [byte readFloat];
+  
+ 
  
     this._acceleration = [byte readFloat];
     this._toscale =  [byte readFloat];
@@ -221,8 +223,22 @@
         Indices[skipInd+3]=0+skipTri;
         Indices[skipInd+4]=2+skipTri;
         Indices[skipInd+5]=3+skipTri;
+        
+ 
     }
     
+ 
+    
+    self.objData.mtkvertices=   [self.scene3D.mtkView.device newBufferWithBytes:attrArr
+                                                 length:sizeof(attrArr)
+                                                options:MTLResourceStorageModeShared];
+    
+     
+       self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
+                                                        length:sizeof(Indices)
+                                                       options:MTLResourceStorageModeShared];
+    self.objData.mtkindexCount = lznum*6;
+    /*
     GLuint verticesBuffer;
     glGenBuffers(1, &verticesBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
@@ -234,6 +250,7 @@
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     self.objData.indexBuffer=indexBuffer;
+    */
     
     
  
@@ -270,11 +287,15 @@
    
         }
     
-      GLuint uvBuffer;
-      glGenBuffers(1, &uvBuffer);
-      glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
-      glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
-      self.particleGpuData.uvBuffer=uvBuffer;
+//      GLuint uvBuffer;
+//      glGenBuffers(1, &uvBuffer);
+//      glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+//      glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
+//      self.particleGpuData.uvBuffer=uvBuffer;
+    
+    self.particleGpuData.mtkuvs=   [self.scene3D.mtkView.device newBufferWithBytes:uvArr
+                                                 length:sizeof(uvArr)
+                                                options:MTLResourceStorageModeShared];
         
 }
 -(void)initSpeed;
@@ -332,11 +353,16 @@
         }
   
     }
-    GLuint speedBuffer;
-    glGenBuffers(1, &speedBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, speedBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(speedArr), speedArr, GL_DYNAMIC_DRAW);
-    self.particleGpuData.speedBuffer=speedBuffer;
+//    GLuint speedBuffer;
+//    glGenBuffers(1, &speedBuffer);
+//    glBindBuffer(GL_ARRAY_BUFFER, speedBuffer);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(speedArr), speedArr, GL_DYNAMIC_DRAW);
+//    self.particleGpuData.speedBuffer=speedBuffer;
+    
+    
+    self.particleGpuData.mtkspeed=   [self.scene3D.mtkView.device newBufferWithBytes:speedArr
+                                                 length:sizeof(speedArr)
+                                                options:MTLResourceStorageModeShared];
  
 }
 -(void)initBasePos;
@@ -395,6 +421,10 @@
         
         for(int j=0;j<4;j++){
             idx=16*i+j*4;
+//            v3d.x=0;
+//            v3d.y=0;
+//            v3d.z=0;
+//            v3d.w=0;
             basePos[idx+0]=v3d.x;
             basePos[idx+1]=v3d.y;
             basePos[idx+2]=v3d.z;
@@ -403,11 +433,16 @@
     }
     
     self.particleGpuData.basePos=basePos;
-    GLuint basePosBuffer;
-    glGenBuffers(1, &basePosBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, basePosBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(basePos), basePos, GL_DYNAMIC_DRAW);
-    self.particleGpuData.basePosBuffer=basePosBuffer;
+//    GLuint basePosBuffer;
+//    glGenBuffers(1, &basePosBuffer);
+//    glBindBuffer(GL_ARRAY_BUFFER, basePosBuffer);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(basePos), basePos, GL_DYNAMIC_DRAW);
+//    self.particleGpuData.basePosBuffer=basePosBuffer;
+    
+    
+    self.particleGpuData.mtkbasePos=   [self.scene3D.mtkView.device newBufferWithBytes:basePos
+                                                 length:sizeof(basePos)
+                                                options:MTLResourceStorageModeShared];
 }
 -(void)regShader;
 {

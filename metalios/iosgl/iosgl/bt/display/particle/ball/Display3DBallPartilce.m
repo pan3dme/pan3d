@@ -59,29 +59,28 @@
    
    [self setupMatrixWithEncoder:renderEncoder];
    
-   [renderEncoder setVertexBuffer: self.mtkBaseDis.objData.mtkvertices
-                           offset:0
-                          atIndex:0];
+    [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkvertices
+                            offset:0
+                           atIndex:0];
+    
+    [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbasePos
+                            offset:0
+                           atIndex:3];
  
    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                             indexCount: self.mtkBaseDis.objData.mtkindexCount
+                             indexCount: self.particleBallGpuData.mtkindexCount
                               indexType:MTLIndexTypeUInt32
-                            indexBuffer: self.mtkBaseDis.objData.mtkindexs
+                            indexBuffer: self.particleBallGpuData.mtkindexs
                       indexBufferOffset:0];
 }
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
    
-   
-   static float y = 0.0 ;
-    y-=0.25;
-   Matrix3D* posMatrix =[[Matrix3D alloc]init];
-   [posMatrix appendScale:1 y:1 z:1];
-   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+ 
   
     
     [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
-    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
+    [self.scene3D.context3D setMatrixVc:self.modeMatrix renderEncoder:renderEncoder idx:2];
     
   
 }

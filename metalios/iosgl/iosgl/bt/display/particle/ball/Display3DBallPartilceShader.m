@@ -92,6 +92,12 @@
                                      
                                      typedef struct
                                      {
+        float4 position;
+                                     } BaseFloat4;
+                                     
+                                     
+                                     typedef struct
+                                     {
         float3 position;
                                      } BaseFloat3;
 
@@ -114,11 +120,20 @@
 
                                      vertex OutData // 顶点
                                      vertexShader(uint vertexID [[ vertex_id ]],
-                                                  constant BaseFloat3 *vertexArray [[ buffer(0) ]],
+                                                  constant BaseFloat4 *vertexArray [[ buffer(0) ]],
                                                      constant BaseMatrix *projectionMatrix [[ buffer(1) ]],
-                                                     constant BaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
+                                                  constant BaseMatrix *modelViewMatrix [[ buffer(2) ]],
+                                                  constant BaseFloat4 *basePos [[ buffer(3) ]]
+                                                  ) {
         OutData out;
-                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
+        
+        float4 pos=float4(vertexArray[vertexID].position.xyz , 1);
+        float4 basev3d=float4(basePos[vertexID].position.xyz , 1);
+        
+        
+        pos.xyz=pos.xyz+basev3d.xyz;
+        
+                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * pos;
                                       
                                          
                                          return out;
@@ -129,7 +144,7 @@
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
                                  
-                                         half4 colorTex = half4(0, 0,1, 1);
+                                         half4 colorTex = half4(1, 0,0, 1);
                                          return float4(colorTex);
                                      }
                                      
