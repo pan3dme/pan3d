@@ -236,9 +236,10 @@ module Pan3d {
                 if(this._displayAry[i] instanceof Display3DBallPartilce){
               
                     if(num++==0){
-                        this._displayAry[i].update();
+                 
                     }
                 }
+                this._displayAry[i].update();
                
        
             }
