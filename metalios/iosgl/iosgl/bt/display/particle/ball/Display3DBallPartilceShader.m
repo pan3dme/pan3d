@@ -137,7 +137,7 @@
         OutData out;
         
         float4 pos=float4(posBuff[vertexID].position.xyz , 1);
-        pos=matrixdic->rotMatrix*pos;
+        pos=pos*matrixdic->rotMatrix;
         float4 basepos=float4(basePosBuff[vertexID].position.xyz , 1);
         
         

@@ -160,8 +160,9 @@
         [this.rotationMatrix3D prependRotation:90.0f axis:Vector3D.X_AXIS];
     } else if (this.ballData._is3Dlizi) {
     } else if (this.ballData._watchEye) {
-        [this.rotationMatrix3D prependRotation:-cam3d.rotationY axis:Vector3D.Y_AXIS];
-        [this.rotationMatrix3D prependRotation:-cam3d.rotationX axis:Vector3D.X_AXIS];
+        [this.rotationMatrix3D prependRotation:cam3d.rotationX axis:Vector3D.X_AXIS];
+        [this.rotationMatrix3D prependRotation:cam3d.rotationY axis:Vector3D.Y_AXIS];
+    
        
     }
     
