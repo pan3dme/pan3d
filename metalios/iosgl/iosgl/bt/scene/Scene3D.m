@@ -75,7 +75,7 @@
 }
 -(void)initSceneInfoModel;
 {
-    [self addDisplay: [[MtkBaseLine alloc]init:self]];
+//    [self addDisplay: [[MtkBaseLine alloc]init:self]];
 //    [self loadSeceneByUrl:@"2014"];
 //    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
     

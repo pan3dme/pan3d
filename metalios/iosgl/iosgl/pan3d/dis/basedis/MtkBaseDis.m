@@ -16,7 +16,7 @@
 
  
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong) MtkBaseDisShader* mtkBaseLineShader;
+
   
 @end
 

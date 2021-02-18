@@ -10,6 +10,7 @@
 #import "Display3DLocusPartilce.h"
 #import "Display3DModelPartilce.h"
 #import "Display3DFacetParticle.h"
+#import "Display3DBallPartilce.h"
 #import "Display3DParticle.h"
 #import "IBind.h"
 
@@ -153,17 +154,20 @@
     for(int i=0;i<self._displayAry.count;i++)
     {
         
- 
-        if ([self._displayAry[i]  isKindOfClass:[Display3DFacetParticle class]]) {
+ //Display3DBallPartilce
+        //Display3DFacetParticle
+        if ([self._displayAry[i]  isKindOfClass:[Display3DBallPartilce class]]) {
      
             if( num++==0){
-              
+             
             }
             [self._displayAry[i] update];
            
         }
        
+      
     }
+    
 }
 -(void)updateItem:(int)idx;
 {

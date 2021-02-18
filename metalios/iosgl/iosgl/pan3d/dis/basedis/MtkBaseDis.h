@@ -8,13 +8,14 @@
 
 #import "Display3D.h"
 #import "ObjData.h"
+#import "MtkBaseDisShader.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MtkBaseDis : Display3D
  
 
 @property (nonatomic, strong) ObjData* objData;
- 
+@property (nonatomic, strong) MtkBaseDisShader* mtkBaseLineShader;
  
 @end
 

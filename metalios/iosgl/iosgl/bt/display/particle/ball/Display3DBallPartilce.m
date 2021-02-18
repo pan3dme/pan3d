@@ -20,18 +20,70 @@
 #import "Scene3D.h"
 #import "DynamicTexItem.h"
 #import "Camera3D.h"
+#import "MtkBaseDis.h"
 
 @interface Display3DBallPartilce ()
 @property (nonatomic, strong) ObjData* objData ;
 @property (nonatomic, assign) GLuint  textBsetGLuint;
+@property (nonatomic, strong) MtkBaseDis* mtkBaseDis;
 @end
 @implementation Display3DBallPartilce
 -(void)onCreated;
 {
 }
+- (instancetype)init:value
+{
+    self = [super init:value];
+    if (self) {
+        self.mtkBaseDis=[[MtkBaseDis alloc]init:self.scene3D];
+ 
+    }
+    return self;
+}
 - (void)update;
 {
      [super update];
+    [self upFrameCopy];
+}
+-(void)upFrameCopy  {
+ 
+    if( !self.mtkBaseDis.objData||!self.mtkBaseDis.objData.compressBuffer||!self.shader3d){
+        return;
+    }
+   
+   id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+    
+    
+   [self.shader3d mtlSetProgramShader];
+   
+   [self setupMatrixWithEncoder:renderEncoder];
+   
+   [renderEncoder setVertexBuffer: self.mtkBaseDis.objData.mtkvertices
+                           offset:0
+                          atIndex:0];
+ 
+   
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                             indexCount: self.mtkBaseDis.objData.mtkindexCount
+                              indexType:MTLIndexTypeUInt32
+                            indexBuffer: self.mtkBaseDis.objData.mtkindexs
+                      indexBufferOffset:0];
+}
+- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
+   
+   
+   static float y = 0.0 ;
+    y-=0.25;
+   Matrix3D* posMatrix =[[Matrix3D alloc]init];
+   [posMatrix appendScale:1 y:1 z:1];
+   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+  
+    
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
+    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
+    
+  
 }
 -(void)setVc;
 {
