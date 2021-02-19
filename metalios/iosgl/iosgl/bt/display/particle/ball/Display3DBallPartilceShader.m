@@ -173,7 +173,7 @@
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat4 *posBuff [[ buffer(0) ]],
                                                   constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
-                                                  constant BaseFloat3 *speedBuff [[ buffer(2) ]],
+                                                  constant BaseFloat4 *speedBuff [[ buffer(2) ]],
                                                   constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]],
                                                   constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(4) ]]
                                                  
@@ -182,9 +182,9 @@
         
         float4 pos=float4(posBuff[vertexID].position.xyz , 1);
         float4 basepos=float4(basePosBuff[vertexID].position.xyz , 1);
-        float3 speed= float3(speedBuff[vertexID].position.xyz)  ;
+        float3 speed= speedBuff[vertexID].position.xyz ;
         
-        speed= float3(0,2,0)  ;
+//        speed= float3(0,2,0)  ;
         float ctime = CTM(basepos,vcmatDatadic);
         float stime = STM(ctime,vcmatDatadic);
         

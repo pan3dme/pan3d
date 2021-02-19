@@ -306,7 +306,7 @@
     Vector3D* resultv3d ;
     Vector3D* v3d ;
     Matrix3D* ma=[[Matrix3D alloc]init];
-    GLfloat speedArr[lznum*12];
+    GLfloat speedArr[lznum*16];
     int idx=0;
     for (int i=0; i<lznum; i++) {
         resultv3d = [[Vector3D alloc]init];
@@ -346,19 +346,18 @@
         }
         [resultv3d nslogStr];
         for(int j=0;j<4;j++){
-            idx=12*i+j*3;
+            idx=16*i+j*4;
+            resultv3d.x=0;
+            resultv3d.y=2;
+            resultv3d.z=0;
             speedArr[idx+0]=resultv3d.x;
             speedArr[idx+1]=resultv3d.y;
             speedArr[idx+2]=resultv3d.z;
+            speedArr[idx+3]=resultv3d.w;
         }
   
     }
-//    GLuint speedBuffer;
-//    glGenBuffers(1, &speedBuffer);
-//    glBindBuffer(GL_ARRAY_BUFFER, speedBuffer);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(speedArr), speedArr, GL_DYNAMIC_DRAW);
-//    self.particleGpuData.speedBuffer=speedBuffer;
-    
+  
  
     
     self.particleGpuData.mtkspeed=   [self.scene3D.mtkView.device newBufferWithBytes:speedArr
