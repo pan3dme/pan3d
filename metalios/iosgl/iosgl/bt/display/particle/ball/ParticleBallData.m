@@ -347,9 +347,7 @@
         [resultv3d nslogStr];
         for(int j=0;j<4;j++){
             idx=16*i+j*4;
-            resultv3d.x=0;
-            resultv3d.y=2;
-            resultv3d.z=0;
+         
             speedArr[idx+0]=resultv3d.x;
             speedArr[idx+1]=resultv3d.y;
             speedArr[idx+2]=resultv3d.z;

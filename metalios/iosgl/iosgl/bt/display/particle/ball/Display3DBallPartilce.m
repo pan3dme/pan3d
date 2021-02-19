@@ -71,6 +71,8 @@
     [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkspeed
                             offset:0
                            atIndex:2];
+    
+ 
  
    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
