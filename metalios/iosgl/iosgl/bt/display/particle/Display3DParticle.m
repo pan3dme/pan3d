@@ -142,7 +142,9 @@
 //        [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
          
         id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-        [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
+        
+        id<MTLTexture>  abc=texDynamicVec[i].mtltexture;
+        [renderEncoder setFragmentTexture:texDynamicVec[i].mtltexture
                                   atIndex:texItem.id];
     }
     

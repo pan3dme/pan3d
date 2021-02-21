@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "TextureRes.h"
 #import "TexItem.h"
+#import "GC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DynamicBaseTexItem : NSObject
+@interface DynamicBaseTexItem : GC
 @property (nonatomic, strong)  NSString* paramName;
 @property (nonatomic, strong)  TexItem* target;
 @property (nonatomic, strong)  TextureRes* textureRes;

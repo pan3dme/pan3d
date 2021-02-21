@@ -9,6 +9,8 @@
 #import "DynamicTexItem.h"
 #import "Curve.h"
 #import "Context3D.h"
+#import "Scene3D.h"
+#import "TextureManager.h"
 #import "MaterialManager.h"
 
 @implementation DynamicTexItem
@@ -40,6 +42,21 @@
     }
     
 }
+
+-(id<MTLTexture> )mtltexture;
+{
+    if(self.textureDynamic){
+        return self.mtlTextureDynamic;
+    }else{
+     if(self.textureRes){
+              return self.textureRes.mtlTexture;
+          }else{
+              return nil;
+          }
+    }
+    
+}
+
 /*
  public get texture(): WebGLTexture {
      if (this._textureDynamic) {
@@ -101,8 +118,9 @@
     image=  [self imageBlackToTransparent:image withArr:imgNumVec];
     
     self.textureDynamic= [Context3D getTexture:image wrap:0];
-   
+  
     
+    self.mtlTextureDynamic= [self.scene3D.textureManager getBaseMitTexture:image];
     
 }
  

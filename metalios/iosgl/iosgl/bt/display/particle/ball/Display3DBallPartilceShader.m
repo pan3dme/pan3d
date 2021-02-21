@@ -128,6 +128,7 @@
                                          float4 clipSpacePosition [[position]];
         float2 uvs;
         float4 outColor;
+        float2 coloruv;
      
                                      } OutData;
  
@@ -175,7 +176,7 @@
                                                   constant BaseFloat4 *posBuff [[ buffer(0) ]],
                                                   constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
                                                   constant BaseFloat4 *speedBuff [[ buffer(2) ]],
-                                                  constant BaseFloat3 *uvsBuff [[ buffer(3) ]],
+                                                  constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
                                                   constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
                                                   constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
                                                  
@@ -191,6 +192,8 @@
         float ctime = CTM(basepos,vcmatDatadic);
         float stime = STM(ctime,vcmatDatadic);
         
+       
+        
         pos=pos*matrixdic->rotMatrix;
    
         
@@ -198,6 +201,8 @@
         pos.xyz=pos.xyz+basepos.xyz;
         
         float4 vcmat50=vcmatDatadic->vcmat50;
+        
+
         
         
         if (ctime < 0.0 || ctime > vcmat50.z) {
@@ -213,7 +218,7 @@
                                       
         
      
-        
+        out.coloruv=float2(ctime/vcmat50.z,0.0);
         out.uvs=float2(uvs.xy);
         out.outColor=float4(uvs.xyz,1);
                                          return out;
@@ -233,9 +238,10 @@
         constexpr sampler textureSampler (mag_filter::linear,
                                           min_filter::linear);
         
-          colorTex = textureColor0.sample(textureSampler, input.uvs);
+        half4 ft0 = textureColor0.sample(textureSampler, input.uvs);
+        half4 ft1 = textureColor1.sample(textureSampler, input.coloruv);
         
-                                         return float4(colorTex);
+                                         return float4(ft0*ft1);
                                      }
                                      
                                      )];

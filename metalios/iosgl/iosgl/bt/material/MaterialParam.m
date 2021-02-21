@@ -28,7 +28,7 @@
       MaterialParam* this=self;
     NSArray<TexItem*>* texList = this.material.texList;
     for(int i=0;i<texList.count;i++){
-        DynamicTexItem*    dyTex = [[DynamicTexItem alloc]init];
+        DynamicTexItem*    dyTex = [[DynamicTexItem alloc]init:self.scene3D];
         dyTex.target = texList[i];
         dyTex.paramName = texList[i].paramName;
         if (texList[i].isParticleColor) {

@@ -265,25 +265,29 @@
     Vector2D* d= [[Vector2D alloc]x:0.0f y:1.0f];
  
     
-        GLfloat uvArr[lznum*12];
+        GLfloat uvArr[lznum*16];
     
         for(int i=0;i<lznum;i++){
-            int skipAtt=i*12;
+            int skipAtt=i*16;
             uvArr[skipAtt+0]=a.x;
             uvArr[skipAtt+1]=a.y;
             uvArr[skipAtt+2]=i;
+            uvArr[skipAtt+3]=i;
             
-            uvArr[skipAtt+3]=b.x;
-            uvArr[skipAtt+4]=b.y;
-            uvArr[skipAtt+5]=i;
+            uvArr[skipAtt+4]=b.x;
+            uvArr[skipAtt+5]=b.y;
+            uvArr[skipAtt+6]=i;
+            uvArr[skipAtt+7]=i;
             
-            uvArr[skipAtt+6]=c.x;
-            uvArr[skipAtt+7]=c.y;
-            uvArr[skipAtt+8]=i;
-            
-            uvArr[skipAtt+9]=d.x;
-            uvArr[skipAtt+10]=d.y;
+            uvArr[skipAtt+8]=c.x;
+            uvArr[skipAtt+9]=c.y;
+            uvArr[skipAtt+10]=i;
             uvArr[skipAtt+11]=i;
+            
+            uvArr[skipAtt+12]=d.x;
+            uvArr[skipAtt+13]=d.y;
+            uvArr[skipAtt+14]=i;
+            uvArr[skipAtt+15]=i;
    
         }
     
