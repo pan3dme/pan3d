@@ -184,7 +184,7 @@
         OutData out;
         
         float4 pos=float4(posBuff[vertexID].position.xyz , 1);
-        float4 basepos=float4(basePosBuff[vertexID].position.xyz , 1);
+        float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
         float3 speed= speedBuff[vertexID].position.xyz ;
         float3 uvs= uvsBuff[vertexID].position.xyz ;
         
@@ -220,7 +220,7 @@
      
         out.coloruv=float2(ctime/vcmat50.z,0.0);
         out.uvs=float2(uvs.xy);
-        out.outColor=float4(uvs.xyz,1);
+        out.outColor=float4(1,0,0,1);
                                          return out;
                                      }
                                       

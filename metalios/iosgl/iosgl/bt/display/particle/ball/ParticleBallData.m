@@ -431,6 +431,7 @@
             basePos[idx+1]=v3d.y;
             basePos[idx+2]=v3d.z;
             basePos[idx+3]=v3d.w;
+//            NSLog(@"-------%f",v3d.w);
         }
     }
     
