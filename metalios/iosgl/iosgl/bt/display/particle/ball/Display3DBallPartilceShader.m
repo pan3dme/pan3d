@@ -95,11 +95,7 @@
         float4 position;
                                      } BaseFloat4;
                                      
-                                     
-                                     typedef struct
-                                     {
-        float3 position;
-                                     } BaseFloat3;
+                    
 
                                      typedef struct
                                      {
@@ -155,16 +151,7 @@
         float4 vcmat50=vcmatDatadic->vcmat50;
         float4 vcmat53=vcmatDatadic->vcmat53;
         
-//                                        if(vcmat50.y != 0.0 && length(speed) != 0.0) {
-//                                            uspeed = float3(speed.x, speed.y, speed.z);
-//                                            uspeed = normalize(uspeed);
-//                                            uspeed = uspeed * vcmat50.y;
-//                                            uspeed.xyz = uspeed.xyz + vcmat53.xyz;
-//                                        } else {
-//                                            uspeed = float3(vcmat53.x, vcmat53.y, vcmat53.z);
-//                                        }
-//                                        addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;
-                                        return addPos;
+                              return addPos;
                                         
                                         
                                     }
@@ -187,8 +174,7 @@
         float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
         float3 speed= speedBuff[vertexID].position.xyz ;
         float3 uvs= uvsBuff[vertexID].position.xyz ;
-        
-//        speed= float3(0,2,0)  ;
+ 
         float ctime = CTM(basepos,vcmatDatadic);
         float stime = STM(ctime,vcmatDatadic);
         
@@ -233,8 +219,7 @@
                                  
                                          half4 colorTex = half4(1, 0,0, 1);
         
-//        colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
-        
+ 
         constexpr sampler textureSampler (mag_filter::linear,
                                           min_filter::linear);
         
@@ -246,9 +231,312 @@
                                      
                                      )];
     
+//    var hasParticle: number = this.paramAry[0];
+//            var hasRandomClolr: number = this.paramAry[1];
+//            var isMul: number = this.paramAry[2];
+//            var needRotation: number = this.paramAry[3];
+//            var needScale: number = this.paramAry[4];
+//            var needAddSpeed: number = this.paramAry[5];
+//            var uvType: number = this.paramAry[6];
+    
+    NSInteger hasParticle=  [[self.paramAry objectAtIndex:0]integerValue] ;
+    NSInteger hasRandomClolr=  [[self.paramAry objectAtIndex:1]integerValue] ;
+    NSInteger isMul=  [[self.paramAry objectAtIndex:2]integerValue] ;
+    NSInteger needRotation=  [[self.paramAry objectAtIndex:3]integerValue] ;
+    NSInteger needScale=  [[self.paramAry objectAtIndex:4]integerValue] ;
+    NSInteger needAddSpeed=  [[self.paramAry objectAtIndex:5]integerValue] ;
+    NSInteger uvType=  [[self.paramAry objectAtIndex:6]integerValue] ;
+    
+    NSString * defineBaseStr = @"";
+    NSString * funBaseStr= @"";
+    NSString * mainBaseStr= @"";
+    NSString * rotationStr= @"";
+    NSString * fragmentFunStr= @"";
     
     
-    return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
+    funBaseStr=[NSString stringWithFormat:@"%s",
+                   _STRINGIFY(
+                              using namespace metal;
+                              
+                              
+                              typedef struct
+    {
+        float4 position;
+    } BaseFloat4;
+                              
+                              
+                              
+                              typedef struct
+    {
+        float4x4 matrix;
+    }  BaseMatrix;
+                              
+                              typedef struct
+    {
+        float4x4 viewMatrix;
+        float4x4 camMatrix;
+        float4x4 modeMatrix;
+        float4x4 rotMatrix;
+    } ParticleMetalMatrixData;
+                              
+                              typedef struct
+    {
+        float4 vcmat50;
+        float4 vcmat51;
+        float4 vcmat52;
+        float4 vcmat53;
+        
+    } ParticleMetalBallVcmatData;
+                              
+                              typedef struct
+    {
+        float4 clipSpacePosition [[position]];
+        float2 uvs;
+        float4 outColor;
+        float2 coloruv;
+        
+    } OutData;
+                              
+                              float CTM(float4 basePos,constant ParticleMetalBallVcmatData *vcmatDatadic  ) {
+        float4 vcmat50=vcmatDatadic->vcmat50;
+        float t = vcmat50.x- basePos.w;
+        if (vcmat50.w > 0.0 && t >= 0.0) {
+            t = fract(t /vcmat50.z) * vcmat50.z;
+        }
+        return t;
+    }
+                              float STM(float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic ) {
+        float4 vcmat51=vcmatDatadic->vcmat51;
+        float t = ctime - vcmat51.w;
+        t = max(t,0.0);
+        return t;
+    }
+                              
+                              float3 ADD_POS( float3 speed ,float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic  )
+    {
+        
+        float3 addPos = speed * ctime;
+        float3 uspeed = float3(0,0,0);
+        float4 vcmat50=vcmatDatadic->vcmat50;
+        float4 vcmat53=vcmatDatadic->vcmat53;
+        
+        return addPos;
+        
+        
+    }
+                              )];
+    
+    defineBaseStr= [NSString stringWithFormat:@"%s",
+                    _STRINGIFY(
+                               
+                               vertex OutData // 顶点
+                               vertexShader(uint vertexID [[ vertex_id ]],
+                                            constant BaseFloat4 *posBuff [[ buffer(0) ]],
+                                            constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
+                                            constant BaseFloat4 *speedBuff [[ buffer(2) ]],
+                                            constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
+                                            constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
+                                            constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
+                                           
+                                            )
+                               
+                               )];
+    
+    
+    mainBaseStr=[NSString stringWithFormat:@"%s",
+                 _STRINGIFY(
+                            
+                          {
+OutData out;
+
+float4 pos=float4(posBuff[vertexID].position.xyz , 1);
+float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
+float3 speed= speedBuff[vertexID].position.xyz ;
+float3 uvs= uvsBuff[vertexID].position.xyz ;
+
+float ctime = CTM(basepos,vcmatDatadic);
+float stime = STM(ctime,vcmatDatadic);
+
+
+
+pos=pos*matrixdic->rotMatrix;
+
+
+
+pos.xyz=pos.xyz+basepos.xyz;
+
+float4 vcmat50=vcmatDatadic->vcmat50;
+
+
+
+
+if (ctime < 0.0 || ctime > vcmat50.z) {
+   pos.x =0.0;
+   pos.y =0.0;
+}else{
+   float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
+   pos.xyz=pos.xyz+addPos.xyz;
+}
+
+
+                                out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
+                             
+
+
+out.coloruv=float2(ctime/vcmat50.z,0.0);
+out.uvs=float2(uvs.xy);
+out.outColor=float4(1,0,0,1);
+                                return out;
+                            }
+                            
+                            )];
+    
+    fragmentFunStr= [NSString stringWithFormat:@"%s",
+                     _STRINGIFY(
+                                
+                                 
+                                fragment float4 // 片元
+                                fragmentShader(OutData input [[stage_in]],
+                                               texture2d<half> textureColor0 [[ texture(0) ]],
+                                               texture2d<half> textureColor1 [[ texture(1) ]]
+                                               )
+                                {
+                            
+                                    half4 colorTex = half4(1, 0,0, 1);
+   
+
+   constexpr sampler textureSampler (mag_filter::linear,
+                                     min_filter::linear);
+   
+   half4 ft0 = textureColor0.sample(textureSampler, input.uvs);
+   half4 ft1 = textureColor1.sample(textureSampler, input.coloruv);
+   
+                                    return float4(ft0*ft1);
+                                }
+                                
+                                )];
+    
+    
+     NSString* vertexInputDataStr=[NSString stringWithFormat:@"%s",
+                                   _STRINGIFY(
+                                            
+                                              vertex OutData // 顶点
+                                              vertexShader(uint vertexID [[ vertex_id ]],
+                                                           constant BaseFloat4 *posBuff [[ buffer(0) ]],
+                                                           constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
+                                                           constant BaseFloat4 *speedBuff [[ buffer(2) ]],
+                                                           constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
+                                                           constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
+                                                           constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
+                                                          
+                                                           )
+                                               
+                                          
+                                              
+                                              )] ;
+    
+    NSString* vertexShaderInfo= [NSString stringWithFormat:@"%s",
+                     _STRINGIFY(
+                             
+{
+ 
+
+   float4 pos=float4(posBuff[vertexID].position.xyz , 1);
+   float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
+   float3 speed= speedBuff[vertexID].position.xyz ;
+   float3 uvs= uvsBuff[vertexID].position.xyz ;
+
+   float ctime = CTM(basepos,vcmatDatadic);
+   float stime = STM(ctime,vcmatDatadic);
+
+
+
+   pos=pos*matrixdic->rotMatrix;
+
+
+
+   pos.xyz=pos.xyz+basepos.xyz;
+
+   float4 vcmat50=vcmatDatadic->vcmat50;
+
+
+
+
+   if (ctime < 0.0 || ctime > vcmat50.z) {
+       pos.x =0.0;
+       pos.y =0.0;
+   }else{
+       float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
+       pos.xyz=pos.xyz+addPos.xyz;
+   }
+
+
+                                    out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
+                                 
+
+
+   out.coloruv=float2(ctime/vcmat50.z,0.0);
+   out.uvs=float2(uvs.xy);
+   out.outColor=float4(1,0,0,1);
+                                  
+                                )];
+    
+    char* mainMathInfo= _STRINGIFY(
+                           
+                           float4 pos=float4(posBuff[vertexID].position.xyz , 1);
+                           float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
+                           float3 speed= speedBuff[vertexID].position.xyz ;
+                           float3 uvs= uvsBuff[vertexID].position.xyz ;
+
+                           float ctime = CTM(basepos,vcmatDatadic);
+                           float stime = STM(ctime,vcmatDatadic);
+
+
+
+                           pos=pos*matrixdic->rotMatrix;
+
+
+
+                           pos.xyz=pos.xyz+basepos.xyz;
+
+                           float4 vcmat50=vcmatDatadic->vcmat50;
+
+
+
+
+                           if (ctime < 0.0 || ctime > vcmat50.z) {
+                               pos.x =0.0;
+                               pos.y =0.0;
+                           }else{
+                               float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
+                               pos.xyz=pos.xyz+addPos.xyz;
+                           }
+
+
+                                                            out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
+                                                         
+
+
+                           out.coloruv=float2(ctime/vcmat50.z,0.0);
+                           out.uvs=float2(uvs.xy);
+                           out.outColor=float4(1,0,0,1);
+
+                                   );
+    
+    mainBaseStr= [ vertexInputDataStr stringByAppendingString: [NSString stringWithFormat:@"%s%s%s",
+                                                                _STRINGIFY(
+                                                                        
+       {
+                                              OutData out;
+
+                                            
+                                                                           ),   mainMathInfo     ,        _STRINGIFY(
+                                                                                                                                                                                                                                                                                                                                                        return out;
+                                                                                                                                                                                                                                                             }
+                                                                                                                                                                                                                                                             )]];
+    
+ 
+    return  [NSString stringWithFormat:@"%@\n%@\n%@", funBaseStr, mainBaseStr, fragmentFunStr];
 }
 -(void)mtlEncode
 {

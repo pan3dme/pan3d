@@ -76,6 +76,11 @@
                             offset:0
                            atIndex:3];
     
+    if (self.ballData._needSelfRotation) {
+        
+//        NSLog(@"_needSelfRotation");
+    }
+    
  
  
    

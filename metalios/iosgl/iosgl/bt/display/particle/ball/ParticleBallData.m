@@ -179,7 +179,75 @@
     [self initUV ];
     [self initBasePos];
     [self initSpeed];
+    [self initSelfRotaion];
 }
+-(void) initSelfRotaion {
+          float _baseRotationAngle = 0;
+    float _baseRotationSpeed = 0;
+    ParticleBallData* this=self;
+          if (this._ziZhuanAngly.x == 0 && this._ziZhuanAngly.y == 0 && this._ziZhuanAngly.z == 0 && this._ziZhuanAngly.w == 0) {
+              this._needSelfRotation = false;
+              return;
+          }
+          if (this._is3Dlizi) {
+              this._needSelfRotation = false;
+              return;
+          }
+
+          this._needSelfRotation = true;
+         NSMutableArray* vecs = [[NSMutableArray alloc] init];
+    int lznum=self._totalNum;
+    GLfloat mtkattrArr[lznum*16];
+  
+          int flag = 0;
+          while (flag < this._totalNum) {
+
+              _baseRotationAngle = this._ziZhuanAngly.x;
+              if (this._ziZhuanAngly.y == 1) {
+                  _baseRotationAngle = _baseRotationAngle *  randomFloat();
+              }
+              _baseRotationSpeed = this._ziZhuanAngly.z;
+              if (this._ziZhuanAngly.w == 1) {
+                  _baseRotationSpeed = _baseRotationSpeed *  randomFloat();
+              }
+              else if (this._ziZhuanAngly.w == -1) {
+                  _baseRotationSpeed = _baseRotationSpeed * ( randomFloat() * 2 - 1);
+              }
+//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
+//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
+//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
+//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
+              
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationAngle]];
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationSpeed]];
+              
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationAngle]];
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationSpeed]];
+              
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationAngle]];
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationSpeed]];
+                 
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationAngle]];
+              [vecs addObject:[NSNumber numberWithFloat: _baseRotationSpeed]];
+              
+              for(int i=0;i<4;i++){
+                  mtkattrArr[flag*16+i*4+0]=_baseRotationAngle;
+                  mtkattrArr[flag*16+i*4+1]=_baseRotationSpeed;
+                  mtkattrArr[flag*16+i*4+2]=0;
+                  mtkattrArr[flag*16+i*4+3]=0;
+              }
+              
+              flag++;
+          }
+          this.particleGpuData.baseRotation = vecs;
+    
+    
+    self.particleGpuData.mtkbaseRotation=   [self.scene3D.mtkView.device newBufferWithBytes:mtkattrArr
+                                                 length:sizeof(mtkattrArr)
+                                                options:MTLResourceStorageModeShared];
+    
+    //mtkbaseRotation
+      }
 -(void)initBaseData
 {
   

@@ -161,7 +161,7 @@
         }
         if ([self._displayAry[i]  isKindOfClass:[Display3DBallPartilce class]]) {
      
-            if( num++==0){
+            if( num++==1){
                 [self._displayAry[i] update];
             }
            
