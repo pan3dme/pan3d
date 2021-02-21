@@ -143,7 +143,7 @@
          
         id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
         [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
-                                  atIndex:0];
+                                  atIndex:texItem.id];
     }
     
 }

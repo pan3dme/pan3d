@@ -126,6 +126,7 @@
                                      typedef struct
                                      {
                                          float4 clipSpacePosition [[position]];
+        float2 uvs;
         float4 outColor;
      
                                      } OutData;
@@ -174,8 +175,9 @@
                                                   constant BaseFloat4 *posBuff [[ buffer(0) ]],
                                                   constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
                                                   constant BaseFloat4 *speedBuff [[ buffer(2) ]],
-                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]],
-                                                  constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(4) ]]
+                                                  constant BaseFloat3 *uvsBuff [[ buffer(3) ]],
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
+                                                  constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
                                                  
                                                   ) {
         OutData out;
@@ -183,6 +185,7 @@
         float4 pos=float4(posBuff[vertexID].position.xyz , 1);
         float4 basepos=float4(basePosBuff[vertexID].position.xyz , 1);
         float3 speed= speedBuff[vertexID].position.xyz ;
+        float3 uvs= uvsBuff[vertexID].position.xyz ;
         
 //        speed= float3(0,2,0)  ;
         float ctime = CTM(basepos,vcmatDatadic);
@@ -211,18 +214,26 @@
         
      
         
-        out.outColor=float4(vcmatDatadic->vcmat50.xyz,1);
+        out.uvs=float2(uvs.xy);
+        out.outColor=float4(uvs.xyz,1);
                                          return out;
                                      }
                                       
                                      fragment float4 // 片元
                                      fragmentShader(OutData input [[stage_in]],
-                                                    texture2d<half> textureColor [[ texture(0) ]])
+                                                    texture2d<half> textureColor0 [[ texture(0) ]],
+                                                    texture2d<half> textureColor1 [[ texture(1) ]]
+                                                    )
                                      {
                                  
                                          half4 colorTex = half4(1, 0,0, 1);
         
-        colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
+//        colorTex = half4(input.outColor.x, input.outColor.y, input.outColor.z, 1);
+        
+        constexpr sampler textureSampler (mag_filter::linear,
+                                          min_filter::linear);
+        
+          colorTex = textureColor0.sample(textureSampler, input.uvs);
         
                                          return float4(colorTex);
                                      }

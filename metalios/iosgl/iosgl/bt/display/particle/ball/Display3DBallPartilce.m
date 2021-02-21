@@ -72,6 +72,10 @@
                             offset:0
                            atIndex:2];
     
+    [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkuvs
+                            offset:0
+                           atIndex:3];
+    
  
  
    
@@ -97,7 +101,7 @@
   
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)
-                         atIndex:3];
+                         atIndex:4];
     
 
     
@@ -137,7 +141,7 @@
  
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)
-                         atIndex:4];
+                         atIndex:5];
    
 }
  
