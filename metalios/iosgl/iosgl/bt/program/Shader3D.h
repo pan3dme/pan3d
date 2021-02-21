@@ -26,7 +26,7 @@ static NSString *(^stringifyHeaderFileNamesArray)(NSArray <NSString *> *) = ^(NS
         [importStatements appendString:@">\n"];
     }];
 
-    return [NSString new];
+    return importStatements;
 };
 
 typedef NSString *(^StringifyArrayOfHeaderFileNames)(NSArray <NSString *> *headerFileNames);
@@ -40,7 +40,7 @@ static NSString *(^stringifyIncludesArray)(NSArray *) = ^(NSArray *headerFileNam
         [importStatements appendString:@"\n"];
     }];
 
-    return [NSString new];
+    return importStatements;
 };
 
 

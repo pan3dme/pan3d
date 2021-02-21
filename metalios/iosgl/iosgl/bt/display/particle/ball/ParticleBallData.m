@@ -143,7 +143,7 @@
      
     this._timeVec = [[Vector3D alloc]x:0.0f y:this._acceleration z:this._life w:this._isLoop ? 1.0f : -1.0f];
     
-   [self uploadGpu];
+  
 }
 -(Display3DParticle*)getParticle;
 {
@@ -540,6 +540,7 @@
     BOOL hasParticleColor= this.materialParam.material.hasParticleColor;
        this._needRandomColor = this.materialParam.material.hasVertexColor;
     
+    [self uploadGpu];
  
     NSNumber* hasParticle;
     if (hasParticleColor) {

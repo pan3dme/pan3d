@@ -77,8 +77,9 @@
                            atIndex:3];
     
     if (self.ballData._needSelfRotation) {
-        
-//        NSLog(@"_needSelfRotation");
+        [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbaseRotation
+                                offset:0
+                               atIndex:6]; //需要处理排序
     }
     
  

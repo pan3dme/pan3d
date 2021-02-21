@@ -80,9 +80,9 @@
 
 - (NSString *)makeTestShader
 {
-    NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
+    NSString *includes = stringifyHeaderFileNamesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
     NSString *imports  =@"";
-    includes=@"";
+//    includes=@"";
     
     
     NSString *code     = [NSString stringWithFormat:@"%s",
@@ -250,12 +250,13 @@
     NSString * defineBaseStr = @"";
     NSString * funBaseStr= @"";
     NSString * mainBaseStr= @"";
-    NSString * rotationStr= @"";
+    char* rotationStr=_STRINGIFY();
     NSString * fragmentFunStr= @"";
     
     
     funBaseStr=[NSString stringWithFormat:@"%s",
                    _STRINGIFY(
+
                               using namespace metal;
                               
                               
@@ -410,8 +411,8 @@ out.outColor=float4(1,0,0,1);
    
    half4 ft0 = textureColor0.sample(textureSampler, input.uvs);
    half4 ft1 = textureColor1.sample(textureSampler, input.coloruv);
-   
-                                    return float4(ft0*ft1);
+        colorTex=ft0*ft1;
+                                    return float4(colorTex);
                                 }
                                 
                                 )];
@@ -427,7 +428,8 @@ out.outColor=float4(1,0,0,1);
                                                            constant BaseFloat4 *speedBuff [[ buffer(2) ]],
                                                            constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
                                                            constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
-                                                           constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
+                                                           constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]],
+                                                           constant BaseFloat4 *rotationBuff [[ buffer(6) ]]
                                                           
                                                            )
                                                
@@ -435,95 +437,66 @@ out.outColor=float4(1,0,0,1);
                                               
                                               )] ;
     
-    NSString* vertexShaderInfo= [NSString stringWithFormat:@"%s",
-                     _STRINGIFY(
-                             
-{
+    if(needRotation>0){
+        rotationStr=_STRINGIFY(
+                               float angle = rotation.x + rotation.y * ctime;
+//                               float bb=sin(1.0);
+//                               float4 np = float4(sin(angle), cos(angle), 0, 0);
+//                                                   np.z = np.x * pos.y + np.y * pos.x;
+//                                                   np.w = np.y * pos.y - np.x * pos.x;
+//                                                   pos.xy = np.zw;
+                               
+                               );
+    }
+     
+    
+    NSString* mainMathInfo=  [NSString stringWithFormat:@"%s%s%s",_STRINGIFY(
+                                                                         
+float4 pos=float4(posBuff[vertexID].position.xyz , 1);
+float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
+float3 speed= speedBuff[vertexID].position.xyz ;
+float3 uvs= uvsBuff[vertexID].position.xyz ;
+float3 rotation= rotationBuff[vertexID].position.xyz ;
+
+float ctime = CTM(basepos,vcmatDatadic);
+float stime = STM(ctime,vcmatDatadic);
+
  
 
-   float4 pos=float4(posBuff[vertexID].position.xyz , 1);
-   float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
-   float3 speed= speedBuff[vertexID].position.xyz ;
-   float3 uvs= uvsBuff[vertexID].position.xyz ;
+),rotationStr,_STRINGIFY(
+          
 
-   float ctime = CTM(basepos,vcmatDatadic);
-   float stime = STM(ctime,vcmatDatadic);
+          pos=pos*matrixdic->rotMatrix;
 
 
 
-   pos=pos*matrixdic->rotMatrix;
+          pos.xyz=pos.xyz+basepos.xyz;
 
-
-
-   pos.xyz=pos.xyz+basepos.xyz;
-
-   float4 vcmat50=vcmatDatadic->vcmat50;
+          float4 vcmat50=vcmatDatadic->vcmat50;
 
 
 
 
-   if (ctime < 0.0 || ctime > vcmat50.z) {
-       pos.x =0.0;
-       pos.y =0.0;
-   }else{
-       float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
-       pos.xyz=pos.xyz+addPos.xyz;
-   }
+          if (ctime < 0.0 || ctime > vcmat50.z) {
+              pos.x =0.0;
+              pos.y =0.0;
+          }else{
+              float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
+              pos.xyz=pos.xyz+addPos.xyz;
+          }
 
 
-                                    out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
-                                 
+                                           out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
+                                        
 
 
-   out.coloruv=float2(ctime/vcmat50.z,0.0);
-   out.uvs=float2(uvs.xy);
-   out.outColor=float4(1,0,0,1);
-                                  
-                                )];
+          out.coloruv=float2(ctime/vcmat50.z,0.0);
+          out.uvs=float2(uvs.xy);
+          out.outColor=float4(rotation.x,1,1,1);
+
+                  )];
     
-    char* mainMathInfo= _STRINGIFY(
-                           
-                           float4 pos=float4(posBuff[vertexID].position.xyz , 1);
-                           float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
-                           float3 speed= speedBuff[vertexID].position.xyz ;
-                           float3 uvs= uvsBuff[vertexID].position.xyz ;
-
-                           float ctime = CTM(basepos,vcmatDatadic);
-                           float stime = STM(ctime,vcmatDatadic);
-
-
-
-                           pos=pos*matrixdic->rotMatrix;
-
-
-
-                           pos.xyz=pos.xyz+basepos.xyz;
-
-                           float4 vcmat50=vcmatDatadic->vcmat50;
-
-
-
-
-                           if (ctime < 0.0 || ctime > vcmat50.z) {
-                               pos.x =0.0;
-                               pos.y =0.0;
-                           }else{
-                               float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
-                               pos.xyz=pos.xyz+addPos.xyz;
-                           }
-
-
-                                                            out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
-                                                         
-
-
-                           out.coloruv=float2(ctime/vcmat50.z,0.0);
-                           out.uvs=float2(uvs.xy);
-                           out.outColor=float4(1,0,0,1);
-
-                                   );
-    
-    mainBaseStr= [ vertexInputDataStr stringByAppendingString: [NSString stringWithFormat:@"%s%s%s",
+    mainBaseStr= [ vertexInputDataStr stringByAppendingString: [NSString stringWithFormat:@"%s%@%s",
                                                                 _STRINGIFY(
                                                                         
        {
@@ -536,7 +509,7 @@ out.outColor=float4(1,0,0,1);
                                                                                                                                                                                                                                                              )]];
     
  
-    return  [NSString stringWithFormat:@"%@\n%@\n%@", funBaseStr, mainBaseStr, fragmentFunStr];
+    return  [NSString stringWithFormat:@"%@%@\n%@\n%@",includes, funBaseStr, mainBaseStr, fragmentFunStr];
 }
 -(void)mtlEncode
 {
