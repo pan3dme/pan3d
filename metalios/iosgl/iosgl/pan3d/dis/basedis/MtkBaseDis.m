@@ -7,7 +7,7 @@
 //
 
 #import "MtkBaseDis.h"
- 
+#import "TestShader.h"
 #import "MtkBaseDisShader.h"
  
  
@@ -32,6 +32,10 @@
 - (void)customInit {
     self.mtkBaseLineShader=[[MtkBaseDisShader alloc] init:self.scene3D];
     [self.mtkBaseLineShader mtlEncode];
+    
+    
+    TestShader* _testShader=[[TestShader alloc]init:self.scene3D];
+    [_testShader mtlEncode];
     
     self.objData=[[ObjData alloc] init:self.scene3D];
  

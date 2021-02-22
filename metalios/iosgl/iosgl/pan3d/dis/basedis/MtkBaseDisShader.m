@@ -14,10 +14,14 @@
 
 - (NSString *)makeTestShader
 {
+//    include <stdio.h>
+//    #include <stdlib.h>
+//    #include <math.h>
     //NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h"]);
-    NSString *includes = stringifyHeaderincludeArray(@[@"metal_stdlib", @"simd/simd.h", @"simd/simd.h" ]);
-    NSString *imports  =stringifyImportsArray(@[@"math.h"  ]);
+    NSString *includes = stringifyHeaderincludeArray(@[@"metal_stdlib",  @"metal_math" ]);
+    NSString *imports  =stringifyImportsArray(@[@"metal_math.h"  ]);
  
+//    includes=@"";
     imports=@"";
     
     NSString *code     = [NSString stringWithFormat:@"%s",
@@ -52,6 +56,7 @@
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
                                                      constant BaseMatrix *projectionMatrix [[ buffer(1) ]],
                                                      constant BaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
+//        float abc=sin(0.2f);
         OutData out;
                                          out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
                                       
@@ -63,8 +68,9 @@
                                      fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
-//        float abc=sin(1.2);
-                                         half4 colorTex = half4(1, 1,0, 1);
+//        float abc=sin(0.2f);
+        float cc=max(1.f,0.2f);
+                                         half4 colorTex = half4(cc, 0,0, 1);
                                          return float4(colorTex);
                                      }
                                      
@@ -84,6 +90,8 @@
     __autoreleasing NSError *error = nil;
     NSString* librarySrc = [self makeTestShader];
     id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
+    
+    
     
     
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];

@@ -82,7 +82,7 @@
 {
     NSString *includes = stringifyHeaderincludeArray(@[@"metal_stdlib", @"simd/simd.h" ]);
     NSString *imports  =@"";
-//    includes=@"";
+    includes=@"";
     
     
     NSString *code     = [NSString stringWithFormat:@"%s",
