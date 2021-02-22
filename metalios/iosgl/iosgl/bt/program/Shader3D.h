@@ -18,7 +18,7 @@
 #endif
  
 typedef NSString *(^StringifyArrayOfIncludes)(NSArray <NSString *> *includes);
-static NSString *(^stringifyHeaderFileNamesArray)(NSArray <NSString *> *) = ^(NSArray <NSString *> *includes) {
+static NSString *(^stringifyHeaderincludeArray)(NSArray <NSString *> *) = ^(NSArray <NSString *> *includes) {
     NSMutableString *importStatements = [NSMutableString new];
     [includes enumerateObjectsUsingBlock:^(NSString * _Nonnull include, NSUInteger idx, BOOL * _Nonnull stop) {
         [importStatements appendString:@"#include <"];
@@ -30,7 +30,7 @@ static NSString *(^stringifyHeaderFileNamesArray)(NSArray <NSString *> *) = ^(NS
 };
 
 typedef NSString *(^StringifyArrayOfHeaderFileNames)(NSArray <NSString *> *headerFileNames);
-static NSString *(^stringifyIncludesArray)(NSArray *) = ^(NSArray *headerFileNames) {
+static NSString *(^stringifyImportsArray)(NSArray *) = ^(NSArray *headerFileNames) {
     NSMutableString *importStatements = [NSMutableString new];
     [headerFileNames enumerateObjectsUsingBlock:^(NSString * _Nonnull headerFileName, NSUInteger idx, BOOL * _Nonnull stop) {
         [importStatements appendString:@"#import "];

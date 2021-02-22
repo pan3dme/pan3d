@@ -80,7 +80,7 @@
 
 - (NSString *)makeTestShader
 {
-    NSString *includes = stringifyHeaderFileNamesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
+    NSString *includes = stringifyHeaderincludeArray(@[@"metal_stdlib", @"simd/simd.h" ]);
     NSString *imports  =@"";
 //    includes=@"";
     

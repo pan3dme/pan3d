@@ -24,7 +24,7 @@
 
 - (NSString *)makeTestShader
 {
-    NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
+    NSString *includes = stringifyImportsArray(@[@"metal_stdlib", @"simd/simd.h" ]);
     NSString *imports  =@"";
     includes=@"";
     

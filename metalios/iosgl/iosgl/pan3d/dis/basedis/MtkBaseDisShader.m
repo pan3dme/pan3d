@@ -14,10 +14,11 @@
 
 - (NSString *)makeTestShader
 {
-    NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h" ]);
-    NSString *imports  =@"";
-    includes=@"";
-    
+    //NSString *includes = stringifyIncludesArray(@[@"metal_stdlib", @"simd/simd.h"]);
+    NSString *includes = stringifyHeaderincludeArray(@[@"metal_stdlib", @"simd/simd.h", @"simd/simd.h" ]);
+    NSString *imports  =stringifyImportsArray(@[@"math.h"  ]);
+ 
+    imports=@"";
     
     NSString *code     = [NSString stringWithFormat:@"%s",
                           _STRINGIFY(
@@ -62,7 +63,7 @@
                                      fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
-        float abc=1.2;
+//        float abc=sin(1.2);
                                          half4 colorTex = half4(1, 1,0, 1);
                                          return float4(colorTex);
                                      }
