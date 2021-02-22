@@ -27,6 +27,7 @@
 #import "Display3dMovie.h"
 #import "GroupItem.h"
 #import "SceneRes.h"
+#import "MtkBaseDis.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
  
@@ -76,6 +77,9 @@
 -(void)initSceneInfoModel;
 {
     [self addDisplay: [[MtkBaseLine alloc]init:self]];
+    [self addDisplay: [[MtkBaseDis alloc]init:self]];
+    
+    
 //    [self loadSeceneByUrl:@"2014"];
 //    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
     
