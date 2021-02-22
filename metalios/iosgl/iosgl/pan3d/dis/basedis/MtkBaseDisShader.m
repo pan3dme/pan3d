@@ -62,7 +62,7 @@
                                      fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
-                                 
+        float abc=1.2;
                                          half4 colorTex = half4(1, 1,0, 1);
                                          return float4(colorTex);
                                      }
