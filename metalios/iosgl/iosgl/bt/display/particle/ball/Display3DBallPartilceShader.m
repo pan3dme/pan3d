@@ -155,6 +155,21 @@
                                         
                                         
                                     }
+        float4 S_POS(float4 pos ,float stime,constant ParticleMetalBallVcmatData *vcmatDatadic) {
+        float4 vcmat51=vcmatDatadic->vcmat51;
+        float4 vcmat52=vcmatDatadic->vcmat52;
+            float sf = vcmat51.x * stime;
+            if (vcmat51.y != 0.0 && vcmat51.z != 0.0) {
+                sf += sin(vcmat51.y * stime) * vcmat51.z;
+            }
+            sf=min(sf,vcmat52.z);
+            sf=max(sf,vcmat52.w);
+            float2 sv2 = vec2(vcmat52.x * sf, vcmat52.y * sf);
+            sv2 = sv2 + 1.0;
+            pos.x *= sv2.x;
+            pos.y *= sv2.y;
+            return pos;
+        }
 
 
 
@@ -438,17 +453,19 @@ out.outColor=float4(1,0,0,1);
                                               )] ;
     
     if(needRotation>0){
-        rotationStr=_STRINGIFY(
-                               float angle = rotation.x + rotation.y * ctime;
-//                               float bb=sin(1.0);
-//                               float4 np = float4(sin(angle), cos(angle), 0, 0);
-//                                                   np.z = np.x * pos.y + np.y * pos.x;
-//                                                   np.w = np.y * pos.y - np.x * pos.x;
-//                                                   pos.xy = np.zw;
-                               
-                               );
+      
+        rotationStr=
+        "float angle = rotation.x + rotation.y * ctime;\n"
+        "float bb=sin(1.0);\n"
+        "float4 np = float4(sin(angle), cos(angle), 0, 0);\n"
+        "np.z = np.x * pos.y + np.y * pos.x;\n"
+        "np.w = np.y * pos.y - np.x * pos.x;\n"
+        "pos.xy = np.zw;\n";
     }
-     
+        char* scaleStr=_STRINGIFY(); ;//缩放比例
+        if(needScale){
+            scaleStr=  "pos = S_POS(pos,stime);\n" ;//缩放比例
+        }
     
     NSString* mainMathInfo=  [NSString stringWithFormat:@"%s%s%s",_STRINGIFY(
                                                                          
