@@ -164,7 +164,7 @@
             if( num++==1){
                 [self._displayAry[i] update];
             }
-           
+    
            
         }
        

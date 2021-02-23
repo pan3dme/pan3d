@@ -73,9 +73,6 @@
 - (void)encodeVstr:(NSString *)vstr encodeFstr:(NSString *)fstr
 {
     [self mtlEncode];
-    
-    
-    
 }
 
 - (NSString *)makeTestShader
@@ -83,168 +80,7 @@
     NSString *includes = stringifyHeaderincludeArray(@[@"metal_stdlib", @"simd/simd.h" ]);
     NSString *imports  =@"";
     includes=@"";
-    
-    
-    NSString *code     = [NSString stringWithFormat:@"%s",
-                          _STRINGIFY(
-                                     using namespace metal;
-                                     
-                                     
-                                     typedef struct
-                                     {
-        float4 position;
-                                     } BaseFloat4;
-                                     
-                    
-
-                                     typedef struct
-                                     {
-        float4x4 matrix;
-                                     }  BaseMatrix;
-                                     
-                                     typedef struct
-                                     {
-        float4x4 viewMatrix;
-        float4x4 camMatrix;
-        float4x4 modeMatrix;
-        float4x4 rotMatrix;
-    } ParticleMetalMatrixData;
-                                     
-                                     typedef struct
-                                     {
-                                            float4 vcmat50;
-                                            float4 vcmat51;
-                                            float4 vcmat52;
-                                            float4 vcmat53;
-                                         
-                                     } ParticleMetalBallVcmatData;
-                                     
-                                     typedef struct
-                                     {
-                                         float4 clipSpacePosition [[position]];
-        float2 uvs;
-        float4 outColor;
-        float2 coloruv;
      
-                                     } OutData;
- 
-                                     float CTM(float4 basePos,constant ParticleMetalBallVcmatData *vcmatDatadic  ) {
-        float4 vcmat50=vcmatDatadic->vcmat50;
-                                     float t = vcmat50.x- basePos.w;
-                                     if (vcmat50.w > 0.0 && t >= 0.0) {
-                                     t = fract(t /vcmat50.z) * vcmat50.z;
-                                     }
-                                     return t;
-                                     }
-                                     float STM(float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic ) {
-        float4 vcmat51=vcmatDatadic->vcmat51;
-                                     float t = ctime - vcmat51.w;
-                                     t = max(t,0.0);
-                                     return t;
-                                     }
-                                     
-                                     float3 ADD_POS( float3 speed ,float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic  )
-                                    {
-   
-                                        float3 addPos = speed * ctime;
-                                        float3 uspeed = float3(0,0,0);
-        float4 vcmat50=vcmatDatadic->vcmat50;
-        float4 vcmat53=vcmatDatadic->vcmat53;
-        
-                              return addPos;
-                                        
-                                        
-                                    }
-        float4 S_POS(float4 pos ,float stime,constant ParticleMetalBallVcmatData *vcmatDatadic) {
-        float4 vcmat51=vcmatDatadic->vcmat51;
-        float4 vcmat52=vcmatDatadic->vcmat52;
-            float sf = vcmat51.x * stime;
-            if (vcmat51.y != 0.0 && vcmat51.z != 0.0) {
-                sf += sin(vcmat51.y * stime) * vcmat51.z;
-            }
-            sf=min(sf,vcmat52.z);
-            sf=max(sf,vcmat52.w);
-            float2 sv2 = vec2(vcmat52.x * sf, vcmat52.y * sf);
-            sv2 = sv2 + 1.0;
-            pos.x *= sv2.x;
-            pos.y *= sv2.y;
-            return pos;
-        }
-
-
-
-                                     vertex OutData // 顶点
-                                     vertexShader(uint vertexID [[ vertex_id ]],
-                                                  constant BaseFloat4 *posBuff [[ buffer(0) ]],
-                                                  constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
-                                                  constant BaseFloat4 *speedBuff [[ buffer(2) ]],
-                                                  constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
-                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
-                                                  constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
-                                                 
-                                                  ) {
-        OutData out;
-        
-        float4 pos=float4(posBuff[vertexID].position.xyz , 1);
-        float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
-        float3 speed= speedBuff[vertexID].position.xyz ;
-        float3 uvs= uvsBuff[vertexID].position.xyz ;
- 
-        float ctime = CTM(basepos,vcmatDatadic);
-        float stime = STM(ctime,vcmatDatadic);
-        
-       
-        
-        pos=pos*matrixdic->rotMatrix;
-   
-        
-        
-        pos.xyz=pos.xyz+basepos.xyz;
-        
-        float4 vcmat50=vcmatDatadic->vcmat50;
-        
-
-        
-        
-        if (ctime < 0.0 || ctime > vcmat50.z) {
-            pos.x =0.0;
-            pos.y =0.0;
-        }else{
-            float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
-            pos.xyz=pos.xyz+addPos.xyz;
-        }
-      
-        
-                                         out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
-                                      
-        
-     
-        out.coloruv=float2(ctime/vcmat50.z,0.0);
-        out.uvs=float2(uvs.xy);
-        out.outColor=float4(1,0,0,1);
-                                         return out;
-                                     }
-                                      
-                                     fragment float4 // 片元
-                                     fragmentShader(OutData input [[stage_in]],
-                                                    texture2d<half> textureColor0 [[ texture(0) ]],
-                                                    texture2d<half> textureColor1 [[ texture(1) ]]
-                                                    )
-                                     {
-                                 
-                                         half4 colorTex = half4(1, 0,0, 1);
-        
- 
-        constexpr sampler textureSampler (mag_filter::linear,
-                                          min_filter::linear);
-        
-        half4 ft0 = textureColor0.sample(textureSampler, input.uvs);
-        half4 ft1 = textureColor1.sample(textureSampler, input.coloruv);
-        
-                                         return float4(ft0*ft1);
-                                     }
-                                     
-                                     )];
     
 //    var hasParticle: number = this.paramAry[0];
 //            var hasRandomClolr: number = this.paramAry[1];
@@ -263,13 +99,11 @@
     NSInteger uvType=  [[self.paramAry objectAtIndex:6]integerValue] ;
     
     NSString * defineBaseStr = @"";
-    NSString * funBaseStr= @"";
     NSString * mainBaseStr= @"";
-    char* rotationStr=_STRINGIFY();
     NSString * fragmentFunStr= @"";
     
     
-    funBaseStr=[NSString stringWithFormat:@"%s",
+    NSString * funAllStr=[NSString stringWithFormat:@"%s",
                    _STRINGIFY(
 
                               using namespace metal;
@@ -312,39 +146,60 @@
         float2 coloruv;
         
     } OutData;
-                              
-                              float CTM(float4 basePos,constant ParticleMetalBallVcmatData *vcmatDatadic  ) {
-        float4 vcmat50=vcmatDatadic->vcmat50;
-        float t = vcmat50.x- basePos.w;
-        if (vcmat50.w > 0.0 && t >= 0.0) {
-            t = fract(t /vcmat50.z) * vcmat50.z;
-        }
-        return t;
-    }
-                              float STM(float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic ) {
-        float4 vcmat51=vcmatDatadic->vcmat51;
-        float t = ctime - vcmat51.w;
-        t = max(t,0.0);
-        return t;
-    }
-                              
-                              float3 ADD_POS( float3 speed ,float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic  )
-    {
-        
-        float3 addPos = speed * ctime;
-        float3 uspeed = float3(0,0,0);
-        float4 vcmat50=vcmatDatadic->vcmat50;
-        float4 vcmat53=vcmatDatadic->vcmat53;
-        
-        return addPos;
-        
-        
-    }
+                    
                               )];
+    
+    char* funCharStr=
+    "float CTM(float4 basePos,constant ParticleMetalBallVcmatData *vcmatDatadic  ) {\n"
+        "float4 vcmat50=vcmatDatadic->vcmat50;\n"
+        "float t = vcmat50.x- basePos.w;\n"
+        "if (vcmat50.w > 0.0 && t >= 0.0) {\n"
+            "t = fract(t /vcmat50.z) * vcmat50.z;\n"
+        "}\n"
+        "return t;\n"
+    "}\n"
+    "float STM(float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic ) {\n"
+        "float4 vcmat51=vcmatDatadic->vcmat51;\n"
+        "float t = ctime - vcmat51.w;\n"
+        "t = max(t,0.0);\n"
+        "return t;\n"
+    "}\n"
+    "float4 S_POS(float4 pos ,float stime,constant ParticleMetalBallVcmatData *vcmatDatadic) {\n"
+        "float4 vcmat51=vcmatDatadic->vcmat51;\n"
+        "float4 vcmat52=vcmatDatadic->vcmat52;\n"
+        "float sf = vcmat51.x * stime;\n"
+        "if (vcmat51.y != 0.0 && vcmat51.z != 0.0) {\n"
+            "sf += sin(vcmat51.y * stime) * vcmat51.z;\n"
+        "}\n"
+        "sf=min(sf,vcmat52.z);\n"
+        "sf=max(sf,vcmat52.w);\n"
+        "float2 sv2 = float2(vcmat52.x * sf, vcmat52.y * sf);\n"
+        "sv2 = sv2 + 1.0;\n"
+        "pos.x *= sv2.x;\n"
+        "pos.y *= sv2.y;\n"
+        "return pos;\n"
+    "}\n"
+    "float4 R_POS(float4 pos ,float ctime,float2 rotation){\n"
+        "float angle = rotation.x + rotation.y * ctime;\n"
+        "float4 np = float4(sin(angle), cos(angle), 0, 0);\n"
+        "np.z = np.x * pos.y + np.y * pos.x;\n"
+        "np.w = np.y * pos.y - np.x * pos.x;\n"
+        "pos.xy = np.zw;\n"
+        "return pos;\n"
+    "}\n"
+    "float3 ADD_POS( float3 speed ,float ctime,constant ParticleMetalBallVcmatData *vcmatDatadic  )\n"
+    "{\n"
+        "float3 addPos = speed * ctime;\n"
+        "float3 uspeed = float3(0,0,0);\n"
+        "float4 vcmat50=vcmatDatadic->vcmat50;\n"
+        "float4 vcmat53=vcmatDatadic->vcmat53;\n"
+        "return addPos;\n"
+    "}";
+
+    funAllStr=[funAllStr stringByAppendingString:[NSString stringWithFormat:@"%s",funCharStr]];
     
     defineBaseStr= [NSString stringWithFormat:@"%s",
                     _STRINGIFY(
-                               
                                vertex OutData // 顶点
                                vertexShader(uint vertexID [[ vertex_id ]],
                                             constant BaseFloat4 *posBuff [[ buffer(0) ]],
@@ -353,59 +208,38 @@
                                             constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
                                             constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
                                             constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
-                                           
                                             )
-                               
                                )];
     
     
-    mainBaseStr=[NSString stringWithFormat:@"%s",
-                 _STRINGIFY(
-                            
-                          {
-OutData out;
-
-float4 pos=float4(posBuff[vertexID].position.xyz , 1);
-float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
-float3 speed= speedBuff[vertexID].position.xyz ;
-float3 uvs= uvsBuff[vertexID].position.xyz ;
-
-float ctime = CTM(basepos,vcmatDatadic);
-float stime = STM(ctime,vcmatDatadic);
-
-
-
-pos=pos*matrixdic->rotMatrix;
-
-
-
-pos.xyz=pos.xyz+basepos.xyz;
-
-float4 vcmat50=vcmatDatadic->vcmat50;
-
-
-
-
-if (ctime < 0.0 || ctime > vcmat50.z) {
-   pos.x =0.0;
-   pos.y =0.0;
-}else{
-   float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
-   pos.xyz=pos.xyz+addPos.xyz;
-}
-
-
-                                out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
-                             
-
-
-out.coloruv=float2(ctime/vcmat50.z,0.0);
-out.uvs=float2(uvs.xy);
-out.outColor=float4(1,0,0,1);
-                                return out;
-                            }
-                            
-                            )];
+mainBaseStr=[NSString stringWithFormat:@"%s",
+_STRINGIFY(
+{
+    float4 vcmat50=vcmatDatadic->vcmat50;
+    OutData out;
+    float4 pos=float4(posBuff[vertexID].position.xyz , 1);
+    float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
+    float3 speed= speedBuff[vertexID].position.xyz ;
+    float3 uvs= uvsBuff[vertexID].position.xyz ;
+    float ctime = CTM(basepos,vcmatDatadic);
+    float stime = STM(ctime,vcmatDatadic);
+    pos=pos*matrixdic->rotMatrix;
+    pos.xyz=pos.xyz+basepos.xyz;
+    if (ctime < 0.0 || ctime > vcmat50.z) {
+        pos.x =0.0;
+        pos.y =0.0;
+    }else{
+        float3 addPos =ADD_POS(speed,ctime,vcmatDatadic);
+        pos.xyz=pos.xyz+addPos.xyz;
+    }
+    out.clipSpacePosition =  matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix  * pos;
+    out.coloruv=float2(ctime/vcmat50.z,0.0);
+    out.uvs=float2(uvs.xy);
+    out.outColor=float4(1,0,0,1);
+    return out;
+    }
+)
+];
     
     fragmentFunStr= [NSString stringWithFormat:@"%s",
                      _STRINGIFY(
@@ -447,27 +281,18 @@ out.outColor=float4(1,0,0,1);
                                                            constant BaseFloat4 *rotationBuff [[ buffer(6) ]]
                                                           
                                                            )
-                                               
-                                          
                                               
                                               )] ;
-    
-    if(needRotation>0){
-      
-        rotationStr=
-        "float angle = rotation.x + rotation.y * ctime;\n"
-        "float bb=sin(1.0);\n"
-        "float4 np = float4(sin(angle), cos(angle), 0, 0);\n"
-        "np.z = np.x * pos.y + np.y * pos.x;\n"
-        "np.w = np.y * pos.y - np.x * pos.x;\n"
-        "pos.xy = np.zw;\n";
+    char* rotationStr=_STRINGIFY();
+    if(needRotation>0){//旋转
+        rotationStr= "pos =R_POS(pos,ctime,float2(rotation.x,rotation.y));\n";
     }
-        char* scaleStr=_STRINGIFY(); ;//缩放比例
-        if(needScale){
-            scaleStr=  "pos = S_POS(pos,stime);\n" ;//缩放比例
-        }
+    char* scaleStr=_STRINGIFY(); ;//缩放比例
+    if(needScale>0){
+        scaleStr=  "pos = S_POS(pos,stime,vcmatDatadic);\n" ;
+    }
     
-    NSString* mainMathInfo=  [NSString stringWithFormat:@"%s%s%s",_STRINGIFY(
+    NSString* mainMathInfo=  [NSString stringWithFormat:@"%s%s%s%s",_STRINGIFY(
                                                                          
 float4 pos=float4(posBuff[vertexID].position.xyz , 1);
 float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
@@ -480,7 +305,7 @@ float stime = STM(ctime,vcmatDatadic);
 
  
 
-),rotationStr,_STRINGIFY(
+),rotationStr,scaleStr,_STRINGIFY(
           
 
           pos=pos*matrixdic->rotMatrix;
@@ -526,7 +351,7 @@ float stime = STM(ctime,vcmatDatadic);
                                                                                                                                                                                                                                                              )]];
     
  
-    return  [NSString stringWithFormat:@"%@%@\n%@\n%@",includes, funBaseStr, mainBaseStr, fragmentFunStr];
+    return  [NSString stringWithFormat:@"%@%@\n%@\n%@",includes, funAllStr, mainBaseStr, fragmentFunStr];
 }
 -(void)mtlEncode
 {
