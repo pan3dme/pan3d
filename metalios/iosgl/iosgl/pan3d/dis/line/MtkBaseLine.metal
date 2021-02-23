@@ -39,7 +39,7 @@ samplingShaderLine(RotationRasterizerData input [[stage_in]],
     
 //    half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
     float abc=sin(0.0);
-    half4 colorTex = half4(abc, input.pixelColor.y, input.pixelColor.z, 1);
+    half4 colorTex = half4( input.pixelColor.x, input.pixelColor.y, input.pixelColor.z, 1);
 //    half4 colorTex = half4(1, 0,0, 1);
     return float4(colorTex);
 }
