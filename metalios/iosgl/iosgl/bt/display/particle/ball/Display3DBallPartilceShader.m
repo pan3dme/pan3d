@@ -98,7 +98,7 @@
     NSInteger needAddSpeed=  [[self.paramAry objectAtIndex:5]integerValue] ;
     NSInteger uvType=  [[self.paramAry objectAtIndex:6]integerValue] ;
     
-    NSString * defineBaseStr = @"";
+    
     NSString * mainBaseStr= @"";
     NSString * fragmentFunStr= @"";
     
@@ -198,18 +198,7 @@
 
     funAllStr=[funAllStr stringByAppendingString:[NSString stringWithFormat:@"%s",funCharStr]];
     
-    defineBaseStr= [NSString stringWithFormat:@"%s",
-                    _STRINGIFY(
-                               vertex OutData // 顶点
-                               vertexShader(uint vertexID [[ vertex_id ]],
-                                            constant BaseFloat4 *posBuff [[ buffer(0) ]],
-                                            constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
-                                            constant BaseFloat4 *speedBuff [[ buffer(2) ]],
-                                            constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
-                                            constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
-                                            constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]
-                                            )
-                               )];
+    
     
     
 mainBaseStr=[NSString stringWithFormat:@"%s",
@@ -267,31 +256,36 @@ _STRINGIFY(
                                 )];
     
     
-     NSString* vertexInputDataStr=[NSString stringWithFormat:@"%s",
-                                   _STRINGIFY(
-                                            
-                                              vertex OutData // 顶点
-                                              vertexShader(uint vertexID [[ vertex_id ]],
-                                                           constant BaseFloat4 *posBuff [[ buffer(0) ]],
-                                                           constant BaseFloat4 *basePosBuff [[ buffer(1) ]],
-                                                           constant BaseFloat4 *speedBuff [[ buffer(2) ]],
-                                                           constant BaseFloat4 *uvsBuff [[ buffer(3) ]],
-                                                           constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]],
-                                                           constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]],
-                                                           constant BaseFloat4 *rotationBuff [[ buffer(6) ]]
-                                                          
-                                                           )
-                                              
-                                              )] ;
+ 
+    
+    
+    NSString* inputDataStr= [NSString stringWithFormat:@"%s%s",
+                             ",constant BaseFloat4 *posBuff [[ buffer(0) ]]"
+                             ",constant BaseFloat4 *basePosBuff [[ buffer(1) ]]"
+                             ",constant BaseFloat4 *speedBuff [[ buffer(2) ]]"
+                             ",constant BaseFloat4 *uvsBuff [[ buffer(3) ]]"
+                             ",constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]]"
+                             ",constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]"
+                             ,",constant BaseFloat4 *rotationBuff [[ buffer(6) ]]" ];
+     
     char* rotationStr=_STRINGIFY();
     if(needRotation>0){//旋转
+        inputDataStr= [NSString stringWithFormat:@"%s%s",
+                       ",constant BaseFloat4 *posBuff [[ buffer(0) ]]"
+                       ",constant BaseFloat4 *basePosBuff [[ buffer(1) ]]"
+                       ",constant BaseFloat4 *speedBuff [[ buffer(2) ]]"
+                       ",constant BaseFloat4 *uvsBuff [[ buffer(3) ]]"
+                       ",constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]]"
+                       ",constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]"
+                       ,",constant BaseFloat4 *rotationBuff [[ buffer(6) ]]" ];
+        
         rotationStr= "pos =R_POS(pos,ctime,float2(rotation.x,rotation.y));\n";
     }
     char* scaleStr=_STRINGIFY(); ;//缩放比例
     if(needScale>0){
         scaleStr=  "pos = S_POS(pos,stime,vcmatDatadic);\n" ;
     }
-    
+    NSString* vertexInputDataStr=[NSString stringWithFormat:@"%s%@%s","vertex OutData  vertexShader(uint vertexID [[ vertex_id ]]",inputDataStr,")"];
     NSString* mainMathInfo=  [NSString stringWithFormat:@"%s%s%s%s",_STRINGIFY(
                                                                          
 float4 pos=float4(posBuff[vertexID].position.xyz , 1);
