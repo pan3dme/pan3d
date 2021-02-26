@@ -18,6 +18,7 @@ typedef struct
     matrix_float4x4 viewMatrix;
     matrix_float4x4 camMatrix;
     matrix_float4x4 modeMatrix;
+    matrix_float4x4 rotMatrix;
 } ParticleMetalMatrixData;
 
 typedef struct

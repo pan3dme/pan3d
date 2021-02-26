@@ -123,14 +123,13 @@
  
     Camera3D* cam3D=self.scene3D.camera3D;
     
-//    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
-//    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
-//    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
-
+ 
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-    ParticleMetalMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4]};
-  
+    ParticleMetalMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4], [self.rotationMatrix3D getMatrixFloat4x4]};
+
+    [self.rotationMatrix3D outString];
+    
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)
                          atIndex:2];
@@ -152,6 +151,8 @@
         if (!this.facetdata._lockx) {
             [this.rotationMatrix3D prependRotation:-cam.rotationX axis:Vector3D.X_AXIS];
         }
+        
+     
     }
     if (this.data._isZiZhuan) {
         // this.timeline.applySelfRotation(this._rotationMatrix, this.data._ziZhuanAngly);

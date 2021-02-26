@@ -154,23 +154,18 @@
     for(int i=0;i<self._displayAry.count;i++)
     {
         
- //Display3DBallPartilce
+        //Display3DBallPartilce
         //Display3DFacetParticle
         if ([self._displayAry[i]  isKindOfClass:[Display3DFacetParticle class]]) {
-//                [self._displayAry[i] update];
-        }
-        if ([self._displayAry[i]  isKindOfClass:[Display3DBallPartilce class]]) {
-     
-            if( num++<2){
-                [self._displayAry[i] update];
+            
+            if( num++==4){
+                
             }
-    
-           
         }
-       
-      
+        [self._displayAry[i] update];
     }
-    
+ 
+
 }
 -(void)updateItem:(int)idx;
 {

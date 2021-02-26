@@ -69,6 +69,7 @@
         float4x4 viewMatrix;
         float4x4 camMatrix;
         float4x4 modeMatrix;
+        float4x4 rotMatrix;
     } ParticleMetalMatrixData;
                                      
                                      typedef struct
@@ -91,7 +92,7 @@
         //                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
         
         
-        out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix * float4(vertexArray[vertexID].position, 1);
+        out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix*matrixdic->rotMatrix * float4(vertexArray[vertexID].position, 1);
         
         
         out.textureCoordinate = uvsArray[vertexID].position;

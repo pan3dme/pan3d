@@ -71,11 +71,7 @@
     [self.modeMatrix append:self.posMatrix3d];
     [self.modeMatrix append:self.bindMatrix];
     
-    [self.rotationMatrix3D identity];
-    [self.rotationMatrix3D appendRotation:_rotationX axis:Vector3D.X_AXIS];
-    [self.rotationMatrix3D appendRotation:_rotationY axis:Vector3D.Y_AXIS];
-    [self.rotationMatrix3D appendRotation:_rotationZ axis:Vector3D.Z_AXIS];
-    
+ 
     
     [self.modeMatrix appendTranslation:self.bindVecter3d.x y:self.bindVecter3d.y z:self.bindVecter3d.z];
 }
@@ -172,7 +168,7 @@
 -(void)setTimeLine:(TimeLine*)value;
 {
     _timeline=value;
-    NSLog(@"_timeline.beginTime   %f",_timeline.beginTime);
+ 
     self.beginTime=_timeline.beginTime;
   
 }
