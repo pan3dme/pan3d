@@ -145,9 +145,9 @@
 //    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
     
     
-//    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"levelup"]];
+    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"levelup"]];
     
-    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10018"]];
+//    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10018"]];
     
 }
 
