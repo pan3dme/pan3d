@@ -80,12 +80,7 @@
         [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbaseRotation
                                 offset:0
                                atIndex:6]; //需要处理排序
-    }else{
-        [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkuvs
-                                offset:0
-                               atIndex:6];
-    }
-    
+    } 
  
  
    

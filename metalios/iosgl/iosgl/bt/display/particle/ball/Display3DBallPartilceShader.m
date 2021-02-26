@@ -259,27 +259,23 @@ _STRINGIFY(
  
     
     
-    NSString* inputDataStr= [NSString stringWithFormat:@"%s%s",
+    NSString* inputDataStr= [NSString stringWithFormat:@"%s",
                              ",constant BaseFloat4 *posBuff [[ buffer(0) ]]"
                              ",constant BaseFloat4 *basePosBuff [[ buffer(1) ]]"
                              ",constant BaseFloat4 *speedBuff [[ buffer(2) ]]"
                              ",constant BaseFloat4 *uvsBuff [[ buffer(3) ]]"
                              ",constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]]"
                              ",constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]"
-                             ,",constant BaseFloat4 *rotationBuff [[ buffer(6) ]]" ];
+                               ];
      
     char* rotationStr=_STRINGIFY();
     if(needRotation>0){//旋转
-        inputDataStr= [NSString stringWithFormat:@"%s%s",
-                       ",constant BaseFloat4 *posBuff [[ buffer(0) ]]"
-                       ",constant BaseFloat4 *basePosBuff [[ buffer(1) ]]"
-                       ",constant BaseFloat4 *speedBuff [[ buffer(2) ]]"
-                       ",constant BaseFloat4 *uvsBuff [[ buffer(3) ]]"
-                       ",constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]]"
-                       ",constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]"
-                       ,",constant BaseFloat4 *rotationBuff [[ buffer(6) ]]" ];
+        inputDataStr= [inputDataStr stringByAppendingString:[NSString stringWithFormat:@"%s",
+                                               ",constant BaseFloat4 *rotationBuff [[ buffer(6) ]]" ]];
         
-        rotationStr= "pos =R_POS(pos,ctime,float2(rotation.x,rotation.y));\n";
+        
+        rotationStr="float3 rotation= rotationBuff[vertexID].position.xyz ;\n"
+                    "pos =R_POS(pos,ctime,float2(rotation.x,rotation.y));\n";
     }
     char* scaleStr=_STRINGIFY(); ;//缩放比例
     if(needScale>0){
@@ -292,7 +288,7 @@ float4 pos=float4(posBuff[vertexID].position.xyz , 1);
 float4 basepos=float4(basePosBuff[vertexID].position.xyzw);
 float3 speed= speedBuff[vertexID].position.xyz ;
 float3 uvs= uvsBuff[vertexID].position.xyz ;
-float3 rotation= rotationBuff[vertexID].position.xyz ;
+
 
 float ctime = CTM(basepos,vcmatDatadic);
 float stime = STM(ctime,vcmatDatadic);
@@ -328,7 +324,7 @@ float stime = STM(ctime,vcmatDatadic);
 
           out.coloruv=float2(ctime/vcmat50.z,0.0);
           out.uvs=float2(uvs.xy);
-          out.outColor=float4(rotation.x,1,1,1);
+          out.outColor=float4(1,0,0,1);
 
                   )];
     
