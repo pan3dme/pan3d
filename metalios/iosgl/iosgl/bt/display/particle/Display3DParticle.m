@@ -80,12 +80,11 @@
 {
     if(self.visible ){
         if ( self.data.materialParam){
-            Context3D *ctx=self.scene3D.context3D;
+          
             self.shader3d=self.data.materialParam.shader;
             
-            glUseProgram(self.shader3d.program);
-            [ctx setBlendParticleFactors:self.data._alphaMode];
-            [ctx cullFaceBack:self.data.materialParam.material.backCull];
+            [self.shader3d mtlSetProgramShader];
+          
             [self updateMatrix];
             [self setMaterialVc];
             [self setMaterialTexture];

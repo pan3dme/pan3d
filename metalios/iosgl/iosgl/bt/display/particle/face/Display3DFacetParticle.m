@@ -73,25 +73,9 @@
 }
 - (void)setVa;
 {
-    /*
-    Context3D *ctx=self.scene3D.context3D;
-    ObjData* temp=self.facetdata.objData;
-    [ctx pushVa: temp.verticesBuffer];
-    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa: temp.uvBuffer];
-    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
-    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
-    
-    */
-    
-    if( !self.facetdata ){
-        return;
-    }
+  
    
    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-    
-   [self.shader3d mtlSetProgramShader];
-   
    
    
     [renderEncoder setVertexBuffer: self.facetdata.objData.mtkvertices

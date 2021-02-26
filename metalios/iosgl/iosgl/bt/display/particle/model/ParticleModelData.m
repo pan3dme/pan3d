@@ -16,7 +16,7 @@
 
 - (Display3DParticle *)getParticle
 {
-      return [[Display3DModelPartilce alloc]init];
+    return [[Display3DModelPartilce alloc]init:self.scene3D];
 }
 - (void)setAllByteInfo:(ByteArray *)fs
 {

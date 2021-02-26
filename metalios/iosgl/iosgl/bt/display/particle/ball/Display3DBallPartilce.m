@@ -45,50 +45,8 @@
 - (void)update;
 {
      [super update];
-    [self upFrameCopy];
-}
--(void)upFrameCopy  {
+
  
-    if( !self.mtkBaseDis.objData||!self.mtkBaseDis.objData.compressBuffer||!self.shader3d){
-        return;
-    }
-   
-   id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-    
-    
-    
-   [self.shader3d mtlSetProgramShader];
-   
- 
-   
-    [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkvertices
-                            offset:0
-                           atIndex:0];
-    
-    [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbasePos
-                            offset:0
-                           atIndex:1];
-    [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkspeed
-                            offset:0
-                           atIndex:2];
-    
-    [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkuvs
-                            offset:0
-                           atIndex:3];
-    
-    if (self.ballData._needSelfRotation) {
-        [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbaseRotation
-                                offset:0
-                               atIndex:6]; //需要处理排序
-    } 
- 
- 
-   
-   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                             indexCount: self.particleBallGpuData.mtkindexCount
-                              indexType:MTLIndexTypeUInt32
-                            indexBuffer: self.particleBallGpuData.mtkindexs
-                      indexBufferOffset:0];
 }
  
 -(void)setViewCamModeMatr3d;
@@ -153,18 +111,40 @@
 -(void)setVa;
 {
     
-    Context3D *ctx=self.scene3D.context3D;
-    [ctx pushVa:self.particleBallGpuData.verticesBuffer];
-    [ctx setVaOffset:self.shader3d name:"vPosition" dataWidth:4 stride:0 offset:0];
-    [ctx pushVa:self.particleBallGpuData.uvBuffer];
-    [ctx setVaOffset:self.shader3d name:"texcoord" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa: self.particleBallGpuData.basePosBuffer];
-    [ctx setVaOffset:self.shader3d name:"basePos" dataWidth:4 stride:0 offset:0];
-    [ctx pushVa: self.particleBallGpuData.speedBuffer];
-    [ctx setVaOffset:self.shader3d name:"speed" dataWidth:3 stride:0 offset:0];
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+     
+     
+     
+
     
-    [ctx drawCall:self.particleBallGpuData.indexBuffer  numTril:6*self.ballData._totalNum ];
+  
     
+     [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkvertices
+                             offset:0
+                            atIndex:0];
+     
+     [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbasePos
+                             offset:0
+                            atIndex:1];
+     [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkspeed
+                             offset:0
+                            atIndex:2];
+     
+     [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkuvs
+                             offset:0
+                            atIndex:3];
+     
+     if (self.ballData._needSelfRotation) {
+         [renderEncoder setVertexBuffer: self.particleBallGpuData.mtkbaseRotation
+                                 offset:0
+                                atIndex:6]; //需要处理排序
+     }
+    
+    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                              indexCount: self.particleBallGpuData.mtkindexCount
+                               indexType:MTLIndexTypeUInt32
+                             indexBuffer: self.particleBallGpuData.mtkindexs
+                       indexBufferOffset:0];
     
 }
 - (void)resetVa;
