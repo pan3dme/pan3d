@@ -128,7 +128,7 @@
     
     ParticleMetalMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4], [self.rotationMatrix3D getMatrixFloat4x4]};
 
-    [self.rotationMatrix3D outString];
+ 
     
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)

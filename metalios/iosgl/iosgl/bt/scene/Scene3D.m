@@ -30,7 +30,7 @@
 #import "MtkBaseDis.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
- 
+@property (nonatomic, strong) NSMutableArray<UIButton*>* butItems;
 @end
 @implementation Scene3D
 - (instancetype)init:(UIView *)value
@@ -49,9 +49,70 @@
         self.fpsLabel.frame=CGRectMake(0, 50, 100, 20);
         self.fpsLabel.text=@"60fps";
         self.fpsLabel.backgroundColor=[UIColor redColor];
-        [self.uiView addSubview:self.fpsLabel];
+//        [self.uiView addSubview:self.fpsLabel];
+        
+        [self addMenuList];
     }
     return self;
+}
+-(void)addMenuList;
+{
+    self.butItems=[[NSMutableArray alloc]init];
+    NSMutableArray* arr=[[NSMutableArray alloc]init];
+    [arr addObject:@"特效"];
+ 
+ 
+    [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
+    
+ 
+    [self viewDidLayoutSubviews];
+  
+}
+- (void) addMenuListClikEvent:(UIButton *) btn
+{
+    NSString* titleStr=btn.titleLabel.text;
+ 
+    if([titleStr isEqualToString:@"特效"]){
+         
+//        [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10018"]];
+        [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"levelup"]];
+        
+        [btn setTintColor:UIColor.yellowColor];
+       
+    }
+    
+}
+-(void)addButsByArr:(NSMutableArray*)arr action:(SEL)action
+{
+      
+    for(int i=0;i<arr.count;i++){
+        UIButton* oneBut=[self makeButtion];
+        [oneBut setTitle:arr[i] forState:UIControlStateNormal];
+        [oneBut setTitle:arr[i] forState:UIControlStateHighlighted];
+        [oneBut addTarget:self action:action forControlEvents:UIControlEventTouchUpInside] ;
+        [self.butItems addObject:oneBut];
+    }
+    
+}
+- (void)viewDidLayoutSubviews
+{
+    for (int i=0; i< self.butItems.count; i++) {
+        double tx=    fmod (i, 5);
+        int ty= float2int(i/5.0f);
+        
+        self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.uiView.frame)/1.5+55+ty*50, 60, 30);
+    }
+}
+-(UIButton*)makeButtion;
+{
+    UIButton* but=[[UIButton alloc]initWithFrame:CGRectMake(0, 50, 50, 30)];
+    [but setTitle:@"1" forState:UIControlStateNormal];
+    but.backgroundColor=[UIColor redColor];
+    but.layer.cornerRadius = 15; // 圆角的弧度
+    but.layer.masksToBounds = YES;
+    [self.uiView addSubview:but];
+    
+    return but;
 }
 -(void)initData
 {
@@ -83,8 +144,9 @@
 //    [self loadSeceneByUrl:@"2014"];
 //    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
     
-    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10018"]];
    
+//    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"levelup"]];
+    
 }
 
 -(void)playLyfByUrl:(NSString*)value

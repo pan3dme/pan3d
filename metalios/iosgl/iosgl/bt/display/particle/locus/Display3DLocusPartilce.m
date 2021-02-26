@@ -26,13 +26,7 @@
 {
     return self.locusdata.objData;
 }
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
+ 
 -(void)onCreated;
 {
     

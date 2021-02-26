@@ -219,6 +219,6 @@
 }
 -(Display3DParticle*)getParticle;
 {
-    return [[Display3DLocusPartilce alloc]init];
+    return [[Display3DLocusPartilce alloc]init:self.scene3D];
 }
 @end
