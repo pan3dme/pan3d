@@ -140,7 +140,7 @@ static NSString *(^stringifyIncludesArray)(NSArray *) = ^(NSArray *headerFileNam
     id <MTLFunction> vertexProgram = [_library newFunctionWithName:@"vertexShader001"];
     id <MTLFunction> fragmentProgram = [_library newFunctionWithName:@"fragmentShader001"];
     
-    NSLog(@"abc")
+ 
 }
 
 @end
