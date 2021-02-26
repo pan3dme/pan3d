@@ -32,6 +32,15 @@ typedef struct
 
 typedef struct
 {
+    matrix_float4x4 viewMatrix;
+    matrix_float4x4 camMatrix;
+    matrix_float4x4 modeMatrix;
+
+} ParticleMetalLocusMatrixData;
+
+
+typedef struct
+{
     vector_float4 vcmat50;
     vector_float4 vcmat51;
     vector_float4 vcmat52;

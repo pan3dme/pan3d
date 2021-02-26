@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) id<MTLBuffer> mtkvertices;
 @property (nonatomic, strong) id<MTLBuffer> mtkuvs;
+@property (nonatomic, strong) id<MTLBuffer> mtknrms;
 @property (nonatomic, strong) id<MTLBuffer> mtklightuvs;
 @property (nonatomic, strong) id<MTLBuffer> mtkindexs;
 @property (nonatomic, assign) NSUInteger mtkindexCount;

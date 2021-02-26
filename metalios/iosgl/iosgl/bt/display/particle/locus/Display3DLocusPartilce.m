@@ -14,6 +14,7 @@
 #import "Scene_data.h"
 #import "ProgrmaManager.h"
 #import "Display3DSprite.h"
+#import "ParticleMetalType.h"
  
 @implementation Display3DLocusPartilce
 
@@ -38,6 +39,8 @@
 - (void)setVc;
 {
     [self setViewCamModeMatr3d];
+    
+    /*
     Context3D *ctx=self.scene3D.context3D;
     Camera3D* cam3D=self.scene3D.camera3D;
     [self updateUV];
@@ -47,6 +50,18 @@
         Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
         [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
     }
+    */
+    Camera3D* cam3D=self.scene3D.camera3D;
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+ 
+    
+    ParticleMetalLocusMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4]};
+  
+   [renderEncoder setVertexBytes:&matrixList
+                          length:sizeof(matrixList)
+                         atIndex:2];
+    
     
 }
 -(void)updateUV;
@@ -73,19 +88,34 @@
     Context3D *ctx=self.scene3D.context3D;
     ObjData* temp=self.particleGpuObjData;
     
-    [ctx pushVa: temp.verticesBuffer];
-    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa:temp.uvBuffer];
-    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
-    [ctx pushVa: temp.nrmsBuffer];
-    [ctx setVaOffset:self.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
-    if(temp.nrms&&temp.nrms.count){
-          [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
-    }else{
-        //需要处理，
-    }
+//    [ctx pushVa: temp.verticesBuffer];
+//    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
+//    [ctx pushVa:temp.uvBuffer];
+//    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
+//    [ctx pushVa: temp.nrmsBuffer];
+//    [ctx setVaOffset:self.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
+//    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
   
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
+    
+     [renderEncoder setVertexBuffer: temp.mtkvertices
+                             offset:0
+                            atIndex:0];
+    [renderEncoder setVertexBuffer: temp.mtkuvs
+                            offset:0
+                           atIndex:1];
+    
+    
+    
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeLine
+                             indexCount: temp.mtkindexCount
+                              indexType:MTLIndexTypeUInt32
+                            indexBuffer: temp.mtkindexs
+                      indexBufferOffset:0];
+    
+
+
 }
 - (void)resetVa;
 {

@@ -33,7 +33,7 @@
     this._density =[byte readFloat];
     this._isEnd = [byte readBoolean];
     
-    this.objData=[[ObjData alloc]init];
+    this.objData=[[ObjData alloc]init:self.scene3D];
     int vLen  = [byte getInt];
     int dataWidth = 9;
     int buffStride=dataWidth * 4;
@@ -82,33 +82,13 @@
         attrArr[i]=[self.objData.vertices[i] floatValue];
     }
  
- 
-    /*
-     attrArr[0]=-200.0f;
-     attrArr[1]=0.0f;
-     attrArr[2]=0.0f;
-     
-     attrArr[3]=0.0f;
-     attrArr[4]=0.0f;
-     attrArr[5]=-100.0f;
-
-     attrArr[6]=100.0f;
-     attrArr[7]=0.0f;
-     attrArr[8]=100.0f;
-
-     attrArr[9]=-100.0f;
-     attrArr[10]=0.0f;
-     attrArr[11]=-100.0f;
-  */
- 
-     
- 
+  
+  
     
-    GLuint verticesBuffer;
-    glGenBuffers(1, &verticesBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-    self.objData.verticesBuffer=verticesBuffer;
+    self.objData.mtkvertices=  [self.scene3D.context3D changeDataToGupMtkfloat3: self.objData.vertices];
+    
+    
+    
 }
 -(void)upGpuNrmBuffer;
 {
@@ -116,11 +96,9 @@
     for (int i=0; i<self.objData.nrms.count; i++) {
         nrms[i]=[self.objData.nrms[i] floatValue];
     }
-    GLuint nrmsBuffer;
-    glGenBuffers(1, &nrmsBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, nrmsBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(nrms), nrms, GL_DYNAMIC_DRAW);
-    self.objData.nrmsBuffer=nrmsBuffer;
+
+    self.objData.mtknrms=  [self.scene3D.context3D changeDataToGupMtkfloat4: self.objData.nrms];
+     
 }
 -(void)upGpuUvsBuffer;
 {
@@ -128,11 +106,10 @@
     for (int i=0; i<self.objData.uvs.count; i++) {
         uvs[i]=[self.objData.uvs[i] floatValue];
     }
-    GLuint uvBuffer;
-    glGenBuffers(1, &uvBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(uvs), uvs, GL_DYNAMIC_DRAW);
-    self.objData.uvBuffer=uvBuffer;
+ 
+    self.objData.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.objData.uvs];
+    
+  
 }
 -(void)upGpuIndexBuffer
 {
@@ -141,13 +118,17 @@
         Indices[i]=[self.objData.indexs[i] intValue];
     }
     
-    GLuint indexBuffer;
-    glGenBuffers(1, &indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-    self.objData.indexBuffer=indexBuffer;
+    
+    self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
+                                                     length:sizeof(Indices)
+                                                    options:MTLResourceStorageModeShared];
+    
     
     self.objData.trinum=(int)self.objData.indexs.count;
+    
+    self.objData.mtkindexCount = self.objData.trinum;
+    
+ 
 }
 
 -(void)initUV;
@@ -197,7 +178,7 @@
           return;
       }
      NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
-       self.materialParam.shader=  [self.scene3D.progrmaManager getMaterialProgram:Display3DLocusShader.shaderStr shaderCls: [[Display3DLocusShader alloc]init]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+    self.materialParam.shader=  [self.scene3D.progrmaManager getMaterialProgram:Display3DLocusShader.shaderStr shaderCls: [[Display3DLocusShader alloc]init:self.scene3D]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
 
    
     
