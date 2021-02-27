@@ -124,7 +124,7 @@
         mulPos=normalize(vcmat31.xyz-mulPos.xyz);
         mulPos = cross(mulPos, normals);
         mulPos = normalize(mulPos);
-        mulPos *= v3Normal.w*10.0  ;
+        mulPos *= v3Normal.w*5.0  ;
         tempPos.xyz = mulPos.xyz + v3Position.xyz;
         
  
@@ -149,9 +149,21 @@
         constexpr sampler textureSampler (mag_filter::linear,
                                           min_filter::linear);
         
+        
+        float4 fc0=infodata->fc[0];
+        
         half4 colorTex = textureColor.sample(textureSampler, input.v1);
         
+        colorTex*=input.v2.w;
+         if(input.v2.x<fc0.x){
+         
+             colorTex.x=0;
+             colorTex.y=0;
+             colorTex.z=0;
+             colorTex.w=0;
+         }
        
+        
           return colorTex;
         
         

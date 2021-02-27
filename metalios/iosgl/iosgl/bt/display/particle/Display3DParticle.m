@@ -138,7 +138,7 @@
          
         id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
         
-        id<MTLTexture>  abc=texDynamicVec[i].mtltexture;
+      
         [renderEncoder setFragmentTexture:texDynamicVec[i].mtltexture
                                   atIndex:texItem.id];
     }
@@ -187,7 +187,7 @@
     }
     t = t * this.data.materialParam.material.timeSpeed;
     [this.data.materialParam.material update:t];
-    Context3D *ctx=self.scene3D.context3D;
+//    Context3D *ctx=self.scene3D.context3D;
     NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
     GLfloat fcDataGlArr[fcData.count];
     for (int i=0; i<fcData.count; i++) {

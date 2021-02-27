@@ -78,20 +78,20 @@
 {
     [self updateWatchCaramMatrix];
     [self setViewCamModeMatr3d];
-    Context3D *ctx=self.scene3D.context3D;
+//    Context3D *ctx=self.scene3D.context3D;
     
-    [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
+//    [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
     
     Vector3D*  timeVec =   self.ballData._timeVec;
     timeVec.x=self._time/[Scene_data default].frameTime*self.ballData._playSpeed;
     
-    [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
+//    [ctx setVcUniform4f:self.shader3d name:"vcmat50" x:timeVec.x y:timeVec.y z:timeVec.z w:timeVec.w];
     Vector3D*  scaleVec =   self.ballData._scaleVec;
-    [ctx setVcUniform4f:self.shader3d name:"vcmat51" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
+//    [ctx setVcUniform4f:self.shader3d name:"vcmat51" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
     Vector3D*  scaleCtrl =   self.ballData._scaleCtrlVec;
-    [ctx setVcUniform4f:self.shader3d name:"vcmat52" x:scaleCtrl.x y:scaleCtrl.y z:scaleCtrl.z w:scaleCtrl.w];
+//    [ctx setVcUniform4f:self.shader3d name:"vcmat52" x:scaleCtrl.x y:scaleCtrl.y z:scaleCtrl.z w:scaleCtrl.w];
     Vector3D*   addSpeedVec =   self.ballData._addSpeedVec;
-    [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
+//    [ctx setVcUniform4f:self.shader3d name:"vcmat53" x:addSpeedVec.x y:addSpeedVec.y z:addSpeedVec.z w:addSpeedVec.w];
     
     if(self.ballData._is3Dlizi){
        // NSLog(@"_is3Dlizi");
