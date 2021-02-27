@@ -60,7 +60,7 @@
   
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)
-                         atIndex:2];
+                         atIndex:3];
     
     
 }
@@ -105,6 +105,9 @@
     [renderEncoder setVertexBuffer: temp.mtkuvs
                             offset:0
                            atIndex:1];
+    [renderEncoder setVertexBuffer: temp.mtknrms
+                            offset:0
+                           atIndex:2];
     
     
     

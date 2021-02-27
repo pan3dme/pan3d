@@ -158,16 +158,16 @@
         //Display3DFacetParticle
         if ([self._displayAry[i]  isKindOfClass:[Display3DBallPartilce class]]) {
             
-            [self._displayAry[i] update];
+//            [self._displayAry[i] update];
            
            
         }
         if ([self._displayAry[i]  isKindOfClass:[Display3DLocusPartilce class]]) {
             
             if( num++==0){
-               
+                [self._displayAry[i] update];
             }
-            [self._displayAry[i] update];
+          
            
         }
       

@@ -84,7 +84,8 @@
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
                                                   constant BaseFloat2 *uvsArray [[ buffer(1) ]],
-                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]]
+                                                  constant BaseFloat4 *nrmsArray [[ buffer(2) ]],
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]]
                                                   
                                                   ) {
         OutData out;
