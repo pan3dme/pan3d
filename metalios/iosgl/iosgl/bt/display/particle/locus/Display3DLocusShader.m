@@ -138,8 +138,9 @@
                                      
                                      fragment half4 // 片元
                                      fragmentShader(OutData input [[stage_in]],
-                                                    texture2d<half> textureColor [[ texture(0) ]],
-                                                    constant FcItemInfo *infodata [[ buffer(1) ]]
+                                                    texture2d<half> textureBase [[ texture(0) ]],
+                                                    texture2d<half> textureColor [[ texture(1) ]],
+                                                    constant FcItemInfo *infodata [[ buffer(2) ]]
                                     
                                                     
                                                     )

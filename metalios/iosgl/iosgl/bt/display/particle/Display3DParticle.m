@@ -210,7 +210,11 @@
     
     
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-    [renderEncoder setFragmentBytes:fcDataGlArr length:sizeof(fcDataGlArr) atIndex:1];
+    [renderEncoder setFragmentBytes:fcDataGlArr length:sizeof(fcDataGlArr) atIndex:[self getFcDataIdx]];
+}
+-(NSUInteger)getFcDataIdx;
+{
+    return 1; //FC数据的位置，不同特效不一样
 }
 
 -(void)setVa;

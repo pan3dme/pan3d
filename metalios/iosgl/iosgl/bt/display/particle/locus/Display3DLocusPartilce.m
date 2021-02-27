@@ -70,6 +70,10 @@
     
     
 }
+-(NSUInteger)getFcDataIdx;
+{
+    return 2; //FC数据的位置，不同特效不一样
+}
 -(void)updateUV;
 {
   
