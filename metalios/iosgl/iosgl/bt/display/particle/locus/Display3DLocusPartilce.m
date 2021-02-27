@@ -40,18 +40,18 @@
 {
     [self setViewCamModeMatr3d];
     
-    /*
-    Context3D *ctx=self.scene3D.context3D;
+     
     Camera3D* cam3D=self.scene3D.camera3D;
     [self updateUV];
     Vector3D*  scaleVec =   self.locusdata._resultUvVec;
-    [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
+//    [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
+    Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
     if (self.data._watchEye) {
-        Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
-        [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
+       
+//        [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
     }
-    */
-    Camera3D* cam3D=self.scene3D.camera3D;
+ 
+  
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
  
@@ -61,6 +61,12 @@
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)
                          atIndex:3];
+    
+    ParticleMetalLocusVcmatData VcmatData = { (vector_float4){scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w} ,(vector_float4){caramPosVec.x,caramPosVec.y,caramPosVec.z,caramPosVec.w}};
+     
+   [renderEncoder setVertexBytes:&VcmatData
+                          length:sizeof(VcmatData)
+                         atIndex:4];
     
     
 }
@@ -85,7 +91,7 @@
 }
 - (void)setVa;
 {
-    Context3D *ctx=self.scene3D.context3D;
+//    Context3D *ctx=self.scene3D.context3D;
     ObjData* temp=self.particleGpuObjData;
     
 //    [ctx pushVa: temp.verticesBuffer];
@@ -111,7 +117,7 @@
     
     
     
-   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeLine
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: temp.mtkindexCount
                               indexType:MTLIndexTypeUInt32
                             indexBuffer: temp.mtkindexs

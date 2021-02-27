@@ -72,6 +72,14 @@
     } ParticleMetalMatrixData;
                                      
                                      typedef struct
+           {
+               float4 vcmat30;
+               float4 vcmat31;
+         
+               
+           } ParticleMetalLocusVcmatData;
+                                     
+                                     typedef struct
                                      {
         float4 clipSpacePosition [[position]];
         float2 textureCoordinate;
@@ -80,18 +88,43 @@
                                      
                                      
                                      
+                                     
+                                     
                                      vertex OutData // 顶点
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
                                                   constant BaseFloat2 *uvsArray [[ buffer(1) ]],
                                                   constant BaseFloat4 *nrmsArray [[ buffer(2) ]],
-                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]]
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]],
+                                                  constant ParticleMetalLocusVcmatData *vcmatDatadic [[ buffer(4) ]]
                                                   
                                                   ) {
         OutData out;
      
+        float4 vcmat30=vcmatDatadic->vcmat30;
+        float4 vcmat31=vcmatDatadic->vcmat31;
         
-        out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix*  float4(vertexArray[vertexID].position, 1);
+        float3 v3Position= vertexArray[vertexID].position.xyz ;
+        float4 v3Normal= nrmsArray[vertexID].position.xyzw ;
+        float4 tempPos=matrixdic->modeMatrix*float4(v3Position.xyz,1.0);
+        float3 mulPos = float3(tempPos.x,tempPos.y,tempPos.z);
+        float3 normals = float3(v3Normal.x,v3Normal.y,v3Normal.z);
+        mulPos=normalize(vcmat31.xyz-mulPos.xyz);
+        mulPos = cross(mulPos, normals);
+        mulPos = normalize(mulPos);
+        mulPos *= v3Normal.w*10.0  ;
+        tempPos.xyz = mulPos.xyz + v3Position.xyz;
+        
+//        "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);\n"
+//        "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"
+//        "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
+//        "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"
+//        "mulPos = cross(mulPos, normals);\n"
+//        "mulPos = normalize(mulPos);\n"
+//        "mulPos *= v3Normal.w*1.0  ;\n"
+//        "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
+        
+        out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix *matrixdic->modeMatrix  *tempPos;
         
         
         out.textureCoordinate = uvsArray[vertexID].position;

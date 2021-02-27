@@ -47,3 +47,10 @@ typedef struct
     vector_float4 vcmat53;
     
 } ParticleMetalBallVcmatData;
+typedef struct
+{
+    vector_float4 vcmat30;
+    vector_float4 vcmat31;
+ 
+    
+} ParticleMetalLocusVcmatData;
