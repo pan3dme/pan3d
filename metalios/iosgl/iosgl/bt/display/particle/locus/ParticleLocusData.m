@@ -167,13 +167,7 @@
 -(void)regShader;
 {
 
-    /*
-    if ( self.materialParam) {
-       [[ProgrmaManager default] registe:Display3DLocusShader.shaderStr shader3d: [[Display3DLocusShader alloc]init]];
-       self.materialParam.shader=  [[ProgrmaManager default] getProgram:Display3DLocusShader.shaderStr];
-        
-    }
-    */
+   
     if (!self.materialParam) {
           return;
       }

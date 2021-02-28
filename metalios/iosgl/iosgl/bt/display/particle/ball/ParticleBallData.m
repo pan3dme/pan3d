@@ -213,10 +213,7 @@
               else if (this._ziZhuanAngly.w == -1) {
                   _baseRotationSpeed = _baseRotationSpeed * ( randomFloat() * 2 - 1);
               }
-//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
-//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
-//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
-//              vecs.push(_baseRotationAngle, _baseRotationSpeed);
+ 
               
               [vecs addObject:[NSNumber numberWithFloat: _baseRotationAngle]];
               [vecs addObject:[NSNumber numberWithFloat: _baseRotationSpeed]];
@@ -246,7 +243,7 @@
                                                  length:sizeof(mtkattrArr)
                                                 options:MTLResourceStorageModeShared];
     
-    //mtkbaseRotation
+    
       }
 -(void)initBaseData
 {
@@ -494,10 +491,7 @@
         v3d = [v3d add:this._basePositon];
         v3d.w=i * this._shootSpeed;
         
-//        v3d.x=-arc4random() % 200 -100.0f;
-//        v3d.y=arc4random() % 200 -100.0f;
-//        v3d.z=arc4random() % 200 -100.0f;
-//        v3d.w=0.0f;
+ 
         
         for(int j=0;j<4;j++){
             idx=16*i+j*4;
@@ -506,7 +500,7 @@
             basePos[idx+1]=v3d.y;
             basePos[idx+2]=v3d.z;
             basePos[idx+3]=v3d.w;
-//            NSLog(@"-------%f",v3d.w);
+ 
         }
     }
     
@@ -566,48 +560,7 @@
      
     return shaderParameAry;
 }
-/*
- public getShaderParam(): Array<number> {
-     if (this._animRow != 1 || this._animLine != 1) {
-         this._uvType = 1;
-         this._animCtrlVec = [this._animLine, this._animRow, this._animInterval];
-     } else if (this._uSpeed != 0 || this._vSpeed != 0) {
-         this._uvType = 2;
-         this._uvCtrlVec = [this._uSpeed, this._vSpeed];
-     } else {
-         this._uvType = 0;
-     }
-
-     var hasParticleColor: boolean = this.materialParam.material.hasParticleColor;
-     this._needRandomColor = this.materialParam.material.hasVertexColor;
-
-     this.uploadGpu();//椭球粒子需要判断是否包含随机色来确定va结构
-
-     var shaderParameAry: Array<number>;
-
-     var hasParticle: number;
-     if (hasParticleColor) {
-         hasParticle = 1;
-     } else {
-         hasParticle = 0;
-     }
-
-     var hasRandomClolr: number = this._needRandomColor ? 1 : 0;
-
-     var isMul: number = this._is3Dlizi ? 1 : 0;
-
-     var needRotation: number = this._needSelfRotation ? 1 : 0;
-
-     var needScale: number = this._needScale ? 1 : 0;
-
-     var needAddSpeed: number = this._needAddSpeed ? 1 : 0;
-
-     shaderParameAry = [hasParticle, hasRandomClolr, isMul, needRotation, needScale, needAddSpeed, this._uvType];
-
-     return shaderParameAry;
- }
-
- */
+ 
 -(void)initVcData;
 {
     

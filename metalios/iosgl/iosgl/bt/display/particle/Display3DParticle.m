@@ -58,9 +58,7 @@
     [this.posMatrix3d prependScale:this.scaleX*0.1* this.bindScale.x y:this.scaleY*0.1* this.bindScale.y z:_scaleZ*0.1* this.bindScale.z];
     [this.timeline updateMatrix:self.posMatrix3d particle:this];
     
-  //  NSLog(@"%f  %f   %f",self.bindVecter3d.x,self.bindVecter3d.y,self.bindVecter3d.z);
-    
-    
+ 
 }
 -(void)updateMatrix;
 {
@@ -100,25 +98,7 @@
  */
 -(void)setViewCamModeMatr3d;
 {
- 
   
-    Camera3D* cam3D=self.scene3D.camera3D;
-    
-//    [ctx setVcMatrix4fv:self.shader3d name:"viewMatrix" data:cam3D.viewMatrix.m];
-//    [ctx setVcMatrix4fv:self.shader3d name:"camMatrix" data:cam3D.camMatrix3D.m];
-//    [ctx setVcMatrix4fv:self.shader3d name:"modeMatrix" data:self.modeMatrix.m];
-
-    /*
-    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
-    
-    ParticleMetalMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4]};
-  
-   [renderEncoder setVertexBytes:&matrixList
-                          length:sizeof(matrixList)
-                         atIndex:2];
-    */
-    
-
 }
 
 -(void)setMaterialTexture;
@@ -134,8 +114,7 @@
     NSArray<DynamicTexItem*>* texDynamicVec  =( NSArray<DynamicTexItem*>*) self.data.materialParam.dynamicTexList;
     for (int i   = 0; i < texDynamicVec.count; i++) {
         TexItem* texItem=texDynamicVec[i].target;
-//        [ctx setRenderTexture:self.data.materialParam.shader name:texDynamicVec[i].target.name  texture:texDynamicVec[i].texture level:texItem.id];
-         
+ 
         id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
         
       
@@ -187,20 +166,13 @@
     }
     t = t * this.data.materialParam.material.timeSpeed;
     [this.data.materialParam.material update:t];
-//    Context3D *ctx=self.scene3D.context3D;
+ 
     NSMutableArray<NSNumber*>*   fcData= this.data.materialParam.material.fcData;
     GLfloat fcDataGlArr[fcData.count];
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
-//    [ctx setVc4fv:this.data.materialParam.shader name:"fc" data:fcDataGlArr len:this.data.materialParam.material.fcNum];
-    
-    
-//    GLfloat attrArr[4];
-//    attrArr[0]=1;
-//    attrArr[1]=1;
-//    attrArr[2]=0;
-//    attrArr[3]=1;
+ 
     if(fcData.count!=4){
         NSLog(@"出错setMaterialVc%lu",fcData.count);
     }

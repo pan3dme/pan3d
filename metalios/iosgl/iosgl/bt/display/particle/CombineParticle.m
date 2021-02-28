@@ -27,8 +27,7 @@
 @property (nonatomic, strong)Vector3D*  _groupScale;
 @property (nonatomic, strong)id<IBind>  _bindTarget;
 
-//@property(assign,nonatomic) id<DynamicBaseCellDelegate>delegate;
-
+ 
 @end
 
 @implementation CombineParticle
@@ -155,9 +154,7 @@
     for(int i=0;i<self._displayAry.count;i++)
     {
         
-        //Display3DBallPartilce
-        //Display3DFacetParticle
-       
+   
         if ([self._displayAry[i]  isKindOfClass:[Display3DBallPartilce class]]) {
  
             if( num++==0){

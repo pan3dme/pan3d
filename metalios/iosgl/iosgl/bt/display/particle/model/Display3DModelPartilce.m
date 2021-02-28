@@ -28,8 +28,7 @@
 {
       [self setViewCamModeMatr3d];
       [self updateRotaionMatrix];
-//      Context3D *ctx=self.scene3D.context3D;
-//      [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
+ 
     Camera3D* cam3D=self.scene3D.camera3D;
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     

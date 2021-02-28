@@ -44,11 +44,10 @@
     Camera3D* cam3D=self.scene3D.camera3D;
     [self updateUV];
     Vector3D*  scaleVec =   self.locusdata._resultUvVec;
-//    [ctx setVcUniform4f:self.shader3d name:"vcmat30" x:scaleVec.x y:scaleVec.y z:scaleVec.z w:scaleVec.w];
+ 
     Vector3D*  caramPosVec = [[Vector3D alloc]x:cam3D.x y:cam3D.y z:cam3D.z];
     if (self.data._watchEye) {
-       
-//        [ctx setVcUniform4f:self.shader3d name:"vcmat31" x:caramPosVec.x y:caramPosVec.y z:caramPosVec.z w:caramPosVec.w];
+ 
     }
  
   
@@ -95,16 +94,10 @@
 }
 - (void)setVa;
 {
-//    Context3D *ctx=self.scene3D.context3D;
+ 
     ObjData* temp=self.particleGpuObjData;
     
-//    [ctx pushVa: temp.verticesBuffer];
-//    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
-//    [ctx pushVa:temp.uvBuffer];
-//    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
-//    [ctx pushVa: temp.nrmsBuffer];
-//    [ctx setVaOffset:self.shader3d name:"v3Normal" dataWidth:4 stride:0 offset:0];
-//    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum];
+ 
   
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     

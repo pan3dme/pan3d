@@ -72,21 +72,14 @@
     this.center.y =  [byte readFloat];;
     this.center.z =  [byte readFloat];;
     this.center.w =  [byte readFloat];;
-    
-    NSLog(@"%f&%f&%f",this.rotationV3d.x,this.rotationV3d.y,this.rotationV3d.z);
-    
+ 
     this.overAllScale =  [byte readFloat];;
     
  
     if (this._ziZhuanAngly && (this._ziZhuanAngly.x != 0 || this._ziZhuanAngly.y != 0 || this._ziZhuanAngly.z != 0)) {
         this._isZiZhuan = true;
     }
-    
-//    _position    int    397
-//    _nsData    NSSubrangeData *    0x2824e27c0    0x00000002824e27c0
-//    NSData    NSData
-//    _data    NSConcreteData *    1779345 bytes    0x0000000282ca31c0
-    
+ 
     [this readMaterialPara:byte];
     
     NSString* strMaterialUrl = [byte readUTF];
@@ -117,27 +110,11 @@
         [this.materialParam setTextObj:this.materialParamData.texAry];
         [this.materialParam setConstObj:this.materialParamData.conAry];
     }
-    
-        // MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
-    
+ 
     [self.scene3D.materialManager loadDynamicTexUtil:this.materialParam];
     
     [self regShader];
-    /*
-     
-     this.materialParam.setLife(this._life);
-
-
-     if (this.materialParamData) {
-         this.materialParam.setTextObj(this.materialParamData.texAry);
-         this.materialParam.setConstObj(this.materialParamData.conAry);
-     }
-
-     MaterialManager.getInstance().loadDynamicTexUtil(this.materialParam);
-
-     this.regShader();
-
-     */
+   
     
 }
 
@@ -151,18 +128,7 @@
     particle.timeLine=tl;
     [particle onCreated];
     
- /*
-   var particle: Display3DParticle = this.getParticle();
-  
-              particle.data = this;
-              var tl: TimeLine = new TimeLine();
-              tl.setAllDataInfo(this.timelineData);
-              particle.setTimeLine(tl);
-  
-              particle.onCreated();
-  
-              return particle;
-  */
+ 
                 return particle;
 }
 -(Display3DParticle*)getParticle;
