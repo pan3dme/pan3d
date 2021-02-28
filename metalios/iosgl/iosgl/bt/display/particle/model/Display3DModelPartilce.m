@@ -43,13 +43,9 @@
 }
 - (void)setVa;
 {
-    Context3D *ctx=self.scene3D.context3D;
-    ObjData* temp=self.facetdata.objData;
-//    [ctx pushVa: temp.verticesBuffer];
-//    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
-//    [ctx pushVa: temp.uvBuffer];
-//    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
-//    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
+ 
+    ObjData* temp=self.modeldata.objData;
+ 
    
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
@@ -63,9 +59,9 @@
     
     
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                             indexCount: self.facetdata.objData.mtkindexCount
+                             indexCount:temp.mtkindexCount
                               indexType:MTLIndexTypeUInt32
-                            indexBuffer: self.facetdata.objData.mtkindexs
+                            indexBuffer:temp.mtkindexs
                       indexBufferOffset:0];
 }
 - (void)resetVa;
@@ -90,7 +86,7 @@
  
      
 }
--(ParticleModelData*)facetdata;
+-(ParticleModelData*)modeldata;
 {
     return (ParticleModelData*)self.data;
 }

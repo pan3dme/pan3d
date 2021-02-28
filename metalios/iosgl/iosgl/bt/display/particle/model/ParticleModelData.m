@@ -49,55 +49,24 @@
     
     
     self.objData.mtkvertices=  [self.scene3D.context3D changeDataToGupMtkfloat3: self.objData.vertices];
+    
+
     self.objData.mtkuvs=  [self.scene3D.context3D changeDataToGupMtkfloat2: self.objData.uvs];
    
     
-    unsigned int Indices[self.objData.indexs.count];
-    for (int i=0; i<self.objData.indexs.count; i++) {
-        Indices[i]=[self.objData.indexs[i] intValue];
-    }
-
-    self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
-                                                     length:sizeof(Indices)
-                                                    options:MTLResourceStorageModeShared];
+    self.objData.mtkindexs = [self.scene3D.context3D changeObjDataIndexToMtkGpu:self.objData.indexs];
+    
     self.objData.trinum=(int)self.objData.indexs.count;
     self.objData.mtkindexCount = self.objData.trinum;
   
 }
 -(void)upToGpu
 {
-      self.objData.verticesBuffer=[self upGpuvertexBuffer:self.objData.vertices];
-      self.objData.uvBuffer=[self upGpuvertexBuffer:self.objData.uvs];
-      self.objData.indexBuffer=[self upGpuIndexBuffer:self.objData.indexs];
-    
-    
+ 
   
 }
 
--(GLuint)upGpuIndexBuffer:(NSArray*)arr;
-{
-    unsigned int Indices[arr.count];
-    for (int i=0; i<arr.count; i++) {
-        Indices[i]=[arr[i] intValue];
-    }
-    GLuint indexBuffer;
-    glGenBuffers(1, &indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-    return indexBuffer;
-}
--(GLuint)upGpuvertexBuffer:(NSArray*)arr;
-{
-    GLfloat attrArr[arr.count];
-    for (int i=0; i<arr.count; i++) {
-        attrArr[i]=[arr[i] floatValue];
-    }
-    GLuint verticesBuffer;
-    glGenBuffers(1, &verticesBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-    return verticesBuffer;
-}
+ 
 -(void)regShader;
 {
     if (!self.materialParam) {

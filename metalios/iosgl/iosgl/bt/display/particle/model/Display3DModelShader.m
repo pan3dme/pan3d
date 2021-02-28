@@ -110,19 +110,17 @@
         
         
         constexpr sampler textureSampler (mag_filter::linear,
-                                          min_filter::linear);
+                                          min_filter::linear,address::repeat);
+        
+ 
         
         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
         
                 colorTex =colorTex* half4(infodata->fc[0]);
-        //        colorTex = half4(colorTex.w,colorTex.w,colorTex.w,colorTex.w);
-        //        colorTex = half4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
+   
         return colorTex;
         
-        //        float4(colorTex.w,colorTex.w,colorTex.w,colorTex.w)
-        //        float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w)
-        
-        //        return float4(colorTex.x,colorTex.y,colorTex.z,colorTex.w);
+   
         
         
     }

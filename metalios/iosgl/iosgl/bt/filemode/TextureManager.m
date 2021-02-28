@@ -142,6 +142,7 @@ static TextureManager *instance = nil;
     textureDescriptor.pixelFormat = MTLPixelFormatRGBA8Unorm;
     textureDescriptor.width = image.size.width;
     textureDescriptor.height = image.size.height;
+    
     id<MTLTexture> texture = [self.scene3D.mtkView.device newTextureWithDescriptor:textureDescriptor];
     
     MTLRegion region = {{ 0, 0, 0 }, {image.size.width, image.size.height, 1}};
