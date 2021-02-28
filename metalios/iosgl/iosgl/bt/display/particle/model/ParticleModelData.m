@@ -46,6 +46,22 @@
 
     [super setAllByteInfo:fs];
     [self upToGpu];
+    
+    
+    self.objData.mtkvertices=  [self.scene3D.context3D changeDataToGupMtkfloat3: self.objData.vertices];
+    self.objData.mtkuvs=  [self.scene3D.context3D changeDataToGupMtkfloat2: self.objData.uvs];
+   
+    
+    unsigned int Indices[self.objData.indexs.count];
+    for (int i=0; i<self.objData.indexs.count; i++) {
+        Indices[i]=[self.objData.indexs[i] intValue];
+    }
+
+    self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
+                                                     length:sizeof(Indices)
+                                                    options:MTLResourceStorageModeShared];
+    self.objData.trinum=(int)self.objData.indexs.count;
+    self.objData.mtkindexCount = self.objData.trinum;
   
 }
 -(void)upToGpu
@@ -53,6 +69,9 @@
       self.objData.verticesBuffer=[self upGpuvertexBuffer:self.objData.vertices];
       self.objData.uvBuffer=[self upGpuvertexBuffer:self.objData.uvs];
       self.objData.indexBuffer=[self upGpuIndexBuffer:self.objData.indexs];
+    
+    
+  
 }
 
 -(GLuint)upGpuIndexBuffer:(NSArray*)arr;

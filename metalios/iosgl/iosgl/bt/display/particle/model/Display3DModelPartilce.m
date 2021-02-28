@@ -16,6 +16,7 @@
 #import "ObjData.h"
 #import "Scene_data.h"
 #import "ParticleModelData.h"
+#import "ParticleMetalType.h"
 
 @interface Display3DModelPartilce ()
 @property (nonatomic, strong)  TextureRes* testTextureRes;
@@ -27,18 +28,45 @@
 {
       [self setViewCamModeMatr3d];
       [self updateRotaionMatrix];
-      Context3D *ctx=self.scene3D.context3D;
-      [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
+//      Context3D *ctx=self.scene3D.context3D;
+//      [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
+    Camera3D* cam3D=self.scene3D.camera3D;
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+    ParticleMetalModelMatrixData matrixList = {[cam3D.viewMatrix getMatrixFloat4x4], [cam3D.camMatrix3D getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4], [self.rotationMatrix3D getMatrixFloat4x4]};
+
+ 
+    
+   [renderEncoder setVertexBytes:&matrixList
+                          length:sizeof(matrixList)
+                         atIndex:2];
 }
 - (void)setVa;
 {
     Context3D *ctx=self.scene3D.context3D;
     ObjData* temp=self.facetdata.objData;
-    [ctx pushVa: temp.verticesBuffer];
-    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa: temp.uvBuffer];
-    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
-    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
+//    [ctx pushVa: temp.verticesBuffer];
+//    [ctx setVaOffset:self.shader3d name:"v3Position" dataWidth:3 stride:0 offset:0];
+//    [ctx pushVa: temp.uvBuffer];
+//    [ctx setVaOffset:self.shader3d name:"v2TexCoord" dataWidth:2 stride:0 offset:0];
+//    [ctx drawCall:temp.indexBuffer  numTril:temp.trinum ];
+   
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+    
+    [renderEncoder setVertexBuffer: temp.mtkvertices
+                            offset:0
+                           atIndex:0];
+   [renderEncoder setVertexBuffer: temp.mtkuvs
+                           offset:0
+                          atIndex:1];
+    
+    
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                             indexCount: self.facetdata.objData.mtkindexCount
+                              indexType:MTLIndexTypeUInt32
+                            indexBuffer: self.facetdata.objData.mtkindexs
+                      indexBufferOffset:0];
 }
 - (void)resetVa;
 {
@@ -49,13 +77,11 @@
  
 -(void)updateRotaionMatrix;
 {
-    Camera3D *cam=self.scene3D.camera3D;
+//    Camera3D *cam=self.scene3D.camera3D;
     Display3DModelPartilce* this=self;
     [this.rotationMatrix3D identity];
     if (this.data._watchEye) {
-        //        this.timeline.inverAxisRotation(this._rotationMatrix);
-        //        this._rotationMatrix.prependRotation(-Scene_data.cam3D.rotationY, Vector3D.Y_AXIS);
-        //        this._rotationMatrix.prependRotation(-Scene_data.cam3D.rotationX, Vector3D.X_AXIS);
+     
     }
     if (this.data._isZiZhuan) {
         NSLog(@"%f    %f     %f",this.data._ziZhuanAngly.x ,this.data._ziZhuanAngly.y,this.data._ziZhuanAngly.z);
