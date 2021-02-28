@@ -197,6 +197,19 @@
         "float3 uspeed = float3(0,0,0);\n"
         "float4 vcmat50=vcmatDatadic->vcmat50;\n"
         "float4 vcmat53=vcmatDatadic->vcmat53;\n"
+    
+  
+                   "if(vcmat50.y != 0.0 && length(speed) != 0.0) {\n"
+                   "uspeed = float3(speed.x, speed.y, speed.z);\n"
+                   "uspeed = normalize(uspeed);\n"
+                   "uspeed = uspeed * vcmat50.y;\n"
+                   "uspeed.xyz = uspeed.xyz + vcmat53.xyz;\n"
+                   "} else {\n"
+                   "uspeed = float3(vcmat53.x, vcmat53.y, vcmat53.z);\n"
+                   "}\n" 
+                   "addPos.xyz = addPos.xyz + uspeed.xyz * ctime * ctime;\n"
+    
+    
         "return addPos;\n"
     "}";
 
@@ -303,11 +316,7 @@ float stime = STM(ctime,vcmatDatadic);
           
 
           pos=pos*matrixdic->rotMatrix;
-
-
-
           pos.xyz=pos.xyz+basepos.xyz;
-
           float4 vcmat50=vcmatDatadic->vcmat50;
 
 

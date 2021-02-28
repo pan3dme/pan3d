@@ -30,7 +30,7 @@
         int obj_type=[obj[@"type"]intValue];
         NSString* obj_name=(NSString*)obj[@"name"] ;
         if (obj_type == 0) {
-            DynamicBaseTexItem* texItem   = [[DynamicBaseTexItem alloc]init];
+            DynamicBaseTexItem* texItem   = [[DynamicBaseTexItem alloc]init:self.scene3D];
             texItem.paramName = obj_name;
             for (int j = 0; j < texList.count; j++) {
                 if (texItem.paramName == texList[j].paramName) {
