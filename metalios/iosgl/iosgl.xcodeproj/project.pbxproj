@@ -759,12 +759,12 @@
 			path = metail;
 			sourceTree = "<group>";
 		};
-		9CBE1C9C25BB116700FFE706 /* pan3d */ = {
+		9CBE1C9C25BB116700FFE706 /* metaltest */ = {
 			isa = PBXGroup;
 			children = (
 				9CBE1CA925BB1C4E00FFE706 /* dis */,
 			);
-			path = pan3d;
+			path = metaltest;
 			sourceTree = "<group>";
 		};
 		9CBE1CA925BB1C4E00FFE706 /* dis */ = {
@@ -898,9 +898,9 @@
 		FE0FC2372395104700D2483A /* iosgl */ = {
 			isa = PBXGroup;
 			children = (
-				9CBE1C9C25BB116700FFE706 /* pan3d */,
-				FE0FC25A239512E500D2483A /* base */,
-				FE0FC254239511AC00D2483A /* bt */,
+				9CBE1C9C25BB116700FFE706 /* metaltest */,
+				FE0FC25A239512E500D2483A /* uibase */,
+				FE0FC254239511AC00D2483A /* pan3d */,
 				FE0FC27C23955A7F00D2483A /* Page */,
 				FE0FC2382395104700D2483A /* AppDelegate.h */,
 				9CBE1C8825B841E000FFE706 /* metail */,
@@ -921,7 +921,7 @@
 			path = iosgl;
 			sourceTree = "<group>";
 		};
-		FE0FC254239511AC00D2483A /* bt */ = {
+		FE0FC254239511AC00D2483A /* pan3d */ = {
 			isa = PBXGroup;
 			children = (
 				9CDEDB25256190190099F83B /* frame3d */,
@@ -941,10 +941,10 @@
 				FE678842239B980200262B53 /* SceneView.m */,
 				FE2F2FD32418C3340005F686 /* GL_Header.h */,
 			);
-			path = bt;
+			path = pan3d;
 			sourceTree = "<group>";
 		};
-		FE0FC25A239512E500D2483A /* base */ = {
+		FE0FC25A239512E500D2483A /* uibase */ = {
 			isa = PBXGroup;
 			children = (
 				FE0FC27223952A3A00D2483A /* MyNavigationBar.h */,
@@ -952,7 +952,7 @@
 				FE0FC26F2395294900D2483A /* BaseNavigationViewController.h */,
 				FE0FC2702395294900D2483A /* BaseNavigationViewController.m */,
 			);
-			path = base;
+			path = uibase;
 			sourceTree = "<group>";
 		};
 		FE0FC26423951FAC00D2483A /* Other */ = {
