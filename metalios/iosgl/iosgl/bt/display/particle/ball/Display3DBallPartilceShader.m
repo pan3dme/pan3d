@@ -113,6 +113,10 @@
     {
         float4 position;
     } BaseFloat4;
+                              typedef struct
+    {
+        float3 position;
+    } BaseFloat3;
                               
                               
                               
@@ -262,8 +266,8 @@ _STRINGIFY(
     NSString* inputDataStr= [NSString stringWithFormat:@"%s",
                              ",constant BaseFloat4 *posBuff [[ buffer(0) ]]"
                              ",constant BaseFloat4 *basePosBuff [[ buffer(1) ]]"
-                             ",constant BaseFloat4 *speedBuff [[ buffer(2) ]]"
-                             ",constant BaseFloat4 *uvsBuff [[ buffer(3) ]]"
+                             ",constant BaseFloat3 *speedBuff [[ buffer(2) ]]"
+                             ",constant BaseFloat3 *uvsBuff [[ buffer(3) ]]"
                              ",constant ParticleMetalMatrixData *matrixdic [[ buffer(4) ]]"
                              ",constant ParticleMetalBallVcmatData *vcmatDatadic [[ buffer(5) ]]"
                                ];

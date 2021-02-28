@@ -294,35 +294,37 @@
         
  
     }
-    
+    NSUInteger size=sizeof(attrArr);
+    NSMutableArray* vertices= [[NSMutableArray alloc] init];
+    for(int i=0;i<size;i++){
+        [vertices addObject:[NSNumber numberWithFloat:attrArr[i]]];
+    }
+    self.objData.vertices=vertices;
  
     
-    self.objData.mtkvertices=   [self.scene3D.mtkView.device newBufferWithBytes:attrArr
-                                                 length:sizeof(attrArr)
-                                                options:MTLResourceStorageModeShared];
+    self.objData.mtkvertices=  [self.scene3D.context3D changeDataToGupMtkfloat4: self.objData.vertices];
+ 
+   
     
-     
-       self.objData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
-                                                        length:sizeof(Indices)
-                                                       options:MTLResourceStorageModeShared];
+    NSUInteger idxsize=sizeof(Indices);
+    NSMutableArray* indexs= [[NSMutableArray alloc] init];
+    for(int i=0;i<idxsize;i++){
+        [indexs addObject:[NSNumber numberWithInt:Indices[i]]];
+    }
+    self.objData.indexs=indexs;
+    
+    self.objData.mtkindexs = [self.scene3D.context3D changeObjDataIndexToMtkGpu:self.objData.indexs];
+    
+    
     self.objData.mtkindexCount = lznum*6;
-    /*
-    GLuint verticesBuffer;
-    glGenBuffers(1, &verticesBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-    self.objData.verticesBuffer=verticesBuffer;
     
-    GLuint indexBuffer;
-    glGenBuffers(1, &indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
-    self.objData.indexBuffer=indexBuffer;
-    */
+    
+    
     
     
  
 }
+ 
 -(void)initUV;
 {
     int lznum=self._totalNum;
@@ -333,41 +335,43 @@
     Vector2D* d= [[Vector2D alloc]x:0.0f y:1.0f];
  
     
-        GLfloat uvArr[lznum*16];
+        GLfloat uvArr[lznum*12];
     
         for(int i=0;i<lznum;i++){
-            int skipAtt=i*16;
+            int skipAtt=i*12;
             uvArr[skipAtt+0]=a.x;
             uvArr[skipAtt+1]=a.y;
             uvArr[skipAtt+2]=i;
-            uvArr[skipAtt+3]=i;
+   
             
-            uvArr[skipAtt+4]=b.x;
-            uvArr[skipAtt+5]=b.y;
-            uvArr[skipAtt+6]=i;
-            uvArr[skipAtt+7]=i;
+            uvArr[skipAtt+3]=b.x;
+            uvArr[skipAtt+4]=b.y;
+            uvArr[skipAtt+5]=i;
+ 
             
-            uvArr[skipAtt+8]=c.x;
-            uvArr[skipAtt+9]=c.y;
-            uvArr[skipAtt+10]=i;
+            uvArr[skipAtt+6]=c.x;
+            uvArr[skipAtt+7]=c.y;
+            uvArr[skipAtt+8]=i;
+   
+            
+            uvArr[skipAtt+9]=d.x;
+            uvArr[skipAtt+10]=d.y;
             uvArr[skipAtt+11]=i;
-            
-            uvArr[skipAtt+12]=d.x;
-            uvArr[skipAtt+13]=d.y;
-            uvArr[skipAtt+14]=i;
-            uvArr[skipAtt+15]=i;
+      
    
         }
     
-//      GLuint uvBuffer;
-//      glGenBuffers(1, &uvBuffer);
-//      glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
-//      glBufferData(GL_ARRAY_BUFFER, sizeof(uvArr), uvArr, GL_DYNAMIC_DRAW);
-//      self.particleGpuData.uvBuffer=uvBuffer;
+ 
+ 
+    NSUInteger size=sizeof(uvArr);
+    NSMutableArray* uvs= [[NSMutableArray alloc] init];
+    for(int i=0;i<size;i++){
+        [uvs addObject:[NSNumber numberWithFloat:uvArr[i]]];
+    }
+    self.objData.uvs=uvs;
+    self.objData.mtkuvs=  [self.scene3D.context3D changeDataToGupMtkfloat3: self.objData.uvs];
     
-    self.particleGpuData.mtkuvs=   [self.scene3D.mtkView.device newBufferWithBytes:uvArr
-                                                 length:sizeof(uvArr)
-                                                options:MTLResourceStorageModeShared];
+    
         
 }
 -(void)initSpeed;
@@ -418,21 +422,27 @@
         }
         [resultv3d nslogStr];
         for(int j=0;j<4;j++){
-            idx=16*i+j*4;
+            idx=12*i+j*3;
          
             speedArr[idx+0]=resultv3d.x;
             speedArr[idx+1]=resultv3d.y;
             speedArr[idx+2]=resultv3d.z;
-            speedArr[idx+3]=resultv3d.w;
+     
         }
   
     }
   
  
+    NSUInteger size=sizeof(speedArr);
+    NSMutableArray* speeds= [[NSMutableArray alloc] init];
+    for(int i=0;i<size;i++){
+        [speeds addObject:[NSNumber numberWithFloat:speedArr[i]]];
+    }
+    self.particleGpuData.speeds=speeds;
+    self.particleGpuData.mtkspeed=  [self.scene3D.context3D changeDataToGupMtkfloat3: self.particleGpuData.speeds];
     
-    self.particleGpuData.mtkspeed=   [self.scene3D.mtkView.device newBufferWithBytes:speedArr
-                                                 length:sizeof(speedArr)
-                                                options:MTLResourceStorageModeShared];
+    
+    
  
 }
 -(void)initBasePos;
@@ -491,10 +501,7 @@
         
         for(int j=0;j<4;j++){
             idx=16*i+j*4;
-//            v3d.x=0;
-//            v3d.y=0;
-//            v3d.z=0;
-//            v3d.w=0;
+
             basePos[idx+0]=v3d.x;
             basePos[idx+1]=v3d.y;
             basePos[idx+2]=v3d.z;
@@ -504,16 +511,17 @@
     }
     
     self.particleGpuData.basePos=basePos;
-//    GLuint basePosBuffer;
-//    glGenBuffers(1, &basePosBuffer);
-//    glBindBuffer(GL_ARRAY_BUFFER, basePosBuffer);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(basePos), basePos, GL_DYNAMIC_DRAW);
-//    self.particleGpuData.basePosBuffer=basePosBuffer;
+ 
+    
+    NSUInteger size=sizeof(basePos);
+    NSMutableArray* basePosArr= [[NSMutableArray alloc] init];
+    for(int i=0;i<size;i++){
+        [basePosArr addObject:[NSNumber numberWithFloat:basePos[i]]];
+    }
+ 
+    self.particleGpuData.mtkbasePos=  [self.scene3D.context3D changeDataToGupMtkfloat4: basePosArr];
     
     
-    self.particleGpuData.mtkbasePos=   [self.scene3D.mtkView.device newBufferWithBytes:basePos
-                                                 length:sizeof(basePos)
-                                                options:MTLResourceStorageModeShared];
 }
 -(void)regShader;
 {

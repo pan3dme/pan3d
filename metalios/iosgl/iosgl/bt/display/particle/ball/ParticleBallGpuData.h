@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ParticleBallGpuData : ParticleGpuData
+
 @property (nonatomic, assign)  GLfloat*    basePos;
 @property (nonatomic, assign) GLuint   basePosBuffer;
 @property (nonatomic, assign) GLuint   speedBuffer;
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLuint   baseRotationBuffer;
 @property (nonatomic, strong) id<MTLBuffer> mtkbasePos;
 @property (nonatomic, strong) id<MTLBuffer> mtkbaseRotation;
+@property (nonatomic, copy)  NSArray  *speeds;
 @property (nonatomic, strong) id<MTLBuffer> mtkspeed;
 @property (nonatomic, strong) id<MTLBuffer> mtkrandomColor;
 

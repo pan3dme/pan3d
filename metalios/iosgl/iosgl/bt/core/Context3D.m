@@ -435,6 +435,7 @@
                                                  length:sizeof(quarr)
                                                 options:MTLResourceStorageModeShared];
 }
+ 
 -(void)setMatrixVc:(Matrix3D*)m renderEncoder:(id<MTLRenderCommandEncoder>)renderEncoder   idx:(int)idx
 {
     matrix_float4x4 viewMatrix = [m getMatrixFloat4x4] ;
