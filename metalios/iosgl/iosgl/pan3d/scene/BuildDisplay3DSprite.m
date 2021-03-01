@@ -19,42 +19,6 @@
 #import "Scene_data.h"
 
 
-@implementation BuildDisplay3DLightUvShader
-+(NSString*)shaderStr;
-{
-    return @"BuildDisplay3DLightUvShader";
-}
-
--(NSString *)getVertexShaderString;{
-    char* relplayChat =
-    "attribute vec3 v3Position;\n"
-    "attribute vec2 v2LightUv;\n"
-    "uniform mat4 vpMatrix3D;\n"
-    "uniform mat4 posMatrix3D;\n"
-    "varying vec2 v0;\n"
-    "void main()"
-    "{"
-    "v0= v2LightUv;\n"
-    "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
-    "gl_Position = vPos * posMatrix3D* vpMatrix3D;\n"
-    "}";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
-    
-}
--(NSString *)getFragmentShaderString;{
-    char* relplayChat =
-    "precision mediump float;\n"
-    "uniform sampler2D lighttexture;"
-    "varying vec2 v0;\n"
-    "void main()"
-    "{"
-    //"gl_FragColor =vec4(1.0,1.0,1.0,1.0);\n"
-    "gl_FragColor =texture2D(lighttexture,v0);\n"
-    "}";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
-}
-@end
-
 @interface BuildDisplay3DSprite ()
 @property(nonatomic,strong)BuildSceneVo* buildSceneVo;
 @property(nonatomic,strong)TextureRes* lightTextureRes;

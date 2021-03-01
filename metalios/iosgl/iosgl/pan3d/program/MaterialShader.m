@@ -80,22 +80,7 @@
  
          return float4(colorTexA*colorTexB*2.0f);
      }
-                                     
-                     
-//     vertex MaterialOutVertices   vertexMaterialShader(uint vertexID [[ vertex_id ]],
-//                                                       constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],
-//                                                       constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],
-//                                                       constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],
-//                                                       constant MaterialMatrix *viewMatrix [[ buffer(3) ]],
-//                                                       constant MaterialMatrix *posMatrix [[ buffer(4) ]]
-//                                                       ) {
-//         MaterialOutVertices out;
-//        out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;
-//        out.vTextCoord = v2TexCoord[vertexID].data;
-//        out.vTextLight = v2LightUv[vertexID].data;
-//         return out;
-//     }
-                                     
+       
                                      )];
     
     //输入索引，顶点，纹理，矩阵
@@ -122,7 +107,7 @@
  
     
     NSString* str=  @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
-    "constant BaseFloat4 *v3Position [[ buffer(0) ]],\n"
+    "constant BaseFloat3 *v3Position [[ buffer(0) ]],\n"
     "constant BaseFloat2 *v2TexCoord [[ buffer(1) ]],\n";
     NSString* addstr=@"";
     
