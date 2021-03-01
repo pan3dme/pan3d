@@ -47,6 +47,7 @@
 		9CE667F525EC7DF900CE6204 /* RoleUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE667F425EC7DF900CE6204 /* RoleUiViewController.m */; };
 		9CE667F925EC7FE100CE6204 /* SceneMenager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE667F825EC7FE100CE6204 /* SceneMenager.m */; };
 		9CE667FD25EC823000CE6204 /* ParticleUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE667FC25EC823000CE6204 /* ParticleUiViewController.m */; };
+		9CE6680425EC9F9F00CE6204 /* SceneBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE6680325EC9F9F00CE6204 /* SceneBaseViewController.m */; };
 		9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF4333254F1F68009472D9 /* ScaleAnim.m */; };
 		E547434BFBFFABC9DC0BD21E /* libPods-iosgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763CC9DEC659D32C2CA1B43E /* libPods-iosgl.a */; };
 		FE064B86241EE1DD00AD44BE /* MaterialParamData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B85241EE1DD00AD44BE /* MaterialParamData.m */; };
@@ -303,6 +304,8 @@
 		9CE667F825EC7FE100CE6204 /* SceneMenager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneMenager.m; sourceTree = "<group>"; };
 		9CE667FB25EC823000CE6204 /* ParticleUiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleUiViewController.h; sourceTree = "<group>"; };
 		9CE667FC25EC823000CE6204 /* ParticleUiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleUiViewController.m; sourceTree = "<group>"; };
+		9CE6680225EC9F9F00CE6204 /* SceneBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneBaseViewController.h; sourceTree = "<group>"; };
+		9CE6680325EC9F9F00CE6204 /* SceneBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneBaseViewController.m; sourceTree = "<group>"; };
 		9CFF4333254F1F68009472D9 /* ScaleAnim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleAnim.m; sourceTree = "<group>"; };
 		9CFF4336254F1F75009472D9 /* ScaleAnim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleAnim.h; sourceTree = "<group>"; };
 		FE064B84241EE1DD00AD44BE /* MaterialParamData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialParamData.h; sourceTree = "<group>"; };
@@ -802,6 +805,8 @@
 		9CE667ED25EC7CFB00CE6204 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				9CE6680225EC9F9F00CE6204 /* SceneBaseViewController.h */,
+				9CE6680325EC9F9F00CE6204 /* SceneBaseViewController.m */,
 				9CE667EF25EC7D7300CE6204 /* SceneUiViewController.h */,
 				9CE667F025EC7D7300CE6204 /* SceneUiViewController.m */,
 				9CE667F325EC7DF900CE6204 /* RoleUiViewController.h */,
@@ -1679,6 +1684,7 @@
 				FE776ABC2447340B00B8B5A4 /* Display3DModelPartilce.m in Sources */,
 				FEEF8BBC2448E4D4001AFEB2 /* Skill.m in Sources */,
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
+				9CE6680425EC9F9F00CE6204 /* SceneBaseViewController.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
 				FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */,
 				FEEF8BEA2449A183001AFEB2 /* Display3DLocusBallPartilce.m in Sources */,

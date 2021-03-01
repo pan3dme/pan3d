@@ -12,8 +12,7 @@
 
 @interface SceneUiViewController ()
  
-@property (nonatomic, strong)Scene3D* scene3D;
-@property (nonatomic, strong) NSMutableArray<UIButton*>* butItems;
+
 @end
 
 @implementation SceneUiViewController
@@ -21,75 +20,33 @@
  
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.scene3D=[[Scene3D alloc]init:self.view];
-    [self.scene3D showFpsLabel];
-    
-    [self.scene3D addDisplay: [[MtkBaseLine alloc]init:self.scene3D]];
-    [self.scene3D loadSceneByUrl:@"2014"];
-    
-    [self addMenuList];
-    
+//    [self.scene3D loadSceneByUrl:@"2014"];
 }
 -(void)addMenuList;
 {
     self.butItems=[[NSMutableArray alloc]init];
     NSMutableArray* arr=[[NSMutableArray alloc]init];
-    [arr addObject:@"1001"];
-    [arr addObject:@"1002"];
+    [arr addObject:@"10002"];
+    [arr addObject:@"10005"];
+    [arr addObject:@"2014"];
     [arr addObject:@"1003"];
  
- 
-    [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
+    [self addButsByArr:arr  ];
     
- 
     [self viewDidLayoutSubviews];
   
 }
-- (void) addMenuListClikEvent:(UIButton *) btn
+
+- (BOOL) addMenuListClikEvent:(UIButton *) btn;
 {
-    NSString* titleStr=btn.titleLabel.text;
+   BOOL isCanNext= [super addMenuListClikEvent:btn];
+    if(isCanNext){
+        NSString* titleStr=btn.titleLabel.text;
+        [self.scene3D loadSceneByUrl:titleStr];
+    }
+    return true;
+}
  
-    if([titleStr isEqualToString:@"特效"]){
-         
- 
-        [btn setTintColor:UIColor.yellowColor];
-       
-    }
-    
-}
--(void)addButsByArr:(NSMutableArray*)arr action:(SEL)action
-{
-      
-    for(int i=0;i<arr.count;i++){
-        UIButton* oneBut=[self makeButtion];
-        [oneBut setTitle:arr[i] forState:UIControlStateNormal];
-        [oneBut setTitle:arr[i] forState:UIControlStateHighlighted];
-        [oneBut addTarget:self action:action forControlEvents:UIControlEventTouchUpInside] ;
-        [self.butItems addObject:oneBut];
-    }
-    
-}
-- (void)viewDidLayoutSubviews
-{
-    for (int i=0; i< self.butItems.count; i++) {
-        double tx=    fmod (i, 5);
-        int ty= float2int(i/5.0f);
-        
-        self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.view.frame)/1.5+55+ty*50, 60, 30);
-    }
-}
--(UIButton*)makeButtion;
-{
-    UIButton* but=[[UIButton alloc]initWithFrame:CGRectMake(0, 50, 50, 30)];
-    [but setTitle:@"1" forState:UIControlStateNormal];
-    but.backgroundColor=[UIColor redColor];
-    but.layer.cornerRadius = 15; // 圆角的弧度
-    but.layer.masksToBounds = YES;
-    [self.view addSubview:but];
-    
-    return but;
-}
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
     if(self.scene3D){

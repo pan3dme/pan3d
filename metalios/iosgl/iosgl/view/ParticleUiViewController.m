@@ -12,7 +12,7 @@
 #import "MtkBaseLine.h"
 
 @interface ParticleUiViewController ()
-@property (nonatomic, strong)Scene3D* scene3D;
+ 
 @end
 
 @implementation ParticleUiViewController
@@ -20,11 +20,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.scene3D=[[Scene3D alloc]init:self.view];
-    [self.scene3D addDisplay: [[MtkBaseLine alloc]init:self.scene3D]];
-    [self.scene3D playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10017"]];
  
+}
+-(void)addMenuList;
+{
+    self.butItems=[[NSMutableArray alloc]init];
+    NSMutableArray* arr=[[NSMutableArray alloc]init];
+    [arr addObject:@"10017"];
+    [arr addObject:@"10018"];
+    [arr addObject:@"levelup"];
+ 
+ 
+    [self addButsByArr:arr  ];
+    
+    [self viewDidLayoutSubviews];
+  
+}
+- (BOOL) addMenuListClikEvent:(UIButton *) btn;
+{
+   BOOL isCanNext= [super addMenuListClikEvent:btn];
+    if(isCanNext){
+        NSString* titleStr=btn.titleLabel.text;
+        [self.scene3D playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",titleStr]];
+       
+    }
+    return true;
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
