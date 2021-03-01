@@ -13,11 +13,11 @@
 #import "Matrix3D.h"
 #import "Camera3D.h"
 #import "Rectangle.h"
- 
+
 #import "SkillManager.h"
 #import "ParticleManager.h"
- 
- 
+
+
 @class ParticleManager ;
 @class SkillManager;
 @class TextureManager;
@@ -35,11 +35,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Scene3D :NSObject  <MTKViewDelegate>
- {
-float _sceneScale;
- }
+{
+    float _sceneScale;
+}
 @property (nonatomic, strong) MTKView *mtkView;
- 
+
 @property (nonatomic, strong) Camera3D *camera3D;
 @property (nonatomic, strong) Context3D *context3D; // OpenGL context,管理使用opengl
 @property (nonatomic, strong) NSMutableArray<Display3D*>* displayList;
@@ -66,15 +66,16 @@ float _sceneScale;
 @property (nonatomic, strong) Vector3D *fogColor;
 @property (nonatomic, assign) float gameAngle;
 @property (nonatomic, assign) double time;
- 
+
 -(void)setSceneScale:(float)value;
 -(float)sceneScale;
 - (instancetype)init:(UIView*)uiview;
 -(void) addDisplay:(Display3D*)dis;
+-(void) loadSceneByUrl:(NSString*)value;
+-(void) playLyfByUrl:(NSString*)value;
 -(void) addMovieDisplay:(Display3dMovie*)dis;
 -(void) clearAll;
--(void) upFrame  ;
-//-(void)resetViewport;
+-(void) showFpsLabel;
 @end
 
 NS_ASSUME_NONNULL_END

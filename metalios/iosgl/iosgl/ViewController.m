@@ -8,16 +8,14 @@
 
 #import "ViewController.h"
 #import "BaseNavigationViewController.h"
-#import "OnePageView.h"
-#import "TwoPageView.h"
-#import "ThirdPageView.h"
-#import "FourPageView.h"
+ 
 #import "GlkView.h"
 
-#import "FivePageView.h"
+ 
 #import "TokenSceneView.h"
-#import "SceneAllMenu.h"
-#import "RoleSceneViewController.h"
+#import "SceneUiViewController.h"
+#import "RoleUiViewController.h"
+#import "ParticleUiViewController.h"
 
 
 @interface ViewController ()
@@ -45,14 +43,12 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    TokenSceneView *vc01=[[TokenSceneView alloc] init];
-    RoleSceneViewController *vc02=[[RoleSceneViewController alloc] init];
-    RoleSceneViewController *vc03=[[RoleSceneViewController alloc]init];
-    OnePageView *vc04=[[OnePageView alloc] init];
-    SceneAllMenu *vc05=[[SceneAllMenu alloc] init];
-    // FivePageView *vc05=[[FivePageView alloc] init];
-    
-    
+    SceneUiViewController *vc01=[[SceneUiViewController alloc] init];
+    RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
+    ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
+    TokenSceneView *vc04=[[TokenSceneView alloc] init];
+    TokenSceneView *vc05=[[TokenSceneView alloc] init];
+   
     
     [self setTabItemInfo:@"red_tabbar_home" VC:vc01];
     [self setTabItemInfo:@"red_tabbar_huodong01" VC:vc02];
@@ -61,7 +57,7 @@
     [self setTabItemInfo:@"red_tabbar_my" VC:vc05];
     
     
-    vc01.tabBarItem.title = @"首3页";
+    vc01.tabBarItem.title = @"场景";
     vc02.tabBarItem.title = @"充值";
     vc03.tabBarItem.title =@"推广";
     vc04.tabBarItem.title = @"消息";

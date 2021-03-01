@@ -44,10 +44,7 @@
     if(self.scene3D){
         
    
-        
-        [self.scene3D upFrame];
-        [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];
-        
+       
     }
     
 }

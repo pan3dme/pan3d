@@ -28,9 +28,10 @@
 #import "GroupItem.h"
 #import "SceneRes.h"
 #import "MtkBaseDis.h"
+#import "SceneMenager.h"
 @interface Scene3D ()
 @property(nonatomic,strong)UILabel* fpsLabel;
-@property (nonatomic, strong) NSMutableArray<UIButton*>* butItems;
+@property(nonatomic,strong)SceneMenager* sceneMenager;
 @end
 @implementation Scene3D
 - (instancetype)init:(UIView *)value
@@ -44,65 +45,22 @@
         self.mtkView.delegate = self;
         [self.uiView insertSubview:self.mtkView atIndex:0];
         [self initData];
-        
+ 
+    }
+    return self;
+}
+-(void)showFpsLabel;
+{
+    if(self.fpsLabel==nil){
         self.fpsLabel=[[UILabel alloc]init];
         self.fpsLabel.frame=CGRectMake(0, 50, 100, 20);
         self.fpsLabel.text=@"60fps";
         self.fpsLabel.backgroundColor=[UIColor redColor];
-//        [self.uiView addSubview:self.fpsLabel];
-        
-        [self addMenuList];
+        [self.uiView addSubview:self.fpsLabel];
     }
-    return self;
+
 }
--(void)addMenuList;
-{
-    self.butItems=[[NSMutableArray alloc]init];
-    NSMutableArray* arr=[[NSMutableArray alloc]init];
-    [arr addObject:@"特效"];
  
- 
-    [self addButsByArr:arr  action: @selector(addMenuListClikEvent:)];
-    
- 
-    [self viewDidLayoutSubviews];
-  
-}
-- (void) addMenuListClikEvent:(UIButton *) btn
-{
-    NSString* titleStr=btn.titleLabel.text;
- 
-    if([titleStr isEqualToString:@"特效"]){
-         
-//        [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10018"]];
-        [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"levelup"]];
-        
-        [btn setTintColor:UIColor.yellowColor];
-       
-    }
-    
-}
--(void)addButsByArr:(NSMutableArray*)arr action:(SEL)action
-{
-      
-    for(int i=0;i<arr.count;i++){
-        UIButton* oneBut=[self makeButtion];
-        [oneBut setTitle:arr[i] forState:UIControlStateNormal];
-        [oneBut setTitle:arr[i] forState:UIControlStateHighlighted];
-        [oneBut addTarget:self action:action forControlEvents:UIControlEventTouchUpInside] ;
-        [self.butItems addObject:oneBut];
-    }
-    
-}
-- (void)viewDidLayoutSubviews
-{
-    for (int i=0; i< self.butItems.count; i++) {
-        double tx=    fmod (i, 5);
-        int ty= float2int(i/5.0f);
-        
-        self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.uiView.frame)/1.5+55+ty*50, 60, 30);
-    }
-}
 -(UIButton*)makeButtion;
 {
     UIButton* but=[[UIButton alloc]initWithFrame:CGRectMake(0, 50, 50, 30)];
@@ -116,6 +74,7 @@
 }
 -(void)initData
 {
+    self.sceneMenager=[[SceneMenager alloc]init:self];
     self.textureManager=[[TextureManager alloc] init:self];
     self.objDataManager=[[ObjDataManager alloc]init:self];
     self.materialManager=[[MaterialManager alloc]init:self];
@@ -132,23 +91,12 @@
     self.context3D=[[Context3D alloc] init:self.mtkView ];
     self.displayList=[[NSMutableArray alloc] init];
     self.displayRoleList=[[NSMutableArray alloc] init];
-    [self initSceneInfoModel];
-
+ 
 }
--(void)initSceneInfoModel;
+ 
+-(void) loadSceneByUrl:(NSString*)value;
 {
-    [self addDisplay: [[MtkBaseLine alloc]init:self]];
-//    [self addDisplay: [[MtkBaseDis alloc]init:self]];
-    
-    
-    [self loadSeceneByUrl:@"2014"];
-    [self addMovieDisplay:[[Display3dMovie alloc]init:self]];
-    
-    
-//    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"levelup"]];
-    
-    [self playLyfByUrl: [NSString stringWithFormat:@"model/%@_lyf.txt",@"10017"]];
-    
+    [self.sceneMenager loadSeceneByUrl:value];
 }
 
 -(void)playLyfByUrl:(NSString*)value
@@ -172,47 +120,12 @@
 - (void)drawInMTKView:(nonnull MTKView *)view {
     [self.context3D mtkclearColor:[[Vector3D alloc]x:0.16 y:0.16 z:0.16 w:1]];
  
- 
-    
-    [self upFrame];
+    [self update];
     
     [self.context3D mtkpresent];
 }
--(void)parsingBuildItem:(NSDictionary*)value;
-{
-    int type=   [value[@"type"]intValue];
-    switch (type) {
-        case PREFAB_TYPE:
-            [self addBuildDisplay3DSprite:value];
-            break;
-        case SCENE_PARTICLE_TYPE:
-            break;
-        default:
-            break;
-    }
-}
+
  
--(void)addBuildDisplay3DSprite:(NSDictionary*)value;
-{
-    BuildDisplay3DSprite* dis=[[BuildDisplay3DSprite alloc] init:self];
-    [dis setInfo:value];
-    [self addDisplay: dis];
-}
- 
-- (void)loadSeceneByUrl:(NSString *)url
-{
-    NSString* webUrl=[[Scene_data default]getWorkUrlByFilePath:getMapUrl(url)];
-    SceneRes *sceneRes=[[SceneRes alloc]init:self];
-    [sceneRes load:webUrl  bfun:^(NSString *value) {
-        NSDictionary* obj=sceneRes.sceneData;
-        NSArray *buildItem=[obj objectForKey:@"buildItem"];
-        for(int i=0;i<buildItem.count;i++){
-            if( [buildItem[i][@"id"]intValue]==2){
-            }
-            [self parsingBuildItem:buildItem[i]];
-        }
-    }];
-}
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
     [self resieSize:size];
 }
@@ -225,13 +138,13 @@
 -(void)setSceneScale:(float)value;
 {
     _sceneScale=value;
-        [self.uiView setContentScaleFactor:_sceneScale];
+     [self.uiView setContentScaleFactor:_sceneScale];
 }
 -(float)sceneScale;
 {
     return _sceneScale;
 }
--(void) upFrame  ;
+-(void) update  ;
 {
  
     [self.camera3D upFrame];
@@ -257,18 +170,14 @@
         [self.displayRoleList[i] updateFrame:delay];
     }
 }
--(void)resetViewport;
-{
  
-}
 -(void) addDisplay:(Display3D*)dis;
 {
-    dis.scene3D=self;
     [self.displayList addObject:dis];
 }
 -(void) addMovieDisplay:(Display3dMovie*)dis;
 {
-    dis.scene3D=self;
+ 
     [self.displayRoleList addObject:dis];
 }
 -(void) clearAll;

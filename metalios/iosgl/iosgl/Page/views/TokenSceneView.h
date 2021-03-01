@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TokenSceneView : BaseUIViewController
+@interface TokenSceneView : UIViewController
   
 
 @end
