@@ -43,22 +43,23 @@
         
     } MaterialOutVertices;
                                      
-                                     typedef struct
-                                     {
-        float4 position;
-        float2 textureCoordinate;
-    } MaterialShaderVertex;
+           
+                                     
+      
                                      
                                      typedef struct
-                                     {
-        float4 data;
- 
-    } MaterialShaderVertexFloat4;
+           {
+               float4 position;
+           } BaseFloat4;
                                      typedef struct
-                                     {
-        float2 data;
- 
-    } MaterialShaderVertexFloat2;
+           {
+               float3 position;
+           } BaseFloat3;
+                                     typedef struct
+           {
+               float2 position;
+           } BaseFloat2;
+                           
     
                                 
                                      typedef struct
@@ -121,8 +122,8 @@
  
     
     NSString* str=  @"vertex MaterialOutVertices   vertexMaterialShader (uint vertexID [[ vertex_id ]],\n"
-    "constant MaterialShaderVertexFloat4 *v3Position [[ buffer(0) ]],\n"
-    "constant MaterialShaderVertexFloat2 *v2TexCoord [[ buffer(1) ]],\n";
+    "constant BaseFloat4 *v3Position [[ buffer(0) ]],\n"
+    "constant BaseFloat2 *v2TexCoord [[ buffer(1) ]],\n";
     NSString* addstr=@"";
     
     if (directLight) {
@@ -133,7 +134,7 @@
     } else {
         matrix_star_id++; //3索引加1
         addstr=
-        @"constant MaterialShaderVertexFloat2 *v2LightUv [[ buffer(2) ]],\n";
+        @"constant BaseFloat2 *v2LightUv [[ buffer(2) ]],\n";
         str=  [str stringByAppendingString:addstr];
     }
     if (usePbr) {
@@ -189,13 +190,13 @@
     "MaterialOutVertices out;\n"
   
     
-    "out.vPosition = viewMatrix->matrix * posMatrix->matrix * float4(v3Position[vertexID].data.xyz,1.0);\n"
-    "out.vTextCoord = v2TexCoord[vertexID].data;\n"  ;
+    "out.vPosition = viewMatrix->matrix * posMatrix->matrix * float4(v3Position[vertexID].position.xyz,1.0);\n"
+    "out.vTextCoord = v2TexCoord[vertexID].position.xy;\n"  ;
     
     str=  [str stringByAppendingString:addstr];
      
     if (!(directLight || noLight)) {
-        addstr=  @"out.vTextLight = v2LightUv[vertexID].data;\n";
+        addstr=  @"out.vTextLight = v2LightUv[vertexID].position.xy;\n";
         str=  [str stringByAppendingString:addstr];
       
     }
