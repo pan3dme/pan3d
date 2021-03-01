@@ -75,18 +75,12 @@
         this.waitLoadActionDic =[[NSMutableDictionary alloc]init];
         this.actionTime=0;
         
-        [self customInit];
+    
    
     }
     return self;
 }
-- (void)customInit {
-  
-    
-//    [self setRoleUrl:getRoleUrl(@"50001")];
-    [self setRoleUrl:getRoleUrl(@"yezhuz")];
-    
-}
+ 
 
 -(void)onMeshLoaded;
 {

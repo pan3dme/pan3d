@@ -30,6 +30,8 @@
 {
     [arr addObject:@"清理"];
     [arr addObject:@"网格"];
+    [arr addObject:@"拉+"];
+    [arr addObject:@"推-"];
     for(int i=0;i<arr.count;i++){
         UIButton* oneBut=[self makeButtion];
         [oneBut setTitle:arr[i] forState:UIControlStateNormal];
@@ -43,9 +45,22 @@
 {
     NSString* titleStr=btn.titleLabel.text;
     if([titleStr isEqualToString:@"清理"]){
+        
+        [self.scene3D clearAll];
         return  false;
     }
     if([titleStr isEqualToString:@"网格"]){
+        [self.scene3D addDisplay: [[MtkBaseLine alloc]init:self.scene3D]];
+        return  false;
+    }
+    if([titleStr isEqualToString:@"拉+"]){
+        self.scene3D.camera3D.distance*=0.8;
+        [self.scene3D.camera3D upFrame];
+        return  false;
+    }
+    if([titleStr isEqualToString:@"推-"]){
+        self.scene3D.camera3D.distance/=0.8;
+        [self.scene3D.camera3D upFrame];
         return  false;
     }
  
@@ -74,5 +89,20 @@
         self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.view.frame)/1.5+55+ty*50, 60, 30);
     }
 }
-
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if(self.scene3D){
+        UITouch *touch = [touches anyObject];
+        CGPoint currentPoint = [touch locationInView:self.view];
+        CGPoint prePoint = [touch previousLocationInView:self.view];
+        CGFloat offsetX = currentPoint.x - prePoint.x;
+        CGFloat offsetY = currentPoint.y - prePoint.y;
+        
+        self.scene3D.camera3D.rotationX +=offsetY*0.1;
+        self.scene3D.camera3D.rotationY -=offsetX;
+        [self.scene3D.camera3D upFrame];
+        
+    
+    }
+}
 @end
