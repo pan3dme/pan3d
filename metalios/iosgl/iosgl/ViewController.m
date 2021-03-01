@@ -10,9 +10,7 @@
 #import "BaseNavigationViewController.h"
  
 #import "GlkView.h"
-
  
-#import "TokenSceneView.h"
 #import "SceneUiViewController.h"
 #import "RoleUiViewController.h"
 #import "ParticleUiViewController.h"
@@ -46,8 +44,8 @@
     SceneUiViewController *vc01=[[SceneUiViewController alloc] init];
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
-    TokenSceneView *vc04=[[TokenSceneView alloc] init];
-    TokenSceneView *vc05=[[TokenSceneView alloc] init];
+    ParticleUiViewController *vc04=[[ParticleUiViewController alloc] init];
+    ParticleUiViewController *vc05=[[ParticleUiViewController alloc] init];
    
     
     [self setTabItemInfo:@"red_tabbar_home" VC:vc01];

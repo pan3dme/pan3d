@@ -63,17 +63,6 @@
 		FE0FC27423952A3A00D2483A /* MyNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27323952A3A00D2483A /* MyNavigationBar.m */; };
 		FE0FC2772395531700D2483A /* MathCore.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2762395531700D2483A /* MathCore.m */; };
 		FE0FC27B2395533500D2483A /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27A2395533500D2483A /* MathClass.m */; };
-		FE0FC28023955AA200D2483A /* OnePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC27E23955AA200D2483A /* OnePageView.m */; };
-		FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC27F23955AA200D2483A /* OnePageView.xib */; };
-		FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC28323955D0200D2483A /* TwoPageView.m */; };
-		FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC28423955D0200D2483A /* TwoPageView.xib */; };
-		FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC2882395654C00D2483A /* ThirdPageView.m */; };
-		FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC2892395654D00D2483A /* ThirdPageView.xib */; };
-		FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC28D2395669100D2483A /* BaseUIViewController.m */; };
-		FE0FC292239568BE00D2483A /* FourPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC290239568BE00D2483A /* FourPageView.m */; };
-		FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC291239568BE00D2483A /* FourPageView.xib */; };
-		FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0FC29C2395768D00D2483A /* FivePageView.m */; };
-		FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0FC29D2395768D00D2483A /* FivePageView.xib */; };
 		FE1376A1239E90AE00755136 /* ObjDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1376A0239E90AE00755136 /* ObjDataManager.m */; };
 		FE15ACA72435750A0062741F /* Display3dMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACA62435750A0062741F /* Display3dMovie.m */; };
 		FE15ACAB243576760062741F /* SkinMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15ACAA243576760062741F /* SkinMesh.m */; };
@@ -96,7 +85,6 @@
 		FE1E1BB8254A7695009590DB /* SkillActionVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BB7254A7695009590DB /* SkillActionVo.m */; };
 		FE1E1BBC254A773F009590DB /* ShockAryVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBB254A773F009590DB /* ShockAryVo.m */; };
 		FE1E1BC0254A7E9A009590DB /* SkillLoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */; };
-		FE1E1BC9254C7923009590DB /* SceneAllMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1BC8254C7923009590DB /* SceneAllMenu.m */; };
 		FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DC239BDF60007FB797 /* Shader3D.m */; };
 		FE2088E0239BE86A007FB797 /* ResGC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088DF239BE86A007FB797 /* ResGC.m */; };
 		FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2088E2239BE899007FB797 /* ProgrmaManager.m */; };
@@ -146,7 +134,6 @@
 		FE678836239B946800262B53 /* ResCount.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678835239B946800262B53 /* ResCount.m */; };
 		FE678839239B948D00262B53 /* ObjData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678838239B948D00262B53 /* ObjData.m */; };
 		FE67883C239B973C00262B53 /* Display3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE67883B239B973C00262B53 /* Display3DSprite.m */; };
-		FE678843239B980200262B53 /* SceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE678842239B980200262B53 /* SceneView.m */; };
 		FE6ECE682437FCA800EF805A /* MaterialAnimShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */; };
 		FE74C8882396C85D0069A551 /* Base3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74C8872396C85D0069A551 /* Base3dView.m */; };
 		FE776AAF244731F700B8B5A4 /* ParticleFollowData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AAE244731F600B8B5A4 /* ParticleFollowData.m */; };
@@ -188,15 +175,12 @@
 		FE99B40925471C9800DEFA84 /* BaseEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99B40825471C9800DEFA84 /* BaseEvent.m */; };
 		FE99B41E2547BEB500DEFA84 /* EventBindVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99B41D2547BEB500DEFA84 /* EventBindVo.m */; };
 		FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2C62451CA0700C458AC /* MountChar.m */; };
-		FE9EB2CE24522C7300C458AC /* RoleSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */; };
 		FE9EB2D12452EB5200C458AC /* BuildDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2D02452EB5200C458AC /* BuildDisplay3DSprite.m */; };
 		FE9EB2D42452ECC600C458AC /* BuildSceneVo.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9EB2D32452ECC600C458AC /* BuildSceneVo.m */; };
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C858242FF3F500A349E8 /* Display3DFacetParticle.m */; };
 		FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */; };
 		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
-		FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4424002A94009F6575 /* TokenSceneView.m */; };
-		FED0DA4724002A94009F6575 /* TokenSceneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA4524002A94009F6575 /* TokenSceneView.xib */; };
 		FED0DA4A240162F8009F6575 /* GroupDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA49240162F8009F6575 /* GroupDataManager.m */; };
 		FED0DA4D24016395009F6575 /* GroupRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4C24016395009F6575 /* GroupRes.m */; };
 		FED0DA5624016C44009F6575 /* baoxiang001.txt in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA5424016C43009F6575 /* baoxiang001.txt */; };
@@ -346,23 +330,6 @@
 		FE0FC2762395531700D2483A /* MathCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathCore.m; sourceTree = "<group>"; };
 		FE0FC2792395533500D2483A /* MathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathClass.h; sourceTree = "<group>"; };
 		FE0FC27A2395533500D2483A /* MathClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathClass.m; sourceTree = "<group>"; };
-		FE0FC27D23955AA200D2483A /* OnePageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnePageView.h; sourceTree = "<group>"; };
-		FE0FC27E23955AA200D2483A /* OnePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnePageView.m; sourceTree = "<group>"; };
-		FE0FC27F23955AA200D2483A /* OnePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnePageView.xib; sourceTree = "<group>"; };
-		FE0FC28223955D0200D2483A /* TwoPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoPageView.h; sourceTree = "<group>"; };
-		FE0FC28323955D0200D2483A /* TwoPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoPageView.m; sourceTree = "<group>"; };
-		FE0FC28423955D0200D2483A /* TwoPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoPageView.xib; sourceTree = "<group>"; };
-		FE0FC2872395654C00D2483A /* ThirdPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdPageView.h; sourceTree = "<group>"; };
-		FE0FC2882395654C00D2483A /* ThirdPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdPageView.m; sourceTree = "<group>"; };
-		FE0FC2892395654D00D2483A /* ThirdPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdPageView.xib; sourceTree = "<group>"; };
-		FE0FC28C2395669100D2483A /* BaseUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseUIViewController.h; sourceTree = "<group>"; };
-		FE0FC28D2395669100D2483A /* BaseUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseUIViewController.m; sourceTree = "<group>"; };
-		FE0FC28F239568BE00D2483A /* FourPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourPageView.h; sourceTree = "<group>"; };
-		FE0FC290239568BE00D2483A /* FourPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourPageView.m; sourceTree = "<group>"; };
-		FE0FC291239568BE00D2483A /* FourPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourPageView.xib; sourceTree = "<group>"; };
-		FE0FC29B2395768D00D2483A /* FivePageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FivePageView.h; sourceTree = "<group>"; };
-		FE0FC29C2395768D00D2483A /* FivePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FivePageView.m; sourceTree = "<group>"; };
-		FE0FC29D2395768D00D2483A /* FivePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FivePageView.xib; sourceTree = "<group>"; };
 		FE13769F239E90AE00755136 /* ObjDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjDataManager.h; sourceTree = "<group>"; };
 		FE1376A0239E90AE00755136 /* ObjDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjDataManager.m; sourceTree = "<group>"; };
 		FE15ACA52435750A0062741F /* Display3dMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3dMovie.h; sourceTree = "<group>"; };
@@ -407,8 +374,6 @@
 		FE1E1BBB254A773F009590DB /* ShockAryVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShockAryVo.m; sourceTree = "<group>"; };
 		FE1E1BBE254A7E9A009590DB /* SkillLoadInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillLoadInfo.h; sourceTree = "<group>"; };
 		FE1E1BBF254A7E9A009590DB /* SkillLoadInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillLoadInfo.m; sourceTree = "<group>"; };
-		FE1E1BC7254C7923009590DB /* SceneAllMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneAllMenu.h; sourceTree = "<group>"; };
-		FE1E1BC8254C7923009590DB /* SceneAllMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneAllMenu.m; sourceTree = "<group>"; };
 		FE2088DB239BDF60007FB797 /* Shader3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader3D.h; sourceTree = "<group>"; };
 		FE2088DC239BDF60007FB797 /* Shader3D.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader3D.m; sourceTree = "<group>"; };
 		FE2088DE239BE86A007FB797 /* ResGC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResGC.h; sourceTree = "<group>"; };
@@ -502,8 +467,6 @@
 		FE678838239B948D00262B53 /* ObjData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjData.m; sourceTree = "<group>"; };
 		FE67883A239B973C00262B53 /* Display3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DSprite.h; sourceTree = "<group>"; };
 		FE67883B239B973C00262B53 /* Display3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DSprite.m; sourceTree = "<group>"; };
-		FE678841239B980200262B53 /* SceneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneView.h; sourceTree = "<group>"; };
-		FE678842239B980200262B53 /* SceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneView.m; sourceTree = "<group>"; };
 		FE6ECE662437FCA800EF805A /* MaterialAnimShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialAnimShader.h; sourceTree = "<group>"; };
 		FE6ECE672437FCA800EF805A /* MaterialAnimShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialAnimShader.m; sourceTree = "<group>"; };
 		FE74C8862396C85D0069A551 /* Base3dView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3dView.h; sourceTree = "<group>"; };
@@ -587,8 +550,6 @@
 		FE99B41D2547BEB500DEFA84 /* EventBindVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventBindVo.m; sourceTree = "<group>"; };
 		FE9EB2C52451CA0700C458AC /* MountChar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MountChar.h; sourceTree = "<group>"; };
 		FE9EB2C62451CA0700C458AC /* MountChar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MountChar.m; sourceTree = "<group>"; };
-		FE9EB2CC24522C7300C458AC /* RoleSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoleSceneViewController.h; sourceTree = "<group>"; };
-		FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleSceneViewController.m; sourceTree = "<group>"; };
 		FE9EB2CF2452EB5200C458AC /* BuildDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildDisplay3DSprite.h; sourceTree = "<group>"; };
 		FE9EB2D02452EB5200C458AC /* BuildDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildDisplay3DSprite.m; sourceTree = "<group>"; };
 		FE9EB2D22452ECC600C458AC /* BuildSceneVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildSceneVo.h; sourceTree = "<group>"; };
@@ -602,9 +563,6 @@
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
 		FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DSprite.h; sourceTree = "<group>"; };
 		FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DSprite.m; sourceTree = "<group>"; };
-		FED0DA4324002A94009F6575 /* TokenSceneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSceneView.h; sourceTree = "<group>"; };
-		FED0DA4424002A94009F6575 /* TokenSceneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSceneView.m; sourceTree = "<group>"; };
-		FED0DA4524002A94009F6575 /* TokenSceneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokenSceneView.xib; sourceTree = "<group>"; };
 		FED0DA48240162F8009F6575 /* GroupDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDataManager.h; sourceTree = "<group>"; };
 		FED0DA49240162F8009F6575 /* GroupDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupDataManager.m; sourceTree = "<group>"; };
 		FED0DA4B24016395009F6575 /* GroupRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupRes.h; sourceTree = "<group>"; };
@@ -863,33 +821,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		FE0649C5241E671200AD44BE /* views */ = {
-			isa = PBXGroup;
-			children = (
-				FE0FC28C2395669100D2483A /* BaseUIViewController.h */,
-				FE0FC28D2395669100D2483A /* BaseUIViewController.m */,
-				FED0DA4324002A94009F6575 /* TokenSceneView.h */,
-				FED0DA4424002A94009F6575 /* TokenSceneView.m */,
-				FED0DA4524002A94009F6575 /* TokenSceneView.xib */,
-				FE0FC27D23955AA200D2483A /* OnePageView.h */,
-				FE0FC27E23955AA200D2483A /* OnePageView.m */,
-				FE0FC27F23955AA200D2483A /* OnePageView.xib */,
-				FE0FC28223955D0200D2483A /* TwoPageView.h */,
-				FE0FC28323955D0200D2483A /* TwoPageView.m */,
-				FE0FC28423955D0200D2483A /* TwoPageView.xib */,
-				FE0FC2872395654C00D2483A /* ThirdPageView.h */,
-				FE0FC2882395654C00D2483A /* ThirdPageView.m */,
-				FE0FC2892395654D00D2483A /* ThirdPageView.xib */,
-				FE0FC28F239568BE00D2483A /* FourPageView.h */,
-				FE0FC290239568BE00D2483A /* FourPageView.m */,
-				FE0FC291239568BE00D2483A /* FourPageView.xib */,
-				FE0FC29B2395768D00D2483A /* FivePageView.h */,
-				FE0FC29C2395768D00D2483A /* FivePageView.m */,
-				FE0FC29D2395768D00D2483A /* FivePageView.xib */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
 		FE0FC22C2395104700D2483A = {
 			isa = PBXGroup;
 			children = (
@@ -950,8 +881,6 @@
 				FE67882E239B934C00262B53 /* display */,
 				FE0FC2782395531F00D2483A /* core */,
 				FE67883D239B974C00262B53 /* scene */,
-				FE678841239B980200262B53 /* SceneView.h */,
-				FE678842239B980200262B53 /* SceneView.m */,
 				FE2F2FD32418C3340005F686 /* GL_Header.h */,
 			);
 			path = pan3d;
@@ -999,11 +928,9 @@
 		FE0FC27C23955A7F00D2483A /* Page */ = {
 			isa = PBXGroup;
 			children = (
-				FE9EB2C824522C0F00C458AC /* sceneview */,
 				FE0FC26423951FAC00D2483A /* Other */,
 				FEB5AE3C23F1B10700661496 /* mathother */,
 				FED0DA5B24017CC9009F6575 /* AppBase */,
-				FE0649C5241E671200AD44BE /* views */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -1439,17 +1366,6 @@
 			path = event;
 			sourceTree = "<group>";
 		};
-		FE9EB2C824522C0F00C458AC /* sceneview */ = {
-			isa = PBXGroup;
-			children = (
-				FE9EB2CC24522C7300C458AC /* RoleSceneViewController.h */,
-				FE9EB2CD24522C7300C458AC /* RoleSceneViewController.m */,
-				FE1E1BC7254C7923009590DB /* SceneAllMenu.h */,
-				FE1E1BC8254C7923009590DB /* SceneAllMenu.m */,
-			);
-			path = sceneview;
-			sourceTree = "<group>";
-		};
 		FEB5AE3C23F1B10700661496 /* mathother */ = {
 			isa = PBXGroup;
 			children = (
@@ -1612,27 +1528,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE49FE6423C70E3A001FAE9B /* shadertwo.fsh in Resources */,
-				FE0FC28123955AA200D2483A /* OnePageView.xib in Resources */,
 				9CD92236255E566D00DEE26B /* bodymd5mesh.txt in Resources */,
 				FE49FE6723C70E3A001FAE9B /* ball.xml in Resources */,
 				FE49FE6823C70E3A001FAE9B /* box.txt in Resources */,
-				FE0FC29F2395768D00D2483A /* FivePageView.xib in Resources */,
 				FE49FE6023C70E3A001FAE9B /* 1001_base.txt in Resources */,
-				FED0DA4724002A94009F6575 /* TokenSceneView.xib in Resources */,
 				FE49FE6223C70E3A001FAE9B /* 256.jpg in Resources */,
 				9CD92237255E566D00DEE26B /* standmd5anim.txt in Resources */,
 				FE49FE6A23C70E3A001FAE9B /* 5555_base.txt in Resources */,
-				FE0FC28623955D0200D2483A /* TwoPageView.xib in Resources */,
 				FE49FE6323C70E3A001FAE9B /* brdf_ltu.jpg in Resources */,
 				FE0FC24B2395104800D2483A /* LaunchScreen.storyboard in Resources */,
 				FED0DA5724016C44009F6575 /* baoxiang001_base.txt in Resources */,
 				FE49FE6923C70E3A001FAE9B /* shadertwo.vsh in Resources */,
 				FE49FE6123C70E3A001FAE9B /* shadow.png in Resources */,
 				FE0FC2482395104800D2483A /* Assets.xcassets in Resources */,
-				FE0FC28B2395654D00D2483A /* ThirdPageView.xib in Resources */,
 				FE0FC2432395104700D2483A /* Main.storyboard in Resources */,
 				FE49FE6B23C70E3A001FAE9B /* tu001.jpg in Resources */,
-				FE0FC293239568BE00D2483A /* FourPageView.xib in Resources */,
 				FED0DA5624016C44009F6575 /* baoxiang001.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1752,7 +1662,6 @@
 				FE1E1BBC254A773F009590DB /* ShockAryVo.m in Sources */,
 				9C55A0A225C99F79004CA03B /* MtkMoveDisplay.metal in Sources */,
 				FE259A2F239A0BB6007360E6 /* Vector3D.m in Sources */,
-				FE0FC28A2395654D00D2483A /* ThirdPageView.m in Sources */,
 				FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */,
 				FE642AD2242AACE60047E41F /* Display3DLocusShader.m in Sources */,
 				FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */,
@@ -1779,19 +1688,15 @@
 				FE8FFF7D24504AC000EB79CE /* CubemapLoad.m in Sources */,
 				FE887D68241676B000025A74 /* MaterialBaseParam.m in Sources */,
 				FE887D71241681B300025A74 /* MaterialLoad.m in Sources */,
-				FE0FC292239568BE00D2483A /* FourPageView.m in Sources */,
 				9CDEDB46256190E50099F83B /* FrameLinePointVo.m in Sources */,
 				FEEF8BE02448E7DF001AFEB2 /* SkillVo.m in Sources */,
 				FEEF8BCC2448E743001AFEB2 /* SkillMulTrajectory.m in Sources */,
 				FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */,
 				9C1DA45A255C648D00FAE501 /* Md5MeshShader.m in Sources */,
-				FE678843239B980200262B53 /* SceneView.m in Sources */,
-				FE0FC28E2395669100D2483A /* BaseUIViewController.m in Sources */,
 				FEF3D4C52436B5A00055AB31 /* DualQuatFloat32Array.m in Sources */,
 				9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */,
 				FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */,
 				FE2A61C1239CB9DF0011BF9E /* Scene3D.m in Sources */,
-				FE1E1BC9254C7923009590DB /* SceneAllMenu.m in Sources */,
 				FEF6063723B9CF5D00DE6C2F /* Object3D.m in Sources */,
 				FE3D4EF72401C9CC00185FD3 /* ParticleBallData.m in Sources */,
 				FE9EB2D42452ECC600C458AC /* BuildSceneVo.m in Sources */,
@@ -1817,7 +1722,6 @@
 				FE642ACF242AACD20047E41F /* Display3DLocusPartilce.m in Sources */,
 				FE2088EC239BFC70007FB797 /* DisplayBaseShader3D.m in Sources */,
 				9C1DA457255C648D00FAE501 /* MeshToObjUtils.m in Sources */,
-				FED0DA4624002A94009F6575 /* TokenSceneView.m in Sources */,
 				FE3D4EF32401C79000185FD3 /* ParticleFacetData.m in Sources */,
 				FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */,
 				FEEF8BF32449D918001AFEB2 /* SkillTrajectoryTargetKeyVo.m in Sources */,
@@ -1827,8 +1731,6 @@
 				FE776AB52447323000B8B5A4 /* Display3DFollowPartilce.m in Sources */,
 				FE2F3016241C28490005F686 /* Curve.m in Sources */,
 				9CDEDB3E256190AF0099F83B /* Frame3dRes.m in Sources */,
-				FE0FC28023955AA200D2483A /* OnePageView.m in Sources */,
-				FE0FC29E2395768D00D2483A /* FivePageView.m in Sources */,
 				FE887D502416731200025A74 /* CurveVo.m in Sources */,
 				FED0DA4D24016395009F6575 /* GroupRes.m in Sources */,
 				FE189B2224049454008E2FF6 /* Display3DBallPartilce.m in Sources */,
@@ -1843,12 +1745,10 @@
 				9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */,
 				FE1E1BB3254A742F009590DB /* DataObjTempVo.m in Sources */,
 				9C8CA85725DCB489000F9194 /* MtkBaseDis.m in Sources */,
-				FE0FC28523955D0200D2483A /* TwoPageView.m in Sources */,
 				FE678831239B938200262B53 /* Display3D.m in Sources */,
 				FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */,
 				9CFF4334254F1F68009472D9 /* ScaleAnim.m in Sources */,
 				FEEF8BD92448E7AC001AFEB2 /* SkillMulPath.m in Sources */,
-				FE9EB2CE24522C7300C458AC /* RoleSceneViewController.m in Sources */,
 				FE0FC26323951ABE00D2483A /* CtxUIView.m in Sources */,
 				FE776AC52448481B00B8B5A4 /* DisplayTestSprite.m in Sources */,
 				FE15ACB424357E5B0062741F /* ResManager.m in Sources */,
