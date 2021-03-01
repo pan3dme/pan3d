@@ -25,7 +25,6 @@
 {
     
 }
-
 -(void)addButsByArr:(NSMutableArray*)arr ;
 {
     [arr addObject:@"清理"];

@@ -12,7 +12,8 @@
 #import "MtkBaseLine.h"
 
 @interface RoleUiViewController ()
- 
+
+@property (nonatomic, strong)Display3dMovie* mainChar;
 @end
 
 @implementation RoleUiViewController
@@ -30,6 +31,9 @@
     [arr addObject:@"50011"];
     [arr addObject:@"2052"];
     [arr addObject:@"yezhuz"];
+    [arr addObject:@"stand"];
+    [arr addObject:@"walk"];
+    [arr addObject:@"death"];
     [self addButsByArr:arr ];
     
     
@@ -38,17 +42,26 @@
 }
 - (BOOL) addMenuListClikEvent:(UIButton *) btn;
 {
-   BOOL isCanNext= [super addMenuListClikEvent:btn];
-    if(isCanNext){
-        NSString* titleStr=btn.titleLabel.text;
-        Display3dMovie *role=[[Display3dMovie alloc]init: self.scene3D];
-        [role setRoleUrl:getRoleUrl(titleStr)];
-        [ self.scene3D addMovieDisplay:role];
- 
+    BOOL isCanNext= [super addMenuListClikEvent:btn];
+    if(!isCanNext){
+        return isCanNext;
     }
+    NSString* titleStr=btn.titleLabel.text;
+    if([titleStr isEqualToString:@"stand"]||[titleStr isEqualToString:@"walk"]||[titleStr isEqualToString:@"death"]){
+        if( self.mainChar){
+            [self.mainChar play:titleStr];
+        }
+        return  false;
+    }else{
+        self.mainChar=[[Display3dMovie alloc]init: self.scene3D];
+        [self.mainChar setRoleUrl:getRoleUrl(titleStr)];
+        [ self.scene3D addMovieDisplay:self.mainChar];
+    }
+    
+    
     return true;
 }
- 
+
 
 
 @end
