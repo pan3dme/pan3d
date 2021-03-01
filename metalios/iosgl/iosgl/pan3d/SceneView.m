@@ -43,13 +43,7 @@
     
     if(self.scene3D){
         
-        glClearColor(0.18f, 0.04f, 0.14f, 1.0f);
-        glFrontFace(GL_CW); //绘制方向
-        glDepthFunc(GL_LESS);
-        glCullFace(GL_FRONT); //正面踢出
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-        glEnable(GL_DEPTH_TEST);
+   
         
         [self.scene3D upFrame];
         [self.scene3D.context3D.gl presentRenderbuffer:GL_RENDERBUFFER];

@@ -24,7 +24,6 @@
 		9C8CA85525DCB489000F9194 /* MtkBaseDisShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */; };
 		9C8CA85725DCB489000F9194 /* MtkBaseDis.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA85425DCB489000F9194 /* MtkBaseDis.m */; };
 		9CB8A2EA25C191910039B7E0 /* GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8A2E925C191910039B7E0 /* GC.m */; };
-		9CBE1C8B25B8420700FFE706 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1C8A25B8420700FFE706 /* shaders.metal */; };
 		9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */; };
 		9CBE1CC125BB395500FFE706 /* MtkBaseLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CC025BB395500FFE706 /* MtkBaseLineShader.m */; };
 		9CBE1CC425BD67C400FFE706 /* MtkBaseLine.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CC325BD67C400FFE706 /* MtkBaseLine.metal */; };
@@ -272,8 +271,6 @@
 		9CB8A2E825C191910039B7E0 /* GC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GC.h; sourceTree = "<group>"; };
 		9CB8A2E925C191910039B7E0 /* GC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GC.m; sourceTree = "<group>"; };
 		9CB8A2F025C2EE4B0039B7E0 /* MaterialShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShaderType.h; sourceTree = "<group>"; };
-		9CBE1C8925B8420700FFE706 /* LYShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYShaderTypes.h; sourceTree = "<group>"; };
-		9CBE1C8A25B8420700FFE706 /* shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
 		9CBE1CBA25BB369900FFE706 /* MtkBaseLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkBaseLine.h; sourceTree = "<group>"; };
 		9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkBaseLine.m; sourceTree = "<group>"; };
 		9CBE1CBF25BB395500FFE706 /* MtkBaseLineShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkBaseLineShader.h; sourceTree = "<group>"; };
@@ -750,15 +747,6 @@
 			path = basedis;
 			sourceTree = "<group>";
 		};
-		9CBE1C8825B841E000FFE706 /* metail */ = {
-			isa = PBXGroup;
-			children = (
-				9CBE1C8925B8420700FFE706 /* LYShaderTypes.h */,
-				9CBE1C8A25B8420700FFE706 /* shaders.metal */,
-			);
-			path = metail;
-			sourceTree = "<group>";
-		};
 		9CBE1C9C25BB116700FFE706 /* metaltest */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,7 +891,6 @@
 				FE0FC254239511AC00D2483A /* pan3d */,
 				FE0FC27C23955A7F00D2483A /* Page */,
 				FE0FC2382395104700D2483A /* AppDelegate.h */,
-				9CBE1C8825B841E000FFE706 /* metail */,
 				FE2F2FCE2418112D0005F686 /* DynamicHeader.h */,
 				FE0FC2392395104700D2483A /* AppDelegate.m */,
 				FE0FC23B2395104700D2483A /* SceneDelegate.h */,
@@ -1705,7 +1692,6 @@
 				FE0FC2712395294900D2483A /* BaseNavigationViewController.m in Sources */,
 				9C7EFFBB25E3DE2A00FF22C9 /* TestShader.m in Sources */,
 				FE0FC2772395531700D2483A /* MathCore.m in Sources */,
-				9CBE1C8B25B8420700FFE706 /* shaders.metal in Sources */,
 				FEEF8BB92448E4C0001AFEB2 /* SkillData.m in Sources */,
 				FE9EB2C72451CA0700C458AC /* MountChar.m in Sources */,
 				FE0FC2402395104700D2483A /* ViewController.m in Sources */,
