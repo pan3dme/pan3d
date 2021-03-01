@@ -18,7 +18,7 @@
     }
     
     self.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:self.indexs];
-    self.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat4_copy:self.vertices ];
+    self.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat3:self.vertices ];
     self.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.uvs];
     if( self.lightuvs&&self.lightuvs.count){
         self.mtklightuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.lightuvs];

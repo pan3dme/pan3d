@@ -140,7 +140,6 @@
 		FE776ABC2447340B00B8B5A4 /* Display3DModelPartilce.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776ABB2447340B00B8B5A4 /* Display3DModelPartilce.m */; };
 		FE776AC52448481B00B8B5A4 /* DisplayTestSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AC42448481B00B8B5A4 /* DisplayTestSprite.m */; };
 		FE776AC82448483A00B8B5A4 /* DisplayTestShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE776AC72448483A00B8B5A4 /* DisplayTestShader.m */; };
-		FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */; };
 		FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE80570D2405BE15000F6D17 /* ParticleGpuData.m */; };
 		FE8057112405BE4F000F6D17 /* ParticleBallGpuData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057102405BE4F000F6D17 /* ParticleBallGpuData.m */; };
 		FE8057142405CD16000F6D17 /* Display3DBallPartilceShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8057132405CD16000F6D17 /* Display3DBallPartilceShader.m */; };
@@ -177,7 +176,6 @@
 		FEA2A5F524152C4400EA941D /* GridLineShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2A5F424152C4400EA941D /* GridLineShader.m */; };
 		FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C858242FF3F500A349E8 /* Display3DFacetParticle.m */; };
 		FEA5C85C242FF40800A349E8 /* Display3DFacetShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */; };
-		FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */; };
 		FED0DA4A240162F8009F6575 /* GroupDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA49240162F8009F6575 /* GroupDataManager.m */; };
 		FED0DA4D24016395009F6575 /* GroupRes.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0DA4C24016395009F6575 /* GroupRes.m */; };
 		FED0DA5624016C44009F6575 /* baoxiang001.txt in Resources */ = {isa = PBXBuildFile; fileRef = FED0DA5424016C43009F6575 /* baoxiang001.txt */; };
@@ -476,8 +474,6 @@
 		FE776AC42448481B00B8B5A4 /* DisplayTestSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayTestSprite.m; sourceTree = "<group>"; };
 		FE776AC62448483A00B8B5A4 /* DisplayTestShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayTestShader.h; sourceTree = "<group>"; };
 		FE776AC72448483A00B8B5A4 /* DisplayTestShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayTestShader.m; sourceTree = "<group>"; };
-		FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DShader.h; sourceTree = "<group>"; };
-		FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DShader.m; sourceTree = "<group>"; };
 		FE80570C2405BE15000F6D17 /* ParticleGpuData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleGpuData.h; sourceTree = "<group>"; };
 		FE80570D2405BE15000F6D17 /* ParticleGpuData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleGpuData.m; sourceTree = "<group>"; };
 		FE80570F2405BE4F000F6D17 /* ParticleBallGpuData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleBallGpuData.h; sourceTree = "<group>"; };
@@ -552,8 +548,6 @@
 		FEA5C85A242FF40800A349E8 /* Display3DFacetShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Display3DFacetShader.h; sourceTree = "<group>"; };
 		FEA5C85B242FF40800A349E8 /* Display3DFacetShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Display3DFacetShader.m; sourceTree = "<group>"; };
 		FEB5AE3F23F1B17900661496 /* Matrix4x4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
-		FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDisplay3DSprite.h; sourceTree = "<group>"; };
-		FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDisplay3DSprite.m; sourceTree = "<group>"; };
 		FED0DA48240162F8009F6575 /* GroupDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDataManager.h; sourceTree = "<group>"; };
 		FED0DA49240162F8009F6575 /* GroupDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupDataManager.m; sourceTree = "<group>"; };
 		FED0DA4B24016395009F6575 /* GroupRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupRes.h; sourceTree = "<group>"; };
@@ -1253,10 +1247,6 @@
 		FE67883D239B974C00262B53 /* scene */ = {
 			isa = PBXGroup;
 			children = (
-				FE7AC45C23C84BBE006E5554 /* SceneDisplay3DShader.h */,
-				FE7AC45D23C84BBE006E5554 /* SceneDisplay3DShader.m */,
-				FECBFFBA23B679780009A467 /* SceneDisplay3DSprite.h */,
-				FECBFFBB23B679780009A467 /* SceneDisplay3DSprite.m */,
 				FE9EB2D22452ECC600C458AC /* BuildSceneVo.h */,
 				FE9EB2D32452ECC600C458AC /* BuildSceneVo.m */,
 				FE9EB2CF2452EB5200C458AC /* BuildDisplay3DSprite.h */,
@@ -1600,11 +1590,9 @@
 				FE887D6B241676BF00025A74 /* MaterialParam.m in Sources */,
 				9CBE1CC125BB395500FFE706 /* MtkBaseLineShader.m in Sources */,
 				9CBE1CD825BD794100FFE706 /* MtkModelDisplay.metal in Sources */,
-				FE7AC45E23C84BBE006E5554 /* SceneDisplay3DShader.m in Sources */,
 				FE3D4EE62401C16C00185FD3 /* CombineParticle.m in Sources */,
 				FEA5C859242FF3F500A349E8 /* Display3DFacetParticle.m in Sources */,
 				FEF3D4BF2436B4290055AB31 /* AnimManager.m in Sources */,
-				FECBFFBC23B679780009A467 /* SceneDisplay3DSprite.m in Sources */,
 				9CDEDB4A256190F80099F83B /* FrameNodeVo.m in Sources */,
 				FEEF8BC92448E71D001AFEB2 /* SkillTrajectory.m in Sources */,
 				FE805728240698DD000F6D17 /* Display3DShader.m in Sources */,

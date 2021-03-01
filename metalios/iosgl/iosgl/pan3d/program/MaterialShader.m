@@ -187,7 +187,9 @@
  
     addstr=@"{\n"
     "MaterialOutVertices out;\n"
-    "out.vPosition = viewMatrix->matrix * posMatrix->matrix * v3Position[vertexID].data;\n"
+  
+    
+    "out.vPosition = viewMatrix->matrix * posMatrix->matrix * float4(v3Position[vertexID].data.xyz,1.0);\n"
     "out.vTextCoord = v2TexCoord[vertexID].data;\n"  ;
     
     str=  [str stringByAppendingString:addstr];
