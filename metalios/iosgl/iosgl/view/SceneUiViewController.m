@@ -20,7 +20,7 @@
  
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.scene3D loadSceneByUrl:@"2014"];
+  [self.scene3D loadSceneByUrl:@"10002"];
 }
 -(void)addMenuList;
 {

@@ -77,8 +77,16 @@
          
         half4 colorTexA = textureColor.sample(textureSampler, input.vTextCoord);
         half4 colorTexB = textureLight.sample(textureSampler, input.vTextLight);
+        
+        float4 outInfo=float4(colorTexA*colorTexB*2.0f);
+         if (colorTexA.w <= 0.5) {
+       
+             discard_fragment();
+        };
+        
+        
  
-         return float4(colorTexA*colorTexB*2.0f);
+         return outInfo;
      }
        
                                      )];
@@ -251,6 +259,25 @@
     pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
     pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
     pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
+    
+    MTLRenderPipelineColorAttachmentDescriptor *renderbufferAttachment = pipelineStateDescriptor.colorAttachments[0];
+    
+    renderbufferAttachment.pixelFormat = MTLPixelFormatBGRA8Unorm;
+    
+    
+    renderbufferAttachment.blendingEnabled = NO;
+    renderbufferAttachment.rgbBlendOperation = MTLBlendOperationAdd;
+    renderbufferAttachment.alphaBlendOperation = MTLBlendOperationAdd;
+    
+    renderbufferAttachment.sourceRGBBlendFactor = MTLBlendFactorOne;
+    renderbufferAttachment.destinationRGBBlendFactor = MTLBlendFactorOne;
+    
+    renderbufferAttachment.sourceAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+    renderbufferAttachment.destinationAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+    
+    
+    
+    
     
     self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
                                                                         error:NULL];

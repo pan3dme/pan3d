@@ -27,7 +27,7 @@ static ProgrmaManager *instance = nil;
     if([self.dic objectForKey:keystr]){
     }else{
        [self.dic setValue:shader3d forKey:keystr];
-       [shader3d encodeVstr:nil encodeFstr:nil];
+       [shader3d encodeVstr:NULL encodeFstr:NULL];
     }
 }
 -(Shader3D*)getMaterialProgram:(NSString*)key shaderCls:(Shader3D*)shaderCls   material:(Material*)material paramAry:(NSArray<NSNumber*>*)paramAry parmaByFragmet:(BOOL)parmaByFragmet ;
