@@ -68,36 +68,70 @@
     } MaterialMatrix;
                                      
                                      
-    
-
-     fragment float4   fragmentMaterialShader(MaterialOutVertices input [[stage_in]],
-                                              texture2d<half> textureColor [[ texture(0)]],texture2d<half> textureLight [[ texture(1)]])
-     {
-         constexpr sampler textureSampler (mag_filter::linear, min_filter::linear);
-         
-        half4 colorTexA = textureColor.sample(textureSampler, input.vTextCoord);
-        half4 colorTexB = textureLight.sample(textureSampler, input.vTextLight);
-        
-        float4 outInfo=float4(colorTexA*colorTexB*2.0f);
-         if (colorTexA.w <= 0.5) {
-       
-             discard_fragment();
-        };
-        
-        
- 
-         return outInfo;
-     }
+  
        
                                      )];
     
     //输入索引，顶点，纹理，矩阵
     NSString * outBaseStr    = [self getVertexShaderStringMtk];
+    NSString * outfragmentStr    = [self getFragmentShaderStringMtk];
     code=   [code stringByAppendingString:outBaseStr];
+    code=   [code stringByAppendingString:outfragmentStr];
  
   
     
     return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
+}
+- (NSString *)getFragmentShaderStringMtk
+{
+    MaterialShader* this=self;
+    BOOL noLight = [this.paramAry[6]boolValue];
+    
+    
+  
+
+    
+    NSString* baseStr=  @"fragment float4   fragmentMaterialShader(MaterialOutVertices input [[stage_in]],\n"
+    "texture2d<half> textureColor [[ texture(0)]] )\n"
+    "{\n"
+    "constexpr sampler textureSampler (mag_filter::linear, min_filter::linear);\n"
+    "half4 colorTexA = textureColor.sample(textureSampler, input.vTextCoord);\n"
+ 
+    "float4 outInfo=float4(colorTexA);\n"
+  
+    "return outInfo;\n"
+    "}";
+    
+    NSString* lightUvTextureStr=@"texture2d<half> textureColor [[ texture(0)]]\n";
+    if(!noLight){
+        lightUvTextureStr= [lightUvTextureStr stringByAppendingString:@",texture2d<half> lightTexture [[ texture(1)]]\n"];
+    }
+    NSString* mainStr=@ " ";
+    if(noLight){
+        mainStr=@ "float4 outInfo=float4(colorTexA);\n";
+    }else{
+        mainStr=@ "half4 colorTexB = lightTexture.sample(textureSampler, input.vTextLight);\n"
+        "float4 outInfo=float4(colorTexA*colorTexB*2.0f);\n";
+    }
+    NSString* kkk=[NSString stringWithFormat:@"%s%@%s%@%s", "fragment float4   fragmentMaterialShader(MaterialOutVertices input [[stage_in]],\n"
+                   ,lightUvTextureStr,
+                   "){\n"
+                   "constexpr sampler textureSampler (mag_filter::linear, min_filter::linear);\n"
+                   "half4 colorTexA = textureColor.sample(textureSampler, input.vTextCoord);\n"
+                
+                   "if (colorTexA.w <= 0.8) {\n"
+                 
+                    "   discard_fragment();\n"
+                  "};\n"
+
+                   
+                   ,mainStr,
+                 
+                   "return outInfo;\n"
+                   "}"];
+
+    
+    return kkk;
 }
 -(NSString*)getVertexShaderStringMtk
 {

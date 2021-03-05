@@ -24,6 +24,7 @@
 @property(nonatomic,strong)TextureRes* lightTextureRes;
 @property(nonatomic,strong)Shader3D* lightUvShader;
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
+@property(nonatomic,assign)int  vertexIdxNum;
 @end
 @implementation BuildDisplay3DSprite
 -(void) setInfo:(NSDictionary*)value;
@@ -48,7 +49,7 @@
      
      */
     
-    
+    self.vertexIdxNum=0;
     self.buildSceneVo=[[BuildSceneVo alloc]init];
     [self.buildSceneVo preshValue:value];
     self.x=self.buildSceneVo.x;
@@ -60,7 +61,15 @@
     self.rotationX=self.buildSceneVo.rotationX;
     self.rotationY=self.buildSceneVo.rotationY;
     self.rotationZ=self.buildSceneVo.rotationZ;
-    self.lighturl=self.buildSceneVo.lighturl;
+    
+   
+    
+    if(self.buildSceneVo.lighturl){
+        self.lighturl=self.buildSceneVo.lighturl;
+    }else{
+        NSLog(@"%@", self.buildSceneVo.lighturl);
+    }
+ 
     
     [self setObjUrl:self.buildSceneVo.objsurl];
     [self setMaterialUrl:self.buildSceneVo.materialurl paramData:self.buildSceneVo.materialInfoArr];
@@ -86,20 +95,7 @@
     [super setMaterialVa];
     
 }
-//-(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
-//{
-//    [super setMaterialTexture:material mp:mp];
-//    Context3D *ctx=self.mtkScene3D.context3D;
-//    NSArray<TexItem*>* texVec  = mp.material.texList;
-//    for (int i   = 0; i < texVec.count; i++) {
-//        TexItem* texItem=texVec[i];
-//        if (texItem.type == TexItem.LIGHTMAP&&self.lightTextureRes) {
-//            [ctx setRenderTexture:material.shader name:texItem.name texture:self.lightTextureRes.textTureLuint level:texItem.id];
-//        }
-//    }
-//
-//    
-//}
+ 
 - (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
     
  
@@ -108,9 +104,9 @@
     [posMatrix appendScale:0.25 y:0.25 z:0.25];
     [posMatrix appendRotation:0 axis:Vector3D.Y_AXIS];
  
-    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:3];
-    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:4];
-     
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:self.vertexIdxNum+0];
+    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:self.vertexIdxNum+1];
+ 
 }
  
 -(void)setMaterialUrl:(NSString*)value  paramData:(NSArray*)paramData;
@@ -139,7 +135,7 @@
     }
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     [self.material.shader mtlSetProgramShader];
-    [self setupMatrixWithEncoder:renderEncoder];
+  
     
     [renderEncoder setVertexBuffer: self.objData.mtkvertices
                             offset:0
@@ -149,10 +145,17 @@
                             offset:0
                            atIndex:1];
     
-    [renderEncoder setVertexBuffer: self.objData.mtklightuvs
-                            offset:0
-                           atIndex:2];
+
     
+    if (!(self.material.directLight || self.material.noLight)) {
+            [renderEncoder setVertexBuffer: self.objData.mtklightuvs
+                                    offset:0
+                                   atIndex:2];
+        self.vertexIdxNum=3;
+    }else{
+        self.vertexIdxNum=2;
+    }
+    [self setupMatrixWithEncoder:renderEncoder];
 
     
     [self setMaterialTexture:self.material mp:self.materialParam];
@@ -170,6 +173,7 @@
     if(!material){
         return;
     }
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     NSArray<TexItem*>* texVec  = mp.material.texList;
     TexItem* texItem;
     for (int i   = 0; i < texVec.count; i++) {
@@ -178,6 +182,11 @@
             continue;
         }
         if (texItem.type == TexItem.LIGHTMAP) {
+            
+            if( self.lightTextureRes){
+                [renderEncoder setFragmentTexture:self.lightTextureRes.mtlTexture
+                                          atIndex:1];
+            }
         }
         else if (texItem.type == TexItem.LTUMAP && [Scene_data default].pubLut ) {
             NSLog(@"TexItem.LTUMAP)");
@@ -195,14 +204,11 @@
         texItem=texDynamicVec[i].target;
         if(texItem ){
             if(texItem.isMain){
-                id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+         
                 [renderEncoder setFragmentTexture:texDynamicVec[i].textureRes.mtlTexture
                                           atIndex:0];
                 
-                if( self.lightTextureRes){
-                    [renderEncoder setFragmentTexture:self.lightTextureRes.mtlTexture
-                                              atIndex:1];
-                }
+          
             }
             
         }
