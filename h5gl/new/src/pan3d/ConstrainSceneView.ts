@@ -86,9 +86,9 @@ module Pan3d {
                     if (itemObj.type == BaseRes.PREFAB_TYPE) {
 
                         if (itemObj.id == 24) {
-                            this.scene3D.addDisplay( this.getBuildSprite(itemObj));
+                         
                         }
-                      
+                        this.scene3D.addDisplay( this.getBuildSprite(itemObj));
                    
                     } else if (itemObj.type == BaseRes.SCENE_PARTICLE_TYPE) {
                         var particle: CombineParticle = this.getParticleSprite(itemObj);
