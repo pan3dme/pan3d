@@ -63,12 +63,9 @@
     self.rotationZ=self.buildSceneVo.rotationZ;
     
    
-    
     if(self.buildSceneVo.lighturl){
         self.lighturl=self.buildSceneVo.lighturl;
-    }else{
-        NSLog(@"%@", self.buildSceneVo.lighturl);
-    }
+    } 
  
     
     [self setObjUrl:self.buildSceneVo.objsurl];
@@ -100,12 +97,11 @@
     
  
   
-    Matrix3D* posMatrix =[[Matrix3D alloc]init];
-    [posMatrix appendScale:0.25 y:0.25 z:0.25];
-    [posMatrix appendRotation:0 axis:Vector3D.Y_AXIS];
+     
+   
  
     [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:self.vertexIdxNum+0];
-    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:self.vertexIdxNum+1];
+    [self.scene3D.context3D setMatrixVc: self.posMatrix3d renderEncoder:renderEncoder idx:self.vertexIdxNum+1];
  
 }
  

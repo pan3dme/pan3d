@@ -17,7 +17,7 @@
         self.camMatrix3D=[[Matrix3D alloc]init];
         self.viewMatrix =[[Matrix3D alloc]init];
         self.modelMatrix =[[Matrix3D alloc]init];
-        self.distance=200;
+        self.distance=400;
         self.sceneViewHW=100;
         self.fovw=300;
         self.fovh=500;
@@ -29,7 +29,7 @@
 {
   
     [self.viewMatrix identity];
-    [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:10 zFar:2000];
+    [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:10 zFar:10000];
     
    
     
