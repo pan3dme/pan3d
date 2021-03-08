@@ -10,7 +10,7 @@
 #import "BaseNavigationViewController.h"
  
  
- 
+#import "SkillUiViewController.h"
 #import "SceneUiViewController.h"
 #import "RoleUiViewController.h"
 #import "ParticleUiViewController.h"
@@ -41,12 +41,12 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    SceneUiViewController *vc01=[[SceneUiViewController alloc] init];
+    SkillUiViewController *vc01=[[SkillUiViewController alloc] init];
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
-    ParticleUiViewController *vc04=[[ParticleUiViewController alloc] init];
+    SceneUiViewController *vc04=[[SceneUiViewController alloc] init];
     ParticleUiViewController *vc05=[[ParticleUiViewController alloc] init];
-   
+    
     
     [self setTabItemInfo:@"red_tabbar_home" VC:vc01];
     [self setTabItemInfo:@"red_tabbar_huodong01" VC:vc02];

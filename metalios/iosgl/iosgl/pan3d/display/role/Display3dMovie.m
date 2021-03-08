@@ -40,7 +40,8 @@
 @property(nonatomic,assign)float fileScale;
 @property(nonatomic,assign)BOOL meshVisible;
 
- 
+@property(nonatomic,strong)Skill* skillVo;
+
 @end
 @implementation Display3dMovie
 - (instancetype)init:value
@@ -429,6 +430,13 @@
 
       }
   
+}
+-(void)playSkill:(Skill*)skill;
+{
+    [self.scene3D.skillManager  playSkill:skill];
+
+    self.skillVo=skill;
+ 
 }
  
 @end

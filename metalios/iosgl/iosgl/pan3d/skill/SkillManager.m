@@ -103,7 +103,7 @@ static SkillManager *instance = nil;
             }
         }
     }
-    skill = [[Skill alloc]init];
+    skill = [[Skill alloc]init:self.scene3D];
     skill.name = name;
     skill.isDeath = NO;
     if (!this._skillDic[key]) {

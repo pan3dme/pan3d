@@ -22,9 +22,9 @@
 {
     return 5*1000;
 }
-- (instancetype)init
+- (instancetype)init:(Scene3D*)value;
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self.time=0;
     }

@@ -34,7 +34,7 @@
 -(void)loadSkillRes:(NSString*)url fun:(SkillResBfun)fun;
 {
    
-    SkillRes* skillRes = [[SkillRes alloc]init];
+    SkillRes* skillRes = [[SkillRes alloc]init:self.scene3D];
        [skillRes load:url fun:^(NSString *localPath) {
            fun(skillRes);
        }];

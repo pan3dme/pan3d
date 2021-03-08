@@ -75,13 +75,7 @@
     return @"walk_mount_01";
 }
  
--(void)playSkill:(Skill*)skill;
-{
-    [self.scene3D.skillManager  playSkill:skill];
-
-    self.skillVo=skill;
  
-}
 -(void)setWeaponByAvatar:(int)avatar;
 {
     

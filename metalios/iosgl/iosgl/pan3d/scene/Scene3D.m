@@ -82,6 +82,7 @@
     self.meshDataManager=[[MeshDataManager alloc]init:self];
     self.groupDataManager=[[GroupDataManager alloc]init:self];
     self.particleManager=[[ParticleManager alloc]init:self];
+    self.skillManager=[[SkillManager alloc]init:self];
     self.resManager=[[ResManager alloc]init:self];
     self.animManager=[[AnimManager alloc]init:self];
     self.meshToObjUtils=[[MeshToObjUtils alloc]init:self];
@@ -157,7 +158,7 @@
         [self.displayRoleList[i] upFrame];
     }
     [self.context3D setDepthTest:NO];
-//    [self.skillManager update];
+    [self.skillManager update];
     [self.particleManager update];
 }
 -(void)updateFrameRole;
