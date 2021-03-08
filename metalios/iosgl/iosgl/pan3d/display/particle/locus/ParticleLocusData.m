@@ -77,10 +77,10 @@
 -(void)upGpuvertexBuffer;
 {
  
-    GLfloat attrArr[self.objData.vertices.count];
-    for (int i=0; i<self.objData.vertices.count; i++) {
-        attrArr[i]=[self.objData.vertices[i] floatValue];
-    }
+//    GLfloat attrArr[self.objData.vertices.count];
+//    for (int i=0; i<self.objData.vertices.count; i++) {
+//        attrArr[i]=[self.objData.vertices[i] floatValue];
+//    }
  
   
   
@@ -92,20 +92,25 @@
 }
 -(void)upGpuNrmBuffer;
 {
-    GLfloat nrms[self.objData.nrms.count];
-    for (int i=0; i<self.objData.nrms.count; i++) {
-        nrms[i]=[self.objData.nrms[i] floatValue];
+//    GLfloat nrms[self.objData.nrms.count];
+//    for (int i=0; i<self.objData.nrms.count; i++) {
+//        nrms[i]=[self.objData.nrms[i] floatValue];
+//    }
+    if(self.objData.nrms!=nil){
+        
+        self.objData.mtknrms=  [self.scene3D.context3D changeDataToGupMtkfloat4: self.objData.nrms];
     }
-
-    self.objData.mtknrms=  [self.scene3D.context3D changeDataToGupMtkfloat4: self.objData.nrms];
+ 
+    
+   
      
 }
 -(void)upGpuUvsBuffer;
 {
-    GLfloat uvs[self.objData.uvs.count];
-    for (int i=0; i<self.objData.uvs.count; i++) {
-        uvs[i]=[self.objData.uvs[i] floatValue];
-    }
+//    GLfloat uvs[self.objData.uvs.count];
+//    for (int i=0; i<self.objData.uvs.count; i++) {
+//        uvs[i]=[self.objData.uvs[i] floatValue];
+//    }
  
     self.objData.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:self.objData.uvs];
     

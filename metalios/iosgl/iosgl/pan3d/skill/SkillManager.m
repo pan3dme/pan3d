@@ -141,7 +141,7 @@ static SkillManager *instance = nil;
 -(void)loadSkillCom:(NSString*)url  skillRes:(SkillRes*)skillRes;
 {
     SkillManager* this=self;
-    SkillData* skillData=[[SkillData alloc]init];
+    SkillData* skillData=[[SkillData alloc]init:self.scene3D];
     skillData.data=skillRes.data;
     NSMutableArray* urlArr=  (NSMutableArray*)this._loadDic[url];
     for (int i = 0; i < urlArr.count; i++) {

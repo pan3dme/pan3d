@@ -58,7 +58,7 @@
     this.keyAry = [[NSMutableArray alloc]init];
     if (this.skillVo.types == SkillType.FixEffect) {
         for (int i    = 0; i < this.skillVo.keyAry.count; i++) {
-            SkillFixEffect* keySkill =[[SkillFixEffect alloc]init];
+            SkillFixEffect* keySkill =[[SkillFixEffect alloc]init:self.scene3D];
             [keySkill setInfo:this.skillVo.keyAry[i]];
             keySkill.removeCallFun=^(SkillKey * _Nonnull key) {
                 [this removeKey:key];
