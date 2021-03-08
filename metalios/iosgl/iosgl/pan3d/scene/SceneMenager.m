@@ -9,6 +9,7 @@
 #import "SceneMenager.h"
 #import "Scene_data.h"
 #import "SceneRes.h"
+#import "CombineParticle.h"
 #import "BuildDisplay3DSprite.h"
 
 @implementation SceneMenager
@@ -49,16 +50,35 @@
 }
 -(void)parsingBuildItem:(NSDictionary*)value;
 {
+  
+
     int type=   [value[@"type"]intValue];
     switch (type) {
         case PREFAB_TYPE:
             [self addBuildDisplay3DSprite:value];
             break;
         case SCENE_PARTICLE_TYPE:
+            
+            [self addParticleByUrl:value];
             break;
         default:
             break;
     }
+}
+-(void)addParticleByUrl:(NSDictionary* )value
+{
+    NSString* url=  [value objectForKey:@"url"];
+    CombineParticle*  particle =   [self.scene3D.particleManager   getParticleByte:url];
+    particle.x=[[value objectForKey:@"x"] floatValue];
+    particle.y=[[value objectForKey:@"y"] floatValue];
+    particle.z=[[value objectForKey:@"z"] floatValue];
+    particle.scaleX=[[value objectForKey:@"scaleX"] floatValue];
+    particle.scaleY=[[value objectForKey:@"scaleY"] floatValue];
+    particle.scaleZ=[[value objectForKey:@"scaleZ"] floatValue];
+    particle.rotationX=[[value objectForKey:@"rotationX"] floatValue];
+    particle.rotationY=[[value objectForKey:@"rotationY"] floatValue];
+    particle.rotationZ=[[value objectForKey:@"rotationZ"] floatValue];
+    [self.scene3D.particleManager addParticle:particle];
 }
  
 -(void)addBuildDisplay3DSprite:(NSDictionary*)value;

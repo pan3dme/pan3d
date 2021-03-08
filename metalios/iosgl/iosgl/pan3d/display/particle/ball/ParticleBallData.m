@@ -325,11 +325,11 @@
 -(void)initUV;
 {
     int lznum=self._totalNum;
- 
+   
     Vector2D* a= [[Vector2D alloc]x:0.0f y:0.0f];
-    Vector2D* b= [[Vector2D alloc]x:1.0f y:0.0f];
-    Vector2D* c= [[Vector2D alloc]x:1.0f y:1.0f];
-    Vector2D* d= [[Vector2D alloc]x:0.0f y:1.0f];
+    Vector2D* b= [[Vector2D alloc]x:1 / self._animLine y:0.0f];
+    Vector2D* c= [[Vector2D alloc]x: 1 / self._animLine y: 1 / self._animRow];
+    Vector2D* d= [[Vector2D alloc]x:0.0f y: 1 / self._animRow];
  
     
         GLfloat uvArr[lznum*12];
