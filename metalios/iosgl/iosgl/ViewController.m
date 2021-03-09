@@ -41,11 +41,11 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    SkillUiViewController *vc01=[[SkillUiViewController alloc] init];
+    ParticleUiViewController *vc01=[[ParticleUiViewController alloc] init];
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
     SceneUiViewController *vc04=[[SceneUiViewController alloc] init];
-    ParticleUiViewController *vc05=[[ParticleUiViewController alloc] init];
+    SkillUiViewController *vc05=[[SkillUiViewController alloc] init];
     
     
     [self setTabItemInfo:@"red_tabbar_home" VC:vc01];
