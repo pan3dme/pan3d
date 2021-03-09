@@ -55,14 +55,8 @@ module Pan3d {
  
             "   vec4 tempPos = modeMatrix* v3Position;\n"+
             "   vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"+
-            "   vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n";
-
-            if(isWatchEye){//面向视角需要有镜头算法
-                mainBaseStr+="   mulPos = normalize(vec3(v3CamPos.xyz) - mulPos);\n";
-            }
-            mainBaseStr+= "   mulPos = cross(mulPos, normals);\n"+
-            "   mulPos = normalize(mulPos);\n"+
-            "   mulPos *= v3Normal.w;\n"+
+  
+         
             "   tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"+
             "   gl_Position = viewMatrix  * camMatrix * modeMatrix* tempPos;\n" ;
  

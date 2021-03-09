@@ -89,58 +89,57 @@
         
     } OutData;
                                      
-               
-                    
-                               
-                                     
+      
                                      )];
     
-    NSString* mainstr=    [NSString stringWithFormat:@"%s%s%s",      "vertex OutData \n"
-    "vertexShader(uint vertexID [[ vertex_id ]],\n"
-    "constant BaseFloat3 *vertexArray [[ buffer(0) ]],\n"
-    "constant BaseFloat2 *uvsArray [[ buffer(1) ]],\n"
-    " constant BaseFloat4 *nrmsArray [[ buffer(2) ]],\n"
-    "  constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]],\n"
-    "    constant ParticleMetalLocusVcmatData *vcmatDatadic [[ buffer(4) ]]\n"
-                 
-    "     ) {\n"
-   , "OutData out;\n"
-                           
-                           "float4 vcmat30=vcmatDatadic->vcmat30;\n"
-                           "float4 vcmat31=vcmatDatadic->vcmat31;\n"
-
-
-                           "float2 v2TexCoord= uvsArray[vertexID].position.xy ;\n"
-                           "float2 tempv0 = v2TexCoord.xy;\n"
-                           "tempv0.x -= vcmat30.x;\n"
-                           "float alpha = tempv0.x/vcmat30.y;\n"
-                           "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);\n"
-                           "float kill = -tempv0.x;\n"
-                           "kill *= tempv0.x - vcmat30.z;\n"
-                           "out.v2 = float4(kill,0.0,0.0,alpha);\n"
-                           "out.v1 = v2TexCoord;\n"
-                           "out.v0 = tempv0;\n"
-
-                           "float3 v3Position= vertexArray[vertexID].position.xyz ;\n"
-                           "float4 v3Normal= nrmsArray[vertexID].position.xyzw ;\n"
-                           "float4 tempPos=matrixdic->modeMatrix*float4(v3Position.xyz,1.0);\n"
-                           "float3 mulPos = float3(tempPos.x,tempPos.y,tempPos.z);\n"
-                           "float3 normals = float3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
-                           "mulPos=normalize(vcmat31.xyz-mulPos.xyz);\n"
-                           "mulPos = cross(mulPos, normals);\n"
-                           "mulPos = normalize(mulPos);\n"
-                           "mulPos *= v3Normal.w*1.0  ;\n"
-                           "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
-
-
-
-                           "out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix\n" "*matrixdic->modeMatrix  *tempPos;\n"
-
-
-
-                           "return out;\n",
-    "}\n"];
+    NSString* inputStr=[NSString stringWithFormat:@"%s",   "constant BaseFloat3 *vertexArray [[ buffer(0) ]],\n"
+                        "constant BaseFloat2 *uvsArray [[ buffer(1) ]],\n"
+                        " constant BaseFloat4 *nrmsArray [[ buffer(2) ]],\n"
+                        "  constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]],\n"
+                        "    constant ParticleMetalLocusVcmatData *vcmatDatadic [[ buffer(4) ]]\n"
+                        ];
     
+            NSString* mainstr=    [NSString stringWithFormat:@"%s%@%s%s%s",      "vertex OutData \n"
+            "vertexShader(uint vertexID [[ vertex_id ]],\n"
+           ,inputStr,
+            "     ) {\n"
+            , "OutData out;\n"
+
+            "float4 vcmat30=vcmatDatadic->vcmat30;\n"
+            "float4 vcmat31=vcmatDatadic->vcmat31;\n"
+
+
+            "float2 v2TexCoord= uvsArray[vertexID].position.xy ;\n"
+            "float2 tempv0 = v2TexCoord.xy;\n"
+            "tempv0.x -= vcmat30.x;\n"
+            "float alpha = tempv0.x/vcmat30.y;\n"
+            "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);\n"
+            "float kill = -tempv0.x;\n"
+            "kill *= tempv0.x - vcmat30.z;\n"
+            "out.v2 = float4(kill,0.0,0.0,alpha);\n"
+            "out.v1 = v2TexCoord;\n"
+            "out.v0 = tempv0;\n"
+
+            "float3 v3Position= vertexArray[vertexID].position.xyz ;\n"
+           
+            "float4 tempPos=matrixdic->modeMatrix*float4(v3Position.xyz,1.0);\n"
+            "float3 mulPos = float3(tempPos.x,tempPos.y,tempPos.z);\n"
+                                   
+            "float4 v3Normal= nrmsArray[vertexID].position.xyzw ;\n"
+            "float3 normals = float3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
+            "mulPos=normalize(vcmat31.xyz-mulPos.xyz);\n"
+            "mulPos = cross(mulPos, normals);\n"        
+            "mulPos = normalize(mulPos);\n"
+            "mulPos *= v3Normal.w*1.0  ;\n"
+                                   
+            "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
+            "out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix\n" "*matrixdic->modeMatrix  *tempPos;\n"
+
+
+
+            "return out;\n",
+            "}\n"];
+
         
         code=[code stringByAppendingString:mainstr];
  
