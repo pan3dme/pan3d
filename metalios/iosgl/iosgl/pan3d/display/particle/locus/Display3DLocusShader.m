@@ -136,44 +136,49 @@
         return out;
     }
                                      
-                                     fragment half4 // 片元
-                                     fragmentShader(OutData input [[stage_in]],
-                                                    texture2d<half> textureBase [[ texture(0) ]],
-                                                    texture2d<half> textureColor [[ texture(1) ]],
-                                                    constant FcItemInfo *infodata [[ buffer(2) ]]
-                                    
-                                                    
-                                                    )
-                                     {
-        
-        
-        constexpr sampler textureSampler (mag_filter::linear,
-                                          min_filter::linear);
-        
-        
-        float4 fc0=infodata->fc[0];
-        
-        half4 colorTex = textureColor.sample(textureSampler, input.v1);
-        
-        colorTex*=input.v2.w;
-         if(input.v2.x<fc0.x){
-             colorTex.x=0;
-             colorTex.y=0;
-             colorTex.z=0;
-             colorTex.w=0;
-         }
-       
-        
-          return colorTex;
-        
-        
-    }
+                               
                                      
                                      )];
     
+ 
     
+    return [NSString stringWithFormat:@"%@\n%@\n%@%@", includes, imports, code,  [self getFragmentMtkShaderString]];
+}
+-(NSString *)getFragmentMtkShaderString;{
+    char* relplayChat =_STRINGIFY( fragment half4 // 片元
+                                  fragmentShader(OutData input [[stage_in]],
+                                                 texture2d<half> textureBase [[ texture(0) ]],
+                                                 texture2d<half> textureColor [[ texture(1) ]],
+                                                 constant FcItemInfo *infodata [[ buffer(2) ]]
+                                 
+                                                 
+                                                 )
+                                  {
+     
+     
+     constexpr sampler textureSampler (mag_filter::linear,
+                                       min_filter::linear);
+     
+     
+     float4 fc0=infodata->fc[0];
+     
+     half4 colorTex = textureColor.sample(textureSampler, input.v1);
+     
+     colorTex*=input.v2.w;
+      if(input.v2.x<fc0.x){
+          colorTex.x=0;
+          colorTex.y=0;
+          colorTex.z=0;
+          colorTex.w=0;
+      }
     
-    return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
+     
+       return colorTex;
+     
+     
+ }
+         );
+    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
 -(void)mtlEncode
 {
