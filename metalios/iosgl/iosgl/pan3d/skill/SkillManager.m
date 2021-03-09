@@ -65,7 +65,7 @@ static SkillManager *instance = nil;
     }
     
     [self.scene3D.resManager loadSkillRes:[[Scene_data default]getWorkUrlByFilePath:url]  fun:^(SkillRes * _Nonnull skillRes) {
-        SkillData* skillData=[[SkillData alloc]init];
+        SkillData* skillData=[[SkillData alloc]init:self.scene3D];
         skillData.data=skillRes.data;
         this.dic[url] = skillData;
     }];

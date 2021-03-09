@@ -23,6 +23,7 @@
     self.mainChar=[[Display3dMovie alloc]init: self.scene3D];
     [self.mainChar setRoleUrl:getRoleUrl(@"50011")];
     [ self.scene3D addMovieDisplay:self.mainChar];
+    [self.scene3D.skillManager  preLoadSkill: getSkillUrl(@"jichu_1")];
 }
 -(void)addMenuList;
 {
@@ -48,7 +49,7 @@
     NSString* titleStr=btn.titleLabel.text;
     if([titleStr isEqualToString:@"m_skill_01"]||[titleStr isEqualToString:@"m_skill_02"]||[titleStr isEqualToString:@"m_skill_03"]){
         if( self.mainChar){
-        
+          
             Skill* skill= [self.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
             skill.scene3D=self.scene3D;
             [skill reset];
