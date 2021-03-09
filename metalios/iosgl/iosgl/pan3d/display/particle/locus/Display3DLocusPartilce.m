@@ -34,7 +34,7 @@
 }
 - (void)update;
 {
-//      [super update];
+      [super update];
     
     NSLog(@"规矩被屏蔽")
 }
@@ -54,6 +54,15 @@
  
   
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+ 
+    if( self.data._watchEye){
+        
+ 
+        self.vcIdxTest=3;
+        
+    }else{
+        self.vcIdxTest=2;
+    }
     
  
     
@@ -61,15 +70,14 @@
   
    [renderEncoder setVertexBytes:&matrixList
                           length:sizeof(matrixList)
-                         atIndex:3];
+                         atIndex: self.vcIdxTest+0];
     
     ParticleMetalLocusVcmatData VcmatData = { (vector_float4){scaleVec.x,scaleVec.y,scaleVec.z,scaleVec.w} ,(vector_float4){caramPosVec.x,caramPosVec.y,caramPosVec.z,caramPosVec.w}};
      
    [renderEncoder setVertexBytes:&VcmatData
                           length:sizeof(VcmatData)
-                         atIndex:4];
-    
-    
+                         atIndex: self.vcIdxTest+1];
+     
 }
 -(NSUInteger)getFcDataIdx;
 {
@@ -110,12 +118,11 @@
     [renderEncoder setVertexBuffer: temp.mtkuvs
                             offset:0
                            atIndex:1];
-    [renderEncoder setVertexBuffer: temp.mtknrms
-                            offset:0
-                           atIndex:2];
-    
-    
-    
+    if( self.data._watchEye){
+        [renderEncoder setVertexBuffer: temp.mtknrms
+                                offset:0
+                               atIndex:2];
+    }
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: temp.mtkindexCount
                               indexType:MTLIndexTypeUInt32

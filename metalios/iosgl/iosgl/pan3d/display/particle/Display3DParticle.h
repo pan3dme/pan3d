@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)  BOOL  visible;
 
 @property (nonatomic, assign)  int  beginTime;
+@property (nonatomic, assign)  int  vcIdxTest;
+
 @property (nonatomic, assign)  BOOL   isInGroup;
 @property (nonatomic, assign)  float  _time;
 
