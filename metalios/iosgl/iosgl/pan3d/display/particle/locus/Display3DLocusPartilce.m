@@ -34,7 +34,9 @@
 }
 - (void)update;
 {
-      [super update];
+//      [super update];
+    
+    NSLog(@"规矩被屏蔽")
 }
 - (void)setVc;
 {

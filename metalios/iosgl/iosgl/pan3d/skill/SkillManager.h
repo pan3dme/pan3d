@@ -12,8 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @class Skill;
 @interface SkillManager : ResGC
-//+ (instancetype)default;
-
+ 
 @property (nonatomic,strong)NSMutableDictionary* _skillDic;
 @property (nonatomic,strong)NSMutableDictionary* _loadDic;
 @property (nonatomic,strong)NSMutableDictionary* _preLoadDic;

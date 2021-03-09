@@ -17,15 +17,10 @@
 @implementation SkillManager
 static SkillManager *instance = nil;
  
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[SkillManager alloc] init];
-    }
-    return instance;
-}
-- (instancetype)init
+ 
+- (instancetype)init:(Scene3D*)value;
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         self._skillDic=[[NSMutableDictionary alloc]init];
         self._loadDic=[[NSMutableDictionary alloc]init];
