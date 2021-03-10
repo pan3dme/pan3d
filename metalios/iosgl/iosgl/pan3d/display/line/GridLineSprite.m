@@ -11,12 +11,12 @@
 #import "ProgrmaManager.h"
 #import "Context3D.h"
 #import "Scene3D.h"
-#import "MtlBaseLineType.h"
+#import "LineDisplayShaderType.h"
 @interface GridLineSprite ()
 
 @property (nonatomic, strong) NSMutableArray<Vector3D *>*  linePointArr;
 @property (nonatomic, strong) id<MTLTexture> texture;
-@property (nonatomic, strong) GridLineShader* mtkBaseLineShader;
+@property (nonatomic, strong) Shader3D* shader3d;
   
 @end
 @implementation GridLineSprite
@@ -29,20 +29,19 @@
     return self;
 }
 - (void)customInit {
-    self.mtkBaseLineShader=[[GridLineShader alloc] init:self.scene3D];
-    [self.mtkBaseLineShader mtlEncode];
-    
-    self.objData=[[ObjData alloc] init:self.scene3D];
  
     
+    [self.scene3D.progrmaManager registe:GridLineShader.shaderStr shader3d: [[GridLineShader alloc]init:self.scene3D]];
+    self.shader3d=  [self.scene3D.progrmaManager getProgram:GridLineShader.shaderStr];
     
+    self.objData=[[ObjData alloc] init:self.scene3D];
+  
     [self clearLine];
     self.colorV3d=[[Vector3D alloc]x:1 y:0 z:0];
     [self addLineA2B:[[Vector3D alloc]x:0 y:0 z:0] b:[[Vector3D alloc]x:100 y:0 z:0]];
     [self addLineA2B:[[Vector3D alloc]x:100 y:0 z:0] b:[[Vector3D alloc]x:100 y:0 z:100]];
     [self refrishLineDataToGpu];
-  
-    
+   
     [self makeGridLine];
     
 }
@@ -108,12 +107,12 @@
 -(void)refrishLineDataToGpu;
 {
     if(self.linePointArr&&self.linePointArr.count){
-        VertexLine quarr[self.linePointArr.count];
+        VertexLine1 quarr[self.linePointArr.count];
         int idxs[self.linePointArr.count];
         for (int i=0; i<self.linePointArr.count/2; i++) {
             Vector3D* pos=  self.linePointArr[i*2+0];
             Vector3D* color=  self.linePointArr[i*2+1];
-            quarr[i]=(VertexLine){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z},       {0.0f, 1.0f}};
+            quarr[i]=(VertexLine1){{pos.x,pos.y,pos.z,1},      (vector_float3){color.x,color.y,color.z}};
        
         }
         for (int i=0; i<self.linePointArr.count ; i++) {
@@ -145,7 +144,7 @@
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
  
     
-    LineMatrixView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    LineMatrixView1 matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
   
    [renderEncoder setVertexBytes:&matrix
                           length:sizeof(matrix)
@@ -158,7 +157,7 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-   [self.mtkBaseLineShader mtlSetProgramShader];
+   [self.shader3d mtlSetProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    
@@ -174,6 +173,8 @@
                               indexType:MTLIndexTypeUInt32
                             indexBuffer: self.objData.mtkindexs
                       indexBufferOffset:0];
+    
+    
 }
  
 @end

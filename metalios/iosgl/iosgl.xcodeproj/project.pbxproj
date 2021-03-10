@@ -245,6 +245,7 @@
 		9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MtkMoveDisplay.metal; sourceTree = "<group>"; };
 		9C55A0A525C99F9A004CA03B /* MtkMoveDisplayShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkMoveDisplayShader.h; sourceTree = "<group>"; };
 		9C55A0A625C99F9A004CA03B /* MtkMoveDisplayShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtkMoveDisplayShader.m; sourceTree = "<group>"; };
+		9C676E5325F8E21C00E6B2F6 /* LineDisplayShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineDisplayShaderType.h; sourceTree = "<group>"; };
 		9C7D6C4025F679CF00039350 /* SkillUiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillUiViewController.h; sourceTree = "<group>"; };
 		9C7D6C4125F679CF00039350 /* SkillUiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillUiViewController.m; sourceTree = "<group>"; };
 		9C7EFFB925E3DE2A00FF22C9 /* TestShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestShader.h; sourceTree = "<group>"; };
@@ -1045,6 +1046,7 @@
 				FE1D8B4A24128B3C00A04FC4 /* LineDisplayShader.m */,
 				FE1D8B4624128B1400A04FC4 /* LineDisplaySprite.h */,
 				FE1D8B4724128B1400A04FC4 /* LineDisplaySprite.m */,
+				9C676E5325F8E21C00E6B2F6 /* LineDisplayShaderType.h */,
 				FEA2A5F324152C4400EA941D /* GridLineShader.h */,
 				FEA2A5F424152C4400EA941D /* GridLineShader.m */,
 				FE1D8B532412A64E00A04FC4 /* GridLineSprite.h */,
