@@ -48,7 +48,7 @@
 -(void)makeGridLine;
 {
     [self clearLine];
-    float w=30;
+    float w=100;
     float n=10;
     float skeep=w/n;
     Vector3D* a;

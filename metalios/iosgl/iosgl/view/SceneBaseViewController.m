@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.sceneUiView= [[UIView alloc]initWithFrame:CGRectMake(0,50, 200, 200)];
+    self.sceneUiView= [[UIView alloc]initWithFrame:CGRectMake(0,200, 200, 200)];
     self.sceneUiView.backgroundColor=[UIColor redColor];
     [self.view addSubview: self.sceneUiView];
     
