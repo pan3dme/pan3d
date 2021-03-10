@@ -47,22 +47,16 @@
     }
 //    var skill: Skill = sceneView.scene3D.skillManager.getSkill("skill/" + filename + "_byte.txt", skillname, null);
     NSString* titleStr=btn.titleLabel.text;
-    if([titleStr isEqualToString:@"m_skill_01"]||[titleStr isEqualToString:@"m_skill_02"]||[titleStr isEqualToString:@"m_skill_03"]){
-        if( self.mainChar){
-          
-            Skill* skill= [self.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_02"];
-            skill.scene3D=self.scene3D;
-            [skill reset];
-            [skill configFixEffect:self.mainChar completeFun:nil posObj:nil ];
-            [self.mainChar playSkill:skill];
-        }
-        return  false;
-    }else{
-        
+    if( self.mainChar){
+      
+        Skill* skill= [self.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:titleStr];
+        skill.scene3D=self.scene3D;
+        [skill reset];
+        [skill configFixEffect:self.mainChar completeFun:nil posObj:nil ];
+        [self.mainChar playSkill:skill];
     }
-    
-    
-    return true;
+    return  false;
+ 
 }
 
 

@@ -14,7 +14,7 @@
 
 - (Display3DParticle *)getParticle;
 {
-    return  [[Display3DLocusBallPartilce alloc]init];
+    return  [[Display3DLocusBallPartilce alloc]init:self.scene3D];
 }
 - (void)setAllByteInfo:(ByteArray *)fs
 {
