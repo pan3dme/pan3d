@@ -14,7 +14,7 @@
 {
     return @"Display3DLocusShader";
 }
- 
+
 - (void)encodeVstr:(NSString *)vstr encodeFstr:(NSString *)fstr
 {
     [self mtlEncode];
@@ -25,6 +25,9 @@
 
 - (NSString *)makeTestShader
 {
+    //    var isWatchEye: boolean = this.paramAry[0];
+    NSInteger isWatchEye=  [[self.paramAry objectAtIndex:0]integerValue] ;
+    
     NSString *includes = stringifyImportsArray(@[@"metal_stdlib", @"simd/simd.h" ]);
     NSString *imports  =@"";
     includes=@"";
@@ -49,13 +52,13 @@
         float4 position;
     } BaseFloat4;
                                      
-          
+                                     
                                      
                                      typedef struct
                                      {
         float4 fc[1];
-  
-
+        
+        
     } FcItemInfo;
                                      
                                      typedef struct
@@ -68,81 +71,109 @@
         float4x4 viewMatrix;
         float4x4 camMatrix;
         float4x4 modeMatrix;
- 
+        
     } ParticleMetalMatrixData;
                                      
                                      typedef struct
-           {
-               float4 vcmat30;
-               float4 vcmat31;
-         
-               
-           } ParticleMetalLocusVcmatData;
+                                     {
+        float4 vcmat30;
+        float4 vcmat31;
+        
+        
+    } ParticleMetalLocusVcmatData;
                                      
                                      typedef struct
                                      {
         float4 clipSpacePosition [[position]];
-  
+        
         float2 v0;
         float2 v1;
         float4 v2;
         
     } OutData;
                                      
-      
+                                     
                                      )];
     
-    NSString* inputStr=[NSString stringWithFormat:@"%s",   "constant BaseFloat3 *vertexArray [[ buffer(0) ]],\n"
-                        "constant BaseFloat2 *uvsArray [[ buffer(1) ]],\n"
-                        " constant BaseFloat4 *nrmsArray [[ buffer(2) ]],\n"
-                        "  constant ParticleMetalMatrixData *matrixdic [[ buffer(3) ]],\n"
-                        "    constant ParticleMetalLocusVcmatData *vcmatDatadic [[ buffer(4) ]]\n"
-                        ];
     
-            NSString* mainstr=    [NSString stringWithFormat:@"%s%@%s%s%s",      "vertex OutData \n"
-            "vertexShader(uint vertexID [[ vertex_id ]],\n"
-           ,inputStr,
-            "     ) {\n"
-            , "OutData out;\n"
-
-            "float4 vcmat30=vcmatDatadic->vcmat30;\n"
-            "float4 vcmat31=vcmatDatadic->vcmat31;\n"
-
-
-            "float2 v2TexCoord= uvsArray[vertexID].position.xy ;\n"
-            "float2 tempv0 = v2TexCoord.xy;\n"
-            "tempv0.x -= vcmat30.x;\n"
-            "float alpha = tempv0.x/vcmat30.y;\n"
-            "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);\n"
-            "float kill = -tempv0.x;\n"
-            "kill *= tempv0.x - vcmat30.z;\n"
-            "out.v2 = float4(kill,0.0,0.0,alpha);\n"
-            "out.v1 = v2TexCoord;\n"
-            "out.v0 = tempv0;\n"
-
-            "float3 v3Position= vertexArray[vertexID].position.xyz ;\n"
-           
-            "float4 tempPos=matrixdic->modeMatrix*float4(v3Position.xyz,1.0);\n"
-            "float3 mulPos = float3(tempPos.x,tempPos.y,tempPos.z);\n"
-                                   
-            "float4 v3Normal= nrmsArray[vertexID].position.xyzw ;\n"
-            "float3 normals = float3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
-            "mulPos=normalize(vcmat31.xyz-mulPos.xyz);\n"
-            "mulPos = cross(mulPos, normals);\n"        
-            "mulPos = normalize(mulPos);\n"
-            "mulPos *= v3Normal.w*1.0  ;\n"
-                                   
-            "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
-            "out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix\n" "*matrixdic->modeMatrix  *tempPos;\n"
-
-
-
-            "return out;\n",
-            "}\n"];
-
-        
-        code=[code stringByAppendingString:mainstr];
- 
+    
+    NSString* inputStr= @"";
+    
+    inputStr=[inputStr stringByAppendingFormat:@"%s",
+              "vertex OutData \n"
+              "vertexShader(uint vertexID [[ vertex_id ]],\n"
+              "constant BaseFloat3 *vertexArray [[ buffer(0) ]]\n"
+              ",constant BaseFloat2 *uvsArray [[ buffer(1) ]]\n"
+              " ,constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]]\n"
+              " ,constant ParticleMetalLocusVcmatData *vcmatDatadic [[ buffer(3) ]]\n"
+              ];
+    
+    if(isWatchEye>0){
+        inputStr=[inputStr stringByAppendingFormat:@"%s",
+                  ",constant BaseFloat4 *nrmsArray [[ buffer(4) ]]\n"
+                  ];
+    }
+    
+    
+    inputStr=[inputStr stringByAppendingFormat:@"%s",
+              "     ) {\n"
+              ];
+    
+    inputStr=[inputStr stringByAppendingFormat:@"%s",
+              "OutData out;\n"
+              "float4 vcmat30=vcmatDatadic->vcmat30;\n"
+              "float4 vcmat31=vcmatDatadic->vcmat31;\n"
+              "float2 v2TexCoord= uvsArray[vertexID].position.xy ;\n"
+              "float2 tempv0 = v2TexCoord.xy;\n"
+              "tempv0.x -= vcmat30.x;\n"
+              "float alpha = tempv0.x/vcmat30.y;\n"
+              "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);\n"
+              "float kill = -tempv0.x;\n"
+              "kill *= tempv0.x - vcmat30.z;\n"
+              "out.v2 = float4(kill,0.0,0.0,alpha);\n"
+              "out.v1 = v2TexCoord;\n"
+              "out.v0 = tempv0;\n"
+              ];
+    
+    
+    inputStr=[inputStr stringByAppendingFormat:@"%s",
+              "float3 v3Position= vertexArray[vertexID].position.xyz ;\n"
+              "float4 tempPos=matrixdic->modeMatrix*float4(v3Position.xyz,1.0);\n"
+              "float3 mulPos = float3(tempPos.x,tempPos.y,tempPos.z);\n"
+              
+              
+              ];
+    
+    if(isWatchEye>0){
+        inputStr=[inputStr stringByAppendingFormat:@"%s",
+                  
+                  "float4 v3Normal= nrmsArray[vertexID].position.xyzw ;\n"
+                  "float3 normals = float3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
+                  "mulPos=normalize(vcmat31.xyz-mulPos.xyz);\n"
+                  "mulPos = cross(mulPos, normals);\n"
+                  "mulPos = normalize(mulPos);\n"
+                  "mulPos *= v3Normal.w*1.0  ;\n"
+                  
+                  ];
+    }
+    
+    inputStr=[inputStr stringByAppendingFormat:@"%s",
+              
+              "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
+              "out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix\n" "*matrixdic->modeMatrix  *tempPos;\n"
+              
+              "return out;\n"
+              ];
+    
+    inputStr=[inputStr stringByAppendingFormat:@"%s",
+              "}\n"
+              ];
+    
+    
+    
+    
+    code=[code stringByAppendingString:inputStr];
+    
     
     return [NSString stringWithFormat:@"%@\n%@\n%@%@", includes, imports, code,  [self getFragmentMtkShaderString]];
 }
@@ -152,34 +183,34 @@
                                                  texture2d<half> textureBase [[ texture(0) ]],
                                                  texture2d<half> textureColor [[ texture(1) ]],
                                                  constant FcItemInfo *infodata [[ buffer(2) ]]
-                                 
+                                                 
                                                  
                                                  )
                                   {
-     
-     
-     constexpr sampler textureSampler (mag_filter::linear,
-                                       min_filter::linear);
-     
-     
-     float4 fc0=infodata->fc[0];
-     
-     half4 colorTex = textureColor.sample(textureSampler, input.v1);
-     
-     colorTex*=input.v2.w;
-      if(input.v2.x<fc0.x){
-          colorTex.x=0;
-          colorTex.y=0;
-          colorTex.z=0;
-          colorTex.w=0;
-      }
-    
-     
-       return colorTex;
-     
-     
- }
-         );
+        
+        
+        constexpr sampler textureSampler (mag_filter::linear,
+                                          min_filter::linear);
+        
+        
+        float4 fc0=infodata->fc[0];
+        
+        half4 colorTex = textureColor.sample(textureSampler, input.v1);
+        
+        colorTex*=input.v2.w;
+        if(input.v2.x<fc0.x){
+            colorTex.x=0;
+            colorTex.y=0;
+            colorTex.z=0;
+            colorTex.w=0;
+        }
+        
+        
+        return colorTex;
+        
+        
+    }
+                                  );
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
 -(void)mtlEncode
@@ -254,26 +285,26 @@
     "void main()"
     "{"
     
-        "vec2 tempv0 = v2TexCoord;\n"
-        "tempv0.x -= vcmat30.x;\n"
-        "float alpha = tempv0.x/vcmat30.y;\n"
-        "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);\n"
-        "float kill = -tempv0.x;\n"
-        "kill *= tempv0.x - vcmat30.z;\n"
-        "v2 = vec4(kill,0.0,0.0,alpha);\n"
-        "v1 = v2TexCoord;\n"
-        "v0 = tempv0;\n"
- 
-        "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);\n"
-        "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"
-        "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
-        "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"
-        "mulPos = cross(mulPos, normals);\n"
-        "mulPos = normalize(mulPos);\n"
-        "mulPos *= v3Normal.w*1.0  ;\n"
-        "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
+    "vec2 tempv0 = v2TexCoord;\n"
+    "tempv0.x -= vcmat30.x;\n"
+    "float alpha = tempv0.x/vcmat30.y;\n"
+    "alpha = 1.0 - clamp(abs(alpha),0.0,1.0);\n"
+    "float kill = -tempv0.x;\n"
+    "kill *= tempv0.x - vcmat30.z;\n"
+    "v2 = vec4(kill,0.0,0.0,alpha);\n"
+    "v1 = v2TexCoord;\n"
+    "v0 = tempv0;\n"
     
-        "gl_Position = tempPos*modeMatrix* camMatrix* viewMatrix;\n"
+    "vec4 tempPos = modeMatrix * vec4(v3Position.xyz,1.0);\n"
+    "vec3 mulPos = vec3(tempPos.x,tempPos.y,tempPos.z);\n"
+    "vec3 normals = vec3(v3Normal.x,v3Normal.y,v3Normal.z);\n"
+    "mulPos = normalize(vec3(vcmat31.xyz) - mulPos);\n"
+    "mulPos = cross(mulPos, normals);\n"
+    "mulPos = normalize(mulPos);\n"
+    "mulPos *= v3Normal.w*1.0  ;\n"
+    "tempPos.xyz = mulPos.xyz + v3Position.xyz;\n"
+    
+    "gl_Position = tempPos*modeMatrix* camMatrix* viewMatrix;\n"
     
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
@@ -303,7 +334,7 @@
     "}";
     return    [ NSString stringWithFormat:@"%s" ,relplayChat];
 }
- 
+
 @end
 
 /*
@@ -314,15 +345,15 @@
  "varying vec4 v2;"
  "varying vec2 v1;"
  "void main(void){"
-     "vec4 ft0 = texture2D(fs0,v0);"
-     "ft0.xyz *= ft0.w;"
-     "vec4 ft1 = texture2D(fs1,v1);"
-     "ft1.xyz = ft1.xyz * ft1.w;"
-     "vec4 ft2 = ft0 * ft1;"
-     "ft0 = ft2 * v2.w;"
-     "ft1.xyz = ft0.xyz;"
-     "ft1.w = ft0.w;"
-     "if(v2.x<fc[0].x){discard;}"
-     "gl_FragColor = ft1;"
+ "vec4 ft0 = texture2D(fs0,v0);"
+ "ft0.xyz *= ft0.w;"
+ "vec4 ft1 = texture2D(fs1,v1);"
+ "ft1.xyz = ft1.xyz * ft1.w;"
+ "vec4 ft2 = ft0 * ft1;"
+ "ft0 = ft2 * v2.w;"
+ "ft1.xyz = ft0.xyz;"
+ "ft1.w = ft0.w;"
+ "if(v2.x<fc[0].x){discard;}"
+ "gl_FragColor = ft1;"
  "}";
  */

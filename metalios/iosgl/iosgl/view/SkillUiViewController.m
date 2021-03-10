@@ -50,7 +50,7 @@
     if([titleStr isEqualToString:@"m_skill_01"]||[titleStr isEqualToString:@"m_skill_02"]||[titleStr isEqualToString:@"m_skill_03"]){
         if( self.mainChar){
           
-            Skill* skill= [self.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_01"];
+            Skill* skill= [self.scene3D.skillManager getSkill: getSkillUrl(@"jichu_1") name:@"m_skill_02"];
             skill.scene3D=self.scene3D;
             [skill reset];
             [skill configFixEffect:self.mainChar completeFun:nil posObj:nil ];

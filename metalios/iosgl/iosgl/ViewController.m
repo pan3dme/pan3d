@@ -41,7 +41,7 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    ParticleUiViewController *vc01=[[ParticleUiViewController alloc] init];
+    SkillUiViewController *vc01=[[SkillUiViewController alloc] init];
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
     SceneUiViewController *vc04=[[SceneUiViewController alloc] init];
