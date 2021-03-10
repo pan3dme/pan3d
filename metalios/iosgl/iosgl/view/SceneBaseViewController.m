@@ -7,7 +7,7 @@
 //
 
 #import "SceneBaseViewController.h"
-#import "MtkBaseLine.h"
+#import "GridLineSprite.h"
 
 @interface SceneBaseViewController ()
 
@@ -17,12 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   self.sceneUiView= [[UIView alloc]initWithFrame:CGRectMake(20,50, 200, 320)];
+    self.sceneUiView= [[UIView alloc]initWithFrame:CGRectMake(0,50, 200, 200)];
     self.sceneUiView.backgroundColor=[UIColor redColor];
     [self.view addSubview: self.sceneUiView];
     
     self.scene3D=[[Scene3D alloc]init: self.sceneUiView];
-    [self.scene3D addDisplay: [[MtkBaseLine alloc]init:self.scene3D]];
+    [self.scene3D addDisplay: [[GridLineSprite alloc]init:self.scene3D]];
     [self addMenuList];
 }
 -(void)addMenuList;
@@ -53,7 +53,7 @@
         return  false;
     }
     if([titleStr isEqualToString:@"网格"]){
-        [self.scene3D addDisplay: [[MtkBaseLine alloc]init:self.scene3D]];
+        [self.scene3D addDisplay: [[GridLineSprite alloc]init:self.scene3D]];
         return  false;
     }
     if([titleStr isEqualToString:@"拉+"]){
@@ -93,8 +93,10 @@
     }
     
  
+    CGFloat sizeWH=  MIN( CGRectGetWidth(self.view.bounds),     CGRectGetHeight(self.view.bounds));
+ 
     
-    CGSize winSize=   CGSizeMake(  CGRectGetWidth( self.sceneUiView.frame),  CGRectGetHeight( self.sceneUiView.frame));
+    CGSize winSize=   CGSizeMake( sizeWH,sizeWH);
     
     
     [self.scene3D resieSize:winSize];

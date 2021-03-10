@@ -7,36 +7,42 @@
 //
 
 #import "GridLineShader.h"
+#import "Scene3D.h"
 
 @implementation GridLineShader
 +(NSString*)shaderStr;
 {
     return @"GridLineShader";
 }
--(NSString *)getVertexShaderString;{
-    char* relplayChat =
-    "attribute vec3 position;\n"
-    "attribute vec3 attcolor;\n"
-    "uniform mat4 viewMatrix;\n"
-    "uniform mat4 camMatrix;\n"
-    "varying vec3 outColor;\n"
-    "void main()"
-    "{"
-        "outColor = attcolor;\n"
-        "vec4 vPos = vec4(position.xyz,1.0);\n"
-        "gl_Position = vPos * camMatrix* viewMatrix;\n"
-    "}";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
+
+-(void)mtlEncode
+{
+  
+   MTKView *mtkView=self.scene3D.context3D. mtkView;
+   
+   id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+ 
+ 
+   id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShaderLine"];
+   id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"samplingShaderLine"];
+   
+   MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
+   pipelineStateDescriptor.vertexFunction = vertexFunction;
+   pipelineStateDescriptor.fragmentFunction = fragmentFunction;
+   pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
+   pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
+   pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
+   
+   self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
+                                                                                    error:NULL];
     
-}
--(NSString *)getFragmentShaderString;{
-    char* relplayChat =
-    "precision mediump float;\n"
-     "varying vec3 outColor;\n"
-    "void main()"
-    "{"
-        "gl_FragColor =vec4(outColor.xyz,1.0);\n"
-    "}";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
+   
+   MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
+   
+   {
+       depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
+       depthStateDesc.depthWriteEnabled = YES;
+       self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
+   }
 }
 @end
