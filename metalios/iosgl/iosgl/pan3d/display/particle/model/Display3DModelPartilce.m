@@ -69,17 +69,19 @@
     [ctx clearVa:0];
     [ctx clearVa:1];
 }
+- (void)update
+{
+    [super update];
+}
  
 -(void)updateRotaionMatrix;
 {
 //    Camera3D *cam=self.scene3D.camera3D;
     Display3DModelPartilce* this=self;
     [this.rotationMatrix3D identity];
-    if (this.data._watchEye) {
-     
-    }
+   
     if (this.data._isZiZhuan) {
-        NSLog(@"%f    %f     %f",this.data._ziZhuanAngly.x ,this.data._ziZhuanAngly.y,this.data._ziZhuanAngly.z);
+ 
          [this.timeLine applySelfRotation:this.rotationMatrix3D axis:this.data._ziZhuanAngly];
     }
  

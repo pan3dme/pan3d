@@ -155,15 +155,15 @@
     {
         
    
-        if ([self._displayAry[i]  isKindOfClass:[Display3DLocusPartilce class]]) {
+        if ([self._displayAry[i]  isKindOfClass:[Display3DModelPartilce class]]) {
  
             if( num++==0){
-       
+           
             }
            
         }
-        [self._displayAry[i] update];
       
+        [self._displayAry[i] update];
 
     }
  

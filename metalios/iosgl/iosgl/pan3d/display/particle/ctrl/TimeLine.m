@@ -268,8 +268,10 @@
             }
             baseAnim=this.axisMove;
         }
+        [baseAnim reset];
         [baseAnim dataByte:ary[i][@"data"] arr:ary[i][@"dataByte"]];
         baseAnim.baseTime = baseTime;
+        
   
     }
     
@@ -294,6 +296,7 @@
 -(void)applySelfRotation:(Matrix3D*)targetMatrix axis:(Vector3D*)axis;
 {
     if(self.selfRotaion){
+        NSLog(@"%f",self.selfRotaion.num)
         [targetMatrix prependRotation:self.selfRotaion.num axis:axis];
   
     }
