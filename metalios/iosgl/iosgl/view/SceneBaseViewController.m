@@ -17,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scene3D=[[Scene3D alloc]init:self.view];
+   self.sceneUiView= [[UIView alloc]initWithFrame:CGRectMake(20,50, 200, 320)];
+    self.sceneUiView.backgroundColor=[UIColor redColor];
+    [self.view addSubview: self.sceneUiView];
+    
+    self.scene3D=[[Scene3D alloc]init: self.sceneUiView];
     [self.scene3D addDisplay: [[MtkBaseLine alloc]init:self.scene3D]];
     [self addMenuList];
 }
@@ -87,6 +91,15 @@
         
         self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.view.frame)/1.5+55+ty*50, 60, 30);
     }
+    
+ 
+    
+    CGSize winSize=   CGSizeMake(  CGRectGetWidth( self.sceneUiView.frame),  CGRectGetHeight( self.sceneUiView.frame));
+    
+    
+    [self.scene3D resieSize:winSize];
+    
+
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     

@@ -128,12 +128,13 @@
 
  
 - (void)mtkView:(nonnull MTKView *)view drawableSizeWillChange:(CGSize)size {
-    [self resieSize:size];
+//    [self resieSize:size];
 }
 -(void)resieSize:(CGSize)size
 {
     self.camera3D.fovw=size.width;
     self.camera3D.fovh=size.height;
+    self.mtkView.frame=CGRectMake(0,0, size.width,size.height);
 }
  
 -(void)setSceneScale:(float)value;

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SceneBaseViewController : UIViewController
 @property (nonatomic, strong)Scene3D* scene3D;
+@property (nonatomic, strong)UIView* sceneUiView;
 @property (nonatomic, strong) NSMutableArray<UIButton*>* butItems;
 
 -(void)addMenuList;

@@ -67,6 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) float gameAngle;
 @property (nonatomic, assign) double time;
 
+-(void)resieSize:(CGSize)size;
 -(void)setSceneScale:(float)value;
 -(float)sceneScale;
 - (instancetype)init:(UIView*)uiview;
