@@ -55,22 +55,7 @@
     self.objData= display.objData;
     FrameBuildSprite* this=self;
     
-    NSLog(@"这里了这里了");
     
-    /*
-    
-    Context3D *ctx=this.scene3D.context3D;
-    GLuint progame= self.shader3d.program;
-    glUseProgram(progame);
-    
-    [self setVc];
-    [ctx pushVa:objData.verticesBuffer];
-    [ctx setVaOffset:this.shader3d name:"vPosition" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa:objData.uvBuffer];
-    [ctx setVaOffset:this.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
-    [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:display.textureRes.textTureLuint level:0];
-    [ctx drawCall: objData.indexBuffer  numTril:objData.trinum];
-    */
     
     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     [self.shader3d mtlSetProgramShader];

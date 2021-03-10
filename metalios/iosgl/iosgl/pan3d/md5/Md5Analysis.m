@@ -14,14 +14,7 @@
 
 @implementation Md5Analysis
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
+ 
 -(Md5MeshData*)addMesh:(NSString*)str
 {
     
@@ -29,7 +22,7 @@
     
     
     if ( [str rangeOfString:@"mesh"].location != NSNotFound) {
-        Md5MeshData* meshData  =[[Md5MeshData alloc]init];
+        Md5MeshData* meshData  =[[Md5MeshData alloc]init:self.scene3D];
         NSMutableDictionary* meshSmaple=[[NSMutableDictionary alloc]init];
         str= [str stringByReplacingOccurrencesOfString:@"\t"withString:@""];
         arrBase = [str componentsSeparatedByString:@"\n"];

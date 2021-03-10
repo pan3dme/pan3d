@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BaseNavigationViewController.h"
  
+#import "Md5FileViewController.h"
 #import "Frame3dViewController.h"
 #import "SkillUiViewController.h"
 #import "SceneUiViewController.h"
@@ -41,7 +42,9 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    Frame3dViewController *vc01=[[Frame3dViewController alloc] init];
+//    Frame3dViewController *vc01=[[Frame3dViewController alloc] init];
+    Md5FileViewController *vc01=[[Md5FileViewController alloc] init];
+    
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
     SceneUiViewController *vc04=[[SceneUiViewController alloc] init];

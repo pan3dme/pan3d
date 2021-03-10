@@ -21,6 +21,7 @@
 		9C55A0A225C99F79004CA03B /* MtkMoveDisplay.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */; };
 		9C55A0A725C99F9A004CA03B /* MtkMoveDisplayShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A625C99F9A004CA03B /* MtkMoveDisplayShader.m */; };
 		9C676E5725F90E3D00E6B2F6 /* Frame3dViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C676E5625F90E3D00E6B2F6 /* Frame3dViewController.m */; };
+		9C676E5C25F9253F00E6B2F6 /* Md5FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C676E5B25F9253F00E6B2F6 /* Md5FileViewController.m */; };
 		9C7D6C4225F679CF00039350 /* SkillUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D6C4125F679CF00039350 /* SkillUiViewController.m */; };
 		9C7EFFBB25E3DE2A00FF22C9 /* TestShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EFFBA25E3DE2A00FF22C9 /* TestShader.m */; };
 		9C8CA85525DCB489000F9194 /* MtkBaseDisShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */; };
@@ -249,6 +250,8 @@
 		9C676E5325F8E21C00E6B2F6 /* LineDisplayShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineDisplayShaderType.h; sourceTree = "<group>"; };
 		9C676E5525F90E3D00E6B2F6 /* Frame3dViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Frame3dViewController.h; sourceTree = "<group>"; };
 		9C676E5625F90E3D00E6B2F6 /* Frame3dViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Frame3dViewController.m; sourceTree = "<group>"; };
+		9C676E5A25F9253F00E6B2F6 /* Md5FileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Md5FileViewController.h; sourceTree = "<group>"; };
+		9C676E5B25F9253F00E6B2F6 /* Md5FileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Md5FileViewController.m; sourceTree = "<group>"; };
 		9C7D6C4025F679CF00039350 /* SkillUiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillUiViewController.h; sourceTree = "<group>"; };
 		9C7D6C4125F679CF00039350 /* SkillUiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillUiViewController.m; sourceTree = "<group>"; };
 		9C7EFFB925E3DE2A00FF22C9 /* TestShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestShader.h; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 				9CE667FC25EC823000CE6204 /* ParticleUiViewController.m */,
 				9C676E5525F90E3D00E6B2F6 /* Frame3dViewController.h */,
 				9C676E5625F90E3D00E6B2F6 /* Frame3dViewController.m */,
+				9C676E5A25F9253F00E6B2F6 /* Md5FileViewController.h */,
+				9C676E5B25F9253F00E6B2F6 /* Md5FileViewController.m */,
 				9C7D6C4025F679CF00039350 /* SkillUiViewController.h */,
 				9C7D6C4125F679CF00039350 /* SkillUiViewController.m */,
 			);
@@ -1630,6 +1635,7 @@
 				9CBE1CC425BD67C400FFE706 /* MtkBaseLine.metal in Sources */,
 				FE3D4EE32401C15300185FD3 /* EventDispatcher.m in Sources */,
 				FE642ACC242AACAC0047E41F /* ParticleLocusData.m in Sources */,
+				9C676E5C25F9253F00E6B2F6 /* Md5FileViewController.m in Sources */,
 				9C55A0A725C99F9A004CA03B /* MtkMoveDisplayShader.m in Sources */,
 				FE1D8B4824128B1400A04FC4 /* LineDisplaySprite.m in Sources */,
 				FE3D4EE92401C18B00185FD3 /* CombineParticleData.m in Sources */,

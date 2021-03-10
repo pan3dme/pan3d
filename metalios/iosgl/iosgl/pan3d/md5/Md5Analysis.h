@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "Md5MeshData.h"
+#import "GC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Md5Analysis : NSObject
+@interface Md5Analysis : GC
 -(Md5MeshData*)addMesh:(NSString*)str;
  
 @end

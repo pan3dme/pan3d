@@ -46,7 +46,7 @@
 }
 -(void)inidShader
 {
-    [self.scene3D.progrmaManager registe:Md5MeshShader.shaderStr shader3d: [[Md5MeshShader alloc]init]];
+    [self.scene3D.progrmaManager registe:Md5MeshShader.shaderStr shader3d: [[Md5MeshShader alloc]init:self.scene3D]];
     self.shader3d=  [self.scene3D.progrmaManager getProgram:Md5MeshShader.shaderStr];
 }
 
@@ -79,9 +79,9 @@
 }
 -(void)jiexieBodyMeshMd5:(NSString*)str
 {
-    self.md5MeshData=   [[[Md5Analysis alloc]init] addMesh:str];
-    [[[MeshImportSort alloc]init] processMesh:self.md5MeshData];
-    [[[MeshToObjUtils alloc]init]getObj:self.md5MeshData];
+    self.md5MeshData=   [[[Md5Analysis alloc]init:self.scene3D] addMesh:str];
+    [[[MeshImportSort alloc]init:self.scene3D] processMesh:self.md5MeshData];
+    [[[MeshToObjUtils alloc]init:self.scene3D]getObj:self.md5MeshData];
     [self loadAnimFrame];
 }
 
@@ -185,6 +185,7 @@
     [self.md5MeshData upToGpu];
     Md5MoveSprite* this=self;
     Md5MeshData* mesh= this.md5MeshData;
+    /*
     Context3D *ctx=this.scene3D.context3D;
     GLuint progame= self.shader3d.program;
     glUseProgram(progame);
@@ -217,15 +218,18 @@
     [ctx setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
     
     [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
+    */
 }
 - (void)setVc;
 {
+    /*
     Md5MoveSprite* this=self;
     Context3D *context3D=this.scene3D.context3D;
     [this.posMatrix3d identity];
     Matrix3D* viewM=this.viewMatrix;
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
     [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
+    */
 }
 
 @end
