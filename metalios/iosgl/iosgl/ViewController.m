@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "BaseNavigationViewController.h"
  
- 
+#import "Frame3dViewController.h"
 #import "SkillUiViewController.h"
 #import "SceneUiViewController.h"
 #import "RoleUiViewController.h"
@@ -41,7 +41,7 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    SkillUiViewController *vc01=[[SkillUiViewController alloc] init];
+    Frame3dViewController *vc01=[[Frame3dViewController alloc] init];
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
     SceneUiViewController *vc04=[[SceneUiViewController alloc] init];
@@ -56,10 +56,10 @@
     
     
     vc01.tabBarItem.title = @"场景";
-    vc02.tabBarItem.title = @"充值";
-    vc03.tabBarItem.title =@"推广";
-    vc04.tabBarItem.title = @"消息";
-    vc05.tabBarItem.title = @"其他";
+    vc02.tabBarItem.title = @"角色";
+    vc03.tabBarItem.title =@"特效";
+    vc04.tabBarItem.title = @"场景";
+    vc05.tabBarItem.title = @"技能";
     
     vc03.tabBarItem.imageInsets = UIEdgeInsetsMake(-10, -5, 0,-5);
     

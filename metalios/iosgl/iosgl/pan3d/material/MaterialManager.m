@@ -44,7 +44,7 @@ static MaterialManager *instance = nil;
 }
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
 {
-    TextureRes *textureRes=[[TextureRes alloc]init];
+    TextureRes *textureRes=[[TextureRes alloc]init:self.scene3D];
     textureRes.textTureLuint= [Context3D getTexture:[UIImage imageNamed:urlStr] wrap:0];
     return textureRes;
 }

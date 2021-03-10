@@ -33,7 +33,7 @@
 -(void)addLoadFrame3dRes;
 {
     NSString* url=@"pan/frame3dres/huowumatou_frame.txt";
-    self.frame3dRes=[[Frame3dRes alloc]init];
+    self.frame3dRes=[[Frame3dRes alloc]init:self.scene3D];
     [self.frame3dRes load:url fun:^(NSString *localPath) {
        
         [self loadFrame3DFinish ];

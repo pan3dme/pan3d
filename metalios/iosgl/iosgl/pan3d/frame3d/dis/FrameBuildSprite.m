@@ -20,7 +20,7 @@
 }
 -(void)inidShader
 {
-    [self.scene3D.progrmaManager registe:FrameBuildShader.shaderStr shader3d: [[FrameBuildShader alloc]init]];
+    [self.scene3D.progrmaManager registe:FrameBuildShader.shaderStr shader3d: [[FrameBuildShader alloc]init:self.scene3D]];
     self.shader3d=  [self.scene3D.progrmaManager getProgram:FrameBuildShader.shaderStr];
 }
 
@@ -55,6 +55,9 @@
     ObjData* objData= display.objData;
     FrameBuildSprite* this=self;
     
+    NSLog(@"这里了这里了");
+    
+    /*
     
     Context3D *ctx=this.scene3D.context3D;
     GLuint progame= self.shader3d.program;
@@ -67,14 +70,17 @@
     [ctx setVaOffset:this.shader3d name:"texcoord" dataWidth:2 stride:0 offset:0];
     [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:display.textureRes.textTureLuint level:0];
     [ctx drawCall: objData.indexBuffer  numTril:objData.trinum];
+    */
     
 }
 - (void)setVc;
 {
     FrameBuildSprite* this=self;
+    /*
     Context3D *context3D=this.scene3D.context3D;
     Matrix3D* viewM=this.viewMatrix;
     [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
     [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
+     */
 }
 @end

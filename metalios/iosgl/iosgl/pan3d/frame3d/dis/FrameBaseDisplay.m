@@ -16,7 +16,7 @@
     FrameBaseDisplay* this=self;
     this.frameNodeVo=nodeVo;
     this.groupItem =[[NSMutableArray alloc]init];
-    Display3DSprite* dis = [[Display3DSprite alloc]init];
+    Display3DSprite* dis = [[Display3DSprite alloc]init:self.scene3D];
     [dis setObjUrl:nodeVo.resurl];
     [this.groupItem  addObject:dis];
 }

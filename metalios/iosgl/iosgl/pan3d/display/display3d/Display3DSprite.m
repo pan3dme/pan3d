@@ -35,9 +35,9 @@
 @end
 @implementation Display3DSprite
 
-- (instancetype)init
+- (instancetype)init:(Scene3D*)value;
 {
-    self = [super init];
+    self = [super init:value];
     if (self) {
         [self initData];
     }
