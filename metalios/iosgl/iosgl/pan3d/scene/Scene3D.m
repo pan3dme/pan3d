@@ -87,7 +87,7 @@
     self.animManager=[[AnimManager alloc]init:self];
     self.meshToObjUtils=[[MeshToObjUtils alloc]init:self];
     self.camera3D=[[Camera3D alloc]init];
-    self.camera3D.rotationX=-15;
+    self.camera3D.rotationX=-30;
     [self resieSize:self.mtkView.drawableSize];
     self.context3D=[[Context3D alloc] init:self.mtkView ];
     self.displayList=[[NSMutableArray alloc] init];

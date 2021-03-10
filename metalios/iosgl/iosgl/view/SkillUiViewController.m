@@ -24,6 +24,7 @@
     [self.mainChar setRoleUrl:getRoleUrl(@"50011")];
     [ self.scene3D addMovieDisplay:self.mainChar];
     self.scene3D.camera3D.rotationY=45;
+    self.scene3D.camera3D.distance=600;
     [self.scene3D.skillManager  preLoadSkill: getSkillUrl(@"jichu_1")];
 }
 -(void)addMenuList;

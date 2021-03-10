@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.sceneUiView= [[UIView alloc]initWithFrame:CGRectMake(0,200, 200, 200)];
+    self.sceneUiView= [[UIView alloc]initWithFrame:self.view.bounds];
     self.sceneUiView.backgroundColor=[UIColor redColor];
     [self.view addSubview: self.sceneUiView];
     
@@ -94,10 +94,10 @@
     
  
     CGFloat sizeWH=  MIN( CGRectGetWidth(self.view.bounds),     CGRectGetHeight(self.view.bounds));
+      
+    
+    CGSize winSize=   CGSizeMake(  CGRectGetWidth(self.view.bounds),     CGRectGetHeight(self.view.bounds));
  
-    
-    CGSize winSize=   CGSizeMake( sizeWH,sizeWH);
-    
     
     [self.scene3D resieSize:winSize];
     

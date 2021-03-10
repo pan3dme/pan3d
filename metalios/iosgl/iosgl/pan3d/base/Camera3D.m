@@ -20,7 +20,7 @@
         self.distance=400;
         self.sceneViewHW=100;
         self.fovw=300;
-        self.fovh=500;
+        self.fovh=300;
         [self upFrame];
     }
     return self;
@@ -30,15 +30,9 @@
   
     [self.viewMatrix identity];
     [self.viewMatrix perspectiveFieldOfViewLH:1 aspectRatio:1 zNear:10 zFar:10000];
-    
+    [self.viewMatrix prependScale:self.fovh/self.fovw y:1 z:1];
    
-    
-//    [self.viewMatrix appendScale:  (self.sceneViewHW / self.fovw * 2) y:self.fovw / self.fovh * ( self.sceneViewHW / self.fovw * 2) z:1];
-  //  [self.viewMatrix inputStrData:@"1.8304877281188965,0,0,0,0,1.8304877281188965,0,0,0,0,1.0016694068908691,1,0,0,-1.0016694068908691,0"];
-  //  [self.viewMatrix inputStrData:@"0.8266757726669312, 0, 0, 0, 0, 0.8266757726669312, 0, 0, 0, 0, 1.0101009607315063, 1, 0, 0, -50.50505065917969, 0"];
- 
-    
-    
+     
     
     [self.camMatrix3D identity];
     [self.camMatrix3D appendRotation: self.rotationY axis:Vector3D.Y_AXIS];
