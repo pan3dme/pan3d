@@ -52,7 +52,7 @@
     if(display.objData==nil){
         return;
     }
-    ObjData* objData= display.objData;
+    self.objData= display.objData;
     FrameBuildSprite* this=self;
     
     NSLog(@"这里了这里了");
@@ -72,15 +72,34 @@
     [ctx drawCall: objData.indexBuffer  numTril:objData.trinum];
     */
     
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    [self.shader3d mtlSetProgramShader];
+    [self setVc];
+    
+    [renderEncoder setVertexBuffer: self.objData.mtkvertices
+                            offset:0
+                           atIndex:0];
+    
+    [renderEncoder setVertexBuffer: self.objData.mtkuvs
+                            offset:0
+                           atIndex:1];
+    
+    
+      [renderEncoder setFragmentTexture:display.textureRes.mtlTexture
+                                atIndex:0];
+  
+    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                              indexCount: self.objData.mtkindexCount
+                               indexType:MTLIndexTypeUInt32
+                             indexBuffer: self.objData.mtkindexs
+                       indexBufferOffset:0];
+    
 }
 - (void)setVc;
 {
-    FrameBuildSprite* this=self;
-    /*
-    Context3D *context3D=this.scene3D.context3D;
-    Matrix3D* viewM=this.viewMatrix;
-    [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
-    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
-     */
+ 
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:2];
+    [self.scene3D.context3D setMatrixVc: self.posMatrix3d renderEncoder:renderEncoder idx:3];
 }
 @end
