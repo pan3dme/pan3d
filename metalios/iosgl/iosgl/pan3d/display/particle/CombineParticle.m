@@ -155,10 +155,10 @@
     {
         
    
-        if ([self._displayAry[i]  isKindOfClass:[Display3DBallPartilce class]]) {
+        if ([self._displayAry[i]  isKindOfClass:[Display3DLocusPartilce class]]) {
  
             if( num++==0){
-                
+       
             }
            
         }

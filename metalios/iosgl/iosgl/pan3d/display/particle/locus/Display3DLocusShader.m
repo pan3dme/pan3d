@@ -195,7 +195,9 @@
         
         float4 fc0=infodata->fc[0];
         
+        half4 baseTex = textureBase.sample(textureSampler, input.v1);
         half4 colorTex = textureColor.sample(textureSampler, input.v1);
+        colorTex*=baseTex;
         
         colorTex*=input.v2.w;
         if(input.v2.x<fc0.x){
