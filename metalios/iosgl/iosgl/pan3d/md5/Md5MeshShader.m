@@ -88,35 +88,14 @@ float4x4 matrix;
                                      )];
  
  
-    code=   [code stringByAppendingString:[self getVertexShaderStringMtk]];
-    code=   [code stringByAppendingString:[self getFragmentShaderStringMtk]];
+    code=   [code stringByAppendingString:[self getVertexShaderString]];
+    code=   [code stringByAppendingString:[self getFragmentShaderString]];
     
     return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
 }
--(NSString*)getVertexShaderStringMtk
+-(NSString*)getVertexShaderString
 {
-  
-    NSString *baseStr     = [NSString stringWithFormat:@"%s",
-                          _STRINGIFY(
-                                     vertex RoleRasterizerData // 顶点
-                                     vertexShaderRoleStr(uint vertexID [[ vertex_id ]],
-                                                          constant LineMatrixRoleView *matrix [[ buffer(0) ]],
-                                                          constant VertexRoleFloat3 *vertexArray [[ buffer(1) ]],
-                                                          constant VertexRoleFloat2 *uvs [[ buffer(2) ]],
-                                                          constant VertexRoleFloat4 *boneID [[ buffer(3) ]],
-                                                          constant VertexRoleFloat4 *boneWeight [[ buffer(4) ]],
-                                                          constant VertexRoleFloat4 *boneQ [[ buffer(5) ]],
-                                                          constant VertexRoleFloat3 *boneD [[ buffer(6) ]]
-                                                  )
-                                     {
-                                         RoleRasterizerData out;
-                                         float4 vt0 = getQDdata(vertexArray[vertexID].position,boneID[vertexID].position,boneWeight[vertexID].position,boneQ,boneD );
-                                         out.clipSpacePosition = matrix->projectionMatrix * matrix->modelViewMatrix * vt0;
-                                         out.textureCoordinate = uvs[vertexID].position;
-                                         out.outColor=float4(1,0,0, 1);
-                                         return out;
-                                     }
-                                     )];
+   
  
     
     NSString* changeStr=@" vertex RoleRasterizerData  vertexShaderRoleStr(uint vertexID [[ vertex_id ]],\n"
@@ -146,23 +125,9 @@ float4x4 matrix;
 }
 
 
--(NSString*)getFragmentShaderStringMtk
+-(NSString*)getFragmentShaderString
 {
-  
-    NSString *baseStr     = [NSString stringWithFormat:@"%s",
-                          _STRINGIFY(
-                                     fragment float4 // 片元
-                                     fragmentShaderRoleStr(RoleRasterizerData input [[stage_in]],
-                                                    texture2d<half> textureColor [[ texture(0) ]])
-                                     {
-                                         constexpr sampler textureSampler (mag_filter::linear,
-                                                                           min_filter::linear);
-                                         
-                                         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
  
-                                         return float4(colorTex);
-                                     }
-                                     )];
  
     
     NSString* changeStr=@ "fragment float4 \n"
@@ -172,7 +137,7 @@ float4x4 matrix;
         
     "half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);\n"
 
-//    "half4 colorTex = half4(1, 0,0, 1);\n"
+ 
     
     "return float4(colorTex);\n"
 "}\n";
@@ -213,68 +178,7 @@ float4x4 matrix;
         self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
     }
 }
-
--(NSString *)getVertexShaderString;{
-    char* relplayChat =
-    "attribute vec3 pos;"
-    "attribute vec2 v2Uv;"
-    "attribute vec4 boneID;"
-    "attribute vec4 boneWeight;"
-    "varying vec2 v0;"
-    "uniform vec4 boneQ[54];"
-    "uniform vec3 boneD[54];"
-    "uniform mat4 vpMatrix3D;"
-    "uniform mat4 posMatrix3D;"
-    
-    "vec4 qdv(vec4 q, vec3 d, vec3 v ){"
-    "   vec3 t = 2.0 * cross(q.xyz, v);"
-    "   vec3 f = v + q.w * t + cross(q.xyz, t);"
-    "   return vec4(f.x + d.x, f.y + d.y, f.z + d.z, 1.0);"
-    " }"
-    "vec4 getQDdata(vec3 vdata){"
-    "   vec4 tempnum = qdv(boneQ[int(boneID.x)], boneD[int(boneID.x)], vdata) * boneWeight.x;"
-    "   tempnum += qdv(boneQ[int(boneID.y)], boneD[int(boneID.y)], vdata) * boneWeight.y;"
-    "   tempnum += qdv(boneQ[int(boneID.z)], boneD[int(boneID.z)], vdata) * boneWeight.z;"
-    "   tempnum += qdv(boneQ[int(boneID.w)], boneD[int(boneID.w)], vdata) * boneWeight.w;"
-    "   tempnum.x = tempnum.x * -1.0;"
-    "   return tempnum;"
-    " }"
-    "vec4 qdvNrm(vec4 q, vec3 v ){"
-    "      vec3 t = 2.0 * cross(q.xyz, v);"
-    "      vec3 f = v + q.w * t + cross(q.xyz, t);"
-    "      return vec4(f.x, f.y, f.z, 1.0);\n"
-    "}"
-    " vec4 getQDdataNrm(vec3 vdata){"
-    "    vec4 tempnum = qdvNrm(boneQ[int(boneID.x)], vdata) * boneWeight.x;"
-    "    tempnum += qdvNrm(boneQ[int(boneID.y)], vdata) * boneWeight.y;"
-    "    tempnum += qdvNrm(boneQ[int(boneID.z)], vdata) * boneWeight.z;"
-    "    tempnum += qdvNrm(boneQ[int(boneID.w)], vdata) * boneWeight.w;"
-    "    tempnum.x = tempnum.x * -1.0;"
-    "    tempnum.xyz = normalize(tempnum.xyz);"
-    "    return tempnum;"
-    "}"
-    " void main(void){"
-    "    v0 = v2Uv;"
-    "    vec4 vt0 = getQDdata(vec3(pos.x, pos.y, pos.z));"
-    "    vt0 = posMatrix3D * vt0;"
-    "    vt0 =vt0* vpMatrix3D ;"
-    "    gl_Position = vt0;\n"
-    "  }";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
-    
-}
--(NSString *)getFragmentShaderString;{
-    char* relplayChat =
-    "precision mediump float;\n"
-    "uniform sampler2D fs0;\n"
-    "varying vec2 v0;\n"
-    "void main(void)\n"
-    "{\n"
-    "vec4 infoUv = texture2D(fs0, v0.xy);\n"
-    "gl_FragColor =infoUv;\n"
-    "}";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
-}
+ 
 
 @end
 

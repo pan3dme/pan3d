@@ -30,7 +30,68 @@
     NSString *imports  =@"";
     includes=@"";
     
+     
     
+    
+    return [NSString stringWithFormat:@"%@\n%@\n%@%@", includes, imports, [self getVertexShaderString],[self getFragmentShaderString]];
+}
+-(void)mtlEncode
+{
+    
+    MTKView *mtkView=self.scene3D.context3D. mtkView;
+    
+    //    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
+    
+    __autoreleasing NSError *error = nil;
+    NSString* librarySrc = [self makeTestShader];
+    id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
+    
+    
+    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
+    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShader"];
+    
+    MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
+    pipelineStateDescriptor.vertexFunction = vertexFunction;
+    pipelineStateDescriptor.fragmentFunction = fragmentFunction;
+    pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
+    pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
+    pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
+    
+    
+    
+    
+    MTLRenderPipelineColorAttachmentDescriptor *renderbufferAttachment = pipelineStateDescriptor.colorAttachments[0];
+    
+    renderbufferAttachment.pixelFormat = MTLPixelFormatBGRA8Unorm;
+    
+    
+    renderbufferAttachment.blendingEnabled = YES;
+    renderbufferAttachment.rgbBlendOperation = MTLBlendOperationAdd;
+    renderbufferAttachment.alphaBlendOperation = MTLBlendOperationAdd;
+    
+    renderbufferAttachment.sourceRGBBlendFactor = MTLBlendFactorOne;
+    renderbufferAttachment.destinationRGBBlendFactor = MTLBlendFactorOne;
+    
+    renderbufferAttachment.sourceAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+    renderbufferAttachment.destinationAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+    
+    
+    
+    
+    self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
+                                                                        error:NULL];
+    
+    
+    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
+    
+    {
+        depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
+        depthStateDesc.depthWriteEnabled = NO;
+        self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
+    }
+}
+
+-(NSString *)getVertexShaderString;{
     NSString *code     = [NSString stringWithFormat:@"%s",
                           _STRINGIFY(
                                      using namespace metal;
@@ -99,6 +160,18 @@
         return out;
     }
                                      
+         
+                                     
+                                     )];
+    
+    return code;
+    
+}
+-(NSString *)getFragmentShaderString;{
+    
+    NSString *code     = [NSString stringWithFormat:@"%s",
+                          _STRINGIFY(
+                                   
                                      fragment half4 // 片元
                                      fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]],
@@ -127,95 +200,7 @@
                                      
                                      )];
     
-    
-    
-    return [NSString stringWithFormat:@"%@\n%@\n%@", includes, imports, code];
-}
--(void)mtlEncode
-{
-    
-    MTKView *mtkView=self.scene3D.context3D. mtkView;
-    
-    //    id<MTLLibrary> defaultLibrary = [mtkView.device newDefaultLibrary];
-    
-    __autoreleasing NSError *error = nil;
-    NSString* librarySrc = [self makeTestShader];
-    id<MTLLibrary> defaultLibrary = [mtkView.device newLibraryWithSource:librarySrc options:nil error:&error];
-    
-    
-    id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"vertexShader"];
-    id<MTLFunction> fragmentFunction = [defaultLibrary newFunctionWithName:@"fragmentShader"];
-    
-    MTLRenderPipelineDescriptor *pipelineStateDescriptor = [[MTLRenderPipelineDescriptor alloc] init];
-    pipelineStateDescriptor.vertexFunction = vertexFunction;
-    pipelineStateDescriptor.fragmentFunction = fragmentFunction;
-    pipelineStateDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat;
-    pipelineStateDescriptor.depthAttachmentPixelFormat =  mtkView.depthStencilPixelFormat;
-    pipelineStateDescriptor.stencilAttachmentPixelFormat = mtkView.depthStencilPixelFormat;
-    
-    
-    
-    
-    MTLRenderPipelineColorAttachmentDescriptor *renderbufferAttachment = pipelineStateDescriptor.colorAttachments[0];
-    
-    renderbufferAttachment.pixelFormat = MTLPixelFormatBGRA8Unorm;
-    
-    
-    renderbufferAttachment.blendingEnabled = YES;
-    renderbufferAttachment.rgbBlendOperation = MTLBlendOperationAdd;
-    renderbufferAttachment.alphaBlendOperation = MTLBlendOperationAdd;
-    
-    renderbufferAttachment.sourceRGBBlendFactor = MTLBlendFactorOne;
-    renderbufferAttachment.destinationRGBBlendFactor = MTLBlendFactorOne;
-    
-    renderbufferAttachment.sourceAlphaBlendFactor = MTLBlendFactorSourceAlpha;
-    renderbufferAttachment.destinationAlphaBlendFactor = MTLBlendFactorSourceAlpha;
-    
-    
-    
-    
-    self.pipelineState = [mtkView.device newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
-                                                                        error:NULL];
-    
-    
-    MTLDepthStencilDescriptor *depthStateDesc = [[MTLDepthStencilDescriptor alloc] init];
-    
-    {
-        depthStateDesc.depthCompareFunction = MTLCompareFunctionLessEqual;
-        depthStateDesc.depthWriteEnabled = NO;
-        self.relaxedDepthState = [self.scene3D.mtkView.device newDepthStencilStateWithDescriptor:depthStateDesc];
-    }
-}
-
--(NSString *)getVertexShaderString;{
-    char* relplayChat =
-    "attribute vec3 v3Position;\n"
-    "attribute vec2 v2TexCoord;\n"
-    "uniform mat4 viewMatrix;\n"
-    "uniform mat4 camMatrix;\n"
-    "uniform mat4 modeMatrix;\n"
-    "uniform mat4 rotMatrix;\n"
-    "varying vec2 v0;\n"
-    "void main()"
-    "{"
-         "v0=v2TexCoord;\n"
-        "vec4 vPos = vec4(v3Position.xyz,1.0);\n"
-        "gl_Position = vPos*rotMatrix*modeMatrix* camMatrix* viewMatrix;\n"
-    "}";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
-    
-}
--(NSString *)getFragmentShaderString;{
-    char* relplayChat =
-    "precision mediump float;\n"
-    "uniform sampler2D fs0;\n"
-    "varying vec2 v0;\n"
-    "void main()"
-    "{"
-        "vec4 infoUv   =texture2D(fs0,v0.xy);\n"
-        "gl_FragColor =infoUv;\n"
-    "}";
-    return    [ NSString stringWithFormat:@"%s" ,relplayChat];
+    return  code;
 }
 @end
 

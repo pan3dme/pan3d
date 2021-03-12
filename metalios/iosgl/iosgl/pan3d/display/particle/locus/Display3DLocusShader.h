@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Display3DLocusShader : Shader3D
+@interface Display3DLocusShader : Shader3D<ShaderBind>
 +(NSString*)shaderStr;
 @end
 

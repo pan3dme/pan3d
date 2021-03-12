@@ -12,6 +12,12 @@
 @import MetalKit;
 @import GLKit;
 
+@protocol ShaderBind <NSObject>
+-(NSString *)getVertexShaderString;
+-(NSString *)getFragmentShaderString;
+@end
+
+
 
 #if !defined(_STRINGIFY)
 #define __STRINGIFY( _x )   # _x
@@ -48,7 +54,7 @@ static NSString *(^stringifyImportsArray)(NSArray *) = ^(NSArray *headerFileName
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Shader3D : ResCount
+@interface Shader3D : ResCount<ShaderBind>
 
 
 @property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
