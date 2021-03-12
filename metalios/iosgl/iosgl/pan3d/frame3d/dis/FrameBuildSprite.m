@@ -53,7 +53,7 @@
         return;
     }
     self.objData= display.objData;
-    FrameBuildSprite* this=self;
+ 
     
     
     

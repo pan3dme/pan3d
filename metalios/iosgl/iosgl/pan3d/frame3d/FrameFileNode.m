@@ -10,9 +10,9 @@
 #import "FrameNodeVo.h"
 #import "CombineParticle.h"
 #import "FrameSceneChar.h"
-#import "LightDisplay3DSprite.h"
+ 
 #import "FrameBuildSprite.h"
-#import "ShadowDisplay3DSprite.h"
+ 
 #import "Scene3D.h"
 #import "Quaternion.h"
 #import "Display3D.h"
@@ -22,9 +22,9 @@
 
 @property (nonatomic, strong)CombineParticle* _particle;
 @property (nonatomic, strong)FrameSceneChar* _sceneChar;
-@property (nonatomic, strong)LightDisplay3DSprite* _lightSprite;
+ 
 @property (nonatomic, strong)FrameBuildSprite* _frameBuildSprite;
-@property (nonatomic, strong)ShadowDisplay3DSprite* _shadowDisplay3DSprite;
+ 
 @property (nonatomic, strong)Display3D* sprite ;
 @end
 
@@ -69,9 +69,7 @@
     if (this._frameBuildSprite!=nil) {
         this._frameBuildSprite.sceneVisible = this.sceneVisible;
     }
-    if (this._lightSprite!=nil) {
-        this._lightSprite.sceneVisible = this.sceneVisible;
-    }
+    
 }
 -(FrameLinePointVo*) playFrameVoByTime:(float )$time {
     FrameFileNode* this=self;

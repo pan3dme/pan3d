@@ -38,8 +38,6 @@
 		9CDEDB29256190470099F83B /* FrameBaseDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB28256190470099F83B /* FrameBaseDisplay.m */; };
 		9CDEDB2E256190600099F83B /* FrameBuildShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB2D256190600099F83B /* FrameBuildShader.m */; };
 		9CDEDB32256190750099F83B /* FrameBuildSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB31256190750099F83B /* FrameBuildSprite.m */; };
-		9CDEDB362561908C0099F83B /* LightDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB352561908C0099F83B /* LightDisplay3DSprite.m */; };
-		9CDEDB3A2561909B0099F83B /* ShadowDisplay3DSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB392561909B0099F83B /* ShadowDisplay3DSprite.m */; };
 		9CDEDB3E256190AF0099F83B /* Frame3dRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB3D256190AF0099F83B /* Frame3dRes.m */; };
 		9CDEDB42256190C50099F83B /* FrameFileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB41256190C50099F83B /* FrameFileNode.m */; };
 		9CDEDB46256190E50099F83B /* FrameLinePointVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB45256190E50099F83B /* FrameLinePointVo.m */; };
@@ -285,10 +283,6 @@
 		9CDEDB2D256190600099F83B /* FrameBuildShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameBuildShader.m; sourceTree = "<group>"; };
 		9CDEDB30256190750099F83B /* FrameBuildSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBuildSprite.h; sourceTree = "<group>"; };
 		9CDEDB31256190750099F83B /* FrameBuildSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameBuildSprite.m; sourceTree = "<group>"; };
-		9CDEDB342561908C0099F83B /* LightDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightDisplay3DSprite.h; sourceTree = "<group>"; };
-		9CDEDB352561908C0099F83B /* LightDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightDisplay3DSprite.m; sourceTree = "<group>"; };
-		9CDEDB382561909B0099F83B /* ShadowDisplay3DSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShadowDisplay3DSprite.h; sourceTree = "<group>"; };
-		9CDEDB392561909B0099F83B /* ShadowDisplay3DSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShadowDisplay3DSprite.m; sourceTree = "<group>"; };
 		9CDEDB3C256190AF0099F83B /* Frame3dRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Frame3dRes.h; sourceTree = "<group>"; };
 		9CDEDB3D256190AF0099F83B /* Frame3dRes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Frame3dRes.m; sourceTree = "<group>"; };
 		9CDEDB40256190C50099F83B /* FrameFileNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameFileNode.h; sourceTree = "<group>"; };
@@ -785,10 +779,6 @@
 				9CDEDB2D256190600099F83B /* FrameBuildShader.m */,
 				9CDEDB30256190750099F83B /* FrameBuildSprite.h */,
 				9CDEDB31256190750099F83B /* FrameBuildSprite.m */,
-				9CDEDB342561908C0099F83B /* LightDisplay3DSprite.h */,
-				9CDEDB352561908C0099F83B /* LightDisplay3DSprite.m */,
-				9CDEDB382561909B0099F83B /* ShadowDisplay3DSprite.h */,
-				9CDEDB392561909B0099F83B /* ShadowDisplay3DSprite.m */,
 				9CE552002561A8E7004E7C31 /* FrameSceneChar.h */,
 				9CE552012561A8E7004E7C31 /* FrameSceneChar.m */,
 			);
@@ -1586,7 +1576,6 @@
 				FE15ACB124357BFE0062741F /* MeshDataManager.m in Sources */,
 				FE887D5F2416768700025A74 /* DynamicConstItem.m in Sources */,
 				FE15ACB724357F920062741F /* RoleRes.m in Sources */,
-				9CDEDB362561908C0099F83B /* LightDisplay3DSprite.m in Sources */,
 				FE99B40925471C9800DEFA84 /* BaseEvent.m in Sources */,
 				FE189ADB24026B7E008E2FF6 /* KeyFrame.m in Sources */,
 				FE80570E2405BE15000F6D17 /* ParticleGpuData.m in Sources */,
@@ -1746,7 +1735,6 @@
 				9CDEDB42256190C50099F83B /* FrameFileNode.m in Sources */,
 				FEF3D4C22436B4E90055AB31 /* AnimData.m in Sources */,
 				FEF3D4C92436B7090055AB31 /* ObjectBaseBone.m in Sources */,
-				9CDEDB3A2561909B0099F83B /* ShadowDisplay3DSprite.m in Sources */,
 				FE887D7424168FDE00025A74 /* LoadManager.m in Sources */,
 				FE2F3019241C2CBD0005F686 /* TextureManager.m in Sources */,
 				FE776AC82448483A00B8B5A4 /* DisplayTestShader.m in Sources */,
