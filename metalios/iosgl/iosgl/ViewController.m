@@ -19,6 +19,7 @@
 
 
 @interface ViewController ()
+ 
 
 @end
 
@@ -35,6 +36,11 @@
     
     
     NSLog(@"-----------");
+    
+  
+ 
+    
+ 
 }
 
 - (void) setTabItemInfo:(NSString *) iconname  VC:(UIViewController *) vc {
@@ -46,8 +52,6 @@
 //    Frame3dViewController *vc01=[[Frame3dViewController alloc] init];
 //    Md5FileViewController *vc01=[[Md5FileViewController alloc] init];
     ListViewController *vc01=[[ListViewController alloc] init];
-    
-    
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
     SceneUiViewController *vc04=[[SceneUiViewController alloc] init];
@@ -67,7 +71,7 @@
     vc04.tabBarItem.title = @"场景";
     vc05.tabBarItem.title = @"技能";
     
-    vc03.tabBarItem.imageInsets = UIEdgeInsetsMake(-10, -5, 0,-5);
+//    vc03.tabBarItem.imageInsets = UIEdgeInsetsMake(-10, -5, 0,-5);
     
     
     BaseNavigationViewController *nav001 = [[BaseNavigationViewController alloc] initWithRootViewController:vc01];
@@ -78,8 +82,7 @@
     
     
     self.viewControllers=[NSArray arrayWithObjects:nav001,nav002,nav003,nav004 ,nav005, nil];
-    vc01.tabBarItem.badgeValue = @"1";
+//    vc01.tabBarItem.badgeValue = @"1";
 }
-
 
 @end
