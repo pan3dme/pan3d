@@ -15,6 +15,7 @@
 #import "SceneUiViewController.h"
 #import "RoleUiViewController.h"
 #import "ParticleUiViewController.h"
+#import "ListViewController.h"
 
 
 @interface ViewController ()
@@ -42,8 +43,10 @@
     vc.tabBarItem.imageInsets = UIEdgeInsetsMake(1, 1, 1,1);
 }
 -(void)addView{
-    Frame3dViewController *vc01=[[Frame3dViewController alloc] init];
+//    Frame3dViewController *vc01=[[Frame3dViewController alloc] init];
 //    Md5FileViewController *vc01=[[Md5FileViewController alloc] init];
+    ListViewController *vc01=[[ListViewController alloc] init];
+    
     
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
