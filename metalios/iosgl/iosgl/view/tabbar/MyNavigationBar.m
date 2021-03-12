@@ -8,7 +8,10 @@
 
 #import "MyNavigationBar.h"
 #import <UIKit/UIKit.h>
-#define NavigationBar_H 40
+ 
+#define NavigationBar_H 65.f
+#define TabBar_H 100.f
+
 @implementation MyNavigationBar
 
 - (void)layoutSubviews {
@@ -19,12 +22,12 @@
     self.frame = selfFrame;
     
     CGRect mFrame = CGRectZero;
-    
+    CGFloat   navigationBar_th = [UIApplication sharedApplication].windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height;
     for (UIView *aView in self.subviews) {
         NSString*aString = NSStringFromClass([aView class]);
         if ([@[@"_UIBarBackground"] containsObject:aString]) {
             CGRect frame = aView.frame;
-            frame.size.height = NavigationBar_H;
+            frame.size.height = navigationBar_th;
             frame.origin.y = 0;
             aView.frame = frame;
             NSLog(@"aView.frame,%f",frame.origin.y);

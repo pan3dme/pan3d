@@ -19,7 +19,8 @@
 
 
 @interface ViewController ()
- 
+
+@property (nonatomic ,strong) UIView *statusBar;
 
 @end
 
@@ -38,10 +39,12 @@
     NSLog(@"-----------");
     
   
- 
+  
     
  
 }
+
+ 
 
 - (void) setTabItemInfo:(NSString *) iconname  VC:(UIViewController *) vc {
     vc.tabBarItem.image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@_ac",iconname]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -83,6 +86,20 @@
     
     self.viewControllers=[NSArray arrayWithObjects:nav001,nav002,nav003,nav004 ,nav005, nil];
 //    vc01.tabBarItem.badgeValue = @"1";
+    
+//    UITabBarController *mTabBar = [[UITabBarController alloc] init];
+//        mTabBar.tabBar.frame = CGRectMake(0, 460-40, 320, 40);
+//        UIView * transitionView = [[mTabBar.view subviews] objectAtIndex:0];
+//        transitionView.height = 460-40;
+    
+    
 }
-
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+ 
+    self.tabBar.frame=CGRectMake(0,  [UIScreen mainScreen].bounds.size.height-100.f,  [UIScreen mainScreen].bounds.size.width, 100.f);
+    self.tabBar.backgroundColor=[UIColor whiteColor];
+    
+}
 @end
