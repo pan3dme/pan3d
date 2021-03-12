@@ -37,6 +37,7 @@
     [arr addObject:@"推-"];
     for(int i=0;i<arr.count;i++){
         UIButton* oneBut=[self makeButtion];
+        
         [oneBut setTitle:arr[i] forState:UIControlStateNormal];
         [oneBut setTitle:arr[i] forState:UIControlStateHighlighted];
         [oneBut addTarget:self action:@selector(addMenuListClikEvent:) forControlEvents:UIControlEventTouchUpInside] ;
