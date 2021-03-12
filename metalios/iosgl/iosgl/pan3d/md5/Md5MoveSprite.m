@@ -24,6 +24,7 @@
 #import "Md5MeshShader.h"
 #import "ProgrmaManager.h"
 #import "TextureManager.h"
+#import "Md5MoveShaderType.h"
 
 @interface Md5MoveSprite ()
 @property(nonatomic,strong)Md5MeshData* md5MeshData;
@@ -185,51 +186,60 @@
     [self.md5MeshData upToGpu];
     Md5MoveSprite* this=self;
     Md5MeshData* mesh= this.md5MeshData;
-    /*
-    Context3D *ctx=this.scene3D.context3D;
-    GLuint progame= self.shader3d.program;
-    glUseProgram(progame);
+    
+   
+    id<MTLRenderCommandEncoder> renderEncoder=this.scene3D.context3D.renderEncoder;
+    
+    [self.shader3d mtlSetProgramShader];
     
     [self setVc];
-    [ctx pushVa:mesh.verticesBuffer];
-    [ctx setVaOffset:this.shader3d name:"pos" dataWidth:3 stride:0 offset:0];
-    [ctx pushVa:mesh.uvBuffer];
-    [ctx setVaOffset:this.shader3d name:"v2Uv" dataWidth:2 stride:0 offset:0];
-    [ctx pushVa: mesh.boneIdBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneID" dataWidth:4 stride:0 offset:0];
-    [ctx pushVa: mesh.boneWeightBuffer];
-    [ctx setVaOffset:this.shader3d name:"boneWeight" dataWidth:4 stride:0 offset:0];
     
-    [ctx setRenderTexture:self.shader3d name:@"fs0"  texture:self.textureRes.textTureLuint level:0];
- 
+    
+    [renderEncoder setCullMode:0];
+    
+    
     self.skipNum++;
     
     DualQuatFloat32Array* dualQuatFrame = this.frameQuestArr[ self.skipNum%this.frameQuestArr.count];
     
-    GLfloat boneQarr[dualQuatFrame.quatArr.count];
-    for (int i=0; i<dualQuatFrame.quatArr.count; i++) {
-        boneQarr[i]=dualQuatFrame.quatArr[i].floatValue;
-    }
-    GLfloat boneDarr[dualQuatFrame.posArr.count];
-    for (int i=0; i<dualQuatFrame.posArr.count; i++) {
-        boneDarr[i]=dualQuatFrame.posArr[i].floatValue;
-    }
-    [ctx setVc4fv:self.shader3d name:"boneQ" data:boneQarr len:54];
-    [ctx setVc3fv:self.shader3d name:"boneD" data:boneDarr len:54];
+   
+  
+ 
+    [renderEncoder setVertexBuffer: dualQuatFrame.mtkquatArr   offset:0   atIndex:5];
+    [renderEncoder setVertexBuffer: dualQuatFrame.mtkposArr   offset:0   atIndex:6];
     
-    [ctx drawCall: mesh.indexBuffer  numTril:mesh.trinum];
-    */
+   
+    [renderEncoder setVertexBuffer: mesh.mtkvertices  offset:0  atIndex:1];
+    [renderEncoder setVertexBuffer: mesh.mtkuvs  offset:0  atIndex:2];
+    [renderEncoder setVertexBuffer: mesh.mtkboneId  offset:0  atIndex:3];
+    [renderEncoder setVertexBuffer: mesh.mtkboneWeight   offset:0   atIndex:4];
+    
+    
+ 
+      [renderEncoder setFragmentTexture:self.textureRes.mtlTexture
+                                atIndex:0];
+    
+    
+    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                              indexCount: mesh.mtkindexCount
+                               indexType:MTLIndexTypeUInt32
+                             indexBuffer: mesh.mtkindexs
+                       indexBufferOffset:0];
+    
+     
 }
 - (void)setVc;
 {
-    /*
-    Md5MoveSprite* this=self;
-    Context3D *context3D=this.scene3D.context3D;
-    [this.posMatrix3d identity];
-    Matrix3D* viewM=this.viewMatrix;
-    [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:viewM.m];
-    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
-    */
+  
+     id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+     
+    Matrix3D* posMatrix =[[Matrix3D alloc]init];
+    Md5MatrixRoleView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+    [renderEncoder setVertexBytes:&matrix
+                           length:sizeof(matrix)
+                          atIndex:0];
+    
+    
 }
 
 @end

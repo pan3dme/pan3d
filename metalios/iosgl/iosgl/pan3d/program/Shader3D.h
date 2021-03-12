@@ -12,6 +12,7 @@
 @import MetalKit;
 @import GLKit;
 
+
 #if !defined(_STRINGIFY)
 #define __STRINGIFY( _x )   # _x
 #define _STRINGIFY( _x )   __STRINGIFY( _x )
@@ -48,6 +49,7 @@ static NSString *(^stringifyImportsArray)(NSArray *) = ^(NSArray *headerFileName
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Shader3D : ResCount
+
 
 @property (nonatomic, strong) id<MTLRenderPipelineState> pipelineState;
 @property (nonatomic, strong)  id <MTLDepthStencilState> relaxedDepthState;

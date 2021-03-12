@@ -1484,8 +1484,8 @@
             filePath = "iosgl/pan3d/md5/Md5MoveSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-upFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -1493,16 +1493,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "40A59C51-054B-4714-BB21-14B30F71B3D4"
+            uuid = "D1A22D9B-549B-443D-BEB3-DD1C8DBA2909"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iosgl/pan3d/md5/Md5MoveSprite.m"
+            filePath = "iosgl/pan3d/md5/vo/Md5MeshData.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "-updateMaterialMeshCopy"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-upToGpu"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A4B0134-D327-4684-9821-D1BCD94AFC4A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iosgl/pan3d/md5/vo/Md5MeshData.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-upToGpu"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

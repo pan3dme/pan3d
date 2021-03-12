@@ -17,12 +17,21 @@
         return;
     }
     if( self.vertices&&self.vertices.count){
-        self.verticesBuffer=  [self upGpuvertexBuffer:self.vertices];
-        self.uvBuffer=  [self upGpuvertexBuffer:self.uvs];
-        self.boneIdBuffer=  [self upGpuvertexBuffer:self.boneIDAry];
-        self.boneWeightBuffer=  [self upGpuvertexBuffer:self.boneWeightAry];
-        self.indexBuffer=  [self upGpuIndexBuffer:self.indexs];
-        self.trinum=(int)self.indexs.count;
+//        self.verticesBuffer=  [self upGpuvertexBuffer:self.vertices];
+//        self.uvBuffer=  [self upGpuvertexBuffer:self.uvs];
+//        self.boneIdBuffer=  [self upGpuvertexBuffer:self.boneIDAry];
+//        self.boneWeightBuffer=  [self upGpuvertexBuffer:self.boneWeightAry];
+//        self.indexBuffer=  [self upGpuIndexBuffer:self.indexs];
+//        self.trinum=(int)self.indexs.count;
+        
+     
+ 
+        self.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat3:self.vertices ];
+        self.mtkuvs= [self.scene3D.context3D changeDataToGupMtkfloat2:self.uvs ];
+        self.mtkboneId= [self.scene3D.context3D changeDataToGupMtkfloat4:self.boneIDAry ];
+        self.mtkboneWeight= [self.scene3D.context3D changeDataToGupMtkfloat4:self.boneWeightAry ];
+        self.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:self.indexs];
+        self.mtkindexCount = self.indexs.count;
     }
     self.compressBuffer=YES;
 }

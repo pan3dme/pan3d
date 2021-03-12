@@ -252,6 +252,7 @@
 		9C676E5625F90E3D00E6B2F6 /* Frame3dViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Frame3dViewController.m; sourceTree = "<group>"; };
 		9C676E5A25F9253F00E6B2F6 /* Md5FileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Md5FileViewController.h; sourceTree = "<group>"; };
 		9C676E5B25F9253F00E6B2F6 /* Md5FileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Md5FileViewController.m; sourceTree = "<group>"; };
+		9C7B63FB25FB4EED008F27C1 /* Md5MoveShaderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Md5MoveShaderType.h; sourceTree = "<group>"; };
 		9C7D6C4025F679CF00039350 /* SkillUiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillUiViewController.h; sourceTree = "<group>"; };
 		9C7D6C4125F679CF00039350 /* SkillUiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillUiViewController.m; sourceTree = "<group>"; };
 		9C7EFFB925E3DE2A00FF22C9 /* TestShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestShader.h; sourceTree = "<group>"; };
@@ -660,6 +661,7 @@
 				9C1DA446255C648D00FAE501 /* MeshToObjUtils.m */,
 				9C1DA449255C648D00FAE501 /* Md5animAnalysis.h */,
 				9C1DA436255C648D00FAE501 /* Md5animAnalysis.m */,
+				9C7B63FB25FB4EED008F27C1 /* Md5MoveShaderType.h */,
 				9C1DA444255C648D00FAE501 /* Md5MeshShader.h */,
 				9C1DA44A255C648D00FAE501 /* Md5MeshShader.m */,
 				9C1DA44C255C648D00FAE501 /* Md5MoveSprite.h */,
