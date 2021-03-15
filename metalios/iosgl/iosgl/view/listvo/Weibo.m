@@ -13,11 +13,6 @@
 {
     self = [super init];
     if (self) {
-//        @property (nonatomic, copy) NSString *text;         // 内容
-//        @property (nonatomic, copy) NSString *icon;         // 头像图片名称
-//        @property (nonatomic, copy) NSString *name;         // 昵称图片名称
-//        @property (nonatomic, copy) NSString *picture;      // 配图图片名称
-        
         self.name=@"herr";
         self.text=@"herr";
     }

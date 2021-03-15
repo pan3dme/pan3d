@@ -695,6 +695,19 @@
 			path = vo;
 			sourceTree = "<group>";
 		};
+		9C50884A25FEFE1F007CB9D9 /* listvo */ = {
+			isa = PBXGroup;
+			children = (
+				9C93F9E725FE69A800C23A2D /* Weibo.h */,
+				9C93F9E825FE69A800C23A2D /* Weibo.m */,
+				9C93F9E325FE693F00C23A2D /* WeiboFrame.h */,
+				9C93F9E425FE693F00C23A2D /* WeiboFrame.m */,
+				9C93F9EC25FE6A0300C23A2D /* WeiboCell.h */,
+				9C93F9ED25FE6A0300C23A2D /* WeiboCell.m */,
+			);
+			path = listvo;
+			sourceTree = "<group>";
+		};
 		9C55A09A25C99E96004CA03B /* role */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,16 +834,11 @@
 		9CE667ED25EC7CFB00CE6204 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				9C50884A25FEFE1F007CB9D9 /* listvo */,
 				9C7B640425FB86D2008F27C1 /* basescenes */,
 				9CE6680D25ECA9B600CE6204 /* tabbar */,
 				9C7B640025FB851F008F27C1 /* ListViewController.h */,
 				9C7B640125FB851F008F27C1 /* ListViewController.m */,
-				9C93F9E725FE69A800C23A2D /* Weibo.h */,
-				9C93F9E825FE69A800C23A2D /* Weibo.m */,
-				9C93F9E325FE693F00C23A2D /* WeiboFrame.h */,
-				9C93F9E425FE693F00C23A2D /* WeiboFrame.m */,
-				9C93F9EC25FE6A0300C23A2D /* WeiboCell.h */,
-				9C93F9ED25FE6A0300C23A2D /* WeiboCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
