@@ -8,7 +8,7 @@
 
 #import "ListViewController.h"
 #import "WeiboCell.h"
- 
+#import "LoadManager.h"
 #import "WeiboFrame.h"
 
 #define NavigationBar_H 65.f
@@ -18,6 +18,11 @@
 @property (nonatomic ,strong) UIView *statusBar;
 @property (nonatomic, strong) NSArray *statusFrames;
 @property (nonatomic, strong) UITableView *uiTableView;
+@property (nonatomic, strong) NSMutableArray* userList;
+@property (nonatomic, strong) NSMutableDictionary* userVo;
+@property (nonatomic, strong) NSString* curelementName;
+@property (nonatomic, strong) NSArray* elementToParse;
+@property (nonatomic, assign) BOOL storingFlag;
 @end
 
 @implementation ListViewController
@@ -27,6 +32,8 @@
     [self addViews];
     [self addUiTableView];
     [self setupStatusBarColor:[UIColor whiteColor]];
+    
+    [self loadXmlByUrl];
     
 }
 -(void)addViews
@@ -50,6 +57,103 @@
     
     
 }
+-(void)loadXmlByUrl
+{
+    NSString* netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/assets/list.xml";
+    [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
+        NSDictionary* dic=(NSDictionary*)value;
+        NSString *str=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSASCIIStringEncoding error:nil];
+        [self meshXmlInfo:str];
+    }];
+    
+}
+-(void)meshXmlInfo:(NSString*)str
+{
+    //4.解析数据
+    //4.1 创建XML解析器:SAX
+    self.elementToParse = [[NSArray alloc] initWithObjects:@"name",@"text",@"age", nil];
+    NSXMLParser *parser = [[NSXMLParser alloc]initWithData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //4.2 设置代理
+    parser.delegate = self;
+    
+    //4.3 开始解析,阻塞
+    [parser parse];
+    
+}
+#pragma mark -
+#pragma mark NSXMLParserDelegate
+
+/* 开始解析xml文件，在开始解析xml节点前，通过该方法可以做一些初始化工作 */
+- (void)parserDidStartDocument:(NSXMLParser *)parser
+{
+    NSLog(@"开始解析xml文件");
+}
+
+/* 当解析器对象遇到xml的开始标记时，调用这个方法开始解析该节点 */
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+    attributes:(NSDictionary *)attributeDict
+{
+    NSLog(@"发现节点");
+    //userList
+    
+    if([elementName isEqualToString:@"Users"])
+    {
+        self.userList = [[NSMutableArray alloc] init];
+    }
+    else   if([elementName isEqualToString:@"User"])
+    {
+        self.userVo = [[NSMutableDictionary alloc] init];
+        [self.userList addObject:self.userVo];
+    }
+    self.curelementName=elementName;
+    self.storingFlag= [self.elementToParse containsObject:elementName];
+   
+    
+    
+}
+
+/* 当解析器找到开始标记和结束标记之间的字符时，调用这个方法解析当前节点的所有字符 */
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    if(self.storingFlag){
+        NSLog(@"正在解析节点内容%@-%@",  self.curelementName,string);
+        NSLog(@"正在解析节点内容%@-%@",  self.curelementName,string);
+        [self.userVo valueForKey:self.curelementName];
+        
+        NSString* b=[self.userVo valueForKey:self.curelementName];
+        if([self.userVo valueForKey:self.curelementName]==nil){
+            [self.userVo setValue: string forKey:self.curelementName];
+           
+        }else{
+            [self.userVo setValue: [b stringByAppendingString:string] forKey:self.curelementName];
+           
+        }
+       
+        
+        
+        
+    }
+    
+}
+
+/* 当解析器对象遇到xml的结束标记时，调用这个方法完成解析该节点 */
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    NSLog(@"解析节点结束");
+   
+}
+
+
+
+/* 解析xml文件结束 */
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    NSLog(@"解析xml文件结束");
+    
+}
+
+
 - (void)viewDidLayoutSubviews
 {
     self.bgBaseUiView.frame=CGRectMake(0.f, CGRectGetMaxY(_statusBar.frame), self.view.bounds.size.width,[UIScreen mainScreen].bounds.size.height- NavigationBar_H-TabBar_H);
@@ -78,14 +182,14 @@
 #pragma mark  懒加载
 -(NSArray *)statusFrames{
     if (_statusFrames==nil) {
- 
-      
+        
+        
         NSMutableArray *models = [NSMutableArray arrayWithCapacity:10];
         for (int i=0;i<10;i++) {
-       
+            
             WeiboFrame *wbF = [[WeiboFrame alloc] init];
             [wbF setWeiboInfo];
-    
+            
             [models addObject:wbF];
         }
         self.statusFrames = [models copy];

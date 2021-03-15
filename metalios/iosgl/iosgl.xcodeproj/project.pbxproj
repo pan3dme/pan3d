@@ -18,6 +18,8 @@
 		9C1DA498255C655E00FAE501 /* ObjectTri.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA493255C655E00FAE501 /* ObjectTri.m */; };
 		9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA495255C655E00FAE501 /* ObjectUv.m */; };
 		9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA497255C655E00FAE501 /* ObjectWeight.m */; };
+		9C43DD5225FF8B98000CBA19 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C43DD5125FF8B98000CBA19 /* Book.m */; };
+		9C43DD5725FF8BF3000CBA19 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C43DD5625FF8BF3000CBA19 /* BookViewController.m */; };
 		9C55A0A225C99F79004CA03B /* MtkMoveDisplay.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */; };
 		9C55A0A725C99F9A004CA03B /* MtkMoveDisplayShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A625C99F9A004CA03B /* MtkMoveDisplayShader.m */; };
 		9C676E5725F90E3D00E6B2F6 /* Frame3dViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C676E5625F90E3D00E6B2F6 /* Frame3dViewController.m */; };
@@ -245,6 +247,10 @@
 		9C1DA495255C655E00FAE501 /* ObjectUv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectUv.m; sourceTree = "<group>"; };
 		9C1DA496255C655E00FAE501 /* ObjectWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWeight.h; sourceTree = "<group>"; };
 		9C1DA497255C655E00FAE501 /* ObjectWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWeight.m; sourceTree = "<group>"; };
+		9C43DD5025FF8B98000CBA19 /* Book.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		9C43DD5125FF8B98000CBA19 /* Book.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		9C43DD5525FF8BF3000CBA19 /* BookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookViewController.h; sourceTree = "<group>"; };
+		9C43DD5625FF8BF3000CBA19 /* BookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
 		9C55A0A025C99F42004CA03B /* MtlMoveDisplayType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtlMoveDisplayType.h; sourceTree = "<group>"; };
 		9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MtkMoveDisplay.metal; sourceTree = "<group>"; };
 		9C55A0A525C99F9A004CA03B /* MtkMoveDisplayShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkMoveDisplayShader.h; sourceTree = "<group>"; };
@@ -837,6 +843,10 @@
 				9C50884A25FEFE1F007CB9D9 /* listvo */,
 				9C7B640425FB86D2008F27C1 /* basescenes */,
 				9CE6680D25ECA9B600CE6204 /* tabbar */,
+				9C43DD5025FF8B98000CBA19 /* Book.h */,
+				9C43DD5125FF8B98000CBA19 /* Book.m */,
+				9C43DD5525FF8BF3000CBA19 /* BookViewController.h */,
+				9C43DD5625FF8BF3000CBA19 /* BookViewController.m */,
 				9C7B640025FB851F008F27C1 /* ListViewController.h */,
 				9C7B640125FB851F008F27C1 /* ListViewController.m */,
 			);
@@ -1707,6 +1717,7 @@
 				FE1D8B4F2412902200A04FC4 /* DisplayBaseTriSprite.m in Sources */,
 				FE2088E3239BE899007FB797 /* ProgrmaManager.m in Sources */,
 				FE1E1BB8254A7695009590DB /* SkillActionVo.m in Sources */,
+				9C43DD5225FF8B98000CBA19 /* Book.m in Sources */,
 				FEEF8BC62448E702001AFEB2 /* SkillFixEffect.m in Sources */,
 				FE887D6E241676CC00025A74 /* TexItem.m in Sources */,
 				FE2F1BA6240BAD5A005E287F /* Quaternion.m in Sources */,
@@ -1758,6 +1769,7 @@
 				9C1DA48E255C654600FAE501 /* Md5MeshData.m in Sources */,
 				9CDEDB29256190470099F83B /* FrameBaseDisplay.m in Sources */,
 				FEF6063A23B9D10100DE6C2F /* Camera3D.m in Sources */,
+				9C43DD5725FF8BF3000CBA19 /* BookViewController.m in Sources */,
 				FEEF8BDD2448E7CD001AFEB2 /* SkillKeyVo.m in Sources */,
 				9CE667F125EC7D7300CE6204 /* SceneUiViewController.m in Sources */,
 				FEEF8BD02448E777001AFEB2 /* PathManager.m in Sources */,

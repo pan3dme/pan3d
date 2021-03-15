@@ -14,9 +14,6 @@ target 'iosgl' do
  pod 'GZIP', '~> 1.2'
  
  
- pod 'GDataXMLNode'
-
- ## Usage
  
 
 end
