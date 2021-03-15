@@ -16,10 +16,10 @@
 @interface ListViewController ()
 @property (nonatomic ,strong) UIView *bgBaseUiView;
 @property (nonatomic ,strong) UIView *statusBar;
-@property (nonatomic, strong) NSArray *statusFrames;
+ 
 @property (nonatomic, strong) UITableView *uiTableView;
 @property (nonatomic, strong) NSMutableArray* userList;
-@property (nonatomic, strong) NSMutableDictionary* userVo;
+@property (nonatomic, strong) WeiboFrame* userVo;
 @property (nonatomic, strong) NSString* curelementName;
 @property (nonatomic, strong) NSArray* elementToParse;
 @property (nonatomic, assign) BOOL storingFlag;
@@ -38,7 +38,7 @@
 }
 -(void)addViews
 {
-    [self statusFrames];
+   
     self.bgBaseUiView=[[UIView alloc]init];
     self.bgBaseUiView.backgroundColor=[UIColor grayColor];
     [self.view addSubview: self.bgBaseUiView];
@@ -65,6 +65,8 @@
         NSString *str=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSASCIIStringEncoding error:nil];
         [self meshXmlInfo:str];
     }];
+    
+    
     
 }
 -(void)meshXmlInfo:(NSString*)str
@@ -103,7 +105,10 @@
     }
     else   if([elementName isEqualToString:@"User"])
     {
-        self.userVo = [[NSMutableDictionary alloc] init];
+        self.userVo = [[WeiboFrame alloc] init];
+        self.userVo.name=@"abc";
+        self.userVo.text=@"显示内容";
+
         [self.userList addObject:self.userVo];
     }
     self.curelementName=elementName;
@@ -119,7 +124,7 @@
     if(self.storingFlag){
         NSLog(@"正在解析节点内容%@-%@",  self.curelementName,string);
         NSLog(@"正在解析节点内容%@-%@",  self.curelementName,string);
-        [self.userVo valueForKey:self.curelementName];
+        
         
         NSString* b=[self.userVo valueForKey:self.curelementName];
         if([self.userVo valueForKey:self.curelementName]==nil){
@@ -129,6 +134,7 @@
             [self.userVo setValue: [b stringByAppendingString:string] forKey:self.curelementName];
            
         }
+            [self.userVo setWeiboInfo];
        
         
         
@@ -150,7 +156,7 @@
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     NSLog(@"解析xml文件结束");
-    
+    [self.uiTableView reloadData];
 }
 
 
@@ -178,37 +184,21 @@
 }
 
 
-#pragma mark--
-#pragma mark  懒加载
--(NSArray *)statusFrames{
-    if (_statusFrames==nil) {
-        
-        
-        NSMutableArray *models = [NSMutableArray arrayWithCapacity:10];
-        for (int i=0;i<10;i++) {
-            
-            WeiboFrame *wbF = [[WeiboFrame alloc] init];
-            [wbF setWeiboInfo];
-            
-            [models addObject:wbF];
-        }
-        self.statusFrames = [models copy];
-    }
-    return _statusFrames;
-}
+ 
 
 #pragma mark--
 #pragma mark  UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.statusFrames.count;
+    return self.userList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WeiboCell *cell = [WeiboCell cellWithTableView:tableView];
     //设置数据
-    cell.weiboFrame = self.statusFrames[indexPath.row];
+    cell.weiboFrame = self.self.userList[indexPath.row];
+ 
     
     return cell;
 }
@@ -217,8 +207,9 @@
 #pragma mark  UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //取出对应行的frame模型
-    WeiboFrame *wbF = [_statusFrames objectAtIndex:indexPath.row];
+    WeiboFrame *wbF = [self.userList objectAtIndex:indexPath.row];
     NSLog(@"height = %f",wbF.cellHeight);
+ 
     return wbF.cellHeight;
 }
 
