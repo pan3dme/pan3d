@@ -1,14 +1,19 @@
 #import "WeiboFrame.h"
-#import "Weibo.h"
+ 
 
 #define NameFont [UIFont systemFontOfSize:15]
 #define TextFont [UIFont systemFontOfSize:16]
 
 @implementation WeiboFrame
 
-- (void)setWeibo:(Weibo *)weibo
+- (void)setWeiboInfo
 {
-    _weibo = weibo;
+ 
+    
+    self.name=@"标题";
+    self.text=@"完美胡设计方案";
+    
+    WeiboFrame* _weibo=self;
     
     // 间隙
     CGFloat padding = 10;
@@ -63,7 +68,7 @@
         // 6.没有配图情况下的行高
         self.cellHeight = CGRectGetMaxY(self.introF) + padding;
     }
-    self.cellHeight=200.f;
+//    self.cellHeight=200.f;
 }
 
 /**

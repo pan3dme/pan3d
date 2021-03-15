@@ -12,8 +12,15 @@
 /*
  *  1.数据模型
  */
+//        [self setValuesForKeysWithDictionary:dict];
+ 
 
-@property (nonatomic, strong) Weibo *weibo;
+
+@property (nonatomic, copy) NSString *text;         // 内容
+@property (nonatomic, copy) NSString *icon;         // 头像图片名称
+@property (nonatomic, copy) NSString *name;         // 昵称图片名称
+@property (nonatomic, copy) NSString *picture;      // 配图图片名称
+@property (nonatomic, assign) BOOL vip;             // 判断用户是不是Vip
 
 /*
  *  2.frame模型
@@ -31,5 +38,7 @@
 @property (nonatomic, assign) CGRect pictrueF;
 //行高
 @property (nonatomic, assign) CGFloat cellHeight;
+
+- (void)setWeiboInfo;
 
 @end

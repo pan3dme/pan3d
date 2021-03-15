@@ -8,7 +8,7 @@
 
 #import "ListViewController.h"
 #import "WeiboCell.h"
-#import "Weibo.h"
+ 
 #import "WeiboFrame.h"
 
 #define NavigationBar_H 65.f
@@ -42,7 +42,7 @@
 }
 -(void)addUiTableView
 {
-    self.uiTableView=[[UITableView alloc]initWithFrame:CGRectMake(10, 10, 300, 500)];
+    self.uiTableView=[[UITableView alloc]init];
     [self.bgBaseUiView addSubview:self.uiTableView];
     
     self.uiTableView.delegate=self;
@@ -56,6 +56,8 @@
     
     
     self.uiTableView.frame=CGRectMake(0,0,self.bgBaseUiView.frame.size.width,self.bgBaseUiView.frame.size.height);
+    
+    self.uiTableView.backgroundColor=[UIColor redColor];
 }
 
 - (void)setupStatusBarColor:(UIColor *)color
@@ -80,11 +82,10 @@
       
         NSMutableArray *models = [NSMutableArray arrayWithCapacity:10];
         for (int i=0;i<10;i++) {
-            //创建数据模型
-            Weibo *weibo = [[Weibo alloc] init];
-            //根据数据模型创建frame模型
+       
             WeiboFrame *wbF = [[WeiboFrame alloc] init];
-            wbF.weibo = weibo;
+            [wbF setWeiboInfo];
+    
             [models addObject:wbF];
         }
         self.statusFrames = [models copy];

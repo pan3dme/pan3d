@@ -1,5 +1,5 @@
 #import "WeiboCell.h"
-#import "Weibo.h"
+ 
 
 #define NameFont [UIFont systemFontOfSize:15]
 #define TextFont [UIFont systemFontOfSize:16]
@@ -95,7 +95,7 @@
 }
 
 -(void)settingData{
-    Weibo *weibo = self.weiboFrame.weibo;
+    WeiboFrame *weibo = self.weiboFrame;
     
     //设置头像
     self.iconView.image = [UIImage imageNamed:weibo.icon];
@@ -128,7 +128,7 @@
     self.nameLabel.frame = self.weiboFrame.nameF;
     self.vipView.frame = self.weiboFrame.vipF;
     self.introLabel.frame = self.weiboFrame.introF;
-    if (self.weiboFrame.weibo.picture) {
+    if (self.weiboFrame.picture) {
         self.pictureView.frame = self.weiboFrame.pictrueF;
     }
 }
