@@ -45,6 +45,7 @@
 		9CDEDB42256190C50099F83B /* FrameFileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB41256190C50099F83B /* FrameFileNode.m */; };
 		9CDEDB46256190E50099F83B /* FrameLinePointVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB45256190E50099F83B /* FrameLinePointVo.m */; };
 		9CDEDB4A256190F80099F83B /* FrameNodeVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB49256190F80099F83B /* FrameNodeVo.m */; };
+		9CE49A8025FF0C4800F07926 /* XmlMeshManneger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE49A7F25FF0C4800F07926 /* XmlMeshManneger.m */; };
 		9CE551FE25619507004E7C31 /* Frame3dSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE551FD25619507004E7C31 /* Frame3dSprite.m */; };
 		9CE552022561A8E7004E7C31 /* FrameSceneChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE552012561A8E7004E7C31 /* FrameSceneChar.m */; };
 		9CE667F125EC7D7300CE6204 /* SceneUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE667F025EC7D7300CE6204 /* SceneUiViewController.m */; };
@@ -300,6 +301,8 @@
 		9CDEDB45256190E50099F83B /* FrameLinePointVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameLinePointVo.m; sourceTree = "<group>"; };
 		9CDEDB48256190F80099F83B /* FrameNodeVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameNodeVo.h; sourceTree = "<group>"; };
 		9CDEDB49256190F80099F83B /* FrameNodeVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameNodeVo.m; sourceTree = "<group>"; };
+		9CE49A7E25FF0C4800F07926 /* XmlMeshManneger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XmlMeshManneger.h; sourceTree = "<group>"; };
+		9CE49A7F25FF0C4800F07926 /* XmlMeshManneger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XmlMeshManneger.m; sourceTree = "<group>"; };
 		9CE551FC25619507004E7C31 /* Frame3dSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Frame3dSprite.h; sourceTree = "<group>"; };
 		9CE551FD25619507004E7C31 /* Frame3dSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Frame3dSprite.m; sourceTree = "<group>"; };
 		9CE552002561A8E7004E7C31 /* FrameSceneChar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameSceneChar.h; sourceTree = "<group>"; };
@@ -699,6 +702,8 @@
 				9C93F9E425FE693F00C23A2D /* WeiboFrame.m */,
 				9C93F9EC25FE6A0300C23A2D /* WeiboCell.h */,
 				9C93F9ED25FE6A0300C23A2D /* WeiboCell.m */,
+				9CE49A7E25FF0C4800F07926 /* XmlMeshManneger.h */,
+				9CE49A7F25FF0C4800F07926 /* XmlMeshManneger.m */,
 			);
 			path = listvo;
 			sourceTree = "<group>";
@@ -1672,6 +1677,7 @@
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
 				FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */,
 				FEEF8BEA2449A183001AFEB2 /* Display3DLocusBallPartilce.m in Sources */,
+				9CE49A8025FF0C4800F07926 /* XmlMeshManneger.m in Sources */,
 				FE4CA7D62398DAAA00BE6FB5 /* Matrix3D.m in Sources */,
 				FEF3D4B92436A61D0055AB31 /* BindParticle.m in Sources */,
 				FEEF8BF6244A55BD001AFEB2 /* SceneChar.m in Sources */,
