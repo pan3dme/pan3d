@@ -52,9 +52,10 @@
     self.uiTableView=[[UITableView alloc]init];
     [self.bgBaseUiView addSubview:self.uiTableView];
     
+    
+    
     self.uiTableView.delegate=self;
     self.uiTableView.dataSource=self;
-    
     
 }
 -(void)loadXmlByUrl

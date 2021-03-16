@@ -13,7 +13,7 @@
 //    self.name=@"标题";
 //    self.text=@"完美胡设计方案";
     self.picture= @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/2dbg.jpg";
-    
+    self.icon= @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/2dbg.jpg";
     WeiboFrame* _weibo=self;
     
     // 间隙

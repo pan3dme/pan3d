@@ -99,7 +99,9 @@
     WeiboFrame *weibo = self.weiboFrame;
     
     //设置头像
-    self.iconView.image = [UIImage imageNamed:weibo.icon];
+ 
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:weibo.icon] placeholderImage:nil];
+    
     //设置昵称
     self.nameLabel.text = weibo.name;
     //设置vip
