@@ -6,8 +6,10 @@ target 'iosgl' do
 
  pod 'MJRefresh'
  
-
+ 
+ 
  pod 'SDWebImage'
+ 
   
  pod 'SSZipArchive'
 
