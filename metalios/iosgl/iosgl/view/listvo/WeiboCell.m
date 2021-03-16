@@ -114,7 +114,17 @@
     //设置配图
     if (self.pictureView) {
         self.pictureView.hidden = NO;
-        self.pictureView.image = [UIImage imageNamed:weibo.picture];
+        NSString* picUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/2dbg.jpg";
+//        self.pictureView.image = [UIImage imageNamed:weibo.picture];
+//        [self.pictureView sd_setImageWithURL:picUrl placeholderImage:nil];
+        NSURL *url = [NSURL URLWithString:picUrl];
+        NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:picUrl]];
+         
+        //然后就是添加照片语句，记得使用imageWithData:方法，不是imageWithName:。
+        self.pictureView.image = [UIImage imageWithData: imageData];
+      
+      
+ 
     }else{
         self.pictureView.hidden = YES;
     }

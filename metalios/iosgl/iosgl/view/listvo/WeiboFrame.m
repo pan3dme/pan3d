@@ -10,8 +10,8 @@
 {
  
     
-    self.name=@"标题";
-    self.text=@"完美胡设计方案";
+//    self.name=@"标题";
+//    self.text=@"完美胡设计方案";
     
     WeiboFrame* _weibo=self;
     
