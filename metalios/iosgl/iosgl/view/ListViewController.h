@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeiboCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NSXMLParserDelegate>
+@interface ListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NSXMLParserDelegate,MyViewDelegate>
 
 @end
 

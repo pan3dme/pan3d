@@ -5,6 +5,8 @@
 #define NameFont [UIFont systemFontOfSize:15]
 #define TextFont [UIFont systemFontOfSize:16]
 
+
+
 @interface WeiboCell ()
 
 /**
@@ -81,8 +83,30 @@
         UIImageView *pictureView = [[UIImageView alloc] init];
         [self.contentView addSubview:pictureView];
         self.pictureView = pictureView;
+        
+        [self addButs];
     }
     return self;
+}
+ 
+-(void)addButs
+{
+    UIButton  *photographButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    photographButton.frame = CGRectMake(0 , 0, 100, 100);
+    [photographButton setImage:[UIImage imageNamed:@"red_tabbar_chongzhi_01"] forState:UIControlStateNormal];
+    [photographButton addTarget:self action:@selector(photographButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.contentView addSubview:photographButton];
+}
+
+- (void)photographButtonClicked:(UIButton *)sender{
+   
+//    [self.navigationController pushViewController:photoPicker animated:YES];
+    
+   
+    
+    [self.weiboFramedelegate myViewClik:self.weiboFrame];
+    
 }
 
 //重写setting方法

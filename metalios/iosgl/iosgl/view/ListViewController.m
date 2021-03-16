@@ -197,6 +197,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WeiboCell *cell = [WeiboCell cellWithTableView:tableView];
+    cell.weiboFramedelegate=self;
     //设置数据
     cell.weiboFrame = self.self.userList[indexPath.row];
  
@@ -217,6 +218,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)myViewClik:(WeiboFrame *)val
+{
+    NSLog(@"ccav%@",val.text);
 }
 
 @end
