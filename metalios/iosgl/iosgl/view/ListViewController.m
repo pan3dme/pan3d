@@ -10,6 +10,7 @@
 #import "WeiboCell.h"
 #import "LoadManager.h"
 #import "WeiboFrame.h"
+#import "ParticleUiViewController.h"
 
 #define NavigationBar_H 65.f
 #define TabBar_H 100.f
@@ -222,6 +223,8 @@
 - (void)myViewClik:(WeiboFrame *)val
 {
     NSLog(@"ccav%@",val.text);
+    
+    [self.navigationController pushViewController:[[ParticleUiViewController alloc]init] animated:YES];
 }
 
 @end
