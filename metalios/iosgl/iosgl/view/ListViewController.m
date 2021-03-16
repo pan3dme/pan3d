@@ -9,18 +9,17 @@
 #import "ListViewController.h"
 #import "WeiboCell.h"
 #import "LoadManager.h"
-#import "WeiboFrame.h"
+#import "WeiboFrameVo.h"
 #import "ParticleUiViewController.h"
 
 #define NavigationBar_H 65.f
 #define TabBar_H 100.f
 @interface ListViewController ()
-@property (nonatomic ,strong) UIView *bgBaseUiView;
-@property (nonatomic ,strong) UIView *statusBar;
+ 
  
 @property (nonatomic, strong) UITableView *uiTableView;
 @property (nonatomic, strong) NSMutableArray* userList;
-@property (nonatomic, strong) WeiboFrame* userVo;
+@property (nonatomic, strong) WeiboFrameVo* userVo;
 @property (nonatomic, strong) NSString* curelementName;
 @property (nonatomic, strong) NSArray* elementToParse;
 @property (nonatomic, assign) BOOL storingFlag;
@@ -30,28 +29,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addViews];
+ 
     [self addUiTableView];
-    [self setupStatusBarColor:[UIColor whiteColor]];
-    
+//    [self setupStatusBarColor:[UIColor whiteColor]];
     [self loadXmlByUrl];
     
 }
--(void)addViews
-{
-   
-    self.bgBaseUiView=[[UIView alloc]init];
-    self.bgBaseUiView.backgroundColor=[UIColor grayColor];
-    [self.view addSubview: self.bgBaseUiView];
-    
-    UIView* tempUi=[[UIView alloc]initWithFrame:CGRectMake(10, 10, 100, 100)];
-    tempUi.backgroundColor=[UIColor redColor];
-    [self.bgBaseUiView addSubview:tempUi];
-}
+ 
 -(void)addUiTableView
 {
-    self.uiTableView=[[UITableView alloc]init];
-    [self.bgBaseUiView addSubview:self.uiTableView];
+    self.uiTableView=[[UITableView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:self.uiTableView];
     
     
     
@@ -107,7 +95,7 @@
     }
     else   if([elementName isEqualToString:@"User"])
     {
-        self.userVo = [[WeiboFrame alloc] init];
+        self.userVo = [[WeiboFrameVo alloc] init];
         self.userVo.name=@"abc";
         self.userVo.text=@"显示内容";
 
@@ -164,16 +152,12 @@
 
 - (void)viewDidLayoutSubviews
 {
-    self.bgBaseUiView.frame=CGRectMake(0.f, CGRectGetMaxY(_statusBar.frame), self.view.bounds.size.width,[UIScreen mainScreen].bounds.size.height- NavigationBar_H-TabBar_H);
-    
-    
-    self.uiTableView.frame=CGRectMake(0,0,self.bgBaseUiView.frame.size.width,self.bgBaseUiView.frame.size.height);
-    
-    self.uiTableView.backgroundColor=[UIColor redColor];
+ 
 }
 
 - (void)setupStatusBarColor:(UIColor *)color
 {
+    /*
     if (!_statusBar) {
         UIWindow *keyWindow = [UIApplication sharedApplication].windows[0];
         CGRect rect=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, NavigationBar_H);
@@ -183,6 +167,7 @@
     if ([_statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
         _statusBar.backgroundColor = color;
     }
+    */
 }
 
 
@@ -210,7 +195,7 @@
 #pragma mark  UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //取出对应行的frame模型
-    WeiboFrame *wbF = [self.userList objectAtIndex:indexPath.row];
+    WeiboFrameVo *wbF = [self.userList objectAtIndex:indexPath.row];
     NSLog(@"height = %f",wbF.cellHeight);
  
     return wbF.cellHeight;
@@ -220,7 +205,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)myViewClik:(WeiboFrame *)val
+- (void)myViewClik:(WeiboFrameVo *)val
 {
     NSLog(@"ccav%@",val.text);
     

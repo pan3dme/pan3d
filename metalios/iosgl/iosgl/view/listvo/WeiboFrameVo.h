@@ -3,7 +3,7 @@
 
 @class Weibo;
 
-@interface WeiboFrame : NSObject
+@interface WeiboFrameVo : NSObject
 
 /*
  *  数据模型提供所需要的子控件的内容，数据;frame模型计算,保存每个子控件的frame和cell行高

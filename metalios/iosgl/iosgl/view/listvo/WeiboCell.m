@@ -92,7 +92,7 @@
 -(void)addButs
 {
     UIButton  *photographButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    photographButton.frame = CGRectMake(0 , 0, 100, 100);
+    photographButton.frame = CGRectMake(300 , 0, 100, 100);
     [photographButton setImage:[UIImage imageNamed:@"red_tabbar_chongzhi_01"] forState:UIControlStateNormal];
     [photographButton addTarget:self action:@selector(photographButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -110,7 +110,7 @@
 }
 
 //重写setting方法
--(void)setWeiboFrame:(WeiboFrame *)weiboFrame{
+-(void)setWeiboFrame:(WeiboFrameVo *)weiboFrame{
     _weiboFrame = weiboFrame;
     
     //1.给子控件赋值数据
@@ -120,7 +120,7 @@
 }
 
 -(void)settingData{
-    WeiboFrame *weibo = self.weiboFrame;
+    WeiboFrameVo *weibo = self.weiboFrame;
     
     //设置头像
  

@@ -28,7 +28,7 @@
 		9C7EFFBB25E3DE2A00FF22C9 /* TestShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EFFBA25E3DE2A00FF22C9 /* TestShader.m */; };
 		9C8CA85525DCB489000F9194 /* MtkBaseDisShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA84F25DCB489000F9194 /* MtkBaseDisShader.m */; };
 		9C8CA85725DCB489000F9194 /* MtkBaseDis.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA85425DCB489000F9194 /* MtkBaseDis.m */; };
-		9C93F9E525FE693F00C23A2D /* WeiboFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F9E425FE693F00C23A2D /* WeiboFrame.m */; };
+		9C93F9E525FE693F00C23A2D /* WeiboFrameVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F9E425FE693F00C23A2D /* WeiboFrameVo.m */; };
 		9C93F9EE25FE6A0300C23A2D /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C93F9ED25FE6A0300C23A2D /* WeiboCell.m */; };
 		9CB8A2EA25C191910039B7E0 /* GC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8A2E925C191910039B7E0 /* GC.m */; };
 		9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CBB25BB369900FFE706 /* MtkBaseLine.m */; };
@@ -265,8 +265,8 @@
 		9C8CA85325DCB489000F9194 /* MtkBaseDisShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtkBaseDisShader.h; sourceTree = "<group>"; };
 		9C8CA85425DCB489000F9194 /* MtkBaseDis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MtkBaseDis.m; sourceTree = "<group>"; };
 		9C8CA85C25DD7A6F000F9194 /* ParticleMetalType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleMetalType.h; sourceTree = "<group>"; };
-		9C93F9E325FE693F00C23A2D /* WeiboFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboFrame.h; sourceTree = "<group>"; };
-		9C93F9E425FE693F00C23A2D /* WeiboFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFrame.m; sourceTree = "<group>"; };
+		9C93F9E325FE693F00C23A2D /* WeiboFrameVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboFrameVo.h; sourceTree = "<group>"; };
+		9C93F9E425FE693F00C23A2D /* WeiboFrameVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFrameVo.m; sourceTree = "<group>"; };
 		9C93F9EC25FE6A0300C23A2D /* WeiboCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboCell.h; sourceTree = "<group>"; };
 		9C93F9ED25FE6A0300C23A2D /* WeiboCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboCell.m; sourceTree = "<group>"; };
 		9CB8A2E825C191910039B7E0 /* GC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GC.h; sourceTree = "<group>"; };
@@ -698,8 +698,8 @@
 		9C50884A25FEFE1F007CB9D9 /* listvo */ = {
 			isa = PBXGroup;
 			children = (
-				9C93F9E325FE693F00C23A2D /* WeiboFrame.h */,
-				9C93F9E425FE693F00C23A2D /* WeiboFrame.m */,
+				9C93F9E325FE693F00C23A2D /* WeiboFrameVo.h */,
+				9C93F9E425FE693F00C23A2D /* WeiboFrameVo.m */,
 				9C93F9EC25FE6A0300C23A2D /* WeiboCell.h */,
 				9C93F9ED25FE6A0300C23A2D /* WeiboCell.m */,
 				9CE49A7E25FF0C4800F07926 /* XmlMeshManneger.h */,
@@ -1658,7 +1658,7 @@
 				FE2088DD239BDF60007FB797 /* Shader3D.m in Sources */,
 				9C676E5725F90E3D00E6B2F6 /* Frame3dViewController.m in Sources */,
 				9CE552022561A8E7004E7C31 /* FrameSceneChar.m in Sources */,
-				9C93F9E525FE693F00C23A2D /* WeiboFrame.m in Sources */,
+				9C93F9E525FE693F00C23A2D /* WeiboFrameVo.m in Sources */,
 				9C1DA456255C648D00FAE501 /* Md5Analysis.m in Sources */,
 				FE2F1BAC240BF2D0005E287F /* Scene_data.m in Sources */,
 				9CBE1CC425BD67C400FFE706 /* MtkBaseLine.metal in Sources */,

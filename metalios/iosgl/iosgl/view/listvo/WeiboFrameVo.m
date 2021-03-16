@@ -1,10 +1,11 @@
-#import "WeiboFrame.h"
+#import "WeiboFrameVo.h"
+#import "Scene_data.h"
  
 
 #define NameFont [UIFont systemFontOfSize:15]
 #define TextFont [UIFont systemFontOfSize:16]
 
-@implementation WeiboFrame
+@implementation WeiboFrameVo
 
 - (void)setWeiboInfo
 {
@@ -12,9 +13,12 @@
     
 //    self.name=@"标题";
 //    self.text=@"完美胡设计方案";
-    self.picture= @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/2dbg.jpg";
-    self.icon= @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/2dbg.jpg";
-    WeiboFrame* _weibo=self;
+    self.picture=  [[Scene_data default]getWorkUrlByFilePath:@"test/ios_oc_res/test.jpg"];
+    self.icon=     [[Scene_data default]getWorkUrlByFilePath:@"2dbg.jpg"];
+    
+    
+    
+    WeiboFrameVo* _weibo=self;
     
     // 间隙
     CGFloat padding = 10;
