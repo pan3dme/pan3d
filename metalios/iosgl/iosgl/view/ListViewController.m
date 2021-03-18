@@ -123,7 +123,7 @@
             [self.userVo setValue: string forKey:self.curelementName];
            
         }else{
-            [self.userVo setValue: [b stringByAppendingString:string] forKey:self.curelementName];
+//            [self.userVo setValue: [b stringByAppendingString:string] forKey:self.curelementName];
            
         }
             [self.userVo setWeiboInfo];

@@ -23,8 +23,7 @@
 
         self.picture=[[Scene_data default]getWorkUrlByFilePath:self.url];
         NSLog(  @"%@", self.picture);
-        self.picture= @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/pic/pic003.jpg";
-    
+     
         NSLog(  @"%@", self.picture);
         NSLog(@"---");
       
