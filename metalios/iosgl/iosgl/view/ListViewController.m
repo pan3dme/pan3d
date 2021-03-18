@@ -50,9 +50,11 @@
 -(void)loadXmlByUrl
 {
     NSString* netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/assets/list.xml";
+    netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/list001.xml";
     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
         NSDictionary* dic=(NSDictionary*)value;
-        NSString *str=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSASCIIStringEncoding error:nil];
+     
+        NSString *str=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSUTF8StringEncoding error:nil];
         [self meshXmlInfo:str];
     }];
     
@@ -63,7 +65,7 @@
 {
     //4.解析数据
     //4.1 创建XML解析器:SAX
-    self.elementToParse = [[NSArray alloc] initWithObjects:@"name",@"text",@"age", nil];
+    self.elementToParse = [[NSArray alloc] initWithObjects: @"text",@"title",@"url", nil];
     NSXMLParser *parser = [[NSXMLParser alloc]initWithData:[str dataUsingEncoding:NSUTF8StringEncoding]];
     
     //4.2 设置代理
@@ -96,8 +98,8 @@
     else   if([elementName isEqualToString:@"User"])
     {
         self.userVo = [[WeiboFrameVo alloc] init];
-        self.userVo.name=@"abc";
-        self.userVo.text=@"显示内容";
+    
+        self.userVo.text=@"显示内容001";
 
         [self.userList addObject:self.userVo];
     }

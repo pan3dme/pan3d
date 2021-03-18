@@ -18,9 +18,10 @@
 
 @property (nonatomic, copy) NSString *text;         // 内容
 @property (nonatomic, copy) NSString *icon;         // 头像图片名称
-@property (nonatomic, copy) NSString *name;         // 昵称图片名称
+//@property (nonatomic, copy) NSString *name;         // 昵称图片名称
+@property (nonatomic, copy) NSString *url;      // 配图图片名称
 @property (nonatomic, copy) NSString *picture;      // 配图图片名称
-@property (nonatomic, copy) NSString *age;      // 配图图片名称
+@property (nonatomic, copy) NSString *title;      // 配图图片名称
 @property (nonatomic, assign) BOOL vip;             // 判断用户是不是Vip
 
 /*

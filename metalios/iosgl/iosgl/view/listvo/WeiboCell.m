@@ -127,7 +127,7 @@
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:weibo.icon] placeholderImage:nil];
     
     //设置昵称
-    self.nameLabel.text = weibo.name;
+    self.nameLabel.text = weibo.title;
     //设置vip
     if (weibo.vip) {
         self.vipView.hidden = NO;

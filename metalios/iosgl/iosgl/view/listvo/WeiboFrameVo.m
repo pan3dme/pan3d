@@ -13,14 +13,25 @@
     
 //    self.name=@"标题";
 //    self.text=@"完美胡设计方案";
-    self.picture=  [[Scene_data default]getWorkUrlByFilePath:@"test/ios_oc_res/test.jpg"];
-    self.icon=     [[Scene_data default]getWorkUrlByFilePath:@"2dbg.jpg"];
+    self.picture=  [[Scene_data default]getWorkUrlByFilePath:@"pan/test/iosmetia/pic/pic001.jpg"];
+    self.icon=     [[Scene_data default]getWorkUrlByFilePath:@"pan/test/iosmetia/pic/pic003.jpg"];
     
-    
-    
+ 
     WeiboFrameVo* _weibo=self;
     
-    // 间隙
+    if(self.url){
+
+        self.picture=[[Scene_data default]getWorkUrlByFilePath:self.url];
+        NSLog(  @"%@", self.picture);
+        self.picture= @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/pic/pic003.jpg";
+    
+        NSLog(  @"%@", self.picture);
+        NSLog(@"---");
+      
+        
+
+    }
+       
     CGFloat padding = 10;
     
     // 1.设置头像的frame
@@ -34,7 +45,7 @@
     // 昵称的x = 头像最大的x + 间隙
     CGFloat nameLabelX = CGRectGetMaxX(self.iconF) + padding;
     // 计算文字的宽高
-    CGSize nameSize = [self sizeWithString:_weibo.name font:NameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGSize nameSize = [self sizeWithString:_weibo.title font:NameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
     
     CGFloat nameLabelH = nameSize.height;
     CGFloat nameLabelW = nameSize.width;
