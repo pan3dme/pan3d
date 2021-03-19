@@ -19,31 +19,22 @@
  
 @property (nonatomic, strong) UITableView *uiTableView;
 @property (nonatomic, strong) NSMutableArray* userList;
-@property (nonatomic, strong) WeiboFrameVo* userVo;
-@property (nonatomic, strong) NSString* curelementName;
-@property (nonatomic, strong) NSArray* elementToParse;
-@property (nonatomic, assign) BOOL storingFlag;
+ 
 @end
 
 @implementation ListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
     [self addUiTableView];
 //    [self setupStatusBarColor:[UIColor whiteColor]];
     [self loadXmlByUrl];
-    
 }
- 
 -(void)addUiTableView
 {
     self.uiTableView=[[UITableView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:self.uiTableView];
     self.view.backgroundColor=[UIColor yellowColor];
-    
-    
-    
     self.uiTableView.delegate=self;
     self.uiTableView.dataSource=self;
     
@@ -52,105 +43,49 @@
 {
     NSString* netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/assets/list.xml";
     netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/list001.xml";
+    netUrl=@"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/jason.xml";
+ 
     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
         NSDictionary* dic=(NSDictionary*)value;
      
-        NSString *str=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSUTF8StringEncoding error:nil];
-        [self meshXmlInfo:str];
+        NSString *jsonString=[NSString stringWithContentsOfFile:  dic[@"data"] encoding:NSUTF8StringEncoding error:nil];
+         
+        [self makeDicByString:jsonString];
+ 
     }];
     
     
     
 }
--(void)meshXmlInfo:(NSString*)str
+-(void)makeDicByString:(NSString*)val
 {
-    //4.解析数据
-    //4.1 创建XML解析器:SAX
-    self.elementToParse = [[NSArray alloc] initWithObjects: @"text",@"title",@"url", nil];
-    NSXMLParser *parser = [[NSXMLParser alloc]initWithData:[str dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    //4.2 设置代理
-    parser.delegate = self;
-    
-    //4.3 开始解析,阻塞
-    [parser parse];
-    
-}
-#pragma mark -
-#pragma mark NSXMLParserDelegate
-
-/* 开始解析xml文件，在开始解析xml节点前，通过该方法可以做一些初始化工作 */
-- (void)parserDidStartDocument:(NSXMLParser *)parser
-{
-    NSLog(@"开始解析xml文件");
-}
-
-/* 当解析器对象遇到xml的开始标记时，调用这个方法开始解析该节点 */
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-    attributes:(NSDictionary *)attributeDict
-{
-    NSLog(@"发现节点");
-    //userList
-    
-    if([elementName isEqualToString:@"Users"])
-    {
-        self.userList = [[NSMutableArray alloc] init];
-    }
-    else   if([elementName isEqualToString:@"User"])
-    {
-        self.userVo = [[WeiboFrameVo alloc] init];
-    
-//        self.userVo.text=@"显示内容001";
-
-        [self.userList addObject:self.userVo];
-    }
-    self.curelementName=elementName;
-    self.storingFlag= [self.elementToParse containsObject:elementName];
+    NSData *jsonData = [val dataUsingEncoding:NSUTF8StringEncoding];
+      NSError *err;
+      NSArray *arr = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                          options:NSJSONReadingMutableContainers
+                                                            error:&err];
    
-    
-    
-}
-
-/* 当解析器找到开始标记和结束标记之间的字符时，调用这个方法解析当前节点的所有字符 */
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
-{
-    if(self.storingFlag){
-        NSLog(@"正在解析节点内容%@-%@",  self.curelementName,string);
-        NSLog(@"正在解析节点内容%@-%@",  self.curelementName,string);
+    self.userList=[[NSMutableArray alloc]init];
+    for (NSUInteger i=0; i<arr.count; i++) {
+      NSDictionary* dic=  [arr objectAtIndex:i];
         
         
-        NSString* b=[self.userVo valueForKey:self.curelementName];
-        if([self.userVo valueForKey:self.curelementName]==nil){
-            [self.userVo setValue: string forKey:self.curelementName];
-        
-        }else{
-//            [self.userVo setValue: [b stringByAppendingString:string] forKey:self.curelementName];
-           
-        }
-            [self.userVo setWeiboInfo];
+        WeiboFrameVo *wbF=[[WeiboFrameVo alloc] init];
+        wbF.title=@"title";
+        wbF.text=@"正常显示解析骨骼动画";
+        wbF.url=@"pan/test/iosmetia/pic/pic001.jpg";
        
-        
-        
+        [wbF setWeiboInfo];
+        [self.userList addObject:wbF];
         
     }
     
-}
-
-/* 当解析器对象遇到xml的结束标记时，调用这个方法完成解析该节点 */
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
-    NSLog(@"解析节点结束");
-   
-}
-
-
-
-/* 解析xml文件结束 */
-- (void)parserDidEndDocument:(NSXMLParser *)parser
-{
-    NSLog(@"解析xml文件结束");
+ 
+    
+    NSLog(@"ccav");
     [self.uiTableView reloadData];
 }
+ 
 
 
 - (void)viewDidLayoutSubviews
