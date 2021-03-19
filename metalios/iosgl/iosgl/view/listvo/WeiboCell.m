@@ -83,8 +83,7 @@
         UIImageView *pictureView = [[UIImageView alloc] init];
         [self.contentView addSubview:pictureView];
         self.pictureView = pictureView;
-        
-        [self addButs];
+      
     }
     return self;
 }
@@ -100,11 +99,7 @@
 }
 
 - (void)photographButtonClicked:(UIButton *)sender{
-   
-//    [self.navigationController pushViewController:photoPicker animated:YES];
-    
-   
-    
+ 
     [self.weiboFramedelegate myViewClik:self.weiboFrame];
     
 }

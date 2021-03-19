@@ -99,7 +99,7 @@
     {
         self.userVo = [[WeiboFrameVo alloc] init];
     
-        self.userVo.text=@"显示内容001";
+//        self.userVo.text=@"显示内容001";
 
         [self.userList addObject:self.userVo];
     }
@@ -121,7 +121,7 @@
         NSString* b=[self.userVo valueForKey:self.curelementName];
         if([self.userVo valueForKey:self.curelementName]==nil){
             [self.userVo setValue: string forKey:self.curelementName];
-           
+        
         }else{
 //            [self.userVo setValue: [b stringByAppendingString:string] forKey:self.curelementName];
            
@@ -192,6 +192,12 @@
     
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     
+    WeiboFrameVo *wbF = [self.userList objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:[[ParticleUiViewController alloc]init] animated:YES];
+ 
+}
 
 #pragma mark--
 #pragma mark  UITableViewDelegate
@@ -211,7 +217,7 @@
 {
     NSLog(@"ccav%@",val.text);
     
-    [self.navigationController pushViewController:[[ParticleUiViewController alloc]init] animated:YES];
+
 }
 
 @end
