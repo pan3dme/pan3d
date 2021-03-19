@@ -15,7 +15,7 @@
 /**
  *  vip
  */
-@property (nonatomic, weak) UIImageView *vipView;
+ 
 /**
  *  配图
  */
@@ -62,11 +62,7 @@
         [self.contentView addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
-        //3.创建vip
-        UIImageView *vipView = [[UIImageView alloc] init];
-        vipView.image = [UIImage imageNamed:@"vip"];
-        [self.contentView addSubview:vipView];
-        self.vipView = vipView;
+   
         
         //4.创建正文
         UILabel *introLabel = [[UILabel alloc] init];
@@ -119,14 +115,7 @@
     
     //设置昵称
     self.nameLabel.text = weibo.title;
-    //设置vip
-    if (weibo.vip) {
-        self.vipView.hidden = NO;
-        self.nameLabel.textColor = [UIColor redColor];
-    }else{
-        self.vipView.hidden = YES;
-        self.nameLabel.textColor = [UIColor blueColor];
-    }
+    self.nameLabel.textColor = [UIColor blackColor];
     //设置内容
     self.introLabel.text = weibo.text;
     //设置配图
@@ -150,7 +139,6 @@
 -(void)settingFrame{
  
     self.nameLabel.frame = self.weiboFrame.nameF;
-    self.vipView.frame = self.weiboFrame.vipF;
     self.introLabel.frame = self.weiboFrame.introF;
     if (self.weiboFrame.picture) {
         self.pictureView.frame = self.weiboFrame.pictrueF;

@@ -40,6 +40,7 @@
 {
     self.uiTableView=[[UITableView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:self.uiTableView];
+    self.view.backgroundColor=[UIColor yellowColor];
     
     
     
@@ -154,6 +155,8 @@
 
 - (void)viewDidLayoutSubviews
 {
+    
+//    self.uiTableView.frame=CGRectMake(0, 0, 200, 200);
  
 }
 
@@ -199,6 +202,24 @@
  
 }
 
+
+ 
+ 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10;
+}
+ 
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return 0.00001;
+//}
+ 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headView = [[UIView alloc]init];
+    headView.backgroundColor = [UIColor redColor];
+    return headView;
+}
+ 
+ 
 #pragma mark--
 #pragma mark  UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

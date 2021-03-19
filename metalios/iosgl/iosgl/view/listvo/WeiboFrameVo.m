@@ -35,13 +35,8 @@
     CGFloat nameLabelY = iconViewY + (iconViewH - nameLabelH) * 0.5;
     self.nameF = CGRectMake(nameLabelX, nameLabelY, nameLabelW, nameLabelH);
     
-    // 3.设置vip的frame
-    CGFloat vipViewX = CGRectGetMaxX(self.nameF) + padding;
-    CGFloat vipViewY = nameLabelY;
-    CGFloat vipViewW = 14;
-    CGFloat vipViewH = 14;
-    self.vipF = CGRectMake(vipViewX, vipViewY, vipViewW, vipViewH);
-    
+ 
+ 
     // 4.设置正文的frame
     CGFloat introLabelX = iconViewX;
     CGFloat introLabelY = iconViewH  + padding;

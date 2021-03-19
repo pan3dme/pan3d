@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *url;      // 配图图片名称
 @property (nonatomic, copy) NSString *picture;      // 配图图片名称
 @property (nonatomic, copy) NSString *title;      // 配图图片名称
-@property (nonatomic, assign) BOOL vip;             // 判断用户是不是Vip
+ 
 
 /*
  *  2.frame模型
@@ -29,8 +29,7 @@
  
 //昵称的frame
 @property (nonatomic, assign) CGRect nameF;
-//vip的frame
-@property (nonatomic, assign) CGRect vipF;
+ 
 //正文的frame
 @property (nonatomic, assign) CGRect introF;
 //配图的frame
