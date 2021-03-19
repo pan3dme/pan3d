@@ -2,17 +2,16 @@
 #import <SDWebImage/SDWebImage.h>
  
 
-#define NameFont [UIFont systemFontOfSize:15]
-#define TextFont [UIFont systemFontOfSize:16]
-
-
+#define NameFont [UIFont systemFontOfSize:16]
+#define TextFont [UIFont systemFontOfSize:15]
+ 
 
 @interface WeiboCell ()
 
 /**
  *  头像
  */
-@property (nonatomic, weak) UIImageView *iconView;
+ 
 /**
  *  vip
  */
@@ -55,10 +54,7 @@
     if (self) {
         //让自定义的cell和系统cell一样，一创建出来就有一些控件供我们使用
         
-        //1.创建头像
-        UIImageView *iconView = [[UIImageView alloc] init];
-        [self.contentView addSubview:iconView];
-        self.iconView = iconView;
+   
         
         //2.创建昵称
         UILabel *nameLabel = [[UILabel alloc] init];
@@ -119,7 +115,7 @@
     
     //设置头像
  
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:weibo.icon] placeholderImage:nil];
+ 
     
     //设置昵称
     self.nameLabel.text = weibo.title;
@@ -152,7 +148,7 @@
  *  设置子控件的frame
  */
 -(void)settingFrame{
-    self.iconView.frame = self.weiboFrame.iconF;
+ 
     self.nameLabel.frame = self.weiboFrame.nameF;
     self.vipView.frame = self.weiboFrame.vipF;
     self.introLabel.frame = self.weiboFrame.introF;
@@ -161,10 +157,7 @@
     }
 }
 
-#pragma mark--
-- (void)awakeFromNib {
-    // Initialization code
-}
+ 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

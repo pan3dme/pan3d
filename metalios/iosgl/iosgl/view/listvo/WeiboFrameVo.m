@@ -2,33 +2,18 @@
 #import "Scene_data.h"
  
 
-#define NameFont [UIFont systemFontOfSize:15]
-#define TextFont [UIFont systemFontOfSize:16]
+#define NameFont [UIFont systemFontOfSize:16]
+#define TextFont [UIFont systemFontOfSize:15]
 
 @implementation WeiboFrameVo
 
 - (void)setWeiboInfo
 {
  
-    
-//    self.name=@"标题";
-//    self.text=@"完美胡设计方案";
-    self.picture=  [[Scene_data default]getWorkUrlByFilePath:@"pan/test/iosmetia/pic/pic001.jpg"];
-    self.icon=     [[Scene_data default]getWorkUrlByFilePath:@"pan/test/iosmetia/pic/pic003.jpg"];
-    
  
     WeiboFrameVo* _weibo=self;
-    
     if(self.url){
-
         self.picture=[[Scene_data default]getWorkUrlByFilePath:self.url];
-        NSLog(  @"%@", self.picture);
-     
-        NSLog(  @"%@", self.picture);
-        NSLog(@"---");
-      
-        
-
     }
        
     CGFloat padding = 10;
@@ -36,13 +21,12 @@
     // 1.设置头像的frame
     CGFloat iconViewX = padding;
     CGFloat iconViewY = padding;
-    CGFloat iconViewW = 30;
     CGFloat iconViewH = 30;
-    self.iconF = CGRectMake(iconViewX, iconViewY, iconViewW, iconViewH);
+ 
     
     // 2.设置昵称的frame
     // 昵称的x = 头像最大的x + 间隙
-    CGFloat nameLabelX = CGRectGetMaxX(self.iconF) + padding;
+    CGFloat nameLabelX =   padding;
     // 计算文字的宽高
     CGSize nameSize = [self sizeWithString:_weibo.title font:NameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
     
@@ -60,7 +44,7 @@
     
     // 4.设置正文的frame
     CGFloat introLabelX = iconViewX;
-    CGFloat introLabelY = CGRectGetMaxY(self.iconF) + padding;
+    CGFloat introLabelY = iconViewH  + padding;
     CGSize textSize =  [self sizeWithString:_weibo.text font:TextFont maxSize:CGSizeMake(300, MAXFLOAT)];
     
     CGFloat introLabelW = textSize.width;
@@ -83,7 +67,7 @@
         // 6.没有配图情况下的行高
         self.cellHeight = CGRectGetMaxY(self.introF) + padding;
     }
-//    self.cellHeight=200.f;
+ 
 }
 
 /**

@@ -17,8 +17,6 @@
 
 
 @property (nonatomic, copy) NSString *text;         // 内容
-@property (nonatomic, copy) NSString *icon;         // 头像图片名称
-//@property (nonatomic, copy) NSString *name;         // 昵称图片名称
 @property (nonatomic, copy) NSString *url;      // 配图图片名称
 @property (nonatomic, copy) NSString *picture;      // 配图图片名称
 @property (nonatomic, copy) NSString *title;      // 配图图片名称
@@ -28,8 +26,7 @@
  *  2.frame模型
  */
 
-//头像的frame
-@property (nonatomic, assign) CGRect iconF;
+ 
 //昵称的frame
 @property (nonatomic, assign) CGRect nameF;
 //vip的frame
