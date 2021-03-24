@@ -67,22 +67,12 @@
    
     self.userList=[[NSMutableArray alloc]init];
     for (NSUInteger i=0; i<arr.count; i++) {
-      NSDictionary* dic=  [arr objectAtIndex:i];
-        
-        
         WeiboFrameVo *wbF=[[WeiboFrameVo alloc] init];
-        wbF.title=@"title";
-        wbF.text=@"正常显示解析骨骼动画";
-        wbF.url=@"pan/test/iosmetia/pic/pic001.jpg";
-       
-        [wbF setWeiboInfo];
+        [wbF setWeiboInfo:[arr objectAtIndex:i]];
         [self.userList addObject:wbF];
         
     }
-    
  
-    
-    NSLog(@"ccav");
     [self.uiTableView reloadData];
 }
  

@@ -695,6 +695,15 @@
 			path = vo;
 			sourceTree = "<group>";
 		};
+		9C3AC61C2608D4050096626A /* home */ = {
+			isa = PBXGroup;
+			children = (
+				9C7B640025FB851F008F27C1 /* ListViewController.h */,
+				9C7B640125FB851F008F27C1 /* ListViewController.m */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		9C50884A25FEFE1F007CB9D9 /* listvo */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,11 +843,10 @@
 		9CE667ED25EC7CFB00CE6204 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				9C3AC61C2608D4050096626A /* home */,
 				9C50884A25FEFE1F007CB9D9 /* listvo */,
 				9C7B640425FB86D2008F27C1 /* basescenes */,
 				9CE6680D25ECA9B600CE6204 /* tabbar */,
-				9C7B640025FB851F008F27C1 /* ListViewController.h */,
-				9C7B640125FB851F008F27C1 /* ListViewController.m */,
 			);
 			path = view;
 			sourceTree = "<group>";

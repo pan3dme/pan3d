@@ -7,9 +7,15 @@
 
 @implementation WeiboFrameVo
 
-- (void)setWeiboInfo
+- (void)setWeiboInfo:(NSDictionary*)val;
 {
- 
+    self.type=  [[val objectForKey:@"type"] intValue];
+    self.title=  [val objectForKey:@"tittle"];
+    self.text=[val objectForKey:@"text"];
+    self.url=[val objectForKey:@"url"];
+//    self.url=@"pan/test/iosmetia/pic/pic001.jpg";
+    
+  
  
     WeiboFrameVo* _weibo=self;
     if(self.url){

@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *url;      // 配图图片名称
 @property (nonatomic, copy) NSString *picture;      // 配图图片名称
 @property (nonatomic, copy) NSString *title;      // 配图图片名称
- 
+@property (nonatomic, assign) int  type;      // 配图图片名称
 
 /*
  *  2.frame模型
@@ -37,6 +37,6 @@
 //行高
 @property (nonatomic, assign) CGFloat cellHeight;
 
-- (void)setWeiboInfo;
+- (void)setWeiboInfo:(NSDictionary*)val;
 
 @end
