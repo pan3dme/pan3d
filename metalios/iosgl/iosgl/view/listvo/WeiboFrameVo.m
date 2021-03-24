@@ -10,13 +10,13 @@
 - (void)setWeiboInfo:(NSDictionary*)val;
 {
     self.type=  [[val objectForKey:@"type"] intValue];
+    self.picwidth=  [[val objectForKey:@"width"] intValue];
+    self.picheight=  [[val objectForKey:@"height"] intValue];
     self.title=  [val objectForKey:@"tittle"];
+    self.picitem=[val objectForKey:@"picitem"];
     self.text=[val objectForKey:@"text"];
     self.url=[val objectForKey:@"url"];
-//    self.url=@"pan/test/iosmetia/pic/pic001.jpg";
-    
   
- 
     WeiboFrameVo* _weibo=self;
     if(self.url){
         self.picture=[[Scene_data default]getWorkUrlByFilePath:self.url];
@@ -57,8 +57,8 @@
     if (_weibo.picture) {// 如果有有配图
         CGFloat pictureViewX = iconViewX;
         CGFloat pictureViewY = CGRectGetMaxY(self.introF) + padding;
-        CGFloat pictureViewW = 100;
-        CGFloat pictureViewH = 100;
+        CGFloat pictureViewW =  self.picwidth;
+        CGFloat pictureViewH =  self.picheight;
         self.pictrueF = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
         
         // 6.计算行高

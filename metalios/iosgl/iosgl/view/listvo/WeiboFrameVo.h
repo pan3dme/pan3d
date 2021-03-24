@@ -16,11 +16,14 @@
  
 
 
-@property (nonatomic, copy) NSString *text;         // 内容
-@property (nonatomic, copy) NSString *url;      // 配图图片名称
-@property (nonatomic, copy) NSString *picture;      // 配图图片名称
-@property (nonatomic, copy) NSString *title;      // 配图图片名称
-@property (nonatomic, assign) int  type;      // 配图图片名称
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *picture;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSArray *picitem;
+@property (nonatomic, assign) int  type;
+@property (nonatomic, assign) int  picwidth;
+@property (nonatomic, assign) int  picheight;
 
 /*
  *  2.frame模型
