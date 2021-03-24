@@ -13,7 +13,8 @@
     self.title=  [val objectForKey:@"tittle"];
     self.picitem=[val objectForKey:@"picitem"];
     self.text=[val objectForKey:@"text"];
- 
+    self.sceneinfo=[val objectForKey:@"sceneinfo"];
+    
   
     WeiboFrameVo* _weibo=self;
     

@@ -19,6 +19,7 @@
 		9C1DA498255C655E00FAE501 /* ObjectTri.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA493255C655E00FAE501 /* ObjectTri.m */; };
 		9C1DA499255C655E00FAE501 /* ObjectUv.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA495255C655E00FAE501 /* ObjectUv.m */; };
 		9C1DA49A255C655E00FAE501 /* ObjectWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DA497255C655E00FAE501 /* ObjectWeight.m */; };
+		9C3AC643260B9B8A0096626A /* HomeSceneBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3AC642260B9B8A0096626A /* HomeSceneBaseViewController.m */; };
 		9C55A0A225C99F79004CA03B /* MtkMoveDisplay.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */; };
 		9C55A0A725C99F9A004CA03B /* MtkMoveDisplayShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C55A0A625C99F9A004CA03B /* MtkMoveDisplayShader.m */; };
 		9C676E5725F90E3D00E6B2F6 /* Frame3dViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C676E5625F90E3D00E6B2F6 /* Frame3dViewController.m */; };
@@ -244,6 +245,8 @@
 		9C1DA495255C655E00FAE501 /* ObjectUv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectUv.m; sourceTree = "<group>"; };
 		9C1DA496255C655E00FAE501 /* ObjectWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWeight.h; sourceTree = "<group>"; };
 		9C1DA497255C655E00FAE501 /* ObjectWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWeight.m; sourceTree = "<group>"; };
+		9C3AC641260B9B8A0096626A /* HomeSceneBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSceneBaseViewController.h; sourceTree = "<group>"; };
+		9C3AC642260B9B8A0096626A /* HomeSceneBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSceneBaseViewController.m; sourceTree = "<group>"; };
 		9C55A0A025C99F42004CA03B /* MtlMoveDisplayType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtlMoveDisplayType.h; sourceTree = "<group>"; };
 		9C55A0A125C99F79004CA03B /* MtkMoveDisplay.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MtkMoveDisplay.metal; sourceTree = "<group>"; };
 		9C55A0A525C99F9A004CA03B /* MtkMoveDisplayShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtkMoveDisplayShader.h; sourceTree = "<group>"; };
@@ -700,6 +703,8 @@
 			children = (
 				9C7B640025FB851F008F27C1 /* ListViewController.h */,
 				9C7B640125FB851F008F27C1 /* ListViewController.m */,
+				9C3AC641260B9B8A0096626A /* HomeSceneBaseViewController.h */,
+				9C3AC642260B9B8A0096626A /* HomeSceneBaseViewController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1699,6 +1704,7 @@
 				FEEF8BCC2448E743001AFEB2 /* SkillMulTrajectory.m in Sources */,
 				FE8788CA24327429003E0EE7 /* AxisRotaion.m in Sources */,
 				9C1DA45A255C648D00FAE501 /* Md5MeshShader.m in Sources */,
+				9C3AC643260B9B8A0096626A /* HomeSceneBaseViewController.m in Sources */,
 				FEF3D4C52436B5A00055AB31 /* DualQuatFloat32Array.m in Sources */,
 				9CBE1CBC25BB369900FFE706 /* MtkBaseLine.m in Sources */,
 				FE3D4EEF2401C25D00185FD3 /* ParticleData.m in Sources */,

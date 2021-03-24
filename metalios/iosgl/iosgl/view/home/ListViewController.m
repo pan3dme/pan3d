@@ -10,7 +10,7 @@
 #import "WeiboCell.h"
 #import "LoadManager.h"
 #import "WeiboFrameVo.h"
-#import "ParticleUiViewController.h"
+#import "HomeSceneBaseViewController.h"
 
 #define NavigationBar_H 65.f
 #define TabBar_H 100.f
@@ -122,7 +122,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
      
     WeiboFrameVo *wbF = [self.userList objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:[[ParticleUiViewController alloc]init] animated:YES];
+    
+    HomeSceneBaseViewController *vc=[[HomeSceneBaseViewController alloc]init:wbF.sceneinfo]   ;
+    [self.navigationController pushViewController:vc animated:YES];
+ 
  
 }
 

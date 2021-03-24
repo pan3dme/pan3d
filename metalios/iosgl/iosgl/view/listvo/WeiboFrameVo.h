@@ -20,6 +20,7 @@
 @property (nonatomic, copy) NSString *picture;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSArray *picitem;
+@property (nonatomic, copy) NSArray *sceneinfo;
 @property (nonatomic, assign) int  type;
  
 
