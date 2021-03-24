@@ -13,13 +13,10 @@
     self.title=  [val objectForKey:@"tittle"];
     self.picitem=[val objectForKey:@"picitem"];
     self.text=[val objectForKey:@"text"];
-    self.url=[val objectForKey:@"url"];
+ 
   
     WeiboFrameVo* _weibo=self;
-    if(self.url){
-        self.picture=[[Scene_data default]getWorkUrlByFilePath:self.url];
-    }
-       
+    
     CGFloat padding = 10;
     
     // 1.设置头像的frame

@@ -147,13 +147,13 @@
  
     self.tittleLabel.frame = self.weiboFrame.nameF;
     self.introLabel.frame = self.weiboFrame.introF;
-    if (self.weiboFrame.picture) {
+    
         CGFloat ty=CGRectGetMaxY(self.weiboFrame.introF) + 10;
         self.picture000.frame=CGRectMake(0, ty, 95, 95);
         self.picture001.frame=CGRectMake(100, ty, 95, 95);
         self.picture002.frame=CGRectMake(200, ty, 95, 95);
         self.picture003.frame=CGRectMake(300, ty, 95, 95);
-    }
+    
 }
 
 

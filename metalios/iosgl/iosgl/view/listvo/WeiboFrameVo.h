@@ -17,7 +17,6 @@
 
 
 @property (nonatomic, copy) NSString *text;
-@property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *picture;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSArray *picitem;
