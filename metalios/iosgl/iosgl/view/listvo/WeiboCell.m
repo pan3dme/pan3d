@@ -10,7 +10,11 @@
 @property (nonatomic, weak) UILabel *tittleLabel;
 @property (nonatomic, weak) UILabel *introLabel;
 @property (nonatomic, weak) UIImageView *pictureView;
-
+@property (nonatomic, strong) UIImageView *picture001;
+@property (nonatomic, strong) UIImageView *picture002;
+@property (nonatomic, strong) UIImageView *picture003;
+@property (nonatomic, strong) UIImageView *picture004;
+ 
 
 @end
 
@@ -58,9 +62,24 @@
         UIImageView *pictureView = [[UIImageView alloc] init];
         [self.contentView addSubview:pictureView];
         self.pictureView = pictureView;
+        
+        [self addImgItemView];
       
     }
     return self;
+}
+-(void)addImgItemView
+{
+    self.picture001= [[UIImageView alloc] init];
+    [self.contentView addSubview:self.picture001];
+    self.picture002= [[UIImageView alloc] init];
+    [self.contentView addSubview:self.picture002];
+    self.picture003= [[UIImageView alloc] init];
+    [self.contentView addSubview:self.picture003];
+    self.picture004= [[UIImageView alloc] init];
+    [self.contentView addSubview:self.picture004];
+    
+    
 }
  
 -(void)addButs
@@ -104,14 +123,25 @@
     //设置配图
     if (self.pictureView) {
         self.pictureView.hidden = NO;
-       
-        [self.pictureView sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
- 
-      
+        
+         [self.pictureView sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
+        
+        
+        [self setImgItemInfo];
+     
  
     }else{
         self.pictureView.hidden = YES;
     }
+}
+-(void)setImgItemInfo
+{
+    [self.picture001 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
+    [self.picture002 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
+    [self.picture003 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
+    [self.picture004 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
+
+ 
 }
 
  
@@ -125,6 +155,11 @@
     self.introLabel.frame = self.weiboFrame.introF;
     if (self.weiboFrame.picture) {
         self.pictureView.frame = self.weiboFrame.pictrueF;
+        CGFloat ty=CGRectGetMaxY(self.weiboFrame.pictrueF) + 10;
+        self.picture001.frame=CGRectMake(0, ty, 95, 95);
+        self.picture002.frame=CGRectMake(100, ty, 95, 95);
+        self.picture003.frame=CGRectMake(200, ty, 95, 95);
+        self.picture004.frame=CGRectMake(300, ty, 95, 95);
     }
 }
 
