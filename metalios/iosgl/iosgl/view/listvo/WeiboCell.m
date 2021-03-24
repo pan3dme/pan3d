@@ -7,27 +7,10 @@
  
 
 @interface WeiboCell ()
-
-/**
- *  头像
- */
- 
-/**
- *  vip
- */
- 
-/**
- *  配图
- */
-@property (nonatomic, weak) UIImageView *pictureView;
-/**
- *  昵称
- */
-@property (nonatomic, weak) UILabel *nameLabel;
-/**
- *  正文
- */
+@property (nonatomic, weak) UILabel *tittleLabel;
 @property (nonatomic, weak) UILabel *introLabel;
+@property (nonatomic, weak) UIImageView *pictureView;
+
 
 @end
 
@@ -60,7 +43,7 @@
         UILabel *nameLabel = [[UILabel alloc] init];
         nameLabel.font = NameFont;
         [self.contentView addSubview:nameLabel];
-        self.nameLabel = nameLabel;
+        self.tittleLabel = nameLabel;
         
    
         
@@ -114,8 +97,8 @@
  
     
     //设置昵称
-    self.nameLabel.text = weibo.title;
-    self.nameLabel.textColor = [UIColor blackColor];
+    self.tittleLabel.text = weibo.title;
+    self.tittleLabel.textColor = [UIColor blackColor];
     //设置内容
     self.introLabel.text = weibo.text;
     //设置配图
@@ -138,7 +121,7 @@
  */
 -(void)settingFrame{
  
-    self.nameLabel.frame = self.weiboFrame.nameF;
+    self.tittleLabel.frame = self.weiboFrame.nameF;
     self.introLabel.frame = self.weiboFrame.introF;
     if (self.weiboFrame.picture) {
         self.pictureView.frame = self.weiboFrame.pictrueF;
