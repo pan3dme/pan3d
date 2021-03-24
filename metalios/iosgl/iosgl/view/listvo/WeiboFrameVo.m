@@ -10,8 +10,6 @@
 - (void)setWeiboInfo:(NSDictionary*)val;
 {
     self.type=  [[val objectForKey:@"type"] intValue];
-    self.picwidth=  [[val objectForKey:@"width"] intValue];
-    self.picheight=  [[val objectForKey:@"height"] intValue];
     self.title=  [val objectForKey:@"tittle"];
     self.picitem=[val objectForKey:@"picitem"];
     self.text=[val objectForKey:@"text"];
@@ -53,19 +51,9 @@
     
     self.introF = CGRectMake(introLabelX, introLabelY, introLabelW, introLabelH);
     
-    // 5.设置配图的frame
-    if (_weibo.picture) {// 如果有有配图
-        CGFloat pictureViewX = iconViewX;
-        CGFloat pictureViewY = CGRectGetMaxY(self.introF) + padding;
-        CGFloat pictureViewW =  self.picwidth;
-        CGFloat pictureViewH =  self.picheight;
-        self.pictrueF = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
-      
-        self.cellHeight = CGRectGetMaxY(self.pictrueF) + padding;
-    }else{
- 
-        self.cellHeight = CGRectGetMaxY(self.introF) + padding;
-    }
+  
+    self.cellHeight = CGRectGetMaxY(self.introF) + padding;
+    
     self.cellHeight+=100;
 }
 

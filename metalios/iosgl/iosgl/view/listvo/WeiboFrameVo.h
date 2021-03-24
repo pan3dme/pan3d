@@ -22,8 +22,7 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSArray *picitem;
 @property (nonatomic, assign) int  type;
-@property (nonatomic, assign) int  picwidth;
-@property (nonatomic, assign) int  picheight;
+ 
 
 /*
  *  2.frame模型
@@ -35,8 +34,7 @@
  
 //正文的frame
 @property (nonatomic, assign) CGRect introF;
-//配图的frame
-@property (nonatomic, assign) CGRect pictrueF;
+
 //行高
 @property (nonatomic, assign) CGFloat cellHeight;
 

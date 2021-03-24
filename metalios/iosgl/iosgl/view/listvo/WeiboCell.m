@@ -1,5 +1,6 @@
 #import "WeiboCell.h"
 #import <SDWebImage/SDWebImage.h>
+#import "Scene_data.h"
  
 
 #define NameFont [UIFont systemFontOfSize:16]
@@ -9,11 +10,11 @@
 @interface WeiboCell ()
 @property (nonatomic, weak) UILabel *tittleLabel;
 @property (nonatomic, weak) UILabel *introLabel;
-@property (nonatomic, weak) UIImageView *pictureView;
+
+@property (nonatomic, strong) UIImageView *picture000;
 @property (nonatomic, strong) UIImageView *picture001;
 @property (nonatomic, strong) UIImageView *picture002;
 @property (nonatomic, strong) UIImageView *picture003;
-@property (nonatomic, strong) UIImageView *picture004;
  
 
 @end
@@ -58,10 +59,7 @@
         [self.contentView addSubview:introLabel];
         self.introLabel = introLabel;
         
-        //5.创建配图
-        UIImageView *pictureView = [[UIImageView alloc] init];
-        [self.contentView addSubview:pictureView];
-        self.pictureView = pictureView;
+ 
         
         [self addImgItemView];
       
@@ -70,14 +68,14 @@
 }
 -(void)addImgItemView
 {
+    self.picture000= [[UIImageView alloc] init];
+    [self.contentView addSubview:self.picture000];
     self.picture001= [[UIImageView alloc] init];
     [self.contentView addSubview:self.picture001];
     self.picture002= [[UIImageView alloc] init];
     [self.contentView addSubview:self.picture002];
     self.picture003= [[UIImageView alloc] init];
     [self.contentView addSubview:self.picture003];
-    self.picture004= [[UIImageView alloc] init];
-    [self.contentView addSubview:self.picture004];
     
     
 }
@@ -99,8 +97,8 @@
 }
 
 //重写setting方法
--(void)setWeiboFrame:(WeiboFrameVo *)weiboFrame{
-    _weiboFrame = weiboFrame;
+-(void)setWeiboFrame:(WeiboFrameVo *)val{
+    _weiboFrame = val;
     
     //1.给子控件赋值数据
     [self settingData];
@@ -110,41 +108,37 @@
 
 -(void)settingData{
     WeiboFrameVo *weibo = self.weiboFrame;
-    
-    //设置头像
- 
- 
-    
-    //设置昵称
+  
     self.tittleLabel.text = weibo.title;
     self.tittleLabel.textColor = [UIColor blackColor];
     //设置内容
     self.introLabel.text = weibo.text;
     //设置配图
-    if (self.pictureView) {
-        self.pictureView.hidden = NO;
-        
-         [self.pictureView sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
-        
-        
-        [self setImgItemInfo];
-     
- 
-    }else{
-        self.pictureView.hidden = YES;
-    }
+    [self setImgItemInfo];
 }
 -(void)setImgItemInfo
 {
-    [self.picture001 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
-    [self.picture002 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
-    [self.picture003 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
-    [self.picture004 sd_setImageWithURL:[NSURL URLWithString:self.weiboFrame.picture] placeholderImage:nil];
 
  
+    
+    [self setImgUrlByViewAndId:self.picture000 rid:0];
+    [self setImgUrlByViewAndId:self.picture001 rid:1];
+    [self setImgUrlByViewAndId:self.picture002 rid:2];
+    [self setImgUrlByViewAndId:self.picture003 rid:3];
 }
-
+-(void)setImgUrlByViewAndId:(UIImageView*)imageView rid:(int)rid
+{
  
+    
+    if(self.weiboFrame.picitem.count>rid){
+        NSString* url=   [[Scene_data default]getWorkUrlByFilePath:[self.weiboFrame.picitem objectAtIndex:rid]];
+      
+        [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
+        imageView.hidden=NO;
+    }else{
+        imageView.hidden=YES;
+    }
+}
 
 /*
  *  设置子控件的frame
@@ -154,21 +148,18 @@
     self.tittleLabel.frame = self.weiboFrame.nameF;
     self.introLabel.frame = self.weiboFrame.introF;
     if (self.weiboFrame.picture) {
-        self.pictureView.frame = self.weiboFrame.pictrueF;
-        CGFloat ty=CGRectGetMaxY(self.weiboFrame.pictrueF) + 10;
-        self.picture001.frame=CGRectMake(0, ty, 95, 95);
-        self.picture002.frame=CGRectMake(100, ty, 95, 95);
-        self.picture003.frame=CGRectMake(200, ty, 95, 95);
-        self.picture004.frame=CGRectMake(300, ty, 95, 95);
+        CGFloat ty=CGRectGetMaxY(self.weiboFrame.introF) + 10;
+        self.picture000.frame=CGRectMake(0, ty, 95, 95);
+        self.picture001.frame=CGRectMake(100, ty, 95, 95);
+        self.picture002.frame=CGRectMake(200, ty, 95, 95);
+        self.picture003.frame=CGRectMake(300, ty, 95, 95);
     }
 }
 
- 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
+ 
 }
 
 @end
