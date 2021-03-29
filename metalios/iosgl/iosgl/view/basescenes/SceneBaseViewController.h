@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)addMenuList;
 -(void)addButsByArr:(NSMutableArray*)arr ;
+-(UIButton*)makeButtion;
 - (BOOL) addMenuListClikEvent:(UIButton *) btn;
 @end
 

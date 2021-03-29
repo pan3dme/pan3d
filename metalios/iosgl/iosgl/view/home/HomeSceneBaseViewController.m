@@ -48,6 +48,16 @@
         
     }
     
+ 
+    
+}
+ 
+-(void)addMenuList;
+{
+    self.butItems=[[NSMutableArray alloc]init];
+    [self addButsByArr:[[NSMutableArray alloc]init] ];
+    [self viewDidLayoutSubviews];
+  
 }
  
  
