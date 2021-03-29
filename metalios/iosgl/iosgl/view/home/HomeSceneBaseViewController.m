@@ -9,6 +9,8 @@
 #import "HomeSceneBaseViewController.h"
 #import "SceneInfoVo.h"
 #import "Display3dMovie.h"
+#import "Frame3dSprite.h"
+#import "Md5MoveSprite.h"
 
 @interface HomeSceneBaseViewController ()
 @property (nonatomic, strong) NSArray *sceneItemArr;
@@ -44,8 +46,17 @@
             [sc setRoleUrl:vo.text];
             [ self.scene3D addMovieDisplay:sc];
         }
-  
+        if(vo.type==4){//角色
+            [self.scene3D addDisplay:[[Frame3dSprite alloc]init:self.scene3D]];
+        }
         
+        if(vo.type==5){//md5
+            Md5MoveSprite* sc=[[Md5MoveSprite alloc]init:self.scene3D];
+            [sc setMd5url:@"pan/expmd5/2/body.md5mesh"  animurl:@"pan/expmd5/2/body.md5mesh"  picurl:@"pan/expmd5/shuangdaonv.jpg"  ];
+            [self.scene3D addDisplay:sc];
+        }
+
+
     }
     
  

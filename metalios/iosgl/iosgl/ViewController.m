@@ -58,7 +58,8 @@
     RoleUiViewController *vc02=[[RoleUiViewController alloc] init];
     ParticleUiViewController *vc03=[[ParticleUiViewController alloc]init];
     SceneUiViewController *vc04=[[SceneUiViewController alloc] init];
-    SkillUiViewController *vc05=[[SkillUiViewController alloc] init];
+//    SkillUiViewController *vc05=[[SkillUiViewController alloc] init];
+    Frame3dViewController *vc05=[[Frame3dViewController alloc] init];
     
     
     [self setTabItemInfo:@"red_tabbar_home" VC:vc01];
