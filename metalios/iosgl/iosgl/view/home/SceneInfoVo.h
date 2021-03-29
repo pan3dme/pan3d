@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+ 
+
 @interface SceneInfoVo : NSObject
-@property (nonatomic, assign) int id;
+@property (nonatomic, assign) int id; //1场景 2特效果 3角色
 @property (nonatomic, assign) int type;
 @property (nonatomic, copy) NSString *text;
 - (instancetype)init:(NSDictionary*)val;
