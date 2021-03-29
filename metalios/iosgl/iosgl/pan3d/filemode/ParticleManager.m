@@ -10,8 +10,7 @@
 #import "CombineParticleData.h"
 #import "TimeUtil.h"
 #import "Scene3D.h"
-static ParticleManager *instance = nil;
-static NSMutableDictionary* _dic;
+ 
 @implementation ParticleManager
 //+ (instancetype)default{
 //    if (instance == nil) {
@@ -33,16 +32,14 @@ static NSMutableDictionary* _dic;
 
 -(void)addResByte:(NSString*)url byteArray:(ByteArray*)byteArray;
 {
-    if(!_dic){
-        _dic=[[NSMutableDictionary alloc]init];
-    }
-    if(!_dic[url]){
+  
+    if(!self.dic[url]){
         
         
     
         CombineParticleData *combineParticleData=[[CombineParticleData alloc]init:self.scene3D];
         [combineParticleData setDataByte:byteArray];
-        _dic[url]=combineParticleData;
+        self.dic[url]=combineParticleData;
     }
 }
 -(CombineParticle*)getParticleByte:(NSString*)url;
@@ -50,8 +47,8 @@ static NSMutableDictionary* _dic;
     url= [url stringByReplacingOccurrencesOfString:@"_byte.txt" withString:@".txt"];
     url= [url stringByReplacingOccurrencesOfString:@".txt" withString:@"_byte.txt"];
     CombineParticle *combineParticle=[[CombineParticle alloc]init];
-    if(_dic[url]){
-        CombineParticleData *baseData = _dic[url];
+    if(self.dic[url]){
+        CombineParticleData *baseData = self.dic[url];
         combineParticle= [baseData getCombineParticle];
     }
     combineParticle.url=url;

@@ -6,12 +6,12 @@
 //  Copyright © 2020 zhao. All rights reserved.
 //
 
-#import "GC.h"
+#import "ResGC.h"
 #import "ByteArray.h"
 #import "CombineParticle.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ParticleManager : GC
+@interface ParticleManager : ResGC
 //+ (instancetype)default;
 
 
