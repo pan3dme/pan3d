@@ -7,6 +7,7 @@
 //
 
 #import "HomeSceneBaseViewController.h"
+#import "SceneInfoVo.h"
 
 @interface HomeSceneBaseViewController ()
 @property (nonatomic, strong) NSArray *sceneItemArr;
@@ -24,22 +25,18 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
  
-    [self.scene3D loadSceneByUrl:@"10005"];
+//    [self.scene3D loadSceneByUrl:@"10005"];
+   
+    for (NSUInteger i=0; i<self.sceneItemArr.count; i++) {
+ 
+        SceneInfoVo* vo=[[SceneInfoVo alloc] init:[self.sceneItemArr objectAtIndex:i]];
+  
+        
+    }
     
 }
  
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ 
 
 @end

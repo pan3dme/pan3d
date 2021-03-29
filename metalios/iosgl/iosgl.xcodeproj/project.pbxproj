@@ -38,6 +38,7 @@
 		9CBE1CCE25BD78B600FFE706 /* MtlModelDisplaySprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CCD25BD78B600FFE706 /* MtlModelDisplaySprite.m */; };
 		9CBE1CD425BD792800FFE706 /* MtlModelDisplayShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CD325BD792800FFE706 /* MtlModelDisplayShader.m */; };
 		9CBE1CD825BD794100FFE706 /* MtkModelDisplay.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE1CD725BD794100FFE706 /* MtkModelDisplay.metal */; };
+		9CC3241326119CB6000CCCFF /* SceneInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC3241226119CB6000CCCFF /* SceneInfoVo.m */; };
 		9CD92236255E566D00DEE26B /* bodymd5mesh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CD92234255E566D00DEE26B /* bodymd5mesh.txt */; };
 		9CD92237255E566D00DEE26B /* standmd5anim.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CD92235255E566D00DEE26B /* standmd5anim.txt */; };
 		9CDEDB29256190470099F83B /* FrameBaseDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEDB28256190470099F83B /* FrameBaseDisplay.m */; };
@@ -287,6 +288,8 @@
 		9CBE1CD225BD792800FFE706 /* MtlModelDisplayShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtlModelDisplayShader.h; sourceTree = "<group>"; };
 		9CBE1CD325BD792800FFE706 /* MtlModelDisplayShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtlModelDisplayShader.m; sourceTree = "<group>"; };
 		9CBE1CD725BD794100FFE706 /* MtkModelDisplay.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MtkModelDisplay.metal; sourceTree = "<group>"; };
+		9CC3241126119CB5000CCCFF /* SceneInfoVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneInfoVo.h; sourceTree = "<group>"; };
+		9CC3241226119CB6000CCCFF /* SceneInfoVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneInfoVo.m; sourceTree = "<group>"; };
 		9CD92234255E566D00DEE26B /* bodymd5mesh.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bodymd5mesh.txt; sourceTree = "<group>"; };
 		9CD92235255E566D00DEE26B /* standmd5anim.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = standmd5anim.txt; sourceTree = "<group>"; };
 		9CDEDB27256190470099F83B /* FrameBaseDisplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBaseDisplay.h; sourceTree = "<group>"; };
@@ -703,6 +706,8 @@
 			children = (
 				9C7B640025FB851F008F27C1 /* ListViewController.h */,
 				9C7B640125FB851F008F27C1 /* ListViewController.m */,
+				9CC3241126119CB5000CCCFF /* SceneInfoVo.h */,
+				9CC3241226119CB6000CCCFF /* SceneInfoVo.m */,
 				9C3AC641260B9B8A0096626A /* HomeSceneBaseViewController.h */,
 				9C3AC642260B9B8A0096626A /* HomeSceneBaseViewController.m */,
 			);
@@ -1688,6 +1693,7 @@
 				FED0DA5A24017531009F6575 /* GroupItem.m in Sources */,
 				9CE6680425EC9F9F00CE6204 /* SceneBaseViewController.m in Sources */,
 				FE678836239B946800262B53 /* ResCount.m in Sources */,
+				9CC3241326119CB6000CCCFF /* SceneInfoVo.m in Sources */,
 				FE776AB22447321000B8B5A4 /* Display3DFollowShader.m in Sources */,
 				FEEF8BEA2449A183001AFEB2 /* Display3DLocusBallPartilce.m in Sources */,
 				9CE49A8025FF0C4800F07926 /* XmlMeshManneger.m in Sources */,
