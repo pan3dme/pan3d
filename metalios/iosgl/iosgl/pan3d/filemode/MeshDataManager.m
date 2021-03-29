@@ -21,15 +21,9 @@
 @interface MeshDataManager ()
 @property(nonatomic,strong)NSMutableDictionary* loadDic;
 @end
-//static MeshDataManager *instance = nil;
+ 
 @implementation MeshDataManager
-//+ (instancetype)default;
-//{
-//    if (instance == nil) {
-//        instance = [[MeshDataManager alloc] init];
-//    }
-//    return instance;
-//}
+ 
  
 - (instancetype)init:(Scene3D *)value
 {

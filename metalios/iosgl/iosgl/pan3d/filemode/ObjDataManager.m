@@ -15,21 +15,8 @@
 @end
 static ObjDataManager *instance = nil;
 @implementation ObjDataManager
-+ (instancetype)default{
-    if (instance == nil) {
-        instance = [[ObjDataManager alloc] init];
-    }
-    return instance;
-}
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.dic=[[NSMutableDictionary alloc]init];
-          self.loadList=[[NSMutableDictionary alloc]init];
-    }
-    return self;
-}
+ 
+ 
   
 -(void)getLocalPath;
 {

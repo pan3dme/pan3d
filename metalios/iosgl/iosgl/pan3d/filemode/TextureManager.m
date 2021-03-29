@@ -24,22 +24,7 @@
 @end
 static TextureManager *instance = nil;
 @implementation TextureManager
-//+ (instancetype)default{
-//    if (instance == nil) {
-//        instance = [[TextureManager alloc] init];
-// 
-//    }
-//    return instance;
-//}
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        self.loadDic=[[NSMutableDictionary alloc]init];
-//        self.resDic=[[NSMutableDictionary alloc]init];
-//    }
-//    return self;
-//}
+ 
 - (instancetype)init:(Scene3D*)value
 {
     self = [super init:value];

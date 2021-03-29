@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MaterialManager : ResGC
 @property (nonatomic, strong)  NSMutableDictionary* dic;
-//+ (instancetype)default;
+ 
 -(TextureRes *) getMaterialByUrl:(NSString*)urlStr;
 -(void)addResByte:(NSString*)url dataByte:(ByteArray*)dataByte;
  

@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MeshToObjUtils : GC
  
-//+ (instancetype)default;
 -(NSArray*)getStorNewTargerArr:(NSArray*)targetAry;
 -(void)getObj:(Md5MeshData*)mesh;
 @end

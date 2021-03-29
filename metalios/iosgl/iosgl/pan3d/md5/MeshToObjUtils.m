@@ -17,15 +17,9 @@
 #import "ObjectWeight.h"
 #import "Md5MeshData.h"
 #import "AnimManager.h"
-//static MeshToObjUtils *instance = nil;
+ 
 @implementation MeshToObjUtils
-//+ (instancetype)default{
-//    if (instance == nil) {
-//        instance = [[MeshToObjUtils alloc] init];
-//    }
-//    return instance;
-//}
-
+ 
 
 -(NSArray*)getStorNewTargerArr:(NSArray*)targetAry
 {

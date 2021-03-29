@@ -11,15 +11,9 @@
 #import "Quaternion.h"
 #import "AnimData.h"
 #import "ObjectBone.h"
-//static AnimManager *instance = nil;
+ 
 @implementation AnimManager
-//+ (instancetype)default{
-//    if (instance == nil) {
-//
-//        instance = [[AnimManager alloc] init];
-//    }
-//    return instance;
-//}
+ 
 -(AnimData*)readData:(ByteArray*)byte url:(NSString*)url;
 {
     NSMutableArray<ObjectBone*>* hierarchyList=[[NSMutableArray alloc]init];

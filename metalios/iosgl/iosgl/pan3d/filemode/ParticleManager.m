@@ -12,12 +12,6 @@
 #import "Scene3D.h"
  
 @implementation ParticleManager
-//+ (instancetype)default{
-//    if (instance == nil) {
-//        instance = [[ParticleManager alloc] init];
-//    }
-//    return instance;
-//}
  
 - (instancetype)init:(Scene3D *)value
 {
