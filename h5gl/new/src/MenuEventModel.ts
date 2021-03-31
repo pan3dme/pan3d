@@ -58,6 +58,24 @@ class MenuEventModel {
                 }
 
                 break
+            case "武器":
+                if (infoStr == null) {
+                    if (this.mainChar == null) {
+                        console.log("加载角色");
+                        this.mainChar = sceneView.addRoleToSceneByUrl("50011", new Vector3D(0, 0, 0));
+                    }
+                } else {
+
+                 
+                    if (this.mainChar != null) {
+                        // [self.mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+
+                        this.mainChar.addPart(SceneChar.WEAPON_PART,"w_01",getModelUrl("weapon1"));
+                 
+                    }
+                }
+
+                break
             case "技能":
 
                 if (infoStr == null) {
