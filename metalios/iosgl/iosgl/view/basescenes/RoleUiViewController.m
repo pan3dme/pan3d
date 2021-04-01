@@ -29,6 +29,8 @@
     [self.mainChar setRoleUrl:getRoleUrl(@"50011")];
     [ self.scene3D addMovieDisplay:self.mainChar];
     
+ 
+    
    
  
 }

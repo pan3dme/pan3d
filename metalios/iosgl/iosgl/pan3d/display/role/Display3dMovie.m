@@ -229,8 +229,8 @@
  
 }
 - (void)setVcMtl:(id<MTLRenderCommandEncoder>)renderEncoder {
-    Matrix3D* posMatrix =[[Matrix3D alloc]init];
-    LineMatrixRoleView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [posMatrix getMatrixFloat4x4]};
+   
+    LineMatrixRoleView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [self.posMatrix3d getMatrixFloat4x4]};
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
                           atIndex:0];

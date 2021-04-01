@@ -186,7 +186,8 @@
     
    [self._display3DShader mtlSetProgramShader];
    
-   [self setupMatrixWithEncoder:renderEncoder];
+   
+    [self setVc];
    
     [renderEncoder setVertexBuffer: self.objData.mtkvertices
                             offset:0
@@ -195,9 +196,7 @@
                             offset:0
                            atIndex:1];
    
- 
-//       [renderEncoder setFragmentTexture:self.textureRes.mtlTexture
-//                                 atIndex:0];
+  
     
     [this setMaterialTexture:this.material mp:this.materialParam];
     
@@ -212,21 +211,7 @@
  
  
 }
-- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
-   
-   
-   static float y = 0.0 ;
-    y-=0.05;
-   Matrix3D* posMatrix =[[Matrix3D alloc]init];
-   [posMatrix appendScale:5 y:5 z:5];
-   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
-  
-    
-    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:2];
-    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:3];
-    
-  
-}
+ 
 -(void)updateMaterialBase;
 {
     Display3DSprite* this=self;
@@ -322,35 +307,7 @@
     for (int i=0; i<fcData.count; i++) {
         fcDataGlArr[i]=fcData[i].floatValue;
     }
-    /*
-     0: 0.5
-     1: 0
-     2: 531.3599853515625
-     3: 0.0017371968133375049
-     4: 0
-     5: 1.7677669525146484
-     6: -1.7677669525146484
-     7: 0
-     8: 0.0313725508749485
-     9: 0.5803921818733215
-     10: 0.9450980424880981
-     11: 0
-
-     */
-    /*
-    [0]    GLfloat    0.5
-    [1]    GLfloat    0
-    [2]    GLfloat    531.359985
-    [3]    GLfloat    0.00173719705
-    [4]    GLfloat    -0.856720387
-    [5]    GLfloat    0.48988986
-    [6]    GLfloat    -0.161362886
-    [7]    GLfloat    0
-    [8]    GLfloat    0.0313725509
-    [9]    GLfloat    0.580392182
-    [10]    GLfloat    0.945098042
-    [11]    GLfloat    0
-    */
+     
     [ctx setVc4fv:material.shader name:"fc" data:fcDataGlArr len:material.fcNum];
 }
 /*
@@ -426,8 +383,12 @@
 {
     Display3DSprite* this=self;
     Context3D *context3D=this.scene3D.context3D;
-    [context3D setVcMatrix4fv:this.shader3d name:"vpMatrix3D" data:this.viewMatrix.m];
-    [context3D setVcMatrix4fv:this.shader3d name:"posMatrix3D" data:this.posMatrix3d.m];
+  
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:2];
+    [self.scene3D.context3D setMatrixVc:self.posMatrix3d renderEncoder:renderEncoder idx:3];
+    
+    
     if (this.material.usePbr || this.material.directLight) {
          [context3D setVcMatrix3fv:this.shader3d name:"rotationMatrix3D" data:this.rotationMatrix3D.rotationM];
     }

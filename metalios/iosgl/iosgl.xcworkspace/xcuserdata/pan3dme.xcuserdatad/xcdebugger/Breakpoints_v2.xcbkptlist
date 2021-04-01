@@ -302,8 +302,8 @@
             filePath = "iosgl/pan3d/display/display3d/Display3DSprite.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "-updateMaterial"
             landmarkType = "7">
          </BreakpointContent>
