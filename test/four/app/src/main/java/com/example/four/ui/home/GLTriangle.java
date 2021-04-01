@@ -1,10 +1,8 @@
 package com.example.four.ui.home;
 
 import android.opengl.GLES20;
-import android.opengl.GLUtils;
 
-import com.z3d.base.ObjData;
-import com.z3d.program.Shader3D;
+import com.pan3d.program.Shader3D;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

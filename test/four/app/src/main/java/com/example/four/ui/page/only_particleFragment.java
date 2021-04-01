@@ -6,16 +6,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.four.R;
-import com.z3d.base.CallBackFun;
-import com.z3d.scene.ConstrainSceneView;
+import com.pan3d.base.CallBackFun;
+import com.pan3d.scene.ConstrainSceneView;
 
 /**
  * A simple {@link Fragment} subclass.

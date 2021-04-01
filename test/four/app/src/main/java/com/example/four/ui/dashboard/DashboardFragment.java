@@ -1,10 +1,6 @@
 package com.example.four.ui.dashboard;
 
-import android.graphics.Color;
-import android.opengl.GLES20;
-import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,28 +18,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.four.R;
-import com.z3d.base.CallBackFun;
-import com.z3d.base.GroupBackFun;
-import com.z3d.base.GroupItem;
-import com.z3d.base.Object3D;
-import com.z3d.display.BuildDisplay3DSprite;
-import com.z3d.display.line.GridLineSprite;
-import com.z3d.display.particle.CombineParticle;
-import com.z3d.display.role.Display3dMovie;
-import com.z3d.filemodel.ParticleManager;
-import com.z3d.res.BaseRes;
-import com.z3d.res.GroupRes;
-import com.z3d.res.SceneRes;
-import com.z3d.scene.ConstrainSceneView;
-import com.z3d.scene.Scene3D;
-import com.z3d.vo.Vector2D;
-import com.z3d.vo.Vector3D;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
+import com.pan3d.base.CallBackFun;
+import com.pan3d.scene.ConstrainSceneView;
+import com.pan3d.vo.Vector3D;
 
 public class DashboardFragment extends Fragment {
 

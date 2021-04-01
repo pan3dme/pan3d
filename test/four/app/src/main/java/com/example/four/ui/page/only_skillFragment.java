@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.four.R;
-import com.z3d.base.CallBackFun;
-import com.z3d.display.role.SceneChar;
-import com.z3d.scene.ConstrainSceneView;
-import com.z3d.skill.Skill;
+import com.pan3d.base.CallBackFun;
+import com.pan3d.display.role.SceneChar;
+import com.pan3d.scene.ConstrainSceneView;
+import com.pan3d.skill.Skill;
 
 /**
  * A simple {@link Fragment} subclass.

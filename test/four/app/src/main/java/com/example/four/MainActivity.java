@@ -3,10 +3,10 @@ package com.example.four;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.z3d.base.Scene_data;
-import com.z3d.res.SceneRes;
-import com.z3d.scene.Scene3D;
-import com.z3d.units.LoaderThread;
+import com.pan3d.base.Scene_data;
+import com.pan3d.res.SceneRes;
+import com.pan3d.scene.Scene3D;
+import com.pan3d.units.LoaderThread;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
