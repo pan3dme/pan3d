@@ -79,6 +79,11 @@
                                      {
         float3 position;
                                      } BaseFloat3;
+                                     
+                                     typedef struct
+                                     {
+        float2 position;
+                                     } BaseFloat2;
 
                                      typedef struct
                                      {
@@ -88,7 +93,7 @@
                                      typedef struct
                                      {
                                          float4 clipSpacePosition [[position]];
-                                      
+        float2 uvs;
                                          
                                      } OutData;
                                      
@@ -100,13 +105,14 @@
                                      vertex OutData // 顶点
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
-                                                     constant BaseMatrix *projectionMatrix [[ buffer(1) ]],
-                                                     constant BaseMatrix *modelViewMatrix [[ buffer(2) ]]) {
+                                                  constant BaseFloat2 *uvsArray [[ buffer(1) ]],
+                                                     constant BaseMatrix *projectionMatrix [[ buffer(2) ]],
+                                                     constant BaseMatrix *modelViewMatrix [[ buffer(3) ]]) {
 //        float abc=sin(0.2f);
         OutData out;
                                          out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
                                       
-                                         
+        out.uvs=uvsArray[vertexID].position;
                                          return out;
                                      }
                                        
@@ -126,10 +132,14 @@
                                      fragmentShader(OutData input [[stage_in]],
                                                     texture2d<half> textureColor [[ texture(0) ]])
                                      {
-//        float abc=sin(0.2f);
-        float cc=max(1.f,0.2f);
-                                         half4 colorTex = half4(cc, 0,0, 1);
-                                         return float4(colorTex);
+ 
+        constexpr sampler textureSampler (mag_filter::linear,
+                                          min_filter::linear);
+        
+        half4 colorTexBase = textureColor.sample(textureSampler, input.uvs);
+        
+                                         half4 colorTex = half4(input.uvs.x,input.uvs.y,0, 1);
+                                         return float4(colorTexBase);
                                      }
                                      
                                      )];

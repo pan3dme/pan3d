@@ -30,7 +30,7 @@
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property (nonatomic, assign) float time;
 
-@property(nonatomic,strong)Display3DShader* mtkBaseLineShader;
+@property(nonatomic,strong)Display3DShader* _display3DShader;
 
  
 
@@ -53,8 +53,8 @@
     
         self.textureRes=[self.scene3D.materialManager getMaterialByUrl:@"tu001.jpg"];
     
-    self.mtkBaseLineShader=[[Display3DShader alloc] init:self.scene3D];
-       [self.mtkBaseLineShader mtlEncode];
+    self._display3DShader=[[Display3DShader alloc] init:self.scene3D];
+       [self._display3DShader mtlEncode];
 }
 
 -(void)onCreated;
@@ -184,16 +184,23 @@
    
    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     
-   [self.mtkBaseLineShader mtlSetProgramShader];
+   [self._display3DShader mtlSetProgramShader];
    
    [self setupMatrixWithEncoder:renderEncoder];
    
-   [renderEncoder setVertexBuffer: self.objData.mtkvertices
-                           offset:0
-                          atIndex:0];
+    [renderEncoder setVertexBuffer: self.objData.mtkvertices
+                            offset:0
+                           atIndex:0];
+    [renderEncoder setVertexBuffer: self.objData.mtkuvs
+                            offset:0
+                           atIndex:1];
    
  
-   
+//       [renderEncoder setFragmentTexture:self.textureRes.mtlTexture
+//                                 atIndex:0];
+    
+    [this setMaterialTexture:this.material mp:this.materialParam];
+    
    [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                              indexCount: self.objData.mtkindexCount
                               indexType:MTLIndexTypeUInt32
@@ -211,12 +218,12 @@
    static float y = 0.0 ;
     y-=0.05;
    Matrix3D* posMatrix =[[Matrix3D alloc]init];
-   [posMatrix appendScale:1 y:1 z:1];
+   [posMatrix appendScale:5 y:5 z:5];
    [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
   
     
-    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
-    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:2];
+    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:3];
     
   
 }
@@ -367,7 +374,8 @@
 }
 -(void)setMaterialTexture:(Material*)material  mp:(MaterialBaseParam*)mp;
 {
-    Context3D *ctx=self.scene3D.context3D;
+    
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
     NSArray<TexItem*>* texVec  = mp.material.texList;
     TexItem* texItem;
     for (int i   = 0; i < texVec.count; i++) {
@@ -385,12 +393,12 @@
                 NSLog(@"TexItem.useDynamicIBL)");
             } else {
                 if([Scene_data default].skyCubeTexture){
-                    [ctx setRenderTextureCube:material.shader name:texItem.name texture:[Scene_data default].skyCubeTexture level:texItem.id];
+ 
                 }
             }
         }
         else if (texItem.type == 0) {
-            [ctx setRenderTexture:material.shader name:texItem.name texture:  texItem.textureRes.textTureLuint level:texItem.id];
+ 
             
         }
     }
@@ -398,11 +406,19 @@
     for (int i   = 0; i < texDynamicVec.count; i++) {
         texItem=texDynamicVec[i].target;
         if(texItem ){
-            [ctx setRenderTexture:material.shader name:texItem.name  texture:texDynamicVec[i].textureRes.textTureLuint level:texItem.id];
+ 
+            [renderEncoder setFragmentTexture: texDynamicVec[i].textureRes.mtlTexture
+                                      atIndex:texItem.id];
             
             
         }
     }
+    
+    
+ 
+   
+  
+ 
     
 }
 
