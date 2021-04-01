@@ -69,7 +69,7 @@ static ProgrmaManager *instance = nil;
     shader.vertex=shader.vertexStr;
     shader.fragment = material.shaderStrRead;
     //keyStr    __NSCFString *    @"MaterialAnimShaderhttp://jilioss.oss-cn-hongkong.aliyuncs.com/rb_ios/a/res/content/materialinstance/zuoqicaizhi/mount_liuguang_00_byte.txt"    0x00000002829cabb0
-    if ([keyStr rangeOfString:@"/changjingbuhongpei/standardtransparent _no_byte"].location != NSNotFound) {
+    if ([keyStr rangeOfString:@"MaterialShaderhttps://webpan.oss-cn-shanghai.aliyuncs.com/res/content/materialinstance/changjingwuqi/weastandard_byte.txt"].location != NSNotFound) {
   
         [self outShader:shader.vertex];
         [self outShader:shader.fragment];

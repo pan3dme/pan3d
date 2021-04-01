@@ -34,9 +34,7 @@
     [self.mtkBaseLineShader mtlEncode];
     
     
-    TestShader* _testShader=[[TestShader alloc]init:self.scene3D];
-    [_testShader mtlEncode];
-    
+   
     self.objData=[[ObjData alloc] init:self.scene3D];
  
     vector_float3 quarr[3];

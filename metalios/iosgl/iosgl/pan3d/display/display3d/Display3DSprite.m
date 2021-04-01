@@ -21,6 +21,7 @@
 #import "Display3DShader.h"
 #import "ProgrmaManager.h"
 #import "ObjDataManager.h"
+#import "Display3DShader.h"
 
 
 @interface Display3DSprite()
@@ -28,6 +29,8 @@
 @property(nonatomic,strong)NSString* materialUrl;
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property (nonatomic, assign) float time;
+
+@property(nonatomic,strong)Display3DShader* mtkBaseLineShader;
 
  
 
@@ -49,6 +52,9 @@
 
     
         self.textureRes=[self.scene3D.materialManager getMaterialByUrl:@"tu001.jpg"];
+    
+    self.mtkBaseLineShader=[[Display3DShader alloc] init:self.scene3D];
+       [self.mtkBaseLineShader mtlEncode];
 }
 
 -(void)onCreated;
@@ -67,11 +73,12 @@
         if (this.material.useNormal) {
         }
         if (paramData) {
-            this.materialParam = [[MaterialBaseParam alloc]init];
+            this.materialParam = [[MaterialBaseParam alloc]init:self.scene3D];
             [this.materialParam setData:this.material ary:paramData];
          }
-    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init]];
+    } info:nil autoReg:YES regName:MaterialShader.shaderStr shader3DCls:[[MaterialShader alloc]init:self.scene3D]];
 }
+ 
 -(void)setGroup:(Vector3D*)pos rotaion:(Vector3D*)rotaion  scale:(Vector3D*)scale;
 {
     
@@ -144,8 +151,8 @@
          [self updateMaterial];
     }else{
         if(self.shader3d&&self.objData){
-              GLuint progame= self.shader3d.program;
-              glUseProgram(progame);
+//              GLuint progame= self.shader3d.program;
+//              glUseProgram(progame);
               
               [self updateBind];
               [self setVc];
@@ -168,10 +175,61 @@
     }
     [this updateBind];
     this.shader3d=this.material.shader;
+    [self.shader3d mtlSetProgramShader];
+ 
+ 
+    if( !self.objData||!self.objData.compressBuffer){
+        return;
+    }
+   
+   id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+    
+   [self.mtkBaseLineShader mtlSetProgramShader];
+   
+   [self setupMatrixWithEncoder:renderEncoder];
+   
+   [renderEncoder setVertexBuffer: self.objData.mtkvertices
+                           offset:0
+                          atIndex:0];
+   
+ 
+   
+   [renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                             indexCount: self.objData.mtkindexCount
+                              indexType:MTLIndexTypeUInt32
+                            indexBuffer: self.objData.mtkindexs
+                      indexBufferOffset:0];
     
     
-    GLuint progame= self.shader3d.program;
-    glUseProgram(progame);
+   
+ 
+ 
+}
+- (void)setupMatrixWithEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
+   
+   
+   static float y = 0.0 ;
+    y-=0.05;
+   Matrix3D* posMatrix =[[Matrix3D alloc]init];
+   [posMatrix appendScale:1 y:1 z:1];
+   [posMatrix appendRotation:y axis:Vector3D.Y_AXIS];
+  
+    
+    [self.scene3D.context3D setMatrixVc:self.scene3D.camera3D.modelMatrix renderEncoder:renderEncoder idx:1];
+    [self.scene3D.context3D setMatrixVc:posMatrix renderEncoder:renderEncoder idx:2];
+    
+  
+}
+-(void)updateMaterialBase;
+{
+    Display3DSprite* this=self;
+    if (!this.material || !this.objData) {
+        return;
+    }
+    [this updateBind];
+    this.shader3d=this.material.shader;
+ 
+ 
     
     [this updateBind];
     [this setVc];
@@ -180,6 +238,8 @@
     [this setMaterialVc:this.material mp:this.materialParam];
     [this setMaterialVa];
     [this resetVa];
+    
+ 
  
  
 }

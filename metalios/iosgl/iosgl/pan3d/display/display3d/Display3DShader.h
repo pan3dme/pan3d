@@ -7,7 +7,7 @@
 //
 
 #import "Shader3D.h"
-
+#import "Scene3D.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3DShader : Shader3D

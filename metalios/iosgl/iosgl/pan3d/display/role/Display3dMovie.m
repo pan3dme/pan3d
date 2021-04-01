@@ -415,7 +415,7 @@
                 //  particle.setGroup(posV3d, rotationV3d, scaleV3d);
               }
           } else if (item.types == PREFAB_TYPE) {
-              Display3DSprite *display=[[Display3DSprite alloc]init];
+              Display3DSprite *display=[[Display3DSprite alloc]init:self.scene3D];
               [display setObjUrl:item.objUrl];
               [display setMaterialUrl:item.materialUrl paramData:item.materialInfoArr];
               [ary addObject:display];

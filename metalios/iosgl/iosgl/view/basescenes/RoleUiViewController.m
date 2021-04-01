@@ -11,6 +11,7 @@
 #import "Display3dMovie.h"
 #import "MtkBaseLine.h"
 #import "SceneChar.h"
+ 
 
 @interface RoleUiViewController ()
 
@@ -23,6 +24,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [ self.scene3D addMovieDisplay:[[Display3dMovie alloc]init: self.scene3D]];
+    
+    self.mainChar=[[Display3dMovie alloc]init: self.scene3D];
+    [self.mainChar setRoleUrl:getRoleUrl(@"50011")];
+    [ self.scene3D addMovieDisplay:self.mainChar];
+    
+   
  
 }
 -(void)addMenuList;
