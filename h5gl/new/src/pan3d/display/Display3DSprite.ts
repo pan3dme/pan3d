@@ -13,10 +13,12 @@ module Pan3d {
         public bindMatrix: Matrix3D;
         public bindTarget: IBind;
         public bindSocket: string;
+        public rotationMatrix: Matrix3D;
         constructor(value: Scene3D) {
             super(value);
             this.time=0;
             this.initData();
+            this.rotationMatrix=new Matrix3D();
 
         }
         protected initData(): void {

@@ -58,6 +58,26 @@ class MenuEventModel {
                 }
 
                 break
+            case "坐骑":
+                if (infoStr == null) {
+                    if (this.mainChar == null) {
+                        console.log("加载角色");
+                        this.mainChar = sceneView.addRoleToSceneByUrl("50011", new Vector3D(0, 0, 0));
+                    }
+                } else {
+                    if (this.mainChar != null) {
+                
+                        this.mainChar.setMountCharByName("5104");
+                        this.mainChar.play("stand_mount");
+
+                        // public static STAND_MOUNT: string = "stand_mount_01";
+                        // public static WALK_MOUNT: string = "walk_mount_01";
+                        // SceneChar.MOUNT_SLOT
+
+                    }
+                }
+
+                break
             case "武器":
                 if (infoStr == null) {
                     if (this.mainChar == null) {
@@ -65,13 +85,9 @@ class MenuEventModel {
                         this.mainChar = sceneView.addRoleToSceneByUrl("50011", new Vector3D(0, 0, 0));
                     }
                 } else {
-
-                 
                     if (this.mainChar != null) {
-                        // [self.mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"50011")];
+                        this.mainChar.addPart(SceneChar.WEAPON_PART, "w_01", getModelUrl("weapon1"));
 
-                        this.mainChar.addPart(SceneChar.WEAPON_PART,"w_01",getModelUrl("weapon1"));
-                 
                     }
                 }
 

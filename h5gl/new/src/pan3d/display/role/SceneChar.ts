@@ -1,6 +1,7 @@
 module Pan3d {
     export class SceneChar extends Display3dMovie {
         public skillVo: Skill;
+        private mountChar:Display3dMovie;
       
         public static WEAPON_PART: string = "weapon";
         public static WEAPON_DEFAULT_SLOT: string = "w_01";
@@ -32,6 +33,19 @@ module Pan3d {
                 this.loadPartRes($bindSocket, groupRes, ary)
             })
    
+        }
+        public setMountCharByName(val:String)
+        {
+            var sc: Display3dMovie = new Display3dMovie(this.scene3D);
+            sc.setRoleUrl("role/" + val + ".txt");
+            sc.x = this.x;
+            sc.y = this.y;
+            sc.z = this.z;
+            this.mountChar=sc;
+            this.scene3D.addMovieDisplay(sc);
+
+            this.setBind(this.mountChar, SceneChar.MOUNT_SLOT);
+
         }
         protected loadPartRes($bindSocket: string, groupRes: GroupRes, ary: Array<any>): void {
             

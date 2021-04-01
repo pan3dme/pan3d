@@ -26,7 +26,7 @@ module Pan3d {
         public lightMapTextureRes: TextureRes;
 
 
-        protected _rotationMatrix: Matrix3D;
+        // protected _rotationMatrix: Matrix3D;
     
 
         public bindMatrix: Matrix3D;
@@ -347,14 +347,14 @@ module Pan3d {
 
                 this.posMatrix.append(this.bindMatrix);
 
-                this.bindMatrix.copyTo(this._rotationMatrix);
+                this.bindMatrix.copyTo(this.rotationMatrix);
 
 
-                this._rotationMatrix.identityPostion();
+                this.rotationMatrix.identityPostion();
 
 
                 if (this._isInGroup) {
-                    this._rotationMatrix.prepend(this.groupRotationMatrix);
+                    this.rotationMatrix.prepend(this.groupRotationMatrix);
                     //_rotationMatrix.prependRotation(groupRotation.z, Vector3D.Z_AXIS);
                     //_rotationMatrix.prependRotation(groupRotation.y, Vector3D.Y_AXIS);
                     //_rotationMatrix.prependRotation(groupRotation.x, Vector3D.X_AXIS);
