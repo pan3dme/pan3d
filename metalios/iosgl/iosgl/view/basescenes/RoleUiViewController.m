@@ -28,6 +28,7 @@
     self.mainChar=[[Display3dMovie alloc]init: self.scene3D];
     [self.mainChar setRoleUrl:getRoleUrl(@"50011")];
     [ self.scene3D addMovieDisplay:self.mainChar];
+    [self.mainChar addPart:SceneChar.WEAPON_PART bindSocket:SceneChar.WEAPON_DEFAULT_SLOT url:getModelUrl(@"weapon1")];
     
  
     

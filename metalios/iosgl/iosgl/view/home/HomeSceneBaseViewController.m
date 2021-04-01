@@ -11,6 +11,7 @@
 #import "Display3dMovie.h"
 #import "Frame3dSprite.h"
 #import "Md5MoveSprite.h"
+#import "SceneChar.h"
 
 @interface HomeSceneBaseViewController ()
 @property (nonatomic, strong) NSArray *sceneItemArr;
@@ -45,8 +46,22 @@
             Display3dMovie* sc=[[Display3dMovie alloc]init: self.scene3D];
             [sc setRoleUrl:vo.text];
             [ self.scene3D addMovieDisplay:sc];
+            
+            if(vo.info!=nil)
+            {
+                NSString* addPart=   [vo.info valueForKey:@"addPart"];
+                NSString* bindSocket=   [vo.info valueForKey:@"bindSocket"];
+                NSString* model=   [vo.info valueForKey:@"model"];
+             
+//                [sc addPart:@"weapon" bindSocket:@"w_01" url:getModelUrl(@"weapon1")];
+                [sc addPart:addPart bindSocket:bindSocket url:getModelUrl(model)];
+            }
+ 
+     
+            
+         
         }
-        if(vo.type==4){//角色
+        if(vo.type==4){//动画
             [self.scene3D addDisplay:[[Frame3dSprite alloc]init:self.scene3D]];
         }
         
