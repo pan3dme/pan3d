@@ -43,18 +43,25 @@
             [self.scene3D playLyfByUrl: vo.text];
         }
         if(vo.type==3){//角色
-            Display3dMovie* sc=[[Display3dMovie alloc]init: self.scene3D];
+            SceneChar* sc=[[SceneChar alloc]init: self.scene3D];
             [sc setRoleUrl:vo.text];
             [ self.scene3D addMovieDisplay:sc];
             
             if(vo.info!=nil)
             {
                 NSString* addPart=   [vo.info valueForKey:@"addPart"];
-                NSString* bindSocket=   [vo.info valueForKey:@"bindSocket"];
-                NSString* model=   [vo.info valueForKey:@"model"];
-             
-//                [sc addPart:@"weapon" bindSocket:@"w_01" url:getModelUrl(@"weapon1")];
-                [sc addPart:addPart bindSocket:bindSocket url:getModelUrl(model)];
+                if(addPart!=nil){
+                    NSString* bindSocket=   [vo.info valueForKey:@"bindSocket"];
+                    NSString* model=   [vo.info valueForKey:@"model"];
+                    [sc addPart:addPart bindSocket:bindSocket url:getModelUrl(model)];
+                }
+                NSString* mount=   [vo.info valueForKey:@"mount"];
+                if(mount!=nil){
+                    [sc setMountById:mount];
+                    [sc play:@"stand_mount"];
+                }
+            
+            
             }
  
      

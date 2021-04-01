@@ -108,7 +108,7 @@
 {
     SceneChar* this=self;
     if(!this.mountChar){
-        this.mountChar=[[MountChar alloc]init];
+        this.mountChar=[[MountChar alloc]init:self.scene3D];
         [this.scene3D addMovieDisplay:this.mountChar];
         [this setBind:this.mountChar bindSocket:SceneChar.MOUNT_SLOT];
  
