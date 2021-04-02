@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">calculationTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_message">Calculation Test</string>
+    <string name="title_image_info">Titleimageinfo</string>
+    <string name="title_button_message">Enter</string>
+</resources>
