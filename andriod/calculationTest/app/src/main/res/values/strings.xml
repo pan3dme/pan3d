@@ -28,5 +28,6 @@
     <string name="win_image_message">win image</string>
     <string name="lose_message">you lose</string>
     <string name="win_message">you win</string>
+    <string name="button_back_to_title">back</string>
 
 </resources>
