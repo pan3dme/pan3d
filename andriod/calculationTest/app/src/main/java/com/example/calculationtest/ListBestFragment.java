@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,6 +71,33 @@ public class ListBestFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        this.addEvents();
+    }
+
+    private void  addEvents(){
+
+
+        // 先拿到数据并放在适配器上
+        this.initFruitsaa(); //初始化水果数据
+        FruitAdapter adapter=new FruitAdapter(this.getContext(),R.layout.fruit_item,fruitList);
+        // 将适配器上的数据传递给listView
+        ListView listView=  getView().findViewById(R.id.listbest);
+        listView.setAdapter(adapter);
+
+        getView().findViewById(R.id.buttonLoad).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                initListData();
+            }
+
+
+        });
+    }
+    public void  initListData()
+    {
+        this.fruitList=new ArrayList<>();
         // 先拿到数据并放在适配器上
         initFruits(); //初始化水果数据
         FruitAdapter adapter=new FruitAdapter(this.getContext(),R.layout.fruit_item,fruitList);
@@ -85,9 +114,15 @@ public class ListBestFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_list_best, container, false);
     }
     // 初始化数据
+    private void initFruitsaa(){
+        Fruit a=new Fruit("FRISTH",R.drawable.tittleimage);
+        fruitList.add(a);
+
+    }
+    // 初始化数据
     private void initFruits(){
         for(int i=0;i<10;i++){
-            Fruit a=new Fruit("a",R.drawable.tittleimage);
+            Fruit a=new Fruit("A",R.drawable.tittleimage);
             fruitList.add(a);
             Fruit b=new Fruit("B",R.drawable.tittleimage);
             fruitList.add(b);

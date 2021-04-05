@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +14,11 @@ import com.example.calculationtest.Fruit;
 import java.util.List;
 
 public class FruitAdapter extends ArrayAdapter<Fruit> {
+    // 定义一个内部类，用于对控件的实例进行缓存
+    class ViewHolder{
+        ImageView fruitImage;
+        TextView fruitName;
+    }
     private int resourceId;
 
     // 适配器的构造函数，把要适配的数据传入这里
@@ -20,6 +26,8 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         super(context,textViewResourceId,objects);
         resourceId=textViewResourceId;
     }
+
+
 
     // convertView 参数用于将之前加载好的布局进行缓存
     @Override
@@ -52,9 +60,5 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         return view;
     }
 
-    // 定义一个内部类，用于对控件的实例进行缓存
-    class ViewHolder{
-        ImageView fruitImage;
-        TextView fruitName;
-    }
+
 }

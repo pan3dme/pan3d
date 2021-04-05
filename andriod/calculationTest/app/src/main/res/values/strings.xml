@@ -32,5 +32,6 @@
     <string name="quit_dialog_title">Are you sure to quit?</string>
     <string name="dialog_porsitive_message">OK</string>
     <string name="dialog_nagative_message">CANCEL</string>
+    <string name="todo">TODO</string>
 
 </resources>
