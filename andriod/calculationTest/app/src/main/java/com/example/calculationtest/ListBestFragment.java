@@ -2,10 +2,7 @@ package com.example.calculationtest;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link QuestionFragment#newInstance} factory method to
+ * Use the {@link ListBestFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuestionFragment extends Fragment {
+public class ListBestFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +24,7 @@ public class QuestionFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public QuestionFragment() {
+    public ListBestFragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +34,11 @@ public class QuestionFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment QuestionFragment.
+     * @return A new instance of fragment ListBestFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static QuestionFragment newInstance(String param1, String param2) {
-        QuestionFragment fragment = new QuestionFragment();
+    public static ListBestFragment newInstance(String param1, String param2) {
+        ListBestFragment fragment = new ListBestFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,16 +59,6 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        MyViewModel  homeViewModel =
-                new ViewModelProvider(this).get(MyViewModel.class);
-
-
-
+        return inflater.inflate(R.layout.fragment_list_best, container, false);
     }
 }

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_tittleFragment_to_questionFragment"
             app:destination="@id/questionFragment" />
+        <action
+            android:id="@+id/action_tittleFragment_to_listBestFragment"
+            app:destination="@id/listBestFragment" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
@@ -44,4 +47,9 @@
             android:id="@+id/action_loseFragment_to_tittleFragment"
             app:destination="@id/tittleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listBestFragment"
+        android:name="com.example.calculationtest.ListBestFragment"
+        android:label="fragment_list_best"
+        tools:layout="@layout/fragment_list_best" />
 </navigation>

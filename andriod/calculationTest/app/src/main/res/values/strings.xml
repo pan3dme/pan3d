@@ -29,5 +29,8 @@
     <string name="lose_message">you lose</string>
     <string name="win_message">you win</string>
     <string name="button_back_to_title">back</string>
+    <string name="quit_dialog_title">Are you sure to quit?</string>
+    <string name="dialog_porsitive_message">OK</string>
+    <string name="dialog_nagative_message">CANCEL</string>
 
 </resources>
