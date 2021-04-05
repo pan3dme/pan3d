@@ -2,11 +2,17 @@ package com.example.calculationtest;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +29,9 @@ public class ListBestFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // fruitList用于存储数据
+    private List<Fruit> fruitList=new ArrayList<>();
 
     public ListBestFragment() {
         // Required empty public constructor
@@ -53,6 +62,20 @@ public class ListBestFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // 先拿到数据并放在适配器上
+        initFruits(); //初始化水果数据
+        FruitAdapter adapter=new FruitAdapter(this.getContext(),R.layout.fruit_item,fruitList);
+
+        // 将适配器上的数据传递给listView
+        ListView listView=  getView().findViewById(R.id.listbest);
+        listView.setAdapter(adapter);
     }
 
     @Override
@@ -60,5 +83,18 @@ public class ListBestFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_list_best, container, false);
+    }
+    // 初始化数据
+    private void initFruits(){
+        for(int i=0;i<10;i++){
+            Fruit a=new Fruit("a",R.drawable.tittleimage);
+            fruitList.add(a);
+            Fruit b=new Fruit("B",R.drawable.tittleimage);
+            fruitList.add(b);
+            Fruit c=new Fruit("C",R.drawable.tittleimage);
+            fruitList.add(c);
+            Fruit d=new Fruit("D",R.drawable.tittleimage);
+            fruitList.add(d);
+        }
     }
 }
