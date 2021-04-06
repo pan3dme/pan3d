@@ -41,7 +41,7 @@
 }
 -(void)loadXmlByUrl
 {
-    NSString* netUrl = @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/jason8.xml";
+    NSString* netUrl = @"https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/jason10.xml";
  
     [[LoadManager default] loadUrl:netUrl type:LoadManager.XML_TYPE fun:^(NSString* value) {
         NSDictionary* dic=(NSDictionary*)value;

@@ -1,8 +1,18 @@
 package com.pan3d.units;
 
-import com.pan3d.scene.Scene3D;
+import android.util.Log;
 
+import com.pan3d.base.Scene_data;
+import com.pan3d.scene.Scene3D;
+import com.urlhttp.CallBackUtil;
+import com.urlhttp.UrlHttpUtil;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class LoadManager {
@@ -55,5 +65,48 @@ public class LoadManager {
             }
         }
 
+    }
+
+    public static void loadXmlByUrl(String val,LoadBackFun backFun)
+    {
+        String savePath = LoaderThread.fileContext.getFilesDir().getPath();
+        String url= Scene_data.fileRoot+val;
+        String localUrl=   url.replace(Scene_data.fileRoot,"");
+        localUrl=    localUrl.replace("/","_");
+
+        UrlHttpUtil.downloadFile(url, new CallBackUtil.CallBackFile(savePath,localUrl) {
+            @Override
+            public void onFailure(int code, String errorMessage) {
+                Log.d("errorMessage", "onResponse: ");
+            }
+            @Override
+            public void onProgress(float progress, long total) {
+//                    Log.d("progress"+progress, "total: "+total);
+                super.onProgress(progress, total);
+            }
+            @Override
+            public void onResponse(File file) {
+                Log.d("TAG", "onResponse: ");
+                try {
+                    BufferedReader buffreader = new BufferedReader( new InputStreamReader(new FileInputStream(file)));
+                    String line;
+                    //分行读取
+                    String content = "";
+                    while (( line = buffreader.readLine()) != null) {
+                        content += line + "\n";
+                    }
+
+                    Log.d("LoadManager", content);
+                    HashMap dic=new HashMap();
+                    dic.put("content",content);
+                    backFun.bfun(dic);
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
     }
 }
