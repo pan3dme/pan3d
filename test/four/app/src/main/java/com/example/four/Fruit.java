@@ -31,6 +31,16 @@ public class Fruit {
     public String getName(){
         return text;
     }
+    public String getImageOneUrl(){
+        String outUrl="";
+        try {
+            outUrl=    this.picitem.getString(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        outUrl=outUrl.replace("<<<","/");
+        return outUrl;
+    }
 
     public int getImageId(){
         return  imageId;

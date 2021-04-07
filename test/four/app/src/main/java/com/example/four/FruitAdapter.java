@@ -1,6 +1,9 @@
 package com.example.four;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +13,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.pan3d.units.LoadBackFun;
+import com.pan3d.units.LoadManager;
 
+import org.json.JSONArray;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.HashMap;
 import java.util.List;
 
 public class FruitAdapter extends ArrayAdapter<Fruit> {
+    private static final String TAG = "FruitAdapter";
     // 定义一个内部类，用于对控件的实例进行缓存
+
     class ViewHolder{
         ImageView fruitImage;
         TextView fruitName;
@@ -26,6 +42,7 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         super(context,textViewResourceId,objects);
         resourceId=textViewResourceId;
     }
+
 
 
 
@@ -54,11 +71,24 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
             viewHolder=(ViewHolder) view.getTag();
         }
 
-        // 获取控件实例，并调用set...方法使其显示出来
-        viewHolder.fruitImage.setImageResource(fruit.getImageId());
+
+
+       String picUrl= fruit.getImageOneUrl();
         viewHolder.fruitName.setText(fruit.getName());
+
+        LoadManager.loadBitmapByUrl(picUrl, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap val) {
+                viewHolder.fruitImage.setImageBitmap((Bitmap) val.get("bitmap"));
+            }
+        });
+
         return view;
     }
+
+
+
+
 
 
 }

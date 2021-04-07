@@ -5,11 +5,15 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.pan3d.base.Scene_data;
@@ -117,6 +121,8 @@ public class HomeListFragment extends Fragment {
 
     }
 
+
+
     public void  initListData(JSONArray array)
     {
         this.fruitList=new ArrayList<>();
@@ -132,6 +138,27 @@ public class HomeListFragment extends Fragment {
         // 将适配器上的数据传递给listView
         ListView listView=  getView().findViewById(R.id.baseList);
         listView.setAdapter(adapter);
+        this.addListEvents();
+    }
+    private void addListEvents()
+    {
+        ListView listView=  getView().findViewById(R.id.baseList);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // TODO Auto-generated method stub
+                Fruit info = fruitList.get(position);
+
+                Bundle bundle=new Bundle();
+                bundle.putString("frameName","10005");
+                NavController controller= Navigation.findNavController(view);
+                controller.navigate(R.id.action_homeListFragment_to_navigation_home,bundle);
+            }
+        });
+
+
     }
 
 }
