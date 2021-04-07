@@ -15,6 +15,9 @@ import com.example.four.ui.page.only_charFragment;
 import com.pan3d.base.CallBackFun;
 import com.pan3d.scene.ConstrainSceneView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 /**
  * A simple {@link Fragment} subclass.
 
@@ -56,6 +59,7 @@ public class BaseSceneFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         addConstrainSceneViewOne();
     }
 
@@ -63,13 +67,30 @@ public class BaseSceneFragment extends Fragment {
     private void addConstrainSceneViewOne()
     {
 
+
+
         final ConstraintLayout constraintlayout = getView().findViewById(R.id.base_scene_gl_view);
         constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-                constrainSceneViewOne.addMovieDisplay("50012");
+
+
+                initSceneDataByBunld();
             }
         });
         constraintlayout.addView(constrainSceneViewOne);
+    }
+    private void initSceneDataByBunld()
+    {
+        Fruit fruit ;
+        try {
+            JSONObject jsonObject =new JSONObject(getArguments().getString("data") );
+            fruit=new Fruit(jsonObject);
+            constrainSceneViewOne.addMovieDisplay("50012");
+            
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

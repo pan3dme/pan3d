@@ -5,7 +5,6 @@ import org.json.JSONObject;
 
 public class Fruit {
     private String name;
-    private int imageId;
     private int id;
     private int type;
     private String tittle;
@@ -15,7 +14,7 @@ public class Fruit {
     public  JSONObject data;
 
     public Fruit(JSONObject val ){
-        this.imageId=R.drawable.my_cell_sz001;
+
         try {
             this.data=val;
             this.id=val.getInt("id");
@@ -44,7 +43,5 @@ public class Fruit {
         return outUrl;
     }
 
-    public int getImageId(){
-        return  imageId;
-    }
+
 }

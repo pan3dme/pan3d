@@ -151,7 +151,7 @@ public class HomeListFragment extends Fragment {
                 // TODO Auto-generated method stub
                 Fruit fruit = fruitList.get(position);
                 Bundle bundle=new Bundle();
-                bundle.putString("data",         fruit.toString());
+                bundle.putString("data",         fruit.data.toString());
                 NavController controller= Navigation.findNavController(view);
                 controller.navigate(R.id.action_homeListFragment_to_baseSceneFragment,bundle);
             }
