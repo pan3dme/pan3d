@@ -12,10 +12,12 @@ public class Fruit {
     private String text;
     private JSONArray picitem;
     private JSONArray sceneinfo;
+    public  JSONObject data;
 
     public Fruit(JSONObject val ){
         this.imageId=R.drawable.my_cell_sz001;
         try {
+            this.data=val;
             this.id=val.getInt("id");
             this.type=val.getInt("type");
             this.tittle=val.getString("tittle");

@@ -97,5 +97,17 @@
         <action
             android:id="@+id/action_homeListFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_homeListFragment_to_baseSceneFragment"
+            app:destination="@id/baseSceneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/baseSceneFragment"
+        android:name="com.example.four.BaseSceneFragment"
+        android:label="fragment_base_scene"
+        tools:layout="@layout/fragment_base_scene" >
+        <action
+            android:id="@+id/action_baseSceneFragment_to_homeListFragment"
+            app:destination="@id/homeListFragment" />
     </fragment>
 </navigation>

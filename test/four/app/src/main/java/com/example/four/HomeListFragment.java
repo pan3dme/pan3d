@@ -149,12 +149,11 @@ public class HomeListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                Fruit info = fruitList.get(position);
-
+                Fruit fruit = fruitList.get(position);
                 Bundle bundle=new Bundle();
-                bundle.putString("frameName","10005");
+                bundle.putString("data",         fruit.toString());
                 NavController controller= Navigation.findNavController(view);
-                controller.navigate(R.id.action_homeListFragment_to_navigation_home,bundle);
+                controller.navigate(R.id.action_homeListFragment_to_baseSceneFragment,bundle);
             }
         });
 
