@@ -59,38 +59,63 @@ public class BaseSceneFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        addConstrainSceneViewOne();
-    }
-
-    ConstrainSceneView constrainSceneViewOne;
-    private void addConstrainSceneViewOne()
-    {
-
-
-
         final ConstraintLayout constraintlayout = getView().findViewById(R.id.base_scene_gl_view);
         constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-
-
                 initSceneDataByBunld();
             }
         });
         constraintlayout.addView(constrainSceneViewOne);
     }
+
+    ConstrainSceneView constrainSceneViewOne;
+
     private void initSceneDataByBunld()
     {
-        Fruit fruit ;
+
         try {
             JSONObject jsonObject =new JSONObject(getArguments().getString("data") );
-            fruit=new Fruit(jsonObject);
-            constrainSceneViewOne.addMovieDisplay("50012");
-            
-
+            Fruit fruit=new Fruit(jsonObject);
+            for(int i=0;i<fruit.sceneinfo.length();i++){
+                meshDataInfo(fruit.sceneinfo.getJSONObject(i));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void  meshDataInfo(JSONObject val)
+    {
+
+        try {
+            int type=val.getInt("type");
+
+            if( type==1){ //场景
+                String textStr=val.getString("text").replace("<<<","/");
+                constrainSceneViewOne.loadSceneByUrl(  val.getString("text"));
+            }
+            if( type==2){//特效
+                String textStr=val.getString("text").replace("<<<","/");
+                constrainSceneViewOne.playParticle(textStr);
+            }
+            if( type==3){//角色
+                String textStr=val.getString("text").replace("<<<","/");
+                constrainSceneViewOne.addMovieDisplay(textStr);
+
+            }
+            if(type==4){//动画
+                constrainSceneViewOne.addLoadFrame3dRes();
+            }
+
+            if( type==5){//md5
+                constrainSceneViewOne.addLocaMd5();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 }

@@ -210,7 +210,8 @@ public class ConstrainSceneView extends ViewGroup {
     public void   playParticle(String value)
     {
         //"model/"+str +"_lyf.txt"
-       String url="model/"+value +"_lyf.txt";
+//       String url="model/"+value +"_lyf.txt";
+        String url=value;
         mainScene3D.groupDataManager.getGroupData(url, new GroupBackFun() {
             @Override
             public void Bfun(GroupRes groupRes) {
@@ -241,7 +242,8 @@ public class ConstrainSceneView extends ViewGroup {
     }
     public SceneChar addMovieDisplay(String val){
         SceneChar sceneChar=new SceneChar(mainScene3D);
-        sceneChar.setRoleUrl("role/"+val+".txt");
+//        sceneChar.setRoleUrl("role/"+val+".txt");
+        sceneChar.setRoleUrl(val);
 //        sceneChar.play(SceneChar.CharAction_stand);
         mainScene3D.addMovieDisplay(sceneChar);
         sceneChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );

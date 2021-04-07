@@ -6,11 +6,11 @@ import org.json.JSONObject;
 public class Fruit {
     private String name;
     private int id;
-    private int type;
+    public int type;
     private String tittle;
     private String text;
     private JSONArray picitem;
-    private JSONArray sceneinfo;
+    public JSONArray sceneinfo;
     public  JSONObject data;
 
     public Fruit(JSONObject val ){
