@@ -101,7 +101,7 @@ public class HomeListFragment extends Fragment {
     private void loadXmlByUrl()
     {
 
-        LoadManager.loadXmlByUrl("pan/test/iosmetia/jason10.xml", new LoadBackFun() {
+        LoadManager.loadXmlByUrl("pan/test/iosmetia/jason11.xml", new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
                 String str=  val.get("content").toString();
