@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.pan3d.units.LoadBackFun;
 import com.pan3d.units.LoadManager;
 
@@ -73,17 +75,56 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
 
 
 
+
        String picUrl= fruit.getImageOneUrl();
         viewHolder.fruitName.setText(fruit.getName());
-
+/*
         LoadManager.loadBitmapByUrl(picUrl, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
                 viewHolder.fruitImage.setImageBitmap((Bitmap) val.get("bitmap"));
             }
         });
+        */
+
+        this.addTempSprite((ConstraintLayout)view,picUrl);
+
+        ConstraintLayout tempView=new ConstraintLayout(this.getContext());
+
+        this.addTempImageView(tempView,picUrl);
+        this.addTempImageView(tempView,picUrl);
+        this.addTempImageView(tempView,picUrl);
+        ((ConstraintLayout)view).addView(tempView);
+
 
         return view;
+    }
+    private void addTempSprite(ConstraintLayout constraintLayout,String picUrl)
+    {
+
+
+        TextView tvRight =new TextView(this.getContext());
+        tvRight.setText("abcd");
+        constraintLayout.addView(tvRight);
+
+
+    }
+    private void addTempImageView(ConstraintLayout constraintLayout,String picUrl)
+    {
+        ImageView imageView=new ImageView(this.getContext());
+        imageView.setPadding(100,5,100,5);
+
+
+        constraintLayout.addView(imageView);
+
+
+        LoadManager.loadBitmapByUrl(picUrl, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap val) {
+                imageView.setImageBitmap((Bitmap) val.get("bitmap"));
+            }
+        });
+
     }
 
 
