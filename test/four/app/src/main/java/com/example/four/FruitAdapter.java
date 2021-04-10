@@ -49,15 +49,10 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
             // 避免ListView每次滚动时都要重新加载布局，以提高运行效率
             view=LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
 
-            // 避免每次调用getView()时都要重新获取控件实例
-            viewHolder=new ViewHolder();
 
-
-            // 将ViewHolder存储在View中（即将控件的实例存储在其中）
-            view.setTag(viewHolder);
         } else{
             view=convertView;
-            viewHolder=(ViewHolder) view.getTag();
+
         }
 
 
@@ -67,7 +62,6 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
 
 
         this.addLabelTxt((ConstraintLayout)view, fruit.getName());
-
 
 
         this.addTempImageView((ConstraintLayout)view,picUrl);
@@ -93,7 +87,7 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
     {
         ImageView imageView=new ImageView(this.getContext());
         imageView.setPadding(100,5,100,5);
- 
+
 
         constraintLayout.addView(imageView);
 
