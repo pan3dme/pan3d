@@ -23,7 +23,12 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
     // 定义一个内部类，用于对控件的实例进行缓存
 
     class ViewHolder{
-
+        ImageView fruit_img_001;
+        ImageView fruit_img_002;
+        ImageView fruit_img_003;
+        ImageView fruit_img_004;
+        TextView fruit_tittle_txt;
+        TextView fruit_info_txt;
     }
     private int resourceId;
 
@@ -49,33 +54,53 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
             // 避免ListView每次滚动时都要重新加载布局，以提高运行效率
             view=LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
 
+            viewHolder=new ViewHolder();
+            viewHolder.fruit_img_001=view.findViewById(R.id.fruit_img_001);
+            viewHolder.fruit_img_002=view.findViewById(R.id.fruit_img_002);
+            viewHolder.fruit_img_003=view.findViewById(R.id.fruit_img_003);
+            viewHolder.fruit_img_004=view.findViewById(R.id.fruit_img_004);
+            viewHolder.fruit_tittle_txt=view.findViewById(R.id.fruit_tittle_txt);
+            viewHolder.fruit_info_txt=view.findViewById(R.id.fruit_info_txt);
+
+            view.setTag(viewHolder);
+
 
         } else{
+
             view=convertView;
+            viewHolder=(ViewHolder) view.getTag();
 
         }
 
 
 
 
-       String picUrl= fruit.getImageOneUrl();
-
         ConstraintLayout constraintLayout=(ConstraintLayout)view;
 
-        constraintLayout.removeAllViews();
+
+        viewHolder.fruit_tittle_txt.setText(fruit.getTittle());
+        viewHolder.fruit_info_txt.setText(fruit.getText());
 
 
-        this.addLabelTxt(constraintLayout, fruit.getName());
-
-
-        this.addTempImageView(constraintLayout,picUrl);
-
-
-
-
+        this.setImgInfoById(viewHolder.fruit_img_001,fruit.getImageUrlByIdx(0));
+        this.setImgInfoById(viewHolder.fruit_img_002,fruit.getImageUrlByIdx(1));
+        this.setImgInfoById(viewHolder.fruit_img_003,fruit.getImageUrlByIdx(2));
+        this.setImgInfoById(viewHolder.fruit_img_004,fruit.getImageUrlByIdx(3));
 
 
         return view;
+    }
+    private void setImgInfoById(ImageView img,String picUrl){
+        if(picUrl==null){
+            return;
+        }
+        LoadManager.loadBitmapByUrl(picUrl, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap val) {
+                img.setImageBitmap((Bitmap) val.get("bitmap"));
+            }
+        });
+
     }
     private void addLabelTxt(ConstraintLayout constraintLayout, String txt)
     {

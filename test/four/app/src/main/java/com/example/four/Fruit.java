@@ -29,15 +29,19 @@ public class Fruit {
 
     }
 
-    public String getName(){
+    public String getTittle(){
+        return tittle;
+    }
+    public String getText(){
         return text;
     }
-    public String getImageOneUrl(){
+    public String getImageUrlByIdx(int idx){
         String outUrl="";
         try {
-            outUrl=    this.picitem.getString(0);
+            outUrl=    this.picitem.getString(idx);
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
         outUrl=outUrl.replace("<<<","/");
         return outUrl;
