@@ -110,7 +110,7 @@ class MenuEventModel {
                 if (infoStr == null) {
 
                 } else {
-                    sceneView.playParticle(infoStr);
+                    sceneView.playParticle("model/" + infoStr + "_lyf.txt");
                 }
 
                 break
