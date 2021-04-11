@@ -67,7 +67,7 @@
             margin-top: 40px;
             margin-right: 40px;
             margin-bottom: 40px;
-            border-radius: 25px; //给li标签右边设置图片
+            border-radius: 25px;  
             background: red url('https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/pic/pic002.jpg') no-repeat right center;
         }
 
@@ -120,7 +120,7 @@
 
 
         $.ajax({
-            url: 'https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/data1.json',    //在后文后有元数据
+            url: 'https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/jason12.xml',    //在后文后有元数据
             type: 'GET',
             dataType: 'json',
             timeout: 1000,
@@ -137,20 +137,25 @@
         }
         function succFunction(tt) {
 
-            console.log("ccavyinfo");
+        
             $("#list").html('');
       
             var str = "";
+            var json = eval(tt); //json数组
+            $.each(json, function (index) {
+                //循环获取数据
+  
+                var tittlestr = json[index].tittle;
+                var textstr = json[index].text;
  
-            for(var i=0;i<10;i++){
-                var id = i;
-                var name = "name的信息内容";
  
-                str = "<li class='item'>" + id + "<br>" + name + "</li>";
+                str = "<li class='item'>" + tittlestr + "<br>" + textstr + "</li>";
                 $("#list").html($("#list").html() + str);
+ 
 
-            }
+            });
 
+  
             $("#content #list .item").click(function () {
                 alert($(this).index());
                 $(this).toggleClass("i1");
