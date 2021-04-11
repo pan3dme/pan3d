@@ -214,7 +214,15 @@
 
 
     <script>
-
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = decodeURI(window.location.search).substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        function stringToJson(stringValue) {
+            eval("var theJsonValue = " + stringValue);
+            return theJsonValue;
+        }
         var constrainSceneView;
         var hasInit = false;
         function init() {
@@ -226,16 +234,21 @@
                 requestAnimationFrame(step);
             }
             setInterval("update()", 1000);//特别加一次系统时间的UPdata
-
+ 
+            //是否亦传递过来的参数
+            var infoStr = getQueryString("info");
+            if(infoStr){
+                MenuEventModel.getInstance().selectSceneByJson(stringToJson(infoStr), constrainSceneView);
+            } 
+          
             initMenuData();
 
-            // selectButByValue('场景|10005')
 
         }
         function initMenuData() {
             var ul_0 = document.querySelector('#ul_0');
             var isFrist = true;
-            var menuNum=8;
+            var menuNum = 8;
             for (var j = 0; j < menuNum; j++)
                 ul_0.children[j].children[0].onclick = function () {
                     var ul = this.parentNode.querySelectorAll('ul');
@@ -253,7 +266,7 @@
                     }
                 }
             for (var j = 0; j < menuNum; j++) {
-                 ul_0.children[j].children[0].onclick()
+                ul_0.children[j].children[0].onclick()
             }
             isFrist = false;
         }
@@ -289,12 +302,10 @@
 
     <div style="z-index:1;position: absolute;">
         <ul id='ul_0'>
-           
             <li><a href="#">清理</a>
                 <ul onclick="selectButByValue('清理|网格')">网格</ul>
                 <ul onclick="selectButByValue('清理|所以')">清理</ul>
             </li>
-           
             <li><a href="#">场景</a>
                 <ul onclick="selectButByValue('场景|10002')">10002</ul>
                 <ul onclick="selectButByValue('场景|10005')">10005</ul>
@@ -307,8 +318,6 @@
                 <ul onclick="selectButByValue('角色|yezhuz')">野猪</ul>
                 <ul onclick="selectButByValue('角色|10013')">10013</ul>
                 <ul onclick="selectButByValue('角色|5104')">5104</ul>
-
-                
             </li>
             <li><a href="#">特效</a>
                 <ul onclick="selectButByValue('特效|10017')">10017</ul>
@@ -317,13 +326,13 @@
             </li>
             <li><a href="#">坐骑</a>
                 <ul onclick="selectButByValue('坐骑|5104')">10017</ul>
-                 
+
             </li>
             <li><a href="#">武器</a>
                 <ul onclick="selectButByValue('武器|weapon1')">10017</ul>
-                 
+
             </li>
-            
+
             <li><a href="#">技能</a>
                 <ul onclick="selectButByValue('技能|jichu_1|m_skill_01')">m_skill_01</ul>
                 <ul onclick="selectButByValue('技能|jichu_1|m_skill_02')">m_skill_02</ul>
@@ -334,21 +343,9 @@
                 <ul onclick="selectButByValue('技能|jichu_1|skill_03')">skill_03</ul>
             </li>
             <li><a href="#">frame3d</a>
-           
             </li>
         </ul>
     </div>
- 
-    <!-- <div id="menu" style=" height:200px ;float:left;">
-            <b>菜单</b><br>
-            <button onclick="selectButByValue('场景')">场景</button><br>
-            <button onclick="selectButByValue('角色')">角色</button><br>
-            <button onclick="selectButByValue('特效')">特效</button><br>
-            <button onclick="selectButByValue('技能')">技能</button><br>
-        </div> -->
-
-
-
 </body>
 
 </html>

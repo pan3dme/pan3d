@@ -5,6 +5,18 @@ import SceneChar = Pan3d.SceneChar;
 import GridLineSprite = Pan3d.GridLineSprite;
 import Skill = Pan3d.Skill;
 
+class SceneInfoVo {
+
+    public   text:String;
+    public   title:String;
+    public   picitem:Array<String>;
+    public   sceneinfo:JSON;
+    public   type:number;
+
+ 
+
+}
+
 class MenuEventModel {
 
     private static _instance: MenuEventModel;
@@ -14,6 +26,18 @@ class MenuEventModel {
 
         }
         return this._instance;
+    }
+    public selectSceneByJson(value: JSON, sceneView: ConstrainSceneView): void {
+        console.log(value);
+        var vo:SceneInfoVo=new SceneInfoVo();
+        vo.text=  value["text"];
+        vo.title=  value["tittle"];
+        vo.type=  value["type"];
+        vo.picitem=  value["picitem"];
+        vo.sceneinfo=  value["sceneinfo"];
+
+ 
+
     }
 
     private mainChar: SceneChar;
