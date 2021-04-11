@@ -10,6 +10,14 @@ module Pan3d {
         public static SEL_PART: string = "select";
         public static QUEST_ICON: string = "questicon";
         public static NONE_SLOT: string = "none";
+
+        public static   CharAction_stand  : string       ="stand";
+        public static   CharAction_walk    : string      ="walk";
+        public static   CharAction_jump    : string      ="jump";
+        public static   CharAction_death   : string      ="death";
+        public static   CharAction_injured    : string   ="injured";
+        public static   CharAction_stand_mount   : string   ="stand_mount";
+        public static   CharAction_walk_mount  : string    ="walk_mount";
  
         public playSkill($skill: Skill): void {
 
@@ -34,6 +42,29 @@ module Pan3d {
             })
    
         }
+        public play($action: string, $completeState: number = 0, needFollow: boolean = true): boolean {
+           var tf: boolean = super.play($action,$completeState,needFollow);
+           if(this.mountChar!=null){
+             this.changeMountAction();
+            }
+            return tf;
+        }
+        private   changeMountAction() {
+            var action:string=this.curentAction;
+            if(this.mountChar!=null){
+                if( action==SceneChar.CharAction_stand||action==SceneChar.CharAction_stand_mount){
+                    this.curentAction=SceneChar.CharAction_stand_mount;
+                    this.mountChar.curentAction=SceneChar.CharAction_stand;
+                }
+            else if(action==SceneChar.CharAction_walk||action==SceneChar.CharAction_walk_mount){
+                this.curentAction=SceneChar.CharAction_walk_mount;
+                this.mountChar.curentAction=SceneChar.CharAction_walk;
+                }else{
+                    this.mountChar.curentAction=SceneChar.CharAction_stand;
+                }
+            }
+        }
+     
         public setMountCharByName(val:String)
         {
             var sc: Display3dMovie = new Display3dMovie(this.scene3D);
