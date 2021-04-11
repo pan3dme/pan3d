@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>页面一</title>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: gainsboro;
+        }
+        .wrap{
+            height: 100%;
+        }
+
+        #nav ul{
+            margin: 10px;
+        }
+        #title{
+            width: 100%;
+            height: 100px;
+            background-color: red;
+        }
+
+        #nav{
+            width: 100%;
+            height: 20%;
+            background-color: white;
+        }
+        #nav li{
+            display: inline-block;
+            width:25%;
+            height:20%;
+            float: left;
+
+        }
+        #nav li a{
+            color: #0f0f0f;
+            text-align: center;
+            font-size: 40px;
+        }
+        #nav ul li a:hover{
+            color:red;
+        }
+
+        /*通过span设置下划线*/
+        #nav ul li a:hover span{
+            padding-bottom: 17px;
+            border-bottom:  2px solid ;
+        }
+
+        .item{
+            padding: 40px;
+            margin-top: 40px;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            border-radius: 25px;            //给li标签右边设置图片
+            background: red url('https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/pic/pic002.jpg')  no-repeat right center;
+        }
+        .i1{
+            padding: 40px;
+            margin-top: 40px;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            border-radius: 25px;
+            background: red url('https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/pic/pic003.jpg')  no-repeat right center;
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <div id="title">
+        我是标题
+    </div>
+
+    <div id="nav">
+        <ul class="nav nav-bar">
+         <li><a href="#" onclick="show1()"><span>个人资料</span></a></li>
+         <li><a href="#" onclick="show2()"><span>信息</span></a></li>
+         <li><a href="#" onclick="show3()"><span>产品兑换</span></a></li>
+         <li><a href="#" onclick="show4()"><span>兑换历史</span></a></li>
+        </ul>
+    </div>
+
+    <div id="content" style="font-size: 40px">
+      <ul id="list" style="list-style: none ">
+
+      </ul>
+     </div>
+
+</div>
+
+
+</body>
+
+<script>
+    function  show1() {
+        //var obj = jQuery.parseJSON('{"name":"John","age":"20"}');
+        //第一种
+        //$("#list").html("<table><tr><td>" + obj.name + "</td><td>" + obj.age + "</td></tr></table>");
+
+
+        //第三种
+//        var data = [{"name":"张三", "age":"21"},{"name":"李四", "age":"21"},{"name":"王五", "age":"21"}];
+//        for(var i=0;i<data.length;i++){
+//            var a = "<li>姓名：" + data[i].name + ",年龄: "+ data[i].age +"</li>";
+//            $("#list").append(a);
+//        }
+
+
+//第二种
+
+            $.ajax({
+                url: 'https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/data1.json',    //在后文后有元数据
+                type: 'GET',
+                dataType: 'json',
+                timeout: 1000,
+                cache: false,
+                beforeSend: LoadFunction, //加载执行方法
+                error: erryFunction,  //错误执行方法
+                success: succFunction //成功执行方法
+            })
+            function LoadFunction() {
+                $("#list").html('加载中...');
+            }
+            function erryFunction() {
+                alert("error");
+            }
+            function succFunction(tt) {
+                $("#list").html('');
+
+               // eval将字符串转成对象数组
+//                var json = { "id": "10086", "uname": "zhangsan", "email": "zhangsan@qq.com" };
+//                json = eval(json);
+//                alert("===json:id=" + json.id + ",uname=" + json.uname + ",email=" + json.email);
+
+                var json = eval(tt); //json数组
+                var str="";
+
+                $.each(json, function (index) {
+                    //循环获取数据
+                    var id = json[index].id;
+                    var name = json[index].name;
+
+                    //$("#list").html($("#list").html() + "<br>" + id + " - " + name + "<br/>");
+                   //alert(id);
+
+                    str += "<li class='item'>"+id+"<br>"+name+"</li>";
+                    $("#list").html($("#list").html() + str);
+
+                    //我想其实应该是这样的：当你点击某一项的时候，会进入一个URL，来进行更改数据库的操作。
+                    //系统怎么识别出来你点击的是哪一项？
+                    //jQuery中如何判断当前点击的是第几个li，使用$(this).index()取得li的下标
+
+                });
+
+                $("#content #list .item").click(function () {
+                    alert($(this).index());
+                    $(this).toggleClass("i1");
+                });
+
+            }
+    }//function  show2()  show3()  show4()的实现和show1()原理是一样的，这里就不再写了。
+
+</script>
+</html>
