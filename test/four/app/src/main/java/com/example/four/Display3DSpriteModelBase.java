@@ -28,21 +28,42 @@ public class Display3DSpriteModelBase extends Display3DSprite {
         Context3D ctx= scene3D.context3D;
 
         if(this.objData!=null){
- 
+
             this.shader3D=this.material.shader;
             ctx.setProgame(this.shader3D.program);
+            this.updateBind();
 
-            this.modeMatrix=new Matrix3D();
-            this.modeMatrix.prependScale(12,12,12);
-
-
-            ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D", scene3D.camera3D.modelMatrix.m);
-            ctx.setVcMatrix4fv(this.shader3D,"posMatrix", modeMatrix.m);
+            this.setVc();
 
             ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
-
             ctx.drawCall(this.objData.indexBuffer,this.objData.treNum);
 
+
+//            ctx.setProgame(this.shader3D.program);
+//            this.updateBind();
+//            this.setVc();
+//            this.setMaterialTexture(this.material,this.materialParam);
+//            this.setMaterialVc(this.material,this.materialParam);
+//            this.setMaterialVa();
+
+
+        }
+
+
+
+    }
+
+    @Override
+    protected void setVc() {
+        Context3D ctx= scene3D.context3D;
+        ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D", scene3D.camera3D.modelMatrix.m);
+
+        this.posMatrix3d.appendScale(10,10,10);
+        ctx.setVcMatrix4fv(this.shader3D,"posMatrix3D",this.posMatrix3d.m);
+        if (this.material.usePbr || this.material.directLight) {
+            float[] m = new float[9];
+            this.rotationMatrix.getRotaion(m);
+            ctx.setVcMatrix3fv(this.shader3D,"rotationMatrix3D",m);
 
         }
 
