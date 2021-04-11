@@ -73,7 +73,7 @@ public class DisplayBaseSprite extends Display3D {
             ctx.setProgame(this.shader3D.program);
 
             Matrix3D m=new Matrix3D();
-            m.appendScale(10,10,0);
+            m.appendScale(10,10,10);
 
 
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D", scene3D.camera3D.modelMatrix.m);

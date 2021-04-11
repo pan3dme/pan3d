@@ -155,7 +155,7 @@ public class Scene3D  {
     }
 
 
-    public void addSpriteDisplay(Display3DSprite display) {
+    public void addSpriteDisplay(Display3D display) {
         addDisplay(display);
     }
 }
