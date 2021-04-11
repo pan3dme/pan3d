@@ -234,20 +234,16 @@ public class ConstrainSceneView extends ViewGroup {
     }
     public void addLocaMd5(){
         Md5MoveSprite $sc = new Md5MoveSprite(mainScene3D);
-        https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/expmd5/shuangdaonv.jpg
         $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
-
         mainScene3D.addDisplay($sc);
     }
     public SceneChar addMovieDisplay(String val){
         SceneChar sceneChar=new SceneChar(mainScene3D);
-//        sceneChar.setRoleUrl("role/"+val+".txt");
+
         sceneChar.setRoleUrl(val);
-//        sceneChar.play(SceneChar.CharAction_stand);
+
         mainScene3D.addMovieDisplay(sceneChar);
-        sceneChar.addPart(SceneChar.WEAPON_PART ,SceneChar.WEAPON_DEFAULT_SLOT,"model/50011.txt" );
-//        sceneChar.setMountById("5104");
-//        sceneChar.play(SceneChar.CharAction_walk);
+
 
         return sceneChar;
 

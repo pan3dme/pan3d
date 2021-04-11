@@ -14,8 +14,17 @@ import android.view.ViewGroup;
 
 import com.example.four.ui.page.only_charFragment;
 import com.pan3d.base.CallBackFun;
+import com.pan3d.base.GroupBackFun;
+import com.pan3d.base.GroupItem;
+import com.pan3d.base.Scene_data;
+import com.pan3d.display.Display3DSprite;
+import com.pan3d.display.particle.CombineParticle;
 import com.pan3d.display.role.SceneChar;
+import com.pan3d.res.BaseRes;
+import com.pan3d.res.GroupRes;
 import com.pan3d.scene.ConstrainSceneView;
+import com.pan3d.scene.Scene3D;
+import com.pan3d.vo.Vector3D;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -65,6 +74,7 @@ public class BaseSceneFragment extends Fragment {
         constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
+//                constrainSceneViewOne.mainScene3D.groupDataManager.addModelSpriteByUrl( constrainSceneViewOne.mainScene3D);
                 initSceneDataByBunld();
             }
         });
@@ -72,6 +82,7 @@ public class BaseSceneFragment extends Fragment {
     }
 
     ConstrainSceneView constrainSceneViewOne;
+
 
     private void initSceneDataByBunld()
     {
@@ -81,6 +92,8 @@ public class BaseSceneFragment extends Fragment {
             Fruit fruit=new Fruit(jsonObject);
             for(int i=0;i<fruit.sceneinfo.length();i++){
                 meshDataInfo(fruit.sceneinfo.getJSONObject(i));
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,6 +102,7 @@ public class BaseSceneFragment extends Fragment {
 
     private void  meshDataInfo(JSONObject val)
     {
+
 
         try {
             int type=val.getInt("type");
@@ -114,8 +128,11 @@ public class BaseSceneFragment extends Fragment {
                       String  model=  info.getString("model");
 
                       sc.addPart(addPart,bindSocket,model);
+//                      addPart = "weapon"
+//                      bindSocket = "w_01"
+//                      model = "weapon1"
 
- 
+
                   }
                     if(  info.has("mount")){
                         String  mount=  info.getString("mount");
