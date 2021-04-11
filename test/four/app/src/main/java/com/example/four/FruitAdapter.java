@@ -60,11 +60,13 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
 
        String picUrl= fruit.getImageOneUrl();
 
+        ConstraintLayout constraintLayout=(ConstraintLayout)view;
 
-        this.addLabelTxt((ConstraintLayout)view, fruit.getName());
+
+        this.addLabelTxt(constraintLayout, fruit.getName());
 
 
-        this.addTempImageView((ConstraintLayout)view,picUrl);
+        this.addTempImageView(constraintLayout,picUrl);
 
 
 
@@ -87,8 +89,6 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
     {
         ImageView imageView=new ImageView(this.getContext());
         imageView.setPadding(100,5,100,5);
-
-
         constraintLayout.addView(imageView);
 
 
