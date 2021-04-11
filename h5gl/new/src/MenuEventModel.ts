@@ -5,17 +5,7 @@ import SceneChar = Pan3d.SceneChar;
 import GridLineSprite = Pan3d.GridLineSprite;
 import Skill = Pan3d.Skill;
 
-class SceneInfoVo {
 
-    public   text:String;
-    public   title:String;
-    public   picitem:Array<String>;
-    public   sceneinfo:JSON;
-    public   type:number;
-
- 
-
-}
 
 class MenuEventModel {
 
@@ -29,14 +19,56 @@ class MenuEventModel {
     }
     public selectSceneByJson(value: JSON, sceneView: ConstrainSceneView): void {
         console.log(value);
-        var vo:SceneInfoVo=new SceneInfoVo();
-        vo.text=  value["text"];
-        vo.title=  value["tittle"];
-        vo.type=  value["type"];
-        vo.picitem=  value["picitem"];
-        vo.sceneinfo=  value["sceneinfo"];
+
+        var sceneinfo: JSON = value["sceneinfo"];
+
+        for (var key in sceneinfo) {
+
+            var tempInfo: any = sceneinfo[key];
+            var type: number = tempInfo["type"];
+            var textStr: string = tempInfo["text"];
+
+            if (type == 1) { //场景
+                sceneView.loadSceneByUrl(textStr);
+            }
+            if (type == 2) {//特效
+                sceneView.playParticle(textStr);
+            }
+            if (type == 3) {//角色
+                var sc: SceneChar = new SceneChar(sceneView.scene3D);
+                sc.setRoleUrl(textStr);
+                sceneView.scene3D.addMovieDisplay(sc);
+                var info: JSON = tempInfo["info"];
+
+                if (info) {
+                    if (info["addPart"]) {
+                        var addPart: string = info["addPart"];
+                        var bindSocket: string = info["bindSocket"];
+                        var model: string = info["model"];
+                        sc.addPart(addPart, bindSocket, getModelUrl(model));
+                    }
+                    if (info["mount"]) {
+                        sc.setMountCharByName("5104");
+                    }
+                    if (info["action"]) {
+                        sc.play(info["action"]);
+                    }
+
+                }
 
  
+
+            }
+            if (type == 4) {//动画
+                sceneView.playFrame3dSprite();
+            }
+
+            if (type == 5) {//md5
+                // constrainSceneViewOne.addLocaMd5();
+            }
+        }
+
+
 
     }
 
@@ -90,7 +122,7 @@ class MenuEventModel {
                     }
                 } else {
                     if (this.mainChar != null) {
-                
+
                         this.mainChar.setMountCharByName("5104");
                         this.mainChar.play("stand_mount");
 

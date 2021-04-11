@@ -187,8 +187,8 @@ module Pan3d {
 
         }
         public playParticle(name: string): void {
-            var url: string = "model/" + name + "_lyf.txt";
-            this.scene3D.groupDataManager.getGroupData(this.scene3D.fileRoot + url, (groupRes: GroupRes) => {
+            // var url: string = "model/" + name + "_lyf.txt";
+            this.scene3D.groupDataManager.getGroupData(this.scene3D.fileRoot + name, (groupRes: GroupRes) => {
                 for (var i: number = 0; i < groupRes.dataAry.length; i++) {
                     var item: GroupItem = groupRes.dataAry[i];
                     var posV3d: Vector3D;
