@@ -74,8 +74,8 @@ public class BaseSceneFragment extends Fragment {
         constrainSceneViewOne =new ConstrainSceneView(this.getContext(), new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-//                constrainSceneViewOne.mainScene3D.groupDataManager.addModelSpriteByUrl( constrainSceneViewOne.mainScene3D);
-                initSceneDataByBunld();
+                constrainSceneViewOne.mainScene3D.groupDataManager.addModelSpriteByUrl( constrainSceneViewOne.mainScene3D);
+//                initSceneDataByBunld();
             }
         });
         constraintlayout.addView(constrainSceneViewOne);

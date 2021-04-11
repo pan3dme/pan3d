@@ -74,7 +74,7 @@ public class ProgrmaManager extends ResGC {
         shader.fragment = material.shaderStr;
 
 
-        if (keyStr.indexOf("Display3DLocusShader")!=-1&&false) {
+        if (keyStr.indexOf("MaterialShadercontent/materialinstance/jiemianwuqi/staticstand_byte.txttrue_")!=-1&&true) {
             Log.d(TAG, keyStr);
             this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
@@ -92,44 +92,23 @@ public class ProgrmaManager extends ResGC {
 
     private void _changeShader(Shader3D shader) {
 
-//        shader.vertex=  "attribute vec3 v3Position;"+
-//                "attribute vec2 v2CubeTexST;"+
-//                "varying vec2 v0;"+
-//                "attribute vec2 v2lightuv;"+
-//                "varying vec2 v2;"+
-//                "varying vec3 v1;"+
-//                "uniform mat4 vpMatrix3D;"+
-//                "uniform mat4 posMatrix3D;"+
-//                "uniform mat3 rotationMatrix3D;"+
-//                "void main(void){"+
-//                "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
-//                "vec4 vt0= vec4(v3Position, 1.0);"+
-//                "vt0 =posMatrix3D* vt0   ;"+
-//                "v2 = vec2(v2lightuv.x, v2lightuv.y);"+
-//                "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
-//                "vt0 = vpMatrix3D*vt0 ;"+
-//                "gl_Position = vt0; }";
+        shader.vertex= "attribute vec3 vPosition;\n"+
 
-        shader.fragment=
-                "precision mediump float;"+
-                        "uniform sampler2D fs0;"+
-                        "uniform sampler2D fs1;"+
-                        "uniform vec4 fc[1];"+
-                        "varying vec2 v0;"+
-                        "varying vec4 v2;"+
-                        "varying vec2 v1;"+
-                        "void main(void){"+
-                        "vec4 ft0 = texture2D(fs0,v1);"+
-                        "ft0.xyz *= ft0.w;"+
-                        "vec4 ft1 = texture2D(fs1,v1);"+
-//                        "ft1.xyz = ft1.xyz * ft1.w;"+
-//                        "vec4 ft2 = ft0 * ft1;"+
-//                        "ft0 = ft2 * v2.w;"+
-//                        "ft1.xyz = ft0.xyz;"+
-//                        "ft1.w = ft0.w;"+
-                        "if(v2.x<fc[0].x){discard;}"+
-                        "gl_FragColor = ft0;"+
-                        "}";
+                "uniform mat4 vpMatrix3D;\n"+
+                "uniform mat4 posMatrix;\n"+
+
+                "varying vec2 textureCoordinate;\n"+
+                "void main(){\n"+
+                "gl_Position = vpMatrix3D*posMatrix*vec4(vPosition*0.1,1);\n"+
+
+                "}";
+
+        shader.fragment="precision mediump float;\n"+
+                "varying vec2 textureCoordinate;\n"+
+                "varying vec4 vDiffuse;\n"+
+                "void main() {\n"+
+                "gl_FragColor= vec4(0.0,0.0,1.0,1.0);\n"+
+                "}";
 
 
     }

@@ -50,7 +50,7 @@ public class GroupDataManager extends ResGC {
                     } else if (item.types == BaseRes.PREFAB_TYPE) {
                         Display3DSpriteModelBase display   = new Display3DSpriteModelBase(scene3D);
                         display.setObjUrl(item.objUrl);
-//                        display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
+                        display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
                         scene3D.addSpriteDisplay(display);
                     }
                 }

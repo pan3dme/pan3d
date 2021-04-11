@@ -18,41 +18,26 @@ public class Display3DSpriteModelBase extends Display3DSprite {
 
     public Display3DSpriteModelBase(Scene3D val){
         super(val);
-        this.modeMatrix=new Matrix3D();
-        scene3D.progrmaManager.registe(DisplayBaseShader.shaderNameStr,new DisplayBaseShader(scene3D));
-        this.shader3D=  scene3D.progrmaManager.getProgram(DisplayBaseShader.shaderNameStr);
 
     }
 
-    public void  setObjUrl(String value)
-    {
 
-        scene3D.objDataManager.getObjData(value, new ObjDataBackFun() {
-            @Override
-            public void Bfun(ObjData value) {
-                objData=value;
-            }
-        });
-    }
 
-    public void upData(){
+    @Override
+    public void updateMaterial() {
         Context3D ctx= scene3D.context3D;
 
-        if(this.shader3D!=null){
-
-
+        if(this.objData!=null){
+ 
+            this.shader3D=this.material.shader;
             ctx.setProgame(this.shader3D.program);
 
             this.modeMatrix=new Matrix3D();
             this.modeMatrix.prependScale(12,12,12);
 
 
-
-
             ctx.setVcMatrix4fv(this.shader3D,"vpMatrix3D", scene3D.camera3D.modelMatrix.m);
             ctx.setVcMatrix4fv(this.shader3D,"posMatrix", modeMatrix.m);
-
-
 
             ctx.setVa(this.shader3D,"vPosition",3,this.objData.vertexBuffer);
 
@@ -61,9 +46,5 @@ public class Display3DSpriteModelBase extends Display3DSprite {
 
         }
 
-
     }
-
-
-
 }
