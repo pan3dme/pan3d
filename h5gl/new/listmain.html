@@ -118,6 +118,7 @@
     function show1() {
 
 
+
         $.ajax({
             url: 'https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/data1.json',    //在后文后有元数据
             type: 'GET',
@@ -135,32 +136,20 @@
             alert("error");
         }
         function succFunction(tt) {
+
+            console.log("ccavyinfo");
             $("#list").html('');
-
-            // eval将字符串转成对象数组
-            //                var json = { "id": "10086", "uname": "zhangsan", "email": "zhangsan@qq.com" };
-            //                json = eval(json);
-            //                alert("===json:id=" + json.id + ",uname=" + json.uname + ",email=" + json.email);
-
-            var json = eval(tt); //json数组
+      
             var str = "";
-
-            $.each(json, function (index) {
-                //循环获取数据
-                var id = json[index].id;
-                var name = json[index].name;
-
-                //$("#list").html($("#list").html() + "<br>" + id + " - " + name + "<br/>");
-                //alert(id);
-
-                str += "<li class='item'>" + id + "<br>" + name + "</li>";
+ 
+            for(var i=0;i<10;i++){
+                var id = i;
+                var name = "name的信息内容";
+ 
+                str = "<li class='item'>" + id + "<br>" + name + "</li>";
                 $("#list").html($("#list").html() + str);
 
-                //我想其实应该是这样的：当你点击某一项的时候，会进入一个URL，来进行更改数据库的操作。
-                //系统怎么识别出来你点击的是哪一项？
-                //jQuery中如何判断当前点击的是第几个li，使用$(this).index()取得li的下标
-
-            });
+            }
 
             $("#content #list .item").click(function () {
                 alert($(this).index());
