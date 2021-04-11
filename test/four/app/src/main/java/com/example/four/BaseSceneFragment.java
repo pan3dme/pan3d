@@ -125,20 +125,19 @@ public class BaseSceneFragment extends Fragment {
                   if(  info.has("addPart")){
                       String  addPart=  info.getString("addPart");
                       String  bindSocket=  info.getString("bindSocket");
-                      String  model=  info.getString("model");
-                      model= "model/50011.txt";
+                      String  model=  "model/"+info.getString("model")+".txt";
                       sc.addPart(addPart,bindSocket,model);
-//                      addPart = "weapon"
-//                      bindSocket = "w_01"
-//                      model = "weapon1"
-
-
                   }
                     if(  info.has("mount")){
                         String  mount=  info.getString("mount");
                         if(mount!=null){
                             sc.setMountById(mount);
                         }
+                    }
+                    if(  info.has("action")){
+                        String  action=  info.getString("action");
+                        Log.d(action, "meshDataInfo: ");
+                        sc.play(action);
                     }
                 }
 

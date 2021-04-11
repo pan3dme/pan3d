@@ -74,7 +74,7 @@ public class ProgrmaManager extends ResGC {
         shader.fragment = material.shaderStr;
 
 
-        if (keyStr.indexOf("MaterialShadercontent/materialinstance/jiemianwuqi/staticstand_byte.txttrue_")!=-1&&true) {
+        if (keyStr.indexOf("Materiee_")!=-1&&true) {
             Log.d(TAG, keyStr);
             this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
