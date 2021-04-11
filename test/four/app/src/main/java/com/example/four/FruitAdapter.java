@@ -62,6 +62,8 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
 
         ConstraintLayout constraintLayout=(ConstraintLayout)view;
 
+        constraintLayout.removeAllViews();
+
 
         this.addLabelTxt(constraintLayout, fruit.getName());
 
