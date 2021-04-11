@@ -91,12 +91,16 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         return view;
     }
     private void setImgInfoById(ImageView img,String picUrl){
+        img.setVisibility(View.VISIBLE);
         if(picUrl==null){
+            img.setVisibility(View.GONE);
             return;
         }
+   
         LoadManager.loadBitmapByUrl(picUrl, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
+                img.setVisibility(View.VISIBLE);
                 img.setImageBitmap((Bitmap) val.get("bitmap"));
             }
         });
