@@ -13,10 +13,10 @@ import com.pan3d.scene.Scene3D;
 import com.pan3d.vo.Matrix3D;
 
 
-public class Display3DSpriteCopy extends Display3DSprite {
+public class Display3DSpriteModelBase extends Display3DSprite {
 
 
-    public Display3DSpriteCopy(Scene3D val){
+    public Display3DSpriteModelBase(Scene3D val){
         super(val);
         this.modeMatrix=new Matrix3D();
         scene3D.progrmaManager.registe(DisplayBaseShader.shaderNameStr,new DisplayBaseShader(scene3D));

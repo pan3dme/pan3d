@@ -126,7 +126,7 @@ public class BaseSceneFragment extends Fragment {
                       String  addPart=  info.getString("addPart");
                       String  bindSocket=  info.getString("bindSocket");
                       String  model=  info.getString("model");
-
+                      model= "model/50011.txt";
                       sc.addPart(addPart,bindSocket,model);
 //                      addPart = "weapon"
 //                      bindSocket = "w_01"
