@@ -120,6 +120,7 @@
 </body>
 
 <script>
+    var fileRoot="https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
     function json2str(o) {
         var arr = [];
         var fmt = function (s) {
@@ -138,7 +139,7 @@
 
 
         $.ajax({
-            url: 'https://webpan.oss-cn-shanghai.aliyuncs.com/res/pan/test/iosmetia/jason12.xml',    //在后文后有元数据
+            url: fileRoot+'pan/test/iosmetia/jason12.xml',    //在后文后有元数据
             type: 'GET',
             dataType: 'json',
             timeout: 1000,
@@ -171,8 +172,9 @@
 
                 $.each(picitem, function (picIdx) {
 
-                    var picUrl = picitem[picIdx];
-                    imgStr += "<img src='https://webpan.oss-cn-shanghai.aliyuncs.com/res/" + picUrl + "' width='100' height='100' />"
+                    var picUrl =fileRoot+ picitem[picIdx];
+                    imgStr += "<img src='" + picUrl + "' width='160' height='160' />";
+                    imgStr += "    ";
 
                 });
 
