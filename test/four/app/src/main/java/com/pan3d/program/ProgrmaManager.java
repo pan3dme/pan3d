@@ -91,23 +91,90 @@ public class ProgrmaManager extends ResGC {
 
 
     private void _changeShader(Shader3D shader) {
+        /*
+        "attribute vec3 v3Position;"+
+                "attribute vec2 v2CubeTexST;"+
+                "varying vec2 v0;"+
+                "attribute vec3 v3Normal;"+
+                "varying vec3 v1;"+
+                "varying vec3 v4;"+
+                "uniform mat4 vpMatrix3D;"+
+                "uniform mat4 posMatrix3D;"+
+                "uniform mat3 rotationMatrix3D;"+
+                "void main(void){"+
+                "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
+                "vec4 vt0= vec4(v3Position, 1.0);"+
+                "vt0 =posMatrix3D* vt0   ;"+
+                "v1 = vec3(vt0.x,vt0.y,vt0.z);"+
+                "vt0 = vpMatrix3D*vt0 ;"+
+                "v4 =v3Normal* rotationMatrix3D ;"+
+                "gl_Position = vt0; }";
+        */
 
-        shader.vertex= "attribute vec3 vPosition;\n"+
+        shader.vertex=
+                "attribute vec3 v3Position;\n"+
+                        "attribute vec2 v2CubeTexST;"+
+                        "varying vec2 v0;"+
+                        "attribute vec3 v3Normal;"+
+                        "varying vec3 v1;"+
+                        "varying vec3 v4;"+
+                        "uniform mat4 vpMatrix3D;"+
+                        "uniform mat4 posMatrix3D;"+
+                        "uniform mat3 rotationMatrix3D;"+
 
-                "uniform mat4 vpMatrix3D;\n"+
-                "uniform mat4 posMatrix3D;\n"+
-                "uniform mat3 rotationMatrix3D;\n"+
-                "varying vec2 textureCoordinate;\n"+
                 "void main(){\n"+
-                "gl_Position = vpMatrix3D*posMatrix3D*vec4(vPosition*0.1,1);\n"+
+                        "v0 = vec2(v2CubeTexST.x, v2CubeTexST.y);"+
+                "gl_Position = vpMatrix3D*posMatrix3D*vec4(v3Position,1);\n"+
 
                 "}";
+/*
+"precision mediump float;"+
+    "uniform sampler2D fs0;"+
+    "uniform sampler2D fs1;"+
+    "uniform samplerCube fs2;"+
+    "uniform vec4 fc[2];"+
+    "varying vec2 v0;"+
+    "varying vec3 v1;"+
+    "varying vec3 v4;"+
+    "void main(void){"+
+    "vec4 ft0 = texture2D(fs0,v0);"+
+    "vec4 ft1 = vec4(ft0.xyz,1.0);"+
+    "vec4 ft2 = vec4(0,0,0,1);"+
+    "ft2.xyz = v4.xyz;"+
+    "vec4 ft3 = vec4(0,0,0,1);"+
+    "ft3.xyz = mix(vec3(fc[1].y,fc[1].y,fc[1].y) * 0.08,ft1.xyz,fc[1].x);"+
+    "vec4 ft4 = vec4(0,0,0,1);"+
+    "ft4.xyz = fc[0].xyz - v1.xyz;"+
+    "ft4.xyz = normalize(ft4.xyz);"+
+    "ft4.y= dot(ft4.xyz,ft2.xyz);"+
+    "ft4.x = fc[1].z;"+
+    "ft4 = texture2D(fs1,ft4.xy);"+
+    "ft3.xyz = ft3.xyz * ft4.x + ft4.y;"+
+    "ft3.xyz = ft3.xyz * fc[1].y;"+
+    "ft4.xyz = v1.xyz - fc[0].xyz;"+
+    "ft4.xyz = normalize(ft4.xyz);"+
+    "ft4.xyz = reflect(ft4.xyz,ft2.xyz);"+
+    "ft4 = textureCube(fs2,ft4.xyz);"+
+    "ft3.xyz = ft3.xyz * ft4.xyz;"+
+    "ft4.xyz = ft1.xyz * (1.0-fc[1].x);"+
+    "ft4.xyz = ft4.xyz + ft3.xyz;"+
+    "ft4.w = 1.0;"+
+    "gl_FragColor = ft4;"+
+    "}";
 
+ */
         shader.fragment="precision mediump float;\n"+
-                "varying vec2 textureCoordinate;\n"+
-                "varying vec4 vDiffuse;\n"+
+                "uniform sampler2D fs0;"+
+                "uniform sampler2D fs1;"+
+                "uniform samplerCube fs2;"+
+                "uniform vec4 fc[2];"+
+                "varying vec2 v0;"+
+                "varying vec3 v1;"+
+                "varying vec3 v4;"+
                 "void main() {\n"+
-                "gl_FragColor= vec4(1,0.0,0.0,1.0);\n"+
+                "vec4 ft0 = texture2D(fs0,v0);"+
+//                "gl_FragColor= vec4(1,0.0,0.0,1.0);\n"+
+                "gl_FragColor= ft0;\n"+
                 "}";
 
 
