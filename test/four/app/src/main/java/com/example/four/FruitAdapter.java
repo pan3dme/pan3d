@@ -49,6 +49,7 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         // 加个判断，以免ListView每次滚动时都要重新加载布局，以提高运行效率
         View view;
         ViewHolder viewHolder;
+        convertView=null; //每次都新创建
         if (convertView==null){
 
             // 避免ListView每次滚动时都要重新加载布局，以提高运行效率
@@ -96,7 +97,7 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
             img.setVisibility(View.GONE);
             return;
         }
-   
+
         LoadManager.loadBitmapByUrl(picUrl, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
