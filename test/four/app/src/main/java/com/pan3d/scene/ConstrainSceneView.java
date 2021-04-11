@@ -55,9 +55,8 @@ public class ConstrainSceneView extends ViewGroup {
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
                 mainScene3D.initData();
                 GridLineSprite dis=new GridLineSprite(mainScene3D);
-                mainScene3D.camera3D.distance=300;
                 mainScene3D.addDisplay(dis);
-
+                mainScene3D.camera3D.distance=300;
                 _initCompleteFun.StateChange(true);
             }
             @Override
