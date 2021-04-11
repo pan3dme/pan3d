@@ -1,9 +1,11 @@
 package com.pan3d.scene;
 
 import android.opengl.GLES20;
+import android.util.Log;
 
 import com.pan3d.base.Camera3D;
 import com.pan3d.base.ObjDataManager;
+import com.pan3d.base.Scene_data;
 import com.pan3d.base.TexTuresBackFun;
 import com.pan3d.core.Context3D;
 import com.pan3d.display.Display3D;
@@ -46,6 +48,7 @@ public class Scene3D  {
     public AnimManager animManager;
     public ResManager resManager;
     public TextureRes pubLut;
+    public TextureRes skyCubeMap;
     private float time;
 
     public Scene3D( ){
@@ -80,10 +83,14 @@ public class Scene3D  {
             }
         });
 
-        this.textureManager.getTexture( "base/brdf_ltu.jpg", new TexTuresBackFun() {
+
+
+        this.textureManager.getCubeTexture(  "base/cube/bb01.jpg", new TexTuresBackFun() {
             @Override
             public void Bfun(TextureRes value) {
-                 pubLut =value;
+                skyCubeMap=value;
+                Log.d("TAG", "Bfun: ");
+
             }
         });
     }

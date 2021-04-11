@@ -1,6 +1,8 @@
 package com.pan3d.filemodel;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
@@ -44,12 +46,18 @@ public class TextureManager extends ResGC {
 
     public void getTexture(String url , TexTuresBackFun bfun)
     {
-
+        this.getTextureOrCube(url,bfun,false);
+    }
+    public void getCubeTexture(String url , TexTuresBackFun bfun)
+    {
+        this.getTextureOrCube(url,bfun,true);
+    }
+    private void getTextureOrCube(String url , TexTuresBackFun bfun,boolean isCube){
         TextureRes textureRes;
         if( this.dic.containsKey(url)){
-             textureRes=(TextureRes)this.dic.get(url);
-             bfun.Bfun(textureRes);
-             return;
+            textureRes=(TextureRes)this.dic.get(url);
+            bfun.Bfun(textureRes);
+            return;
         }
 
 
@@ -79,7 +87,6 @@ public class TextureManager extends ResGC {
                 loadNetTextureCom((TextureLoad)  dic.get("info"),(Bitmap)  dic.get("bitmap"));
             }
         },textureLoad);
-
 
     }
     private  void  loadNetTextureCom(TextureLoad textureLoad,Bitmap bitmap)
@@ -124,6 +131,37 @@ public class TextureManager extends ResGC {
 
             //根据以上指定的参数，生成一个2D纹理
             GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
+            return texture[0];
+        }
+        return 0;
+    }
+
+
+    //还需要优化
+    private    int createTextureCube(Context context, int[] resIds) {
+        if (resIds != null && resIds.length >= 6) {
+            int[] texture = new int[1];
+            //生成纹理
+            GLES20.glGenTextures(1, texture, 0);
+
+            //生成纹理
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_CUBE_MAP, texture[0]);
+            GLES20.glTexParameteri(GLES20.GL_TEXTURE_CUBE_MAP, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
+            GLES20.glTexParameteri(GLES20.GL_TEXTURE_CUBE_MAP, GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_LINEAR);
+            GLES20.glTexParameteri(GLES20.GL_TEXTURE_CUBE_MAP, GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE);
+            GLES20.glTexParameteri(GLES20.GL_TEXTURE_CUBE_MAP, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);
+
+            Bitmap bitmap;
+            final BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inScaled = false;
+            for (int i = 0; i < resIds.length; i++) {
+                bitmap = BitmapFactory.decodeResource(context.getResources(),
+                        resIds[i], options);
+
+                GLUtils.texImage2D(GLES20.GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, bitmap, 0);
+                bitmap.recycle();
+            }
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
             return texture[0];
         }
         return 0;

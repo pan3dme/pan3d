@@ -1,5 +1,6 @@
 package com.pan3d.display;
 
+import android.opengl.GLES20;
 import android.util.Log;
 
 import com.pan3d.base.ObjData;
@@ -236,10 +237,9 @@ public   class Display3DSprite extends Display3D {
                     //_context.setTextureAt(texVec[i].id, _reflectionTextureVo.texture);
                 } else {
                     float index   = (float)Math.floor(material.roughness * 5);
-//                    if (Scene_data.skyCubeMap) {
-//                        var cubeTexture: WebGLTexture = Scene_data.skyCubeMap[index];
-//                        Scene_data.context3D.setRenderTextureCube($material.program, texVec[i].name, cubeTexture, texVec[i].id);
-//                    }
+                    if (scene3D.skyCubeMap!=null) {
+                        ctx.setRenderTexture(material.shader,texItem.name, scene3D.skyCubeMap.textTureInt,texVec.get(i).get_id());
+                    }
 
                 }
             }

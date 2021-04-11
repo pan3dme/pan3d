@@ -1,12 +1,12 @@
 package com.pan3d.filemodel;
 
 
-import com.example.four.Display3DSpriteModelBase;
 import com.pan3d.base.CallBackFun;
 import com.pan3d.base.GroupBackFun;
 import com.pan3d.base.GroupItem;
 import com.pan3d.base.ResGC;
 import com.pan3d.base.Scene_data;
+import com.pan3d.display.Display3DSprite;
 import com.pan3d.res.BaseRes;
 import com.pan3d.res.GroupRes;
 import com.pan3d.scene.Scene3D;
@@ -48,7 +48,7 @@ public class GroupDataManager extends ResGC {
                     if (item.types == BaseRes.SCENE_PARTICLE_TYPE) {
 
                     } else if (item.types == BaseRes.PREFAB_TYPE) {
-                        Display3DSpriteModelBase display   = new Display3DSpriteModelBase(scene3D);
+                        Display3DSprite display   = new Display3DSprite(scene3D);
                         display.setObjUrl(item.objUrl);
                         display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
                         scene3D.addSpriteDisplay(display);

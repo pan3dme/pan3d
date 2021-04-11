@@ -93,6 +93,7 @@ public class Context3D {
 
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,texTureId);
         GLES20.glUniform1i(textureSlot,level);
+
     }
 
     public void  setVcMatrix4fv(Shader3D shader3d, String name , float[] m)

@@ -2,7 +2,6 @@ package com.pan3d.display.role;
 
 import android.util.Log;
 
-import com.example.four.Display3DSpriteModelBase;
 import com.pan3d.base.GroupBackFun;
 import com.pan3d.base.GroupItem;
 import com.pan3d.base.MeshData;
@@ -225,7 +224,7 @@ public class Display3dMovie extends Display3DSprite implements IBind {
                     particle.setGroup(posV3d, rotationV3d, scaleV3d);
                 }
             } else if (item.types == BaseRes.PREFAB_TYPE) {
-                Display3DSpriteModelBase display   = new Display3DSpriteModelBase(scene3D);
+                Display3DSprite display   = new Display3DSprite(scene3D);
                 display.setObjUrl(item.objUrl);
                 display.setMaterialUrl(item.materialUrl, item.materialInfoArr);
                 display.dynamic = true;
