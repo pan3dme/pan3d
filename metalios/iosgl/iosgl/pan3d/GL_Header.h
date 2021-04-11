@@ -26,9 +26,10 @@ static NSString * const CharAction_walk          =@"walk";
 static NSString * const CharAction_jump          =@"jump";
 static NSString * const CharAction_death         =@"death";
 static NSString * const CharAction_injured       =@"injured";
+ 
 
-static NSString * const CharAction_stand_mount_01         =@"stand_mount_01";
-static NSString * const CharAction_walk_mount_01          =@"walk_mount_01";
+static NSString * const CharAction_stand_mount         =@"stand_mount";
+static NSString * const CharAction_walk_mount          =@"walk_mount";
 
 static NSString * const CharAction_attack_01         =@"attack_01";
 static NSString * const CharAction_attack_02         =@"attack_02";

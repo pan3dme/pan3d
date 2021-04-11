@@ -58,7 +58,10 @@
                 NSString* mount=   [vo.info valueForKey:@"mount"];
                 if(mount!=nil){
                     [sc setMountById:mount];
-                    [sc play:@"stand_mount"];
+                }
+                NSString* action=   [vo.info valueForKey:@"action"];
+                if(action!=nil){
+                    [sc play:action];
                 }
             
             

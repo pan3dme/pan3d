@@ -92,15 +92,16 @@
     NSString* action=this.curentAction;
     if(self.mountChar){
         action=action?action:this.defaultAction;
-        if([action isEqualToString:CharAction_stand]||[action isEqualToString:CharAction_stand_mount_01]){
-            this.curentAction=CharAction_stand_mount_01;
-            self.mountChar.curentAction=CharAction_stand;
+        if([action isEqualToString:CharAction_stand]||[action isEqualToString:CharAction_stand_mount]){
+            this.curentAction=CharAction_stand_mount;
+            self.mountChar.curentAction=CharAction_stand_mount;
+//            CharAction_stand_mount
         }
-        else if([action isEqualToString:CharAction_walk]||[action isEqualToString:CharAction_walk_mount_01]){
-            this.curentAction=CharAction_walk_mount_01;
+        else if([action isEqualToString:CharAction_walk]||[action isEqualToString:CharAction_walk_mount]){
+            this.curentAction=CharAction_walk_mount;
             self.mountChar.curentAction=CharAction_walk;
         }else{
-            self.mountChar.curentAction=CharAction_stand;
+            self.mountChar.curentAction=CharAction_walk_mount;
         }
     }
 }
@@ -144,18 +145,7 @@
     [self refrishmountPos];
 }
  
-/*
-public setMountById($mountId: string): void {
-          if (!this.mountChar) {
-              this.mountChar = new MountChar();
-          }
-          this.mountChar.setRoleUrl(getRoleUrl($mountId));
-          this.setBind(this.mountChar, SceneChar.MOUNT_SLOT);
-          SceneManager.getInstance().addMovieDisplay(this.mountChar);
-
-          this.isMount = true
-      }
-*/
+ 
 - (void)upFrame;
 {
      [super upFrame];
