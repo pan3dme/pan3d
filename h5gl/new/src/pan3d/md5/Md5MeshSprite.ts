@@ -1,9 +1,24 @@
 ﻿
-module Pan3d {
 
+module md5list {
+    import Shader3D = Pan3d.Shader3D
+    import Display3DSprite = Pan3d.Display3DSprite
+    import ProgrmaManager = Pan3d.ProgrmaManager;
+ 
+    import MeshData = Pan3d.MeshData
+    import DualQuatFloat32Array = Pan3d.DualQuatFloat32Array
+    import Scene3D = Pan3d.Scene3D
+    import LoadManager = Pan3d.LoadManager
+    import TextureManager = Pan3d.TextureManager
+    import TextureRes = Pan3d.TextureRes
+    import Matrix3D = Pan3d.Matrix3D
+    import Vector3D = Pan3d.Vector3D
+    import Quaternion = Pan3d.Quaternion
     export class Md5MeshShader extends Shader3D {
         static Md5MeshShader: string = "Md5MeshShader";
-         
+        constructor(value:Scene3D) {
+            super(value);
+        }
         binLocation($context: WebGLRenderingContext): void {
             $context.bindAttribLocation(this.program, 0, "pos");
             $context.bindAttribLocation(this.program, 1, "v2Uv");
@@ -99,11 +114,11 @@ module Pan3d {
                 this.md5objData = new MeshToObjUtils(this.scene3D).getObj(this._md5MeshData);
             });
         }
-        private md5objData: ObjData;
+        private md5objData: MeshData;
         protected loadTexture(): void {
              
 
-            this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + "base/brdf_ltu.jpg", ($texture: TextureRes) => {
+            this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + "x_f_武当_01.jpg", ($texture: TextureRes) => {
                 this._uvTextureRes = $texture;
             });
 
@@ -128,7 +143,7 @@ module Pan3d {
             this.baseShder = this.md5shader
             var context3D:Context3D=this.scene3D.context3D;
             context3D.setProgram(this.baseShder.program);
-          
+      
             context3D.setVcMatrix4fv(this.baseShder, "vpMatrix3D", this.scene3D.camera3D.modelMatrix.m);
 
             context3D.setVcMatrix4fv(this.baseShder, "posMatrix3D", this.posMatrix.m);

@@ -1,9 +1,16 @@
-﻿module Pan3d {
+﻿module md5list {
+    import Matrix3D = Pan3d.Matrix3D
+    import MeshData = Pan3d.MeshData
+    import ObjectBone = Pan3d.ObjectBone
+    import Quaternion = Pan3d.Quaternion
+    import Vector3D = Pan3d.Vector3D
+    import ResGC = Pan3d.ResGC
+ 
 
-    export class MeshToObjUtils extends ResGC {
+    export class MeshToObjUtils  extends ResGC {
 
-        public getObj(mesh: Md5MeshData): ObjData {
-            var objData: ObjData = new ObjData(this.scene3D);
+        public getObj(mesh: Md5MeshData): MeshData {
+            var objData: MeshData =mesh;
             objData.vertices = new Array;
             objData.uvs = new Array;
             objData.normals = new Array;
@@ -58,7 +65,7 @@
             for (i = 0; i < mesh.triItem.length; i++) {
                 objData.indexs.push(mesh.triItem[i].t0, mesh.triItem[i].t1, mesh.triItem[i].t2);
             }
-var context3D:Context3D=this.scene3D.context3D;
+            var context3D:Context3D=this.scene3D.context3D;
             objData.vertexBuffer = context3D.uploadBuff3D(objData.vertices);
             objData.uvBuffer = context3D.uploadBuff3D(objData.uvs);
             objData.indexBuffer = context3D.uploadIndexBuff3D(objData.indexs);

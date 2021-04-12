@@ -1,5 +1,12 @@
 ﻿
-module Pan3d {
+module md5list {
+    import Vector3D = Pan3d.Vector3D
+    import MeshData = Pan3d.MeshData
+    import Dictionary = Pan3d.Dictionary
+  
+    import ObjectBone = Pan3d.ObjectBone
+    import ResGC = Pan3d.ResGC
+ 
 
     export class ObjectTri {
         public id: number = 0;
@@ -68,7 +75,7 @@ module Pan3d {
         public indexAry: Array<number>;
     }
 
-    export  class MeshImportSort extends ResGC {
+    export  class MeshImportSort  extends ResGC{
         public processMesh(meshData: Md5MeshData): void {
             var weightAry: Array<ObjectWeight> = new Array
             var i: number = 0
@@ -158,15 +165,15 @@ module Pan3d {
 
         public uplodToGpu(meshData: MeshData, uvArray: Array<number>, ary3: Array<Array<number>>,
             boneWeightAry: Array<number>, bonetIDAry: Array<number>, indexAry: Array<number>): void {
-
                 var context3D:Context3D=this.scene3D.context3D;
-
             meshData.uvBuffer = context3D.uploadBuff3D(uvArray);
+            meshData.boneWeightAry = boneWeightAry
             meshData.boneWeightBuffer = context3D.uploadBuff3D(boneWeightAry);
             var arrA: Array<number> = new Array;
             for (var i: number = 0; i < bonetIDAry.length; i++) {
                 arrA.push(Math.max(bonetIDAry[i], 0))
             }
+            meshData.boneIDAry = arrA
             meshData.boneIdBuffer = context3D.uploadBuff3D(arrA);
             meshData.indexBuffer = context3D.uploadIndexBuff3D(indexAry);
 

@@ -4,8 +4,8 @@ import ConstrainSceneView = Pan3d.ConstrainSceneView;
 import SceneChar = Pan3d.SceneChar;
 import GridLineSprite = Pan3d.GridLineSprite;
 import Skill = Pan3d.Skill;
-import Md5MeshSprite = Pan3d.Md5MeshSprite;
-import Md5MoveSprite = Pan3d.Md5MoveSprite;
+import Md5MeshSprite = md5list.Md5MeshSprite;
+import Md5MoveSprite = md5list.Md5MoveSprite;
 
 
 

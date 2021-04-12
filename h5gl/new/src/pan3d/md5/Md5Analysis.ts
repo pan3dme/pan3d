@@ -1,11 +1,19 @@
 ﻿
 
 
-module Pan3d {
+module md5list {
 
-    export class Md5Analysis extends ResGC {
+    import Dictionary = Pan3d.Dictionary
+    import ObjectBone = Pan3d.ObjectBone;
+    import ResGC = Pan3d.ResGC;
+    import Scene3D = Pan3d.Scene3D;
 
-        
+    export class Md5Analysis  extends ResGC {
+
+        constructor(value:Scene3D) {
+            super(value);
+
+        }
 
         public addMesh(str: string): Md5MeshData {
             var arr: Array<string>;
@@ -15,8 +23,8 @@ module Pan3d {
                 var meshSmaple: Dictionary = new Dictionary([]);
 
 
-
-                arr = str.split(/[\n\r]{2}/);
+                str=str.replace("\t","");
+                arr = str.split("\n");
 
                 var numverts: Boolean = false;
 
