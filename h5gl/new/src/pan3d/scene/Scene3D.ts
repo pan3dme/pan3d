@@ -1,7 +1,15 @@
 module Pan3d {
     export class Scene3D {
-      
-      
+    
+        public static getArrByStr(str: String): Array<string> {
+            var boneNameAry: Array<string> = str.split(/\s+/g);
+            for (var i: number = boneNameAry.length - 1; i >= 0; i--) {
+                if (String(boneNameAry[i]).length < 1) {
+                    boneNameAry.splice(i, 1);
+                }
+            }
+            return boneNameAry;
+        }
         public context3D: Context3D;
         public camera3D: Camera3D;
         public   skyCubeMap: Array<WebGLTexture>;

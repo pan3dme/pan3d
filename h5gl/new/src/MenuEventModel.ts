@@ -52,6 +52,7 @@ class MenuEventModel {
                     }
                     if (info["action"]) {
                         sc.play(info["action"]);
+                        console.log(info["action"])
                     }
 
                 }

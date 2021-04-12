@@ -29,6 +29,10 @@ module Pan3d {
         public hasdispose: boolean = false;
 
 
+        public bindPosAry: Array<Matrix3D>
+        public invertAry: Array<Matrix3D>
+
+
         constructor(value: Scene3D) {
             super(value);
         }
