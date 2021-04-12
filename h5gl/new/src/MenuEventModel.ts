@@ -4,6 +4,8 @@ import ConstrainSceneView = Pan3d.ConstrainSceneView;
 import SceneChar = Pan3d.SceneChar;
 import GridLineSprite = Pan3d.GridLineSprite;
 import Skill = Pan3d.Skill;
+import Md5MeshSprite = Pan3d.Md5MeshSprite;
+import Md5MoveSprite = Pan3d.Md5MoveSprite;
 
 
 
@@ -65,7 +67,15 @@ class MenuEventModel {
             }
 
             if (type == 5) {//md5
-                // constrainSceneViewOne.addLocaMd5();
+                           // $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
+
+                // var md5mesh:  Md5MeshSprite = new  Md5MeshSprite(sceneView.scene3D);
+                // md5mesh.setMd5BodyUrl("pan/expmd5/2/body.md5mesh");
+                // sceneView.scene3D.addDisplay(md5mesh)
+
+                var md5MoveSprite:  Md5MoveSprite = new Md5MoveSprite(sceneView.scene3D);
+                md5MoveSprite.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg")
+                sceneView.scene3D.addDisplay(md5MoveSprite)
             }
         }
 

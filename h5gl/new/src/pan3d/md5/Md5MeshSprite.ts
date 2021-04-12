@@ -103,7 +103,7 @@ module Pan3d {
         protected loadTexture(): void {
              
 
-            this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + "x_f_武当_01.jpg", ($texture: TextureRes) => {
+            this.scene3D.textureManager.getTexture(this.scene3D.fileRoot + "base/brdf_ltu.jpg", ($texture: TextureRes) => {
                 this._uvTextureRes = $texture;
             });
 
