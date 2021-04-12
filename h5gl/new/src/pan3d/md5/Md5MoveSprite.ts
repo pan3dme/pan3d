@@ -91,7 +91,7 @@ module md5list {
         protected uvTextureRes: TextureRes
         private baseShder: Shader3D;
         public upFrame(): void {
-            if (this.md5MeshData && this.frameQuestArr) {
+            if (this.md5MeshData && this.frameQuestArr&& this.uvTextureRes) {
                 this.updateMaterialMeshCopy();
             }
         }
