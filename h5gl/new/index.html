@@ -52,6 +52,7 @@
     <script src="bins/inflate.min.js"></script>
     <script src="http://cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@5.0.0-beta.0/dist/browser/lc.min.js"></script>
 
 
     <script src="jsbin/Pan3d/core/Pan3dByteArray.js"></script>
@@ -311,15 +312,78 @@
         }
         function selectButByValue(value) {
 
-            MenuEventModel.getInstance().selectButByValue(value, constrainSceneView);
 
-   /*
-            AV.User.logIn("pan3dme", "12345678").then(function (loginedUser) {
+
+
+            AV.User.logIn("pan3dme", "1343").then(function (loginedUser) {
                 console.log(loginedUser);
+
+                // MenuEventModel.getInstance().selectButByValue(value, constrainSceneView);
+                getProductAll();
+
             }, function (error) {
                 alert(JSON.stringify(error));
             });
-            */
+
+        }
+        function getTodoList() {
+            const query = new AV.Query('Todo');
+            query.get('60758afcc59cd544c52fdd6f').then((todo) => {
+                // todo 就是 objectId 为 582570f38ac247004f39c24b 的 Todo 实例
+                console.log("服务器的数据", todo);
+
+            });
+        }
+        function setupData() {
+            // 声明 class
+            const Todo = AV.Object.extend('Todo');
+
+            // 构建对象
+            const todo = new Todo();
+
+            // 为属性赋值
+            todo.set('title', '潘佳治');
+            todo.set('content', '早能周二两点，全体成员');
+
+            // 将对象保存到云端
+            todo.save().then((todo) => {
+                // 成功保存之后，执行其他逻辑
+                console.log(`保存成功。objectId：${todo.id}`);
+            }, (error) => {
+                // 异常处理
+            });
+        }
+
+        function getProductAll() {
+            // LeanCloud - 查询
+            // https://leancloud.cn/docs/leanstorage_guide-js.html#hash860317
+            LC.CLASS("Product")
+                .include("owner", "image")
+                .orderBy("createdAt", "desc")
+                .find()
+                .then((products) => {
+                    products.forEach((product) => {
+                        const owner = product.data.owner;
+                        const productImage = product.data.image;
+
+                        // handlebars context
+                        context.products.push({
+                            productImageUrl: productImage ? productImage.url : "./../storage.png",
+                            productTitle: product.data.title,
+                            productDescription: product.data.description,
+                            price: product.data.price,
+                            ownerUsername: owner ? owner.data.username : "unknown",
+                            releaseTime: getReleaseTime(product.createdAt),
+                        });
+                    });
+
+                    // use handlebars to update html
+                    const source = $("#products-list").html();
+                    const template = Handlebars.compile(source);
+                    const html = template(context);
+                    $(".products-detail").html(html);
+                })
+                .catch((error) => alert(error.error));
         }
 
 
