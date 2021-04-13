@@ -6,8 +6,13 @@
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>页面一</title>
+
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@5.0.0-beta.0/dist/browser/lc.min.js"></script>
+
+
 
     <style type="text/css">
         body {
@@ -101,7 +106,7 @@
 
         <div id="nav">
             <ul class="nav nav-bar">
-                <li><a href="#" onclick="show1()"><span>全部</span></a></li>
+                <li><a href="#" onclick="getListDataAll()"><span>全部</span></a></li>
                 <li><a href="#" onclick="show2()"><span>场景</span></a></li>
                 <li><a href="#" onclick="show3()"><span>角色</span></a></li>
                 <li><a href="#" onclick="show4()"><span>特效</span></a></li>
@@ -120,7 +125,15 @@
 </body>
 
 <script>
-    var fileRoot="https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
+    var fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
+    localStorage.setItem('debug', 'leancloud*');
+    const { Query, User } = AV;
+    AV.init({
+        appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
+        appKey: "Kc3v7hICoaQcO80skdhOXCrl",
+        serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
+    });
+
     function json2str(o) {
         var arr = [];
         var fmt = function (s) {
@@ -132,14 +145,95 @@
     }
     function init() {
 
-        show1();
+
+        AV.User.logIn("pan3dme", "1343").then(function (loginedUser) {
+            getListDataAll();
+
+        }, function (error) {
+            alert(JSON.stringify(error));
+        });
+
     }
-    function show1() {
+    function getListDataAll() {
+        const query = new AV.Query('pan3dlist');
+        query.equalTo('type', 1);
+        query.find().then((arr) => {
+
+
+            showListViewByData(arr);
+
+
+
+        });
+    }
+    function showListViewByData(arr) {
+
+        $("#list").html('');
+        var str = "";
+        for (var i = 0; i < arr.length; i++) {
+            var todo = arr[i]
+            var tittlestr =  todo.get('title');
+            var textstr =  todo.get('text');
+            var picitem =      todo.get('picitem');
+            var imgStr = ""
+            $.each(picitem, function (picIdx) {
+                var picUrl = fileRoot + picitem[picIdx];
+                imgStr += "<img src='" + picUrl + "' width='160' height='160' />";
+                imgStr += "    ";
+
+            });
+            str = "<li class='item'>" + tittlestr + "<br>" + textstr + "<br>" + imgStr + "</li>";
+            $("#list").html($("#list").html() + str);
+
+        }
+        $("#content #list .item").click(function () {
+            var selectIdx = $(this).index()
+            var selectVo = arr[selectIdx];
+            var outStr = json2str({"type":todo.get('type'),"sceneinfo":todo.get('sceneinfo')});
+    
+            window.location.href = 'index.html?info=' + outStr;
+        });
+
+    }
+    function addTempInfo() {
+        // 声明 class
+        const Todo = AV.Object.extend('pan3dlist');
+
+        // 构建对象
+        const todo = new Todo();
+
+        // 为属性赋值
+        todo.set('type', 1);
+        todo.set('title', '特效');
+        todo.set('text', '雪花特效展示');
+        todo.set('picitem', ["pan/test/iosmetia/pic/pic018.jpg"]);
+        todo.set('sceneinfo', [
+ {
+ "id": 2,
+ "type": 2,
+ "text":"model/10018_lyf.txt"
+ } 
+ 
+ ]
+ );
+
+
+        // 将对象保存到云端
+        todo.save().then((todo) => {
+            // 成功保存之后，执行其他逻辑
+            console.log(`保存成功。objectId：${todo.id}`);
+        }, (error) => {
+            // 异常处理
+        });
+    }
+
+
+    function show2() {
 
 
 
         $.ajax({
-            url: fileRoot+'pan/test/iosmetia/jason12.xml',    //在后文后有元数据
+            url: fileRoot + 'pan/test/iosmetia/jason12.xml',    //在后文后有元数据
             type: 'GET',
             dataType: 'json',
             timeout: 1000,
@@ -172,7 +266,7 @@
 
                 $.each(picitem, function (picIdx) {
 
-                    var picUrl =fileRoot+ picitem[picIdx];
+                    var picUrl = fileRoot + picitem[picIdx];
                     imgStr += "<img src='" + picUrl + "' width='160' height='160' />";
                     imgStr += "    ";
 
@@ -193,16 +287,16 @@
 
                 var selectIdx = $(this).index()
                 var selectVo = json[selectIdx];
-                var outStr=json2str(selectVo);
+                var outStr = json2str(selectVo);
                 console.log(selectVo);
 
-                window.location.href = 'index.html?info='+outStr;
+                window.location.href = 'index.html?info=' + outStr;
             });
 
         }
     }//function  show2()  show3()  show4()的实现和show1()原理是一样的，这里就不再写了。
 
-    function show2() {
+    function show3() {
 
 
         $.ajax({
