@@ -11,6 +11,7 @@
 #import "LoadManager.h"
 #import "WeiboFrameVo.h"
 #import "HomeSceneBaseViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 #define NavigationBar_H 65.f
 #define TabBar_H 100.f
@@ -27,8 +28,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addUiTableView];
-//    [self setupStatusBarColor:[UIColor whiteColor]];
-    [self loadXmlByUrl];
+    NSString *username = @"pan3dme";
+    NSString *password = @"1343";
+    if (username && password) {
+        [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
+           if (user) {
+               [self getListDataByCould];
+            } else {
+                NSLog(@"登录失败：%@",error.localizedFailureReason);
+                [self loadXmlByUrl];
+            }
+        }];
+    }
+}
+-(void)getListDataByCould
+{
+    self.userList=[[NSMutableArray alloc]init];
+    AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist"];
+    query.limit = 20;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (NSDictionary *dic in objects) {
+                WeiboFrameVo *wbF=[[WeiboFrameVo alloc] init];
+                [wbF setWeiboInfo:dic];
+                [self.userList addObject:wbF];
+            }
+            [self.uiTableView reloadData];
+        }
+    }];
+    [self.uiTableView reloadData];
 }
 -(void)addUiTableView
 {

@@ -11,7 +11,17 @@
 #import "ViewController.h"
 #import "DynamicHeader.h"
  
+#import <AVOSCloud/AVOSCloud.h>
+ 
 
+#define APP_ID @"tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz"
+#define APP_KEY @"Kc3v7hICoaQcO80skdhOXCrl"
+#define APP_SERVER_URL @"https://tqddwahg.lc-cn-n1-shared.com"
+ 
+ 
+//appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
+//      appKey: "Kc3v7hICoaQcO80skdhOXCrl",
+//      serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
 @interface AppDelegate ()
 
 @end
@@ -77,6 +87,12 @@
     */
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //初始化 SDK
+ 
+    [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY serverURLString:APP_SERVER_URL];
+    //开启调试日志
+    [AVOSCloud setAllLogsEnabled:YES];
 
         return YES;
  

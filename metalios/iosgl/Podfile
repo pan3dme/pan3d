@@ -6,7 +6,7 @@ target 'iosgl' do
 
  pod 'MJRefresh'
  
- 
+ pod 'AVOSCloud', '12.3.0'
  
  pod 'SDWebImage'
  
