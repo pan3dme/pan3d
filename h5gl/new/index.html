@@ -50,6 +50,9 @@
     </style>
 
     <script src="bins/inflate.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
+
+
 
     <script src="jsbin/Pan3d/core/Pan3dByteArray.js"></script>
     <script src="jsbin/Pan3d/core/Vector2D.js"></script>
@@ -207,7 +210,7 @@
     <script src="jsbin/Pan3d/frame3d/Frame3dSprite.js"></script>
 
     <script src="jsbin/Pan3d/scene/Scene3D.js"></script>
-    
+
     <script src="jsbin/Pan3d//md5/MeshImportSort.js"></script>
     <script src="jsbin/Pan3d//md5/MeshToObjUtils.js"></script>
     <script src="jsbin/Pan3d//md5/Md5Analysis.js"></script>
@@ -215,7 +218,7 @@
     <script src="jsbin/Pan3d//md5/Md5MeshSprite.js"></script>
     <script src="jsbin/Pan3d//md5/Md5MoveSprite.js"></script>
 
-   
+
 
     <script src="jsbin/Pan3d/UnitFunction.js"></script>
     <script src="jsbin/Pan3d/ConstrainSceneView.js"></script>
@@ -223,6 +226,20 @@
 
 
     <script>
+
+        localStorage.setItem('debug', 'leancloud*');
+
+        const { Query, User } = AV;
+
+        AV.init({
+            appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
+            appKey: "Kc3v7hICoaQcO80skdhOXCrl",
+            serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
+        });
+
+
+
+
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = decodeURI(window.location.search).substr(1).match(reg);
@@ -243,13 +260,13 @@
                 requestAnimationFrame(step);
             }
             setInterval("update()", 1000);//特别加一次系统时间的UPdata
- 
+
             //是否亦传递过来的参数
             var infoStr = getQueryString("info");
-            if(infoStr){
+            if (infoStr) {
                 MenuEventModel.getInstance().selectSceneByJson(stringToJson(infoStr), constrainSceneView);
-            } 
-          
+            }
+
             initMenuData();
 
 
@@ -293,8 +310,16 @@
             constrainSceneView.upFrame();
         }
         function selectButByValue(value) {
+
             MenuEventModel.getInstance().selectButByValue(value, constrainSceneView);
 
+   /*
+            AV.User.logIn("pan3dme", "12345678").then(function (loginedUser) {
+                console.log(loginedUser);
+            }, function (error) {
+                alert(JSON.stringify(error));
+            });
+            */
         }
 
 
