@@ -14,6 +14,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import cn.leancloud.AVLogger;
+import cn.leancloud.AVOSCloud;
+
 public class MainActivity extends AppCompatActivity {
     private Scene3D _scene3d;
     private SceneRes _sceneRes;
@@ -24,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
         Scene_data.fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
         LoaderThread.fileContext = getApplicationContext();
 
+        AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
+        AVOSCloud.initialize(this,"tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz", "Kc3v7hICoaQcO80skdhOXCrl","https://tqddwahg.lc-cn-n1-shared.com");
+//        appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
+//                appKey: "Kc3v7hICoaQcO80skdhOXCrl",
+//                serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
+//
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

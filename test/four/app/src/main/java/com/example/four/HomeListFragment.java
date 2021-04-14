@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.gson.JsonObject;
 import com.pan3d.base.Scene_data;
 import com.pan3d.units.LoadBackFun;
 import com.pan3d.units.LoadManager;
@@ -24,6 +25,7 @@ import com.urlhttp.CallBackUtil;
 import com.urlhttp.UrlHttpUtil;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -33,6 +35,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.AVUser;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,6 +90,84 @@ public class HomeListFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+    }
+
+    private void attemptLogin() {
+
+
+        final String username = "pan3dme";
+        final String password = "1343";
+
+
+            AVUser.logIn(username,password).subscribe(new Observer<AVUser>() {
+                @Override
+                public void onSubscribe(Disposable d) {
+
+                }
+                @Override
+                public void onNext(AVUser avUser) {
+                    getInfoTemp();
+                }
+                @Override
+                public void onError(Throwable e) {
+                    Log.d("Throwable", "onError: ");
+                }
+                @Override
+                public void onComplete() {
+
+                }
+            });
+
+    }
+    private  void getInfoTemp()
+    {
+        AVQuery<AVObject> query = new AVQuery<>("pan3dlist");
+        query.findInBackground().subscribe(new Observer<List<AVObject>>() {
+            public void onSubscribe(Disposable disposable) {}
+            public void onNext(List<AVObject> todos) {
+                // 获取需要更新的 todo
+
+
+
+                try {
+                    initListDataCopy(todos);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+            public void onError(Throwable throwable) {}
+            public void onComplete() {}
+        });
+    }
+
+    public void  initListDataCopy(List<AVObject> array) throws JSONException {
+
+        this.fruitList=new ArrayList<>();
+        // 先拿到数据并放在适配器上
+        for(int i=0;i<array.size();i++){
+
+            AVObject avObject= array.get(i);
+            JSONObject dd=new JSONObject();
+
+
+            dd.put("id", i);
+            dd.put("type", avObject.get("type"));
+            dd.put("tittle", avObject.get("title"));
+            dd.put("text", avObject.get("text"));
+            dd.put("picitem", avObject.get("picitem"));
+            dd.put("sceneinfo", avObject.get("sceneinfo"));
+
+            Fruit a=new Fruit( dd );
+            fruitList.add(a);
+
+        }
+        FruitAdapter adapter=new FruitAdapter(this.getContext(),R.layout.fruit_item,fruitList);
+        // 将适配器上的数据传递给listView
+        ListView listView=  getView().findViewById(R.id.baseList);
+        listView.setAdapter(adapter);
+        this.addListEvents();
     }
 
     @Override
