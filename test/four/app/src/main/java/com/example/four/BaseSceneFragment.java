@@ -12,22 +12,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.four.ui.page.only_charFragment;
 import com.pan3d.base.CallBackFun;
-import com.pan3d.base.GroupBackFun;
-import com.pan3d.base.GroupItem;
-import com.pan3d.base.Scene_data;
-import com.pan3d.display.Display3DSprite;
-import com.pan3d.display.particle.CombineParticle;
+
 import com.pan3d.display.role.SceneChar;
-import com.pan3d.res.BaseRes;
-import com.pan3d.res.GroupRes;
+
 import com.pan3d.scene.ConstrainSceneView;
-import com.pan3d.scene.Scene3D;
-import com.pan3d.vo.Vector3D;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,13 +92,11 @@ public class BaseSceneFragment extends Fragment {
     {
 
         try {
-            JSONObject jsonObject =new JSONObject(getArguments().getString("data") );
-            Fruit fruit=new Fruit(jsonObject);
-            for(int i=0;i<fruit.sceneinfo.length();i++){
-                meshDataInfo(fruit.sceneinfo.getJSONObject(i));
-
-
+            JSONArray jsonArray=new JSONArray(getArguments().getString("data"));
+            for(int i=0;i< jsonArray.length();i++){
+                meshDataInfo(jsonArray.getJSONObject(i));
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

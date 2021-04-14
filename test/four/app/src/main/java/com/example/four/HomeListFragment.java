@@ -24,7 +24,6 @@ import com.pan3d.units.LoaderThread;
 import com.urlhttp.CallBackUtil;
 import com.urlhttp.UrlHttpUtil;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,10 +34,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import cn.leancloud.AVUser;
+import cn.leancloud.gson.GsonArray;
+import cn.leancloud.json.JSONArray;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -149,17 +151,9 @@ public class HomeListFragment extends Fragment {
         for(int i=0;i<array.size();i++){
 
             AVObject avObject= array.get(i);
-            JSONObject dd=new JSONObject();
 
 
-            dd.put("id", i);
-            dd.put("type", avObject.get("type"));
-            dd.put("tittle", avObject.get("title"));
-            dd.put("text", avObject.get("text"));
-            dd.put("picitem", avObject.get("picitem"));
-            dd.put("sceneinfo", avObject.get("sceneinfo"));
-
-            Fruit a=new Fruit( dd );
+            Fruit a=new Fruit( avObject );
             fruitList.add(a);
 
         }
@@ -182,7 +176,7 @@ public class HomeListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        this.loadXmlByUrl();
+        this.attemptLogin();
     }
     private void loadXmlByUrl()
     {
@@ -190,16 +184,7 @@ public class HomeListFragment extends Fragment {
         LoadManager.loadXmlByUrl("pan/test/iosmetia/jason12.xml", new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
-                String str=  val.get("content").toString();
-                str=  str.replace("\n","");
-                str=  str.replace("/","<<<");
-                str=  str.replace("\"","");
-                try {
-                    JSONArray jsonArray =new JSONArray(str );
-                    initListData(jsonArray);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
 
 
             }
@@ -209,23 +194,7 @@ public class HomeListFragment extends Fragment {
 
 
 
-    public void  initListData(JSONArray array)
-    {
-        this.fruitList=new ArrayList<>();
-        // 先拿到数据并放在适配器上
-        for(int i=0;i<array.length();i++){
 
-            Fruit a=new Fruit( array.optJSONObject(i) );
-            fruitList.add(a);
-
-        }
-        FruitAdapter adapter=new FruitAdapter(this.getContext(),R.layout.fruit_item,fruitList);
-
-        // 将适配器上的数据传递给listView
-        ListView listView=  getView().findViewById(R.id.baseList);
-        listView.setAdapter(adapter);
-        this.addListEvents();
-    }
     private void addListEvents()
     {
         ListView listView=  getView().findViewById(R.id.baseList);
@@ -237,9 +206,21 @@ public class HomeListFragment extends Fragment {
                 // TODO Auto-generated method stub
                 Fruit fruit = fruitList.get(position);
                 Bundle bundle=new Bundle();
-                bundle.putString("data",         fruit.data.toString());
+
+
+
+
+                bundle.putString("data",  fruit.getSceneInfoSt());
+
+
+
+
+
+
                 NavController controller= Navigation.findNavController(view);
                 controller.navigate(R.id.action_homeListFragment_to_baseSceneFragment,bundle);
+
+
             }
         });
 

@@ -79,7 +79,7 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         ConstraintLayout constraintLayout=(ConstraintLayout)view;
 
 
-        viewHolder.fruit_tittle_txt.setText(fruit.getTittle());
+        viewHolder.fruit_tittle_txt.setText(fruit.getTitle());
         viewHolder.fruit_info_txt.setText(fruit.getText());
 
 
