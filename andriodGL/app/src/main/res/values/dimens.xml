@@ -1,5 +1,0 @@
-<resources>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="scoreTextSize">60sp</dimen>
-    <dimen name="butTextSize">30sp</dimen>
-</resources>

@@ -1,6 +1,0 @@
-framework module Pods_iosgl {
-  umbrella header "Pods-iosgl-umbrella.h"
-
-  export *
-  module * { export * }
-}
