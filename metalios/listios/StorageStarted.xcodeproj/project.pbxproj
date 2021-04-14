@@ -209,6 +209,10 @@
 		9C75CE8926271ACA00CFEC83 /* SceneInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE8426271ACA00CFEC83 /* SceneInfoVo.m */; };
 		9C75CE8A26271ACA00CFEC83 /* HomeSceneBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE8726271ACA00CFEC83 /* HomeSceneBaseViewController.m */; };
 		9C75CE9326271B1200CFEC83 /* SceneBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE9126271B1200CFEC83 /* SceneBaseViewController.m */; };
+		9C75CE9D26272E0C00CFEC83 /* Pan3dListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE9C26272E0C00CFEC83 /* Pan3dListViewController.m */; };
+		9C75CEA626272EBB00CFEC83 /* Pan3dListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CEA526272EBB00CFEC83 /* Pan3dListVo.m */; };
+		9C75CEB826272F6B00CFEC83 /* Pan3dListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C75CEB626272F6B00CFEC83 /* Pan3dListCell.xib */; };
+		9C75CEB926272F6B00CFEC83 /* Pan3dtListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -637,6 +641,13 @@
 		9C75CE8726271ACA00CFEC83 /* HomeSceneBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSceneBaseViewController.m; sourceTree = "<group>"; };
 		9C75CE9126271B1200CFEC83 /* SceneBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBaseViewController.m; sourceTree = "<group>"; };
 		9C75CE9226271B1200CFEC83 /* SceneBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneBaseViewController.h; sourceTree = "<group>"; };
+		9C75CE9B26272E0C00CFEC83 /* Pan3dListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pan3dListViewController.h; sourceTree = "<group>"; };
+		9C75CE9C26272E0C00CFEC83 /* Pan3dListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pan3dListViewController.m; sourceTree = "<group>"; };
+		9C75CEA426272EBB00CFEC83 /* Pan3dListVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pan3dListVo.h; sourceTree = "<group>"; };
+		9C75CEA526272EBB00CFEC83 /* Pan3dListVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pan3dListVo.m; sourceTree = "<group>"; };
+		9C75CEB526272F6B00CFEC83 /* Pan3dListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pan3dListCell.h; sourceTree = "<group>"; };
+		9C75CEB626272F6B00CFEC83 /* Pan3dListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pan3dListCell.xib; sourceTree = "<group>"; };
+		9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pan3dtListCell.m; sourceTree = "<group>"; };
 		BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorageStarted.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1486,6 +1497,7 @@
 		9C75CE8126271ACA00CFEC83 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				9C75CE9A26272DD000CFEC83 /* list */,
 				9C75CE8326271ACA00CFEC83 /* HomeSceneBaseViewController.h */,
 				9C75CE8726271ACA00CFEC83 /* HomeSceneBaseViewController.m */,
 				9C75CE9226271B1200CFEC83 /* SceneBaseViewController.h */,
@@ -1494,6 +1506,20 @@
 				9C75CE8426271ACA00CFEC83 /* SceneInfoVo.m */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		9C75CE9A26272DD000CFEC83 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				9C75CE9B26272E0C00CFEC83 /* Pan3dListViewController.h */,
+				9C75CE9C26272E0C00CFEC83 /* Pan3dListViewController.m */,
+				9C75CEA426272EBB00CFEC83 /* Pan3dListVo.h */,
+				9C75CEA526272EBB00CFEC83 /* Pan3dListVo.m */,
+				9C75CEB526272F6B00CFEC83 /* Pan3dListCell.h */,
+				9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */,
+				9C75CEB626272F6B00CFEC83 /* Pan3dListCell.xib */,
+			);
+			path = list;
 			sourceTree = "<group>";
 		};
 		B5852B1A75EDE95CE2A4E440 /* Pods */ = {
@@ -1623,6 +1649,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6693DE601D8933A500A80A29 /* LaunchScreen.storyboard in Resources */,
+				9C75CEB826272F6B00CFEC83 /* Pan3dListCell.xib in Resources */,
 				94255A7A21071FD600BDFA2E /* MyProductCell.xib in Resources */,
 				94A1B72C2105C5D40098C27A /* PersonalCenterViewController.xib in Resources */,
 				94CD9795210859C600A5901C /* UpdateMyProductController.xib in Resources */,
@@ -1794,6 +1821,7 @@
 				9C75CE352627182400CFEC83 /* GC.m in Sources */,
 				9C75CDD12627182300CFEC83 /* FrameNodeVo.m in Sources */,
 				9C75CDF92627182300CFEC83 /* SelfRotation.m in Sources */,
+				9C75CEB926272F6B00CFEC83 /* Pan3dtListCell.m in Sources */,
 				9C75CDD72627182300CFEC83 /* ObjectBone.m in Sources */,
 				9C75CDB62627182300CFEC83 /* SkillRes.m in Sources */,
 				9C75CDCC2627182300CFEC83 /* FrameBuildSprite.m in Sources */,
@@ -1825,7 +1853,9 @@
 				9C75CE8A26271ACA00CFEC83 /* HomeSceneBaseViewController.m in Sources */,
 				9C75CE032627182300CFEC83 /* ParticleBallData.m in Sources */,
 				9C75CE152627182300CFEC83 /* SceneMenager.m in Sources */,
+				9C75CEA626272EBB00CFEC83 /* Pan3dListVo.m in Sources */,
 				9C75CDC52627182300CFEC83 /* LoaderThread.m in Sources */,
+				9C75CE9D26272E0C00CFEC83 /* Pan3dListViewController.m in Sources */,
 				9C75CDCF2627182300CFEC83 /* FrameLinePointVo.m in Sources */,
 				9C75CE312627182400CFEC83 /* ResCount.m in Sources */,
 				9C75CD9C2627182300CFEC83 /* Md5MeshShader.m in Sources */,

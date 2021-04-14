@@ -8,7 +8,7 @@
 
 #import "LCTabBarController.h"
 #import "LCNavigationController.h"
-#import "ProductListViewController.h"
+#import "Pan3dListViewController.h"
 #import "EditProductViewController.h"
 #import "PersonalCenterViewController.h"
 @interface LCTabBarController ()
@@ -29,7 +29,7 @@
 
 -(void)setupChildViewControllers{
     
-   [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[ProductListViewController alloc] init]]title:@"商品列表" image:@"home"
+   [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[Pan3dListViewController alloc] init]]title:@"商品列表" image:@"home"
                   selectedImage:nil];
     [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[EditProductViewController alloc] init] ]title:@"发布新商品" image:@"edit"
                     selectedImage:nil];
