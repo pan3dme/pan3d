@@ -206,6 +206,9 @@
 		9C75CE7B26271A1800CFEC83 /* MtlModelDisplayShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE6F26271A1800CFEC83 /* MtlModelDisplayShader.m */; };
 		9C75CE7C26271A1800CFEC83 /* MtlModelDisplaySprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE7026271A1800CFEC83 /* MtlModelDisplaySprite.m */; };
 		9C75CE7D26271A1800CFEC83 /* MtkModelDisplay.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE7126271A1800CFEC83 /* MtkModelDisplay.metal */; };
+		9C75CE8926271ACA00CFEC83 /* SceneInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE8426271ACA00CFEC83 /* SceneInfoVo.m */; };
+		9C75CE8A26271ACA00CFEC83 /* HomeSceneBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE8726271ACA00CFEC83 /* HomeSceneBaseViewController.m */; };
+		9C75CE9326271B1200CFEC83 /* SceneBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CE9126271B1200CFEC83 /* SceneBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -628,6 +631,12 @@
 		9C75CE7026271A1800CFEC83 /* MtlModelDisplaySprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MtlModelDisplaySprite.m; sourceTree = "<group>"; };
 		9C75CE7126271A1800CFEC83 /* MtkModelDisplay.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MtkModelDisplay.metal; sourceTree = "<group>"; };
 		9C75CE7226271A1800CFEC83 /* MtlModelDisplayShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtlModelDisplayShader.h; sourceTree = "<group>"; };
+		9C75CE8326271ACA00CFEC83 /* HomeSceneBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSceneBaseViewController.h; sourceTree = "<group>"; };
+		9C75CE8426271ACA00CFEC83 /* SceneInfoVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneInfoVo.m; sourceTree = "<group>"; };
+		9C75CE8626271ACA00CFEC83 /* SceneInfoVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneInfoVo.h; sourceTree = "<group>"; };
+		9C75CE8726271ACA00CFEC83 /* HomeSceneBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSceneBaseViewController.m; sourceTree = "<group>"; };
+		9C75CE9126271B1200CFEC83 /* SceneBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBaseViewController.m; sourceTree = "<group>"; };
+		9C75CE9226271B1200CFEC83 /* SceneBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneBaseViewController.h; sourceTree = "<group>"; };
 		BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorageStarted.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -685,6 +694,7 @@
 				9C75CE5726271A1800CFEC83 /* metaltest */,
 				9C75CE412627187B00CFEC83 /* mathlib */,
 				9C75CC202627182200CFEC83 /* pan3d */,
+				9C75CE8126271ACA00CFEC83 /* home */,
 				6693DE531D8933A400A80A29 /* AppDelegate.h */,
 				6693DE541D8933A400A80A29 /* AppDelegate.m */,
 				94A1B6FD2105A65D0098C27A /* Classes */,
@@ -1473,6 +1483,19 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		9C75CE8126271ACA00CFEC83 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				9C75CE8326271ACA00CFEC83 /* HomeSceneBaseViewController.h */,
+				9C75CE8726271ACA00CFEC83 /* HomeSceneBaseViewController.m */,
+				9C75CE9226271B1200CFEC83 /* SceneBaseViewController.h */,
+				9C75CE9126271B1200CFEC83 /* SceneBaseViewController.m */,
+				9C75CE8626271ACA00CFEC83 /* SceneInfoVo.h */,
+				9C75CE8426271ACA00CFEC83 /* SceneInfoVo.m */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		B5852B1A75EDE95CE2A4E440 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1716,6 +1739,7 @@
 				9C75CD9D2627182300CFEC83 /* GroupRes.m in Sources */,
 				9C75CD952627182300CFEC83 /* ObjectWeight.m in Sources */,
 				9C75CDAF2627182300CFEC83 /* ShockAryVo.m in Sources */,
+				9C75CE8926271ACA00CFEC83 /* SceneInfoVo.m in Sources */,
 				9C75CE282627182400CFEC83 /* Material.m in Sources */,
 				9C75CE1A2627182300CFEC83 /* EventBindVo.m in Sources */,
 				9C75CE2C2627182400CFEC83 /* ResGC.m in Sources */,
@@ -1760,6 +1784,7 @@
 				9C75CDB42627182300CFEC83 /* SkillType.m in Sources */,
 				94255A6F2107167500BDFA2E /* CALayer+XibBorderColor.m in Sources */,
 				9C75CE192627182300CFEC83 /* EventDispatcher.m in Sources */,
+				9C75CE9326271B1200CFEC83 /* SceneBaseViewController.m in Sources */,
 				9C75CDFF2627182300CFEC83 /* AxisRotaion.m in Sources */,
 				9C75CDE42627182300CFEC83 /* DisplayBaseTriSprite.m in Sources */,
 				9C75CDA92627182300CFEC83 /* ByteArray.m in Sources */,
@@ -1797,6 +1822,7 @@
 				9C75CDED2627182300CFEC83 /* Display3DShader.m in Sources */,
 				9C75CE0C2627182300CFEC83 /* ParticleLocusballData.m in Sources */,
 				9C75CE162627182300CFEC83 /* Scene3D.m in Sources */,
+				9C75CE8A26271ACA00CFEC83 /* HomeSceneBaseViewController.m in Sources */,
 				9C75CE032627182300CFEC83 /* ParticleBallData.m in Sources */,
 				9C75CE152627182300CFEC83 /* SceneMenager.m in Sources */,
 				9C75CDC52627182300CFEC83 /* LoaderThread.m in Sources */,

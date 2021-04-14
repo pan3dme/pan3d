@@ -8,6 +8,7 @@
 
 #import "LCLoginViewController.h"
 #import "LCTabBarController.h"
+#import "HomeSceneBaseViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 @interface LCLoginViewController ()
 
@@ -22,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.userNameTextField.text=@"pan3dme";
+    self.passwordTextField.text=@"1343";
+   
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -35,6 +40,7 @@
 // LeanCloud - 登录 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash964666
 - (IBAction)LoginBtnClick:(id)sender {
     
+ 
     NSString *username = self.userNameTextField.text;
     NSString *password = self.passwordTextField.text;
     if (username && password) {
@@ -46,6 +52,9 @@
             }
         }];
     }
+    
+  
+//    [UIApplication sharedApplication].keyWindow.rootViewController = [[HomeSceneBaseViewController alloc]init:nil];
 }
 
 // LeanCloud - 注册 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash885156

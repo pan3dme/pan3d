@@ -9,6 +9,7 @@
 #import "ProductListViewController.h"
 #import "Product.h"
 #import "ProductListCell.h"
+#import "HomeSceneBaseViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 @interface ProductListViewController ()
 @property (nonatomic,strong) NSMutableArray <Product *> *productArr;
@@ -71,6 +72,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.productArr[indexPath.row].cellHeight;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     
+ 
+    [self.navigationController pushViewController:[[HomeSceneBaseViewController alloc]init:nil] animated:YES];
+ 
+ 
+}
+
 -(NSMutableArray<Product *> *)productArr{
     if (!_productArr) {
         _productArr =[NSMutableArray array];
