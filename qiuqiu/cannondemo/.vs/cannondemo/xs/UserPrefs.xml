@@ -1,36 +1,7 @@
 ﻿<Properties StartupConfiguration="{2A9562D5-24A0-4F44-94C5-EADCD36C5804}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/src/canondemo/CannonGameStart.ts">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cannondemo/main.html">
     <Files>
-      <File FileName="cannondemo/index.html" Line="484" Column="1" />
-      <File FileName="cannondemo/only.html" />
-      <File FileName="cannondemo/libs/cannon.js" />
-      <File FileName="cannondemo/src/canondemo/panel/concern/ConcernProcessor.ts" />
-      <File FileName="cannondemo/src/canondemo/modules/ModuleList.ts" />
-      <File FileName="cannondemo/pan3d/mvcframe/Module.ts" />
-      <File FileName="cannondemo/src/canondemo/panel/BaseWinPanel.ts" />
-      <File FileName="cannondemo/libs/matchvs/matchvs.js" />
-      <File FileName="cannondemo/libs/matchvs/matchvs.d.ts" />
-      <File FileName="cannondemo/libs/matchvs/matchvs.min.js" />
-      <File FileName="cannondemo/libs/laya.core.js" />
-      <File FileName="cannondemo/libs/laya.webgl.js" />
-      <File FileName="cannondemo/src/canondemo/panel/concern/ConcernPanel.ts" />
-      <File FileName="cannondemo/src/canondemo/panel/setupwin/SetupWinProcessor.ts" />
-      <File FileName="cannondemo/src/canondemo/panel/setupwin/SetupWinPanel.ts" />
-      <File FileName="cannondemo/pan3d/baseprite/BaseProcessor.ts" />
-      <File FileName="cannondemo/pan3d/baseprite/CharAction.ts" />
-      <File FileName="cannondemo/pan3d/baseprite/MountChar.ts" />
-      <File FileName="cannondemo/src/canondemo/CannonGameStart.ts" Line="2" Column="4" />
-      <File FileName="cannondemo/src/canondemo/GameData.ts" />
-      <File FileName="cannondemo/src/canondemo/modules/endless/EndlessManager.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/BaoxiangDisplay3DSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/DiamondsDisplay3DSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/ShadowLaya3dSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/MainCanonPrefabSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/LevelMainCanonPrefabSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/DynamicDirectShadowColorSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/DirectShadowColorSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/MainDirectShadowDisplay3DSprite.ts" />
-      <File FileName="cannondemo/src/canondemo/dis/ReviveModelSprite.ts" />
+      <File FileName="cannondemo/main.html" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -38,6 +9,7 @@
           <Node name="cannondemo" expanded="True">
             <Node name="cannondemo" expanded="True">
               <Node name="bin" expanded="True" />
+              <Node name="libs" expanded="True" />
               <Node name="pan3d" expanded="True">
                 <Node name="mvcframe" expanded="True" />
               </Node>
@@ -50,9 +22,9 @@
                   <Node name="modules" expanded="True">
                     <Node name="endless" expanded="True" />
                   </Node>
-                  <Node name="CannonGameStart.ts" selected="True" />
                 </Node>
               </Node>
+              <Node name="main.html" selected="True" />
             </Node>
           </Node>
         </State>
