@@ -21,10 +21,12 @@ import com.example.testdemo.R;
 import com.pan3d.units.LoadBackFun;
 import com.pan3d.units.LoadManager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import cn.leancloud.AVObject;
+import cn.leancloud.json.JSONArray;
 
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder> {
     private Context mContext;
@@ -57,9 +59,12 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         });
         */
         holder.mTitle.setText((CharSequence) mList.get(position).get("title"));
+        JSONArray picitem = mList.get(position).getJSONArray("picitem");
 
-//
-        LoadManager.loadBitmapByUrl("pan/test/iosmetia/pic/pic015.jpg", new LoadBackFun() {
+//         ArrayList<String> picitem=    mList.get(position).get("picitem");
+
+      String picurl001=  getImageUrlByIdx(0,picitem);
+        LoadManager.loadBitmapByUrl(picurl001, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
 
@@ -67,6 +72,19 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             }
         });
     }
+
+    public String getImageUrlByIdx(int idx,  JSONArray picitem){
+        String outUrl="";
+        try {
+            outUrl= (String)    picitem.get(idx);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return outUrl;
+    }
+
 
     @Override
     public int getItemCount() {
