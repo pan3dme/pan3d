@@ -1,21 +1,22 @@
 package com.example.testdemo;
 
+
 import android.content.Context;
 
 import androidx.cardview.widget.CardView;
 
 
-import androidx.loader.app.LoaderManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -55,14 +56,6 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         holder.mTitle.setText((CharSequence) mList.get(position).get("title"));
 
 
-
-
-//        LoaderManager.loadBitmapByUrl(picUrl, new LoadBackFun() {
-//            @Override
-//            public void bfun(HashMap val) {
-//                imageView.setImageBitmap((Bitmap) val.get("bitmap"));
-//            }
-//        });
 
     }
 
