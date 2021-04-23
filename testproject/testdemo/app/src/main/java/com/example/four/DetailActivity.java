@@ -49,7 +49,7 @@ public class DetailActivity extends AppCompatActivity {
         constrainSceneViewOne =new ConstrainSceneView(context, new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-                constrainSceneViewOne.mainScene3D.groupDataManager.addModelSpriteByUrl( constrainSceneViewOne.mainScene3D);
+
                 initSceneDataByBunld(sceneinfo);
             }
         });
