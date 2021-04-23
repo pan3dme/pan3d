@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,8 +64,9 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         holder.mItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(mContext, DetailActivity.class);
-                intent.putExtra("goodsObjectId", mList.get(position).getObjectId());
+                intent.putExtra("goodsObjectId", "ccav");
                 mContext.startActivity(intent);
             }
         });

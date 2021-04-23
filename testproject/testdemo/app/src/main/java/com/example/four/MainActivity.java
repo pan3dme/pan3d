@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         AVOSCloud.initialize(this,"tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz", "Kc3v7hICoaQcO80skdhOXCrl","https://tqddwahg.lc-cn-n1-shared.com");
 
 
-
     }
 
 
