@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +22,6 @@ import com.example.testdemo.R;
 import com.pan3d.units.LoadBackFun;
 import com.pan3d.units.LoadManager;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,37 +44,22 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     @Override
     public void onBindViewHolder(MainViewHolder holder, final int position) {
-        /*
-        holder.mTitle.setText((CharSequence) mList.get(position).get("title"));
-        holder.mPrice.setText(mList.get(position).get("price") == null ? "￥" : "￥ " + mList.get(position).get("price"));
-        holder.mName.setText(mList.get(position).getAVObject("owner") == null ? "" : mList.get(position).getAVObject("owner").getString("username"));
-        Picasso.with(mContext).load(mList.get(position).getAVFile("image") == null ? "www" : mList.get(position).getAVFile("image").getUrl()).transform(new RoundedTransformation(9, 0)).into(holder.mPicture);
-        holder.mItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, DetailActivity.class);
-                intent.putExtra("goodsObjectId", mList.get(position).getObjectId());
-                mContext.startActivity(intent);
-            }
-        });
-        */
+        AVObject avObject=  mList.get(position);
         holder.mItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(mContext, DetailActivity.class);
-                intent.putExtra("goodsObjectId", "ccav");
+                JSONArray jsonArray=  avObject.getJSONArray("sceneinfo");
+                intent.putExtra("sceneinfo",(CharSequence) jsonArray.toJSONString());
                 mContext.startActivity(intent);
             }
         });
 
-        holder.mTitle.setText((CharSequence) mList.get(position).get("text"));
-        holder.mName.setText((CharSequence) mList.get(position).get("title"));
-        JSONArray picitem = mList.get(position).getJSONArray("picitem");
-
-//         ArrayList<String> picitem=    mList.get(position).get("picitem");
-
-      String picurl001=  getImageUrlByIdx(0,picitem);
+        holder.mTitle.setText((CharSequence)avObject.get("text"));
+        holder.mName.setText((CharSequence)avObject.get("title"));
+        JSONArray picitem = avObject.getJSONArray("picitem");
+        String picurl001=  getImageUrlByIdx(0,picitem);
         LoadManager.loadBitmapByUrl(picurl001, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
