@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,7 @@ import io.reactivex.disposables.Disposable;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG ="MainActivity" ;
     private RecyclerView mRecyclerView;
     private MainRecyclerAdapter mRecyclerAdapter;
     private List<AVObject> mList = new ArrayList<>();
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: ");
 //                startActivity(new Intent(MainActivity.this, PublishActivity.class));
             }
         });
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         mRecyclerAdapter = new MainRecyclerAdapter(mList, MainActivity.this);
         mRecyclerView.setAdapter(mRecyclerAdapter);
+
+
 
     }
 
@@ -77,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
         AVOSCloud.initialize(this,"tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz", "Kc3v7hICoaQcO80skdhOXCrl","https://tqddwahg.lc-cn-n1-shared.com");
-
-
 
 
 

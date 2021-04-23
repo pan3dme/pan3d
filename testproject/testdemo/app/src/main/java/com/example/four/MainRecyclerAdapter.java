@@ -9,7 +9,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +60,17 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             }
         });
         */
-        holder.mTitle.setText((CharSequence) mList.get(position).get("title"));
+        holder.mItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, DetailActivity.class);
+                intent.putExtra("goodsObjectId", mList.get(position).getObjectId());
+                mContext.startActivity(intent);
+            }
+        });
+
+        holder.mTitle.setText((CharSequence) mList.get(position).get("text"));
+        holder.mName.setText((CharSequence) mList.get(position).get("title"));
         JSONArray picitem = mList.get(position).getJSONArray("picitem");
 
 //         ArrayList<String> picitem=    mList.get(position).get("picitem");
