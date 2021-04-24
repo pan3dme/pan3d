@@ -24,6 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"发布新商品";
+    
+  
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.productitleText resignFirstResponder];
+    [self.priceLabel resignFirstResponder];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -47,16 +54,18 @@
  * LeanCloud - 保存对象 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash632314851
 */
 - (IBAction)publishBtn:(id)sender {
+    [self saveInfo];
+    /*
     NSString *title = self.productitleText.text;
     NSNumber *price = @(self.priceLabel.text.intValue);
-    AVObject *product = [AVObject objectWithClassName:@"Product"];
+    AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
+    
     [product setObject:title forKey:@"title"];
-    [product setObject:price forKey:@"price"];
-
-    // owner 字段为 Pointer 类型，指向 _User 表
+//    [product setValue:@1 forKey:@"price"];
+ 
+    
     AVUser *currentUser = [AVUser currentUser];
     [product setObject:currentUser forKey:@"owner"];
-   
     AVFile *file = [AVFile fileWithData:self.imageData];
     [product setObject:file forKey:@"image"];
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -68,6 +77,54 @@
             NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
         }
     }];
+    */
+}
+-(NSMutableDictionary*)getTempSceneInfo
+{
+    NSMutableDictionary* obj=[[NSMutableDictionary alloc] init];
+ 
+   //    "id": 1,
+   //    "type": 1,
+   //    "text": 10005
+    [obj setValue:[NSNumber numberWithInt:1] forKey:@"id"];
+    [obj setValue:[NSNumber numberWithInt:1] forKey:@"type"];
+    [obj setValue:[NSNumber numberWithInt:10005] forKey:@"text"];
+    return obj;
+    
+}
+-(void)saveInfo
+{
+    NSMutableArray* picitem=[[NSMutableArray alloc]init];
+    [picitem addObject:@"pan/test/iosmetia/pic/pic005.jpg"];
+    [picitem addObject:@"pan/test/iosmetia/pic/pic006.jpg"];
+    
+    
+    NSMutableArray* sceneinfo=[[NSMutableArray alloc]init];
+    [sceneinfo addObject:[self getTempSceneInfo] ];
+    
+    
+    
+    AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
+    [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
+    [product setObject:@"新的" forKey:@"title"];
+    [product setObject:@"关于新的内容" forKey:@"text"];
+    [product setObject:picitem forKey:@"picitem"];
+    [product setObject:sceneinfo forKey:@"sceneinfo"];
+    
+    AVUser *currentUser = [AVUser currentUser];
+    [product setObject:currentUser forKey:@"owner"];
+    AVFile *file = [AVFile fileWithData:self.imageData];
+    [product setObject:file forKey:@"image"];
+    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"保存新物品成功");
+            [self alertMessage:@"保存新商品成功"];
+        } else {
+            NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
+        }
+    }];
+ 
+    
 }
 #pragma mark - UIImagePickerControllerDelegate
 #pragma mark - 拍照/选择图片结束
