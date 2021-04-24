@@ -17,6 +17,11 @@
     product.text=[obj objectForKey:@"text"];
     NSString* jsonString=[obj objectForKey:@"sceneinfo"];
     
+    AVFile *file = [obj objectForKey:@"image"];
+//    product.productImageUrl = file.url ;
+    
+    product.productImageUrl= [file.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+    
     NSData *stringData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     product.sceneinfo= [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
      

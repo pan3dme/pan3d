@@ -54,9 +54,12 @@
  
   
  
-    [self setImageById:0 product:product img:self.productImage000];
+//    [self setImageById:0 product:product img:self.productImage000];
     [self setImageById:1 product:product img:self.productImage001];
     [self setImageById:2 product:product img:self.productImage002];
+    
+    [self.productImage000 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
+                            placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
  
 }
 -(void)setImageById:(int)idx product:(Pan3dListVo *)product img:(UIImageView*)img
