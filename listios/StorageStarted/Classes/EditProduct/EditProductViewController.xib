@@ -39,12 +39,29 @@
                     <color key="textColor" red="0.34509803919999998" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="[{\&quot;id\&quot;:1,\&quot;text\&quot;: 10005 ,\&quot;type\&quot;: 1 } ]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FVj-3L-Vxq">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FVj-3L-Vxq">
                     <rect key="frame" x="45" y="70" width="285" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="mNv-XN-MbR"/>
                     </constraints>
+                    <string key="text">[
+  {
+    "id": 1,
+    "type": 1,
+    "text": 10005
+  },
+  {
+    "id": 2,
+    "type": 2,
+    "text": "model/10018_lyf.txt"
+  },
+  {
+    "id": 3,
+    "type": 3,
+    "text": "role/yezhuz.txt"
+  }
+]</string>
                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
