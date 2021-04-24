@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *productImage001;
+@property (weak, nonatomic) IBOutlet UIImageView *productImage002;
 
 @end
 
@@ -44,7 +46,11 @@
     self.title.text = product.title;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:product.avatarUrl]
                             placeholderImage:[UIImage imageNamed:@"not_logged_in"]];
-    [self.productImageView sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
-                      placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+//    [self.productImageView sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
+//                      placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+//    [self.productImage001 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
+//                      placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+//    [self.productImage002 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
+//                      placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
 }
 @end

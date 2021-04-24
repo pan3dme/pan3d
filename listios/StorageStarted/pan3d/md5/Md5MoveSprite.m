@@ -41,7 +41,7 @@
 
 - (void)initData{
     [super initData];
-    self.useLocalFile=true;
+    self.useLocalFile=false;
     self.skipNum=0;
     [self inidShader];
 }

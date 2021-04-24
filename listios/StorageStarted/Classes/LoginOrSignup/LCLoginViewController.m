@@ -37,12 +37,26 @@
     [super viewWillDisappear:YES];
     [AVAnalytics endLogPageView:@"LoginView"];
 }
-// LeanCloud - 登录 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash964666
+
+- (void)viewDidLayoutSubviews{
+    [self sendLoginEvent];
+}
+
 - (IBAction)LoginBtnClick:(id)sender {
     
  
     NSString *username = self.userNameTextField.text;
     NSString *password = self.passwordTextField.text;
+   
+    
+    [self sendLoginEvent];
+    
+ 
+}
+-(void)sendLoginEvent
+{
+    NSString *username = @"pan3dme";
+    NSString *password = @"1343";
     if (username && password) {
         [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
            if (user) {
@@ -52,9 +66,6 @@
             }
         }];
     }
-    
-  
-//    [UIApplication sharedApplication].keyWindow.rootViewController = [[HomeSceneBaseViewController alloc]init:nil];
 }
 
 // LeanCloud - 注册 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash885156

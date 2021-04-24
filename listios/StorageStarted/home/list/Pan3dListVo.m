@@ -12,7 +12,7 @@
 +(instancetype)initWithObject:(NSDictionary *)obj{
     Pan3dListVo * product = [[Pan3dListVo alloc] init];
     product.type=  [[obj objectForKey:@"type"] intValue];
-    product.title=  [obj objectForKey:@"info"];
+    product.title=  [obj objectForKey:@"title"];
     product.picitem=[obj objectForKey:@"picitem"];
     product.text=[obj objectForKey:@"text"];
     product.sceneinfo=[obj objectForKey:@"sceneinfo"];
