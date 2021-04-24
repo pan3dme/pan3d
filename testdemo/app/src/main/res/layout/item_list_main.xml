@@ -23,37 +23,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:textSize="16sp"
-                android:text="username"/>
+                android:text="username"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/title_item_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name_item_main"
+                android:layout_alignLeft="@+id/name_item_main"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
-                android:textSize="14sp"
-                android:text="title"
                 android:layout_toLeftOf="@+id/price_item_main"
-                android:layout_alignLeft="@+id/name_item_main"
-                android:textColor="@android:color/holo_blue_light"/>
+                android:text="title"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/price_item_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:text="price"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_orange_dark"/>
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="16sp" />
         </RelativeLayout>
 
         <ImageView
             android:id="@+id/picture_item_main"
-            android:layout_width="152dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:scaleType="centerCrop" />
 
