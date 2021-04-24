@@ -11,9 +11,9 @@
 
 @interface EditProductViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextView *productitleText;
+@property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
-@property (weak, nonatomic) IBOutlet UITextField *priceLabel;
+@property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (nonatomic,strong) NSData * imageData;
@@ -29,8 +29,8 @@
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self.productitleText resignFirstResponder];
-    [self.priceLabel resignFirstResponder];
+    [self.sceneinfoText resignFirstResponder];
+    [self.titlelabeltxt resignFirstResponder];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -57,44 +57,33 @@
     [self saveInfo];
  
 }
--(NSDictionary*)getTempSceneInfo
-{
-    
  
-    NSString *jsonStr = @"{\"id\":1,\"text\": 110005 ,\"type\": 1 } ";
-    NSData *data = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
- 
-    return tempdic;
-    
-}
 -(void)saveInfo
 {
     NSMutableArray* picitem=[[NSMutableArray alloc]init];
     [picitem addObject:@"pan/test/iosmetia/pic/pic005.jpg"];
     [picitem addObject:@"pan/test/iosmetia/pic/pic006.jpg"];
     
-    
-    NSMutableArray* sceneinfo=[[NSMutableArray alloc]init];
-    [sceneinfo addObject:[self getTempSceneInfo] ];
+    NSString* sceneinfoStr=@"[{\"id\":1,\"text\": 110005 ,\"type\": 1 } ]";
+    sceneinfoStr=  self.sceneinfoText.text;
+    NSArray *tempArr = [NSJSONSerialization JSONObjectWithData: [sceneinfoStr dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
      
     AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
     [product setObject:@"新的" forKey:@"title"];
     [product setObject:@"关于新的内容" forKey:@"text"];
     [product setObject:picitem forKey:@"picitem"];
-    [product setObject:sceneinfo forKey:@"sceneinfo"];
-    
+    [product setObject:tempArr forKey:@"sceneinfo"];
     AVUser *currentUser = [AVUser currentUser];
     [product setObject:currentUser forKey:@"owner"];
     AVFile *file = [AVFile fileWithData:self.imageData];
     [product setObject:file forKey:@"image"];
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            NSLog(@"保存新物品成功");
-            [self alertMessage:@"保存新商品成功"];
+            NSLog(@"保存新场景成功");
+            [self alertMessage:@"保存新场景成功"];
         } else {
-            NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
+            NSLog(@"保存新场景出错 %@", error.localizedFailureReason);
         }
     }];
  
