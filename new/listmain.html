@@ -127,7 +127,7 @@
 <script>
     var fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
     localStorage.setItem('debug', 'leancloud*');
-    const { Query, User } = AV;
+ 
     AV.init({
         appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
         appKey: "Kc3v7hICoaQcO80skdhOXCrl",
@@ -156,13 +156,9 @@
     }
     function getListDataAll() {
         const query = new AV.Query('pan3dlist');
-        query.equalTo('type', 1);
+        // query.equalTo('type', 1);
         query.find().then((arr) => {
-
-
             showListViewByData(arr);
-
-
 
         });
     }
