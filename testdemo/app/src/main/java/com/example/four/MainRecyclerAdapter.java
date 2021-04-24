@@ -59,12 +59,18 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         holder.mTitle.setText((CharSequence)avObject.get("text"));
         holder.mName.setText((CharSequence)avObject.get("title"));
         JSONArray picitem = avObject.getJSONArray("picitem");
-        String picurl001=  getImageUrlByIdx(0,picitem);
+
+        this.loadImgeByUrl(0,holder.mPicture000,holder,picitem);
+        this.loadImgeByUrl(1,holder.mPicture001,holder,picitem);
+        this.loadImgeByUrl(2,holder.mPicture002,holder,picitem);
+    }
+    private void loadImgeByUrl(int idx,ImageView imageView,MainViewHolder holder, JSONArray picitem)
+    {
+        String picurl001=  getImageUrlByIdx(idx,picitem);
         LoadManager.loadBitmapByUrl(picurl001, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
-
-                holder.mPicture.setImageBitmap((Bitmap) val.get("bitmap"));
+                imageView.setImageBitmap((Bitmap) val.get("bitmap"));
             }
         });
     }
@@ -89,17 +95,19 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     class MainViewHolder extends RecyclerView.ViewHolder {
         private TextView mName;
-        private TextView mPrice;
         private TextView mTitle;
         private CardView mItem;
-        private ImageView mPicture;
+        private ImageView mPicture000;
+        private ImageView mPicture001;
+        private ImageView mPicture002;
 
         public MainViewHolder(View itemView) {
             super(itemView);
             mName = (TextView) itemView.findViewById(R.id.name_item_main);
             mTitle = (TextView) itemView.findViewById(R.id.title_item_main);
-            mPrice = (TextView) itemView.findViewById(R.id.price_item_main);
-            mPicture = (ImageView) itemView.findViewById(R.id.picture_item_main);
+            mPicture000 = (ImageView) itemView.findViewById(R.id.picture_item_000);
+            mPicture001 = (ImageView) itemView.findViewById(R.id.picture_item_001);
+            mPicture002 = (ImageView) itemView.findViewById(R.id.picture_item_002);
             mItem = (CardView) itemView.findViewById(R.id.item_main);
         }
     }
