@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                                    android:id="@+id/item_main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_main"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="6dp"
@@ -51,42 +52,44 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="370dp"
-            android:layout_height="104dp"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/picture_item_000"
-                android:layout_width="85dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="94dp"
                 android:layout_weight="1"
-                android:contentDescription="TODO"
-                android:paddingRight="10dp"
+                android:padding="4dp"
+                android:contentDescription="@android:string/unknownName"
                 android:scaleType="centerCrop" />
 
             <ImageView
                 android:id="@+id/picture_item_001"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:contentDescription="TODO"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:scaleType="centerCrop" />
+                android:contentDescription="@android:string/unknownName"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                tools:layout_editor_absoluteX="453dp" />
 
             <ImageView
                 android:id="@+id/picture_item_002"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="94dp"
                 android:layout_weight="1"
-                android:contentDescription="TODO"
-                android:paddingLeft="10dp"
+                android:padding="4dp"
+                android:contentDescription="@android:string/unknownName"
                 android:scaleType="centerCrop" />
+
         </LinearLayout>
 
     </LinearLayout>
