@@ -40,7 +40,7 @@
 // LeanCloud - 查询 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash860317
 -(void)queryProduct{
     
-    AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist"];
+    AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist001"];
  
     query.limit = 20;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

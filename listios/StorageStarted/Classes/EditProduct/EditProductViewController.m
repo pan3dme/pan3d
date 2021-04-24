@@ -55,41 +55,17 @@
 */
 - (IBAction)publishBtn:(id)sender {
     [self saveInfo];
-    /*
-    NSString *title = self.productitleText.text;
-    NSNumber *price = @(self.priceLabel.text.intValue);
-    AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
-    
-    [product setObject:title forKey:@"title"];
-//    [product setValue:@1 forKey:@"price"];
  
-    
-    AVUser *currentUser = [AVUser currentUser];
-    [product setObject:currentUser forKey:@"owner"];
-    AVFile *file = [AVFile fileWithData:self.imageData];
-    [product setObject:file forKey:@"image"];
-    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"保存新物品成功");
-            [self alertMessage:@"保存新商品成功"];
-
-        } else {
-            NSLog(@"保存新物品出错 %@", error.localizedFailureReason);
-        }
-    }];
-    */
 }
--(NSMutableDictionary*)getTempSceneInfo
+-(NSDictionary*)getTempSceneInfo
 {
-    NSMutableDictionary* obj=[[NSMutableDictionary alloc] init];
+    
  
-   //    "id": 1,
-   //    "type": 1,
-   //    "text": 10005
-    [obj setValue:[NSNumber numberWithInt:1] forKey:@"id"];
-    [obj setValue:[NSNumber numberWithInt:1] forKey:@"type"];
-    [obj setValue:[NSNumber numberWithInt:10005] forKey:@"text"];
-    return obj;
+    NSString *jsonStr = @"{\"id\":1,\"text\": 110005 ,\"type\": 1 } ";
+    NSData *data = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+ 
+    return tempdic;
     
 }
 -(void)saveInfo
@@ -101,9 +77,7 @@
     
     NSMutableArray* sceneinfo=[[NSMutableArray alloc]init];
     [sceneinfo addObject:[self getTempSceneInfo] ];
-    
-    
-    
+     
     AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
     [product setObject:@"新的" forKey:@"title"];
