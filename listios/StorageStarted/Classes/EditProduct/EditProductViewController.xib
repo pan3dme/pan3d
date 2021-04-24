@@ -39,7 +39,7 @@
                     <color key="textColor" red="0.34509803919999998" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="[{\&quot;id\&quot;:1,\&quot;text\&quot;: 110005 ,\&quot;type\&quot;: 1 } ]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FVj-3L-Vxq">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="[{\&quot;id\&quot;:1,\&quot;text\&quot;: 10005 ,\&quot;type\&quot;: 1 } ]" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FVj-3L-Vxq">
                     <rect key="frame" x="45" y="70" width="285" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>

@@ -15,7 +15,11 @@
     product.title=  [obj objectForKey:@"title"];
     product.picitem=[obj objectForKey:@"picitem"];
     product.text=[obj objectForKey:@"text"];
-    product.sceneinfo=[obj objectForKey:@"sceneinfo"];
+    NSString* jsonString=[obj objectForKey:@"sceneinfo"];
+    
+    NSData *stringData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    product.sceneinfo= [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
+     
 
     return product;
 }

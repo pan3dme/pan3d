@@ -64,16 +64,16 @@
     [picitem addObject:@"pan/test/iosmetia/pic/pic005.jpg"];
     [picitem addObject:@"pan/test/iosmetia/pic/pic006.jpg"];
     
-    NSString* sceneinfoStr=@"[{\"id\":1,\"text\": 110005 ,\"type\": 1 } ]";
-    sceneinfoStr=  self.sceneinfoText.text;
-    NSArray *tempArr = [NSJSONSerialization JSONObjectWithData: [sceneinfoStr dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSString* sceneinfoStr=@"[{\"id\":1,\"text\": 10005 ,\"type\": 1 } ]";
+    sceneinfoStr=self.sceneinfoText.text;
+
      
     AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
     [product setObject:@"新的" forKey:@"title"];
     [product setObject:@"关于新的内容" forKey:@"text"];
     [product setObject:picitem forKey:@"picitem"];
-    [product setObject:tempArr forKey:@"sceneinfo"];
+    [product setObject:sceneinfoStr forKey:@"sceneinfo"];
     AVUser *currentUser = [AVUser currentUser];
     [product setObject:currentUser forKey:@"owner"];
     AVFile *file = [AVFile fileWithData:self.imageData];
@@ -88,6 +88,32 @@
     }];
  
     
+}
+- (NSDictionary *)convert2DictionaryWithJSONString:(NSString *)jsonString{
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&err];
+    
+    
+    if(err)
+    {
+        NSLog(@"%@",err);
+        return nil;
+    }
+    return dic;
+}
+- (NSString *)string2JSONString:(NSString *)string {
+    NSMutableString *s = [NSMutableString stringWithString:string];
+    [s replaceOccurrencesOfString:@"\"" withString:@"\\\"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
+    [s replaceOccurrencesOfString:@"/" withString:@"\\/" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
+    [s replaceOccurrencesOfString:@"\n" withString:@"\\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
+    [s replaceOccurrencesOfString:@"\b" withString:@"\\b" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
+    [s replaceOccurrencesOfString:@"\f" withString:@"\\f" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
+    [s replaceOccurrencesOfString:@"\r" withString:@"\\r" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
+    [s replaceOccurrencesOfString:@"\t" withString:@"\\t" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
+    return [NSString stringWithString:s];
 }
 #pragma mark - UIImagePickerControllerDelegate
 #pragma mark - 拍照/选择图片结束
