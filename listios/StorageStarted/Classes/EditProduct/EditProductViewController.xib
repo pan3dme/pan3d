@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProductViewController">
             <connections>
-                <outlet property="productImageView" destination="oyL-RK-IFx" id="KSa-nE-G9h"/>
+                <outlet property="productImageView0" destination="oyL-RK-IFx" id="KSa-nE-G9h"/>
+                <outlet property="productImageView1" destination="XZu-sw-z6M" id="Wcx-q4-8l8"/>
+                <outlet property="productImageView2" destination="zAc-Xg-qpk" id="vWv-Tg-orS"/>
+                <outlet property="productImageView3" destination="3TE-fP-A5S" id="UGr-mi-GPe"/>
                 <outlet property="sceneinfoText" destination="FVj-3L-Vxq" id="Kva-Sr-zYH"/>
                 <outlet property="titlelabeltxt" destination="LbN-Mk-H7g" id="NRn-EC-c6e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -83,7 +86,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-RK-IFx">
-                    <rect key="frame" x="47" y="502" width="125" height="70"/>
+                    <rect key="frame" x="31" y="502" width="74" height="61"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="XZu-sw-z6M">
+                    <rect key="frame" x="113" y="502" width="74" height="61"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="zAc-Xg-qpk">
+                    <rect key="frame" x="195" y="502" width="74" height="61"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRr-zW-I5K">
@@ -136,6 +147,10 @@
                         <action selector="publishBtn:" destination="-1" eventType="touchUpInside" id="mL1-74-3xZ"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="3TE-fP-A5S">
+                    <rect key="frame" x="277" y="502" width="74" height="61"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

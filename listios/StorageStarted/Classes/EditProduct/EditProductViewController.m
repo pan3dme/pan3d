@@ -12,11 +12,18 @@
 @interface EditProductViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView0;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView1;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView2;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView3;
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 
+
+@property (nonatomic,strong)NSMutableArray* imgViewArr;
+@property (nonatomic,strong)NSMutableArray* imageArr;
+
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
-@property (nonatomic,strong) NSData * imageData;
+//@property (nonatomic,strong) NSData * imageData;
 @end
 
 @implementation EditProductViewController
@@ -24,6 +31,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"发布新商品";
+    self.imageArr=[[NSMutableArray alloc]init];
+    self.imgViewArr=[[NSMutableArray alloc]init];
+    [self.imgViewArr addObject:self.productImageView0];
+    [self.imgViewArr addObject:self.productImageView1];
+    [self.imgViewArr addObject:self.productImageView2];
+    [self.imgViewArr addObject:self.productImageView3];
     
   
 }
@@ -79,13 +92,17 @@
     [product setObject:sceneinfoStr forKey:@"sceneinfo"];
     AVUser *currentUser = [AVUser currentUser];
     [product setObject:currentUser forKey:@"owner"];
-    AVFile *file = [AVFile fileWithData:self.imageData];
- 
-    [product setObject:file forKey:@"image0"];
-    [product setObject:file forKey:@"image1"];
-//    [product setObject:file forKey:@"image2"];
-//    [product setObject:file forKey:@"image3"];
     
+    
+ 
+    
+    for(NSUInteger i=0;i<self.imageArr.count;i++){
+        AVFile *file = [AVFile fileWithData:[self getAvfileByImage:[self.imageArr objectAtIndex:i]]];
+      
+        [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
+
+    }
+ 
  
     
     
@@ -99,6 +116,16 @@
     }];
  
     
+}
+-(NSData*)getAvfileByImage:(UIImage*)image
+{
+    NSData * imageData;
+    if (UIImagePNGRepresentation(image)) {
+        imageData = UIImagePNGRepresentation(image);
+    }else{
+        imageData = UIImageJPEGRepresentation(image, 1.0);
+    }
+    return imageData;
 }
 - (NSDictionary *)convert2DictionaryWithJSONString:(NSString *)jsonString{
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
@@ -115,30 +142,34 @@
     }
     return dic;
 }
-- (NSString *)string2JSONString:(NSString *)string {
-    NSMutableString *s = [NSMutableString stringWithString:string];
-    [s replaceOccurrencesOfString:@"\"" withString:@"\\\"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
-    [s replaceOccurrencesOfString:@"/" withString:@"\\/" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
-    [s replaceOccurrencesOfString:@"\n" withString:@"\\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
-    [s replaceOccurrencesOfString:@"\b" withString:@"\\b" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
-    [s replaceOccurrencesOfString:@"\f" withString:@"\\f" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
-    [s replaceOccurrencesOfString:@"\r" withString:@"\\r" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
-    [s replaceOccurrencesOfString:@"\t" withString:@"\\t" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [s length])];
-    return [NSString stringWithString:s];
-}
+ 
 #pragma mark - UIImagePickerControllerDelegate
 #pragma mark - 拍照/选择图片结束
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.productImageView.image = image;
-    NSData * imageData;
-    if (UIImagePNGRepresentation(image)) {
-        imageData = UIImagePNGRepresentation(image);
-    }else{
-        imageData = UIImageJPEGRepresentation(image, 1.0);
+    
+    if(self.imageArr.count>=4){
+        return;
     }
-    self.imageData = imageData;
+ 
+    [self.imageArr addObject:image];
+    
+    self.productImageView0.image = image;
+ 
+    UIImageView* uiImageView= [self.imgViewArr objectAtIndex:self.imageArr.count-1];
+ 
+    uiImageView.image=image;
+    
+ 
+    
+//    NSData * imageData;
+//    if (UIImagePNGRepresentation(image)) {
+//        imageData = UIImagePNGRepresentation(image);
+//    }else{
+//        imageData = UIImageJPEGRepresentation(image, 1.0);
+//    }
+//    self.imageData = imageData;
     
     [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
 }
