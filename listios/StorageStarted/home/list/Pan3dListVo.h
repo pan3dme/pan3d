@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVOSCloud.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Pan3dListVo : NSObject
@@ -17,8 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *picture;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSArray *sceneinfo;
-@property (nonatomic, copy) NSArray *images;
-@property (nonatomic, copy) NSString *productImageUrl;
+@property (nonatomic, strong) AVFile *image0;
+@property (nonatomic, strong) AVFile *image1;
+@property (nonatomic, strong) AVFile *image2;
+@property (nonatomic, strong) AVFile *image3;
+//@property (nonatomic, copy) NSString *productImageUrl;
 
 @property (nonatomic, assign) int  type;
 

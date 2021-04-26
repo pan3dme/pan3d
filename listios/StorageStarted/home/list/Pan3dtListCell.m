@@ -45,51 +45,35 @@
     self.name.text = product.title;
     self.time.text = product.text;
     self.price.text =@"编辑";
-    self.title.text =@"--";
+    self.title.text =@"2021-4-25";
     
  
  
   
  
  
-
+   
    
     
-//    [self.productImage000 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
-//                            placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
-    
+    [self loadImageByInfoimg:self.avatarImageView avFile:product.image0];
  
-    
-    [self loadImageByInfoimg:self.avatarImageView idx:0];
-    [self loadImageByInfoimg:self.productImage000 idx:0];
-//    [self loadImageByInfoimg:self.productImage001 idx:0];
-//    [self loadImageByInfoimg:self.productImage002 idx:0];
+    [self loadImageByInfoimg:self.productImage000 avFile:product.image0];
+    [self loadImageByInfoimg:self.productImage001 avFile:product.image1];
+    [self loadImageByInfoimg:self.productImage002 avFile:product.image2];
     
  
 }
--(void)loadImageByInfoimg:(UIImageView*)img idx:(int)idx
+-(void)loadImageByInfoimg:(UIImageView*)img avFile:(AVFile*)avFile
 {
-    AVFile* object = [_product.images objectAtIndex:idx];
-    AVQuery *query = [AVQuery queryWithClassName:@"_File"];
-    [query whereKey:@"objectId" equalTo:object.objectId];
-    [query getFirstObjectInBackgroundWithBlock:^(AVObject *todo, NSError *error) {
-        NSString* url=    [todo objectForKey:@"url"];
-        url=  [url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
-        [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
-    }];
+    if(avFile){
+        NSString* url=    [avFile.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+        [img sd_setImageWithURL:[NSURL URLWithString:url]   placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+    }
+
+    
+ 
     
 }
-//-(void)setImageById:(int)idx product:(Pan3dListVo *)product img:(UIImageView*)img
-//{
-//
-//    if(idx<product.picitem.count){
-//
-//       NSString* url =  [[Scene_data default]getWorkUrlByFilePath:[product.picitem objectAtIndex:idx]];
-//
-//        [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
-//    }
-//
-//
-//}
+ 
  
 @end

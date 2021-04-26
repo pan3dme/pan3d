@@ -14,14 +14,16 @@
     product.type=  [[obj objectForKey:@"type"] intValue];
     product.title=  [obj objectForKey:@"title"];
     product.text=[obj objectForKey:@"text"];
-    product.images=[obj objectForKey:@"images"];
+    product.image0=[obj objectForKey:@"image0"];
+    product.image1=[obj objectForKey:@"image1"];
+    product.image2=[obj objectForKey:@"image2"];
+    product.image3=[obj objectForKey:@"image3"];
     
     NSString* jsonString=[obj objectForKey:@"sceneinfo"];
     
-    AVFile *file = [obj objectForKey:@"image"];
+    AVFile *file = (AVFile*)[obj objectForKey:@"image"];
 //    product.productImageUrl = file.url ;
-    
-    product.productImageUrl= [file.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+//    product.productImageUrl= [file.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     
     NSData *stringData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     product.sceneinfo= [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
