@@ -13,7 +13,6 @@
     Pan3dListVo * product = [[Pan3dListVo alloc] init];
     product.type=  [[obj objectForKey:@"type"] intValue];
     product.title=  [obj objectForKey:@"title"];
-    product.picitem=[obj objectForKey:@"picitem"];
     product.text=[obj objectForKey:@"text"];
     product.images=[obj objectForKey:@"images"];
     

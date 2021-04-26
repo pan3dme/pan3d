@@ -48,56 +48,48 @@
     self.title.text =@"--";
     
  
-    NSString* url=[[Scene_data default]getWorkUrlByFilePath:[product.picitem objectAtIndex:0]];
-  
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"not_logged_in"]];
- 
  
   
  
-//    [self setImageById:0 product:product img:self.productImage000];
-    [self setImageById:1 product:product img:self.productImage001];
-    [self setImageById:2 product:product img:self.productImage002];
+ 
+
+   
     
 //    [self.productImage000 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
 //                            placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
     
  
     
-    
+    [self loadImageByInfoimg:self.avatarImageView idx:0];
     [self loadImageByInfoimg:self.productImage000 idx:0];
+//    [self loadImageByInfoimg:self.productImage001 idx:0];
+//    [self loadImageByInfoimg:self.productImage002 idx:0];
     
  
 }
 -(void)loadImageByInfoimg:(UIImageView*)img idx:(int)idx
 {
     AVFile* object = [_product.images objectAtIndex:idx];
-   NSString* objectId= object.objectId;
- 
     AVQuery *query = [AVQuery queryWithClassName:@"_File"];
-    [query whereKey:@"objectId" equalTo:objectId];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (NSDictionary *object in objects) {
-                NSString* url=    [object objectForKey:@"url"];
-                url=  [url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
-                [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
-            }
-        }
+    [query whereKey:@"objectId" equalTo:object.objectId];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *todo, NSError *error) {
+        NSString* url=    [todo objectForKey:@"url"];
+        url=  [url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+        [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
     }];
     
 }
--(void)setImageById:(int)idx product:(Pan3dListVo *)product img:(UIImageView*)img
-{
-    
-    if(idx<product.picitem.count){
-        
-       NSString* url =  [[Scene_data default]getWorkUrlByFilePath:[product.picitem objectAtIndex:idx]];
-        
-        [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
-    }
-
-    
-}
+//-(void)setImageById:(int)idx product:(Pan3dListVo *)product img:(UIImageView*)img
+//{
+//
+//    if(idx<product.picitem.count){
+//
+//       NSString* url =  [[Scene_data default]getWorkUrlByFilePath:[product.picitem objectAtIndex:idx]];
+//
+//        [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+//    }
+//
+//
+//}
  
 @end

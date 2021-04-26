@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "16741EA0-D82A-443B-AD7E-4A416C2789AE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "StorageStarted/home/list/Pan3dtListCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-loadImageByInfoimg:idx:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "16741EA0-D82A-443B-AD7E-4A416C2789AE - 4daa7a5d36b11086"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[Pan3dListCell loadImageByInfoimg:]_block_invoke"
-                  moduleName = "StorageStarted"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pan3dme/pan3dall/listios/StorageStarted/home/list/Pan3dtListCell.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "528">
-               </Location>
-               <Location
-                  uuid = "16741EA0-D82A-443B-AD7E-4A416C2789AE - 4daa7a5d36b11086"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[Pan3dListCell loadImageByInfoimg:]_block_invoke"
-                  moduleName = "StorageStarted"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pan3dme/pan3dall/listios/StorageStarted/home/list/Pan3dtListCell.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "540">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2BD143B7-1CD4-43A8-AAE6-676CB5BAF1C0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -62,8 +14,8 @@
             filePath = "StorageStarted/home/list/Pan3dtListCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "-loadImageByInfoimg:idx:"
             landmarkType = "7">
          </BreakpointContent>

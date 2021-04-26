@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *picture;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSArray *picitem;
 @property (nonatomic, copy) NSArray *sceneinfo;
 @property (nonatomic, copy) NSArray *images;
 @property (nonatomic, copy) NSString *productImageUrl;
