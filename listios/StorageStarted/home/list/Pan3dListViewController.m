@@ -28,9 +28,11 @@
     [super viewWillAppear:YES];
     [self.productArr removeAllObjects];
     [self queryProduct];
+ 
     [AVAnalytics beginLogPageView:@"Pan3dListCell"];
     
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     [AVAnalytics endLogPageView:@"Pan3dListCell"];

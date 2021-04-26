@@ -8,6 +8,7 @@
 
 #import "Pan3dListCell.h"
 #import "Scene_data.h"
+#import <AVOSCloud/AVOSCloud.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 @interface Pan3dListCell()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -58,14 +59,33 @@
     [self setImageById:1 product:product img:self.productImage001];
     [self setImageById:2 product:product img:self.productImage002];
     
-    [self.productImage000 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
-                            placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
-    
-    
-    //   "6084464c47454649c5604da0"
-    
+//    [self.productImage000 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
+//                            placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
     
  
+    
+    
+    [self loadImageByInfoimg:self.productImage000 idx:0];
+    
+ 
+}
+-(void)loadImageByInfoimg:(UIImageView*)img idx:(int)idx
+{
+    AVFile* object = [_product.images objectAtIndex:idx];
+   NSString* objectId= object.objectId;
+ 
+    AVQuery *query = [AVQuery queryWithClassName:@"_File"];
+    [query whereKey:@"objectId" equalTo:objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (NSDictionary *object in objects) {
+                NSString* url=    [object objectForKey:@"url"];
+                url=  [url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+                [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+            }
+        }
+    }];
+    
 }
 -(void)setImageById:(int)idx product:(Pan3dListVo *)product img:(UIImageView*)img
 {
