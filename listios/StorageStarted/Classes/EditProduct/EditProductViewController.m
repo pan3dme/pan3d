@@ -67,7 +67,13 @@
     NSString* sceneinfoStr=@"[{\"id\":1,\"text\": 10005 ,\"type\": 1 } ]";
     sceneinfoStr=self.sceneinfoText.text;
 
+    
      
+   AVFile* av=  [AVFile fileWithObjectId:@"6084464c47454649c5604da0" url:@"6084464c47454649c5604da0"];
+    
+    
+ 
+    
     AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
     [product setObject:@"新的" forKey:@"title"];
@@ -78,6 +84,12 @@
     [product setObject:currentUser forKey:@"owner"];
     AVFile *file = [AVFile fileWithData:self.imageData];
     [product setObject:file forKey:@"image"];
+    
+    NSMutableArray* images=[[NSMutableArray alloc]init];
+    [images addObject:file];
+    [product setObject:images forKey:@"images"];
+    
+    
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"保存新场景成功");

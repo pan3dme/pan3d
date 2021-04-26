@@ -60,6 +60,11 @@
     
     [self.productImage000 sd_setImageWithURL:[NSURL URLWithString:product.productImageUrl]
                             placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+    
+    
+    //   "6084464c47454649c5604da0"
+    
+    
  
 }
 -(void)setImageById:(int)idx product:(Pan3dListVo *)product img:(UIImageView*)img

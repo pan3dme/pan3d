@@ -15,6 +15,8 @@
     product.title=  [obj objectForKey:@"title"];
     product.picitem=[obj objectForKey:@"picitem"];
     product.text=[obj objectForKey:@"text"];
+    product.images=[obj objectForKey:@"images"];
+    
     NSString* jsonString=[obj objectForKey:@"sceneinfo"];
     
     AVFile *file = [obj objectForKey:@"image"];
