@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "Pan3dListVo.h"
+
+@protocol Pan3dListCellDelegate <NSObject>
+- (void)deleByCell:(Pan3dListVo *)val;
+ 
+@end
+
+
 @interface Pan3dListCell : UITableViewCell
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
+@property (assign, nonatomic) id<Pan3dListCellDelegate> delegate;
 @property (nonatomic,strong) Pan3dListVo  * product;
 
 @end

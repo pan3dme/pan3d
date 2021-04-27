@@ -56,6 +56,9 @@
                                 <rect key="frame" x="294" y="5" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="删除"/>
+                                <connections>
+                                    <action selector="clickRedButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="E6M-XG-uqa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,6 +87,7 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="avatarImageView" destination="5fc-jT-4Gn" id="2hx-Ri-IUm"/>
+                <outlet property="deleBut" destination="N0t-El-LTA" id="bmR-ra-KAf"/>
                 <outlet property="productImage000" destination="1Oj-Y6-lfg" id="AQb-xh-i3n"/>
                 <outlet property="productImage001" destination="cHk-Y7-8yp" id="342-iF-GiT"/>
                 <outlet property="productImage002" destination="eSv-d4-SwD" id="Rms-BB-G90"/>

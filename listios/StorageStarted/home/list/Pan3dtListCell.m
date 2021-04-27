@@ -10,6 +10,9 @@
 #import "Scene_data.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+
+
+
 @interface Pan3dListCell()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -18,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImage000;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage001;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage002;
-
+@property (weak, nonatomic) IBOutlet UIButton *deleBut;
 @end
 
 @implementation Pan3dListCell
@@ -44,8 +47,6 @@
     self.titleLabel.text = product.title;
     self.txtLabel.text = product.text;
     self.timeLabel.text =@"2021-4-25";
-    
- 
  
    
     [self loadImageByInfoimg:self.avatarImageView avFile:product.image0];
@@ -66,6 +67,14 @@
  
     
 }
- 
+- (IBAction)clickRedButton
+{
+    
+    NSLog(@"------");
+    
+    [self.delegate deleByCell:self.product];
+   
+    
+}
  
 @end

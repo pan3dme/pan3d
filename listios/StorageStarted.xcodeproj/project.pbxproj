@@ -214,8 +214,6 @@
 		9C75CEB826272F6B00CFEC83 /* Pan3dListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C75CEB626272F6B00CFEC83 /* Pan3dListCell.xib */; };
 		9C75CEB926272F6B00CFEC83 /* Pan3dtListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */; };
 		9CC0669E26379ECE001C04AA /* MyActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */; };
-		9CC066A92637B485001C04AA /* SceneListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC066A72637B485001C04AA /* SceneListCell.m */; };
-		9CC066AA2637B485001C04AA /* SceneListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC066A82637B485001C04AA /* SceneListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,9 +651,6 @@
 		9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pan3dtListCell.m; sourceTree = "<group>"; };
 		9CC0669C26379ECE001C04AA /* MyActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyActivityIndicatorView.h; sourceTree = "<group>"; };
 		9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyActivityIndicatorView.m; sourceTree = "<group>"; };
-		9CC066A62637B485001C04AA /* SceneListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneListCell.h; sourceTree = "<group>"; };
-		9CC066A72637B485001C04AA /* SceneListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneListCell.m; sourceTree = "<group>"; };
-		9CC066A82637B485001C04AA /* SceneListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceneListCell.xib; sourceTree = "<group>"; };
 		BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorageStarted.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1544,9 +1539,6 @@
 		9CC066A52637B46B001C04AA /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				9CC066A62637B485001C04AA /* SceneListCell.h */,
-				9CC066A72637B485001C04AA /* SceneListCell.m */,
-				9CC066A82637B485001C04AA /* SceneListCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1684,7 +1676,6 @@
 				6693DE5D1D8933A500A80A29 /* Assets.xcassets in Resources */,
 				94255A612106D6F700BDFA2E /* LCLoginViewController.xib in Resources */,
 				94255A6B2106D6FE00BDFA2E /* ProductListCell.xib in Resources */,
-				9CC066AA2637B485001C04AA /* SceneListCell.xib in Resources */,
 				94255A75210716B400BDFA2E /* EditProductViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1809,7 +1800,6 @@
 				9C75CDCD2627182300CFEC83 /* FrameBuildShader.m in Sources */,
 				9C75CDC42627182300CFEC83 /* LoadManager.m in Sources */,
 				9C75CE1D2627182300CFEC83 /* DynamicConstItem.m in Sources */,
-				9CC066A92637B485001C04AA /* SceneListCell.m in Sources */,
 				9C75CE332627182400CFEC83 /* Camera3D.m in Sources */,
 				9C75CDC72627182300CFEC83 /* ArrayNum.m in Sources */,
 				9C75CE292627182400CFEC83 /* GroupItem.m in Sources */,

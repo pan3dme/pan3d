@@ -12,7 +12,8 @@
 #import "HomeSceneBaseViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface Pan3dListViewController ()
+ 
+@interface Pan3dListViewController () <Pan3dListCellDelegate>
 @property (nonatomic,strong) NSMutableArray <Pan3dListVo *> *productArr;
 @end
 
@@ -69,9 +70,26 @@
     
     Pan3dListCell * cell = [Pan3dListCell cellWithTableView:tableView];
     cell.product = self.productArr[indexPath.row];
+    cell.delegate=self;
     return cell;
     
 }
+- (void)deleByCell:(Pan3dListVo *)val
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定是否删除记录" preferredStyle:UIAlertControllerStyleAlert];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确定删除");
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+
+ 
+
+    [self presentViewController:alertController animated:true completion:nil];
+
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.productArr[indexPath.row].cellHeight;
 }
@@ -90,6 +108,6 @@
     }
     return _productArr;
 }
-
+ 
 @end
 
