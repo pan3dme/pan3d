@@ -7,9 +7,26 @@
 //
 
 #import "EditViewController.h"
+#import "MyActivityIndicatorView.h"
 
-@interface EditViewController ()
+ 
 
+@interface EditViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView0;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView1;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView2;
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView3;
+@property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
+
+@property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
+
+@property (nonatomic,strong)NSMutableArray* imgViewArr;
+@property (nonatomic,strong)NSMutableArray* imageArr;
+@property (nonatomic,strong)MyActivityIndicatorView* myActivityIndicatorView;
+@property (nonatomic,strong) UIImagePickerController *imagePicker;
+//@property (nonatomic,strong) NSData * imageData;
 @end
 
 @implementation EditViewController
