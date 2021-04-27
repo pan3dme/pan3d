@@ -155,7 +155,7 @@
 
     }
     function getListDataAll() {
-        const query = new AV.Query('pan3dlist');
+        const query = new AV.Query('pan3dlist002');
         // query.equalTo('type', 1);
         query.find().then((arr) => {
             showListViewByData(arr);
@@ -170,14 +170,27 @@
             var todo = arr[i]
             var tittlestr =  todo.get('title');
             var textstr =  todo.get('text');
-            var picitem =      todo.get('picitem');
             var imgStr = ""
-            $.each(picitem, function (picIdx) {
-                var picUrl = fileRoot + picitem[picIdx];
-                imgStr += "<img src='" + picUrl + "' width='160' height='160' />";
-                imgStr += "    ";
 
-            });
+         
+
+            for(var j=0;j<4;j++){
+                var imagefile=todo.get("image"+j);
+                if(imagefile){
+                    imgStr += "<img src='" + imagefile.url()+ "' width='160' height='160' />";
+                imgStr += "    ";
+                }
+
+            }
+        
+        
+            
+            // var picitem =      todo.get('picitem');
+            // $.each(picitem, function (picIdx) {
+            //     var picUrl = fileRoot + picitem[picIdx];
+            //     imgStr += "<img src='" + picUrl + "' width='160' height='160' />";
+            //     imgStr += "    ";
+            // });
             str = "<li class='item'>" + tittlestr + "<br>" + textstr + "<br>" + imgStr + "</li>";
             $("#list").html($("#list").html() + str);
 
