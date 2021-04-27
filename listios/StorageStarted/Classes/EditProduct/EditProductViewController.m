@@ -52,8 +52,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [AVAnalytics beginLogPageView:@"EditProduct"];
+    
     self.imageArr=[[NSMutableArray alloc]init];
-
     [self.productImageView0 setImage:[UIImage imageNamed:@"image_downloadFailed"]];
     [self.productImageView1 setImage:[UIImage imageNamed:@"image_downloadFailed"]];
     [self.productImageView2 setImage:[UIImage imageNamed:@"image_downloadFailed"]];
@@ -102,9 +102,7 @@
  
     for(NSUInteger i=0;i<self.imageArr.count;i++){
         AVFile *file = [AVFile fileWithData:[self getAvfileByImage:[self.imageArr objectAtIndex:i]]];
-      
         [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
-
     }
  
     self.myActivityIndicatorView = [[MyActivityIndicatorView alloc]init];
