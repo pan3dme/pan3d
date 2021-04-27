@@ -15,6 +15,8 @@
     product.title=  [obj objectForKey:@"title"];
     product.text=[obj objectForKey:@"text"];
     product.createdAt=[obj objectForKey:@"createdAt"];
+    product.objectId=[obj objectForKey:@"objectId"];
+    
     
     product.image0=[obj objectForKey:@"image0"];
     product.image1=[obj objectForKey:@"image1"];

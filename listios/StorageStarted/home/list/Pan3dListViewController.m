@@ -45,7 +45,7 @@
     
 //    AVFileQuery* avfile=[[AVFileQuery alloc]init];
    
-    
+    _productArr =[NSMutableArray array];
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
     query.limit = 20;
     NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
@@ -77,9 +77,14 @@
 - (void)deleByCell:(Pan3dListVo *)val
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定是否删除记录" preferredStyle:UIAlertControllerStyleAlert];
-
+    
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"确定删除");
+     
+        AVObject *todo = [AVObject objectWithClassName:@"pan3dlist002" objectId:val.objectId];
+        [todo deleteInBackground];
+        
+        [self queryProduct];
+        
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
 

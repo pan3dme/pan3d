@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *picture;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *createdAt;
+@property (nonatomic, copy) NSString *objectId;
 @property (nonatomic, copy) NSArray *sceneinfo;
 @property (nonatomic, strong) AVFile *image0;
 @property (nonatomic, strong) AVFile *image1;
