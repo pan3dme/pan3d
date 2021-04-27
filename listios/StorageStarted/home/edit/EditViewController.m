@@ -88,9 +88,38 @@
     }
     
 }
+-(void)saveChangeDataInfo
+{
+    AVObject *product = [AVObject objectWithClassName:@"pan3dlist002" objectId:_pan3dListVo.objectId];
+    [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
+    [product setObject: self.titlelabeltxt.text forKey:@"title"];
+    [product setObject: self.infolabeltxt.text forKey:@"text"];
+    [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
+    [self playSendAnima];
+    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
+        NSData * imageData= [self getAvfileByImage:_imgViewArr[i].image] ;
+        AVFile *file = [AVFile fileWithData:imageData];
+        [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
+    }
+ 
+    
+    
+    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [self stopSendAnima];
+    }];
+    
+    
+
+ 
+}
 - (IBAction)publishBtn:(id)sender {
  
 
+    [self saveChangeDataInfo];
+   
+}
+-(void)saveNewData
+{
     AVUser *currentUser = [AVUser currentUser];
     AVObject *product = [AVObject objectWithClassName:@"pan3dlist002"];
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
