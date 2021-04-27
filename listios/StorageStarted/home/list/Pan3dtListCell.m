@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImage001;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage002;
 @property (weak, nonatomic) IBOutlet UIButton *deleBut;
+@property (weak, nonatomic) IBOutlet UIButton *editBut;
 @property (weak, nonatomic) IBOutlet UIView *imgbgbox;
 @end
 
@@ -71,14 +72,13 @@
  
     
 }
-- (IBAction)clickRedButton
+- (IBAction)clickDeleButton
 {
-    
-    NSLog(@"------");
-    
     [self.delegate deleByCell:self.product];
-   
-    
+}
+- (IBAction)clikEditButton
+{
+    [self.delegate editByCell:self.product];
 }
  
 @end

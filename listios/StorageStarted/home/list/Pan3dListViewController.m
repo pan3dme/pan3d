@@ -10,6 +10,7 @@
 #import "Pan3dListVo.h"
 #import "Pan3dListCell.h"
 #import "HomeSceneBaseViewController.h"
+#import "EditProductViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 
  
@@ -72,6 +73,11 @@
     cell.delegate=self;
     return cell;
     
+}
+- (void)editByCell:(Pan3dListVo *)val
+{
+    EditProductViewController* vc=[[EditProductViewController alloc] init];
+       [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)deleByCell:(Pan3dListVo *)val
 {
