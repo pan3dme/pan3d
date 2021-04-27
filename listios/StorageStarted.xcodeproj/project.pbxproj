@@ -213,6 +213,8 @@
 		9C75CEA626272EBB00CFEC83 /* Pan3dListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CEA526272EBB00CFEC83 /* Pan3dListVo.m */; };
 		9C75CEB826272F6B00CFEC83 /* Pan3dListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C75CEB626272F6B00CFEC83 /* Pan3dListCell.xib */; };
 		9C75CEB926272F6B00CFEC83 /* Pan3dtListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */; };
+		9CA7FE6C263838FF002617A4 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FE6A263838FE002617A4 /* EditViewController.m */; };
+		9CA7FE6D263838FF002617A4 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA7FE6B263838FE002617A4 /* EditViewController.xib */; };
 		9CC0669E26379ECE001C04AA /* MyActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */; };
 /* End PBXBuildFile section */
 
@@ -649,6 +651,9 @@
 		9C75CEB526272F6B00CFEC83 /* Pan3dListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pan3dListCell.h; sourceTree = "<group>"; };
 		9C75CEB626272F6B00CFEC83 /* Pan3dListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pan3dListCell.xib; sourceTree = "<group>"; };
 		9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pan3dtListCell.m; sourceTree = "<group>"; };
+		9CA7FE69263838FE002617A4 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		9CA7FE6A263838FE002617A4 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		9CA7FE6B263838FE002617A4 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		9CC0669C26379ECE001C04AA /* MyActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyActivityIndicatorView.h; sourceTree = "<group>"; };
 		9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyActivityIndicatorView.m; sourceTree = "<group>"; };
 		BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorageStarted.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1500,6 +1505,7 @@
 		9C75CE8126271ACA00CFEC83 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				9CA7FE68263838D8002617A4 /* edit */,
 				9CC066A52637B46B001C04AA /* cell */,
 				9CC0669B26379EB5001C04AA /* flash */,
 				9C75CE9A26272DD000CFEC83 /* list */,
@@ -1525,6 +1531,16 @@
 				9C75CEB626272F6B00CFEC83 /* Pan3dListCell.xib */,
 			);
 			path = list;
+			sourceTree = "<group>";
+		};
+		9CA7FE68263838D8002617A4 /* edit */ = {
+			isa = PBXGroup;
+			children = (
+				9CA7FE69263838FE002617A4 /* EditViewController.h */,
+				9CA7FE6A263838FE002617A4 /* EditViewController.m */,
+				9CA7FE6B263838FE002617A4 /* EditViewController.xib */,
+			);
+			path = edit;
 			sourceTree = "<group>";
 		};
 		9CC0669B26379EB5001C04AA /* flash */ = {
@@ -1670,6 +1686,7 @@
 			files = (
 				6693DE601D8933A500A80A29 /* LaunchScreen.storyboard in Resources */,
 				9C75CEB826272F6B00CFEC83 /* Pan3dListCell.xib in Resources */,
+				9CA7FE6D263838FF002617A4 /* EditViewController.xib in Resources */,
 				94255A7A21071FD600BDFA2E /* MyProductCell.xib in Resources */,
 				94A1B72C2105C5D40098C27A /* PersonalCenterViewController.xib in Resources */,
 				94CD9795210859C600A5901C /* UpdateMyProductController.xib in Resources */,
@@ -1848,6 +1865,7 @@
 				9C75CE0E2627182300CFEC83 /* CombineParticle.m in Sources */,
 				9C75CDFE2627182300CFEC83 /* ScaleChange.m in Sources */,
 				9C75CE132627182300CFEC83 /* Scene_data.m in Sources */,
+				9CA7FE6C263838FF002617A4 /* EditViewController.m in Sources */,
 				9C75CD9B2627182300CFEC83 /* Md5MoveSprite.m in Sources */,
 				9C75CE052627182300CFEC83 /* Display3DLocusShader.m in Sources */,
 				9C75CDDB2627182300CFEC83 /* BindParticle.m in Sources */,
