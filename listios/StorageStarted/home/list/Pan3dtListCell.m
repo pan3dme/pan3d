@@ -12,10 +12,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 @interface Pan3dListCell()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UILabel *price;
-@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *txtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage000;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage001;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage002;
@@ -42,21 +41,14 @@
 
 -(void)setProduct:(Pan3dListVo *)product{
     _product = product;
-    self.name.text = product.title;
-    self.time.text = product.text;
-    self.price.text =@"编辑";
-    self.title.text =@"2021-4-25";
+    self.titleLabel.text = product.title;
+    self.txtLabel.text = product.text;
+    self.timeLabel.text =@"2021-4-25";
     
  
  
-  
- 
- 
    
-   
-    
     [self loadImageByInfoimg:self.avatarImageView avFile:product.image0];
- 
     [self loadImageByInfoimg:self.productImage000 avFile:product.image0];
     [self loadImageByInfoimg:self.productImage001 avFile:product.image1];
     [self loadImageByInfoimg:self.productImage002 avFile:product.image2];

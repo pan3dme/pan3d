@@ -46,8 +46,9 @@
    
     
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
- 
     query.limit = 20;
+    NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
+    [query orderBySortDescriptor:d];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (NSDictionary *object in objects) {
