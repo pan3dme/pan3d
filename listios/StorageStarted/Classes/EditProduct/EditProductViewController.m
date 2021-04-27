@@ -8,6 +8,7 @@
 
 #import "EditProductViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "MyActivityIndicatorView.h"
 
 @interface EditProductViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -18,9 +19,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView3;
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 
+@property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
+
 
 @property (nonatomic,strong)NSMutableArray* imgViewArr;
 @property (nonatomic,strong)NSMutableArray* imageArr;
+@property (nonatomic,strong)MyActivityIndicatorView* myActivityIndicatorView;
 
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 //@property (nonatomic,strong) NSData * imageData;
@@ -89,8 +93,9 @@
     AVUser *currentUser = [AVUser currentUser];
     AVObject *product = [AVObject objectWithClassName:@"pan3dlist002"];
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
-    [product setObject:@"新的" forKey:@"title"];
-    [product setObject:@"关于新的内容" forKey:@"text"];
+   
+    [product setObject: self.titlelabeltxt.text forKey:@"title"];
+    [product setObject: self.infolabeltxt.text forKey:@"text"];
     [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
     [product setObject:currentUser forKey:@"owner"];
     
@@ -102,9 +107,14 @@
 
     }
  
+    self.myActivityIndicatorView = [[MyActivityIndicatorView alloc]init];
+
+  [self.view addSubview:_myActivityIndicatorView];
+
+  // 动画开始
+
+  [_myActivityIndicatorView startAnimating];
  
-    
-    
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"保存新场景成功");
@@ -112,6 +122,7 @@
         } else {
             NSLog(@"保存新场景出错 %@", error.localizedFailureReason);
         }
+        [_myActivityIndicatorView stopAnimating];
     }];
  
     
