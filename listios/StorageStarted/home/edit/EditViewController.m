@@ -72,12 +72,60 @@
     }
  
 }
+-(NSData*)getAvfileByImage:(UIImage*)image
+{
+    NSData * imageData;
+    if (UIImagePNGRepresentation(image)) {
+        imageData = UIImagePNGRepresentation(image);
+    }else{
+        imageData = UIImageJPEGRepresentation(image, 1.0);
+    }
+    return imageData;
+}
 -(void)addBaseImgFileToArr:(AVFile*)val {
     if(val!=nil){
         [_imgBaseFileArr addObject:val];
     }
     
 }
+- (IBAction)publishBtn:(id)sender {
+ 
+
+    AVUser *currentUser = [AVUser currentUser];
+    AVObject *product = [AVObject objectWithClassName:@"pan3dlist002"];
+    [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
+    [product setObject: self.titlelabeltxt.text forKey:@"title"];
+    [product setObject: self.infolabeltxt.text forKey:@"text"];
+    [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
+    [product setObject:currentUser forKey:@"owner"];
+    
+    [self playSendAnima];
+    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
+        NSData * imageData= [self getAvfileByImage:_imgViewArr[i].image] ;
+        AVFile *file = [AVFile fileWithData:imageData];
+        [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
+    }
+    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"保存新场景成功");
+            [self alertMessage:@"保存新场景成功"];
+        } else {
+            NSLog(@"保存新场景出错 %@", error.localizedFailureReason);
+        }
+        [self stopSendAnima];
+    }];
+}
+-(void)playSendAnima
+{
+    _myActivityIndicatorView = [[MyActivityIndicatorView alloc]init];
+    [self.view addSubview:_myActivityIndicatorView];
+    [_myActivityIndicatorView startAnimating];
+}
+-(void)stopSendAnima
+{
+    [_myActivityIndicatorView stopAnimating];
+}
+ 
 -(void)loadImageByInfoimg:(UIImageView*)img avFile:(AVFile*)avFile
 {
     if(avFile){
@@ -91,5 +139,14 @@
     [_sceneinfoText resignFirstResponder];
     [_titlelabeltxt resignFirstResponder];
     [_infolabeltxt resignFirstResponder];
+}
+#pragma mark -  Private Methods
+-(void)alertMessage:(NSString *)message{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
 }
 @end

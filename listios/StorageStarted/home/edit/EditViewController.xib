@@ -142,6 +142,9 @@
                             <state key="normal" title="确认发布">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="publishBtn:" destination="-1" eventType="touchUpInside" id="l4w-sS-TvT"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
