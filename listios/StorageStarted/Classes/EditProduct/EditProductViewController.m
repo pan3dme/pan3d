@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"发布新商品";
-    self.imageArr=[[NSMutableArray alloc]init];
+ 
     self.imgViewArr=[[NSMutableArray alloc]init];
     [self.imgViewArr addObject:self.productImageView0];
     [self.imgViewArr addObject:self.productImageView1];
@@ -48,6 +48,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [AVAnalytics beginLogPageView:@"EditProduct"];
+    self.imageArr=[[NSMutableArray alloc]init];
+
+    [self.productImageView0 setImage:[UIImage imageNamed:@"image_downloadFailed"]];
+    [self.productImageView1 setImage:[UIImage imageNamed:@"image_downloadFailed"]];
+    [self.productImageView2 setImage:[UIImage imageNamed:@"image_downloadFailed"]];
+    [self.productImageView3 setImage:[UIImage imageNamed:@"image_downloadFailed"]];
     
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -73,29 +79,22 @@
  
 -(void)saveInfo
 {
-    NSMutableArray* picitem=[[NSMutableArray alloc]init];
-    [picitem addObject:@"pan/test/iosmetia/pic/pic005.jpg"];
-    [picitem addObject:@"pan/test/iosmetia/pic/pic006.jpg"];
+    if(self.imageArr.count==0){
+        [self alertMessage:@"请输入完整信息"];
+        return;
+    }
     
-    NSString* sceneinfoStr=@"[{\"id\":1,\"text\": 10005 ,\"type\": 1 } ]";
-    sceneinfoStr=self.sceneinfoText.text;
-
-    
+  
  
- 
-    
-    AVObject *product = [AVObject objectWithClassName:@"pan3dlist001"];
+    AVUser *currentUser = [AVUser currentUser];
+    AVObject *product = [AVObject objectWithClassName:@"pan3dlist002"];
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
     [product setObject:@"新的" forKey:@"title"];
     [product setObject:@"关于新的内容" forKey:@"text"];
-    [product setObject:picitem forKey:@"picitem"];
-    [product setObject:sceneinfoStr forKey:@"sceneinfo"];
-    AVUser *currentUser = [AVUser currentUser];
+    [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
     [product setObject:currentUser forKey:@"owner"];
     
-    
  
-    
     for(NSUInteger i=0;i<self.imageArr.count;i++){
         AVFile *file = [AVFile fileWithData:[self getAvfileByImage:[self.imageArr objectAtIndex:i]]];
       
@@ -154,23 +153,11 @@
     }
  
     [self.imageArr addObject:image];
-    
-    self.productImageView0.image = image;
- 
+   
     UIImageView* uiImageView= [self.imgViewArr objectAtIndex:self.imageArr.count-1];
- 
     uiImageView.image=image;
     
- 
-    
-//    NSData * imageData;
-//    if (UIImagePNGRepresentation(image)) {
-//        imageData = UIImagePNGRepresentation(image);
-//    }else{
-//        imageData = UIImageJPEGRepresentation(image, 1.0);
-//    }
-//    self.imageData = imageData;
-    
+  
     [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - 取消拍照/选择图片

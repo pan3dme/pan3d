@@ -45,7 +45,7 @@
 //    AVFileQuery* avfile=[[AVFileQuery alloc]init];
    
     
-    AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist001"];
+    AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
  
     query.limit = 20;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
