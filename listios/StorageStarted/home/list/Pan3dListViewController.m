@@ -42,10 +42,8 @@
 #pragma mark -  Private Methods
 // LeanCloud - 查询 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash860317
 -(void)queryProduct{
-    
-//    AVFileQuery* avfile=[[AVFileQuery alloc]init];
-   
-    _productArr =[NSMutableArray array];
+ 
+    _productArr =[[NSMutableArray alloc]init];
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
     query.limit = 20;
     NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
@@ -56,8 +54,9 @@
                 Pan3dListVo * product = [Pan3dListVo initWithObject:object];
                 [self.productArr addObject:product];
             }
+            [self.tableView reloadData];
         }
-        [self.tableView reloadData];
+     
         
     }];
     

@@ -22,12 +22,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImage001;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage002;
 @property (weak, nonatomic) IBOutlet UIButton *deleBut;
+@property (weak, nonatomic) IBOutlet UIView *imgbgbox;
 @end
 
 @implementation Pan3dListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.imgbgbox.backgroundColor= [UIColor clearColor];
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{
@@ -38,6 +40,8 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     tableView.separatorStyle =UITableViewCellSeparatorStyleNone;
+    
+     
 
     return cell;
 }
