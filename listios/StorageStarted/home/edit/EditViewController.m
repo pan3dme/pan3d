@@ -13,37 +13,46 @@
 
 @interface EditViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView0;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView1;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView2;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView3;
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
-
 @property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
+@property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
 
 @property (nonatomic,strong)NSMutableArray* imgViewArr;
 @property (nonatomic,strong)NSMutableArray* imageArr;
 @property (nonatomic,strong)MyActivityIndicatorView* myActivityIndicatorView;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
-//@property (nonatomic,strong) NSData * imageData;
+@property (nonatomic,strong) Pan3dListVo * pan3dListVo;
 @end
 
 @implementation EditViewController
 
+ 
+ 
+- (instancetype)init:(Pan3dListVo*)val
+{
+    self = [super init];
+    if (self) {
+        _pan3dListVo=val;
+     
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _titlelabeltxt.text=_pan3dListVo.title;
+    _infolabeltxt.text=_pan3dListVo.text;
+    _sceneinfoText.text= [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:_pan3dListVo.sceneinfo options:0 error:nil] encoding:NSUTF8StringEncoding];
+ 
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+ 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [_sceneinfoText resignFirstResponder];
+    [_sceneinfoText resignFirstResponder];
+    [_infolabeltxt resignFirstResponder];
 }
-*/
-
 @end

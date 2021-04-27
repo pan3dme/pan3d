@@ -76,7 +76,7 @@
 }
 - (void)editByCell:(Pan3dListVo *)val
 {
-    EditViewController* vc=[[EditViewController alloc] init];
+    EditViewController* vc=[[EditViewController alloc] init:val];
        [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)deleByCell:(Pan3dListVo *)val

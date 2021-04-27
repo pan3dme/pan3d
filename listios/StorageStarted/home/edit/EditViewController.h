@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pan3dListVo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EditViewController : UIViewController
-
+- (instancetype)init:(Pan3dListVo*)val;
 @end
 
 NS_ASSUME_NONNULL_END

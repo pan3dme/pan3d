@@ -26,7 +26,7 @@
   
     NSData *stringData = [[obj objectForKey:@"sceneinfo"] dataUsingEncoding:NSUTF8StringEncoding];
     product.sceneinfo= [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
-     
+    
 
     return product;
 }

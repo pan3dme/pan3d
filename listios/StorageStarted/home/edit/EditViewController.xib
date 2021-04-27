@@ -11,6 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditViewController">
             <connections>
+                <outlet property="infolabeltxt" destination="dW1-64-0lB" id="DQk-L4-AI1"/>
+                <outlet property="productImageView0" destination="Lx1-zY-tFy" id="MT4-Ax-MHY"/>
+                <outlet property="productImageView1" destination="Bin-XT-uie" id="dya-jy-Hy9"/>
+                <outlet property="productImageView2" destination="ZmX-YX-HCj" id="CqG-VK-9uk"/>
+                <outlet property="productImageView3" destination="ZLf-uy-VBH" id="cIP-nB-Zj7"/>
+                <outlet property="sceneinfoText" destination="2iS-MF-f7w" id="EsZ-Bb-pIO"/>
+                <outlet property="titlelabeltxt" destination="X6t-CA-EnD" id="E7N-Hz-jgb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -100,23 +107,6 @@
                             <rect key="frame" x="26" y="115" width="285" height="302"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <string key="text">[
-  {
-    "id": 1,
-    "type": 1,
-    "text": 10005
-  },
-  {
-    "id": 2,
-    "type": 2,
-    "text": "model/10018_lyf.txt"
-  },
-  {
-    "id": 3,
-    "type": 3,
-    "text": "role/yezhuz.txt"
-  }
-]</string>
                             <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
