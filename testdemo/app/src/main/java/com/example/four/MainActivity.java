@@ -28,6 +28,7 @@ import cn.leancloud.AVOSCloud;
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import cn.leancloud.AVUser;
+import cn.leancloud.search.AVSearchSortBuilder;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -125,8 +126,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private  void getInfoTemp()
     {
-//        AVQuery<AVObject> query = new AVQuery<>("Product");
-        AVQuery<AVObject> query = new AVQuery<>("pan3dlist");
+
+        AVQuery<AVObject> query = new AVQuery<>("pan3dlist002");
+        query.addDescendingOrder("createdAt");
+
+
         query.findInBackground().subscribe(new Observer<List<AVObject>>() {
             public void onSubscribe(Disposable disposable) {}
             public void onNext(List<AVObject> arr) {

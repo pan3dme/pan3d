@@ -119,7 +119,16 @@ public class LoadManager {
     public static void loadBitmapByUrl(String val,LoadBackFun backFun)
     {
         String savePath = LoaderThread.fileContext.getFilesDir().getPath();
-        String url= Scene_data.fileRoot+val;
+
+        String url;
+
+        if(val.indexOf("http")==-1){
+            url= Scene_data.fileRoot+val;
+        }else{
+            url=  val;
+        }
+
+
         String localUrl=   url.replace(Scene_data.fileRoot,"");
         localUrl=    localUrl.replace("/","_");
 

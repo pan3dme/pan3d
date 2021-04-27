@@ -25,6 +25,7 @@ import com.pan3d.units.LoadManager;
 import java.util.HashMap;
 import java.util.List;
 
+import cn.leancloud.AVFile;
 import cn.leancloud.AVObject;
 import cn.leancloud.json.JSONArray;
 
@@ -50,24 +51,34 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             public void onClick(View view) {
 
                 Intent intent = new Intent(mContext, DetailActivity.class);
-                JSONArray jsonArray=  avObject.getJSONArray("sceneinfo");
-                intent.putExtra("sceneinfo",(CharSequence) jsonArray.toJSONString());
+                String string=  avObject.getString("sceneinfo");
+                intent.putExtra("sceneinfo",string);
                 mContext.startActivity(intent);
             }
         });
 
         holder.mTitle.setText((CharSequence)avObject.get("text"));
         holder.mName.setText((CharSequence)avObject.get("title"));
-        JSONArray picitem = avObject.getJSONArray("picitem");
 
-        this.loadImgeByUrl(0,holder.mPicture000,holder,picitem);
-        this.loadImgeByUrl(1,holder.mPicture001,holder,picitem);
-        this.loadImgeByUrl(2,holder.mPicture002,holder,picitem);
+        AVFile image0= (AVFile) avObject.get("image0");
+        AVFile image1= (AVFile) avObject.get("image1");
+        AVFile image2= (AVFile) avObject.get("image2");
+
+
+        this.loadImgeByUrl( holder.mPicture000,image0 );
+        this.loadImgeByUrl( holder.mPicture001,image1 );
+        this.loadImgeByUrl( holder.mPicture002,image2 );
+
+
     }
-    private void loadImgeByUrl(int idx,ImageView imageView,MainViewHolder holder, JSONArray picitem)
+    private void loadImgeByUrl( ImageView imageView,AVFile avFile)
     {
-        String picurl001=  getImageUrlByIdx(idx,picitem);
-        LoadManager.loadBitmapByUrl(picurl001, new LoadBackFun() {
+
+        if(avFile==null){
+            return;
+        }
+       String url=avFile.getUrl().replace("http://","https://");
+        LoadManager.loadBitmapByUrl(url, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
                 imageView.setImageBitmap((Bitmap) val.get("bitmap"));
