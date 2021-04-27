@@ -67,10 +67,7 @@
         NSString* url=    [avFile.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
         [img sd_setImageWithURL:[NSURL URLWithString:url]   placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
     }
-
-    
  
-    
 }
 - (IBAction)clickDeleButton
 {
