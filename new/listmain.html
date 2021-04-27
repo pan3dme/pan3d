@@ -156,8 +156,8 @@
     }
     function getListDataAll() {
         const query = new AV.Query('pan3dlist002');
-        // query.equalTo('type', 1);
-        query.find().then((arr) => {
+        query.descending('createdAt');
+        query   .find().then((arr) => {
             showListViewByData(arr);
 
         });
@@ -198,9 +198,9 @@
         $("#content #list .item").click(function () {
             var selectIdx = $(this).index()
             var selectVo = arr[selectIdx];
-            var outStr = json2str({"type":selectVo.get('type'),"sceneinfo":selectVo.get('sceneinfo')});
+            // var outStr = json2str({"type":selectVo.get('type'),"sceneinfo":selectVo.get('sceneinfo')});
     
-            window.location.href = 'index.html?info=' + outStr;
+            window.location.href = 'index.html?info=' + selectVo.get('sceneinfo');
         });
 
     }

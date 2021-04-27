@@ -20,9 +20,9 @@ class MenuEventModel {
         return this._instance;
     }
     public selectSceneByJson(value: JSON, sceneView: ConstrainSceneView): void {
-        console.log(value);
+        
 
-        var sceneinfo: JSON = value["sceneinfo"];
+        var sceneinfo: JSON = value ;
 
         for (var key in sceneinfo) {
 
