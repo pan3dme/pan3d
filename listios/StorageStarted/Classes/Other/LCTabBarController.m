@@ -31,7 +31,7 @@
     
    [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[Pan3dListViewController alloc] init]]title:@"商品列表" image:@"home"
                   selectedImage:nil];
-    [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[EditProductViewController alloc] init] ]title:@"发布新商品" image:@"edit"
+[self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[Pan3dListViewController alloc] init] ]title:@"新的商品" image:@"edit"
                     selectedImage:nil];
 
     [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[PersonalCenterViewController alloc] initWithNibName: @"PersonalCenterViewController" bundle:nil]]title:@"我的发布" image:@"personal"

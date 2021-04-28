@@ -42,7 +42,7 @@
         
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 60, 80, 40)];
         
-        label.text = @"loading...";
+        label.text = @"正在提交数据...";
         
         label.font = [UIFont systemFontOfSize:14];
         
