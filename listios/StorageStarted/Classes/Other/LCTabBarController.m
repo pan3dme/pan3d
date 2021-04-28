@@ -9,7 +9,6 @@
 #import "LCTabBarController.h"
 #import "LCNavigationController.h"
 #import "Pan3dListViewController.h"
-#import "EditProductViewController.h"
 #import "PersonalCenterViewController.h"
 @interface LCTabBarController ()
 

@@ -21,8 +21,6 @@
 		94255A6B2106D6FE00BDFA2E /* ProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94255A652106D6FE00BDFA2E /* ProductListCell.xib */; };
 		94255A6C2106D6FE00BDFA2E /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94255A672106D6FE00BDFA2E /* ProductListViewController.m */; };
 		94255A6F2107167500BDFA2E /* CALayer+XibBorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 94255A6E2107167500BDFA2E /* CALayer+XibBorderColor.m */; };
-		94255A74210716B400BDFA2E /* EditProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94255A72210716B400BDFA2E /* EditProductViewController.m */; };
-		94255A75210716B400BDFA2E /* EditProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94255A73210716B400BDFA2E /* EditProductViewController.xib */; };
 		94255A7921071FD600BDFA2E /* MyProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94255A7721071FD600BDFA2E /* MyProductCell.m */; };
 		94255A7A21071FD600BDFA2E /* MyProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94255A7821071FD600BDFA2E /* MyProductCell.xib */; };
 		94A1B7052105A9A60098C27A /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1B7042105A9A50098C27A /* LCTabBarController.m */; };
@@ -262,9 +260,6 @@
 		94255A682106D6FE00BDFA2E /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
 		94255A6D2107167500BDFA2E /* CALayer+XibBorderColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibBorderColor.h"; sourceTree = "<group>"; };
 		94255A6E2107167500BDFA2E /* CALayer+XibBorderColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibBorderColor.m"; sourceTree = "<group>"; };
-		94255A71210716B400BDFA2E /* EditProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProductViewController.h; sourceTree = "<group>"; };
-		94255A72210716B400BDFA2E /* EditProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProductViewController.m; sourceTree = "<group>"; };
-		94255A73210716B400BDFA2E /* EditProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProductViewController.xib; sourceTree = "<group>"; };
 		94255A7621071FD600BDFA2E /* MyProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyProductCell.h; sourceTree = "<group>"; };
 		94255A7721071FD600BDFA2E /* MyProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProductCell.m; sourceTree = "<group>"; };
 		94255A7821071FD600BDFA2E /* MyProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductCell.xib; sourceTree = "<group>"; };
@@ -775,20 +770,9 @@
 			path = LoginOrSignup;
 			sourceTree = "<group>";
 		};
-		94255A70210716B400BDFA2E /* EditProduct */ = {
-			isa = PBXGroup;
-			children = (
-				94255A71210716B400BDFA2E /* EditProductViewController.h */,
-				94255A72210716B400BDFA2E /* EditProductViewController.m */,
-				94255A73210716B400BDFA2E /* EditProductViewController.xib */,
-			);
-			path = EditProduct;
-			sourceTree = "<group>";
-		};
 		94A1B6FD2105A65D0098C27A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				94255A70210716B400BDFA2E /* EditProduct */,
 				94255A5C2106D6BF00BDFA2E /* LoginOrSignup */,
 				94255A5B2106D6B400BDFA2E /* ProductList */,
 				94A1B7002105A7080098C27A /* PersonalCenter */,
@@ -1693,7 +1677,6 @@
 				6693DE5D1D8933A500A80A29 /* Assets.xcassets in Resources */,
 				94255A612106D6F700BDFA2E /* LCLoginViewController.xib in Resources */,
 				94255A6B2106D6FE00BDFA2E /* ProductListCell.xib in Resources */,
-				94255A75210716B400BDFA2E /* EditProductViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1926,7 +1909,6 @@
 				9C75CDBB2627182300CFEC83 /* SkillData.m in Sources */,
 				9C75CDCE2627182300CFEC83 /* FrameSceneChar.m in Sources */,
 				9C75CE7826271A1800CFEC83 /* MtkBaseLineShader.m in Sources */,
-				94255A74210716B400BDFA2E /* EditProductViewController.m in Sources */,
 				9C75CDA52627182300CFEC83 /* TextureLoad.m in Sources */,
 				9C75CDD62627182300CFEC83 /* DisplayBaseShader3D.m in Sources */,
 				9C75CDFA2627182300CFEC83 /* ParamDataVo.m in Sources */,
