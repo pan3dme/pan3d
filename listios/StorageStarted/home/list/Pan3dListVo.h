@@ -20,10 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *createdAt;
 @property (nonatomic, copy) NSString *objectId;
 @property (nonatomic, copy) NSArray *sceneinfo;
-@property (nonatomic, strong) AVFile *image0;
-@property (nonatomic, strong) AVFile *image1;
-@property (nonatomic, strong) AVFile *image2;
-@property (nonatomic, strong) AVFile *image3;
+@property (nonatomic, strong) AVFile *avFile0;
+@property (nonatomic, strong) AVFile *avFile1;
+@property (nonatomic, strong) AVFile *avFile2;
+@property (nonatomic, strong) AVFile *avFile3;
 //@property (nonatomic, copy) NSString *productImageUrl;
 
 @property (nonatomic, assign) int  type;

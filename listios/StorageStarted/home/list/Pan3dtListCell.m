@@ -54,10 +54,10 @@
     self.timeLabel.text =@"2021-4-25";
  
    
-    [self loadImageByInfoimg:self.avatarImageView avFile:product.image0];
-    [self loadImageByInfoimg:self.productImage000 avFile:product.image0];
-    [self loadImageByInfoimg:self.productImage001 avFile:product.image1];
-    [self loadImageByInfoimg:self.productImage002 avFile:product.image2];
+    [self loadImageByInfoimg:self.avatarImageView avFile:product.avFile0];
+    [self loadImageByInfoimg:self.productImage000 avFile:product.avFile0];
+    [self loadImageByInfoimg:self.productImage001 avFile:product.avFile1];
+    [self loadImageByInfoimg:self.productImage002 avFile:product.avFile2];
     
  
 }

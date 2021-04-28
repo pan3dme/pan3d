@@ -18,10 +18,10 @@
     product.objectId=[obj objectForKey:@"objectId"];
     
     
-    product.image0=[obj objectForKey:@"image0"];
-    product.image1=[obj objectForKey:@"image1"];
-    product.image2=[obj objectForKey:@"image2"];
-    product.image3=[obj objectForKey:@"image3"];
+    product.avFile0=[obj objectForKey:@"image0"];
+    product.avFile1=[obj objectForKey:@"image1"];
+    product.avFile2=[obj objectForKey:@"image2"];
+    product.avFile3=[obj objectForKey:@"image3"];
     
   
     NSData *stringData = [[obj objectForKey:@"sceneinfo"] dataUsingEncoding:NSUTF8StringEncoding];

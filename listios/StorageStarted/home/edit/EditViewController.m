@@ -30,7 +30,7 @@
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (nonatomic,strong) Pan3dListVo * pan3dListVo;
 @property (nonatomic,strong)NSMutableArray<UIImageView*>*  imgViewArr;
-@property (nonatomic,strong)NSMutableArray<AVFile*>* imgBaseFileArr;
+@property (nonatomic,strong)NSMutableArray* imgBaseFileArr;
 @property (nonatomic,strong)NSMutableArray<UIButton*>* clearbutArr;
 @end
  
@@ -68,13 +68,13 @@
     
     _imgBaseFileArr=[[NSMutableArray alloc]init];
  
-    [self addBaseImgFileToArr: _pan3dListVo.image0];
-    [self addBaseImgFileToArr: _pan3dListVo.image1];
-    [self addBaseImgFileToArr: _pan3dListVo.image2];
-    [self addBaseImgFileToArr: _pan3dListVo.image3];
+    [self addBaseImgFileToArr: _pan3dListVo.avFile0];
+    [self addBaseImgFileToArr: _pan3dListVo.avFile1];
+    [self addBaseImgFileToArr: _pan3dListVo.avFile2];
+    [self addBaseImgFileToArr: _pan3dListVo.avFile3];
     
     
-  
+   
  
     [self refrishUi];
 }
@@ -82,7 +82,12 @@
 {
     for (NSUInteger i=0; i<_imgViewArr.count; i++) {
         if(_imgBaseFileArr.count>i){
-            [self loadImageByInfoimg:_imgViewArr[i] avFile:_imgBaseFileArr[i]];
+            if([_imgBaseFileArr[i] isKindOfClass: [AVFile class]] ){
+                [self loadImageByInfoimg:_imgViewArr[i] avFile:_imgBaseFileArr[i]];
+              
+            }else{
+                _imgViewArr[i].image=_imgBaseFileArr[i];
+            }
             [_clearbutArr[i] setHidden:NO];
         }else{
             [_clearbutArr[i] setHidden:YES];
@@ -150,15 +155,25 @@
 {
    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
 
- 
-    AVFile *file = [AVFile fileWithData:[self getAvfileByImage:image]];
     
-    [_imgBaseFileArr addObject:file];
+    [_imgBaseFileArr addObject:image];
+    
     [self refrishUi];
     
    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
     
    
+}
+-(UIImageView*)getCanPushImgView
+{
+    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
+        if(_imgViewArr[i].image==[UIImage imageNamed:@"image_downloadFailed"]){
+            return _imgViewArr[i];
+        }
+     
+    }
+    return nil;
+    
 }
 #pragma mark - 取消拍照/选择图片
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
