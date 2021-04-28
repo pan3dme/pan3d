@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditViewController">
             <connections>
+                <outlet property="clearImg0Btn" destination="22s-2G-DAU" id="g4C-xf-Fca"/>
+                <outlet property="clearImg1Btn" destination="vXd-5r-7mI" id="dK4-RA-AOy"/>
+                <outlet property="clearImg2Btn" destination="y6U-Et-H2T" id="bhI-d6-6s0"/>
+                <outlet property="clearImg3Btn" destination="WIR-WD-V9f" id="48g-Zf-O4Q"/>
                 <outlet property="infolabeltxt" destination="dW1-64-0lB" id="DQk-L4-AI1"/>
                 <outlet property="productImageView0" destination="Lx1-zY-tFy" id="MT4-Ax-MHY"/>
                 <outlet property="productImageView1" destination="Bin-XT-uie" id="dya-jy-Hy9"/>
@@ -38,6 +42,50 @@
                             <rect key="frame" x="110" y="469" width="74" height="61"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="ZmX-YX-HCj">
+                            <rect key="frame" x="192" y="469" width="74" height="61"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="ZLf-uy-VBH">
+                            <rect key="frame" x="274" y="469" width="74" height="61"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22s-2G-DAU">
+                            <rect key="frame" x="79" y="463.5" width="24" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="Button" backgroundImage="multiply.circle" catalog="system"/>
+                            <connections>
+                                <action selector="clearImg0BtnClik:" destination="-1" eventType="touchUpInside" id="PNg-VA-zcv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXd-5r-7mI">
+                            <rect key="frame" x="161" y="461" width="24" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="Button" backgroundImage="multiply.circle" catalog="system"/>
+                            <connections>
+                                <action selector="clearImg1BtnClik:" destination="-1" eventType="touchUpInside" id="7jj-DS-zD4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6U-Et-H2T">
+                            <rect key="frame" x="243" y="461.5" width="24" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="Button" backgroundImage="multiply.circle" catalog="system"/>
+                            <connections>
+                                <action selector="clearImg2BtnClik:" destination="-1" eventType="touchUpInside" id="xkc-2e-nLT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIR-WD-V9f">
+                            <rect key="frame" x="325" y="459.5" width="24" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="Button" backgroundImage="multiply.circle" catalog="system"/>
+                            <connections>
+                                <action selector="clearImg3BtnClik:" destination="-1" eventType="touchUpInside" id="TUx-Sg-geE"/>
+                            </connections>
+                        </button>
                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="标题" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6t-CA-EnD" colorLabel="IBBuiltInLabel-Red">
                             <rect key="frame" x="69" y="14" width="179" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,6 +114,9 @@
                                     <real key="value" value="0.29999999999999999"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="openAlbumBtn:" destination="-1" eventType="touchUpInside" id="sO0-DK-yVs"/>
+                            </connections>
                         </button>
                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="内容-内容" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dW1-64-0lB" colorLabel="IBBuiltInLabel-Red">
                             <rect key="frame" x="69" y="48" width="256" height="34"/>
@@ -119,14 +170,6 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="ZmX-YX-HCj">
-                            <rect key="frame" x="192" y="469" width="74" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_downloadFailed" translatesAutoresizingMaskIntoConstraints="NO" id="ZLf-uy-VBH">
-                            <rect key="frame" x="274" y="469" width="74" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="添加图片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XQ-GY-jg0">
                             <rect key="frame" x="26" y="440" width="50" height="15"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -157,6 +200,10 @@
     </objects>
     <resources>
         <image name="image_downloadFailed" width="185" height="106"/>
+        <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -66,6 +66,8 @@
     if(avFile){
         NSString* url=    [avFile.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
         [img sd_setImageWithURL:[NSURL URLWithString:url]   placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+    }else{
+        img.image=[UIImage imageNamed:@"image_downloadFailed"];
     }
  
 }
