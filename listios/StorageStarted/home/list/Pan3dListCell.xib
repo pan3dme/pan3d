@@ -53,9 +53,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="rY6-Zj-s5F" colorLabel="IBBuiltInLabel-Red">
-                                <rect key="frame" x="235" y="5" width="51" height="38"/>
+                                <rect key="frame" x="273" y="0.0" width="91" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="编辑"/>
+                                <state key="normal" title="详情"/>
                                 <connections>
                                     <action selector="clikEditButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iRf-d9-2ce"/>
                                 </connections>
