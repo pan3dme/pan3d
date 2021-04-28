@@ -25,6 +25,15 @@
     self.navigationItem.title = @"LeanCloud";
     self.tableView.delegate =self;
     self.tableView.dataSource =self;
+    
+    
+       self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self  action:@selector(clickRightBarButtonItem)];
+       
+}
+-(void)clickRightBarButtonItem
+{
+    EditViewController* vc=[[EditViewController alloc] init:nil];
+       [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];

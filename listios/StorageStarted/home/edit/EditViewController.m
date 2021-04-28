@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *clearImg1Btn;
 @property (weak, nonatomic) IBOutlet UIButton *clearImg2Btn;
 @property (weak, nonatomic) IBOutlet UIButton *clearImg3Btn;
+@property (weak, nonatomic) IBOutlet UISwitch *editOrNewUISwitch;
 
 @property (nonatomic,strong)MyActivityIndicatorView* myActivityIndicatorView;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
@@ -42,7 +43,7 @@
 
 
  
-- (instancetype)init:(Pan3dListVo*)val
+- (instancetype)init:(Pan3dListVo* _Nonnull)val
 {
     self = [super init];
     if (self) {
@@ -54,9 +55,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _titlelabeltxt.text=_pan3dListVo.title;
-    _infolabeltxt.text=_pan3dListVo.text;
-    _sceneinfoText.text= [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:_pan3dListVo.sceneinfo options:0 error:nil] encoding:NSUTF8StringEncoding];
+  
+  
     
    _imgViewArr=[[NSMutableArray alloc]init];
     [_imgViewArr addObject:_productImageView0];
@@ -73,6 +73,9 @@
     _imgBaseFileArr=[[NSMutableArray alloc]init];
  
     if(_pan3dListVo!=nil){
+        _titlelabeltxt.text=_pan3dListVo.title;
+        _infolabeltxt.text=_pan3dListVo.text;
+        _sceneinfoText.text= [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:_pan3dListVo.sceneinfo options:0 error:nil] encoding:NSUTF8StringEncoding];
         [self addBaseImgFileToArr: _pan3dListVo.avFile0];
         [self addBaseImgFileToArr: _pan3dListVo.avFile1];
         [self addBaseImgFileToArr: _pan3dListVo.avFile2];
@@ -83,6 +86,8 @@
     [self refrishUi];
  
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self  action:@selector(clickRightBarButtonItem)];
+    
+    _editOrNewUISwitch.on=NO;
    
 }
 -(void)clickRightBarButtonItem
@@ -139,6 +144,8 @@
     [product setObject: self.titlelabeltxt.text forKey:@"title"];
     [product setObject: self.infolabeltxt.text forKey:@"text"];
     [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
+    
+    
   
     for (NSUInteger i=0; i<_imgViewArr.count; i++) {
         AVFile *file;
@@ -152,7 +159,16 @@
 }
  
 - (IBAction)publishBtn:(id)sender {
-    bool isNew=YES;
+    
+    
+    NSData *stringData = [_sceneinfoText.text dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *sceneInfoArr  = [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
+    if(sceneInfoArr==nil){
+        [self alertMessage:@"场景信息不合法，需要为数组结构" handler:nil];
+        return;
+    }
+   
+    bool isNew=_editOrNewUISwitch.on;
     NSString* tipstr;
     AVObject *product;
     if(isNew){
@@ -167,7 +183,11 @@
     [self playSendAnima];
     [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self alertMessage: [NSString stringWithFormat:@"%@成功",tipstr]];
+            [self alertMessage: [NSString stringWithFormat:@"%@成功",tipstr] handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:true];
+                 
+            }];
+            //
         } else {
             NSLog(@"%@出错 %@",tipstr, error.localizedFailureReason);
         }
@@ -219,7 +239,7 @@
         [self presentViewController:self.imagePicker animated:YES completion:nil];
     }
     else{
-        [self alertMessage:@"图片库不可用或当前设备没有摄像头"];
+        [self alertMessage:@"图片库不可用或当前设备没有摄像头" handler:nil];
     }
 }
 - (IBAction)clearImg0BtnClik:(id)sender {
@@ -266,10 +286,11 @@
     [_infolabeltxt resignFirstResponder];
 }
 #pragma mark -  Private Methods
--(void)alertMessage:(NSString *)message{
+-(void)alertMessage:(NSString *)message handler:(void (^ __nullable)(UIAlertAction *action))handler{
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertAction *action =  [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:handler];
     [alertController addAction:action];
     [self presentViewController:alertController animated:YES completion:nil];
     

@@ -15,6 +15,7 @@
                 <outlet property="clearImg1Btn" destination="vXd-5r-7mI" id="dK4-RA-AOy"/>
                 <outlet property="clearImg2Btn" destination="y6U-Et-H2T" id="bhI-d6-6s0"/>
                 <outlet property="clearImg3Btn" destination="WIR-WD-V9f" id="48g-Zf-O4Q"/>
+                <outlet property="editOrNewUISwitch" destination="eht-4I-GnL" id="mR8-9Z-nWz"/>
                 <outlet property="infolabeltxt" destination="dW1-64-0lB" id="DQk-L4-AI1"/>
                 <outlet property="productImageView0" destination="Lx1-zY-tFy" id="MT4-Ax-MHY"/>
                 <outlet property="productImageView1" destination="Bin-XT-uie" id="dya-jy-Hy9"/>
@@ -189,6 +190,10 @@
                                 <action selector="publishBtn:" destination="-1" eventType="touchUpInside" id="l4w-sS-TvT"/>
                             </connections>
                         </button>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eht-4I-GnL">
+                            <rect key="frame" x="274" y="14" width="49" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </switch>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
