@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImage000;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage001;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage002;
-@property (weak, nonatomic) IBOutlet UIButton *editBut;
 @property (weak, nonatomic) IBOutlet UIView *imgbgbox;
 @end
 
@@ -29,7 +28,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.imgbgbox.backgroundColor= [UIColor clearColor];
+    _imgbgbox.backgroundColor= [UIColor clearColor];
+    
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(event:)];
+    
+    [tapGesture setNumberOfTapsRequired:1];
+    
+     [_imgbgbox addGestureRecognizer:tapGesture];
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{
@@ -46,8 +51,8 @@
     return cell;
 }
 
--(void)setProduct:(Pan3dListVo *)product{
-    _product = product;
+-(void)setPan3dListVo:(Pan3dListVo *)product{
+    _pan3dListVo = product;
     self.titleLabel.text = product.title;
     self.txtLabel.text = product.text;
     self.timeLabel.text =@"2021-4-25";
@@ -72,7 +77,10 @@
 
 - (IBAction)clikEditButton
 {
-    [self.delegate editByCell:self.product];
+    [self.delegate editByCell:self.pan3dListVo];
 }
- 
+-(void)event:(UITapGestureRecognizer *)gesture
+{
+    [self.delegate selectByCell:self.pan3dListVo];
+}
 @end

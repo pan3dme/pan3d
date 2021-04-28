@@ -78,7 +78,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView  cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     Pan3dListCell * cell = [Pan3dListCell cellWithTableView:tableView];
-    cell.product = self.productArr[indexPath.row];
+    cell.pan3dListVo = self.productArr[indexPath.row];
     cell.delegate=self;
     return cell;
     
@@ -94,6 +94,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.productArr[indexPath.row].cellHeight;
 }
+/*
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
      
     Pan3dListVo *wbF = [self.productArr objectAtIndex:indexPath.row];
@@ -102,7 +103,13 @@
  
  
 }
-
+*/
+- (void)selectByCell:(Pan3dListVo *)val
+{
+    [self.navigationController pushViewController:[[HomeSceneBaseViewController alloc]init:val.sceneinfo] animated:YES];
+ 
+ 
+}
 -(NSMutableArray<Pan3dListVo *> *)productArr{
     if (!_productArr) {
         _productArr =[NSMutableArray array];

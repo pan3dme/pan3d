@@ -12,6 +12,7 @@
 @protocol Pan3dListCellDelegate <NSObject>
  
 - (void)editByCell:(Pan3dListVo *)val;
+- (void)selectByCell:(Pan3dListVo *)val;
  
 @end
 
@@ -21,6 +22,6 @@
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @property (assign, nonatomic) id<Pan3dListCellDelegate> delegate;
-@property (nonatomic,strong) Pan3dListVo  * product;
+@property (nonatomic,strong) Pan3dListVo  * pan3dListVo;
 
 @end
