@@ -32,18 +32,22 @@
 @property (nonatomic,strong)NSMutableArray<UIImageView*>*  imgViewArr;
 @property (nonatomic,strong)NSMutableArray* imgBaseFileArr;
 @property (nonatomic,strong)NSMutableArray<UIButton*>* clearbutArr;
+
+@property (nonatomic,strong)NSString* emptyPicUrl;
+
 @end
  
 
 @implementation EditViewController
 
- 
+
  
 - (instancetype)init:(Pan3dListVo*)val
 {
     self = [super init];
     if (self) {
         _pan3dListVo=val;
+        _emptyPicUrl=@"image_downloadFailed";
      
     }
     return self;
@@ -68,14 +72,14 @@
     
     _imgBaseFileArr=[[NSMutableArray alloc]init];
  
-    [self addBaseImgFileToArr: _pan3dListVo.avFile0];
-    [self addBaseImgFileToArr: _pan3dListVo.avFile1];
-    [self addBaseImgFileToArr: _pan3dListVo.avFile2];
-    [self addBaseImgFileToArr: _pan3dListVo.avFile3];
+    if(_pan3dListVo!=nil){
+        [self addBaseImgFileToArr: _pan3dListVo.avFile0];
+        [self addBaseImgFileToArr: _pan3dListVo.avFile1];
+        [self addBaseImgFileToArr: _pan3dListVo.avFile2];
+        [self addBaseImgFileToArr: _pan3dListVo.avFile3];
     
-    
-   
- 
+    }
+  
     [self refrishUi];
 }
 -(void)refrishUi
@@ -91,7 +95,7 @@
             [_clearbutArr[i] setHidden:NO];
         }else{
             [_clearbutArr[i] setHidden:YES];
-            _imgViewArr[i].image=[UIImage imageNamed:@"image_downloadFailed"];
+            _imgViewArr[i].image=[UIImage imageNamed:_emptyPicUrl];
         }
     }
 }
@@ -111,39 +115,48 @@
     }
     
 }
--(void)saveChangeDataInfo
+-(void)meshBaseProductInfo:(AVObject*)val
 {
-    AVObject *product = [AVObject objectWithClassName:@"pan3dlist002" objectId:_pan3dListVo.objectId];
+    AVObject *product = val;
     [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
     [product setObject: self.titlelabeltxt.text forKey:@"title"];
     [product setObject: self.infolabeltxt.text forKey:@"text"];
     [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
-    [self playSendAnima];
+  
     for (NSUInteger i=0; i<_imgViewArr.count; i++) {
-        
-        
-        if( [UIImage imageNamed:@"image_downloadFailed"]!=_imgViewArr[i].image){
+        AVFile *file;
+        if( [UIImage imageNamed:_emptyPicUrl]!=_imgViewArr[i].image){
             NSData * imageData= [self getAvfileByImage:_imgViewArr[i].image] ;
-            AVFile *file = [AVFile fileWithData:imageData];
-            [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
+            file = [AVFile fileWithData:imageData];
         }
-       
+        [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
     }
+   
+}
  
-    
-    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+- (IBAction)publishBtn:(id)sender {
+    bool isNew=YES;
+    NSString* tipstr;
+    AVObject *product;
+    if(isNew){
+        product = [AVObject objectWithClassName:@"pan3dlist002"];
+        [product setObject: [AVUser currentUser] forKey:@"owner"];
+        tipstr=@"保存新场景";
+    }else{
+        product= [AVObject objectWithClassName:@"pan3dlist002" objectId:_pan3dListVo.objectId];
+        tipstr=@"编辑场景";
+    }
+    [self meshBaseProductInfo:product];
+    [self playSendAnima];
+    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self alertMessage: [NSString stringWithFormat:@"%@成功",tipstr]];
+        } else {
+            NSLog(@"%@出错 %@",tipstr, error.localizedFailureReason);
+        }
         [self stopSendAnima];
     }];
     
-    
-
- 
-}
-- (IBAction)publishBtn:(id)sender {
- 
-
-    [self saveChangeDataInfo];
-   
 }
 - (IBAction)openAlbumBtn:(id)sender {
     [self selectImageWithPickertype:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -167,7 +180,7 @@
 -(UIImageView*)getCanPushImgView
 {
     for (NSUInteger i=0; i<_imgViewArr.count; i++) {
-        if(_imgViewArr[i].image==[UIImage imageNamed:@"image_downloadFailed"]){
+        if(_imgViewArr[i].image==[UIImage imageNamed:_emptyPicUrl]){
             return _imgViewArr[i];
         }
      
@@ -209,32 +222,7 @@
     [_imgBaseFileArr removeObjectAtIndex:3];
     [self refrishUi];
 }
--(void)saveNewData
-{
-    AVUser *currentUser = [AVUser currentUser];
-    AVObject *product = [AVObject objectWithClassName:@"pan3dlist002"];
-    [product setObject:[NSNumber numberWithInt:1] forKey:@"type"];
-    [product setObject: self.titlelabeltxt.text forKey:@"title"];
-    [product setObject: self.infolabeltxt.text forKey:@"text"];
-    [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
-    [product setObject:currentUser forKey:@"owner"];
-    
-    [self playSendAnima];
-    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
-        NSData * imageData= [self getAvfileByImage:_imgViewArr[i].image] ;
-        AVFile *file = [AVFile fileWithData:imageData];
-        [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
-    }
-    [product saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"保存新场景成功");
-            [self alertMessage:@"保存新场景成功"];
-        } else {
-            NSLog(@"保存新场景出错 %@", error.localizedFailureReason);
-        }
-        [self stopSendAnima];
-    }];
-}
+
 -(void)playSendAnima
 {
     _myActivityIndicatorView = [[MyActivityIndicatorView alloc]init];

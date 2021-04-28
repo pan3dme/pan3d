@@ -66,9 +66,13 @@
     if(avFile){
         NSString* url=    [avFile.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
         [img sd_setImageWithURL:[NSURL URLWithString:url]   placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+        [img setHidden:NO];
     }else{
-        img.image=[UIImage imageNamed:@"image_downloadFailed"];
+        img.image=[UIImage imageNamed:@""];
+        [img setHidden:YES];
     }
+    
+   
  
 }
 - (IBAction)clickDeleButton
