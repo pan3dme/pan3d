@@ -10,7 +10,7 @@
 #import "Pan3dListVo.h"
 
 @protocol Pan3dListCellDelegate <NSObject>
-- (void)deleByCell:(Pan3dListVo *)val;
+ 
 - (void)editByCell:(Pan3dListVo *)val;
  
 @end

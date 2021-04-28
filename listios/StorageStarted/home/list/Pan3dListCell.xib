@@ -52,14 +52,6 @@
                                 <color key="textColor" red="0.71764705882352942" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="N0t-El-LTA" colorLabel="IBBuiltInLabel-Red">
-                                <rect key="frame" x="294" y="5" width="43" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="删除"/>
-                                <connections>
-                                    <action selector="clickDeleButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8YW-Ul-A6D"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="rY6-Zj-s5F" colorLabel="IBBuiltInLabel-Red">
                                 <rect key="frame" x="235" y="5" width="51" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

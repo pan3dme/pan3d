@@ -81,6 +81,23 @@
     }
   
     [self refrishUi];
+ 
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self  action:@selector(clickRightBarButtonItem)];
+   
+}
+-(void)clickRightBarButtonItem
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定是否删除记录" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        AVObject *todo = [AVObject objectWithClassName:@"pan3dlist002" objectId:_pan3dListVo.objectId];
+        [todo deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    [self.navigationController popViewControllerAnimated:true];
+        }];
+         
+    
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:true completion:nil];
 }
 -(void)refrishUi
 {

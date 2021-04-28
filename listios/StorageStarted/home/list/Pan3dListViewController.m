@@ -79,25 +79,7 @@
     EditViewController* vc=[[EditViewController alloc] init:val];
        [self.navigationController pushViewController:vc animated:YES];
 }
-- (void)deleByCell:(Pan3dListVo *)val
-{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定是否删除记录" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-     
-        AVObject *todo = [AVObject objectWithClassName:@"pan3dlist002" objectId:val.objectId];
-        [todo deleteInBackground];
-        
-        [self queryProduct];
-        
-    }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
-
  
-
-    [self presentViewController:alertController animated:true completion:nil];
-
-}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

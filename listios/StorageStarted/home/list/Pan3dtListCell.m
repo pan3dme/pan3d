@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImage000;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage001;
 @property (weak, nonatomic) IBOutlet UIImageView *productImage002;
-@property (weak, nonatomic) IBOutlet UIButton *deleBut;
 @property (weak, nonatomic) IBOutlet UIButton *editBut;
 @property (weak, nonatomic) IBOutlet UIView *imgbgbox;
 @end
@@ -53,13 +52,11 @@
     self.txtLabel.text = product.text;
     self.timeLabel.text =@"2021-4-25";
  
-   
     [self loadImageByInfoimg:self.avatarImageView avFile:product.avFile0];
     [self loadImageByInfoimg:self.productImage000 avFile:product.avFile0];
     [self loadImageByInfoimg:self.productImage001 avFile:product.avFile1];
     [self loadImageByInfoimg:self.productImage002 avFile:product.avFile2];
     
- 
 }
 -(void)loadImageByInfoimg:(UIImageView*)img avFile:(AVFile*)avFile
 {
@@ -71,14 +68,8 @@
         img.image=[UIImage imageNamed:@""];
         [img setHidden:YES];
     }
-    
-   
- 
 }
-- (IBAction)clickDeleButton
-{
-    [self.delegate deleByCell:self.product];
-}
+
 - (IBAction)clikEditButton
 {
     [self.delegate editByCell:self.product];
