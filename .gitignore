@@ -14,7 +14,7 @@ gen/
 out/
 node_modules/
 
-!/new/dist/main.js
+ 
 
 
 # Gradle files
