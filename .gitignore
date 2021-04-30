@@ -14,7 +14,7 @@ gen/
 out/
 node_modules/
 
-
+ 
 !/new/bins/inflate.min.js
 !/new/jsbin/Pan3d/core/Pan3dByteArray.js
 !/new/jsbin/Pan3d/core/Vector2D.js
@@ -149,7 +149,7 @@ node_modules/
 !/new/jsbin/Pan3d/frame3d/FrameNodeVo.js 
 !/new/jsbin/Pan3d/frame3d/Frame3dRes.js 
 !/new/jsbin/Pan3d/frame3d/Frame3dSprite.js 
-!/new/jsbin/Pan3d/scene/Scene3D.js 
+!/new/jsbin/Pan3d/scene/Scene3D.js
 !/new/jsbin/Pan3d/md5/MeshImportSort.js 
 !/new/jsbin/Pan3d/md5/MeshToObjUtils.js 
 !/new/jsbin/Pan3d/md5/Md5Analysis.js 
