@@ -29,7 +29,7 @@ class MenuEventModel {
             var tempInfo: any = sceneinfo[key];
             var type: number = tempInfo["type"];
             var textStr: string = tempInfo["text"];
-
+//添加测试函数
             if (type == 1) { //场景
                 sceneView.loadSceneByUrl(textStr);
             }
