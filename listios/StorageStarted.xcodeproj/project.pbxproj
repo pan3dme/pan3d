@@ -214,6 +214,7 @@
 		9CA7FE6C263838FF002617A4 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FE6A263838FE002617A4 /* EditViewController.m */; };
 		9CA7FE6D263838FF002617A4 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA7FE6B263838FE002617A4 /* EditViewController.xib */; };
 		9CC0669E26379ECE001C04AA /* MyActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */; };
+		9CFA98ED264ACBCF000074E7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA98EC264ACBCF000074E7 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -651,6 +652,8 @@
 		9CA7FE6B263838FE002617A4 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		9CC0669C26379ECE001C04AA /* MyActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyActivityIndicatorView.h; sourceTree = "<group>"; };
 		9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyActivityIndicatorView.m; sourceTree = "<group>"; };
+		9CFA98EB264ACBCF000074E7 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		9CFA98EC264ACBCF000074E7 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		BA356B07733BA69282B8E78A /* libPods-StorageStarted.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorageStarted.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1489,6 +1492,7 @@
 		9C75CE8126271ACA00CFEC83 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				9CFA98EA264ACA3F000074E7 /* web */,
 				9CA7FE68263838D8002617A4 /* edit */,
 				9CC066A52637B46B001C04AA /* cell */,
 				9CC0669B26379EB5001C04AA /* flash */,
@@ -1541,6 +1545,15 @@
 			children = (
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		9CFA98EA264ACA3F000074E7 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				9CFA98EB264ACBCF000074E7 /* WebViewController.h */,
+				9CFA98EC264ACBCF000074E7 /* WebViewController.m */,
+			);
+			path = web;
 			sourceTree = "<group>";
 		};
 		B5852B1A75EDE95CE2A4E440 /* Pods */ = {
@@ -1839,6 +1852,7 @@
 				6693DE521D8933A400A80A29 /* main.m in Sources */,
 				9C75CDDF2627182300CFEC83 /* MountChar.m in Sources */,
 				9C75CE352627182400CFEC83 /* GC.m in Sources */,
+				9CFA98ED264ACBCF000074E7 /* WebViewController.m in Sources */,
 				9C75CDD12627182300CFEC83 /* FrameNodeVo.m in Sources */,
 				9C75CDF92627182300CFEC83 /* SelfRotation.m in Sources */,
 				9C75CEB926272F6B00CFEC83 /* Pan3dtListCell.m in Sources */,
