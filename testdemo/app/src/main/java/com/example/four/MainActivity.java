@@ -48,14 +48,7 @@ public class MainActivity extends AppCompatActivity {
         LoaderThread.fileContext = getApplicationContext();
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: ");
-//                startActivity(new Intent(MainActivity.this, PublishActivity.class));
-            }
-        });
+ 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.list_main);
         mRecyclerView.setHasFixedSize(true);
@@ -106,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         AVUser.logIn(username,password).subscribe(new Observer<AVUser>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                Log.d("onSubscribe", "onSubscribe: ");
             }
             @Override
             public void onNext(AVUser avUser) {
@@ -118,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onComplete() {
-
+                Log.d("onComplete", "onComplete: ");
             }
         });
 

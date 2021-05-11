@@ -23,22 +23,30 @@
 - (void)createUIWebViewTest {
     // 1.创建webview
     CGFloat width = self.view.frame.size.width;
-    CGFloat height = self.view.frame.size.height;
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+    CGFloat height = self.view.frame.size.height-80;
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+    [self.view addSubview: self.webView ];
     
-    
-    // 2.1 创建一个远程URL
-    NSURL *remoteURL = [NSURL URLWithString:@"https://pan3dme.github.io/pan3d/new/listmain.html"];
-    
+ 
+//    self.webView.backgroundColor=[UIColor redColor];
+   
+}
+ 
+ - (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+  
 
-    
-    // 3.创建Request
+    NSURL *remoteURL = [NSURL URLWithString:@"https://pan3dme.github.io/pan3d/new/listmain.html"];
+//    NSURL *remoteURL = [NSURL URLWithString:@"https://baidu.com"];
     NSURLRequest *request =[NSURLRequest requestWithURL:remoteURL];
-    // 4.加载网页
-    [webView loadRequest:request];
-    // 5.最后将webView添加到界面
-    [self.view addSubview:webView];
-    self.webView = webView;
+    [ self.webView  loadRequest:request];
+    
+    
+//    self.webView.frame=CGRectMake(0, 0, 100, 200);
+    
+    self.view.backgroundColor=[UIColor whiteColor];
+     
 }
 
 @end
