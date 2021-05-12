@@ -103,7 +103,7 @@
     <div class="wrap">
 
         <div id="title">
-            我是标题1.0
+            我是标题1.1
         </div>
 
         <div id="nav">
@@ -135,7 +135,7 @@
         appKey: "Kc3v7hICoaQcO80skdhOXCrl",
         serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
     });
-
+    alert("abc222");
     function json2str(o) {
         var arr = [];
         var fmt = function (s) {
@@ -147,7 +147,7 @@
     }
     function init() {
  
-        alert("abc");
+    
         AV.User.logIn("pan3dme", "1343").then(function (loginedUser) {
             getListDataAll();
 
