@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 
 import com.example.bottomnavigation.ui.home.HomeFragment;
+import com.example.bottomnavigation.ui.sceneui.DetailActivity;
 import com.pan3d.units.LoadBackFun;
 import com.pan3d.units.LoadManager;
 
@@ -52,7 +53,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(mContext, HomeFragment.class);
+                Intent intent = new Intent(mContext, DetailActivity.class);
                 String string=  avObject.getString("sceneinfo");
                 intent.putExtra("sceneinfo",string);
                 mContext.startActivity(intent);
