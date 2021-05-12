@@ -127,7 +127,7 @@
 </body>
 
 <script>
-      alert("abc223332");
+    
     var fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
     localStorage.setItem('debug', 'leancloud*');
  
@@ -186,14 +186,7 @@
 
             }
         
-        
-            
-            // var picitem =      todo.get('picitem');
-            // $.each(picitem, function (picIdx) {
-            //     var picUrl = fileRoot + picitem[picIdx];
-            //     imgStr += "<img src='" + picUrl + "' width='160' height='160' />";
-            //     imgStr += "    ";
-            // });
+         
             str = "<li class='item'>" + tittlestr + "<br>" + textstr + "<br>" + imgStr + "</li>";
             $("#list").html($("#list").html() + str);
 
@@ -207,48 +200,7 @@
         });
 
     }
-    function addTempInfo() {
-        // 声明 class
-        const Todo = AV.Object.extend('pan3dlist');
-
-        // 构建对象
-        const todo = new Todo();
-
-        // 为属性赋值
-        todo.set('type', 1);
-        todo.set('title', '场景+角色+特效');
-        todo.set('text', '场景地牢野猪和雪花');
-        todo.set('picitem',["pan/test/iosmetia/pic/pic005.jpg","pan/test/iosmetia/pic/pic006.jpg","pan/test/iosmetia/pic/pic007.jpg"]);
-        todo.set('sceneinfo', [
-  
      
- {
- "id": 1,
- "type": 1,
- "text": 10005
- },
- {
- "id": 2,
- "type": 2,
- "text":"model/10018_lyf.txt"
- },
- {
- "id": 3,
- "type": 3,
- "text":"role/yezhuz.txt"
- }
- ]
- );
-
-
-        // 将对象保存到云端
-        todo.save().then((todo) => {
-            // 成功保存之后，执行其他逻辑
-            console.log(`保存成功。objectId：${todo.id}`);
-        }, (error) => {
-            // 异常处理
-        });
-    }
 
 
     function show2() {
