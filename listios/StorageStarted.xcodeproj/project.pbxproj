@@ -213,6 +213,10 @@
 		9C75CEB926272F6B00CFEC83 /* Pan3dtListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75CEB726272F6B00CFEC83 /* Pan3dtListCell.m */; };
 		9CA7FE6C263838FF002617A4 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FE6A263838FE002617A4 /* EditViewController.m */; };
 		9CA7FE6D263838FF002617A4 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA7FE6B263838FE002617A4 /* EditViewController.xib */; };
+		9CB80F5F2652A9F400EA1B28 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB80F592652A9F400EA1B28 /* DetailVC.m */; };
+		9CB80F602652A9F400EA1B28 /* ListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB80F5A2652A9F400EA1B28 /* ListVC.m */; };
+		9CB80F612652A9F400EA1B28 /* ViewControllerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB80F5D2652A9F400EA1B28 /* ViewControllerMenu.m */; };
+		9CB80F622652A9F400EA1B28 /* XLBasePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB80F5E2652A9F400EA1B28 /* XLBasePageController.m */; };
 		9CC0669E26379ECE001C04AA /* MyActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */; };
 		9CFA98ED264ACBCF000074E7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA98EC264ACBCF000074E7 /* WebViewController.m */; };
 /* End PBXBuildFile section */
@@ -650,6 +654,14 @@
 		9CA7FE69263838FE002617A4 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		9CA7FE6A263838FE002617A4 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		9CA7FE6B263838FE002617A4 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		9CB80F572652A9F400EA1B28 /* ViewControllerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerMenu.h; sourceTree = "<group>"; };
+		9CB80F582652A9F400EA1B28 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		9CB80F592652A9F400EA1B28 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
+		9CB80F5A2652A9F400EA1B28 /* ListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListVC.m; sourceTree = "<group>"; };
+		9CB80F5B2652A9F400EA1B28 /* ListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListVC.h; sourceTree = "<group>"; };
+		9CB80F5C2652A9F400EA1B28 /* XLBasePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBasePageController.h; sourceTree = "<group>"; };
+		9CB80F5D2652A9F400EA1B28 /* ViewControllerMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMenu.m; sourceTree = "<group>"; };
+		9CB80F5E2652A9F400EA1B28 /* XLBasePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBasePageController.m; sourceTree = "<group>"; };
 		9CC0669C26379ECE001C04AA /* MyActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyActivityIndicatorView.h; sourceTree = "<group>"; };
 		9CC0669D26379ECE001C04AA /* MyActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyActivityIndicatorView.m; sourceTree = "<group>"; };
 		9CFA98EB264ACBCF000074E7 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -1492,6 +1504,7 @@
 		9C75CE8126271ACA00CFEC83 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				9CB80F512652A7A300EA1B28 /* couldlist */,
 				9CFA98EA264ACA3F000074E7 /* web */,
 				9CA7FE68263838D8002617A4 /* edit */,
 				9CC066A52637B46B001C04AA /* cell */,
@@ -1529,6 +1542,21 @@
 				9CA7FE6B263838FE002617A4 /* EditViewController.xib */,
 			);
 			path = edit;
+			sourceTree = "<group>";
+		};
+		9CB80F512652A7A300EA1B28 /* couldlist */ = {
+			isa = PBXGroup;
+			children = (
+				9CB80F582652A9F400EA1B28 /* DetailVC.h */,
+				9CB80F592652A9F400EA1B28 /* DetailVC.m */,
+				9CB80F5B2652A9F400EA1B28 /* ListVC.h */,
+				9CB80F5A2652A9F400EA1B28 /* ListVC.m */,
+				9CB80F572652A9F400EA1B28 /* ViewControllerMenu.h */,
+				9CB80F5D2652A9F400EA1B28 /* ViewControllerMenu.m */,
+				9CB80F5C2652A9F400EA1B28 /* XLBasePageController.h */,
+				9CB80F5E2652A9F400EA1B28 /* XLBasePageController.m */,
+			);
+			path = couldlist;
 			sourceTree = "<group>";
 		};
 		9CC0669B26379EB5001C04AA /* flash */ = {
@@ -1803,6 +1831,7 @@
 				9C75CE282627182400CFEC83 /* Material.m in Sources */,
 				9C75CE1A2627182300CFEC83 /* EventBindVo.m in Sources */,
 				9C75CE2C2627182400CFEC83 /* ResGC.m in Sources */,
+				9CB80F612652A9F400EA1B28 /* ViewControllerMenu.m in Sources */,
 				9C75CE7626271A1800CFEC83 /* MtkBaseDisShader.m in Sources */,
 				9C75CD9F2627182300CFEC83 /* SkillActionVo.m in Sources */,
 				9C75CDA12627182300CFEC83 /* RoleRes.m in Sources */,
@@ -1906,11 +1935,14 @@
 				9C75CDA72627182300CFEC83 /* ParticleManager.m in Sources */,
 				9C75CDD02627182300CFEC83 /* Frame3dSprite.m in Sources */,
 				94A1B7082105AABB0098C27A /* LCNavigationController.m in Sources */,
+				9CB80F5F2652A9F400EA1B28 /* DetailVC.m in Sources */,
 				9C75CDB72627182300CFEC83 /* SkillPath.m in Sources */,
 				9C75CDE22627182300CFEC83 /* MaterialAnimShader.m in Sources */,
+				9CB80F602652A9F400EA1B28 /* ListVC.m in Sources */,
 				9C75CDBD2627182300CFEC83 /* SkillMulTrajectory.m in Sources */,
 				9C75CDEF2627182300CFEC83 /* ParticleGpuData.m in Sources */,
 				9C75CE002627182300CFEC83 /* TimeLineData.m in Sources */,
+				9CB80F622652A9F400EA1B28 /* XLBasePageController.m in Sources */,
 				9C75CE272627182400CFEC83 /* DynamicTexItem.m in Sources */,
 				9C75CE7326271A1800CFEC83 /* MtkMoveDisplayShader.m in Sources */,
 				9C75CE072627182300CFEC83 /* ParticleLocusData.m in Sources */,
