@@ -16,6 +16,12 @@ node_modules/
 
  
 !/h5gl/bins/inflate.min.js
+!/h5gl/bins/av/jquery.min.js
+!/h5gl/bins/av/bootstrap.min.js
+!/h5gl/bins/av/av-min.js
+!/h5gl/bins/av/lc.min.js
+  
+
 !/h5gl/jsbin/Pan3d/core/Pan3dByteArray.js
 !/h5gl/jsbin/Pan3d/core/Vector2D.js
 !/h5gl/jsbin/Pan3d/core/Vector3D.js 
