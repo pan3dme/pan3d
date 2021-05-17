@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EditViewController : UIViewController
-- (instancetype)init:(Pan3dListVo* _Nonnull)val;
+- (instancetype)init:(Pan3dListVo* __nullable)val;
 @end
 
 NS_ASSUME_NONNULL_END

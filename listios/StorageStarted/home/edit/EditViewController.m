@@ -43,7 +43,7 @@
 
 
  
-- (instancetype)init:(Pan3dListVo* _Nonnull)val
+- (instancetype)init:(Pan3dListVo* __nullable)val
 {
     self = [super init];
     if (self) {
@@ -51,6 +51,7 @@
         _emptyPicUrl=@"image_downloadFailed";
      
     }
+  
     return self;
 }
 - (void)viewDidLoad {
