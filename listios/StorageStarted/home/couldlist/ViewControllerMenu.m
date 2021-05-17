@@ -24,7 +24,7 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.2];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _titleArray = @[@"全部",@"推荐",@"热点",@"附近",@"订阅",@"问答",@"社会",@"体育",@"财经"];
+    _titleArray = @[@"全部",@"场景",@"角色",@"特效",@"技能",@"MD5",@"动画",@"其它",@"更多"];
 
     
     self.delegate = self;
