@@ -55,7 +55,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-//                testMethod(myWebView);
+                testMethod(myWebView);
             }
 
         });
@@ -63,7 +63,7 @@ public class DashboardFragment extends Fragment {
     }
 
     private void testMethod(WebView webView) {
-        String call = "javascript:sayHello()";
+        String call = "javascript:initfuck()";
 
 //        call = "javascript:alertMessage(\"" + "content" + "\")";
 //

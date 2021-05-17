@@ -132,13 +132,7 @@
     alert("script_base");
 
     var fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
-    localStorage.setItem('debug', 'leancloud*');
  
-    AV.init({
-        appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
-        appKey: "Kc3v7hICoaQcO80skdhOXCrl",
-        serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
-    });
   
     function json2str(o) {
         var arr = [];
@@ -150,6 +144,14 @@
         return '{' + arr.join(',') + '}';
     }
     function init() {
+        localStorage.setItem('debug', 'leancloud*');
+ 
+ AV.init({
+     appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
+     appKey: "Kc3v7hICoaQcO80skdhOXCrl",
+     serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
+ });
+ 
  
         alert("script_init");
         alert("准备请求");
