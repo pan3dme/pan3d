@@ -10,7 +10,7 @@
 #import "LCNavigationController.h"
 #import "Pan3dListViewController.h"
 #import "WebViewController.h"
-#import "ViewControllerMenu.h""
+#import "ViewControllerMenu.h"
 #import "PersonalCenterViewController.h"
 @interface LCTabBarController ()
 
@@ -30,9 +30,9 @@
 
 -(void)setupChildViewControllers{
     
-   [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[Pan3dListViewController alloc] init]]title:@"商品列表" image:@"home"
+   [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[ViewControllerMenu alloc] init]]title:@"商品列表" image:@"home"
                   selectedImage:nil];
-[self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[ViewControllerMenu alloc] init] ]title:@"H5WEBGL" image:@"edit"
+[self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[WebViewController alloc] init] ]title:@"H5WEBGL" image:@"edit"
                     selectedImage:nil];
 
     [self setupOneChildController:[[LCNavigationController alloc]initWithRootViewController:[[PersonalCenterViewController alloc] initWithNibName: @"PersonalCenterViewController" bundle:nil]]title:@"我的发布" image:@"personal"

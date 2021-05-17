@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Pan3dListViewController : UITableViewController
-
+@property (nonatomic,assign) NSInteger index;
+@property (nonatomic,copy) NSString *titleStr;
 @end
 
 NS_ASSUME_NONNULL_END

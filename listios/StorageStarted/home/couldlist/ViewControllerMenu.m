@@ -9,6 +9,7 @@
 #import "ViewControllerMenu.h"
 #import "ListVC.h"
 #import "DetailVC.h"
+#import "Pan3dListViewController.h"
 
 @interface ViewControllerMenu () <XLBasePageControllerDelegate,XLBasePageControllerDataSource>
 
@@ -39,7 +40,10 @@
     
     [self reloadScrollPage];
 }
-
+-(void)reloadScrollPage
+{
+    [super reloadScrollPage];
+}
 -(NSInteger)numberViewControllersInViewPager:(XLBasePageController *)viewPager
 {
     return _titleArray.count;
@@ -47,6 +51,7 @@
 
 -(UIViewController *)viewPager:(XLBasePageController *)viewPager indexViewControllers:(NSInteger)index
 {
+    /*
     if (index != 2) {
         ListVC *listVC = [[ListVC alloc] init];
         listVC.titleStr = _titleArray[index];
@@ -58,6 +63,13 @@
         detailVC.index = index;
         return detailVC;
     }
+    */
+   
+    Pan3dListViewController *detailVC = [[Pan3dListViewController alloc] init];
+    detailVC.titleStr = _titleArray[index];
+    detailVC.index = index;
+    return detailVC;
+    
 }
 
 -(CGFloat)heightForTitleViewPager:(XLBasePageController *)viewPager
