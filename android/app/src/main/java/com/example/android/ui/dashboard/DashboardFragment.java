@@ -48,6 +48,7 @@ public class DashboardFragment extends Fragment {
         final WebView myWebView = (WebView) this.mainRoot.findViewById(R.id.wv_webview);
         WebSettings settings = myWebView.getSettings();
         settings.setJavaScriptEnabled(true);
+        myWebView.getSettings().setDomStorageEnabled(true);
         myWebView.addJavascriptInterface(new JsInteration(), "control");
         myWebView.setWebChromeClient(new WebChromeClient() {});
         myWebView.setWebViewClient(new WebViewClient() {
