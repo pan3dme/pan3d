@@ -99,7 +99,7 @@ public class DashboardFragment extends Fragment {
 
 
         String baseurl="https://pan3dme.github.io/pan3d/new/listmain.html";
-        baseurl="https://pan3dme.github.io/pan3d/h5gl/listmain.html";
+        baseurl="https://pan3dme.github.io/pan3d/h5gl/index.html";
         baseurl="https://www.163.com";
         baseurl="https://pan3dme.github.io/pan3d/h5gl/listmain.html";
         webView.loadUrl(baseurl);
