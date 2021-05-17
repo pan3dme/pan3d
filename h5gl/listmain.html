@@ -104,7 +104,7 @@
     <div class="wrap">
 
         <div id="title">
-            我是标题1.400
+            我是标题1.401
         </div>
 
         <div id="nav">
@@ -129,7 +129,7 @@
 
 <script>
     
-    alert("script_init");
+ 
 
     var fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
     localStorage.setItem('debug', 'leancloud*');
@@ -153,6 +153,7 @@
  
     
         AV.User.logIn("pan3dme", "1343").then(function (loginedUser) {
+            alert("script_登入成功");
             getListDataAll();
 
         }, function (error) {
