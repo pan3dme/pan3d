@@ -110,7 +110,7 @@
         <div id="nav">
             <ul class="nav nav-bar">
                 <li><a href="#" onclick="getListDataAll()"><span>全部</span></a></li>
-                <li><a href="#" onclick="show2()"><span>场景</span></a></li>
+                <li><a href="#" onclick="getListDataAll()"><span>场景</span></a></li>
                 <li><a href="#" onclick="show3()"><span>角色</span></a></li>
                 <li><a href="#" onclick="show4()"><span>特效</span></a></li>
             </ul>
@@ -151,7 +151,8 @@
     }
     function init() {
  
-    
+        alert("script_init");
+        alert("准备请求");
         AV.User.logIn("pan3dme", "1343").then(function (loginedUser) {
             alert("script_登入成功");
             getListDataAll();
