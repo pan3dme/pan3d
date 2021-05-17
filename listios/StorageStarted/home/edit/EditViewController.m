@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 @property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
 @property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
+@property (weak, nonatomic) IBOutlet UITextField *tagLabeText;
 @property (weak, nonatomic) IBOutlet UIButton *clearImg0Btn;
 @property (weak, nonatomic) IBOutlet UIButton *clearImg1Btn;
 @property (weak, nonatomic) IBOutlet UIButton *clearImg2Btn;
@@ -76,6 +77,7 @@
     if(_pan3dListVo!=nil){
         _titlelabeltxt.text=_pan3dListVo.title;
         _infolabeltxt.text=_pan3dListVo.text;
+        _tagLabeText.text=_pan3dListVo.tag;
         _sceneinfoText.text= [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:_pan3dListVo.sceneinfo options:0 error:nil] encoding:NSUTF8StringEncoding];
         [self addBaseImgFileToArr: _pan3dListVo.avFile0];
         [self addBaseImgFileToArr: _pan3dListVo.avFile1];
@@ -145,6 +147,7 @@
     [product setObject: self.titlelabeltxt.text forKey:@"title"];
     [product setObject: self.infolabeltxt.text forKey:@"text"];
     [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
+    [product setObject:self.tagLabeText.text forKey:@"tag"];
     
     
   
@@ -285,6 +288,8 @@
     [_sceneinfoText resignFirstResponder];
     [_titlelabeltxt resignFirstResponder];
     [_infolabeltxt resignFirstResponder];
+    [_tagLabeText resignFirstResponder];
+    
 }
 #pragma mark -  Private Methods
 -(void)alertMessage:(NSString *)message handler:(void (^ __nullable)(UIAlertAction *action))handler{

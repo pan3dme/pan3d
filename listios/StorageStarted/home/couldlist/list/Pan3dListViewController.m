@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self) {
-        self.titleStr=val;
+        self.tagstr=val;
     }
     return self;
     
@@ -63,6 +63,14 @@
  
     _productArr =[[NSMutableArray alloc]init];
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
+    
+    if([_tagstr isEqualToString:@"全部"]){
+        
+    }else{
+        [query whereKey:@"tag" equalTo:_tagstr];
+    }
+    
+   
     query.limit = 20;
     NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
     [query orderBySortDescriptor:d];

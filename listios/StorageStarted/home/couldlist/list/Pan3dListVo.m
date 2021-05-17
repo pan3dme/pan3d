@@ -14,6 +14,7 @@
     product.type=  [[obj objectForKey:@"type"] intValue];
     product.title=  [obj objectForKey:@"title"];
     product.text=[obj objectForKey:@"text"];
+    product.tag=[obj objectForKey:@"tag"];
     product.createdAt=[obj objectForKey:@"createdAt"];
     product.objectId=[obj objectForKey:@"objectId"];
     
