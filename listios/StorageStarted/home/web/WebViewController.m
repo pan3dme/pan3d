@@ -40,7 +40,7 @@
     
     
     
-    NSURL *remoteURL = [NSURL URLWithString:@"https://pan3dme.github.io/pan3d/h5gl/listmain.html"];
+    NSURL *remoteURL = [NSURL URLWithString:@"https://webpan.oss-cn-shanghai.aliyuncs.com/pan/h5glweb/listmain.html"];
 //    remoteURL = [NSURL URLWithString:@"https://www.163.com"];
  
     NSURLRequest *request =[NSURLRequest requestWithURL:remoteURL];

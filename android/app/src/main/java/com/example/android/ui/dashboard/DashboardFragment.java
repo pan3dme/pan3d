@@ -59,7 +59,7 @@ public class DashboardFragment extends Fragment {
             }
 
         });
-        myWebView.loadUrl("https://pan3dme.github.io/pan3d/h5gl/listmain.html");
+        myWebView.loadUrl("https://webpan.oss-cn-shanghai.aliyuncs.com/pan/h5glweb/listmain.html");
     }
 
     private void testMethod(WebView webView) {
