@@ -150,7 +150,7 @@
     }
     function init() {
         // localStorage.setItem('debug', 'leancloud*');
- 
+        alert("script_init");
  AV.init({
      appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
      appKey: "Kc3v7hICoaQcO80skdhOXCrl",
@@ -158,7 +158,7 @@
  });
 
  
-        alert("script_init");
+      
         alert("准备请求");
         AV.User.logIn("pan3dme", "1343").then(function (loginedUser) {
             alert("script_登入成功");
