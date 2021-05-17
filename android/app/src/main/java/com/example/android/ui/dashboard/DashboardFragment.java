@@ -55,7 +55,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                testMethod(myWebView);
+//                testMethod(myWebView);
             }
 
         });
