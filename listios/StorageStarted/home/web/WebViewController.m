@@ -37,7 +37,7 @@
     [super viewDidAppear:animated];
   
 
-    NSURL *remoteURL = [NSURL URLWithString:@"https://pan3dme.github.io/pan3d/new/listmain.html"];
+    NSURL *remoteURL = [NSURL URLWithString:@"https://pan3dme.github.io/pan3d/h5gl/listmain.html"];
 //    NSURL *remoteURL = [NSURL URLWithString:@"https://baidu.com"];
     NSURLRequest *request =[NSURLRequest requestWithURL:remoteURL];
     [ self.webView  loadRequest:request];
