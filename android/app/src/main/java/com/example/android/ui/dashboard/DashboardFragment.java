@@ -32,15 +32,18 @@ public class DashboardFragment extends Fragment {
     protected void makeWebView()
     {
         WebView webView = (WebView) this.mainRoot.findViewById(R.id.wv_webview);
-        webView.loadUrl("https://pan3dme.github.io/pan3d/new/listmain.html");
-//        webView.loadUrl("https://pan3dme.github.io/pan3d/new/index.html");
-//        webView.loadUrl("https://www.163.com");
+        String baseurl="https://pan3dme.github.io/pan3d/new/listmain.html";
+        baseurl="https://pan3dme.github.io/pan3d/new/listmain.html";
+        baseurl="https://www.163.com";
+        baseurl="https://pan3dme.github.io/pan3d/new/index.html";
+        webView.loadUrl(baseurl);
+
         webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        view.loadUrl(url);
+        return true;
+        }
         });
 
     }
