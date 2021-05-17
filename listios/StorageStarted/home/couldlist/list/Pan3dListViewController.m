@@ -19,7 +19,15 @@
 @end
 
 @implementation Pan3dListViewController
-
+- (instancetype)init:(NSString *)val;
+{
+    self = [super init];
+    if (self) {
+        self.titleStr=val;
+    }
+    return self;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"LeanCloud";

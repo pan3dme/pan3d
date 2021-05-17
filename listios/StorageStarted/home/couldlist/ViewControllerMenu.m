@@ -7,8 +7,6 @@
 //
 
 #import "ViewControllerMenu.h"
-#import "ListVC.h"
-#import "DetailVC.h"
 #import "Pan3dListViewController.h"
 
 @interface ViewControllerMenu () <XLBasePageControllerDelegate,XLBasePageControllerDataSource>
@@ -51,22 +49,9 @@
 
 -(UIViewController *)viewPager:(XLBasePageController *)viewPager indexViewControllers:(NSInteger)index
 {
-    /*
-    if (index != 2) {
-        ListVC *listVC = [[ListVC alloc] init];
-        listVC.titleStr = _titleArray[index];
-        listVC.index = index;
-        return listVC;
-    }else{
-        DetailVC *detailVC = [[DetailVC alloc] init];
-        detailVC.titleStr = _titleArray[index];
-        detailVC.index = index;
-        return detailVC;
-    }
-    */
    
-    Pan3dListViewController *detailVC = [[Pan3dListViewController alloc] init];
-    detailVC.titleStr = _titleArray[index];
+   
+    Pan3dListViewController *detailVC = [[Pan3dListViewController alloc] init:_titleArray[index]];
     detailVC.index = index;
     return detailVC;
     
