@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>H5页面优化</title>
@@ -12,12 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@5.0.0-beta.0/dist/browser/lc.min.js"></script>
 
-   
-    <!-- <script src="bins/av/jquery.min.js"></script>
-    <script src="bins/av/bootstrap.min.js"></script>
-    <script src="bins/av/av-min.js"></script>
-    <script src="bins/av/lc.min.js"></script> -->
- 
+
+
 
     <style type="text/css">
         body {
@@ -79,7 +76,7 @@
             margin-right: 20px;
             margin-bottom: 20px;
             border-radius: 20px;
-        
+
             background: rgb(253, 253, 253);
         }
 
@@ -133,12 +130,11 @@
 </body>
 
 <script>
-    
+
     // alert("script_base");
 
     var fileRoot = "https://webpan.oss-cn-shanghai.aliyuncs.com/res/";
- 
-  
+
     function json2str(o) {
         var arr = [];
         var fmt = function (s) {
@@ -149,21 +145,19 @@
         return '{' + arr.join(',') + '}';
     }
     function init() {
-        
-        // localStorage.setItem('debug', 'leancloud*');
-        alert(window.localStorage);
-        alert(window.localStorage.setItem);
- AV.init({
-     appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
-     appKey: "Kc3v7hICoaQcO80skdhOXCrl",
-     serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
- });
+
+        localStorage.setItem('debug', 'leancloud*');
+
+        AV.init({
+            appId: "tQdDwaHgg6hNEuYG4WhFlLQ0-gzGzoHsz",
+            appKey: "Kc3v7hICoaQcO80skdhOXCrl",
+            serverURL: "https://tqddwahg.lc-cn-n1-shared.com"
+        });
 
 
-      
-        alert("准备请求");
+
         AV.User.logIn("pan3dme", "1343").then(function (loginedUser) {
-            alert("script_登入成功");
+             
             getListDataAll();
 
         }, function (error) {
@@ -175,7 +169,7 @@
         $("#list").html('Colud加载中...');
         const query = new AV.Query('pan3dlist002');
         query.descending('createdAt');
-        query   .find().then((arr) => {
+        query.find().then((arr) => {
             showListViewByData(arr);
 
         });
@@ -183,26 +177,26 @@
     function showListViewByData(arr) {
 
         $("#list").html('');
-       
+
         var str = "";
         for (var i = 0; i < arr.length; i++) {
             var todo = arr[i]
-            var tittlestr =  todo.get('title');
-            var textstr =  todo.get('text');
+            var tittlestr = todo.get('title');
+            var textstr = todo.get('text');
             var imgStr = ""
 
-         
 
-            for(var j=0;j<4;j++){
-                var imagefile=todo.get("image"+j);
-                if(imagefile){
-                    imgStr += "<img src='" + imagefile.url()+ "' width='160' height='160' />";
-                imgStr += "    ";
+
+            for (var j = 0; j < 4; j++) {
+                var imagefile = todo.get("image" + j);
+                if (imagefile) {
+                    imgStr += "<img src='" + imagefile.url() + "' width='160' height='160' />";
+                    imgStr += "    ";
                 }
 
             }
-         
-         
+
+
             str = "<li class='item'>" + tittlestr + "<br>" + textstr + "<br>" + imgStr + "</li>";
             $("#list").html($("#list").html() + str);
 
@@ -211,17 +205,17 @@
             var selectIdx = $(this).index()
             var selectVo = arr[selectIdx];
             // var outStr = json2str({"type":selectVo.get('type'),"sceneinfo":selectVo.get('sceneinfo')});
-    
+
             window.location.href = 'index.html?info=' + selectVo.get('sceneinfo');
         });
 
     }
-     
+
 
 
     function show2() {
 
-        
+
 
         $.ajax({
             url: fileRoot + 'pan/test/iosmetia/jason12.xml',    //在后文后有元数据
