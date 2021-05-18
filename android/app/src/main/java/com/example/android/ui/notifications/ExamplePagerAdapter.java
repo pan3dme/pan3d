@@ -29,9 +29,8 @@ public class ExamplePagerAdapter extends PagerAdapter {
     private List<String> mDataList;
 
     private static final String TAG ="HomeFragment" ;
-    private RecyclerView mRecyclerView;
-    private MainRecyclerAdapter mRecyclerAdapter;
-    private List<AVObject> mList = new ArrayList<>();
+
+
 
     public ExamplePagerAdapter(List<String> dataList) {
         mDataList = dataList;
@@ -49,19 +48,23 @@ public class ExamplePagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        mRecyclerView = new RecyclerView(container.getContext());
+        List<AVObject> mList = new ArrayList<>();
+        RecyclerView mRecyclerView = new RecyclerView(container.getContext());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        mRecyclerAdapter = new MainRecyclerAdapter(mList, container.getContext());
+        MainRecyclerAdapter mRecyclerAdapter = new MainRecyclerAdapter(mList, container.getContext());
         mRecyclerView.setAdapter(mRecyclerAdapter);
         container.addView(mRecyclerView);
-        this.getListData( mDataList.get(position));
+        this.getListData( mDataList.get(position),mRecyclerAdapter,mList);
         return mRecyclerView;
+
+ 
 
     }
 
-    private  void getListData(String val)
+    private  void getListData(String val,MainRecyclerAdapter mRecyclerAdapter,List<AVObject>  mList)
     {
         mList.clear();
+        mRecyclerAdapter.notifyDataSetChanged();
         AVQuery<AVObject> query = new AVQuery<>("pan3dlist002");
         if(val!="全部"){
             query.whereEqualTo("tag", val);
