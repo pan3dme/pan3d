@@ -4,17 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebResourceRequest;
+
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
-
-import androidx.viewpager.widget.ViewPager;
 
 
 import android.util.Log;
@@ -25,14 +23,7 @@ import android.webkit.WebChromeClient;
 import android.widget.Toast;
 
 import com.example.android.R;
-import com.example.android.ui.notifications.ExamplePagerAdapter;
 
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class DashboardFragment extends Fragment {
 
