@@ -25,7 +25,7 @@ import android.widget.Toast;
 import com.example.android.R;
 
 
-public class DashboardFragment extends Fragment {
+public class WebViewListFragment extends Fragment {
 
     private View mainRoot;
 
@@ -33,7 +33,7 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_webviewlist, container, false);
         this.mainRoot=root;
         this.testLoadWeb();
         return root;

@@ -11,13 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.android.MainRecyclerAdapter;
 import com.example.android.R;
-import com.example.android.ui.notifications.ExamplePagerAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -30,11 +26,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPa
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import cn.leancloud.AVObject;
-import cn.leancloud.AVQuery;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 
 public class HomeFragment extends Fragment {
 
@@ -53,7 +44,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
 
 
