@@ -11,27 +11,33 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.os.Bundle;
+
+import androidx.viewpager.widget.ViewPager;
+
+
 import android.util.Log;
-import android.view.Menu;
+
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
 import android.widget.Toast;
 
 import com.example.android.R;
+import com.example.android.ui.notifications.ExamplePagerAdapter;
+
+import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class DashboardFragment extends Fragment {
 
     private View mainRoot;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,7 +45,6 @@ public class DashboardFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         this.mainRoot=root;
         this.testLoadWeb();
-//        this.makeWebView();
         return root;
     }
 
@@ -56,24 +61,14 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-//                testMethod(myWebView);
+
             }
 
         });
         myWebView.loadUrl("https://webpan.oss-cn-shanghai.aliyuncs.com/pan/h5glweb/listmain.html");
     }
 
-    private void testMethod(WebView webView) {
-        String call = "javascript:initfuck()";
 
-//        call = "javascript:alertMessage(\"" + "content" + "\")";
-//
-//        call = "javascript:toastMessage(\"" + "content" + "\")";
-//
-//        call = "javascript:sumToJava(1,2)";
-        webView.loadUrl(call);
-
-    }
 
     public class JsInteration {
         @JavascriptInterface
@@ -87,32 +82,5 @@ public class DashboardFragment extends Fragment {
             Log.i("LOGTAG", "onSumResult result=" + result);
         }
     }
-    protected void makeWebView()
-    {
-        WebView webView = (WebView) this.mainRoot.findViewById(R.id.wv_webview);
 
-        /*
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);;
-        webView.loadData("","text/html","UTF-8");
-        webView.loadUrl("javascript:alert('hello')");
-        */
-
-
-        String baseurl="https://pan3dme.github.io/pan3d/new/listmain.html";
-        baseurl="https://pan3dme.github.io/pan3d/h5gl/index.html";
-        baseurl="https://www.163.com";
-        baseurl="https://pan3dme.github.io/pan3d/h5gl/listmain.html";
-        webView.loadUrl(baseurl);
-
-        webView.setWebViewClient(new WebViewClient(){
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        view.loadUrl(url);
-        return true;
-        }
-        });
-
-
-    }
 }
