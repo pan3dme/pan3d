@@ -56,6 +56,8 @@ public class NotificationsFragment extends Fragment {
         mViewPager = (ViewPager) root.findViewById(R.id.view_pager);
         mViewPager.setAdapter(mExamplePagerAdapter);
 
+
+
         mMagicIndicator = (MagicIndicator) root.findViewById(R.id.magic_indicator1);
         mMagicIndicator.setBackgroundColor(Color.parseColor("#d43d3d"));
         mCommonNavigator = new CommonNavigator(root.getContext());
