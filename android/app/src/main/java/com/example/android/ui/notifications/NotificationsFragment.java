@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.android.R;
+import com.example.android.ui.home.HomeFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -78,6 +79,8 @@ public class NotificationsFragment extends Fragment {
                         mViewPager.setCurrentItem(index);
                     }
                 });
+
+
                 return clipPagerTitleView;
             }
 
@@ -89,22 +92,8 @@ public class NotificationsFragment extends Fragment {
         mMagicIndicator.setNavigator(mCommonNavigator);
         ViewPagerHelper.bind(mMagicIndicator, mViewPager);
 
-
-
         return root;
     }
 
-    public void randomPage(View view) {
-        mDataList.clear();
-        int total = new Random().nextInt(CHANNELS.length);
-        for (int i = 0; i <= total; i++) {
-            mDataList.add(CHANNELS[i]);
-        }
 
-        mCommonNavigator.notifyDataSetChanged();    // must call firstly
-        mExamplePagerAdapter.notifyDataSetChanged();
-
-        mToast.setText("" + mDataList.size() + " page");
-        mToast.show();
-    }
 }

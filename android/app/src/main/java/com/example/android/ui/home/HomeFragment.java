@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,13 +37,10 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-
-        mRecyclerView = (RecyclerView) root.findViewById(R.id.list_main);
-//        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView = (RecyclerView) root.findViewById(R.id.list_main_base);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         mRecyclerAdapter = new MainRecyclerAdapter(mList, root.getContext());
         mRecyclerView.setAdapter(mRecyclerAdapter);
-
 
         this.getListData();
         return root;
