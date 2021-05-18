@@ -57,7 +57,7 @@ public class ExamplePagerAdapter extends PagerAdapter {
         this.getListData( mDataList.get(position),mRecyclerAdapter,mList);
         return mRecyclerView;
 
- 
+
 
     }
 
