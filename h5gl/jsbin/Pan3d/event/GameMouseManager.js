@@ -6,6 +6,7 @@ var Pan3d;
             this.bindPos = new Pan3d.Vector2D();
             this.useMouseEvent = true;
             this.isPc = true;
+            this.isPc = this.IsPCFun();
             this.uiBlankStage = new Pan3d.UIStage();
         }
         GameMouseManager.getInstance = function () {
@@ -30,6 +31,20 @@ var Pan3d;
             }
             this.bindPos.x = this.resetPos.x;
             this.bindPos.y = this.resetPos.y;
+        };
+        GameMouseManager.prototype.IsPCFun = function () {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
         };
         GameMouseManager.prototype.onMouseWheel = function (event) {
             var evt;
@@ -91,6 +106,8 @@ var Pan3d;
             return evt;
         };
         GameMouseManager.prototype.makeMouseEvent = function (evt, point) {
+            evt.mouseEvent = new MouseEvent(evt.type);
+            evt.mouseEvent.initMouseEvent(evt.type, true, true, window, 0, 0, 0, point.x, point.y, false, false, false, false, 0, null);
             this.uiBlankStage.interactiveEvent(evt);
         };
         GameMouseManager.prototype.onTouchStart = function ($e) {
@@ -109,6 +126,7 @@ var Pan3d;
             if (!this.isCanUseMouseEvent()) {
                 return;
             }
+            this.mouseToEvent($e);
         };
         return GameMouseManager;
     }());

@@ -10,6 +10,7 @@ module Pan3d {
             return this._instance;
         }
         public constructor(){
+            this.isPc=this.IsPCFun();
             this.uiBlankStage=new UIStage();
         }
         private resetPos: Vector2D = new Vector2D();
@@ -17,6 +18,7 @@ module Pan3d {
         private useMouseEvent: boolean = true;
         private isPc:boolean=true;
         public addMouseEvent(value: HTMLCanvasElement): void {
+          
             if (this.isPc) {
                 value.addEventListener(MouseType.MouseDown, ($evt: MouseEvent) => { this.onMouse($evt) });
                 value.addEventListener(MouseType.MouseUp, ($evt: MouseEvent) => { this.onMouse($evt) });
@@ -32,6 +34,20 @@ module Pan3d {
             this.bindPos.x = this.resetPos.x;
             this.bindPos.y = this.resetPos.y;
         }
+        private IsPCFun():boolean {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+               "SymbianOS", "Windows Phone",
+               "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+               if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                  flag = false;
+                  break;
+               }
+            }
+            return flag;
+         }
         private onMouseWheel(event: WheelEvent): void {
     
             var evt: InteractiveEvent;
@@ -95,6 +111,9 @@ module Pan3d {
         public uiBlankStage:UIStage;
         private makeMouseEvent(evt: InteractiveEvent, point: Vector2D): void {
  
+            evt.mouseEvent=new MouseEvent(evt.type);
+            evt.mouseEvent.initMouseEvent(evt.type, true, true, window, 0, 0, 0, point.x, point.y, false, false, false, false, 0, null);
+
             this.uiBlankStage.interactiveEvent(evt);
         }
         private onTouchStart($e: TouchEvent): void {
@@ -113,6 +132,7 @@ module Pan3d {
             if (!this.isCanUseMouseEvent()) {
                 return
             }
+            this.mouseToEvent($e);
          
         }
      
