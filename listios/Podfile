@@ -6,4 +6,5 @@ target 'StorageStarted' do
   pod 'SSZipArchive'
   pod 'GZIP', '~> 1.2'
   pod 'AFNetworking'
+  pod 'SDCycleScrollView','>= 1.82'
 end
