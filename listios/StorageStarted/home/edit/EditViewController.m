@@ -65,6 +65,15 @@
     [_imgViewArr addObject:_productImageView1];
     [_imgViewArr addObject:_productImageView2];
     [_imgViewArr addObject:_productImageView3];
+     
+    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
+        [_imgViewArr objectAtIndex:i].userInteractionEnabled=YES;
+        UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickImage)];
+        [  [_imgViewArr objectAtIndex:i] addGestureRecognizer:singleTap];
+    }
+    
+    
+    
     
     _clearbutArr=[[NSMutableArray alloc]init];
     [_clearbutArr addObject:_clearImg0Btn];
@@ -92,6 +101,13 @@
     
     _editOrNewUISwitch.on=NO;
    
+}
+-(void)onClickImage{
+      
+    self.imagePicker.delegate = self;
+    self.imagePicker.allowsEditing = YES;
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 -(void)clickRightBarButtonItem
 {
@@ -199,9 +215,7 @@
     }];
     
 }
-- (IBAction)openAlbumBtn:(id)sender {
-    [self selectImageWithPickertype:UIImagePickerControllerSourceTypePhotoLibrary];
-}
+ 
 
 #pragma mark - UIImagePickerControllerDelegate
 #pragma mark - 拍照/选择图片结束
