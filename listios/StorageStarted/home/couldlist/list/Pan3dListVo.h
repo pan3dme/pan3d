@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) AVFile *avFile1;
 @property (nonatomic, strong) AVFile *avFile2;
 @property (nonatomic, strong) AVFile *avFile3;
+@property (nonatomic, strong) AVFile *baner;
 //@property (nonatomic, copy) NSString *productImageUrl;
 
 @property (nonatomic, assign) int  type;

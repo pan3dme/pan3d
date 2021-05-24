@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView1;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView2;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView3;
+@property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 @property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
 @property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *clearImg1Btn;
 @property (weak, nonatomic) IBOutlet UIButton *clearImg2Btn;
 @property (weak, nonatomic) IBOutlet UIButton *clearImg3Btn;
+@property (weak, nonatomic) IBOutlet UIButton *clearBanerImgBtn;
 @property (weak, nonatomic) IBOutlet UISwitch *editOrNewUISwitch;
 
 @property (nonatomic,strong)MyActivityIndicatorView* myActivityIndicatorView;
@@ -33,7 +35,11 @@
 @property (nonatomic,strong) Pan3dListVo * pan3dListVo;
 @property (nonatomic,strong)NSMutableArray<UIImageView*>*  imgViewArr;
 @property (nonatomic,strong)NSMutableArray* imgBaseFileArr;
+@property (nonatomic,strong)AVFile* imgBanerBaseFile ;
+@property (nonatomic,strong)UIImage* bannerImage;
 @property (nonatomic,strong)NSMutableArray<UIButton*>* clearbutArr;
+
+@property (nonatomic,assign)bool isBanerImageSelect;
 
 @property (nonatomic,strong)NSString* emptyPicUrl;
 
@@ -66,14 +72,15 @@
     [_imgViewArr addObject:_productImageView2];
     [_imgViewArr addObject:_productImageView3];
      
+    
     for (NSUInteger i=0; i<_imgViewArr.count; i++) {
         [_imgViewArr objectAtIndex:i].userInteractionEnabled=YES;
         UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickImage)];
         [  [_imgViewArr objectAtIndex:i] addGestureRecognizer:singleTap];
     }
-    
-    
-    
+    _bannerImageView.userInteractionEnabled=YES;
+    UITapGestureRecognizer *banersingleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(baneronClickImage)];
+    [_bannerImageView addGestureRecognizer:banersingleTap];
     
     _clearbutArr=[[NSMutableArray alloc]init];
     [_clearbutArr addObject:_clearImg0Btn];
@@ -94,6 +101,7 @@
         [self addBaseImgFileToArr: _pan3dListVo.avFile3];
     
     }
+    _imgBanerBaseFile=_pan3dListVo.baner;
   
     [self refrishUi];
  
@@ -102,8 +110,18 @@
     _editOrNewUISwitch.on=NO;
    
 }
+-(void)baneronClickImage
+{
+    _isBanerImageSelect=YES;
+    [self makeUpImageViewPic];
+}
 -(void)onClickImage{
-      
+    _isBanerImageSelect=NO;
+    [self makeUpImageViewPic];
+  
+}
+-(void)makeUpImageViewPic
+{
     self.imagePicker.delegate = self;
     self.imagePicker.allowsEditing = YES;
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -139,6 +157,21 @@
             _imgViewArr[i].image=[UIImage imageNamed:_emptyPicUrl];
         }
     }
+    if(_bannerImage){
+        _bannerImageView.image=_bannerImage;
+        [_clearBanerImgBtn setHidden:NO];
+    }else{
+      
+        if(_imgBanerBaseFile){
+            [self loadImageByInfoimg:_bannerImageView avFile:_imgBanerBaseFile];
+            [_clearBanerImgBtn setHidden:NO];
+        }else{
+            [_clearBanerImgBtn setHidden:YES];
+            _bannerImageView.image=[UIImage imageNamed:_emptyPicUrl];
+        }
+    }
+    
+   
 }
 -(NSData*)getAvfileByImage:(UIImage*)image
 {
@@ -175,6 +208,13 @@
         }
         [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
     }
+   
+    if( [UIImage imageNamed:_emptyPicUrl]!=_bannerImageView.image){
+        [product setObject:[AVFile fileWithData:[self getAvfileByImage:_bannerImageView.image] ] forKey:@"baner"];
+    }else{
+        [product setObject:nil forKey:@"baner"];
+    }
+
    
 }
  
@@ -224,7 +264,12 @@
    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
 
     
-    [_imgBaseFileArr addObject:image];
+    if(_isBanerImageSelect){
+        _bannerImage=image;
+    }else{
+        [_imgBaseFileArr addObject:image];
+    }
+  
     
     [self refrishUi];
     
@@ -275,6 +320,11 @@
 }
 - (IBAction)clearImg3BtnClik:(id)sender {
     [_imgBaseFileArr removeObjectAtIndex:3];
+    [self refrishUi];
+}
+- (IBAction)clearBanefrImgBtnClik:(id)sender {
+    _bannerImage=nil;
+    _imgBanerBaseFile=nil;
     [self refrishUi];
 }
 

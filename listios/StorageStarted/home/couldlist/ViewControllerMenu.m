@@ -134,6 +134,7 @@
     _productArr=[[NSMutableArray alloc]init];
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
 //    [query whereKey:@"tag" equalTo:@""];
+    [query whereKey:@"baner" notEqualTo:nil];
     query.limit = 5;
     NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
     [query orderBySortDescriptor:d];
@@ -145,7 +146,7 @@
             for (NSDictionary *object in objects) {
                 Pan3dListVo * product = [Pan3dListVo initWithObject:object];
                 [_productArr addObject:product];
-                NSString* url=    [product.avFile0.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+                NSString* url=    [product.baner.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
                 
                 [picArr addObject:url];
                 [tittleArr addObject:product.title];
