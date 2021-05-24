@@ -55,7 +55,12 @@
     _pan3dListVo = product;
     self.titleLabel.text = product.title;
     self.txtLabel.text = product.text;
-    self.timeLabel.text =@"2021-4-25";
+ 
+    NSDateFormatter *dateFmt2 = [[NSDateFormatter alloc]init];
+    dateFmt2.dateFormat = @"yyyy年MM年dd日";
+    self.timeLabel.text =[dateFmt2 stringFromDate:(NSDate*)product.createdAt] ;
+    
+ 
  
     [self loadImageByInfoimg:self.avatarImageView avFile:product.avFile0];
     [self loadImageByInfoimg:self.productImage000 avFile:product.avFile0];
