@@ -17,6 +17,7 @@ import com.example.android.R;
 import com.zhpan.bannerview.BannerViewPager;
 import com.zhpan.bannerview.BaseBannerAdapter;
 
+
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
@@ -34,7 +35,7 @@ import cn.leancloud.AVQuery;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class HomeFragment<CustomBean>  extends Fragment {
+public class HomeFragment<CustomBean> extends Fragment {
 
 
 
@@ -110,6 +111,13 @@ public class HomeFragment<CustomBean>  extends Fragment {
         mPictureList.add(     R.drawable.ic_home_black_24dp);
         mPictureList.add(     R.drawable.ic_home_black_24dp);
         mPictureList.add(     R.drawable.ic_home_black_24dp);
+
+
+        List<BannerData> dataList =new ArrayList<>();
+        BannerData vo = new BannerData();
+
+        dataList.add(vo);
+
 
 
         List<AVObject> mList=new ArrayList<>();
