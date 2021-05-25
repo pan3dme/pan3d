@@ -125,7 +125,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             super(itemView);
             mName = (TextView) itemView.findViewById(R.id.name_item_main);
             mTitle = (TextView) itemView.findViewById(R.id.title_item_main);
-            mPicture000 = (ImageView) itemView.findViewById(R.id.picture_item_000);
+            mPicture000 = (ImageView) itemView.findViewById(R.id.pic001);
             mPicture001 = (ImageView) itemView.findViewById(R.id.picture_item_001);
             mPicture002 = (ImageView) itemView.findViewById(R.id.picture_item_002);
             mItem = (CardView) itemView.findViewById(R.id.item_main);

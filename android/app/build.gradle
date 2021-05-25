@@ -62,4 +62,5 @@ dependencies {
     implementation 'com.github.hackware1993:MagicIndicator:1.6.0' // for support lib
     implementation 'com.github.hackware1993:MagicIndicator:1.7.0' // for androidx
 
+    implementation 'com.github.zhpanvip:BannerViewPager:3.4.0'
 }
