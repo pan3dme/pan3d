@@ -14,6 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.android.R;
+import com.example.android.ui.notifications.ViewBindingSampleAdapter;
+import com.zhpan.bannerview.BannerViewPager;
+import com.zhpan.bannerview.BaseBannerAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -27,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment<CustomBean>  extends Fragment {
 
 
 
@@ -36,6 +39,7 @@ public class HomeFragment extends Fragment {
     private ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
 
     private ViewPager mViewPager;
+    private BannerViewPager<CustomBean> mViewBanerPager;
     private MagicIndicator mMagicIndicator;
     private CommonNavigator mCommonNavigator;
 
@@ -76,8 +80,6 @@ public class HomeFragment extends Fragment {
                         mViewPager.setCurrentItem(index);
                     }
                 });
-
-
                 return clipPagerTitleView;
             }
 
@@ -89,7 +91,23 @@ public class HomeFragment extends Fragment {
         mMagicIndicator.setNavigator(mCommonNavigator);
         ViewPagerHelper.bind(mMagicIndicator, mViewPager);
 
+
+
+        initBanerInfo(root);
+
         return root;
+    }
+    private void initBanerInfo(View root )
+    {
+        mViewBanerPager = root.findViewById(R.id.home_top_baner);
+        mViewBanerPager  .setAdapter((BaseBannerAdapter<CustomBean>) new ViewBindingSampleAdapter(9)).create();
+        ArrayList mPictureList = new ArrayList();
+        mPictureList.add(     R.drawable.ic_home_black_24dp);
+        mPictureList.add(     R.drawable.ic_home_black_24dp);
+        mPictureList.add(     R.drawable.ic_home_black_24dp);
+        mPictureList.add(     R.drawable.ic_home_black_24dp);
+        mPictureList.add(     R.drawable.ic_home_black_24dp);
+        mViewBanerPager .refreshData(mPictureList);
     }
 
 
