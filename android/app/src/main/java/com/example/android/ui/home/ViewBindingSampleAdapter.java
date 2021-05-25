@@ -1,4 +1,4 @@
-package com.example.android.ui.notifications;
+package com.example.android.ui.home;
 
 
 import android.graphics.Bitmap;

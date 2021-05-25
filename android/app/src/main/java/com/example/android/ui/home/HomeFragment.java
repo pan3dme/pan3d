@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.android.R;
-import com.example.android.ui.notifications.ViewBindingSampleAdapter;
 import com.zhpan.bannerview.BannerViewPager;
 import com.zhpan.bannerview.BaseBannerAdapter;
 
@@ -29,6 +28,11 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPa
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class HomeFragment<CustomBean>  extends Fragment {
 
@@ -106,8 +110,26 @@ public class HomeFragment<CustomBean>  extends Fragment {
         mPictureList.add(     R.drawable.ic_home_black_24dp);
         mPictureList.add(     R.drawable.ic_home_black_24dp);
         mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mViewBanerPager .refreshData(mPictureList);
+
+
+        List<AVObject> mList=new ArrayList<>();
+        AVQuery<AVObject> query = new AVQuery<>("pan3dlist002");
+        query.whereNotEqualTo("baner", null);
+
+        query.addDescendingOrder("createdAt");
+        query.findInBackground().subscribe(new Observer<List<AVObject>>() {
+            public void onSubscribe(Disposable disposable) {}
+            public void onNext(List<AVObject> arr) {
+                mList.addAll(arr);
+                mViewBanerPager .refreshData(mPictureList);
+
+
+            }
+            public void onError(Throwable throwable) {}
+            public void onComplete() {}
+        });
+
+
     }
 
 

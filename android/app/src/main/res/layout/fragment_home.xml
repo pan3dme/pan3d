@@ -14,8 +14,8 @@
         <com.zhpan.bannerview.BannerViewPager
             android:id="@+id/home_top_baner"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_margin="10dp"
+            android:layout_height="125dp"
+            android:layout_margin="2dp"
             tools:ignore="MissingConstraints" />
 
         <net.lucode.hackware.magicindicator.MagicIndicator
