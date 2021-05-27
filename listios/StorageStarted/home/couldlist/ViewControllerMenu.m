@@ -146,8 +146,7 @@
             for (NSDictionary *object in objects) {
                 Pan3dListVo * product = [Pan3dListVo initWithObject:object];
                 [_productArr addObject:product];
-                NSString* url=    [product.baner.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
-                
+                NSString* url=   [NSString stringWithFormat:@"%@%@", @"https://webpan.oss-cn-shanghai.aliyuncs.com/pan/leancloud/",product.bannerimage];
                 [picArr addObject:url];
                 [tittleArr addObject:product.title];
          

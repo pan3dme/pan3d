@@ -36,7 +36,7 @@ public class ViewBindingSampleAdapter extends BaseBannerAdapter<Integer> {
     private void loadImgeByUrl(ImageView imageView, AVFile avFile)
     {
 
-        String url="https://lc-tqddwahg.cn-n1.lcfile.com/zqkvGDRIlL8t0S3kjHrxDmD";
+        String url="https://webpan.oss-cn-shanghai.aliyuncs.com/pan/leancloud/file/pic/2021_5_27_0.jpeg";
 
         LoadManager.loadBitmapByUrl(url, new LoadBackFun() {
             @Override

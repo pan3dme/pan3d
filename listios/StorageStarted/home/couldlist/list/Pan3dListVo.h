@@ -21,12 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *createdAt;
 @property (nonatomic, copy) NSString *objectId;
 @property (nonatomic, copy) NSArray *sceneinfo;
+@property (nonatomic, copy) NSArray *images;
 @property (nonatomic, strong) AVFile *avFile0;
 @property (nonatomic, strong) AVFile *avFile1;
 @property (nonatomic, strong) AVFile *avFile2;
 @property (nonatomic, strong) AVFile *avFile3;
-@property (nonatomic, strong) AVFile *baner;
-//@property (nonatomic, copy) NSString *productImageUrl;
+@property (nonatomic, strong) NSString *bannerimage;
+ 
 
 @property (nonatomic, assign) int  type;
 

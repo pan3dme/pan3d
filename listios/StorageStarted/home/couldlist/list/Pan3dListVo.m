@@ -23,7 +23,12 @@
     product.avFile1=[obj objectForKey:@"image1"];
     product.avFile2=[obj objectForKey:@"image2"];
     product.avFile3=[obj objectForKey:@"image3"];
-    product.baner=[obj objectForKey:@"baner"];
+    
+ 
+    
+    product.images = [[obj objectForKey:@"images"] componentsSeparatedByString:@","];
+    
+    product.bannerimage=[obj objectForKey:@"bannerimage"];
     
   
     NSData *stringData = [[obj objectForKey:@"sceneinfo"] dataUsingEncoding:NSUTF8StringEncoding];

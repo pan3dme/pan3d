@@ -23,6 +23,7 @@ import com.example.android.ui.scene.SceneShowView;
 import com.pan3d.units.LoadBackFun;
 import com.pan3d.units.LoadManager;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.List;
 
@@ -63,26 +64,33 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         holder.mTitle.setText((CharSequence)avObject.get("text"));
         holder.mName.setText((CharSequence)avObject.get("title"));
 
-        AVFile image0= (AVFile) avObject.get("image0");
-        AVFile image1= (AVFile) avObject.get("image1");
-        AVFile image2= (AVFile) avObject.get("image2");
+       String images= avObject.getString("images");
+//        images="abc,123";
+      String[] imagesArr=  images.split(",");
 
 
-        this.loadImgeByUrl( holder.mPicture000,image0 );
-        this.loadImgeByUrl( holder.mPicture001,image1 );
-        this.loadImgeByUrl( holder.mPicture002,image2 );
+        this.loadImgeByUrlBase(holder.mPicture000,imagesArr,0);
+        this.loadImgeByUrlBase(holder.mPicture001,imagesArr,1);
+        this.loadImgeByUrlBase(holder.mPicture002,imagesArr,2);
+
+
+//        AVFile image0= (AVFile) avObject.get("image0");
+//        AVFile image1= (AVFile) avObject.get("image1");
+//        AVFile image2= (AVFile) avObject.get("image2");
+
+//        this.loadImgeByUrl( holder.mPicture000,image0 );
+//        this.loadImgeByUrl( holder.mPicture001,image1 );
+//        this.loadImgeByUrl( holder.mPicture002,image2 );
 
 
     }
-    private void loadImgeByUrl( ImageView imageView,AVFile avFile)
+    private void loadImgeByUrlBase( ImageView imageView,String[] arr,int idx)
     {
 
-
-        if(avFile==null){
+        if(arr.length<=idx){
             return;
         }
-        String url=avFile.getUrl().replace("http://","https://");
-
+        String url="https://webpan.oss-cn-shanghai.aliyuncs.com/pan/leancloud/"+arr[idx];
         LoadManager.loadBitmapByUrl(url, new LoadBackFun() {
             @Override
             public void bfun(HashMap val) {
@@ -90,9 +98,19 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             }
         });
 
-
-
-
+    }
+    private void loadImgeByUrl( ImageView imageView,AVFile avFile)
+    {
+        if(avFile==null){
+            return;
+        }
+        String url=avFile.getUrl().replace("http://","https://");
+        LoadManager.loadBitmapByUrl(url, new LoadBackFun() {
+            @Override
+            public void bfun(HashMap val) {
+                imageView.setImageBitmap((Bitmap) val.get("bitmap"));
+            }
+        });
     }
 
     public String getImageUrlByIdx(int idx,  JSONArray picitem){

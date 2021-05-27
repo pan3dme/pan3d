@@ -101,7 +101,7 @@
         [self addBaseImgFileToArr: _pan3dListVo.avFile3];
     
     }
-    _imgBanerBaseFile=_pan3dListVo.baner;
+//    _imgBanerBaseFile=_pan3dListVo.banner;
   
     [self refrishUi];
  

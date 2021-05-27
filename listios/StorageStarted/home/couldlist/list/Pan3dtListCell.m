@@ -62,12 +62,33 @@
     
  
  
-    [self loadImageByInfoimg:self.avatarImageView avFile:product.avFile0];
-    [self loadImageByInfoimg:self.productImage000 avFile:product.avFile0];
-    [self loadImageByInfoimg:self.productImage001 avFile:product.avFile1];
-    [self loadImageByInfoimg:self.productImage002 avFile:product.avFile2];
+//    [self loadImageByInfoimg:self.avatarImageView avFile:product.avFile0];
+//    [self loadImageByInfoimg:self.productImage000 avFile:product.avFile0];
+//    [self loadImageByInfoimg:self.productImage001 avFile:product.avFile1];
+//    [self loadImageByInfoimg:self.productImage002 avFile:product.avFile2];
+    
+    [self loadImageByInfoimgBase:_productImage000 arr:product.images  idx:0];
+    [self loadImageByInfoimgBase:_productImage001 arr:product.images  idx:1];
+    [self loadImageByInfoimgBase:_productImage002 arr:product.images  idx:2];
+ 
+    
+    
     
 }
+-(void)loadImageByInfoimgBase:(UIImageView*)img arr:(NSArray*)arr idx:(int)idx
+{
+   
+    if( arr.count>idx){
+        NSString* baseUrl=[arr objectAtIndex:idx];
+        NSString* url=    [NSString stringWithFormat:@"%@%@", @"https://webpan.oss-cn-shanghai.aliyuncs.com/pan/leancloud/",baseUrl];;
+        [img sd_setImageWithURL:[NSURL URLWithString:url]   placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+        [img setHidden:NO];
+    }else{
+        img.image=[UIImage imageNamed:@""];
+        [img setHidden:YES];
+    }
+}
+
 -(void)loadImageByInfoimg:(UIImageView*)img avFile:(AVFile*)avFile
 {
     if(avFile){
