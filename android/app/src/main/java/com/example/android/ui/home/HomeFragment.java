@@ -41,7 +41,7 @@ public class HomeFragment<CustomBean> extends Fragment {
 
     private static final String[] CHANNELS = new String[]{"全部", "场景", "角色", "特效", "技能", "MD5", "动画", "其它", "更多"};
     private List<String> mDataList = new ArrayList<String>(Arrays.asList(CHANNELS));
-    private ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
+    private TopMenuAdapter mExamplePagerAdapter = new TopMenuAdapter(mDataList);
 
     private ViewPager mViewPager;
     private BannerViewPager<CustomBean> mViewBanerPager;
@@ -105,7 +105,7 @@ public class HomeFragment<CustomBean> extends Fragment {
     private void initBanerInfo(View root )
     {
         mViewBanerPager = root.findViewById(R.id.home_top_baner);
-        mViewBanerPager  .setAdapter((BaseBannerAdapter<CustomBean>) new ViewBindingSampleAdapter(9)).create();
+        mViewBanerPager  .setAdapter((BaseBannerAdapter<CustomBean>) new BannerBindingAdapter(9)).create();
         ArrayList mPictureList = new ArrayList();
         mPictureList.add(     R.drawable.ic_home_black_24dp);
         mPictureList.add(     R.drawable.ic_home_black_24dp);

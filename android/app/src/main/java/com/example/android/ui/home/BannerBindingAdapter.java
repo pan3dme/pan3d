@@ -21,9 +21,9 @@ import cn.leancloud.AVFile;
  * @date 2020/12/11
  * Class 描述 : 使用ViewBinding示例
  */
-public class ViewBindingSampleAdapter extends BaseBannerAdapter<Integer> {
+public class BannerBindingAdapter extends BaseBannerAdapter<Integer> {
     private final int mRoundCorner;
-    public ViewBindingSampleAdapter(int roundCorner) {
+    public BannerBindingAdapter(int roundCorner) {
         mRoundCorner = roundCorner;
     }
     @Override

@@ -25,14 +25,14 @@ import io.reactivex.disposables.Disposable;
  * Created by hackware on 2016/9/10.
  */
 
-public class ExamplePagerAdapter extends PagerAdapter {
+public class TopMenuAdapter extends PagerAdapter {
     private List<String> mDataList;
 
-    private static final String TAG ="HomeFragment" ;
+    private static final String TAG ="TopMenuAdapter" ;
 
 
 
-    public ExamplePagerAdapter(List<String> dataList) {
+    public TopMenuAdapter(List<String> dataList) {
         mDataList = dataList;
     }
 
