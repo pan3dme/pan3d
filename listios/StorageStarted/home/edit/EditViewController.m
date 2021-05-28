@@ -12,31 +12,20 @@
 
  
 
-@interface EditViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface EditViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView0;
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView1;
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView2;
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView3;
-@property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
+ 
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 @property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
 @property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
 @property (weak, nonatomic) IBOutlet UITextField *tagLabeText;
-@property (weak, nonatomic) IBOutlet UIButton *clearImg0Btn;
-@property (weak, nonatomic) IBOutlet UIButton *clearImg1Btn;
-@property (weak, nonatomic) IBOutlet UIButton *clearImg2Btn;
-@property (weak, nonatomic) IBOutlet UIButton *clearImg3Btn;
-@property (weak, nonatomic) IBOutlet UIButton *clearBanerImgBtn;
 @property (weak, nonatomic) IBOutlet UISwitch *editOrNewUISwitch;
+@property (weak, nonatomic) IBOutlet UITextView *imagesText;
+@property (weak, nonatomic) IBOutlet UITextView *bannerText;
 
 @property (nonatomic,strong)MyActivityIndicatorView* myActivityIndicatorView;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (nonatomic,strong) Pan3dListVo * pan3dListVo;
-@property (nonatomic,strong)NSMutableArray<UIImageView*>*  imgViewArr;
-@property (nonatomic,strong)NSMutableArray* imgBaseFileArr;
-@property (nonatomic,strong)AVFile* imgBanerBaseFile ;
-@property (nonatomic,strong)UIImage* bannerImage;
 @property (nonatomic,strong)NSMutableArray<UIButton*>* clearbutArr;
 
 @property (nonatomic,assign)bool isBanerImageSelect;
@@ -63,45 +52,25 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-  
+   
     
-   _imgViewArr=[[NSMutableArray alloc]init];
-    [_imgViewArr addObject:_productImageView0];
-    [_imgViewArr addObject:_productImageView1];
-    [_imgViewArr addObject:_productImageView2];
-    [_imgViewArr addObject:_productImageView3];
+    _imagesText.backgroundColor=[UIColor whiteColor];
+    _bannerText.backgroundColor=[UIColor whiteColor];
+    _sceneinfoText.backgroundColor=[UIColor whiteColor];
      
-    
-    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
-        [_imgViewArr objectAtIndex:i].userInteractionEnabled=YES;
-        UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickImage)];
-        [  [_imgViewArr objectAtIndex:i] addGestureRecognizer:singleTap];
-    }
-    _bannerImageView.userInteractionEnabled=YES;
-    UITapGestureRecognizer *banersingleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(baneronClickImage)];
-    [_bannerImageView addGestureRecognizer:banersingleTap];
-    
-    _clearbutArr=[[NSMutableArray alloc]init];
-    [_clearbutArr addObject:_clearImg0Btn];
-    [_clearbutArr addObject:_clearImg1Btn];
-    [_clearbutArr addObject:_clearImg2Btn];
-    [_clearbutArr addObject:_clearImg3Btn];
-    
-    _imgBaseFileArr=[[NSMutableArray alloc]init];
+   
  
     if(_pan3dListVo!=nil){
         _titlelabeltxt.text=_pan3dListVo.title;
         _infolabeltxt.text=_pan3dListVo.text;
         _tagLabeText.text=_pan3dListVo.tag;
+        _imagesText.text=_pan3dListVo.images;
+        _bannerText.text=_pan3dListVo.bannerimage;
         _sceneinfoText.text= [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:_pan3dListVo.sceneinfo options:0 error:nil] encoding:NSUTF8StringEncoding];
-        [self addBaseImgFileToArr: _pan3dListVo.avFile0];
-        [self addBaseImgFileToArr: _pan3dListVo.avFile1];
-        [self addBaseImgFileToArr: _pan3dListVo.avFile2];
-        [self addBaseImgFileToArr: _pan3dListVo.avFile3];
+    
     
     }
-//    _imgBanerBaseFile=_pan3dListVo.banner;
+ 
   
     [self refrishUi];
  
@@ -109,23 +78,6 @@
     
     _editOrNewUISwitch.on=NO;
    
-}
--(void)baneronClickImage
-{
-    _isBanerImageSelect=YES;
-    [self makeUpImageViewPic];
-}
--(void)onClickImage{
-    _isBanerImageSelect=NO;
-    [self makeUpImageViewPic];
-  
-}
--(void)makeUpImageViewPic
-{
-    self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = YES;
-    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 -(void)clickRightBarButtonItem
 {
@@ -143,33 +95,8 @@
 }
 -(void)refrishUi
 {
-    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
-        if(_imgBaseFileArr.count>i){
-            if([_imgBaseFileArr[i] isKindOfClass: [AVFile class]] ){
-                [self loadImageByInfoimg:_imgViewArr[i] avFile:_imgBaseFileArr[i]];
-              
-            }else{
-                _imgViewArr[i].image=_imgBaseFileArr[i];
-            }
-            [_clearbutArr[i] setHidden:NO];
-        }else{
-            [_clearbutArr[i] setHidden:YES];
-            _imgViewArr[i].image=[UIImage imageNamed:_emptyPicUrl];
-        }
-    }
-    if(_bannerImage){
-        _bannerImageView.image=_bannerImage;
-        [_clearBanerImgBtn setHidden:NO];
-    }else{
-      
-        if(_imgBanerBaseFile){
-            [self loadImageByInfoimg:_bannerImageView avFile:_imgBanerBaseFile];
-            [_clearBanerImgBtn setHidden:NO];
-        }else{
-            [_clearBanerImgBtn setHidden:YES];
-            _bannerImageView.image=[UIImage imageNamed:_emptyPicUrl];
-        }
-    }
+  
+   
     
    
 }
@@ -183,12 +110,7 @@
     }
     return imageData;
 }
--(void)addBaseImgFileToArr:(AVFile*)val {
-    if(val!=nil){
-        [_imgBaseFileArr addObject:val];
-    }
-    
-}
+ 
 -(void)meshBaseProductInfo:(AVObject*)val
 {
     AVObject *product = val;
@@ -197,25 +119,9 @@
     [product setObject: self.infolabeltxt.text forKey:@"text"];
     [product setObject:self.sceneinfoText.text forKey:@"sceneinfo"];
     [product setObject:self.tagLabeText.text forKey:@"tag"];
+    [product setObject:self.imagesText.text forKey:@"images"];
+    [product setObject:self.bannerText.text forKey:@"bannerimage"];
     
-    
-  
-    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
-        AVFile *file;
-        if( [UIImage imageNamed:_emptyPicUrl]!=_imgViewArr[i].image){
-            NSData * imageData= [self getAvfileByImage:_imgViewArr[i].image] ;
-            file = [AVFile fileWithData:imageData];
-        }
-        [product setObject:file forKey:[NSString stringWithFormat:@"image%lu",i]];
-    }
-   
-    if( [UIImage imageNamed:_emptyPicUrl]!=_bannerImageView.image){
-        [product setObject:[AVFile fileWithData:[self getAvfileByImage:_bannerImageView.image] ] forKey:@"baner"];
-    }else{
-        [product setObject:nil forKey:@"baner"];
-    }
-
-   
 }
  
 - (IBAction)publishBtn:(id)sender {
@@ -255,78 +161,8 @@
     }];
     
 }
- 
-
-#pragma mark - UIImagePickerControllerDelegate
-#pragma mark - 拍照/选择图片结束
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-   UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-
-    
-    if(_isBanerImageSelect){
-        _bannerImage=image;
-    }else{
-        [_imgBaseFileArr addObject:image];
-    }
   
-    
-    [self refrishUi];
-    
-   [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
-    
-   
-}
--(UIImageView*)getCanPushImgView
-{
-    for (NSUInteger i=0; i<_imgViewArr.count; i++) {
-        if(_imgViewArr[i].image==[UIImage imageNamed:_emptyPicUrl]){
-            return _imgViewArr[i];
-        }
-     
-    }
-    return nil;
-    
-}
-#pragma mark - 取消拍照/选择图片
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-   [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
-}
-#pragma mark - 选择图片
--(void)selectImageWithPickertype:(UIImagePickerControllerSourceType)sourceType {
-    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-        self.imagePicker.delegate = self;
-        self.imagePicker.allowsEditing = YES;
-        self.imagePicker.sourceType = sourceType;
-        [self presentViewController:self.imagePicker animated:YES completion:nil];
-    }
-    else{
-        [self alertMessage:@"图片库不可用或当前设备没有摄像头" handler:nil];
-    }
-}
-- (IBAction)clearImg0BtnClik:(id)sender {
-    
-    [_imgBaseFileArr removeObjectAtIndex:0];
-    [self refrishUi];
-}
-- (IBAction)clearImg1BtnClik:(id)sender {
-    [_imgBaseFileArr removeObjectAtIndex:1];
-    [self refrishUi];
-}
-- (IBAction)clearImg2BtnClik:(id)sender {
-    [_imgBaseFileArr removeObjectAtIndex:2];
-    [self refrishUi];
-}
-- (IBAction)clearImg3BtnClik:(id)sender {
-    [_imgBaseFileArr removeObjectAtIndex:3];
-    [self refrishUi];
-}
-- (IBAction)clearBanefrImgBtnClik:(id)sender {
-    _bannerImage=nil;
-    _imgBanerBaseFile=nil;
-    [self refrishUi];
-}
+ 
 
 -(void)playSendAnima
 {
@@ -353,6 +189,9 @@
     [_titlelabeltxt resignFirstResponder];
     [_infolabeltxt resignFirstResponder];
     [_tagLabeText resignFirstResponder];
+    [_imagesText resignFirstResponder];
+    [_bannerText resignFirstResponder];
+ 
     
 }
 #pragma mark -  Private Methods
@@ -365,10 +204,5 @@
     [self presentViewController:alertController animated:YES completion:nil];
     
 }
--(UIImagePickerController *)imagePicker{
-    if (!_imagePicker) {
-        _imagePicker = [[UIImagePickerController alloc]init];
-    }
-    return _imagePicker;
-}
+ 
 @end

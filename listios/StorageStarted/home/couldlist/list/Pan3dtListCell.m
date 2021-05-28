@@ -62,9 +62,9 @@
     
   
     
-    [self loadImageByInfoimgBase:_productImage000 arr:product.images  idx:0];
-    [self loadImageByInfoimgBase:_productImage001 arr:product.images  idx:1];
-    [self loadImageByInfoimgBase:_productImage002 arr:product.images  idx:2];
+    [self loadImageByInfoimgBase:_productImage000 arr:product.imagesArr  idx:0];
+    [self loadImageByInfoimgBase:_productImage001 arr:product.imagesArr  idx:1];
+    [self loadImageByInfoimgBase:_productImage002 arr:product.imagesArr  idx:2];
  
     
     

@@ -17,16 +17,11 @@
     product.tag=[obj objectForKey:@"tag"];
     product.createdAt=[obj objectForKey:@"createdAt"];
     product.objectId=[obj objectForKey:@"objectId"];
+    product.images=[obj objectForKey:@"images"];
     
+     
     
-    product.avFile0=[obj objectForKey:@"image0"];
-    product.avFile1=[obj objectForKey:@"image1"];
-    product.avFile2=[obj objectForKey:@"image2"];
-    product.avFile3=[obj objectForKey:@"image3"];
-    
- 
-    
-    product.images = [[obj objectForKey:@"images"] componentsSeparatedByString:@","];
+    product.imagesArr = [ product.images componentsSeparatedByString:@","];
     
     product.bannerimage=[obj objectForKey:@"bannerimage"];
     
