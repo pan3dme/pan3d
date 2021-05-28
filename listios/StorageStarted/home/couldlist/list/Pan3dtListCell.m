@@ -14,7 +14,7 @@
 
 
 @interface Pan3dListCell()
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+ 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *txtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -60,12 +60,7 @@
     dateFmt2.dateFormat = @"yyyy年MM年dd日";
     self.timeLabel.text =[dateFmt2 stringFromDate:(NSDate*)product.createdAt] ;
     
- 
- 
-//    [self loadImageByInfoimg:self.avatarImageView avFile:product.avFile0];
-//    [self loadImageByInfoimg:self.productImage000 avFile:product.avFile0];
-//    [self loadImageByInfoimg:self.productImage001 avFile:product.avFile1];
-//    [self loadImageByInfoimg:self.productImage002 avFile:product.avFile2];
+  
     
     [self loadImageByInfoimgBase:_productImage000 arr:product.images  idx:0];
     [self loadImageByInfoimgBase:_productImage001 arr:product.images  idx:1];
