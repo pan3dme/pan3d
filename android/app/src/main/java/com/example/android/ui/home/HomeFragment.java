@@ -45,6 +45,7 @@ public class HomeFragment<CustomBean> extends Fragment {
 
     private ViewPager mViewPager;
     private BannerViewPager<CustomBean> mViewBanerPager;
+    private BannerViewPager<BannerData> mViewPagerHorizontal;
     private MagicIndicator mMagicIndicator;
     private CommonNavigator mCommonNavigator;
 
@@ -102,10 +103,50 @@ public class HomeFragment<CustomBean> extends Fragment {
 
         return root;
     }
+    private void initHorizontalBanner() {
+        mViewPagerHorizontal
+                .setAdapter(new MultiViewTypesAdapter())
+                .create();
+
+
+    }
     private void initBanerInfo(View root )
     {
+        mViewPagerHorizontal = root.findViewById(R.id.home_top_baner);
+        this.initHorizontalBanner();
+
+        List<BannerData> dataList =new ArrayList<>();
+
+
+
+        AVQuery<AVObject> query = new AVQuery<>("pan3dlist002");
+        query.whereNotEqualTo("baner", null);
+
+        query.addDescendingOrder("createdAt");
+        query.findInBackground().subscribe(new Observer<List<AVObject>>() {
+            public void onSubscribe(Disposable disposable) {}
+            public void onNext(List<AVObject> arr) {
+                for(int i=0;i<arr.size();i++){
+                    AVObject aVObject=  arr.get(i);
+                    BannerData vo = new BannerData();
+                    vo.setUrl(aVObject.getString("bannerimage"));
+                    dataList.add(vo);
+                }
+
+                mViewPagerHorizontal.refreshData(dataList);
+
+
+            }
+            public void onError(Throwable throwable) {}
+            public void onComplete() {}
+        });
+
+     /*
         mViewBanerPager = root.findViewById(R.id.home_top_baner);
         mViewBanerPager  .setAdapter((BaseBannerAdapter<CustomBean>) new BannerBindingAdapter(9)).create();
+
+
+
         ArrayList mPictureList = new ArrayList();
         mPictureList.add(     R.drawable.ic_home_black_24dp);
         mPictureList.add(     R.drawable.ic_home_black_24dp);
@@ -113,10 +154,7 @@ public class HomeFragment<CustomBean> extends Fragment {
         mPictureList.add(     R.drawable.ic_home_black_24dp);
 
 
-        List<BannerData> dataList =new ArrayList<>();
-        BannerData vo = new BannerData();
 
-        dataList.add(vo);
 
 
 
@@ -137,6 +175,7 @@ public class HomeFragment<CustomBean> extends Fragment {
             public void onComplete() {}
         });
 
+        */
 
     }
 
