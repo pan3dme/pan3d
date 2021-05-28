@@ -189,18 +189,14 @@
             var todo = arr[i]
             var tittlestr = todo.get('title');
             var textstr = todo.get('text');
+    
+            var imagesArr = todo.get('images').split(',');
             var imgStr = ""
+            for (var j = 0; j < imagesArr.length; j++) {
+               imgStr += "<img src='" +"https://webpan.oss-cn-shanghai.aliyuncs.com/pan/leancloud/"+ imagesArr[j] + "' width='40%' height='40%' />";
+               imgStr += "    ";
 
-
-
-            for (var j = 0; j < 4; j++) {
-                var imagefile = todo.get("image" + j);
-                if (imagefile) {
-                    imgStr += "<img src='" + imagefile.url() + "' width='40%' height='40%' />";
-                    imgStr += "    ";
-                }
-
-            }
+           }
 
 
             str = "<li class='item'>" + tittlestr + "<br>" + textstr + "<br>" + imgStr + "</li>";
