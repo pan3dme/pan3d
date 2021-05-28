@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.android.R;
-import com.example.android.ui.home.BannerBindingAdapter;
 import com.zhpan.bannerview.BannerViewPager;
 import com.zhpan.bannerview.BaseBannerAdapter;
 
@@ -30,16 +29,7 @@ public class NotificationsFragment<CustomBean> extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_baner, container, false);
 
-        mViewPager = root.findViewById(R.id.bannerview_top_baner);
 
-        mViewPager  .setAdapter((BaseBannerAdapter<CustomBean>) new BannerBindingAdapter(9)).create();
-        ArrayList mPictureList = new ArrayList();
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mViewPager .refreshData(mPictureList);
         return root;
     }
 

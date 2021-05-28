@@ -15,7 +15,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.android.R;
 import com.zhpan.bannerview.BannerViewPager;
-import com.zhpan.bannerview.BaseBannerAdapter;
 
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -105,7 +104,7 @@ public class HomeFragment<CustomBean> extends Fragment {
     }
     private void initHorizontalBanner() {
         mViewPagerHorizontal
-                .setAdapter(new MultiViewTypesAdapter())
+                .setAdapter(new BannerBindingAdapter())
                 .create();
 
 
