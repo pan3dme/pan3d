@@ -22,7 +22,7 @@
     [self.view addSubview: self.sceneUiView];
     
     self.scene3D=[[Scene3D alloc]init: self.sceneUiView];
-    [self.scene3D addDisplay: [[GridLineSprite alloc]init:self.scene3D]];
+//    [self.scene3D addDisplay: [[GridLineSprite alloc]init:self.scene3D]];
     [self addMenuList];
 }
 -(void)addMenuList;
