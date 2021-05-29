@@ -39,6 +39,11 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
 -(UIPageViewController *)pageViewController
 {
     if (!_pageViewController) {

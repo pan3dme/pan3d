@@ -36,26 +36,23 @@
     
     
        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self  action:@selector(clickRightBarButtonItem)];
+    
+   
        
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.productArr removeAllObjects];
+    [self queryProduct];
 }
 -(void)clickRightBarButtonItem
 {
     EditViewController* vc=[[EditViewController alloc] init:nil];
        [self.navigationController pushViewController:vc animated:YES];
 }
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    [self.productArr removeAllObjects];
-    [self queryProduct];
  
-    [AVAnalytics beginLogPageView:@"Pan3dListCell"];
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-    [AVAnalytics endLogPageView:@"Pan3dListCell"];
-}
 
 #pragma mark -  Private Methods
 // LeanCloud - 查询 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash860317
@@ -64,13 +61,9 @@
     _productArr =[[NSMutableArray alloc]init];
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
     
-    if([_tagstr isEqualToString:@"全部"]){
-        
-    }else{
+    if(![_tagstr isEqualToString:@"全部"]){
         [query whereKey:@"tag" equalTo:_tagstr];
     }
-    
-   
     query.limit = 20;
     NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
     [query orderBySortDescriptor:d];

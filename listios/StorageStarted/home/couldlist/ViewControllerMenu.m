@@ -18,6 +18,7 @@
 @property (nonatomic,strong) NSMutableArray *titleArray;
 @property (nonatomic,strong) UIView *headerView;
 @property (nonatomic,strong) NSMutableArray <Pan3dListVo *> *productArr;
+@property (nonatomic,copy)Pan3dListViewController* pan3dListViewController;
 
 @end
 
@@ -72,6 +73,7 @@
    
     Pan3dListViewController *detailVC = [[Pan3dListViewController alloc] init:_titleArray[index]];
     detailVC.index = index;
+    
     return detailVC;
     
 }

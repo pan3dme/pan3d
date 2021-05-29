@@ -47,7 +47,7 @@
                                 <rect key="frame" x="273" y="0.0" width="87" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="详情"/>
+                                <state key="normal" title="编辑"/>
                                 <connections>
                                     <action selector="clikEditButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iRf-d9-2ce"/>
                                 </connections>
