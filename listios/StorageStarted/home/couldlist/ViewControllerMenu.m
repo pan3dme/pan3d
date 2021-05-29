@@ -15,7 +15,7 @@
  
 @interface ViewControllerMenu () <XLBasePageControllerDelegate,XLBasePageControllerDataSource,SDCycleScrollViewDelegate>
 
-@property (nonatomic,strong) NSArray *titleArray;
+@property (nonatomic,strong) NSMutableArray *titleArray;
 @property (nonatomic,strong) UIView *headerView;
  
 @property (nonatomic,strong) NSMutableArray <Pan3dListVo *> *productArr;
@@ -29,20 +29,33 @@
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.2];
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    _titleArray = @[@"全部",@"场景",@"角色",@"特效",@"技能",@"MD5",@"动画",@"其它",@"更多"];
-
-    
+ 
     self.delegate = self;
     self.dataSource = self;
-    
-    //self.lineWidth = 2.0;//选中下划线宽度
+ 
     self.titleFont = [UIFont systemFontOfSize:16.0];
     self.defaultColor = [UIColor blackColor];//默认字体颜色
     self.chooseColor = [UIColor redColor];//选中字体颜色
     self.selectIndex = 0;//默认选中第几页
-    
-    [self reloadScrollPage];
+  
+    [self readColudTags];
+}
+-(void)readColudTags
+{
+    _titleArray=[[NSMutableArray alloc]init];
+    [_titleArray addObject:@"全部"];
+    AVQuery *query = [AVQuery queryWithClassName:@"tags"];
+    [query orderBySortDescriptor:[[NSSortDescriptor alloc]initWithKey:@"sort" ascending:YES selector:nil]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (NSDictionary *object in objects) {
+              NSString* str=  [object objectForKey:@"name"];
+                [_titleArray addObject:str];
+                [self reloadScrollPage];
+            }
+            
+        }
+    }];
 }
 -(void)reloadScrollPage
 {
@@ -95,37 +108,15 @@
     if (_headerView == nil) {
         _headerView = [[UIView alloc] init];
         _headerView.backgroundColor = [UIColor colorWithRed:120/255.0f green:210/255.0f blue:249/255.0f alpha:1];
-//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, self.view.bounds.size.width, 40)];
-//        label.textColor = [UIColor grayColor];
-//        label.font = [UIFont systemFontOfSize:12.0];
-//        label.text = @"固定的头View,不可跟随滑动,可不显示";
-//        label.textAlignment = NSTextAlignmentCenter;
-//        [_headerView addSubview:label];
-        
-       
-        
-        
+ 
         CGFloat w = self.view.bounds.size.width;
-        
-        
-
-     
-        
-    // >>>>>>>>>>>>>>>>>>>>>>>>> demo轮播图2 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        
-        // 网络加载 --- 创建带标题的图片轮播器
         SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, w, 150) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
         
         cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-   
         cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
         [_headerView addSubview:cycleScrollView2];
-        
-        
-        
         [self loadBanerData:cycleScrollView2];
-        
-        
+ 
     }
     return _headerView;
 }
@@ -133,7 +124,6 @@
   
     _productArr=[[NSMutableArray alloc]init];
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
-//    [query whereKey:@"tag" equalTo:@""];
     [query whereKey:@"bannerimage" notEqualTo:@""];
     query.limit = 5;
     NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
@@ -142,7 +132,6 @@
         if (!error) {
             NSMutableArray* picArr= [[NSMutableArray alloc] init];
             NSMutableArray* tittleArr= [[NSMutableArray alloc] init];
-   
             for (NSDictionary *object in objects) {
                 Pan3dListVo * product = [Pan3dListVo initWithObject:object];
                 [_productArr addObject:product];
