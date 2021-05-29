@@ -35,6 +35,11 @@
     [tapGesture setNumberOfTapsRequired:1];
     
      [_imgbgbox addGestureRecognizer:tapGesture];
+    
+    
+    _productImage000.contentMode =  UIViewContentModeScaleToFill;
+    _productImage001.contentMode =  UIViewContentModeScaleToFill;
+    _productImage002.contentMode =  UIViewContentModeScaleToFill;
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView{

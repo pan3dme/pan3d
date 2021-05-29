@@ -17,13 +17,13 @@
 
 @property (nonatomic,strong) NSMutableArray *titleArray;
 @property (nonatomic,strong) UIView *headerView;
- 
 @property (nonatomic,strong) NSMutableArray <Pan3dListVo *> *productArr;
 
 @end
 
+ 
 @implementation ViewControllerMenu
-
+ 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -37,7 +37,11 @@
     self.defaultColor = [UIColor blackColor];//默认字体颜色
     self.chooseColor = [UIColor redColor];//选中字体颜色
     self.selectIndex = 0;//默认选中第几页
+ 
   
+}
+- (void)viewDidAppear:(BOOL)animated
+{
     [self readColudTags];
 }
 -(void)readColudTags
@@ -116,6 +120,7 @@
         cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
         [_headerView addSubview:cycleScrollView2];
         [self loadBanerData:cycleScrollView2];
+
  
     }
     return _headerView;
@@ -153,17 +158,10 @@
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
     NSLog(@"---点击了第%ld张图片", (long)index);
-    
-    
-    
+  
     [self.navigationController pushViewController:[[HomeSceneBaseViewController alloc]init:[_productArr objectAtIndex:index].sceneinfo] animated:YES];
  
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+ 
 
 @end

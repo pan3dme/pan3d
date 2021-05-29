@@ -10,14 +10,14 @@
 #import "MyActivityIndicatorView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
- 
+
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 #define kScreenB [UIScreen mainScreen].bounds
 
 @interface EditViewController ()<UITextFieldDelegate>
- 
- 
+
+
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 @property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
 
@@ -37,38 +37,86 @@
 @property (nonatomic,copy)UITextField* selectUITextField;
 
 @property (nonatomic,strong)NSString* emptyPicUrl;
+@property (nonatomic,strong)NSMutableArray* titleArray;
 
 @end
- 
+
 
 @implementation EditViewController
 
 
- 
+
 - (instancetype)init:(Pan3dListVo* __nullable)val
 {
     self = [super init];
     if (self) {
         _pan3dListVo=val;
         _emptyPicUrl=@"image_downloadFailed";
-     
+        _titleArray=[[NSMutableArray alloc]init];
+        
     }
-  
+    
     return self;
+}
+-(void)readColudTags
+{
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"tags"];
+    [query orderBySortDescriptor:[[NSSortDescriptor alloc]initWithKey:@"sort" ascending:YES selector:nil]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            [_titleArray removeAllObjects];
+            for (NSDictionary *object in objects) {
+                NSString* str=  [object objectForKey:@"name"];
+                [_titleArray addObject:str];
+                NSLog(@"--aa----");
+            }
+            NSLog(@"------");
+            
+        }
+    }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
     
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self  action:@selector(clickRightBarButtonItem)];
+    
+    [ [NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveKeyboard:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+}
+-(void)creatActionSheet {
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"选择标签" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    for(int i=0;i<_titleArray.count;i++){
+        UIAlertAction *tmpeAction = [UIAlertAction actionWithTitle: [_titleArray objectAtIndex:i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"%@",action.title);
+            
+            _tagLabeText.text=action.title;
+        }];
+        [actionSheet addAction:tmpeAction];
+    }
+    
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"取消");
+    }];
+    [actionSheet addAction:action3];
+    
+    //相当于之前的[actionSheet show];
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self readColudTags];
     _imagesText.backgroundColor=[UIColor whiteColor];
     _bannerText.backgroundColor=[UIColor whiteColor];
     _sceneinfoText.backgroundColor=[UIColor whiteColor];
-     
+    _editOrNewUISwitch.on=NO;
     _titlelabeltxt.delegate = self;
     _tagLabeText.delegate = self;
     _infolabeltxt.delegate = self;
- 
- 
+    
+    [self readColudTags];
     if(_pan3dListVo!=nil){
         _titlelabeltxt.text=_pan3dListVo.title;
         _infolabeltxt.text=_pan3dListVo.text;
@@ -76,29 +124,17 @@
         _imagesText.text=_pan3dListVo.images;
         _bannerText.text=_pan3dListVo.bannerimage;
         _sceneinfoText.text= [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:_pan3dListVo.sceneinfo options:0 error:nil] encoding:NSUTF8StringEncoding];
-    
-    
     }
- 
- 
- 
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self  action:@selector(clickRightBarButtonItem)];
-    
-    _editOrNewUISwitch.on=NO;
-    
- 
-    [ [NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveKeyboard:) name:UIKeyboardWillChangeFrameNotification object:nil];
-   
 }
 -(void)moveKeyboard:(NSNotification *)notification{
     
     if(_selectUITextField){
         return;
     }
-
+    
     /** 键盘完全弹出时间 */
     NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] intValue];
-
+    
     /** 动画趋势 */
     int curve = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] intValue];
     
@@ -110,10 +146,10 @@
     
     /** view上平移的值 */
     CGFloat offset = kScreenH - keyboard_y;
-
+    
     /** 执行动画  */
     [UIView animateWithDuration:duration animations:^{
-       
+        
         [UIView setAnimationCurve:curve];
         self.view.transform = CGAffineTransformMakeTranslation(0, -offset);
     }];
@@ -125,15 +161,15 @@
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         AVObject *todo = [AVObject objectWithClassName:@"pan3dlist002" objectId:_pan3dListVo.objectId];
         [todo deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                    [self.navigationController popViewControllerAnimated:true];
+            [self.navigationController popViewControllerAnimated:true];
         }];
-         
-    
+        
+        
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
 }
- 
+
 -(NSData*)getAvfileByImage:(UIImage*)image
 {
     NSData * imageData;
@@ -144,7 +180,7 @@
     }
     return imageData;
 }
- 
+
 -(void)meshBaseProductInfo:(AVObject*)val
 {
     AVObject *product = val;
@@ -157,7 +193,7 @@
     [product setObject:self.bannerText.text forKey:@"bannerimage"];
     
 }
- 
+
 - (IBAction)publishBtn:(id)sender {
     
     
@@ -167,7 +203,7 @@
         [self alertMessage:@"场景信息不合法，需要为数组结构" handler:nil];
         return;
     }
-   
+    
     bool isNew=_editOrNewUISwitch.on;
     NSString* tipstr;
     AVObject *product;
@@ -185,7 +221,7 @@
         if (succeeded) {
             [self alertMessage: [NSString stringWithFormat:@"%@成功",tipstr] handler:^(UIAlertAction * _Nonnull action) {
                 [self.navigationController popViewControllerAnimated:true];
-                 
+                
             }];
             //
         } else {
@@ -195,8 +231,8 @@
     }];
     
 }
-  
- 
+
+
 
 -(void)playSendAnima
 {
@@ -208,24 +244,29 @@
 {
     [_myActivityIndicatorView stopAnimating];
 }
- 
+
 -(void)loadImageByInfoimg:(UIImageView*)img avFile:(AVFile*)avFile
 {
     if(avFile){
         NSString* url=    [avFile.url stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
         [img sd_setImageWithURL:[NSURL URLWithString:url]   placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
     }
- 
+    
 }
 #pragma maek UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     _selectUITextField=textField;
+    if(textField==_tagLabeText){
+        [self creatActionSheet];
+        return NO;
+        
+    }
     return YES;
 }
- 
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-   
+    
     [_sceneinfoText resignFirstResponder];
     [_titlelabeltxt resignFirstResponder];
     [_infolabeltxt resignFirstResponder];
@@ -233,7 +274,7 @@
     [_imagesText resignFirstResponder];
     [_bannerText resignFirstResponder];
     _selectUITextField=nil;
- 
+    
     
 }
 #pragma mark -  Private Methods
@@ -246,5 +287,5 @@
     [self presentViewController:alertController animated:YES completion:nil];
     
 }
- 
+
 @end
