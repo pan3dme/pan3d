@@ -8,6 +8,7 @@
 
 #import "LCLoginViewController.h"
 #import "LCTabBarController.h"
+#import "EditViewController.h"
 #import "HomeSceneBaseViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 @interface LCLoginViewController ()
@@ -54,13 +55,36 @@
     if (username && password) {
         [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
            if (user) {
-            [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc]init];
+        
+               [self toNextPage];
             } else {
             NSLog(@"登录失败：%@",error.localizedFailureReason);
             }
         }];
     }
 }
+-(void)toSceneBase
+{
+    //直接进入场景
+    
+    NSMutableArray* arr=[[NSMutableArray alloc]init];
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init ];
+    [dic setValue:@"1" forKey:@"id"];
+    [dic setValue:@"1" forKey:@"type"];
+    [dic setValue:@"2015" forKey:@"text"];
+ 
+ 
+    [arr addObject:dic];
+    //[{"id":1,"type":1,"text":2015}]
+    HomeSceneBaseViewController* vc=[[HomeSceneBaseViewController alloc]init:arr];
+    [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+}
+
+-(void)toNextPage
+{
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[LCTabBarController alloc]init];
+}
+
 
 // LeanCloud - 注册 https://leancloud.cn/docs/leanstorage_guide-objc.html#hash885156
 - (IBAction)SignUpBtnClick:(id)sender {
