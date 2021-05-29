@@ -15,7 +15,7 @@
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 #define kScreenB [UIScreen mainScreen].bounds
 
-@interface EditViewController ()<UITextViewDelegate>
+@interface EditViewController ()<UITextFieldDelegate>
  
  
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
@@ -34,6 +34,7 @@
 @property (nonatomic,strong)NSMutableArray<UIButton*>* clearbutArr;
 
 @property (nonatomic,assign)bool isBanerImageSelect;
+@property (nonatomic,copy)UITextField* selectUITextField;
 
 @property (nonatomic,strong)NSString* emptyPicUrl;
 
@@ -63,7 +64,10 @@
     _bannerText.backgroundColor=[UIColor whiteColor];
     _sceneinfoText.backgroundColor=[UIColor whiteColor];
      
-    _bannerText.delegate = self;
+    _titlelabeltxt.delegate = self;
+    _tagLabeText.delegate = self;
+    _infolabeltxt.delegate = self;
+ 
  
     if(_pan3dListVo!=nil){
         _titlelabeltxt.text=_pan3dListVo.title;
@@ -87,6 +91,10 @@
    
 }
 -(void)moveKeyboard:(NSNotification *)notification{
+    
+    if(_selectUITextField){
+        return;
+    }
 
     /** 键盘完全弹出时间 */
     NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] intValue];
@@ -209,6 +217,12 @@
     }
  
 }
+#pragma maek UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    _selectUITextField=textField;
+    return YES;
+}
+ 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
    
@@ -218,6 +232,7 @@
     [_tagLabeText resignFirstResponder];
     [_imagesText resignFirstResponder];
     [_bannerText resignFirstResponder];
+    _selectUITextField=nil;
  
     
 }
