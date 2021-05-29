@@ -134,7 +134,7 @@
     _productArr=[[NSMutableArray alloc]init];
     AVQuery *query = [AVQuery queryWithClassName:@"pan3dlist002"];
 //    [query whereKey:@"tag" equalTo:@""];
-    [query whereKey:@"bannerimage" notEqualTo:@"null"];
+    [query whereKey:@"bannerimage" notEqualTo:@""];
     query.limit = 5;
     NSSortDescriptor* d=[[NSSortDescriptor alloc]initWithKey:@"createdAt" ascending:NO selector:nil];
     [query orderBySortDescriptor:d];
