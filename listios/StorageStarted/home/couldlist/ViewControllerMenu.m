@@ -38,12 +38,11 @@
     self.chooseColor = [UIColor redColor];//选中字体颜色
     self.selectIndex = 0;//默认选中第几页
  
+    
+    [self readColudTags];
   
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self readColudTags];
-}
+ 
 -(void)readColudTags
 {
     _titleArray=[[NSMutableArray alloc]init];
@@ -61,10 +60,7 @@
         }
     }];
 }
--(void)reloadScrollPage
-{
-    [super reloadScrollPage];
-}
+ 
 -(NSInteger)numberViewControllersInViewPager:(XLBasePageController *)viewPager
 {
     return _titleArray.count;

@@ -22,10 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.userNameTextField.text=@"pan3dme";
     self.passwordTextField.text=@"1343";
    
+    [self sendLoginEvent];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -38,25 +38,19 @@
     [AVAnalytics endLogPageView:@"LoginView"];
 }
 
-- (void)viewDidLayoutSubviews{
-    [self sendLoginEvent];
-}
+ 
 
 - (IBAction)LoginBtnClick:(id)sender {
     
- 
-    NSString *username = self.userNameTextField.text;
-    NSString *password = self.passwordTextField.text;
-   
-    
+  
     [self sendLoginEvent];
     
  
 }
 -(void)sendLoginEvent
 {
-    NSString *username = @"pan3dme";
-    NSString *password = @"1343";
+    NSString *username = self.userNameTextField.text;
+    NSString *password = self.passwordTextField.text;
     if (username && password) {
         [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
            if (user) {
