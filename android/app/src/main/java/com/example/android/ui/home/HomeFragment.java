@@ -119,7 +119,7 @@ public class HomeFragment<CustomBean> extends Fragment {
 
 
         AVQuery<AVObject> query = new AVQuery<>("pan3dlist002");
-        query.whereNotEqualTo("bannerimage", "null");
+        query.whereNotEqualTo("bannerimage", "");
 
         query.addDescendingOrder("createdAt");
         query.findInBackground().subscribe(new Observer<List<AVObject>>() {

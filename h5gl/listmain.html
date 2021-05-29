@@ -209,7 +209,7 @@
 
         const queryBanner = new AV.Query('pan3dlist002');
         queryBanner.descending('createdAt');
-        queryBanner.notEqualTo('bannerimage', 'null');
+        queryBanner.notEqualTo('bannerimage', '');
         queryBanner.find().then((arr) => {
             banerstr = "";
             bannerSpanStr = "";
