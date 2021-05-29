@@ -11,15 +11,20 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
  
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+#define kScreenB [UIScreen mainScreen].bounds
 
-@interface EditViewController ()
-
+@interface EditViewController ()<UITextViewDelegate>
+ 
  
 @property (weak, nonatomic) IBOutlet UITextField *titlelabeltxt;
 @property (weak, nonatomic) IBOutlet UITextField *infolabeltxt;
-@property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
+
 @property (weak, nonatomic) IBOutlet UITextField *tagLabeText;
 @property (weak, nonatomic) IBOutlet UISwitch *editOrNewUISwitch;
+
+@property (weak, nonatomic) IBOutlet UITextView *sceneinfoText;
 @property (weak, nonatomic) IBOutlet UITextView *imagesText;
 @property (weak, nonatomic) IBOutlet UITextView *bannerText;
 
@@ -58,7 +63,7 @@
     _bannerText.backgroundColor=[UIColor whiteColor];
     _sceneinfoText.backgroundColor=[UIColor whiteColor];
      
-   
+    _bannerText.delegate = self;
  
     if(_pan3dListVo!=nil){
         _titlelabeltxt.text=_pan3dListVo.title;
@@ -71,13 +76,40 @@
     
     }
  
-  
-    [self refrishUi];
+ 
  
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self  action:@selector(clickRightBarButtonItem)];
     
     _editOrNewUISwitch.on=NO;
+    
+ 
+    [ [NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveKeyboard:) name:UIKeyboardWillChangeFrameNotification object:nil];
    
+}
+-(void)moveKeyboard:(NSNotification *)notification{
+
+    /** 键盘完全弹出时间 */
+    NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] intValue];
+
+    /** 动画趋势 */
+    int curve = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] intValue];
+    
+    /** 动画执行完毕frame */
+    CGRect keyboard_frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    /** 获取键盘y值 */
+    CGFloat keyboard_y = keyboard_frame.origin.y;
+    
+    /** view上平移的值 */
+    CGFloat offset = kScreenH - keyboard_y;
+
+    /** 执行动画  */
+    [UIView animateWithDuration:duration animations:^{
+       
+        [UIView setAnimationCurve:curve];
+        self.view.transform = CGAffineTransformMakeTranslation(0, -offset);
+    }];
+    
 }
 -(void)clickRightBarButtonItem
 {
@@ -93,13 +125,7 @@
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
 }
--(void)refrishUi
-{
-  
-   
-    
-   
-}
+ 
 -(NSData*)getAvfileByImage:(UIImage*)image
 {
     NSData * imageData;
@@ -185,6 +211,7 @@
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+   
     [_sceneinfoText resignFirstResponder];
     [_titlelabeltxt resignFirstResponder];
     [_infolabeltxt resignFirstResponder];

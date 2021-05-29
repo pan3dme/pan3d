@@ -119,7 +119,7 @@ public class HomeFragment<CustomBean> extends Fragment {
 
 
         AVQuery<AVObject> query = new AVQuery<>("pan3dlist002");
-        query.whereNotEqualTo("baner", null);
+        query.whereNotEqualTo("bannerimage", "null");
 
         query.addDescendingOrder("createdAt");
         query.findInBackground().subscribe(new Observer<List<AVObject>>() {
@@ -140,41 +140,7 @@ public class HomeFragment<CustomBean> extends Fragment {
             public void onComplete() {}
         });
 
-     /*
-        mViewBanerPager = root.findViewById(R.id.home_top_baner);
-        mViewBanerPager  .setAdapter((BaseBannerAdapter<CustomBean>) new BannerBindingAdapter(9)).create();
 
-
-
-        ArrayList mPictureList = new ArrayList();
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-        mPictureList.add(     R.drawable.ic_home_black_24dp);
-
-
-
-
-
-
-        List<AVObject> mList=new ArrayList<>();
-        AVQuery<AVObject> query = new AVQuery<>("pan3dlist002");
-        query.whereNotEqualTo("baner", null);
-
-        query.addDescendingOrder("createdAt");
-        query.findInBackground().subscribe(new Observer<List<AVObject>>() {
-            public void onSubscribe(Disposable disposable) {}
-            public void onNext(List<AVObject> arr) {
-                mList.addAll(arr);
-                mViewBanerPager .refreshData(mPictureList);
-
-
-            }
-            public void onError(Throwable throwable) {}
-            public void onComplete() {}
-        });
-
-        */
 
     }
 
