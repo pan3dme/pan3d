@@ -124,6 +124,14 @@
                                      
                                      typedef struct
                                      {
+        float2 data;
+   
+        
+        
+    } ParticleBaseFloat2v;
+                                     
+                                     typedef struct
+                                     {
         float4x4 matrix;
     }  BaseMatrix;
                                      
@@ -148,17 +156,17 @@
                                      vertexShader(uint vertexID [[ vertex_id ]],
                                                   constant BaseFloat3 *vertexArray [[ buffer(0) ]],
                                                   constant BaseFloat2 *uvsArray [[ buffer(1) ]],
-                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]]
-                                                  
+                                                  constant ParticleMetalMatrixData *matrixdic [[ buffer(2) ]],
+                                                  constant ParticleBaseFloat2v *uvMoveVc [[ buffer(3) ]]
                                                   ) {
         OutData out;
-        //                                         out.clipSpacePosition =  projectionMatrix->matrix * modelViewMatrix->matrix * float4(vertexArray[vertexID].position, 1);
-        
+      
+        float2 movuv2v=uvMoveVc->data;
         
         out.clipSpacePosition = matrixdic->viewMatrix *matrixdic->camMatrix  * matrixdic->modeMatrix*matrixdic->rotMatrix * float4(vertexArray[vertexID].position, 1);
         
         
-        out.textureCoordinate = uvsArray[vertexID].position;
+        out.textureCoordinate = uvsArray[vertexID].position+movuv2v.xy ;
         return out;
     }
                                      
@@ -184,8 +192,8 @@
                                      {
         
         
-        constexpr sampler textureSampler (mag_filter::linear,
-                                          min_filter::linear);
+        constexpr sampler textureSampler (filter::linear,
+                                          address::repeat);
         
         half4 colorTex = textureColor.sample(textureSampler, input.textureCoordinate);
         

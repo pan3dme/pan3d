@@ -56,7 +56,7 @@
         [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
            if (user) {
         
-               [self toNextPage];
+               [self toSceneBase];
             } else {
             NSLog(@"登录失败：%@",error.localizedFailureReason);
             }

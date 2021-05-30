@@ -62,3 +62,10 @@ typedef struct
  
     
 } ParticleMetalLocusVcmatData;
+
+typedef struct
+{
+ 
+    vector_float2 data;
+    
+} ParticleBaseFloat2v;

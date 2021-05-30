@@ -53,11 +53,22 @@
       [self setViewCamModeMatr3d];
       [self updateRotaionMatrix];
       [self updateUV];
+    
+    
     /*
       Context3D *ctx=self.scene3D.context3D;
       [ctx setVcMatrix4fv:self.shader3d name:"rotMatrix" data:self.rotationMatrix3D.m];
       [ctx setVcUniform2f:self.shader3d name:"uvMove" x:self.uvMove.x y:self.uvMove.y];
     */
+    id<MTLRenderCommandEncoder> renderEncoder=self.scene3D.context3D.renderEncoder;
+   
+    
+    ParticleBaseFloat2v uvMoveVc = { (vector_float2){self.uvMove.x,self.uvMove.y }  };
+   [renderEncoder setVertexBytes:&uvMoveVc
+                          length:sizeof(uvMoveVc)
+                         atIndex: 3];
+    
+    NSLog(@"%f----%f",self.uvMove.x,self.uvMove.y);
 }
 -(void)updateUV;
 {
