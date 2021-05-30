@@ -56,7 +56,7 @@
         [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
            if (user) {
         
-               [self toSceneBase];
+               [self toNextPage];
             } else {
             NSLog(@"登录失败：%@",error.localizedFailureReason);
             }
@@ -68,16 +68,19 @@
     //直接进入场景
     
     NSMutableArray* arr=[[NSMutableArray alloc]init];
+ 
+    [arr addObject:[self getTempSceneInfo:@"2015"]];
+ 
+    HomeSceneBaseViewController* vc=[[HomeSceneBaseViewController alloc]init:arr];
+    [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+}
+-(NSMutableDictionary*)getTempSceneInfo:(NSString*)mapid {
     NSMutableDictionary* dic=[[NSMutableDictionary alloc]init ];
     [dic setValue:@"1" forKey:@"id"];
     [dic setValue:@"1" forKey:@"type"];
-    [dic setValue:@"2015" forKey:@"text"];
- 
- 
-    [arr addObject:dic];
-    //[{"id":1,"type":1,"text":2015}]
-    HomeSceneBaseViewController* vc=[[HomeSceneBaseViewController alloc]init:arr];
-    [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+    [dic setValue:mapid forKey:@"text"];
+    
+    return dic;
 }
 
 -(void)toNextPage
