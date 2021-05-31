@@ -56,7 +56,7 @@
         [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
            if (user) {
         
-               [self toNextPage];
+               [self toSceneBase];
             } else {
             NSLog(@"登录失败：%@",error.localizedFailureReason);
             }
@@ -69,7 +69,7 @@
     
     NSMutableArray* arr=[[NSMutableArray alloc]init];
  
-    [arr addObject:[self getTempSceneInfo:@"2015"]];
+    [arr addObject:[self getTempSceneInfo:@"2001"]];
  
     HomeSceneBaseViewController* vc=[[HomeSceneBaseViewController alloc]init:arr];
     [UIApplication sharedApplication].keyWindow.rootViewController = vc;

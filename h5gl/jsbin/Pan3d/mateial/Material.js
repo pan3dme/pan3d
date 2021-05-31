@@ -27,7 +27,7 @@ var Pan3d;
         }
         Material.prototype.update = function (t) {
             this.updateTime(t);
-            //this.updateCam();
+            this.updateCam(this.scene3D.cam3D.x / 200, this.scene3D.cam3D.y / 200, this.scene3D.cam3D.z / 200);
             this.updateScene();
         };
         Material.prototype.updateTime = function (t) {
@@ -84,6 +84,7 @@ var Pan3d;
                 this.fcData[0 + idx] = this.scene3D.camera3D.x / 100;
                 this.fcData[1 + idx] = this.scene3D.camera3D.y / 100;
                 this.fcData[2 + idx] = this.scene3D.camera3D.z / 100;
+                console.log(this.scene3D.camera3D.x, this.scene3D.camera3D.y, this.scene3D.camera3D.z);
             }
             if (this.fogMode != 0) {
                 var idx = this.fcIDAry[1] * 4;
