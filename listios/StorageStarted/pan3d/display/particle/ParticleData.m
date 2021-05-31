@@ -27,7 +27,10 @@
     [this.timelineData setByteData:byte];
     
     this._beginTime = this.timelineData.beginTime;
-    this._delayedTime =  [byte readFloat];
+    if (this.version >= 15) {
+        this._delayedTime =  [byte readFloat];
+             }
+
     
     this._width =     [byte readFloat];
     this._height =    [byte readFloat];
