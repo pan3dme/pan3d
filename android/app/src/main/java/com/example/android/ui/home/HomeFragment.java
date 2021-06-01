@@ -1,6 +1,7 @@
 package com.example.android.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.android.R;
+import com.example.android.ui.scene.SceneShowView;
 import com.zhpan.bannerview.BannerViewPager;
 
 
@@ -55,6 +57,11 @@ public class HomeFragment<CustomBean> extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        boolean isNext=true;
+        if(isNext){
+            toTestScene(root);
+            return  root;
+        }
 
 
         mViewPager = (ViewPager) root.findViewById(R.id.view_pager);
@@ -100,7 +107,16 @@ public class HomeFragment<CustomBean> extends Fragment {
 
         initBanerInfo(root);
 
+
         return root;
+    }
+    private  void toTestScene(View root )
+    {
+        Context mContext=root.getContext();
+        Intent intent = new Intent(mContext, SceneShowView.class);
+        String string=  "[{\"id\":1,\"type\":1,\"text\":2015}]";
+        intent.putExtra("sceneinfo",string);
+        mContext.startActivity(intent);
     }
     private void initHorizontalBanner() {
         mViewPagerHorizontal
