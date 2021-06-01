@@ -46,12 +46,10 @@
  
     
  
-    int bb=this._time/([Scene_data default].frameTime*2);
-  
-    NSLog(@"%f   %d",this._time,bb%(int)dualQuatFrame.count );
-    bb=bb%(int)dualQuatFrame.count;
+    int curIdx=this._time/([Scene_data default].frameTime*2);
+    curIdx=curIdx%(int)dualQuatFrame.count;
     
-    DualQuatFloat32Array*  dualQuatFloat32Array=[dualQuatFrame objectAtIndex:bb];
+    DualQuatFloat32Array*  dualQuatFloat32Array=[dualQuatFrame objectAtIndex:curIdx];
  
     [renderEncoder setVertexBuffer: dualQuatFloat32Array.mtkquatArr   offset:0   atIndex:5];
     [renderEncoder setVertexBuffer: dualQuatFloat32Array.mtkposArr   offset:0   atIndex:6];
