@@ -74,9 +74,9 @@
             var currentFrame: number = float2int((this._time / Scene3D.frameTime) / 2);
 
             
-            this.data.vcmatData.set(this.scene3D.viewMatrx3D.m, 0);
+            this.data.vcmatData.set(this.scene3D.camera3D.viewMatrix.m, 0);
            
-            this.data.vcmatData.set(this.scene3D.cam3D.cameraMatrix.m, 16);
+            this.data.vcmatData.set(this.scene3D.camera3D.camMatrix3D.m, 16);
          
             this.data.vcmatData.set(this.modelMatrix.m, 32);
 
@@ -93,6 +93,8 @@
             this.scene3D.context3D.setVc3fv(this.data.materialParam.shader, "boneD", $dualQuatFrame.pos);  //所有的位移
 
             this.setMaterialVc();
+
+        
         }
         public setVa(): void {
             var tf: boolean = this.scene3D.context3D.pushVa(this.modeldata.meshData.vertexBuffer);
