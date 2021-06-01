@@ -15,6 +15,7 @@
 #import "CombineParticle.h"
 #import "ParticleLocusballData.h"
 #import "ParticleModelData.h"
+#import "ParticleBoneData.h"
 #import "Display3DParticle.h"
 
 @implementation CombineParticleData
@@ -65,6 +66,9 @@
             break;
         case 9:
             pdata = [[ParticleModelData alloc]init:self.scene3D];
+            break;
+        case 13:
+            pdata = [[ParticleBoneData alloc]init:self.scene3D];
             break;
         case 14:
             pdata = [[ParticleLocusballData alloc]init:self.scene3D];

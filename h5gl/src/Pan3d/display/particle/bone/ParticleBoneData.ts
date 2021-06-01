@@ -31,6 +31,8 @@
             BaseRes.readBytes2ArrayBuffer($byte, data, 4, 5, dataWidth, 2);//boneIDAry
             BaseRes.readBytes2ArrayBuffer($byte, data, 4, 9, dataWidth, 3);//boneWeightAry
 
+           
+
             this.meshData.stride = dataWidth * 4;
 
 
