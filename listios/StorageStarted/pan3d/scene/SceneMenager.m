@@ -55,11 +55,12 @@
     int type=   [value[@"type"]intValue];
     switch (type) {
         case PREFAB_TYPE:
-            [self addBuildDisplay3DSprite:value];
+//            [self addBuildDisplay3DSprite:value];
             break;
         case SCENE_PARTICLE_TYPE:
             
             [self addParticleByUrl:value];
+ 
             break;
         default:
             break;
@@ -69,9 +70,9 @@
 {
     NSString* url=  [value objectForKey:@"url"];
     CombineParticle*  particle =   [self.scene3D.particleManager   getParticleByte:url];
-    particle.x=[[value objectForKey:@"x"] floatValue];
-    particle.y=[[value objectForKey:@"y"] floatValue];
-    particle.z=[[value objectForKey:@"z"] floatValue];
+//    particle.x=[[value objectForKey:@"x"] floatValue];
+//    particle.y=[[value objectForKey:@"y"] floatValue];
+//    particle.z=[[value objectForKey:@"z"] floatValue];
     particle.scaleX=[[value objectForKey:@"scaleX"] floatValue];
     particle.scaleY=[[value objectForKey:@"scaleY"] floatValue];
     particle.scaleZ=[[value objectForKey:@"scaleZ"] floatValue];

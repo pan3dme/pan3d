@@ -10,14 +10,15 @@
 #import "MeshData.h"
 #import "AnimData.h"
 #import "BaseRes.h"
+#import "Scene3D.h"
+#import "Display3DBoneShader.h"
 #import "Display3DBonePartilce.h"
+#import "ProgrmaManager.h"
 
 @interface ParticleBoneData ()
 
 
-@property (nonatomic, strong)  MeshData*   meshData;
-@property (nonatomic, strong)  AnimData*   animData;
-@property (nonatomic, assign)  float objScale;
+
 
 
 @end
@@ -48,6 +49,8 @@
  
     this.meshData.indexs=   [BaseRes readIntForTwoByte:byte nsdata:dataBase];
     
+//    [this upGpuIndexBuffer];
+    
     this.meshData.boneIDAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:5 stride:buffStride readType:2];
     this.meshData.boneWeightAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:9 stride:buffStride readType:3];
  
@@ -58,13 +61,34 @@
     [super setAllByteInfo:byte];
 
     [this initVcData];
-    /*
-   
-     
-     this.meshData.vertexBuffer = this.scene3D.context3D.uploadBuff3DArrayBuffer(arybuff);
-     this.meshData.indexBuffer = this.scene3D.context3D.uploadIndexBuff3D(this.meshData.indexs);
-     this.meshData.treNum = this.meshData.indexs.length;
-     */
+  
+    
+    this.meshData.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:  this.meshData.indexs];
+    this.meshData.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat3:  this.meshData.vertices ];
+    this.meshData.mtkuvs= [self.scene3D.context3D changeDataToGupMtkfloat2:  this.meshData.uvs ];
+    this.meshData.mtkboneId= [self.scene3D.context3D changeDataToGupMtkfloat4:  this.meshData.boneIDAry ];
+    this.meshData.mtkboneWeight= [self.scene3D.context3D changeDataToGupMtkfloat4:  this.meshData.boneWeightAry ];
+    this.meshData.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:  this.meshData.uvs];
+    this.meshData.mtkindexCount =   this.meshData.indexs.count;
+}
+-(void)upGpuIndexBuffer
+{
+    unsigned int Indices[self.meshData.indexs.count];
+    for (int i=0; i<self.meshData.indexs.count; i++) {
+        Indices[i]=[self.meshData.indexs[i] intValue];
+    }
+    
+    
+    self.meshData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
+                                                     length:sizeof(Indices)
+                                                    options:MTLResourceStorageModeShared];
+    
+    
+    self.meshData.trinum=(int)self.objData.indexs.count;
+    
+    self.meshData.mtkindexCount = self.objData.trinum;
+    
+ 
 }
 -(void) initVcData {
      
@@ -106,6 +130,8 @@
         tempDq.mtkquatArr=  [self.scene3D.context3D changeDataToGupMtkfloat4: tempDq.quatArr];
         tempDq.mtkposArr=  [self.scene3D.context3D changeDataToGupMtkfloat3: tempDq.posArr];
         
+    
+        
         [frameDualQuat addObject:tempDq];
         
     }
@@ -115,6 +141,26 @@
 - (Display3DParticle *)getParticle
 {
     return [[Display3DBonePartilce alloc]init:self.scene3D];
+}
+-(void)regShader;
+{
+
+   
+    if (!self.materialParam) {
+          return;
+      }
+     NSArray<NSNumber*>* shaderParameAry = [self getShaderParam];
+    self.materialParam.shader=  [self.scene3D.progrmaManager getMaterialProgram:Display3DBoneShader.shaderStr shaderCls: [[Display3DBoneShader alloc]init:self.scene3D]  material:self.materialParam.material paramAry:shaderParameAry parmaByFragmet:NO];
+
+   
+    
+}
+-(NSArray<NSNumber*>*)getShaderParam;
+{
+  
+    NSArray<NSNumber*>* shaderParameAry = [[NSArray alloc] initWithObjects:@1,@1,@1,@1,@1, nil];
+     
+    return shaderParameAry;
 }
 
 @end
