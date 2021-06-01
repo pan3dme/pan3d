@@ -69,7 +69,7 @@
     
     NSMutableArray* arr=[[NSMutableArray alloc]init];
  
-    [arr addObject:[self getTempSceneInfo:@"2001"]];
+    [arr addObject:[self getTempSceneInfo:@"2021001"]];
  
     HomeSceneBaseViewController* vc=[[HomeSceneBaseViewController alloc]init:arr];
     [UIApplication sharedApplication].keyWindow.rootViewController = vc;
