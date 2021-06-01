@@ -46,11 +46,7 @@
     
     this.meshData.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:0 stride:buffStride readType:0];
     this.meshData.uvs=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:3 stride:buffStride readType:0];
- 
     this.meshData.indexs=   [BaseRes readIntForTwoByte:byte nsdata:dataBase];
-    
-//    [this upGpuIndexBuffer];
-    
     this.meshData.boneIDAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:5 stride:buffStride readType:2];
     this.meshData.boneWeightAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:9 stride:buffStride readType:3];
  
@@ -62,34 +58,15 @@
 
     [this initVcData];
   
-    
+     
     this.meshData.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:  this.meshData.indexs];
     this.meshData.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat3:  this.meshData.vertices ];
     this.meshData.mtkuvs= [self.scene3D.context3D changeDataToGupMtkfloat2:  this.meshData.uvs ];
     this.meshData.mtkboneId= [self.scene3D.context3D changeDataToGupMtkfloat4:  this.meshData.boneIDAry ];
     this.meshData.mtkboneWeight= [self.scene3D.context3D changeDataToGupMtkfloat4:  this.meshData.boneWeightAry ];
-    this.meshData.mtkuvs=[self.scene3D.context3D changeDataToGupMtkfloat2:  this.meshData.uvs];
     this.meshData.mtkindexCount =   this.meshData.indexs.count;
 }
--(void)upGpuIndexBuffer
-{
-    unsigned int Indices[self.meshData.indexs.count];
-    for (int i=0; i<self.meshData.indexs.count; i++) {
-        Indices[i]=[self.meshData.indexs[i] intValue];
-    }
-    
-    
-    self.meshData.mtkindexs = [self.scene3D.mtkView.device newBufferWithBytes:Indices
-                                                     length:sizeof(Indices)
-                                                    options:MTLResourceStorageModeShared];
-    
-    
-    self.meshData.trinum=(int)self.objData.indexs.count;
-    
-    self.meshData.mtkindexCount = self.objData.trinum;
-    
  
-}
 -(void) initVcData {
      
 }

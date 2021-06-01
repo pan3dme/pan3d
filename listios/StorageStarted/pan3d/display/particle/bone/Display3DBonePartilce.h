@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Display3DBonePartilce : Display3DParticle
-@property (nonatomic, assign)  int timeNum;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

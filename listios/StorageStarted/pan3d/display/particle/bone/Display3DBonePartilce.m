@@ -17,14 +17,7 @@
 @implementation Display3DBonePartilce
 
  
-- (instancetype)init:value
-{
-    self = [super init:value];
-    if (self) {
-        self.timeNum=0;
-    }
-    return self;
-}
+ 
 
 - (void)update;
 {
@@ -41,7 +34,7 @@
     
     id<MTLRenderCommandEncoder> renderEncoder=this.scene3D.context3D.renderEncoder;
     
-    LineMatrixRoleView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [self.posMatrix3d getMatrixFloat4x4]};
+    LineMatrixRoleView matrix = {[self.scene3D.camera3D.modelMatrix getMatrixFloat4x4], [self.modeMatrix getMatrixFloat4x4]};
     [renderEncoder setVertexBytes:&matrix
                            length:sizeof(matrix)
                           atIndex:0];
@@ -51,14 +44,14 @@
     NSMutableArray<DualQuatFloat32Array*>* dualQuatFrame = [anim.boneQPAry objectAtIndex:0];
     
  
-    this.timeNum=this.timeNum+1;
-    if(this.timeNum>=dualQuatFrame.count-1){
-        this.timeNum=0;
-    }
-  
-     
     
-    DualQuatFloat32Array*  dualQuatFloat32Array=[dualQuatFrame objectAtIndex:this.timeNum];
+ 
+    int bb=this._time/([Scene_data default].frameTime*2);
+  
+    NSLog(@"%f   %d",this._time,bb%(int)dualQuatFrame.count );
+    bb=bb%(int)dualQuatFrame.count;
+    
+    DualQuatFloat32Array*  dualQuatFloat32Array=[dualQuatFrame objectAtIndex:bb];
  
     [renderEncoder setVertexBuffer: dualQuatFloat32Array.mtkquatArr   offset:0   atIndex:5];
     [renderEncoder setVertexBuffer: dualQuatFloat32Array.mtkposArr   offset:0   atIndex:6];

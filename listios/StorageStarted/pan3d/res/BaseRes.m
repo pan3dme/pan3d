@@ -297,8 +297,7 @@ typedef void (^PostSuccess)(NSDictionary *responseJson);
                     tempNum=  [srcByte readByte];
                     break;
                 case 3:
-                    tempNum=  ([srcByte readByte]+128.0)/255.0;
-               
+                    tempNum=   ([srcByte readByte]+128.0)/256.0*1.0;
                     break;
                 case 4:
                     tempNum=  [srcByte readFloat];
