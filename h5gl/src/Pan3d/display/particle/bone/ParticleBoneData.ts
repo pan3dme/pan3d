@@ -5,7 +5,7 @@
         public getParticle(): Display3DParticle {
             return new Display3DBonePartilce(this.scene3D);
         }
-       
+     
         public meshData: MeshData;
         public animData: AnimData;
         public objScale: number = 1
@@ -34,16 +34,35 @@
             this.meshData.stride = dataWidth * 4;
 
 
-           
+            // BaseRes.readFloatTwoByte($byte, this.meshData.vertices)
+            // //console.log($byte.position);
+            // BaseRes.readFloatTwoByte($byte, this.meshData.uvs)
+            // //console.log($byte.position);
+            // BaseRes.readIntForTwoByte($byte, this.meshData.indexs);
+            // //console.log($byte.position);
+
+            // var numLength: number = $byte.readInt();
+            // this.meshData.boneIDAry = new Array
+            // for (var j: number = 0; j < numLength; j++) {
+            //     this.meshData.boneIDAry.push($byte.readByte())
+            // }
+            // //console.log($byte.position);
+
+            // numLength = $byte.readInt();
+            // this.meshData.boneWeightAry = new Array
+            // for (var j: number = 0; j < numLength; j++) {
+            //     this.meshData.boneWeightAry.push(($byte.readByte() + 128) / 255);
+            // }
+            // //console.log($byte.position);
 
             this.readFrameQua($byte);
-       
+            ////console.log($byte.position);
             super.setAllByteInfo($byte);
-          
+            //this.uploadGpu();
             this.initVcData();
 
-            this.meshData.vertexBuffer =  this.scene3D.context3D.uploadBuff3DArrayBuffer(arybuff);
-            this.meshData.indexBuffer =  this.scene3D.context3D.uploadIndexBuff3D(this.meshData.indexs);
+            this.meshData.vertexBuffer = this.scene3D.context3D.uploadBuff3DArrayBuffer(arybuff);
+            this.meshData.indexBuffer = this.scene3D.context3D.uploadIndexBuff3D(this.meshData.indexs);
             this.meshData.treNum = this.meshData.indexs.length;
         }
         public initVcData(): void {
@@ -88,16 +107,16 @@
         }
         private uploadMesh($mesh: MeshData): void {
             $mesh.vertexBuffer = this.scene3D.context3D.uploadBuff3D($mesh.vertices);
-            $mesh.uvBuffer =  this.scene3D.context3D.uploadBuff3D($mesh.uvs);
-            $mesh.boneIdBuffer =  this.scene3D.context3D.uploadBuff3D($mesh.boneIDAry);
-            $mesh.boneWeightBuffer =  this.scene3D.context3D.uploadBuff3D($mesh.boneWeightAry);
-            $mesh.indexBuffer =  this.scene3D.context3D.uploadIndexBuff3D($mesh.indexs);
+            $mesh.uvBuffer = this.scene3D.context3D.uploadBuff3D($mesh.uvs);
+            $mesh.boneIdBuffer = this.scene3D.context3D.uploadBuff3D($mesh.boneIDAry);
+            $mesh.boneWeightBuffer = this.scene3D.context3D.uploadBuff3D($mesh.boneWeightAry);
+            $mesh.indexBuffer = this.scene3D.context3D.uploadIndexBuff3D($mesh.indexs);
             $mesh.treNum = $mesh.indexs.length
         }
         public regShader(): void {
-            this.materialParam.shader = this.scene3D.progrmaManager.getMaterialProgram(Display3DBoneShader.Display3DBoneShader,
+            this.materialParam.shader = this.scene3D.progrmaManager .getMaterialProgram(Display3DBoneShader.Display3DBoneShader,
                 Display3DBoneShader, this.materialParam.material);
- 
+           
         }
     }
 }
