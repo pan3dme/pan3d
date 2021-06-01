@@ -159,8 +159,15 @@ public loadDynamicTexUtil(material: MaterialParam): void {
         if (texVec[i].isParticleColor || texVec[i].isDynamic || texVec[i].type != 0) {
             continue;
         }
-     
+        [self loadTempTextureByTexItem:texVec[i]];
     }
+}
+-(void)loadTempTextureByTexItem:(TexItem*)texItem{
+    [self.scene3D.textureManager getTexture:[[Scene_data default]getWorkUrlByFilePath:texItem.url] fun:^(NSObject * _Nonnull any) {
+        TextureRes* temp=(TextureRes*)any;
+        texItem.textureRes=temp;
+        
+    } wrapType:0 info:nil filteType:0 mipmapType:0];
 }
 
 /*
