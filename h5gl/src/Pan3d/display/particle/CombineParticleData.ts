@@ -83,7 +83,7 @@ module Pan3d {
                     }
                 case 13:
                     {
-                        // pdata = new ParticleBoneData()
+                          pdata = new ParticleBoneData(this.scene3D)
                         break;
                     }
 

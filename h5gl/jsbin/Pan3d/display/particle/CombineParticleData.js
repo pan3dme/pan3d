@@ -95,7 +95,7 @@ var Pan3d;
                     }
                 case 13:
                     {
-                        // pdata = new ParticleBoneData()
+                        pdata = new Pan3d.ParticleBoneData(this.scene3D);
                         break;
                     }
             }
