@@ -78,8 +78,8 @@ public class ProgrmaManager extends ResGC {
             Log.d(TAG, keyStr);
             this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
-
-            this._changeShader(shader);
+            shader.fragment=shader.getFragmentShaderString();
+//            this._changeShader(shader);
 
         }
         shader.encodeVstr(shader.vertex,shader.fragment);

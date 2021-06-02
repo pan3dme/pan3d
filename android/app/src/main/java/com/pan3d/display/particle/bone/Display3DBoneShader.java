@@ -50,13 +50,18 @@ public class Display3DBoneShader extends Shader3D {
     }
     public String getFragmentShaderString() {
         String fragment =
-                "precision mediump float;\n" +
-
-                        "varying vec2 v0;\n" +
-                        "void main(void)\n" +
-                        "{\n" +
-
-                        "gl_FragColor =vec4(1,0,0,1);\n" +
+                "precision mediump float;"+
+                        "uniform sampler2D fs0;"+
+                        "uniform vec4 fc[1];"+
+                        "varying vec2 v0;"+
+                        "void main(void){"+
+                        "vec4 ft0 = texture2D(fs0,v0);"+
+                        "ft0.xyz *= ft0.w;"+
+                        "vec4 ft1 = ft0 * fc[0];"+
+                        "ft0.xyz = ft1.xyz;"+
+                        "ft0.w = ft1.w;"+
+                        "ft0.xyz = ft0.xyz * ft0.w;"+
+                        "gl_FragColor = ft0;"+
                         "}";
 
         return fragment;
