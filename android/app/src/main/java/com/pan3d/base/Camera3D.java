@@ -32,7 +32,7 @@ public class Camera3D extends Object3D {
     public  void  upFrame()
     {
         this.viewMatrix.identity();
-        this.viewMatrix.perspectiveFieldOfViewLH(1,(float) this.fovw/(float) this.fovh*1.0f,10,5000);
+        this.viewMatrix.perspectiveFieldOfViewLH(1,(float) this.fovw/(float) this.fovh*1.0f,500,4000);
         this.camMatrix3D.identity();
         this.camMatrix3D.appendRotation(this.rotationY, Vector3D.Y_AXIS);
         this.camMatrix3D.appendRotation(this.rotationX, Vector3D.X_AXIS);

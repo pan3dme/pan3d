@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+
 import com.example.android.R;
 import com.pan3d.base.CallBackFun;
 import com.pan3d.display.role.SceneChar;
@@ -21,9 +24,10 @@ import org.json.JSONObject;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class SceneShowView extends AppCompatActivity {
+public class SceneShowView extends AppCompatActivity implements GestureDetector.OnGestureListener {
     private static final String TAG ="SceneShowView" ;
     ConstrainSceneView constrainSceneViewOne;
+    GestureDetector detector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,8 @@ public class SceneShowView extends AppCompatActivity {
         getSupportActionBar().setTitle(getString(R.string.app_name));
         String sceneinfo = getIntent().getStringExtra("sceneinfo");
 
+        detector = new GestureDetector(this, this);
+        //实例化这个手势检测器对象
 
         Context context=  getApplicationContext();
 
@@ -58,6 +64,12 @@ public class SceneShowView extends AppCompatActivity {
         constrainSceneViewOne.setRect(rectangle);
 
 
+    }
+    //下面实现的这些接口负责处理所有在该Activity上发生的触碰屏幕相关的事件
+    @Override
+    public boolean onTouchEvent(MotionEvent e)
+    {
+        return detector.onTouchEvent(e);
     }
     public Display getDisplay(Activity activity){
         return activity.getWindowManager().getDefaultDisplay();
@@ -140,5 +152,48 @@ public class SceneShowView extends AppCompatActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        Log.d(TAG,   "The method has been called - onScroll");
+        //当该方法被调用时，通过一个Toast来提示用户哪个方法被调用了，下同
+
+
+        this.constrainSceneViewOne.mainScene3D.camera3D.rotationX+=distanceY*0.1;
+        this.constrainSceneViewOne.mainScene3D.camera3D.rotationY+=distanceX*0.1;
+
+        if(distanceY >= 0){
+
+        }
+        else{
+
+        }
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return false;
     }
 }
