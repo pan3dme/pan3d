@@ -31,8 +31,7 @@ public class Display3DBonePartilce extends Display3DParticle {
         ctx.setVa(this.shader3D,"boneID",4,mesh.boneIdBuffer);
         ctx.setVa(this.shader3D,"boneWeight",4,mesh.boneWeightBuffer);
         ctx.drawCall(mesh.indexBuffer,mesh.treNum);
-
-        Log.d(TAG, "setVa: "+mesh.treNum);
+ 
 
 
     }

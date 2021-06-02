@@ -47,8 +47,8 @@
     this.meshData.vertices=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:3 offset:0 stride:buffStride readType:0];
     this.meshData.uvs=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:2 offset:3 stride:buffStride readType:0];
     this.meshData.indexs=   [BaseRes readIntForTwoByte:byte nsdata:dataBase];
-    this.meshData.boneIDAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:5 stride:buffStride readType:2];
-    this.meshData.boneWeightAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:9 stride:buffStride readType:3];
+    this.meshData.boneIDAry= [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:5 stride:buffStride readType:2];
+    this.meshData.boneWeightAry= [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:9 stride:buffStride readType:3];
  
     this.meshData.stride =buffStride;
     
@@ -57,8 +57,7 @@
     [super setAllByteInfo:byte];
 
     [this initVcData];
-  
-     
+ 
     this.meshData.mtkindexs= [self.scene3D.context3D changeObjDataIndexToMtkGpu:  this.meshData.indexs];
     this.meshData.mtkvertices= [self.scene3D.context3D changeDataToGupMtkfloat3:  this.meshData.vertices ];
     this.meshData.mtkuvs= [self.scene3D.context3D changeDataToGupMtkfloat2:  this.meshData.uvs ];

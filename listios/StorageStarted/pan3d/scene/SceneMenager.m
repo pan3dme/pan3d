@@ -53,14 +53,13 @@
   
 
     int type=   [value[@"type"]intValue];
+ 
     switch (type) {
         case PREFAB_TYPE:
             [self addBuildDisplay3DSprite:value];
             break;
         case SCENE_PARTICLE_TYPE:
-            
             [self addParticleByUrl:value];
- 
             break;
         default:
             break;

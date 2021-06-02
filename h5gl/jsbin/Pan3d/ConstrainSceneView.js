@@ -63,8 +63,6 @@ var Pan3d;
                 for (var i = 0; i < buildAry.length; i++) {
                     var itemObj = buildAry[i];
                     if (itemObj.type == Pan3d.BaseRes.PREFAB_TYPE) {
-                        if (itemObj.id == 24) {
-                        }
                         _this.scene3D.addDisplay(_this.getBuildSprite(itemObj));
                     }
                     else if (itemObj.type == Pan3d.BaseRes.SCENE_PARTICLE_TYPE) {
