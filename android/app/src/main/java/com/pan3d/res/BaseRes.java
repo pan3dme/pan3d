@@ -194,7 +194,8 @@ public class BaseRes extends ResCount {
         this.readObj(new ByteArray(outByte));
     }
     public byte[] getZipData(byte[] sourcesByte) {
-        int dataLength = 1024*1024;
+
+        int dataLength = sourcesByte.length*2;
         byte[] result=new byte[dataLength];
         try {
             Inflater decompresser=new Inflater();
