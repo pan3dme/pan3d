@@ -112,9 +112,10 @@ public class HomeFragment<CustomBean> extends Fragment {
     }
     private  void toTestScene(View root )
     {
+        //2021001 2015
         Context mContext=root.getContext();
         Intent intent = new Intent(mContext, SceneShowView.class);
-        String string=  "[{\"id\":1,\"type\":1,\"text\":2015}]";
+        String string=  "[{\"id\":1,\"type\":1,\"text\":2021002}]";
         intent.putExtra("sceneinfo",string);
         mContext.startActivity(intent);
     }

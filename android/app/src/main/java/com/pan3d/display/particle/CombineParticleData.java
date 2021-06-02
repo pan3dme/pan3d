@@ -5,6 +5,7 @@ import android.util.Log;
 import com.pan3d.base.ByteArray;
 import com.pan3d.base.Scene_data;
 import com.pan3d.display.particle.ball.ParticleBallData;
+import com.pan3d.display.particle.bone.ParticleBoneData;
 import com.pan3d.display.particle.facet.ParticleFacetData;
 import com.pan3d.display.particle.locus.ParticleLocusData;
 import com.pan3d.display.particle.locusball.ParticleLocusballData;
@@ -69,6 +70,11 @@ public class CombineParticleData extends ResCount {
             case 9:
             {
                 pdata = new ParticleModelData( scene3D);
+                break;
+            }
+            case 13:
+            {
+                pdata = new ParticleBoneData( scene3D);
                 break;
             }
             case 14:

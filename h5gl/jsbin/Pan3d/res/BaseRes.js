@@ -99,6 +99,9 @@ var Pan3d;
         BaseRes.prototype.readObj = function ($srcByte) {
             var objNum = $srcByte.readInt();
             for (var i = 0; i < objNum; i++) {
+                if (i == 26) {
+                    console.log($srcByte.length, $srcByte.position);
+                }
                 var url = this.scene3D.fileRoot + $srcByte.readUTF();
                 var size = $srcByte.readInt();
                 var newByte = new Pan3d.Pan3dByteArray();
@@ -215,6 +218,7 @@ var Pan3d;
                 scaleNum = $byte.readFloat();
             }
             var readNum = verLength / $dataWidth;
+            var outArr = [];
             for (var i = 0; i < readNum; i++) {
                 var pos = $stride * i + $offset;
                 for (var j = 0; j < $dataWidth; j++) {
@@ -228,12 +232,17 @@ var Pan3d;
                         $data.setFloat32((pos + j) * 4, $byte.readByte(), true);
                     }
                     else if ($readType == 3) {
-                        $data.setFloat32((pos + j) * 4, ($byte.readByte() + 128) / 255, true);
+                        var bb = ($byte.readByte() + 128) / 255;
+                        $data.setFloat32((pos + j) * 4, bb, true);
+                        outArr.push(bb);
                     }
                     else if ($readType == 4) {
                         $data.setFloat32((pos + j) * 4, $byte.readFloat(), true);
                     }
                 }
+            }
+            if (outArr.length > 1) {
+                console.log(outArr);
             }
         };
         //读取材质参数
