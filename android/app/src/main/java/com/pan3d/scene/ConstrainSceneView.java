@@ -198,6 +198,10 @@ public class ConstrainSceneView extends ViewGroup {
         layoutParams.height=rect.height;
 
         this.setLayoutParams(layoutParams);
+
+        mainScene3D.camera3D.fovw=rect.width;
+        mainScene3D.camera3D.fovh=rect.height;
+
     }
 
     public void addLoadFrame3dRes()

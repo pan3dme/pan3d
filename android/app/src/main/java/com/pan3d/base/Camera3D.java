@@ -1,10 +1,13 @@
 package com.pan3d.base;
 
+import android.util.Log;
+
 import com.pan3d.vo.Matrix3D;
 import com.pan3d.vo.Vector3D;
 
 public class Camera3D extends Object3D {
 
+    private static final String TAG = "Camera3D";
     public Matrix3D camMatrix3D;
     public Matrix3D viewMatrix;
     public Matrix3D modelMatrix;
@@ -28,9 +31,8 @@ public class Camera3D extends Object3D {
     }
     public  void  upFrame()
     {
-
         this.viewMatrix.identity();
-        this.viewMatrix.perspectiveFieldOfViewLH(1,1,10,5000);
+        this.viewMatrix.perspectiveFieldOfViewLH(1,(float) this.fovw/(float) this.fovh*1.0f,10,5000);
         this.camMatrix3D.identity();
         this.camMatrix3D.appendRotation(this.rotationY, Vector3D.Y_AXIS);
         this.camMatrix3D.appendRotation(this.rotationX, Vector3D.X_AXIS);

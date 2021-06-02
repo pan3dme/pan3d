@@ -1,23 +1,19 @@
 package com.example.android.ui.scene;
-
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.solver.widgets.Rectangle;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Display;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.android.R;
 import com.pan3d.base.CallBackFun;
 import com.pan3d.display.role.SceneChar;
 import com.pan3d.scene.ConstrainSceneView;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,6 +22,7 @@ import org.json.JSONObject;
  * create an instance of this fragment.
  */
 public class SceneShowView extends AppCompatActivity {
+    private static final String TAG ="SceneShowView" ;
     ConstrainSceneView constrainSceneViewOne;
 
     @Override
@@ -34,21 +31,36 @@ public class SceneShowView extends AppCompatActivity {
         setContentView(R.layout.fragment_scene_show_view);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.app_name));
-
         String sceneinfo = getIntent().getStringExtra("sceneinfo");
 
 
-        final ConstraintLayout constraintlayout =  findViewById(R.id.base_scene_gl_view);
         Context context=  getApplicationContext();
+
+
+        final ConstraintLayout constraintlayout =  findViewById(R.id.base_scene_gl_view);
+
+
         constrainSceneViewOne =new ConstrainSceneView(context, new CallBackFun() {
             @Override
             public void StateChange(boolean State) {
-
                 initSceneDataByBunld(sceneinfo);
+
+
+
             }
         });
         constraintlayout.addView(constrainSceneViewOne);
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        Rectangle rectangle=new Rectangle();
+        rectangle.setBounds(0,0,displayMetrics.widthPixels,displayMetrics.heightPixels);
+        constrainSceneViewOne.setRect(rectangle);
+
+
+    }
+    public Display getDisplay(Activity activity){
+        return activity.getWindowManager().getDefaultDisplay();
     }
     private void initSceneDataByBunld(String val)
     {
