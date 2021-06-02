@@ -21,7 +21,8 @@ public class Display3DBoneShader extends Shader3D {
                         "uniform vec4 boneQ[54];" +
                         "uniform vec3 boneD[54];" +
                         "uniform mat4 vpMatrix3D;" +
-                        "uniform mat4 posMatrix3D;" +
+                        "uniform mat4 modeMatrix;" +
+
                         "vec4 qdv(vec4 q, vec3 d, vec3 v ){" +
                         "   vec3 t = 2.0 * cross(q.xyz, v);" +
                         "   vec3 f = v + q.w * t + cross(q.xyz, t);" +
@@ -35,26 +36,13 @@ public class Display3DBoneShader extends Shader3D {
                         "   tempnum.x = tempnum.x * -1.0;" +
                         "   return tempnum;" +
                         " }" +
-                        "vec4 qdvNrm(vec4 q, vec3 v ){" +
-                        "      vec3 t = 2.0 * cross(q.xyz, v);" +
-                        "      vec3 f = v + q.w * t + cross(q.xyz, t);" +
-                        "      return vec4(f.x, f.y, f.z, 1.0);\n" +
-                        "}" +
-                        " vec4 getQDdataNrm(vec3 vdata){" +
-                        "    vec4 tempnum = qdvNrm(boneQ[int(boneID.x)], vdata) * boneWeight.x;" +
-                        "    tempnum += qdvNrm(boneQ[int(boneID.y)], vdata) * boneWeight.y;" +
-                        "    tempnum += qdvNrm(boneQ[int(boneID.z)], vdata) * boneWeight.z;" +
-                        "    tempnum += qdvNrm(boneQ[int(boneID.w)], vdata) * boneWeight.w;" +
-                        "    tempnum.x = tempnum.x * -1.0;" +
-                        "    tempnum.xyz = normalize(tempnum.xyz);" +
-                        "    return tempnum;" +
-                        "}" +
+
+
                         " void main(void){" +
                         "    v0 = v2Uv;" +
                         "    vec4 vt0 = getQDdata(vec3(pos.x, pos.y, pos.z));" +
-                        "    vt0.xyz = vt0.xyz * 1.0;" +
 
-                        "    vt0 = posMatrix3D * vt0;" +
+                        "    vt0 = modeMatrix * vt0;" +
                         "    vt0 = vpMatrix3D * vt0;" +
                         "    gl_Position = vt0;\n" +
                         "  }";
@@ -63,12 +51,12 @@ public class Display3DBoneShader extends Shader3D {
     public String getFragmentShaderString() {
         String fragment =
                 "precision mediump float;\n" +
-                        "uniform sampler2D fs0;\n"+
+
                         "varying vec2 v0;\n" +
                         "void main(void)\n" +
                         "{\n" +
-                        "vec4 infoUv  =texture2D(fs0,v0.xy);\n"+
-                        "gl_FragColor =infoUv;\n" +
+
+                        "gl_FragColor =vec4(1,0,0,1);\n" +
                         "}";
 
         return fragment;

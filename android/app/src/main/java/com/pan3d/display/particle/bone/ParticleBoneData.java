@@ -55,16 +55,16 @@ public class ParticleBoneData extends ParticleData {
         super.setAllByteInfo($byte);
 
         this.initVcData();
-        this.uploadGpu(this.meshData);
+//        this.uploadGpu(this.meshData);
     }
-    private void uploadGpu(MeshData val) {
-        val.vertexBuffer= val.upGpuvertexBuffer(val.verticeslist);
-        val.uvBuffer=val.upGpuvertexBuffer(val.uvlist);
-        val.boneIdBuffer=val.upGpuvertexBuffer(val.boneIDAry);
-        val.boneWeightBuffer=val.upGpuvertexBuffer(val.boneWeightAry);
-        val.indexBuffer= val.upGpuIndexBuffer(val.indexs);
-        val.treNum=val.indexs.size();
-    }
+//    private void uploadGpu(MeshData val) {
+//        val.vertexBuffer= val.upGpuvertexBuffer(val.verticeslist);
+//        val.uvBuffer=val.upGpuvertexBuffer(val.uvlist);
+//        val.boneIdBuffer=val.upGpuvertexBuffer(val.boneIDAry);
+//        val.boneWeightBuffer=val.upGpuvertexBuffer(val.boneWeightAry);
+//        val.indexBuffer= val.upGpuIndexBuffer(val.indexs);
+//        val.treNum=val.indexs.size();
+//    }
     public void initVcData() {
 //        this.vcmatData = new Float32Array(Display3DBoneShader.getVcSize() * 16);
     }
@@ -75,8 +75,8 @@ public class ParticleBoneData extends ParticleData {
         List<DualQuatFloat32Array> $frameDualQuat = new ArrayList<>();
         for (int i = 0; i < frameNum; i++) {
             int $len = $byte.readInt();
-            float quat[]=new float[$len * 4];
-            float pos[]=new float[$len* 3];
+            float quat[]=new float[54 * 4];
+            float pos[]=new float[54* 3];
             for (int j = 0; j < $len; j++) {
                 quat[j * 4 + 0] = $byte.readShort() / RGB32767;
                 quat[j * 4 + 1] = $byte.readShort() / RGB32767;

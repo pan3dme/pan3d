@@ -263,8 +263,8 @@ public class BaseRes extends ResCount {
                     tempNum=  $byte.readByte();
                 } else if (readType == 3) {
                     // $data.setFloat32((pos + j) * 4, ($byte.readByte() + 128) / 255, true);
-
-                    tempNum=  $byte.readByte()+128.0f/255.0f;
+float kkk= ($byte.readByte()+128.0f)/255.0f;
+                    tempNum=  kkk;
                 } else if (readType == 4) {
                     // $data.setFloat32((pos + j) * 4, $byte.readFloat(), true);
 
