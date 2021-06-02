@@ -56,7 +56,7 @@ public class ConstrainSceneView extends ViewGroup {
                 mainScene3D.initData();
                 GridLineSprite dis=new GridLineSprite(mainScene3D);
                 mainScene3D.addDisplay(dis);
-                mainScene3D.camera3D.distance=300;
+                mainScene3D.camera3D.distance=1000;
                 _initCompleteFun.StateChange(true);
             }
             @Override
@@ -71,7 +71,7 @@ public class ConstrainSceneView extends ViewGroup {
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 mainScene3D.upFrame();
-                mainScene3D.camera3D.rotationY+=skipnum;
+//                mainScene3D.camera3D.rotationY+=skipnum;
             }
         });
         mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
@@ -114,19 +114,21 @@ public class ConstrainSceneView extends ViewGroup {
     {
         try {
             int type = obj.getInt("type");
+            int id=obj.getInt("id");
             if(type== BaseRes.PREFAB_TYPE){
-                int id=obj.getInt("id");
-                if( id==2){
 
-                }
+
                 BuildDisplay3DSprite tempDis=new BuildDisplay3DSprite();
                 tempDis.scene3D =scene3D;
                 tempDis.setInfo(obj);
                 scene3D.addDisplay(tempDis);
             }
             if(type==BaseRes.SCENE_PARTICLE_TYPE){
-                CombineParticle particle = this.getParticleSprite(scene3D,obj);
-                scene3D.particleManager.addParticle(particle);
+                if( id==101){
+                    CombineParticle particle = this.getParticleSprite(scene3D,obj);
+                    scene3D.particleManager.addParticle(particle);
+                }
+
             }
 
         } catch (Exception e) {
@@ -138,9 +140,9 @@ public class ConstrainSceneView extends ViewGroup {
         try {
             CombineParticle particle =     scene3D.particleManager.getParticleByte(   itemObj.getString( "url"));
             particle.type=0;
-            particle.setX((float)itemObj.getDouble("x"));
-            particle.setY((float) itemObj.getDouble("y"));
-            particle.setZ((float)itemObj.getDouble("z"));
+//            particle.setX((float)itemObj.getDouble("x"));
+//            particle.setY((float) itemObj.getDouble("y"));
+//            particle.setZ((float)itemObj.getDouble("z"));
             particle.setScaleX((float)itemObj.getInt("scaleX"));
             particle.setScaleY( (float)itemObj.getInt("scaleY"));
             particle.setScaleZ((float)itemObj.getInt("scaleZ"));

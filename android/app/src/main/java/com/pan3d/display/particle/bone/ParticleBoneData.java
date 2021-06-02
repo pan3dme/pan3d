@@ -2,14 +2,14 @@ package com.pan3d.display.particle.bone;
 
 import com.pan3d.base.ByteArray;
 import com.pan3d.base.MeshData;
+import com.pan3d.display.particle.Display3DParticle;
 import com.pan3d.display.particle.ParticleData;
+
 import com.pan3d.res.BaseRes;
 import com.pan3d.scene.Scene3D;
 import com.pan3d.vo.AnimData;
 import com.pan3d.vo.DualQuatFloat32Array;
-import com.pan3d.vo.Matrix3D;
-import com.pan3d.vo.Quaternion;
-import com.pan3d.vo.Vector3D;
+
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -22,6 +22,12 @@ public class ParticleBoneData extends ParticleData {
     public  ParticleBoneData(Scene3D val  ){
         super(val);
     }
+
+    @Override
+    public Display3DParticle getParticle() {
+        return  new Display3DBonePartilce(this.scene3D);
+    }
+
     public void setAllByteInfo(ByteArray $byte) {
         this.meshData = new MeshData(this.scene3D);
         this.meshData.indexs=new ArrayList<>();
@@ -29,14 +35,6 @@ public class ParticleBoneData extends ParticleData {
         this.animData = new AnimData();
         this.objScale = $byte.readFloat();
 
-/*
-    byte[] arybuff = new byte[(int)len] ;
-        ByteBuffer data=ByteBuffer.wrap(arybuff);
-
-        this.objData.verticeslist=   BaseRes.readBytes2ArrayBuffer($byte, data, 3, 0, dataWidth, 4);//vertices
-        this.objData.uvlist=    BaseRes.readBytes2ArrayBuffer($byte, data, 2, 3, dataWidth, 4);//uv
-
- */
 
 
         int dataWidth = 13;
@@ -103,6 +101,24 @@ public class ParticleBoneData extends ParticleData {
         this.animData.boneQPAry = new ArrayList<>();
         this.animData.boneQPAry.add($frameDualQuat);
     }
+    @Override
+    protected void regShader() {
 
+        if (this.materialParam==null) {
+            return;
+        }
+        List<Boolean>  shaderParameAry =this.getShaderParam();
+        this.materialParam.shader3D=    scene3D.progrmaManager.getMaterialProgram(Display3DBoneShader.shaderNameStr,new Display3DBoneShader(scene3D),this.materialParam.material,shaderParameAry,false);
+    }
+
+    private List<Boolean> getShaderParam() {
+        List<Boolean> shaderParameAry=new ArrayList<>();
+        shaderParameAry.add(true );
+        shaderParameAry.add(true );
+        shaderParameAry.add(true );
+        shaderParameAry.add(true );
+        return shaderParameAry;
+
+    }
 
 }

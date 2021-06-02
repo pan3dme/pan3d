@@ -74,7 +74,7 @@ public class ProgrmaManager extends ResGC {
         shader.fragment = material.shaderStr;
 
 
-        if (keyStr.indexOf("Materiee_")!=-1&&true) {
+        if (keyStr.indexOf("Display3DBoneShadercontent/particleresources/materials/m_ef_ver_byte.txt_true_true_true_truefalse_")!=-1&&true) {
             Log.d(TAG, keyStr);
             this.outShader(shader.vertex,"vertex");
             this.outShader(shader.fragment,"fragment");
@@ -149,42 +149,18 @@ public class ProgrmaManager extends ResGC {
     "}";
 
  */
-        /*
-        shader.fragment="precision mediump float;\n"+
-                "uniform sampler2D fs0;"+
-                "uniform sampler2D fs1;"+
-                "uniform samplerCube fs2;"+
-                "uniform vec4 fc[2];"+
-                "varying vec2 v0;"+
-                "varying vec3 v1;"+
-                "varying vec3 v4;"+
-                "void main() {\n"+
-                "vec4 ft0 = texture2D(fs0,v0);"+
-                "vec4 ft1 = vec4(ft0.xyz,1.0);"+
-                "vec4 ft2 = vec4(0,0,0,1);"+
-                "ft2.xyz = v4.xyz;"+
-                "vec4 ft3 = vec4(0,0,0,1);"+
-                "ft3.xyz = mix(vec3(fc[1].y,fc[1].y,fc[1].y) * 0.08,ft1.xyz,fc[1].x);"+
-                "vec4 ft4 = vec4(0,0,0,1);"+
-                "ft4.xyz = fc[0].xyz - v1.xyz;"+
-                "ft4.xyz = normalize(ft4.xyz);"+
-                "ft4.y= dot(ft4.xyz,ft2.xyz);"+
-                "ft4.x = fc[1].z;"+
-                "ft4 = texture2D(fs1,ft4.xy);"+
-                "ft3.xyz = ft3.xyz * ft4.x + ft4.y;"+
-                "ft3.xyz = ft3.xyz * fc[1].y;"+
-                "ft4.xyz = v1.xyz - fc[0].xyz;"+
-                "ft4.xyz = normalize(ft4.xyz);"+
-                "ft4.xyz = reflect(ft4.xyz,ft2.xyz);"+
-                "ft4 = textureCube(fs2,ft4.xyz);"+
-                "ft3.xyz = ft3.xyz * ft4.xyz;"+
-                "ft4.xyz = ft1.xyz * (1.0-fc[1].x);"+
-                "ft4.xyz = ft4.xyz + ft3.xyz;"+
-                "ft4.w = 1.0;"+
-                "gl_FragColor = ft4;"+
-                "}";
 
-         */
+        shader.fragment= "precision mediump float;"+
+                "uniform sampler2D fs0;"+
+                "uniform vec4 fc[1];"+
+                "varying vec2 v0;"+
+                "void main(void){"+
+
+
+                "gl_FragColor = vec4(1,0,0,1);"+
+                "}";;
+
+
 
 
     }
