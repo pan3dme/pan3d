@@ -10,6 +10,8 @@
 #import "GridLineSprite.h"
 
 @interface SceneBaseViewController ()
+@property (nonatomic, strong)Vector2D* lastRotation;
+@property (nonatomic, assign)float lastDistance;
 @end
 @implementation SceneBaseViewController
 
@@ -25,6 +27,8 @@
 }
 -(void)addMouseEvent;
 {
+    self.lastRotation=[[Vector2D alloc] init];
+    self.lastDistance=self.scene3D.camera3D.distance;
     // 缩放手势
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
     [self.view addGestureRecognizer:pinchGesture];
@@ -34,8 +38,11 @@
 }
 - (void) pinchView:(UIPinchGestureRecognizer *)pinchGesture
 {
-    if (pinchGesture.state == UIGestureRecognizerStateBegan || pinchGesture.state == UIGestureRecognizerStateChanged) {
-        self.scene3D.camera3D.distance*=1+(1-pinchGesture.scale)*0.1;
+    if (pinchGesture.state == UIGestureRecognizerStateBegan ) {
+        self.lastDistance=self.scene3D.camera3D.distance;
+    }
+    if ( pinchGesture.state == UIGestureRecognizerStateChanged) {
+        self.scene3D.camera3D.distance=self.lastDistance*(2-pinchGesture.scale);
     }
 }
 
@@ -43,11 +50,18 @@
 -(void)panView:(UIPanGestureRecognizer *)panGesture
 {
     UIView *view = panGesture.view;
-    if (panGesture.state == UIGestureRecognizerStateBegan || panGesture.state == UIGestureRecognizerStateChanged) {
-        CGPoint translation = [panGesture translationInView:view.superview];
-        self.scene3D.camera3D.rotationX +=translation.y*0.01;
-        self.scene3D.camera3D.rotationY -=translation.x*0.1;;
+    if (panGesture.state == UIGestureRecognizerStateBegan ) {
+        self.lastRotation.x= self.scene3D.camera3D.rotationX;
+        self.lastRotation.y= self.scene3D.camera3D.rotationY;
     }
+    if (  panGesture.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [panGesture translationInView:view.superview];
+        self.scene3D.camera3D.rotationX=self.lastRotation.x-translation.y*0.1;
+        self.scene3D.camera3D.rotationY=self.lastRotation.y-translation.x*0.4;
+    }
+    
+    
+    
 }
 -(void)addMenuList;
 {
@@ -55,6 +69,7 @@
 }
 -(void)addButsByArr:(NSMutableArray*)arr ;
 {
+    /*
     [arr addObject:@"清理"];
     [arr addObject:@"网格"];
     [arr addObject:@"拉+"];
@@ -66,6 +81,7 @@
         [oneBut addTarget:self action:@selector(addMenuListClikEvent:) forControlEvents:UIControlEventTouchUpInside] ;
         [self.butItems addObject:oneBut];
     }
+    */
     
 }
 - (BOOL) addMenuListClikEvent:(UIButton *) btn;

@@ -67,8 +67,7 @@
    [renderEncoder setVertexBytes:&uvMoveVc
                           length:sizeof(uvMoveVc)
                          atIndex: 3];
-    
-    NSLog(@"%f----%f",self.uvMove.x,self.uvMove.y);
+  
 }
 -(void)updateUV;
 {
