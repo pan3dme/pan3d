@@ -191,19 +191,46 @@
     [product setObject:self.tagLabeText.text forKey:@"tag"];
     [product setObject:self.imagesText.text forKey:@"images"];
     [product setObject:self.bannerText.text forKey:@"bannerimage"];
+    [product setObject:[NSNumber numberWithInt:1] forKey:@"version"]; //版本
+    
+ 
     
 }
 
 - (IBAction)publishBtn:(id)sender {
-    
-    
     NSData *stringData = [_sceneinfoText.text dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *sceneInfoArr  = [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
     if(sceneInfoArr==nil){
         [self alertMessage:@"场景信息不合法，需要为数组结构" handler:nil];
         return;
     }
+ 
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:_editOrNewUISwitch.on?@"保存新场景":@"编辑场景" preferredStyle:UIAlertControllerStyleAlert];
+      
+    UIAlertAction *conform = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveDataToSave];
+        }];
+        //2.2 取消按钮
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"点击了取消按钮");
+        }];
+       
+     
+        //3.将动作按钮 添加到控制器中
+        [alert addAction:conform];
+        [alert addAction:cancel];
+        
+        //4.显示弹框
+        [self presentViewController:alert animated:YES completion:nil];
     
+  
+//
+     
+}
+-(void)saveDataToSave
+{
+
+  
     bool isNew=_editOrNewUISwitch.on;
     NSString* tipstr;
     AVObject *product;
