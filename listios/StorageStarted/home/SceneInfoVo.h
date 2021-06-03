@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int type;
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSDictionary *info;
+@property (nonatomic, copy) NSDictionary *data;//原始数据
 - (instancetype)init:(NSDictionary*)val;
 @end
 

@@ -44,8 +44,11 @@
         }
         if(vo.type==3){//角色
             SceneChar* sc=[[SceneChar alloc]init: self.scene3D];
+            [self setParamInfo:sc vo:vo];
             [sc setRoleUrl:vo.text];
-            [ self.scene3D addMovieDisplay:sc];
+            [self.scene3D addMovieDisplay:sc];
+            
+            
             
             if(vo.info!=nil)
             {
@@ -86,6 +89,30 @@
     
  
     
+}
+//设置对象参数
+-(void)setParamInfo:(Display3D*)dis vo:(SceneInfoVo*)vo;
+{
+    NSDictionary* param =[vo.data valueForKey:@"param"];
+    if(param!=nil){
+ 
+        if([[param allKeys]containsObject:@"x"]){
+            dis.x=[[param valueForKey:@"x"]floatValue];
+        }
+        if([[param allKeys]containsObject:@"y"]){
+            dis.y=[[param valueForKey:@"y"]floatValue];
+        }
+        if([[param allKeys]containsObject:@"z"]){
+            dis.z=[[param valueForKey:@"z"]floatValue];
+        }
+        if([[param allKeys]containsObject:@"rotationY"]){
+            dis.rotationY=[[param valueForKey:@"rotationY"]floatValue];
+        }
+   
+ 
+    
+        
+    }
 }
  
 -(void)addMenuList;

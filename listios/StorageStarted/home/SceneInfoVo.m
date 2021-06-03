@@ -14,6 +14,7 @@
      
     self = [super init];
     if (self) {
+        self.data=val;
         self.id=[[val valueForKey:@"id"]intValue];
         self.type=[[val valueForKey:@"type"]intValue];
         self.text=[val valueForKey:@"text"];
