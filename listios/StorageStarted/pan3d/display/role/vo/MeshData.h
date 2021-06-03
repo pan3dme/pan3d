@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)  NSArray  *boneIDAry;
 @property (nonatomic, copy)  NSArray  *boneWeightAry;
 @property (nonatomic, copy)  NSArray<NSNumber*>* boneNewIDAry;
-@property (nonatomic, strong)  NSArray<Matrix3D*>* bindPosAry;
+@property (nonatomic, strong)  NSMutableArray<NSMutableArray<NSNumber*>*>* bindPosAry;
   
 @property(nonatomic,strong)MaterialBaseParam* materialParam;
 @property(nonatomic,strong)NSString* materialUrl;

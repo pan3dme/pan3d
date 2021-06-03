@@ -21,10 +21,10 @@
 @interface MeshDataManager ()
 @property(nonatomic,strong)NSMutableDictionary* loadDic;
 @end
- 
+
 @implementation MeshDataManager
- 
- 
+
+
 - (instancetype)init:(Scene3D *)value
 {
     self = [super init:value];
@@ -93,43 +93,38 @@
     for (int i = 0; i < meshNum; i++) {
         
         MeshData* meshData =[[MeshData alloc]init:self.scene3D];
-                       if (version >= 35) {
-                           meshData.bindPosAry = [self readBindPosByte:byte];
-                       }
-        
-        
-       
+        if (version >= 35) {
+            meshData.bindPosAry = [self readBindPosByte:byte];
+            [self getBindPosMatrix:meshData.bindPosAry skinMesh:skinMesh];
+        }
         [self readMesh2OneBuffer:byte meshData:meshData];
-        
-        
         meshData.trinum =(int) meshData.indexs.count ;
         meshData.materialUrl = [byte readUTF];
         meshData.materialParamData= [BaseRes readMaterialParamData:byte];
-        
         int particleNum = [byte readInt];
         for (int j = 0; j < particleNum; j++) {
             BindParticle* bindParticle=[[BindParticle alloc]init:[byte readUTF] socketName:[byte readUTF]];
             [meshData.particleAry  addObject:bindParticle];
             allParticleDic[bindParticle.url] = [NSNumber numberWithInt:1];
-            
         }
-        
         [skinMesh addMesh:meshData];
         
     }
     for (NSString* key in allParticleDic) {
-      //  [[ParticleManager default] registerUrl: allParticleDic[key]];
+        //  [[ParticleManager default] registerUrl: allParticleDic[key]];
     }
     skinMesh.allParticleDic = allParticleDic;
-    
-    int bindPosLength = [byte readInt];
-    
-    NSMutableArray<NSArray<NSNumber*>*>* bindPosAry=[[NSMutableArray alloc]init];
-    for (int j = 0; j < bindPosLength; j++) {
-        NSArray * ary = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]], nil];
-        [bindPosAry addObject:ary];
+    if(version<35){
+        int bindPosLength = [byte readInt];
+        NSMutableArray<NSArray<NSNumber*>*>* bindPosAry=[[NSMutableArray alloc]init];
+        for (int j = 0; j < bindPosLength; j++) {
+            NSArray * ary = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]],[NSNumber numberWithFloat:[byte readFloat]], nil];
+            [bindPosAry addObject:ary];
+        }
+        [self getBindPosMatrix:bindPosAry skinMesh:skinMesh];
     }
-    [self getBindPosMatrix:bindPosAry skinMesh:skinMesh];
+    
+  
     
     int sokcetLenght = [byte readInt];
     
@@ -161,23 +156,26 @@
         [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
         [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
         [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
+        [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
+        [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
+        [ary addObject:[NSNumber numberWithFloat:[byte readFloat]]];
         [bindPosAry addObject:ary];
     }
     return bindPosAry;
     
 }
 /*
-    private readBindPosByte(byte: Pan3dByteArray): Array<Array<number>>  {
-             var bindPosLength: number = byte.readInt();
-             var bindPosAry: Array<Array<number>> = new Array;
-             for (var j: number = 0; j < bindPosLength; j++) {
-                 var ary: Array<number> = new Array(byte.readFloat(), byte.readFloat(), byte.readFloat(),
-                     byte.readFloat(), byte.readFloat(), byte.readFloat());
-                 bindPosAry.push(ary);
-             }
-             return bindPosAry
+ private readBindPosByte(byte: Pan3dByteArray): Array<Array<number>>  {
+ var bindPosLength: number = byte.readInt();
+ var bindPosAry: Array<Array<number>> = new Array;
+ for (var j: number = 0; j < bindPosLength; j++) {
+ var ary: Array<number> = new Array(byte.readFloat(), byte.readFloat(), byte.readFloat(),
+ byte.readFloat(), byte.readFloat(), byte.readFloat());
+ bindPosAry.push(ary);
+ }
+ return bindPosAry
  
-         }
+ }
  */
 -(void)getBindPosMatrix:(NSArray<NSArray<NSNumber*>*>*)bindPosAry skinMesh:(SkinMesh*)skinMesh;
 {
@@ -249,12 +247,12 @@
     meshData.boneIDAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:boneIDOffsets stride:buffStride readType:2];
     meshData.boneWeightAry=  [BaseRes readBytes2ArrayBuffer:byte nsdata:dataBase dataWidth:4 offset:boneWeightOffsets stride:buffStride readType:1];
     
-  
+    
     
     NSMutableData *indexNsData = [[NSMutableData alloc]init];
     meshData.indexs=   [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
     meshData.boneNewIDAry=   [BaseRes readIntForTwoByte:byte nsdata:indexNsData];
-   
+    
     meshData.compressBuffer = YES;
     meshData.uvsOffsets = uvsOffsets * 4;
     meshData.normalsOffsets = normalsOffsets * 4;
@@ -264,22 +262,22 @@
     meshData.boneWeightOffsets = boneWeightOffsets * 4;
     meshData.stride = dataWidth * 4;
     
-  //  [meshData upToGpu];
+    //  [meshData upToGpu];
     
 }
 -(NSArray<NSNumber*>*)getArrByStr:(NSString*)str;
 {
     
-     
     
-     NSArray<NSString*>* item = [str componentsSeparatedByString:@","]; //分段
+    
+    NSArray<NSString*>* item = [str componentsSeparatedByString:@","]; //分段
     
     NSMutableArray<NSNumber*>* arr=[[NSMutableArray alloc]init];
     for(int i=0;i<item.count;i++){
-     
+        
         [arr addObject:   [NSNumber numberWithFloat: [item[i]floatValue]]  ];
-         
-     //   [arr addObject: @0];
+        
+        //   [arr addObject: @0];
     }
     
     return arr;

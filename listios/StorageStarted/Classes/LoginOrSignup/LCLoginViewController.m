@@ -56,20 +56,24 @@
         [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error){
            if (user) {
         
-               [self toNextPage];
+               [self toTestData];
             } else {
             NSLog(@"登录失败：%@",error.localizedFailureReason);
             }
         }];
     }
 }
--(void)toSceneBase
+-(void)toTestData
 {
     //直接进入场景
     
     NSMutableArray* arr=[[NSMutableArray alloc]init];
  
-    [arr addObject:[self getTempSceneInfo:@"2021001"]];
+//    [arr addObject:[self getTempSceneInfo:@"2021001"]];
+    [arr addObject:[self getTempRoleInfo:@"role/10013.txt"]];
+//    [arr addObject:[self getTempRoleInfo:@"role/50011.txt"]];
+    
+    
  
     HomeSceneBaseViewController* vc=[[HomeSceneBaseViewController alloc]init:arr];
     [UIApplication sharedApplication].keyWindow.rootViewController = vc;
@@ -79,7 +83,13 @@
     [dic setValue:@"1" forKey:@"id"];
     [dic setValue:@"1" forKey:@"type"];
     [dic setValue:mapid forKey:@"text"];
-    
+    return dic;
+}
+-(NSMutableDictionary*)getTempRoleInfo:(NSString*)roleStr {
+    NSMutableDictionary* dic=[[NSMutableDictionary alloc]init ];
+    [dic setValue:@"1" forKey:@"id"];
+    [dic setValue:@"3" forKey:@"type"];
+    [dic setValue:roleStr forKey:@"text"];
     return dic;
 }
 
