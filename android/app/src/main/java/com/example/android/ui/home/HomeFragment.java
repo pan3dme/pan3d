@@ -115,7 +115,9 @@ public class HomeFragment<CustomBean> extends Fragment {
         //2021001 2015
         Context mContext=root.getContext();
         Intent intent = new Intent(mContext, SceneShowView.class);
-        String string=  "[{\"id\":1,\"type\":1,\"text\":2021001}]";
+//        String string=  "[{\"id\":1,\"type\":3,\"text\":2022}]";
+        String string=  "[{\"id\":1,\"type\":3,\"text\":\"role/2022.txt\"}]";
+//        String string=  "[{\"id\":1,\"type\":3,\"text\":\"role/10013.txt\"}]";
         intent.putExtra("sceneinfo",string);
         mContext.startActivity(intent);
     }

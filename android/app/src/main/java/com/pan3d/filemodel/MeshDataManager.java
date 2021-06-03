@@ -97,6 +97,10 @@ public class MeshDataManager extends ResGC {
         HashMap allParticleDic = new HashMap();
         for (int i = 0; i < meshNum; i++) {
             MeshData meshData = new MeshData(scene3D);
+            if ($version >= 35) {
+                this.getBindPosMatrix( this.readBindPosByte(_byte), $skinMesh);
+
+            }
             if ($version >= 21) {
                 this.readMesh2OneBuffer(_byte, meshData);
             }
@@ -117,17 +121,17 @@ public class MeshDataManager extends ResGC {
 
         $skinMesh.allParticleDic = allParticleDic;
 
-        int bindPosLength = _byte.readInt();
+        if ($version < 35) { //多个MESH出错后情况
+            int bindPosLength = _byte.readInt();
+            List<List<Float>> bindPosAry = new ArrayList<>();
+            for (int j = 0; j < bindPosLength; j++) {
+                List<Float> ary = new ArrayList<Float>(Arrays.asList(_byte.readFloat(), _byte.readFloat(), _byte.readFloat(),
+                        _byte.readFloat(), _byte.readFloat(), _byte.readFloat()));
 
-        List<List<Float>> bindPosAry  = new ArrayList<>();
-        for (int j = 0; j < bindPosLength; j++) {
-            List<Float> ary =   new ArrayList<Float>(Arrays.asList(_byte.readFloat(), _byte.readFloat(), _byte.readFloat(),
-                    _byte.readFloat(), _byte.readFloat(), _byte.readFloat()));
-
-            bindPosAry.add(ary);
+                bindPosAry.add(ary);
+            }
+            this.getBindPosMatrix(bindPosAry, $skinMesh);
         }
-
-        this.getBindPosMatrix(bindPosAry, $skinMesh);
 
         int sokcetLenght    = _byte.readInt();
 
@@ -152,6 +156,18 @@ public class MeshDataManager extends ResGC {
 
 
         return $skinMesh;
+    }
+    private  List<List<Float>>  readBindPosByte(ByteArray _byte) {
+        int bindPosLength = _byte.readInt();
+        List<List<Float>> bindPosAry = new ArrayList<>();
+        for (int j = 0; j < bindPosLength; j++) {
+            List<Float> ary = new ArrayList<Float>(Arrays.asList(_byte.readFloat(), _byte.readFloat(), _byte.readFloat(),
+                    _byte.readFloat(), _byte.readFloat(), _byte.readFloat()));
+
+            bindPosAry.add(ary);
+        }
+        return bindPosAry;
+
     }
 
     private void getBindPosMatrix(List<List<Float>> bindPosAry, SkinMesh $skinMesh) {
