@@ -10,9 +10,7 @@
 #import "GridLineSprite.h"
 
 @interface SceneBaseViewController ()
-
 @end
-
 @implementation SceneBaseViewController
 
 - (void)viewDidLoad {
@@ -20,10 +18,36 @@
     self.sceneUiView= [[UIView alloc]initWithFrame:self.view.bounds];
     self.sceneUiView.backgroundColor=[UIColor redColor];
     [self.view addSubview: self.sceneUiView];
-    
     self.scene3D=[[Scene3D alloc]init: self.sceneUiView];
     [self.scene3D addDisplay: [[GridLineSprite alloc]init:self.scene3D]];
     [self addMenuList];
+    [self addMouseEvent];
+}
+-(void)addMouseEvent;
+{
+    // 缩放手势
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
+    [self.view addGestureRecognizer:pinchGesture];
+    // 移动手势
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panView:)];
+    [self.view addGestureRecognizer:panGesture];
+}
+- (void) pinchView:(UIPinchGestureRecognizer *)pinchGesture
+{
+    if (pinchGesture.state == UIGestureRecognizerStateBegan || pinchGesture.state == UIGestureRecognizerStateChanged) {
+        self.scene3D.camera3D.distance*=1+(1-pinchGesture.scale)*0.1;
+    }
+}
+
+#pragma mark 处理拖拉
+-(void)panView:(UIPanGestureRecognizer *)panGesture
+{
+    UIView *view = panGesture.view;
+    if (panGesture.state == UIGestureRecognizerStateBegan || panGesture.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [panGesture translationInView:view.superview];
+        self.scene3D.camera3D.rotationX +=translation.y*0.01;
+        self.scene3D.camera3D.rotationY -=translation.x*0.1;;
+    }
 }
 -(void)addMenuList;
 {
@@ -37,7 +61,6 @@
     [arr addObject:@"推-"];
     for(int i=0;i<arr.count;i++){
         UIButton* oneBut=[self makeButtion];
-        
         [oneBut setTitle:arr[i] forState:UIControlStateNormal];
         [oneBut setTitle:arr[i] forState:UIControlStateHighlighted];
         [oneBut addTarget:self action:@selector(addMenuListClikEvent:) forControlEvents:UIControlEventTouchUpInside] ;
@@ -59,16 +82,14 @@
     }
     if([titleStr isEqualToString:@"拉+"]){
         self.scene3D.camera3D.distance*=0.8;
-        [self.scene3D.camera3D upFrame];
+   
         return  false;
     }
     if([titleStr isEqualToString:@"推-"]){
         self.scene3D.camera3D.distance/=0.8;
-        [self.scene3D.camera3D upFrame];
+  
         return  false;
     }
- 
-    
     return true;
     
 }
@@ -89,35 +110,23 @@
     for (int i=0; i< self.butItems.count; i++) {
         double tx=    fmod (i, 5);
         int ty= float2int(i/5.0f);
-        
         self.butItems[i].frame=CGRectMake(tx*75+10,  CGRectGetMaxY(self.view.frame)/1.5+55+ty*50, 60, 30);
     }
-    
- 
-    CGFloat sizeWH=  MIN( CGRectGetWidth(self.view.bounds),     CGRectGetHeight(self.view.bounds));
-      
-    
     CGSize winSize=   CGSizeMake(  CGRectGetWidth(self.view.bounds),     CGRectGetHeight(self.view.bounds));
- 
-    
     [self.scene3D resieSize:winSize];
-    
-
 }
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    if(self.scene3D){
-        UITouch *touch = [touches anyObject];
-        CGPoint currentPoint = [touch locationInView:self.view];
-        CGPoint prePoint = [touch previousLocationInView:self.view];
-        CGFloat offsetX = currentPoint.x - prePoint.x;
-        CGFloat offsetY = currentPoint.y - prePoint.y;
-        
-        self.scene3D.camera3D.rotationX +=offsetY*0.1;
-        self.scene3D.camera3D.rotationY -=offsetX;
-        [self.scene3D.camera3D upFrame];
-        
-    
-    }
-}
+/*
+ - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+ if(self.scene3D){
+ UITouch *touch = [touches anyObject];
+ CGPoint currentPoint = [touch locationInView:self.view];
+ CGPoint prePoint = [touch previousLocationInView:self.view];
+ CGFloat offsetX = currentPoint.x - prePoint.x;
+ CGFloat offsetY = currentPoint.y - prePoint.y;
+ self.scene3D.camera3D.rotationX +=offsetY*0.1;
+ self.scene3D.camera3D.rotationY -=offsetX;
+ [self.scene3D.camera3D upFrame];
+ }
+ }
+ */
 @end
