@@ -57,7 +57,7 @@ public class HomeFragment<CustomBean> extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        boolean isNext=false;
+        boolean isNext=true;
         if(isNext){
             toTestScene(root);
             return  root;

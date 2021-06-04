@@ -300,9 +300,10 @@ public class SceneShowView extends AppCompatActivity   {
                 String textStr=val.getString("text").replace("<<<","/");
                 SceneChar sc= constrainSceneViewOne.addMovieDisplay(textStr);
 
-                JSONObject info=  val.getJSONObject("info");
-                if( info!=null )
+
+                if(   val.has("info") )
                 {
+                    JSONObject info=  val.getJSONObject("info");
                     if(  info.has("addPart")){
                         String  addPart=  info.getString("addPart");
                         String  bindSocket=  info.getString("bindSocket");
