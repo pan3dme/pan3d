@@ -124,7 +124,7 @@ module Pan3d {
         }
         public updateMatrix(): void {
              super.updateMatrix();
-            this.posMatrix.appendScale( this.fileScale,  this.fileScale,  this.fileScale);
+            this.posMatrix.prependScale( this.fileScale,  this.fileScale,  this.fileScale);
  
             
  

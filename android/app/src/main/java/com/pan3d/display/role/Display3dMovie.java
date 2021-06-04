@@ -64,6 +64,13 @@ public class Display3dMovie extends Display3DSprite implements IBind {
         }, 1);
 
     }
+
+    @Override
+    public void updateMatrix() {
+        super.updateMatrix();
+        this.posMatrix3d.prependScale( this.fileScale,  this.fileScale,  this.fileScale);
+    }
+
     @Override
     public void upData() {
         super.upData();

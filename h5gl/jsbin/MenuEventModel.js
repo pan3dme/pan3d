@@ -53,11 +53,7 @@ var MenuEventModel = /** @class */ (function () {
             if (type == 4) { //动画
                 sceneView.playFrame3dSprite();
             }
-            if (type == 5) { //md5
-                // $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
-                // var md5mesh:  Md5MeshSprite = new  Md5MeshSprite(sceneView.scene3D);
-                // md5mesh.setMd5BodyUrl("pan/expmd5/2/body.md5mesh");
-                // sceneView.scene3D.addDisplay(md5mesh)
+            if (type == 5) {
                 var md5MoveSprite = new Md5MoveSprite(sceneView.scene3D);
                 md5MoveSprite.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
                 sceneView.scene3D.addDisplay(md5MoveSprite);

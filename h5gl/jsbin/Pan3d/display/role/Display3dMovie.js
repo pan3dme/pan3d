@@ -91,7 +91,7 @@ var Pan3d;
         };
         Display3dMovie.prototype.updateMatrix = function () {
             _super.prototype.updateMatrix.call(this);
-            this.posMatrix.appendScale(this.fileScale, this.fileScale, this.fileScale);
+            this.posMatrix.prependScale(this.fileScale, this.fileScale, this.fileScale);
         };
         Display3dMovie.prototype.onMeshLoaded = function () {
         };
