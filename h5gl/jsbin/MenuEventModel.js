@@ -1,4 +1,5 @@
 var Vector3D = Pan3d.Vector3D;
+var Display3D = Pan3d.Display3D;
 var ConstrainSceneView = Pan3d.ConstrainSceneView;
 var SceneChar = Pan3d.SceneChar;
 var GridLineSprite = Pan3d.GridLineSprite;
@@ -29,6 +30,7 @@ var MenuEventModel = /** @class */ (function () {
             }
             if (type == 3) { //角色
                 var sc = new SceneChar(sceneView.scene3D);
+                this.setParamInfo(sc, tempInfo);
                 sc.setRoleUrl(textStr);
                 sceneView.scene3D.addMovieDisplay(sc);
                 var info = tempInfo["info"];
@@ -59,6 +61,23 @@ var MenuEventModel = /** @class */ (function () {
                 var md5MoveSprite = new Md5MoveSprite(sceneView.scene3D);
                 md5MoveSprite.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
                 sceneView.scene3D.addDisplay(md5MoveSprite);
+            }
+        }
+    };
+    MenuEventModel.prototype.setParamInfo = function (dis, val) {
+        if (val.hasOwnProperty("param")) {
+            var param = val["param"];
+            if (param.hasOwnProperty("x")) {
+                dis.x = param["x"];
+            }
+            if (param.hasOwnProperty("y")) {
+                dis.y = param["y"];
+            }
+            if (param.hasOwnProperty("z")) {
+                dis.z = param["z"];
+            }
+            if (param.hasOwnProperty("rotationY")) {
+                dis.rotationY = param["rotationY"];
             }
         }
     };

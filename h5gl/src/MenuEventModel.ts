@@ -1,5 +1,6 @@
 ﻿
 import Vector3D = Pan3d.Vector3D;
+import Display3D = Pan3d.Display3D;
 import ConstrainSceneView = Pan3d.ConstrainSceneView;
 import SceneChar = Pan3d.SceneChar;
 import GridLineSprite = Pan3d.GridLineSprite;
@@ -38,6 +39,7 @@ class MenuEventModel {
             }
             if (type == 3) {//角色
                 var sc: SceneChar = new SceneChar(sceneView.scene3D);
+                this.setParamInfo(sc,tempInfo);
                 sc.setRoleUrl(textStr);
                 sceneView.scene3D.addMovieDisplay(sc);
                 var info: JSON = tempInfo["info"];
@@ -56,23 +58,13 @@ class MenuEventModel {
                         sc.play(info["action"]);
                         console.log(info["action"])
                     }
-
                 }
-
- 
 
             }
             if (type == 4) {//动画
                 sceneView.playFrame3dSprite();
             }
-
-            if (type == 5) {//md5
-                           // $sc.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg");
-
-                // var md5mesh:  Md5MeshSprite = new  Md5MeshSprite(sceneView.scene3D);
-                // md5mesh.setMd5BodyUrl("pan/expmd5/2/body.md5mesh");
-                // sceneView.scene3D.addDisplay(md5mesh)
-
+            if (type == 5) { 
                 var md5MoveSprite:  Md5MoveSprite = new Md5MoveSprite(sceneView.scene3D);
                 md5MoveSprite.setMd5url("pan/expmd5/2/body.md5mesh", "pan/expmd5/2/stand.md5anim", "pan/expmd5/shuangdaonv.jpg")
                 sceneView.scene3D.addDisplay(md5MoveSprite)
@@ -81,6 +73,27 @@ class MenuEventModel {
 
 
 
+    }
+    private    setParamInfo(dis:Display3D ,val:JSON ):void
+    {
+        
+        if(val.hasOwnProperty("param")){
+            var param:JSON=   val["param"];
+            if(param.hasOwnProperty("x")){
+              dis.x=param["x"];
+            }
+            if(param.hasOwnProperty("y")){
+              dis.y=param["y"];
+            }
+            if(param.hasOwnProperty("z")){
+              dis.z=param["z"];
+            }
+            if(param.hasOwnProperty("rotationY")){
+              dis.rotationY=param["rotationY"];
+            }
+  
+           }
+  
     }
 
     private mainChar: SceneChar;
