@@ -68,7 +68,7 @@ public class ConstrainSceneView extends ViewGroup {
             }
             @Override
             public void onDrawFrame(GL10 gl) {
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.2f);
+                GLES20.glClearColor(60f / 255f,60f / 255f,60f / 255f, 1.0f);
                 GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
                 mainScene3D.upFrame();
 //                mainScene3D.camera3D.rotationY+=skipnum;

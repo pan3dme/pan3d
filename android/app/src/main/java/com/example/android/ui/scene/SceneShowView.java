@@ -20,6 +20,7 @@ import android.view.MotionEvent;
 
 import com.example.android.R;
 import com.pan3d.base.CallBackFun;
+import com.pan3d.display.Display3D;
 import com.pan3d.display.role.SceneChar;
 import com.pan3d.scene.ConstrainSceneView;
 import org.json.JSONArray;
@@ -301,6 +302,8 @@ public class SceneShowView extends AppCompatActivity   {
                 SceneChar sc= constrainSceneViewOne.addMovieDisplay(textStr);
 
 
+                this.setParamInfo(sc,val);
+
                 if(   val.has("info") )
                 {
                     JSONObject info=  val.getJSONObject("info");
@@ -335,6 +338,31 @@ public class SceneShowView extends AppCompatActivity   {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+
+    }
+//   private setParamInfo:(Display3D*)dis vo:(SceneInfoVo*)vo;
+    private  void setParamInfo(Display3D dis,JSONObject val)
+    {  try {
+        if(   val.has("param") ){
+            JSONObject param=  val.getJSONObject("param");
+            if(   param.has("x") ){
+                dis.x=param.getInt("x");
+            }
+            if(   param.has("y") ){
+                dis.y=param.getInt("y");
+            }
+            if(   param.has("z") ){
+                dis.z=param.getInt("z");
+            }
+            if(   param.has("rotationY") ){
+                dis.rotationY=param.getInt("rotationY");
+            }
+
+        }
+    }catch (Exception e){
+        e.printStackTrace();
+    }
 
 
     }
