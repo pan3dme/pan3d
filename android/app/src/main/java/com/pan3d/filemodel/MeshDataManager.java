@@ -1,5 +1,7 @@
 package com.pan3d.filemodel;
 
+import android.util.Log;
+
 import com.pan3d.base.ByteArray;
 import com.pan3d.base.MeshData;
 import com.pan3d.base.ResGC;
@@ -24,6 +26,7 @@ import java.util.List;
 
 public class MeshDataManager extends ResGC {
 
+    private static final String TAG ="MeshDataManager" ;
     private static MeshDataManager _instance;
     public HashMap loadDic;
 
@@ -99,6 +102,7 @@ public class MeshDataManager extends ResGC {
             MeshData meshData = new MeshData(scene3D);
             if ($version >= 35) {
                 this.getBindPosMatrix( this.readBindPosByte(_byte), $skinMesh);
+                Log.d(TAG, "readData: ");
 
             }
             if ($version >= 21) {
