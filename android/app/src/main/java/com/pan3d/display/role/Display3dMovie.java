@@ -176,8 +176,9 @@ public class Display3dMovie extends Display3DSprite implements IBind {
         AnimData  animData=_getCurentAnimData();
         DualQuatFloat32Array dualQuatFrame =  animData.boneQPAry.get(mesh.uid).get(this.curentFrame);
         Context3D ctx= scene3D.context3D;
-        ctx.setVc4fv(this.shader3D,"boneQ",54, dualQuatFrame.boneQarrrBuff);
-        ctx.setVc3fv(this.shader3D,"boneD",54, dualQuatFrame.boneDarrBuff);
+
+        ctx.setVc4fv(this.shader3D,"boneQ", dualQuatFrame.quatArr.size()/4, dualQuatFrame.boneQarrrBuff);
+        ctx.setVc3fv(this.shader3D,"boneD", dualQuatFrame.posArr.size()/3, dualQuatFrame.boneDarrBuff);
 
     }
 

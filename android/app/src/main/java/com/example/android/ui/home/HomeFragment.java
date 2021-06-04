@@ -57,7 +57,7 @@ public class HomeFragment<CustomBean> extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        boolean isNext=true;
+        boolean isNext=false;
         if(isNext){
             toTestScene(root);
             return  root;
@@ -116,8 +116,8 @@ public class HomeFragment<CustomBean> extends Fragment {
         Context mContext=root.getContext();
         Intent intent = new Intent(mContext, SceneShowView.class);
 //        String string=  "[{\"id\":1,\"type\":3,\"text\":2022}]";
-        String string=  "[{\"id\":1,\"type\":3,\"text\":\"role/2022.txt\"}]";
-//        String string=  "[{\"id\":1,\"type\":3,\"text\":\"role/10013.txt\"}]";
+//        String string=  "[{\"id\":1,\"type\":3,\"text\":\"role/2022.txt\"}]";
+        String string=  "[{\"id\":1,\"type\":3,\"text\":\"role/10013.txt\"}]";
         intent.putExtra("sceneinfo",string);
         mContext.startActivity(intent);
     }
